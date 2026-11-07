@@ -1,0 +1,13 @@
+# Six independent source-selected German rivers: real TP observations vs all-Plantae GBIF records
+
+Original [source and biological run SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42371970951), original source cohort from [source-only run](https://github.com/zuizui0223/gesui/actions/runs/42371319376). Six separate HydroBASINS L12, all 12 source TP stations distinct, outfall minimum separation 57.28km. Three high vs three low model wastewater-water fractions, originally picked BEFORE examining measured TP or any new plant outcomes.
+
+**Actual TP:** Figshare Peters 2026 v5 CC BY4 original measured/harmonized observations, 2011–2022, 2,500 station TP data rows and 836 matched up/down calendar months across 6 rivers, each with ≥124 comparable months. The river observed downstream/upstream ratios range 0.266–2.083; both positive and negative gradients recur.
+
+**New exploratory positive TP association:** source-modeled effluent fraction vs median observed monthly TP river gradient, Spearman rho **+0.828571** (n=6). The usual asymptotic two-sided p=0.04156; the **exact two-sided n=6 permutation diagnostic is p=42/720=0.05833**, thus *not below 0.05* with an exact small-sample diagnostic. Six leave-one-river-out rho range +0.70 to +1.00. Do NOT report a confirmed WWTP phosphate release, causal or population-scale predictor.
+
+**Actual plants:** newly queried GBIF 2011–2022, 18 fixed U2/U1/D1 river sites, each with botanical records, no butterfly-host filtering. Only 3/6 rivers meet predeclared 30-record rarefaction + balanced recording gate, so **primary TP–plant linkage insufficient**. Low-depth sensitivity to 10 species-keyed records allows 6/6; TP gradient vs plant recorded-species richness curvature rho **−0.02857, p=0.95715**, not supporting a positive link. GBIF records are not field-survey abundance and Plantae includes non-vascular taxa.
+
+**Scope:** source hydrographic station positions 7–25km from outfalls, watershed co-pollution / farming and other upstream facilities unresolved. The third-party converted HydroRIVERS stream graph remains to be independently verified vs original. The new six are all in Germany and too few to claim universally positive wastewater nutrient response. Existing chocho port/WPp positive associations and prior independent gesui 48-site plant richness null are **preserved**.
+
+For reproducibility: original source TP ZIP DOI/MD5 fixed, individual 2,500 original site-date observations retained in original run artifact (not mirrored to public repo because upstream station-source licensing can differ); 836 derived paired-month observations and all GBIF speciesKey facets are stored here with original SHA-256 receipt and exact permutation audit.
