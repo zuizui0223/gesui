@@ -1,0 +1,648 @@
+{
+  "2022_station_eligibility": {
+    "minimum_distinct_months": 3,
+    "minimum_positive_observations": 4
+  },
+  "2022_year_aligned_only": true,
+  "Peters_measured_2022_original_zip_receipts": [
+    {
+      "2022_duplicate_sample_date_entries": 0,
+      "all_original_source_rows_in_station_files": 473300,
+      "figshare_file_id": 70896288,
+      "original_measured_zip_md5": "b596dbe9833c49426147a99f10f3fe31",
+      "original_measurement_file": "TP.2_-_Harmonised.zip",
+      "original_sites_requested": 1418,
+      "parameter": "TP",
+      "source_2022_rows_including_invalids": 15483,
+      "source_2022_rows_invalid": 0,
+      "source_2022_rows_zero_or_negative": 0,
+      "source_file_bytes": 25003722,
+      "source_station_files_missing": 0,
+      "source_stations_measured_2022_qualified": 1291,
+      "stations_failing_2022_min4_observations_and_3months": 127
+    },
+    {
+      "2022_duplicate_sample_date_entries": 0,
+      "all_original_source_rows_in_station_files": 25185,
+      "figshare_file_id": 70896279,
+      "original_measured_zip_md5": "75b11044141464050031ec1ff191662c",
+      "original_measurement_file": "TN.2_-_Harmonised.zip",
+      "original_sites_requested": 294,
+      "parameter": "TN",
+      "source_2022_rows_including_invalids": 2765,
+      "source_2022_rows_invalid": 0,
+      "source_2022_rows_zero_or_negative": 0,
+      "source_file_bytes": 10897672,
+      "source_station_files_missing": 0,
+      "source_stations_measured_2022_qualified": 159,
+      "stations_failing_2022_min4_observations_and_3months": 135
+    }
+  ],
+  "cautions": [
+    "EEA reported facility annual N/P mass is not a uniquely identified driver of ambient station concentration",
+    "No 2022 catchment-specific precipitation/river flow or contemporaneous agricultural emissions",
+    "Only positive BOTH-measured EEA WWTP source sites with exactly one FW discharge point considered",
+    "HydroRIVERS Europe GeoParquet mirror was not independently reproduced against official dataset",
+    "Strong station selection and historical reporting differences; nonuniform spatial coverage",
+    "One 2022 source year cannot establish long-term vegetation effects"
+  ],
+  "date_utc": "2026-11-07T13:08:23.404221+00:00",
+  "effects_causal": false,
+  "fixed_5_group_cv": {
+    "min_geographic_blocks": 5,
+    "min_source_exposed_stations": 10,
+    "min_stations": 40,
+    "ridge_alpha": 10.0
+  },
+  "original_EEA_source_only_sha256": "79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3",
+  "original_Peters_figshare_v5": "10.25400/lincolnuninz.30546371.v5",
+  "original_plant_GBIF_responses_read": false,
+  "original_source_only_run": 42374105184,
+  "results": {
+    "TN": {
+      "crop_population_2022_CV": {
+        "min_block_requirement": 5,
+        "min_exposed_requirement": 10,
+        "min_station_requirement": 40,
+        "source_3degree_blocks": 7,
+        "source_n": 13,
+        "source_upstream_measured_load_2022_exposed_n": 2,
+        "status": "SOURCE_SUPPORT_INSUFFICIENT__NO_GENERALIZABLE_CV"
+      },
+      "crop_population_complete_2022_stations": 13,
+      "crop_population_complete_exposed_stations": 2,
+      "measured_station_2022_concentration_median_mgL": 2.65,
+      "measured_station_2022_concentration_range_mgL": [
+        0.26,
+        18.0
+      ],
+      "notes": [
+        "Source reported mass is measured annual WWTP load, NOT observed receptor attribution",
+        "Annual Q is HydroRIVERS modeled mean flow, not measured 2022 discharge",
+        "Station 2022 medians are original Peters measured sample concentrations only",
+        "No original 2011-2024 GBIF plant effect is fit in this gate"
+      ],
+      "original_2022_station_n": 159,
+      "primary_2022_source_CV": {
+        "2022_load_exposed_stations": 26,
+        "3degree_blocks": 27,
+        "changes_from_geographic_baseline": {
+          "M1_plus_2022_upstream_measured_load": {
+            "blocks_better": 10,
+            "blocks_total": 27,
+            "mse_absolute_reduction": -0.02618836596753349,
+            "mse_percent_improvement": -3.3309624763805568
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "blocks_better": 15,
+            "blocks_total": 27,
+            "mse_absolute_reduction": -0.033482431477526164,
+            "mse_percent_improvement": -4.258712552279451
+          },
+          "M3_upstream_and_downstream": {
+            "blocks_better": 12,
+            "blocks_total": 27,
+            "mse_absolute_reduction": -0.0442204848119766,
+            "mse_percent_improvement": -5.624511883584438
+          }
+        },
+        "fixed_Ridge_alpha": 10.0,
+        "metrics": {
+          "M0_geographic_hydrologic_baseline": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 1,
+                "mse": 1.0739980795591033,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.24530703751214514,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.48354078059158667,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.7253745931619073,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 7,
+                "mse": 1.3128344506997651,
+                "n": 29
+              }
+            ],
+            "heldout_mae": 0.7119075203352805,
+            "heldout_mse": 0.7862101765850548
+          },
+          "M1_plus_2022_upstream_measured_load": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 1,
+                "mse": 1.1122675366830284,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.32126029163769004,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.4840610689464684,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.7353013300862193,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 7,
+                "mse": 1.3132765473045611,
+                "n": 29
+              }
+            ],
+            "heldout_mae": 0.7231586325965667,
+            "heldout_mse": 0.8123985425525883
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 1,
+                "mse": 1.0471683470881263,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.48562809417366354,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.49485272078863196,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.699747378062818,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 7,
+                "mse": 1.2996594496085028,
+                "n": 29
+              }
+            ],
+            "heldout_mae": 0.7337623349611203,
+            "heldout_mse": 0.8196926080625809
+          },
+          "M3_upstream_and_downstream": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 1,
+                "mse": 1.0944519358286697,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.486380631744254,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.4913002837541779,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.7019907298069566,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 7,
+                "mse": 1.2923374884068224,
+                "n": 29
+              }
+            ],
+            "heldout_mae": 0.7355904714156667,
+            "heldout_mse": 0.8304306613970314
+          }
+        },
+        "n": 159,
+        "status": "FIXED_2022_SPATIAL_BLOCK_CV_COMPLETE"
+      },
+      "raw_source_vs_river_observed_rho": {
+        "n": 159,
+        "p_descriptive": 0.01894603772115592,
+        "spearman_rho": -0.18593800206369648
+      },
+      "source_2022_downstream_NP_load_positive": 33,
+      "source_2022_upstream_measured_NP_load_positive": 26,
+      "source_hypothetical_fully_mixed_mgL_max": 1.4700524815952967,
+      "source_hypothetical_fully_mixed_mgL_median_among_exposed": 0.04865611365186473,
+      "source_reported_annual_tonnes_upstream_median_among_exposed": 10.18138
+    },
+    "TP": {
+      "crop_population_2022_CV": {
+        "2022_load_exposed_stations": 46,
+        "3degree_blocks": 25,
+        "changes_from_geographic_baseline": {
+          "M1_plus_2022_upstream_measured_load": {
+            "blocks_better": 12,
+            "blocks_total": 25,
+            "mse_absolute_reduction": -0.007732494481098473,
+            "mse_percent_improvement": -1.3254149708715095
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "blocks_better": 14,
+            "blocks_total": 25,
+            "mse_absolute_reduction": -0.004949344622386165,
+            "mse_percent_improvement": -0.848359539673557
+          },
+          "M3_upstream_and_downstream": {
+            "blocks_better": 9,
+            "blocks_total": 25,
+            "mse_absolute_reduction": -0.014230982691446514,
+            "mse_percent_improvement": -2.439310827258039
+          }
+        },
+        "fixed_Ridge_alpha": 10.0,
+        "metrics": {
+          "M0_geographic_hydrologic_baseline": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.770024914701761,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.39057436665630396,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.5854996384084559,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.561382236330178,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.6074308353336205,
+                "n": 89
+              }
+            ],
+            "heldout_mae": 0.6238903794349453,
+            "heldout_mse": 0.583401776125561
+          },
+          "M1_plus_2022_upstream_measured_load": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.7652100970393871,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.4416426269095461,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.5806118433823683,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.5644451848699693,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.6018056926698615,
+                "n": 89
+              }
+            ],
+            "heldout_mae": 0.6288132568780702,
+            "heldout_mse": 0.5911342706066595
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.7939312478620817,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.39240956384733117,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.583769601693392,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.5592076651897251,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.610127636078508,
+                "n": 89
+              }
+            ],
+            "heldout_mae": 0.6269632228169665,
+            "heldout_mse": 0.5883511207479472
+          },
+          "M3_upstream_and_downstream": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.780542066529657,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.4708233458479517,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.5759968679666426,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 5,
+                "mse": 0.5560534320354211,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.602692920944549,
+                "n": 89
+              }
+            ],
+            "heldout_mae": 0.6317135511048044,
+            "heldout_mse": 0.5976327588170075
+          }
+        },
+        "n": 446,
+        "status": "FIXED_2022_SPATIAL_BLOCK_CV_COMPLETE"
+      },
+      "crop_population_complete_2022_stations": 446,
+      "crop_population_complete_exposed_stations": 46,
+      "measured_station_2022_concentration_median_mgL": 0.08,
+      "measured_station_2022_concentration_range_mgL": [
+        0.003,
+        2.135
+      ],
+      "notes": [
+        "Source reported mass is measured annual WWTP load, NOT observed receptor attribution",
+        "Annual Q is HydroRIVERS modeled mean flow, not measured 2022 discharge",
+        "Station 2022 medians are original Peters measured sample concentrations only",
+        "No original 2011-2024 GBIF plant effect is fit in this gate"
+      ],
+      "original_2022_station_n": 1291,
+      "primary_2022_source_CV": {
+        "2022_load_exposed_stations": 53,
+        "3degree_blocks": 27,
+        "changes_from_geographic_baseline": {
+          "M1_plus_2022_upstream_measured_load": {
+            "blocks_better": 12,
+            "blocks_total": 27,
+            "mse_absolute_reduction": -0.01420744850494926,
+            "mse_percent_improvement": -1.9698586447204502
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "blocks_better": 13,
+            "blocks_total": 27,
+            "mse_absolute_reduction": 0.0009252293893217134,
+            "mse_percent_improvement": 0.12828278844508184
+          },
+          "M3_upstream_and_downstream": {
+            "blocks_better": 12,
+            "blocks_total": 27,
+            "mse_absolute_reduction": -0.012383468021486266,
+            "mse_percent_improvement": -1.7169642758336423
+          }
+        },
+        "fixed_Ridge_alpha": 10.0,
+        "metrics": {
+          "M0_geographic_hydrologic_baseline": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.7639388412725647,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.8734698997592718,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.5182622885293068,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 3,
+                "mse": 0.8680804300798838,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.58229320586282,
+                "n": 258
+              }
+            ],
+            "heldout_mae": 0.6569722518468699,
+            "heldout_mse": 0.7212420314029939
+          },
+          "M1_plus_2022_upstream_measured_load": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.7653889152245643,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.8883808808988517,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.5208895927393951,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 3,
+                "mse": 0.9223196568041049,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.5801523095498675,
+                "n": 258
+              }
+            ],
+            "heldout_mae": 0.6652754891532028,
+            "heldout_mse": 0.7354494799079432
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.7659736740611639,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.8539932912934236,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.47781580567417126,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 3,
+                "mse": 0.9301772050331195,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.5734470693861435,
+                "n": 258
+              }
+            ],
+            "heldout_mae": 0.6613470125620258,
+            "heldout_mse": 0.7203168020136722
+          },
+          "M3_upstream_and_downstream": {
+            "folds": [
+              {
+                "fold": 1,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.7654951424325811,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "heldout_3degree_blocks": 6,
+                "mse": 0.8975359980797417,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "heldout_3degree_blocks": 7,
+                "mse": 0.47917850320120364,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "heldout_3degree_blocks": 3,
+                "mse": 0.9512177833502251,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "heldout_3degree_blocks": 4,
+                "mse": 0.5745765443105554,
+                "n": 258
+              }
+            ],
+            "heldout_mae": 0.6665326087335878,
+            "heldout_mse": 0.7336254994244802
+          }
+        },
+        "n": 1291,
+        "status": "FIXED_2022_SPATIAL_BLOCK_CV_COMPLETE"
+      },
+      "raw_source_vs_river_observed_rho": {
+        "n": 1291,
+        "p_descriptive": 0.029898453790226587,
+        "spearman_rho": -0.06043757021571357
+      },
+      "source_2022_downstream_NP_load_positive": 59,
+      "source_2022_upstream_measured_NP_load_positive": 53,
+      "source_hypothetical_fully_mixed_mgL_max": 0.08914615720731549,
+      "source_hypothetical_fully_mixed_mgL_median_among_exposed": 0.002277516769474262,
+      "source_reported_annual_tonnes_upstream_median_among_exposed": 5.83
+    }
+  },
+  "schema": "gesui_2022_EEA_measured_WWTP_mass_vs_Peters_original_measured_receptor_TNTP_v01",
+  "source_2022_EEA_loads_are_reported_from_measured_concentration_and_annual_volume": true,
+  "source_measured_N_P_annual_load_units": "tons/year",
+  "source_units_confirmed_from_Eionet_official_measured_field_dictionary": true,
+  "status": "SOURCE_VERIFIED_OBSERVATIONAL_NO_CAUSAL_WASTEWATER_ATTRIBUTION"
+}

@@ -1,0 +1,102 @@
+{
+  "no_new_source_queries": true,
+  "original_2022_outcome_JSON_SHA256": "638a14b617ea73fc85b9754b5129cf6783985ae7e9538d3339c4c02e4cc15db4",
+  "original_2022_run_id": 42375542151,
+  "original_fold_audit_run_id": 42376191822,
+  "original_fold_audit_sha256": "7dfd01e4964b29d9657ebf61807ccb4fb431885e9278d391d7568a19c3b98d12",
+  "results": {
+    "TN": {
+      "landuse": {
+        "n": 13,
+        "status": "NOT_GENERALIZABLE_PREDECLARED_SOURCE_SUPPORT"
+      },
+      "physical_source_dilution": {
+        "annual_mass_dilution_is_hypothetical_not_measured_fraction": true,
+        "fraction_of_all_stations_with_source": 0.16352201257861634,
+        "hypothetical_fully_mixed_mgL_median_among_exposed": 0.04865611365186473,
+        "hypothetical_fully_mixed_over_observed_station_concentration_ratio_median": 0.02394734753132175,
+        "hypothetical_ratio_10th_90th_percentiles": [
+          0.0004995297841032173,
+          0.10144030422634634
+        ],
+        "n_positive_upstream_reported_load": 26,
+        "n_stations": 159,
+        "observed_2022_station_median_units": "mg/L",
+        "reported_source_annual_load_units": "metric tonnes per year",
+        "river_mean_Q_source_units": "cubic metres per second",
+        "source_annual_load_tonnes_median_among_exposed": 10.18138,
+        "stations_with_hypothetical_ratio_gt_100pct": 0,
+        "stations_with_hypothetical_ratio_gt_10pct": 3,
+        "warning": "Not a bound on true seasonal load; uses source-reported subset, 2022 annual masses and river mean Q"
+      },
+      "primary": {
+        "baseline_to_upstream_MSE_percent_improvement": -3.3309624756732195,
+        "blocks": 27,
+        "fold_sha256": "4f7af218d9158f62301d75a1b82bf574e816ba7fe9c557a5f457808d089d10b6",
+        "n": 159,
+        "recalculated_MSE": {
+          "M0_geographic_hydrologic_baseline": 0.7862101765628683,
+          "M1_plus_2022_upstream_measured_load": 0.8123985425241016,
+          "M2_plus_2022_downstream_source_placebo": 0.8196926080427704,
+          "M3_upstream_and_downstream": 0.8304306613741919
+        },
+        "status": "MATCH_EXPLICIT_SAVED_SPATIAL_FOLDS"
+      },
+      "rank_rho_difference_due_to_export_precision": 1.3878243643183907e-07,
+      "raw_source_vs_receptor_spearman_rho_verified": -0.18593814084613292
+    },
+    "TP": {
+      "landuse": {
+        "baseline_to_upstream_MSE_percent_improvement": -1.325414970224759,
+        "blocks": 25,
+        "fold_sha256": "2c8203f6432be2840d893be67c1a296981f25c423361adb6855bd2e17a9534d5",
+        "n": 446,
+        "recalculated_MSE": {
+          "M0_geographic_hydrologic_baseline": 0.5834017761053868,
+          "M1_plus_2022_upstream_measured_load": 0.5911342705824447,
+          "M2_plus_2022_downstream_source_placebo": 0.5883511207297782,
+          "M3_upstream_and_downstream": 0.5976327587953179
+        },
+        "status": "MATCH_EXPLICIT_SAVED_SPATIAL_FOLDS"
+      },
+      "physical_source_dilution": {
+        "annual_mass_dilution_is_hypothetical_not_measured_fraction": true,
+        "fraction_of_all_stations_with_source": 0.041053446940356314,
+        "hypothetical_fully_mixed_mgL_median_among_exposed": 0.002277516769474262,
+        "hypothetical_fully_mixed_over_observed_station_concentration_ratio_median": 0.04067070947667447,
+        "hypothetical_ratio_10th_90th_percentiles": [
+          0.004326724503506904,
+          0.24706399803870474
+        ],
+        "n_positive_upstream_reported_load": 53,
+        "n_stations": 1291,
+        "observed_2022_station_median_units": "mg/L",
+        "reported_source_annual_load_units": "metric tonnes per year",
+        "river_mean_Q_source_units": "cubic metres per second",
+        "source_annual_load_tonnes_median_among_exposed": 5.83,
+        "stations_with_hypothetical_ratio_gt_100pct": 0,
+        "stations_with_hypothetical_ratio_gt_10pct": 14,
+        "warning": "Not a bound on true seasonal load; uses source-reported subset, 2022 annual masses and river mean Q"
+      },
+      "primary": {
+        "baseline_to_upstream_MSE_percent_improvement": -1.9698586445510067,
+        "blocks": 27,
+        "fold_sha256": "ae19379c280a7241ab4bf3ee893206615b92c58a182bea4a53d7b6d96ebad114",
+        "n": 1291,
+        "recalculated_MSE": {
+          "M0_geographic_hydrologic_baseline": 0.7212420313558916,
+          "M1_plus_2022_upstream_measured_load": 0.7354494798586909,
+          "M2_plus_2022_downstream_source_placebo": 0.7203168019658099,
+          "M3_upstream_and_downstream": 0.7336254993741741
+        },
+        "status": "MATCH_EXPLICIT_SAVED_SPATIAL_FOLDS"
+      },
+      "rank_rho_difference_due_to_export_precision": 1.561518772213999e-05,
+      "raw_source_vs_receptor_spearman_rho_verified": -0.06042195502799143
+    }
+  },
+  "runtime_version": "1.9.1",
+  "scientific_scope": "source-reported WWTP N/P annual masses and measured 2022 river chemistry, not causally attributable wastewater",
+  "source_only_SHA256": "79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3",
+  "status": "PASS_CROSS_VERSION_EXPLICIT_SPATIAL_FOLD_REPLAY"
+}

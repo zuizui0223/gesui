@@ -1,0 +1,619 @@
+{
+  "library_versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "python": "3.11.18",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.17.1"
+  },
+  "measured_2022_run": 42375542151,
+  "no_live_network_calls": true,
+  "original_files_SHA256": {
+    "TN": "30a41a64704fa4bd79ea98706b8dc4b54c838c69629f5730b932e19f4ee4322b",
+    "TP": "6942100037da07d14dc9a9477b4308b31415d16a81866ab21897ed6de93bb264"
+  },
+  "original_results_JSON_SHA256": "638a14b617ea73fc85b9754b5129cf6783985ae7e9538d3339c4c02e4cc15db4",
+  "results": {
+    "TN": {
+      "crop_pop": {
+        "n": 13,
+        "status": "SOURCE_SUPPORT_BELOW_CV_GATE"
+      },
+      "primary": {
+        "geographic_block_n": 27,
+        "heldout_block_assignments": [
+          {
+            "fold": 1,
+            "geographic_block_labels": [
+              "17_-1"
+            ],
+            "test_n": 41
+          },
+          {
+            "fold": 2,
+            "geographic_block_labels": [
+              "15_4",
+              "16_6",
+              "17_1",
+              "17_4",
+              "17_6",
+              "19_6"
+            ],
+            "test_n": 30
+          },
+          {
+            "fold": 3,
+            "geographic_block_labels": [
+              "15_2",
+              "16_-1",
+              "16_5",
+              "17_-2",
+              "17_0",
+              "17_5",
+              "18_-2"
+            ],
+            "test_n": 30
+          },
+          {
+            "fold": 4,
+            "geographic_block_labels": [
+              "15_3",
+              "16_-2",
+              "16_0",
+              "16_7",
+              "18_5",
+              "19_3"
+            ],
+            "test_n": 29
+          },
+          {
+            "fold": 5,
+            "geographic_block_labels": [
+              "15_6",
+              "17_7",
+              "18_-1",
+              "18_4",
+              "18_6",
+              "19_4",
+              "19_5"
+            ],
+            "test_n": 29
+          }
+        ],
+        "heldout_block_assignments_sha256": "4f7af218d9158f62301d75a1b82bf574e816ba7fe9c557a5f457808d089d10b6",
+        "maximum_MSE_disagreement": 2.848676849964704e-11,
+        "model_MSE_comparison": {
+          "M0_geographic_hydrologic_baseline": {
+            "absolute_difference": 2.218636385720174e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 1.0739980795837192,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "mse": 0.2453070374105558,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "mse": 0.4835407806005383,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "mse": 0.7253745931586335,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "mse": 1.312834450642427,
+                "n": 29
+              }
+            ],
+            "original_MSE": 0.7862101765850548,
+            "recomputed_MSE": 0.7862101765628684
+          },
+          "M1_plus_2022_upstream_measured_load": {
+            "absolute_difference": 2.848676849964704e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 1.1122675366866395,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "mse": 0.32126029152696667,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "mse": 0.48406106895849327,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "mse": 0.7353013300798132,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "mse": 1.3132765472517773,
+                "n": 29
+              }
+            ],
+            "original_MSE": 0.8123985425525883,
+            "recomputed_MSE": 0.8123985425241015
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "absolute_difference": 1.9810486584503906e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 1.0471683471143396,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "mse": 0.48562809408243124,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "mse": 0.4948527207985725,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "mse": 0.6997473780638576,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "mse": 1.2996594495458833,
+                "n": 29
+              }
+            ],
+            "original_MSE": 0.8196926080625809,
+            "recomputed_MSE": 0.8196926080427704
+          },
+          "M3_upstream_and_downstream": {
+            "absolute_difference": 2.283950806258872e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 1.0944519358343945,
+                "n": 41
+              },
+              {
+                "fold": 2,
+                "mse": 0.48638063165421624,
+                "n": 30
+              },
+              {
+                "fold": 3,
+                "mse": 0.49130028376696516,
+                "n": 30
+              },
+              {
+                "fold": 4,
+                "mse": 0.7019907298095186,
+                "n": 29
+              },
+              {
+                "fold": 5,
+                "mse": 1.2923374883508563,
+                "n": 29
+              }
+            ],
+            "original_MSE": 0.8304306613970314,
+            "recomputed_MSE": 0.8304306613741919
+          }
+        },
+        "n": 159,
+        "n_original": 159,
+        "status": "MATCH"
+      }
+    },
+    "TP": {
+      "crop_pop": {
+        "geographic_block_n": 25,
+        "heldout_block_assignments": [
+          {
+            "fold": 1,
+            "geographic_block_labels": [
+              "15_4",
+              "16_2",
+              "17_-2",
+              "18_-2"
+            ],
+            "test_n": 90
+          },
+          {
+            "fold": 2,
+            "geographic_block_labels": [
+              "16_1",
+              "16_3",
+              "16_4",
+              "19_2",
+              "19_3"
+            ],
+            "test_n": 89
+          },
+          {
+            "fold": 3,
+            "geographic_block_labels": [
+              "15_0",
+              "16_-1",
+              "16_-2",
+              "17_0",
+              "17_2"
+            ],
+            "test_n": 89
+          },
+          {
+            "fold": 4,
+            "geographic_block_labels": [
+              "15_-1",
+              "15_-2",
+              "15_2",
+              "16_0",
+              "17_1"
+            ],
+            "test_n": 89
+          },
+          {
+            "fold": 5,
+            "geographic_block_labels": [
+              "15_1",
+              "15_3",
+              "17_-1",
+              "17_3",
+              "17_4",
+              "18_-1"
+            ],
+            "test_n": 89
+          }
+        ],
+        "heldout_block_assignments_sha256": "2c8203f6432be2840d893be67c1a296981f25c423361adb6855bd2e17a9534d5",
+        "maximum_MSE_disagreement": 2.421418621167959e-11,
+        "model_MSE_comparison": {
+          "M0_geographic_hydrologic_baseline": {
+            "absolute_difference": 2.017386258046372e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.7700249146650305,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "mse": 0.3905743666553128,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "mse": 0.5854996384159564,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "mse": 0.5613822363058616,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "mse": 0.6074308352874745,
+                "n": 89
+              }
+            ],
+            "original_MSE": 0.583401776125561,
+            "recomputed_MSE": 0.5834017761053871
+          },
+          "M1_plus_2022_upstream_measured_load": {
+            "absolute_difference": 2.421418621167959e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.7652100969975398,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "mse": 0.44164262689503964,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "mse": 0.5806118433873794,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "mse": 0.5644451848461884,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "mse": 0.6018056926241114,
+                "n": 89
+              }
+            ],
+            "original_MSE": 0.5911342706066595,
+            "recomputed_MSE": 0.5911342705824453
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "absolute_difference": 1.81684667310833e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.7939312478308117,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "mse": 0.3924095638523676,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "mse": 0.5837696017004186,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "mse": 0.5592076651666973,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "mse": 0.6101276360300473,
+                "n": 89
+              }
+            ],
+            "original_MSE": 0.5883511207479472,
+            "recomputed_MSE": 0.5883511207297787
+          },
+          "M3_upstream_and_downstream": {
+            "absolute_difference": 2.1689205986774596e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.7805420664929691,
+                "n": 90
+              },
+              {
+                "fold": 2,
+                "mse": 0.4708233458453983,
+                "n": 89
+              },
+              {
+                "fold": 3,
+                "mse": 0.5759968679700104,
+                "n": 89
+              },
+              {
+                "fold": 4,
+                "mse": 0.5560534320103065,
+                "n": 89
+              },
+              {
+                "fold": 5,
+                "mse": 0.6026929208972593,
+                "n": 89
+              }
+            ],
+            "original_MSE": 0.5976327588170075,
+            "recomputed_MSE": 0.5976327587953183
+          }
+        },
+        "n": 446,
+        "n_original": 446,
+        "status": "MATCH"
+      },
+      "primary": {
+        "geographic_block_n": 27,
+        "heldout_block_assignments": [
+          {
+            "fold": 1,
+            "geographic_block_labels": [
+              "16_0",
+              "17_-1",
+              "17_-2",
+              "17_0",
+              "19_1",
+              "19_3",
+              "20_1"
+            ],
+            "test_n": 259
+          },
+          {
+            "fold": 2,
+            "geographic_block_labels": [
+              "15_2",
+              "16_1",
+              "16_3",
+              "16_4",
+              "17_4",
+              "19_2"
+            ],
+            "test_n": 258
+          },
+          {
+            "fold": 3,
+            "geographic_block_labels": [
+              "15_-2",
+              "15_3",
+              "16_-1",
+              "16_-2",
+              "17_1",
+              "17_3",
+              "18_-1"
+            ],
+            "test_n": 258
+          },
+          {
+            "fold": 4,
+            "geographic_block_labels": [
+              "15_1",
+              "16_2",
+              "18_-2"
+            ],
+            "test_n": 258
+          },
+          {
+            "fold": 5,
+            "geographic_block_labels": [
+              "15_-1",
+              "15_0",
+              "15_4",
+              "17_2"
+            ],
+            "test_n": 258
+          }
+        ],
+        "heldout_block_assignments_sha256": "ae19379c280a7241ab4bf3ee893206615b92c58a182bea4a53d7b6d96ebad114",
+        "maximum_MSE_disagreement": 5.0306092624907706e-11,
+        "model_MSE_comparison": {
+          "M0_geographic_hydrologic_baseline": {
+            "absolute_difference": 4.710221102044443e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.7639388412132707,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "mse": 0.8734698996936948,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "mse": 0.5182622885135466,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "mse": 0.8680804300691713,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "mse": 0.5822932057786997,
+                "n": 258
+              }
+            ],
+            "original_MSE": 0.7212420314029939,
+            "recomputed_MSE": 0.7212420313558917
+          },
+          "M1_plus_2022_upstream_measured_load": {
+            "absolute_difference": 4.925226892993351e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.7653889151663298,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "mse": 0.8883808808304906,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "mse": 0.5208895927228944,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "mse": 0.922319656784846,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "mse": 0.580152309465995,
+                "n": 258
+              }
+            ],
+            "original_MSE": 0.7354494799079432,
+            "recomputed_MSE": 0.7354494798586909
+          },
+          "M2_plus_2022_downstream_source_placebo": {
+            "absolute_difference": 4.786226970310281e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.765973674005289,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "mse": 0.8539932912283106,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "mse": 0.4778158056572828,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "mse": 0.9301772050162459,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "mse": 0.5734470693016134,
+                "n": 258
+              }
+            ],
+            "original_MSE": 0.7203168020136722,
+            "recomputed_MSE": 0.7203168019658099
+          },
+          "M3_upstream_and_downstream": {
+            "absolute_difference": 5.0306092624907706e-11,
+            "folds": [
+              {
+                "fold": 1,
+                "mse": 0.7654951423764705,
+                "n": 259
+              },
+              {
+                "fold": 2,
+                "mse": 0.8975359980092671,
+                "n": 258
+              },
+              {
+                "fold": 3,
+                "mse": 0.4791785031831325,
+                "n": 258
+              },
+              {
+                "fold": 4,
+                "mse": 0.9512177833279436,
+                "n": 258
+              },
+              {
+                "fold": 5,
+                "mse": 0.5745765442259853,
+                "n": 258
+              }
+            ],
+            "original_MSE": 0.7336254994244802,
+            "recomputed_MSE": 0.7336254993741741
+          }
+        },
+        "n": 1291,
+        "n_original": 1291,
+        "status": "MATCH"
+      }
+    }
+  },
+  "scientific_scope": "observational source N/P tons per year vs 2022 measured river mg/L; no causal attribution",
+  "source_SHA256": "79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3",
+  "source_run": 42374105184,
+  "status": "MATCH"
+}
