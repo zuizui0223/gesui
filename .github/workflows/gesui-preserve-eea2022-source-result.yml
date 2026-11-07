@@ -1,0 +1,143 @@
+name: gesui preserve verified EEA2022 TN TP measured WWTP and river study
+
+on:
+  push:
+    branches:
+      - "analysis/eea-wwtp-nutrient-load-source-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-eea2022-source-result.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  preserve-verified:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Get four previously audited successful artifacts, no new source data queries
+        run: |
+          mkdir -p /tmp/gesui-eea-preserve/source /tmp/gesui-eea-preserve/outcome /tmp/gesui-eea-preserve/folds /tmp/gesui-eea-preserve/portable
+          gh run download 42374105184 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measured-NP-direct-river-source-crosswalk \
+            --dir /tmp/gesui-eea-preserve/source
+          gh run download 42375542151 --repo zuizui0223/gesui \
+            --name gesui-real2022-EEAmeasured-WWTP-load-Peters-observed-river-chemistry \
+            --dir /tmp/gesui-eea-preserve/outcome
+          gh run download 42376191822 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-original-source-and-holdout-audit \
+            --dir /tmp/gesui-eea-preserve/folds
+          gh run download 42376519412 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-explicit-spatial-fold-portable-statistical-audit \
+            --dir /tmp/gesui-eea-preserve/portable
+      - name: Reverify all source science units and permanently archive signed outputs
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,shutil
+          from pathlib import Path
+          base=Path("/tmp/gesui-eea-preserve")
+          input_path=base/"source/original_Peters_station_EEA_measured_load_source_only.csv"
+          srcsha=hashlib.sha256(input_path.read_bytes()).hexdigest()
+          assert srcsha=="79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3"
+          orig=json.loads((base/"outcome/EEA2022_ORIGINAL_MEASURED_RECEPTOR_CV_AND_AUDIT.json").read_text())
+          fold=json.loads((base/"folds/AUDIT_2022_SOURCE_REPLAY.json").read_text())
+          portability=json.loads((base/"portable/PORTABLE_AUDIT.json").read_text())
+          sourceqc=json.loads((base/"source/EEA_MEASURED_LOAD_SOURCE_QC.json").read_text())
+          assert orig["original_source_only_run"]==42374105184
+          assert orig["2022_year_aligned_only"] is True
+          assert fold["status"]=="MATCH"
+          assert portability["status"]=="PASS_CROSS_VERSION_EXPLICIT_SPATIAL_FOLD_REPLAY"
+          assert portability["source_only_SHA256"]==srcsha
+          assert (orig["results"]["TP"]["original_2022_station_n"],orig["results"]["TN"]["original_2022_station_n"])==(1291,159)
+          assert (orig["results"]["TP"]["source_2022_upstream_measured_NP_load_positive"],
+                  orig["results"]["TN"]["source_2022_upstream_measured_NP_load_positive"])==(53,26)
+          assert orig["source_measured_N_P_annual_load_units"]=="tons/year"
+          assert sourceqc["UWWTD_discharge_point_source_quality"]["dcp_snapped_to_river_within_500m"]==2969
+          assert (portability["results"]["TP"]["primary"]["n"],
+                  portability["results"]["TN"]["primary"]["n"])==(1291,159)
+          dest=Path("results/eea2022_measured_nutrient_load_river_20261107")
+          dest.mkdir(parents=True,exist_ok=True)
+          maps={
+             "source/EEA_MEASURED_LOAD_SOURCE_QC.json":"EEA_MEASURED_LOAD_SOURCE_QC.json",
+             "source/original_Peters_station_EEA_measured_load_source_only.csv":
+                 "source_only_eea2022_loads_on_original_peters_station_registry.csv",
+             "outcome/EEA2022_ORIGINAL_MEASURED_RECEPTOR_CV_AND_AUDIT.json":"EEA2022_ORIGINAL_MEASURED_RECEPTOR_CV_AND_AUDIT.json",
+             "outcome/TP_2022_reported_wwtp_load_and_original_measured_river_station.csv":
+                 "TP_2022_reported_wwtp_load_and_measured_river_station.csv",
+             "outcome/TN_2022_reported_wwtp_load_and_original_measured_river_station.csv":
+                 "TN_2022_reported_wwtp_load_and_measured_river_station.csv",
+             "folds/AUDIT_2022_SOURCE_REPLAY.json":"AUDIT_2022_SOURCE_REPLAY.json",
+             "portable/PORTABLE_AUDIT.json":"PORTABLE_AUDIT.json"
+          }
+          sources=[]
+          for orig_rel,name in maps.items():
+              orig_file=base/orig_rel
+              assert orig_file.is_file() and orig_file.stat().st_size>0
+              shutil.copyfile(orig_file,dest/name)
+              sources.append({"file":name,"original_artifact_file":orig_rel,
+                              "bytes":orig_file.stat().st_size,
+                              "sha256":hashlib.sha256(orig_file.read_bytes()).hexdigest()})
+          receipt={
+             "audit_status":"INDEPENDENT_RECALCULATION_PASS",
+             "original_source_only_run_id":42374105184,
+             "original_measured_receptor_2022_run_id":42375542151,
+             "exact_original_folds_run_id":42376191822,
+             "portable_fold_replay_run_id":42376519412,
+             "source_Peters_doi":"10.25400/lincolnuninz.30546371.v5",
+             "source_EEA_2022":"EEA UWWTD 2022 reported measured annual N/P mass and freshwater discharge points",
+             "HydroRIVERS_mirror_SHA256":"5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+             "all_original_source_files_sha256":sources,
+             "no_new_measurement_downloads_for_archive":True,
+             "reused_original_2022_observed_station_medians_not_raw_sample_dates":True,
+             "2022_river_outcomes_do_not_prove_causal_WWTP_NP_load":True,
+          }
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n")
+          readme="""# 2022 reported WWTP N/P masses vs measured river chemistry — EU study
+
+          Original source-frozen real results from 2026-11-07, [source geometry run](https://github.com/zuizui0223/gesui/actions/runs/42374105184), [year-aligned measured chemistry run](https://github.com/zuizui0223/gesui/actions/runs/42375542151), [independent holdout audit](https://github.com/zuizui0223/gesui/actions/runs/42376191822), [saved-fold cross-version replay](https://github.com/zuizui0223/gesui/actions/runs/42376519412). All retained files carry exact SHA256 receipts, including original source and original returned 2022 station median datasets.
+
+          **Sources:** EEA UWWTD 2022 public treatment plants and official freshwater discharge points (https://www.eea.europa.eu/en/datahub/datahubitem-view/6244937d-1c2c-47f5-bdf1-33ca01ff1715), reported **measured annual load** uwwNDischargeMeasured/uwwPDischargeMeasured in **metric tonnes/year** (both-positive WWTP selection). Peters et al. Global Nutrient Yields Figshare v5 (https://doi.org/10.25400/lincolnuninz.30546371.v5), original measured site-date TN.2 and TP.2 harmonized concentrations (mg/L) and metadata under CC BY 4.0. This repository retains only derived source→station features, matched **2022 station median** values, frozen regional folds and source citations; original large raw datewise archives remain with the public primary publishers.
+
+          ## Source crosswalk
+          5,492 EEA 2022 plants report both positive measured N/P; plant code joined to public unique discharge point, restricted to EEA FW direct-freshwater codes; 2,969 qualifying discharge points snap to HydroRIVERS EU-derived graph <=500m. Same-reach source excluded (unknown order). Directed reach-to-reach source loads accumulated only to stations within 50km downstream along the river network. Official HydroRIVERS original has not been independently verified against the hash-locked third-party GeoParquet conversion.
+
+          ## Empirical year-aligned outcome
+          Original year 2022 measured station records only, >=4 positive source observations from >=3 months per site. **TP n=1,291** (53 with EEA-reported 2022 upstream measured P load; 27 spatial blocks). **TN n=159** (26 upstream-measured-N loaded; 27 spatial blocks).
+          Raw source load vs measured in-river concentration rho: **TP -0.06044**, **TN -0.18594**, using all original stations, descriptive, not causal.
+          Spatial heldout 5-fold Ridge(alpha=10), same station denominator across model families: baseline lat/lon/mean riverQ/drainage area; M1 adds true reported 2022 upstream source load, M2 negative-control downstream WWTP load; all predictors held constant per fold.
+          - TP baseline MSE **0.721242** vs +upstream **0.735449** (1.97% worse), +downstream **0.720317** (+0.13% improvement).
+          - TN baseline MSE **0.786210** vs +upstream **0.812399** (3.33% worse), +downstream **0.819693** (4.26% worse).
+          - TP with published crop and population covariates n=446 (46 exposed): baseline MSE **0.583402** vs +upstream **0.591134** (1.33% worse), downstream **0.588351** (0.85% worse). TN crop/pop n13/exposed2 fails source support.
+          No new source-specific positive prediction; this does not establish no sewage ecological impact.
+
+          ## Physical dilution gate, exploratory
+          Convert annual EEA load tonnes/year to hypothetical uniform annual mass concentration at HydroRIVERS mean stream flow: [t/yr] x 1e9 [mg/t] / ([m3/s] x 1e3 [L/m3] x 365.25 x 86400 s/yr).
+          Among the **53** P-source-supported stations, median potential is **0.00228 mg P/L**, median site-specific ratio to observed TP station median **4.07%**, with **14** ratios >10% and **0** ratios >100%. Among **26** N-source-supported stations: median potential **0.04866 mg N/L**, median relative ratio **2.39%**, **3** >10%, **0** >100%.
+          These are **NOT true fraction contributions, not rigorous seasonal upper bounds, not effluent measurements**, and exclude unreported sources. Annual wastewater source load and long-term mean river flow are incomparable to seasonal/low-flow pulses; retention, flow, agricultural flux and monitoring selection remain major uncertainties.
+
+          ## Reproducibility
+          2026-11-07 GitHub runner NumPy 2.4.6 / sklearn 1.9.1 GroupKFold tie-handling differs from some other versions. Exact original test-block memberships are frozen in AUDIT_2022_SOURCE_REPLAY.json and permit independent cross-version replays. Script scripts/replay_eea2022_saved_folds.py is the portable verifier. All MSE values checked to 1e-7 and file bytes hashed. Tiny Spearman changes <=1e-4 can arise when 10-digit exported loads merge near-tied ranks; original unrounded association is retained in source JSON.
+
+          **Scope:** This supports observational wastewater-load model testing and realistic source-to-receptor dilution hypotheses. A robust causal study needs matched actual receiving reach water flows and full source accounting (agriculture, land-use, other wastewaters) across multiple seasons and catchments. Preserve previously positive chocho GEB/port/island resource findings and separate positive German six-river TP exploratory trends without forced integration.
+          """
+          (dest/"RESULTS.md").write_text("\n".join(z.strip() for z in readme.splitlines())+"\n")
+          print("GESUI_EEA2022_AUDITED_RESEARCH_ARCHIVE",
+                json.dumps({"source_verified_files":len(sources),
+                            "derived_station_site_n":1450,
+                            "tp_n":1291,"tn_n":159,
+                            "portable_fold_validation":True},sort_keys=True))
+          PY
+      - name: Commit source-derived station dataset and successful independent audits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2022_measured_nutrient_load_river_20261107
+          git commit -m "Archive source verified EEA 2022 measured N/P WWTP river study, 1450 sites, and portable block-fold replay"
+          git push origin HEAD:analysis/eea-wwtp-nutrient-load-source-20261107

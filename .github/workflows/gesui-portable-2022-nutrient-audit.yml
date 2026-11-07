@@ -1,0 +1,56 @@
+name: gesui portable explicit heldout-fold EEA measured 2022 TP/TN reproduction
+
+on:
+  push:
+    branches:
+      - "analysis/eea-wwtp-nutrient-load-source-20261107"
+    paths:
+      - "scripts/replay_eea2022_saved_folds.py"
+      - ".github/workflows/gesui-portable-2022-nutrient-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install audit-only scientific packages
+        run: python -m pip install --quiet pandas numpy scipy scikit-learn
+      - name: Recover pre-outcome source, actual 2022 river observations, and frozen original fold labels
+        run: |
+          mkdir -p /tmp/gesui-audit/source /tmp/gesui-audit/outcome /tmp/gesui-audit/folds
+          gh run download 42374105184 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measured-NP-direct-river-source-crosswalk \
+            --dir /tmp/gesui-audit/source
+          gh run download 42375542151 --repo zuizui0223/gesui \
+            --name gesui-real2022-EEAmeasured-WWTP-load-Peters-observed-river-chemistry \
+            --dir /tmp/gesui-audit/outcome
+          gh run download 42376191822 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-original-source-and-holdout-audit \
+            --dir /tmp/gesui-audit/folds
+      - name: Refit every model on exactly fixed source-audited geographic folds
+        run: |
+          python -u scripts/replay_eea2022_saved_folds.py \
+            --source /tmp/gesui-audit/source/original_Peters_station_EEA_measured_load_source_only.csv \
+            --outcome /tmp/gesui-audit/outcome \
+            --original-folds /tmp/gesui-audit/folds/AUDIT_2022_SOURCE_REPLAY.json \
+            --out /tmp/gesui-audit/output/PORTABLE_AUDIT.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2022-explicit-spatial-fold-portable-statistical-audit
+          path: /tmp/gesui-audit/output/
+          retention-days: 30
+          if-no-files-found: warn

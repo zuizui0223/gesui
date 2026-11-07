@@ -1,0 +1,57 @@
+{
+  "audit_status": "INDEPENDENT_RECALCULATION_PASS",
+  "original_source_only_run_id": 42374105184,
+  "original_measured_receptor_2022_run_id": 42375542151,
+  "exact_original_folds_run_id": 42376191822,
+  "portable_fold_replay_run_id": 42376519412,
+  "source_Peters_doi": "10.25400/lincolnuninz.30546371.v5",
+  "source_EEA_2022": "EEA UWWTD 2022 reported measured annual N/P mass and freshwater discharge points",
+  "HydroRIVERS_mirror_SHA256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "all_original_source_files_sha256": [
+    {
+      "file": "EEA_MEASURED_LOAD_SOURCE_QC.json",
+      "original_artifact_file": "source/EEA_MEASURED_LOAD_SOURCE_QC.json",
+      "bytes": 8439,
+      "sha256": "047f319010c4487b002db5d3eb779a42dd054362b2042f309bf1d918004479a1"
+    },
+    {
+      "file": "source_only_eea2022_loads_on_original_peters_station_registry.csv",
+      "original_artifact_file": "source/original_Peters_station_EEA_measured_load_source_only.csv",
+      "bytes": 229911,
+      "sha256": "79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3"
+    },
+    {
+      "file": "EEA2022_ORIGINAL_MEASURED_RECEPTOR_CV_AND_AUDIT.json",
+      "original_artifact_file": "outcome/EEA2022_ORIGINAL_MEASURED_RECEPTOR_CV_AND_AUDIT.json",
+      "bytes": 21612,
+      "sha256": "638a14b617ea73fc85b9754b5129cf6783985ae7e9538d3339c4c02e4cc15db4"
+    },
+    {
+      "file": "TP_2022_reported_wwtp_load_and_measured_river_station.csv",
+      "original_artifact_file": "outcome/TP_2022_reported_wwtp_load_and_original_measured_river_station.csv",
+      "bytes": 127461,
+      "sha256": "6942100037da07d14dc9a9477b4308b31415d16a81866ab21897ed6de93bb264"
+    },
+    {
+      "file": "TN_2022_reported_wwtp_load_and_measured_river_station.csv",
+      "original_artifact_file": "outcome/TN_2022_reported_wwtp_load_and_original_measured_river_station.csv",
+      "bytes": 15249,
+      "sha256": "30a41a64704fa4bd79ea98706b8dc4b54c838c69629f5730b932e19f4ee4322b"
+    },
+    {
+      "file": "AUDIT_2022_SOURCE_REPLAY.json",
+      "original_artifact_file": "folds/AUDIT_2022_SOURCE_REPLAY.json",
+      "bytes": 16486,
+      "sha256": "7dfd01e4964b29d9657ebf61807ccb4fb431885e9278d391d7568a19c3b98d12"
+    },
+    {
+      "file": "PORTABLE_AUDIT.json",
+      "original_artifact_file": "portable/PORTABLE_AUDIT.json",
+      "bytes": 5060,
+      "sha256": "2aff3f00ae2d734999b58b24cd8495e18a127de9b1b105076b71380559fcbd3d"
+    }
+  ],
+  "no_new_measurement_downloads_for_archive": true,
+  "reused_original_2022_observed_station_medians_not_raw_sample_dates": true,
+  "2022_river_outcomes_do_not_prove_causal_WWTP_NP_load": true
+}

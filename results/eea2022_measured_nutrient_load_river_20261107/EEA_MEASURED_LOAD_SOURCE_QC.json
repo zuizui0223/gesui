@@ -1,0 +1,235 @@
+{
+  "UWWTD_discharge_point_source_quality": {
+    "dcp_missing_compound_key": 0,
+    "dcp_snap_m_max": 499.7297662470601,
+    "dcp_snap_m_median": 122.22018117063013,
+    "dcp_snapped_to_river_within_500m": 2969,
+    "dcp_waterbody_code_distribution": {
+      "CW": 201,
+      "ES": 19,
+      "FW": 4057,
+      "LF": 39
+    },
+    "excluded_nonfreshwater_outlets_before_snapping": 259,
+    "freshwater_direct_source_points_before_snapping": 4057,
+    "initial_both_measured_n": 5492,
+    "matched_any_dcp": 5491,
+    "multiple_dcp_cannot_allocate_total_mass": 88,
+    "no_discharge_point": 1,
+    "source_downstream_50km_aggregate_connections": 31612,
+    "unambiguous_one_dcp": 5403,
+    "unique_country_and_plant_key": 5492,
+    "unique_dcp_in_europe_study_bbox": 4316,
+    "unrecognized_reporter_prefix_dcp": 16572,
+    "unrecognized_reporter_prefix_wwtp": 3111,
+    "wwtp_missing_compound_key": 0
+  },
+  "ambiguous_multiple_outlets_excluded": true,
+  "caveats": [
+    "Reported EEA facility load is a 2022 value and does not reconstruct 2011-2024",
+    "WWTP annual load requires data dictionary unit check; source nativeunit stored without conversion",
+    "Only facilities with positive *both* reported measured N and P are included; source selection undercoverage",
+    "Multiple outlets excluded because single facility mass cannot be uniquely allocated to one discharge point",
+    "Third-party converted HydroRIVERS Europe network, not independently official-original topology",
+    "2022 receptor nutrient measurements are NOT yet acquired in this source gate",
+    "Nearby agricultural or other point nutrient sources not included"
+  ],
+  "estimated_and_calculated_UWWTD_NP_loads_excluded": true,
+  "hydrorivers_GeoParquet_SHA256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "monitoring_station_source_support": {
+    "TN": {
+      "fixed_2011_2024_eligible_station_count": 294,
+      "source_covariates_crop_pop_available_with_upstream_source": 2,
+      "source_eea_measured_NP_any_downstream_50km": 68,
+      "source_eea_measured_NP_any_upstream_50km": 63,
+      "source_eea_published_both_load_positive_stations": 63,
+      "source_wwtp_measured_load_N_total_at_receptors_unweighted_nativeunit": 3589.1820529999995,
+      "source_wwtp_measured_load_P_total_at_receptors_unweighted_nativeunit": 320.939117,
+      "spatial_3degree_blocks_with_upstream_source": 12
+    },
+    "TP": {
+      "fixed_2011_2024_eligible_station_count": 1418,
+      "source_covariates_crop_pop_available_with_upstream_source": 46,
+      "source_eea_measured_NP_any_downstream_50km": 62,
+      "source_eea_measured_NP_any_upstream_50km": 53,
+      "source_eea_published_both_load_positive_stations": 53,
+      "source_wwtp_measured_load_N_total_at_receptors_unweighted_nativeunit": 9661.249758,
+      "source_wwtp_measured_load_P_total_at_receptors_unweighted_nativeunit": 485.69018,
+      "spatial_3degree_blocks_with_upstream_source": 13
+    }
+  },
+  "negative_control_downstream_loads": true,
+  "no_Peters_measurement_concentrations_accessed": true,
+  "no_plants_or_GBIF_records_accessed": true,
+  "official_source_base": "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD",
+  "original_monitor_station_source_SHA256": "47fb5bb92726602170a98473d02d2c810f98e49a51ef867d017190a85ae2f10b",
+  "recorded_at_utc": "2026-11-07T12:49:23.025824+00:00",
+  "same_river_reach_source_excluded_due_to_unknown_inreach_order": true,
+  "schema": "gesui_EEA_UWWTD2022_measured_NP_2022_to_Peters_river_monitor_source_v01",
+  "source_2022_reference_year": true,
+  "source_ArcGIS_all_page_sha256": [
+    {
+      "api_body_sha256": "caccfc2d8b94ec0c5371738e60915894c1c2530b49742b0573a882d5733c96e2",
+      "offset": 0,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "76c8270438f548183190a6a5dcbbd55ac60218ed30e55828545e0a2a80722b7d",
+      "offset": 1000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "d075dd525b62b5631be49f90d39c372aaccd787b2e5351fe57a176960d7b5c0a",
+      "offset": 2000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "9d7753056eadb5f188255f768a7de1edd024b967b554a4c658445e7c2d7725a8",
+      "offset": 3000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "04537ddcff8ed62d3e06e087dd6ba5945d460647ec12a8ef4031636c3a906181",
+      "offset": 4000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "a666627d2db043322085c0068bb8c74759354ba64ea3a2bfc2056fb316ef3415",
+      "offset": 5000,
+      "rows": 492
+    },
+    {
+      "api_body_sha256": "1e3e7f83f41e20a1af8f20b579c748e843e0f3ed0d67df87d34fb687b88668b9",
+      "offset": 0,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "f6ab346bc6244b3fdaa85dc92bfae992ee1d4edd939bd365315f60f385ea7a34",
+      "offset": 1000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "08c43120dc1b4d20f150a2239cf9894d4e2673bdc4c876adb9e45563b7f7c15d",
+      "offset": 2000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "d231a1b8a0647a34357667f40521a5cc6d20e321f5c1d7873875b93b6d2b6650",
+      "offset": 3000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "2643c0d87513e5076d81fbf109ce2822e75dd91b720669b99431453c45dec3f0",
+      "offset": 4000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "6ddaf1e5abf1066b7ca45fc1694d531364d14a5b25dd7e3b8f21dee9d9d3e16f",
+      "offset": 5000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "097cda3aae56438b0ccb16430b29bb353eeaea76bf3f23715e1241ae49da2a19",
+      "offset": 6000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "5c8c04eaf9c1681904cc0f53a00bcebe7e8a9e2ccde8df8be99539ceadf14a01",
+      "offset": 7000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "5cb5d67e287f4ea9d108895edbebf72e6f7f75e0906aacf41885f828e7ba5f80",
+      "offset": 8000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "9905f045683d8b322af553b4663251dda9cb3b43368abc4151fc3363d399c6bf",
+      "offset": 9000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "0f0a078880fcfdde82480a978a98857a84b05257cb6664beafe162fa787c001b",
+      "offset": 10000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "8fe6d539f3fc81bd15e3dd9c5c6cce41bac5812c869f5130e07dad68e90c7ce2",
+      "offset": 11000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "51845c4636a20ff509df16d3d60479db48ca6de9138597bb950b857e32f589dd",
+      "offset": 12000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "afb3ee30d9f6eea81621ac5a9dfe28033b40718b5f9cb606e7c0c2419d345a06",
+      "offset": 13000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "3a30303bd4cd625fd9ff90394551211152aa3a46dd9ae24db1f828029b996d64",
+      "offset": 14000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "a9d11f8cb84abdece67afaed55608f85b419b86a8b7393c6a95a9bc3435d1d6f",
+      "offset": 15000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "171cc66a9a9f09a35dade6c430ca1d18d4ec6fab58c4cd25169840a1b2fc43b0",
+      "offset": 16000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "1c9eea3dac8b89f5a2d9b666b4dc2962db498206e932b0d221291f19a3ee8fc0",
+      "offset": 17000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "d57e8fc4d8228f059c268bb38404604a3285dbe8436989fad87a9d27fc3b58cf",
+      "offset": 18000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "4436d7eb776434f8fd03d3820023a753c569644be3c03143239d6ff1a8bc3e76",
+      "offset": 19000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "b05f6368b3713e31c9c6aca7359dc39c1a70de34b322be786a520481458c85ff",
+      "offset": 20000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "71717536b441a355c651975e3aed85abf46c472530221cbe349f1c70ea6e7ba6",
+      "offset": 21000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "c90a1e25d3a2d9d6061b1a0e48a208bb1b4bfb258b9c3a4e21a609d6ca3378a2",
+      "offset": 22000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "2e276f8ec1eb33b5e067946dab112d3dc406eff41326e45f34664e3965e15756",
+      "offset": 23000,
+      "rows": 1000
+    },
+    {
+      "api_body_sha256": "915d8a56c626c708ab8f1619135c2025b7fa29287695af6a4d98fcb039217bc4",
+      "offset": 24000,
+      "rows": 416
+    }
+  ],
+  "source_ArcGIS_original_pages_NP": [
+    6,
+    25
+  ],
+  "source_outfalls_API_count_expected": 24416,
+  "source_plants_API_count_expected": 5492,
+  "source_reported_measured_mass_units_need_dictionary_crosscheck": true,
+  "upstream_path_max_km": 50
+}

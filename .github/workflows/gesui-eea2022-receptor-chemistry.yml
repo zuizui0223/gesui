@@ -1,0 +1,47 @@
+name: gesui actual EEA 2022 measured WWTP load vs observed 2022 river TP TN
+
+on:
+  push:
+    branches:
+      - "analysis/eea-wwtp-nutrient-load-source-20261107"
+    paths:
+      - "scripts/gesui_eea2022_receptor_observed_chemistry.py"
+      - ".github/workflows/gesui-eea2022-receptor-chemistry.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_measured_2022:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install observed source and spatial holdout tools
+        run: python -m pip install --quiet numpy pandas scipy scikit-learn requests
+      - name: Restore EEA source-only crosswalk frozen before inspecting measured receptor chemistry
+        run: |
+          mkdir -p /tmp/gesui-eea2022-original
+          gh run download 42374105184 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measured-NP-direct-river-source-crosswalk \
+            --dir /tmp/gesui-eea2022-original
+          echo "79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3  /tmp/gesui-eea2022-original/original_Peters_station_EEA_measured_load_source_only.csv" | sha256sum -c -
+      - name: Query only original 2022 measured Peters river chemistry and execute predeclared support gate
+        run: |
+          python -u scripts/gesui_eea2022_receptor_observed_chemistry.py \
+            --source-only /tmp/gesui-eea2022-original/original_Peters_station_EEA_measured_load_source_only.csv \
+            --out /tmp/gesui-eea2022-results/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-real2022-EEAmeasured-WWTP-load-Peters-observed-river-chemistry
+          path: /tmp/gesui-eea2022-results/
+          if-no-files-found: warn
+          retention-days: 30
