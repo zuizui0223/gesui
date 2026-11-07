@@ -1,0 +1,145 @@
+name: gesui preserve independent six German TP rivers and exact small-n statistical audit
+
+on:
+  push:
+    branches:
+      - "analysis/deu-independent-tp-plants-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-independent-deu-pilot.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Retrieve original successful fully source-locked TP/GBIF artifact
+        run: |
+          mkdir -p /tmp/gesui-deu-original
+          gh run download 42371970951 --repo zuizui0223/gesui \
+            --name gesui-independent-DEU-6-TP-and-18-Plantae-source-audit \
+            --dir /tmp/gesui-deu-original
+      - name: Preserve source summaries and compute exact n6 permutation without raw TP redistribution
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from itertools import permutations
+          import csv,hashlib,json,math,shutil
+          original=Path("/tmp/gesui-deu-original")
+          all_files=("FROZEN_DESIGN.json","TP_SOURCE_RESULTS.json",
+                     "observed_TP_station_dates_2011_2022.csv",
+                     "paired_monthly_TP_mg_L.csv",
+                     "PLANT_original_GBIF_species_facets.json",
+                     "PLANT_site_species_records.csv",
+                     "PLANT_RICHNESS_AND_COMPOSITION.json",
+                     "JOINT_TP_PLANT_DESCRIPTIVE.json")
+          for f in all_files:assert (original/f).is_file(),f
+          tp=json.loads((original/"TP_SOURCE_RESULTS.json").read_text())
+          plant=json.loads((original/"PLANT_RICHNESS_AND_COMPOSITION.json").read_text())
+          joint=json.loads((original/"JOINT_TP_PLANT_DESCRIPTIVE.json").read_text())
+          design=json.loads((original/"FROZEN_DESIGN.json").read_text())
+          assert tp["source_doi"]=="10.25400/lincolnuninz.30546371.v5"
+          assert tp["source_original_zip_MD5"]=="b596dbe9833c49426147a99f10f3fe31"
+          assert tp["observed_TP_positive_values_2011_2022"]==2500
+          assert tp["paired_calendar_month_rows"]==836
+          assert tp["source_units_with_12_or_more_paired_months"]==6
+          assert plant["site_count"]==18 and plant["primary_depth30_and_balance_n"]==3
+          assert plant["sensitivity_depth10_n"]==6
+          assert len(design["original_source_plant_selections"])==18
+          assert joint["source_selected_outfalls"]==6
+          assert abs(joint["observed_TP_gradient_vs_model_wwflow"]["rho"]-0.8285714285714287)<1e-11
+          assert abs(joint["depth10_sensitivity_TP_gradient"]["rho_observed_TP_gradient_vs_GBIF_richness_curvature"]+0.028571428571428574)<1e-11
+          with (original/"paired_monthly_TP_mg_L.csv").open(newline="") as f:
+              month_rows=list(csv.DictReader(f))
+          assert len(month_rows)==836
+          with (original/"PLANT_site_species_records.csv").open(newline="") as f:
+              source_taxon=list(csv.DictReader(f))
+          assert len(source_taxon)>0
+          def ranks(vals):
+              sorted_index=sorted(range(len(vals)),key=lambda i:vals[i])
+              out=[0]*len(vals)
+              for k,i in enumerate(sorted_index):out[i]=k+1
+              assert len(set(vals))==len(vals),"Unexpected rank ties; revise exact permutation definition"
+              return out
+          def rho(x,y):
+              p,q=ranks(x),ranks(y)
+              n=len(p)
+              return 1.0-6*sum((a-b)**2 for a,b in zip(p,q))/(n*(n*n-1))
+          entries=sorted(joint["joined"],key=lambda z:z["wwtp_id"])
+          flow=[x["source_fraction"] for x in entries]
+          tp_gradient=[x["observed_median_log_TP_down_up"] for x in entries]
+          observed=rho(flow,tp_gradient)
+          assert abs(observed-0.8285714285714287)<1e-11
+          scores=[rho(flow,list(p)) for p in permutations(tp_gradient)]
+          num=sum(abs(v)>=abs(observed)-1e-12 for v in scores)
+          assert len(scores)==720 and num==42
+          leave_one={str(entries[i]["wwtp_id"]):rho(flow[:i]+flow[i+1:],tp_gradient[:i]+tp_gradient[i+1:])
+                     for i in range(len(entries))}
+          assert min(leave_one.values())>=0.7-1e-12
+          out=Path("results/independent_deu_tp_plantae_20261107")
+          out.mkdir(parents=True,exist_ok=True)
+          excluded={"observed_TP_station_dates_2011_2022.csv"}
+          for f in all_files:
+              if f not in excluded:shutil.copyfile(original/f,out/f)
+          sensitivity={
+              "schema":"gesui_DEU_6_TP_source_fixed_exact_rank_permutation_v01",
+              "n_independent_outfalls":6,"all_country":"DEU",
+              "original_rho":observed,
+              "standard_scipy_two_sided_approx_p":joint["observed_TP_gradient_vs_model_wwflow"]["p_descriptive"],
+              "two_sided_exact_rank_permutation_p":num/720,
+              "permutations_exhaustive":len(scores),
+              "absolute_rho_at_least_original_count":num,
+              "LOO_rho_by_excluded_WWTP":leave_one,
+              "LOO_rho_min":min(leave_one.values()),
+              "LOO_rho_max":max(leave_one.values()),
+              "interpretation":"Exact p is a small-n diagnostic of rank alignment under permutation exchangeability; not a catchment exchangeability or WWTP causal test."
+          }
+          (out/"EXACT_SMALL_N_AUDIT.json").write_text(json.dumps(sensitivity,sort_keys=True,indent=2)+"\n")
+          receipt={
+              "real_GitHub_Actions_source_run":42371970951,
+              "success_source_commit":"2d7a3ac8d159fb07cfbeb73b691cbc9a8fb1235b",
+              "original_artifact_id":13574022078,
+              "original_figshare_TP_zip_file_id":70896288,
+              "original_figshare_TP_zip_MD5":"b596dbe9833c49426147a99f10f3fe31",
+              "original_artifact_source_file_sha256":{n:hashlib.sha256((original/n).read_bytes()).hexdigest() for n in all_files},
+              "raw_institutional_TP_station_date_rows_not_redistributed":True,
+              "source_raw_TP_rows_in_original_action_artifact":2500,
+              "source_original_monthly_pair_rows":836,
+              "GBIF_source_biological_sites":18,
+              "source_selected_before_outcomes":True,
+              "source_licensed_Figshare_DOI":"10.25400/lincolnuninz.30546371.v5",
+              "archival_run_makes_new_external_requests":False,
+          }
+          (out/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2,sort_keys=True)+"\n")
+          doc="""# Six independent source-selected German rivers: real TP observations vs all-Plantae GBIF records
+
+          Original [source and biological run SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42371970951), original source cohort from [source-only run](https://github.com/zuizui0223/gesui/actions/runs/42371319376). Six separate HydroBASINS L12, all 12 source TP stations distinct, outfall minimum separation 57.28km. Three high vs three low model wastewater-water fractions, originally picked BEFORE examining measured TP or any new plant outcomes.
+
+          **Actual TP:** Figshare Peters 2026 v5 CC BY4 original measured/harmonized observations, 2011–2022, 2,500 station TP data rows and 836 matched up/down calendar months across 6 rivers, each with ≥124 comparable months. The river observed downstream/upstream ratios range 0.266–2.083; both positive and negative gradients recur.
+
+          **New exploratory positive TP association:** source-modeled effluent fraction vs median observed monthly TP river gradient, Spearman rho **+0.828571** (n=6). The usual asymptotic two-sided p=0.04156; the **exact two-sided n=6 permutation diagnostic is p=42/720=0.05833**, thus *not below 0.05* with an exact small-sample diagnostic. Six leave-one-river-out rho range +0.70 to +1.00. Do NOT report a confirmed WWTP phosphate release, causal or population-scale predictor.
+
+          **Actual plants:** newly queried GBIF 2011–2022, 18 fixed U2/U1/D1 river sites, each with botanical records, no butterfly-host filtering. Only 3/6 rivers meet predeclared 30-record rarefaction + balanced recording gate, so **primary TP–plant linkage insufficient**. Low-depth sensitivity to 10 species-keyed records allows 6/6; TP gradient vs plant recorded-species richness curvature rho **−0.02857, p=0.95715**, not supporting a positive link. GBIF records are not field-survey abundance and Plantae includes non-vascular taxa.
+
+          **Scope:** source hydrographic station positions 7–25km from outfalls, watershed co-pollution / farming and other upstream facilities unresolved. The third-party converted HydroRIVERS stream graph remains to be independently verified vs original. The new six are all in Germany and too few to claim universally positive wastewater nutrient response. Existing chocho port/WPp positive associations and prior independent gesui 48-site plant richness null are **preserved**.
+
+          For reproducibility: original source TP ZIP DOI/MD5 fixed, individual 2,500 original site-date observations retained in original run artifact (not mirrored to public repo because upstream station-source licensing can differ); 836 derived paired-month observations and all GBIF speciesKey facets are stored here with original SHA-256 receipt and exact permutation audit.
+          """
+          (out/"RESULTS.md").write_text("\n".join(s.strip() for s in doc.splitlines())+"\n")
+          print("GESUI_DEU_TP_PLANT_SOURCE_ARCHIVED_AND_PERMUTATION_CHECKED",json.dumps(sensitivity,sort_keys=True))
+          PY
+      - name: Commit only derived source results and independent exact-sample audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/independent_deu_tp_plantae_20261107
+          git commit -m "Freeze 6 genuine TP river gradients, 18 Plantae sites, exact 720-permutation audit"
+          git push origin HEAD:analysis/deu-independent-tp-plants-20261107
