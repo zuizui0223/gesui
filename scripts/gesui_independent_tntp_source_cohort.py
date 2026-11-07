@@ -264,6 +264,81 @@ def main():
                     if x["wwtp_id"] not in {v["wwtp_id"] for v in chosen_one}:
                         chosen_one.append({**x,"monitored_source_only_fraction_stratum":stratum})
         separate_selected[nutrient]=chosen_one
+    # Higher-quality sampling unit: independent monitoring station pairs,
+    # geographically separated outfalls, and distinct HydroBASINS level 12.
+    # The earlier six selected TP outfalls include source sharing and must
+    # never be interpreted as six statistically independent replicates.
+    def d_km(a,b):
+        a1=math.radians(float(a["outfall_lat"]))
+        a2=math.radians(float(b["outfall_lat"]))
+        dl=a2-a1
+        dn=math.radians(float(b["outfall_lon"])-float(a["outfall_lon"]))
+        h=math.sin(dl/2)**2+math.cos(a1)*math.cos(a2)*math.sin(dn/2)**2
+        return 2*R*math.asin(math.sqrt(min(1,max(0,h))))
+    independent_cohorts={}
+    independent_audit={}
+    for nutrient in ("TN","TP"):
+        candidates=sorted(separate_ready[nutrient],
+            key=lambda x:(x["country"],x["effluent_fraction_proxy"],x["wwtp_id"]))
+        chosen=[]
+        excluded_overlap=Counter()
+        for country in COUNTRIES:
+            rows_by_country=[x for x in candidates if x["country"]==country]
+            if len(rows_by_country)<4:
+                continue
+            q=max(2,len(rows_by_country)//4)
+            low=rows_by_country[:q]
+            high=list(reversed(rows_by_country[-q:]))
+            for stratum,group in (("low",low),("high",high)):
+                added=0
+                for entry in group:
+                    if added>=3:break
+                    if any(entry["wwtp_id"]==z["wwtp_id"] for z in chosen):
+                        continue
+                    pair=entry["measured_source_stations"][nutrient]
+                    station_ids={str(v["station_id"]) for v in pair.values()}
+                    if any(station_ids.intersection(
+                        {str(v["station_id"]) for v in z["measured_source_stations"][nutrient].values()}
+                    ) for z in chosen):
+                        excluded_overlap["station_reused"]+=1
+                        continue
+                    if any(entry["hydrobasin_l12"]==z["hydrobasin_l12"] for z in chosen):
+                        excluded_overlap["same_level12_basin"]+=1
+                        continue
+                    if any(d_km(entry,z)<30 for z in chosen):
+                        excluded_overlap["outfall_distance_under30km"]+=1
+                        continue
+                    chosen.append({**entry,
+                        "independent_source_fraction_stratum":stratum,
+                        "source_monitoring_station_ids_unique_across_cohort":True})
+                    added+=1
+        # Strict audit of independent station, catchment and geography keys
+        station_keys=[str(v["station_id"]) for e in chosen
+                      for v in e["measured_source_stations"][nutrient].values()]
+        assert len(station_keys)==len(set(station_keys))
+        assert len({e["hydrobasin_l12"] for e in chosen})==len(chosen)
+        assert all(d_km(chosen[i],chosen[j])>=30
+                  for i in range(len(chosen)) for j in range(i+1,len(chosen)))
+        independent_cohorts[nutrient]=chosen
+        independent_audit[nutrient]={
+            "original_source_only_selections_with_possible_station_reuse":len(separate_selected[nutrient]),
+            "source_monitoring_eligible_outfalls_before_independence":len(candidates),
+            "strict_monitoring_catchment_distance_independent_outfalls":len(chosen),
+            "country_and_strata":dict(Counter(
+                e["country"]+":"+e["independent_source_fraction_stratum"] for e in chosen)),
+            "source_exclusion_counts_during_strict_selection":dict(excluded_overlap),
+            "distance_min_km":min((d_km(chosen[i],chosen[j]) for i in range(len(chosen))
+                                  for j in range(i+1,len(chosen))),default=None),
+            "all_station_ids_unique":True,"all_hydrobasins_L12_distinct":True,
+        }
+    (a.out/"STRICT_STATION_INDEPENDENCE_COHORTS.json").write_text(
+        json.dumps({"source":"Peters2026 original site availability and HydroRIVERS only",
+                    "selection_made_without_plant_responses_or_nutrient_concentrations":True,
+                    "strict_independence_audit":independent_audit,
+                    "independent_source_only_cohorts":independent_cohorts},
+                    indent=2,sort_keys=True)+"\n")
+    print("GESUI_STRICT_SOURCE_INDEPENDENCE",
+          json.dumps(independent_audit,sort_keys=True),flush=True)
     report={
       "schema":"gesui_new_independent_monitored_source_cohort_v01",
       "timestamp_utc":datetime.now(timezone.utc).isoformat(),
@@ -279,6 +354,7 @@ def main():
       "stations_snapped_under_500m":dict(Counter(ss.parameter)),
       "source_outfalls_with_all_four_available_TNTP_station_positions_and_overlap":len(rows),
       "cohort_geographic_available_by_country":dict(country_count),
+      "strict_single_nutrient_outfall_independence_audit":independent_audit,
       "single_nutrient_source_only_coverage":{
           p:{"eligible_outfalls":len(separate_ready[p]),
              "countries_with_eligible_source":dict(Counter(v["country"] for v in separate_ready[p])),
