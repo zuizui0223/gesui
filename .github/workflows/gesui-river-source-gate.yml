@@ -33,11 +33,23 @@ jobs:
       - name: Retrieve source-locked HydroWASTE and official HydroRIVERS Europe
         run: |
           mkdir -p /tmp/gesui-sources
-          curl --fail --location --silent --show-error --retry 3 --max-time 140 \
+          echo "Downloading source-pinned HydroWASTE"
+          if curl --fail --location --silent --show-error --retry 1 --max-time 75 \
             https://raw.githubusercontent.com/rfordatascience/tidytuesday/774fb8cc81e563d6d30efdcb7b48a38565e923cc/data/2022/2022-09-20/HydroWASTE_v10.csv \
-            -o /tmp/gesui-sources/HydroWASTE_v10.csv
+            -o /tmp/gesui-sources/HydroWASTE_v10.csv ; then
+            echo "HydroWASTE original raw source retrieved"
+          else
+            echo "HydroWASTE raw host blocked: attempt source commit through GitHub git transport"
+            git init -q /tmp/gesui-sources/source_tidy
+            git -C /tmp/gesui-sources/source_tidy remote add origin https://github.com/rfordatascience/tidytuesday.git
+            git -C /tmp/gesui-sources/source_tidy -c protocol.version=2 fetch --no-tags --depth=1 origin 774fb8cc81e563d6d30efdcb7b48a38565e923cc
+            git -C /tmp/gesui-sources/source_tidy show FETCH_HEAD:data/2022/2022-09-20/HydroWASTE_v10.csv > /tmp/gesui-sources/HydroWASTE_v10.csv
+          fi
+          echo "HydroWASTE bytes $(wc -c < /tmp/gesui-sources/HydroWASTE_v10.csv)"
           test "$(git hash-object /tmp/gesui-sources/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
-          curl --fail --location --silent --show-error --retry 3 --max-time 240 \
+          echo "HydroWASTE SHA matches immutable original"
+          echo "Downloading official HydroRIVERS Europe/Middle East vector"
+          curl --fail --location --silent --show-error --retry 2 --max-time 240 \
             https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip \
             -o /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
           file /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
