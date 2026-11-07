@@ -1,0 +1,93 @@
+name: gesui archive real 48-site GBIF river vegetation records
+
+on:
+  push:
+    branches:
+      - "analysis/river-plantae-directional-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-directed-plantae.yml"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download successful source run only (no fresh GBIF API calls)
+        run: |
+          mkdir -p /tmp/gesui-original
+          gh run download 42365305227 --repo zuizui0223/gesui \
+            --name gesui-16-river-outfall-all-Plantae-GBIF-2011-2024 \
+            --dir /tmp/gesui-original
+      - name: Audit source snapshot and preserve the original five output files
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,shutil
+          from pathlib import Path
+          src=Path("/tmp/gesui-original")
+          names=("directional_results.json","plantae_site_registry.csv",
+                 "plantae_raw_species_facets.json","plantae_site_species_records.csv",
+                 "preplant_sites_and_estimands.json")
+          for n in names:assert (src/n).is_file() and (src/n).stat().st_size>0,n
+          result=json.loads((src/"directional_results.json").read_text())
+          raw=json.loads((src/"plantae_raw_species_facets.json").read_text())
+          design=json.loads((src/"preplant_sites_and_estimands.json").read_text())
+          assert result["status"]=="OBSERVATIONAL_GBIF_ALL_PLANTAE_DIRECTED_REACH_NOT_WASTEWATER_EFFECT"
+          assert (result["site_count"],result["source_selected_wwtps"])==(48,16)
+          assert (result["primary_depth30_and_balance_n"],result["sensitivity_depth10_n"])==(12,14)
+          assert len(raw["facets"])==48 and len(design["site_units"])==48
+          assert len({int(k) for o in raw["facets"] for k in o["species_key_record_counts"]})==1402
+          assert abs(result["primary_source_fraction_association"]["spearman_rho"]-0.1258741258741259)<1e-10
+          assert result["primary_source_fraction_association"]["n"]==12
+          assert abs(result["depth10_association_sensitivity"]["spearman_rho"]-0.17362637362637365)<1e-10
+          with (src/"plantae_site_species_records.csv").open(newline="") as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)>0
+          dest=Path("results/directed_river_plantae_20261107")
+          dest.mkdir(parents=True,exist_ok=True)
+          for n in names:shutil.copyfile(src/n,dest/n)
+          receipt={
+             "original_success_run":42365305227,
+             "original_run_sha":"4785e97b894a28bb6077986bbc7e0e9aa8cb1f96",
+             "original_artifact_id":13570849741,
+             "physical_source_run":42364866919,
+             "raw_gbif_site_facet_count":48,
+             "unique_gbif_speciesKeys":1402,
+             "site_species_table_rows":len(rows),
+             "all_original_files_sha256":{n:hashlib.sha256((src/n).read_bytes()).hexdigest() for n in names},
+             "original_source_frozen_before_biological_response":True,
+             "new_live_gbif_queries_in_this_archival_run":0,
+          }
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2,sort_keys=True)+"\n")
+          readme="""# Real source-locked river Plantae dataset (16 outfalls, 48 locations)
+
+          **Original analysis:** https://github.com/zuizui0223/gesui/actions/runs/42365305227 (SUCCESS). Source geometry: https://github.com/zuizui0223/gesui/actions/runs/42364866919, fixed 16 original selected outfalls.
+
+          Actual GBIF 2011–2024 Plantae (not butterfly-host-only) speciesKey observations at 16 directed U2/U1/D1 river triplets; 48/48 sites had plant records; 1,402 unique indexed speciesKeys across all sites. Each source file has a content SHA256 in SOURCE_RECEIPT.json. No additional GBIF request is made by archive preservation.
+
+          **Prespecified strict response quality:** 12/16 triplets contain >=30 species-keyed records and >=6 indexed plant species at all three sites, with max/min site species-keyed record imbalance <=10. Exact record-rarefaction to 30, then richness curvature Y = [log1p(S_D1)−log1p(S_U1)] − [log1p(S_U1)−log1p(S_U2)].
+
+          Modeled wastewater water fraction vs Y: Spearman **rho +0.125874**, n=12, **exploratory p=0.69668**. Sensitivity with rarefaction to 10 records: rho +0.173626, n=14, p=0.55277. Neither shows a clear nutrient-mediated vegetation response. The primary high-minus-low mean Y is -0.059678 (7 high vs 5 low qualified), not positive.
+
+          Companion Jaccard raw species-set turnover is strongly affected by geographic segment lengths and GBIF detection. It must not be interpreted as a source-specific effluent effect or species dispersal without matching distance and observation intensity.
+
+          **Caveats:** the third-party HydroRIVERS v1 Europe conversion has not been independently verified against original official bytes; hydrogeomorphic source similarity does not measure N/P load. U1 and D1 are on different river reaches, but different distances, settlements and preexisting upstream discharges remain uncontrolled. GBIF records are not vegetation cover/abundance, and Plantae includes nonvascular taxa. This is the first independently acquired all-plant directional river observation table, **not an N causal test**. The older chocho port/host positive findings remain unchanged.
+          """
+          (dest/"RESULTS.md").write_text("\n".join(x.strip() for x in readme.splitlines())+"\n")
+          print("GESUI_RIVER_PLANTS_SOURCE_ARCHIVE_VERIFIED",json.dumps(receipt,sort_keys=True))
+          PY
+      - name: Commit exact original source tables and results in the research branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/directed_river_plantae_20261107
+          git commit -m "Freeze 48 real river all-Plantae GBIF sites, 1402 species keys, and null result"
+          git push origin HEAD:analysis/river-plantae-directional-20261107
