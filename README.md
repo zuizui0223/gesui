@@ -36,3 +36,13 @@ These tests establish preservation and input hygiene, **not** independent re-ana
 ## Competing biological mechanisms
 
 The new [water-subsidy vs nutrient-enrichment vs contaminant-stress framework](docs/MECHANISM_CONTRASTS.md) separates effluent-supported dry-season habitats from N-driven compositional filtering and water-quality stress. This is a **pre-analysis hypothesis set**, not an empirical result from chocho.
+
+
+## 実際に完了した新規解析（2026年11月7日・探索的Draft）
+
+- [河川ネットワークの検証・PR #3](https://github.com/zuizui0223/gesui/pull/3) — HydroWASTE 58,502施設の原本確認、欧州の条件適合4,713施設の **HYRIV_ID が第三者版HydroRIVERSの河段に4,713/4,713照合**。4,497件の上流2→放流河段→下流1の連続河段、3,569非重複候補から植物を見る前に16放流口を選んだ。推定放流口と対応河道のずれは中央値約25m、最大約47m。公式版の同一バイト／全トポロジーは未照合。[実データGIS CI成功](https://github.com/zuizui0223/gesui/actions/runs/42364866919)。
+- [河川沿いの植物の初回観測・PR #4](https://github.com/zuizui0223/gesui/pull/4) — 16放流口×上流2地点／下流1地点=48地点の**実際のGBIF Plantae記録**、**1,402別speciesKey、5,394地点×植物種記録行**を取得。主解析は希薄化30記録＋観測量の均衡を満たす12放流口。モデル処理水割合と「下流変化−上流背景変化」の関連 **ρ=+0.1259（n=12、探索的p=0.6967）**、10記録の感度分析 **ρ=+0.1736（n=14、p=0.5528）**。明確な下水固有の植物群集効果は未確認。[元GBIF実行成功](https://github.com/zuizui0223/gesui/actions/runs/42365305227)／[独立5,394行の監査成功](https://github.com/zuizui0223/gesui/actions/runs/42365622805)。
+- [先行20地点・PR #2](https://github.com/zuizui0223/gesui/pull/2) — 推定放流口対施設位置の植物記録（河川上下流比較ではない）。正の一貫した関係なし、ρ=−0.150、n=9、p=0.700。
+- **次の因果識別の入口**： [実測TN/TPと放流口を結ぶIssue #5](https://github.com/zuizui0223/gesui/issues/5)。2026年公開の[全球河川栄養塩測定データ](https://doi.org/10.1038/s41597-026-07625-1)と[EEA Waterbase 2026](https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1)を地理・水文・年月で照合する計画。**照合と栄養塩の生態効果解析は未実行**。
+
+**重要**：この新しい結果はDraftブランチに存在し、mainの研究用データを無断で合併していない。河道上の地点の種記録差は、直接の下水N/P暴露、植物個体数、定着・分散、因果効果を意味しない。元chochoの肯定結果と矛盾する分析ではない。
