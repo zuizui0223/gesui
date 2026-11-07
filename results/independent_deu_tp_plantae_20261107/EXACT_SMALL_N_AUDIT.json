@@ -1,0 +1,21 @@
+{
+  "LOO_rho_by_excluded_WWTP": {
+    "21144": 0.7,
+    "21413": 0.9,
+    "21712": 0.7,
+    "21737": 0.9,
+    "21749": 0.7,
+    "21945": 1.0
+  },
+  "LOO_rho_max": 1.0,
+  "LOO_rho_min": 0.7,
+  "absolute_rho_at_least_original_count": 42,
+  "all_country": "DEU",
+  "interpretation": "Exact p is a small-n diagnostic of rank alignment under permutation exchangeability; not a catchment exchangeability or WWTP causal test.",
+  "n_independent_outfalls": 6,
+  "original_rho": 0.8285714285714285,
+  "permutations_exhaustive": 720,
+  "schema": "gesui_DEU_6_TP_source_fixed_exact_rank_permutation_v01",
+  "standard_scipy_two_sided_approx_p": 0.04156268221574335,
+  "two_sided_exact_rank_permutation_p": 0.058333333333333334
+}
