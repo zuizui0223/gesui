@@ -1,0 +1,67 @@
+name: gesui six independent German river TP monitoring + new Plantae GBIF pilot
+
+on:
+  push:
+    branches:
+      - "analysis/deu-independent-tp-plants-20261107"
+    paths:
+      - "scripts/gesui_deu_independent_tp_observed.py"
+      - "scripts/gesui_deu_independent_tp_plant_link.py"
+      - "docs/INDEPENDENT_DEU_TP_PLANT_PILOT_FROZEN.md"
+      - ".github/workflows/gesui-deu-independent-tp-plants.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  new-source-and-plant-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install small-source statistical dependencies
+        run: python -m pip install --quiet numpy pandas scipy requests pytest
+      - name: Compile source and verify source archive
+        run: |
+          python -m py_compile scripts/gesui_deu_independent_tp_observed.py
+          python -m py_compile scripts/gesui_deu_independent_tp_plant_link.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("results/independent_deu_tp_source_cohort_20261107")
+          a=json.loads((root/"STRICT_STATION_INDEPENDENCE_COHORTS.json").read_text())
+          b=a["independent_source_only_cohorts"]
+          assert len(b["TP"])==6 and len(b["TN"])==0
+          assert len({v["hydrobasin_l12"] for v in b["TP"]})==6
+          assert len({x["station_id"] for v in b["TP"] for x in
+                      v["measured_source_stations"]["TP"].values()})==12
+          assert a["selection_made_without_plant_responses_or_nutrient_concentrations"] is True
+          print("GESUI_SOURCE_LOCKED_PRE_MEASUREMENT_6_TP_18_GBIF_SITE_PLAN")
+          PY
+      - name: Read source-verified measured TP at the frozen 12 stations, 2011-2022
+        run: |
+          mkdir -p /tmp/gesui-new-deu
+          python -u scripts/gesui_deu_independent_tp_observed.py \
+            --source results/independent_deu_tp_source_cohort_20261107/STRICT_STATION_INDEPENDENCE_COHORTS.json \
+            --out /tmp/gesui-new-deu
+      - name: Query new Plantae speciesKey facets at all 18 source-selected stream sites
+        run: |
+          python -u scripts/gesui_deu_independent_tp_plant_link.py \
+            --source results/independent_deu_tp_source_cohort_20261107/STRICT_STATION_INDEPENDENCE_COHORTS.json \
+            --tp-results /tmp/gesui-new-deu/TP_SOURCE_RESULTS.json \
+            --out /tmp/gesui-new-deu
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-independent-DEU-6-TP-and-18-Plantae-source-audit
+          path: /tmp/gesui-new-deu/
+          if-no-files-found: warn
+          retention-days: 30
