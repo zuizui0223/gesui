@@ -1,0 +1,129 @@
+{
+  "HydroRIVERS_GeoParquet_SHA256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "HydroRIVERS_independent_official_validation": false,
+  "HydroWASTE_git_blob": "0506f873f6541c5f324478894a9731290d722bce",
+  "Peters_original_verified_source_files": [
+    {
+      "md5": "b1501b0f40cc235a6259c2cc326e0d1b",
+      "name": "TN.2_meta.csv",
+      "original_bytes": 1413055,
+      "original_figshare_file_id": 70896135
+    },
+    {
+      "md5": "d282fc25c53f9e1c84450efa4b0236a6",
+      "name": "TP.2_meta.csv",
+      "original_bytes": 2977837,
+      "original_figshare_file_id": 70896147
+    },
+    {
+      "md5": "2832ad4aef4b57ec0160a6c8ac62b56d",
+      "name": "TN.2_years.csv",
+      "original_bytes": 942333,
+      "original_figshare_file_id": 70896138
+    },
+    {
+      "md5": "dd5c5776170ceef09676830659c9c21d",
+      "name": "TP.2_years.csv",
+      "original_bytes": 2103307,
+      "original_figshare_file_id": 70896156
+    },
+    {
+      "md5": "75b11044141464050031ec1ff191662c",
+      "name": "TN.2_-_Harmonised.zip",
+      "original_bytes": 10897672,
+      "original_figshare_file_id": 70896279
+    },
+    {
+      "md5": "b596dbe9833c49426147a99f10f3fe31",
+      "name": "TP.2_-_Harmonised.zip",
+      "original_bytes": 25003722,
+      "original_figshare_file_id": 70896288
+    }
+  ],
+  "Peters_source_doi": "10.25400/lincolnuninz.30546371.v5",
+  "caveats": [
+    "No observed TN/TP concentration used for selection; original station metadata envelopes may still hide sparse actual years",
+    "Source available=1 and site file exists but individual observation dates have not been checked",
+    "Natural river branch/other WWTP exposure and distance imbalance not controlled",
+    "Mirror is a third-party converted river network, not independently matched official original",
+    "Old 16 outfalls must remain separate from new sample and should not be mixed for unbiased generalization",
+    "A new monitoring-based sample selection enriches monitored catchments and is not a population-prevalence estimator"
+  ],
+  "cohort_geographic_available_by_country": {},
+  "new_candidate_outfalls_after_old16_exclusion": 3553,
+  "observation_values_used_for_selection": false,
+  "old16_excluded_from_new_cohort": true,
+  "original_source_candidates_nonoverlap": 3569,
+  "schema": "gesui_new_independent_monitored_source_cohort_v01",
+  "selected_by_country": {},
+  "selection_before_any_new_biological_response": true,
+  "single_nutrient_source_only_coverage": {
+    "TN": {
+      "countries_with_eligible_source": {
+        "CZE": 3
+      },
+      "eligible_outfalls": 3,
+      "selected_by_country": {},
+      "selected_new_outfalls": 0
+    },
+    "TP": {
+      "countries_with_eligible_source": {
+        "AUT": 3,
+        "BEL": 1,
+        "CHE": 2,
+        "DEU": 40
+      },
+      "eligible_outfalls": 46,
+      "selected_by_country": {
+        "DEU": 6
+      },
+      "selected_new_outfalls": 6
+    }
+  },
+  "source_measurement_values_loaded": false,
+  "source_monitoring_metadata_counts": {
+    "TN": {
+      "all_original_metadata": 19424,
+      "spatiotemporal_available_and_zip_confirmed": 523
+    },
+    "TP": {
+      "all_original_metadata": 41639,
+      "spatiotemporal_available_and_zip_confirmed": 1785
+    }
+  },
+  "source_only_stratified_selected_outfalls": 0,
+  "source_outfalls_with_all_four_available_TNTP_station_positions_and_overlap": 0,
+  "stations_snapped_under_500m": {
+    "TN": 417,
+    "TP": 1659
+  },
+  "strict_single_nutrient_outfall_independence_audit": {
+    "TN": {
+      "all_hydrobasins_L12_distinct": true,
+      "all_station_ids_unique": true,
+      "country_and_strata": {},
+      "distance_min_km": null,
+      "original_source_only_selections_with_possible_station_reuse": 0,
+      "source_exclusion_counts_during_strict_selection": {},
+      "source_monitoring_eligible_outfalls_before_independence": 3,
+      "strict_monitoring_catchment_distance_independent_outfalls": 0
+    },
+    "TP": {
+      "all_hydrobasins_L12_distinct": true,
+      "all_station_ids_unique": true,
+      "country_and_strata": {
+        "DEU:high": 3,
+        "DEU:low": 3
+      },
+      "distance_min_km": 57.28443399536634,
+      "original_source_only_selections_with_possible_station_reuse": 6,
+      "source_exclusion_counts_during_strict_selection": {
+        "outfall_distance_under30km": 1,
+        "station_reused": 10
+      },
+      "source_monitoring_eligible_outfalls_before_independence": 46,
+      "strict_monitoring_catchment_distance_independent_outfalls": 6
+    }
+  },
+  "timestamp_utc": "2026-11-07T12:11:27.934807+00:00"
+}

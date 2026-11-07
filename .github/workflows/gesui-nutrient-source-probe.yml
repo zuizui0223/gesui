@@ -1,0 +1,33 @@
+name: gesui public TN TP station data source metadata gate (no bulk downloads)
+
+on:
+  push:
+    branches:
+      - "analysis/nutrient-source-coverage-20261107"
+    paths:
+      - "scripts/probe_peters_eea_2026.py"
+      - ".github/workflows/gesui-nutrient-source-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet requests
+      - name: Probe only metadata, headers and URLs; abort downloads at 600 kB per source
+        run: python scripts/probe_peters_eea_2026.py --out /tmp/gesui_nutrient_sources/source_probe.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nutrient-source-metadata-probe-20261107
+          path: /tmp/gesui_nutrient_sources/source_probe.json
+          retention-days: 30
+          if-no-files-found: warn

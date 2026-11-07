@@ -1,0 +1,33 @@
+name: gesui fixed 24249 TN TP measured source ZIP format gate
+
+on:
+  push:
+    branches:
+      - "analysis/nutrient-source-coverage-20261107"
+    paths:
+      - "scripts/inspect_focal_tntp_measured_zip.py"
+      - ".github/workflows/gesui-focal-tntp-zip-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet requests
+      - name: Verify source-locked v5 original TN TP measured ZIP bytes and station file names
+        run: python -u scripts/inspect_focal_tntp_measured_zip.py --out /tmp/gesui_focal/zip_schema.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-focal24249-source-observed-zip-schema
+          path: /tmp/gesui_focal/
+          if-no-files-found: warn
+          retention-days: 30

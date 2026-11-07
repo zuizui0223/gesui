@@ -1,0 +1,53 @@
+name: gesui independent monitored-source outfalls from 3569 potential river chains
+
+on:
+  push:
+    branches:
+      - "analysis/nutrient-source-coverage-20261107"
+    paths:
+      - "scripts/gesui_independent_tntp_source_cohort.py"
+      - ".github/workflows/gesui-independent-tntp-source-cohort.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install tools
+        run: python -m pip install --quiet numpy pandas scipy geopandas shapely pyarrow pyogrio requests
+      - name: Recreate original source-verified 58502 WWTP and Europe river
+        run: |
+          mkdir -p /tmp/gesui-independent-tntp
+          curl --fail --location --silent --show-error --retry 2 --max-time 120 \
+            https://raw.githubusercontent.com/rfordatascience/tidytuesday/774fb8cc81e563d6d30efdcb7b48a38565e923cc/data/2022/2022-09-20/HydroWASTE_v10.csv \
+            -o /tmp/gesui-independent-tntp/HydroWASTE_v10.csv
+          test "$(git hash-object /tmp/gesui-independent-tntp/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-independent-tntp/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-independent-tntp/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+      - name: Original 3569 river candidates x source-available TN and TP, never read GBIF
+        run: |
+          python -u scripts/gesui_independent_tntp_source_cohort.py \
+            --hydrowaste /tmp/gesui-independent-tntp/HydroWASTE_v10.csv \
+            --river-parquet /tmp/gesui-independent-tntp/HydroRIVERS_v10_eu.geoparquet \
+            --old16 results/hydrorivers_eu_source_gate_20261107/candidate_site_design.json \
+            --out /tmp/gesui-independent-tntp/results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-independent-monitored-TNTP-source-only-cohort
+          path: /tmp/gesui-independent-tntp/results/
+          if-no-files-found: warn
+          retention-days: 30

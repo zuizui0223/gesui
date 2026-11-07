@@ -1,0 +1,157 @@
+{
+  "all_source_files_md5_verified": true,
+  "by_nutrient": {
+    "TN": {
+      "0.5": {
+        "number_sites_with_station_within_radius": 0,
+        "sites_d1_with_station": 0,
+        "sites_u1_with_station": 0,
+        "sites_u2_with_station": 0,
+        "source_outfalls_with_all_three_sites_near_station": 0,
+        "source_outfalls_with_station_near_any_site": 0,
+        "source_outfalls_with_u1_and_d1_both_near_station": 0,
+        "unique_monitoring_stations_in_any_radius": 0
+      },
+      "1": {
+        "number_sites_with_station_within_radius": 0,
+        "sites_d1_with_station": 0,
+        "sites_u1_with_station": 0,
+        "sites_u2_with_station": 0,
+        "source_outfalls_with_all_three_sites_near_station": 0,
+        "source_outfalls_with_station_near_any_site": 0,
+        "source_outfalls_with_u1_and_d1_both_near_station": 0,
+        "unique_monitoring_stations_in_any_radius": 0
+      },
+      "10": {
+        "number_sites_with_station_within_radius": 12,
+        "sites_d1_with_station": 6,
+        "sites_u1_with_station": 3,
+        "sites_u2_with_station": 3,
+        "source_outfalls_with_all_three_sites_near_station": 3,
+        "source_outfalls_with_station_near_any_site": 6,
+        "source_outfalls_with_u1_and_d1_both_near_station": 3,
+        "unique_monitoring_stations_in_any_radius": 11
+      },
+      "2": {
+        "number_sites_with_station_within_radius": 2,
+        "sites_d1_with_station": 1,
+        "sites_u1_with_station": 0,
+        "sites_u2_with_station": 1,
+        "source_outfalls_with_all_three_sites_near_station": 0,
+        "source_outfalls_with_station_near_any_site": 2,
+        "source_outfalls_with_u1_and_d1_both_near_station": 0,
+        "unique_monitoring_stations_in_any_radius": 3
+      },
+      "5": {
+        "number_sites_with_station_within_radius": 5,
+        "sites_d1_with_station": 3,
+        "sites_u1_with_station": 1,
+        "sites_u2_with_station": 1,
+        "source_outfalls_with_all_three_sites_near_station": 0,
+        "source_outfalls_with_station_near_any_site": 4,
+        "source_outfalls_with_u1_and_d1_both_near_station": 0,
+        "unique_monitoring_stations_in_any_radius": 6
+      }
+    },
+    "TP": {
+      "0.5": {
+        "number_sites_with_station_within_radius": 0,
+        "sites_d1_with_station": 0,
+        "sites_u1_with_station": 0,
+        "sites_u2_with_station": 0,
+        "source_outfalls_with_all_three_sites_near_station": 0,
+        "source_outfalls_with_station_near_any_site": 0,
+        "source_outfalls_with_u1_and_d1_both_near_station": 0,
+        "unique_monitoring_stations_in_any_radius": 0
+      },
+      "1": {
+        "number_sites_with_station_within_radius": 0,
+        "sites_d1_with_station": 0,
+        "sites_u1_with_station": 0,
+        "sites_u2_with_station": 0,
+        "source_outfalls_with_all_three_sites_near_station": 0,
+        "source_outfalls_with_station_near_any_site": 0,
+        "source_outfalls_with_u1_and_d1_both_near_station": 0,
+        "unique_monitoring_stations_in_any_radius": 0
+      },
+      "10": {
+        "number_sites_with_station_within_radius": 16,
+        "sites_d1_with_station": 8,
+        "sites_u1_with_station": 4,
+        "sites_u2_with_station": 4,
+        "source_outfalls_with_all_three_sites_near_station": 4,
+        "source_outfalls_with_station_near_any_site": 8,
+        "source_outfalls_with_u1_and_d1_both_near_station": 4,
+        "unique_monitoring_stations_in_any_radius": 17
+      },
+      "2": {
+        "number_sites_with_station_within_radius": 3,
+        "sites_d1_with_station": 1,
+        "sites_u1_with_station": 1,
+        "sites_u2_with_station": 1,
+        "source_outfalls_with_all_three_sites_near_station": 0,
+        "source_outfalls_with_station_near_any_site": 2,
+        "source_outfalls_with_u1_and_d1_both_near_station": 1,
+        "unique_monitoring_stations_in_any_radius": 4
+      },
+      "5": {
+        "number_sites_with_station_within_radius": 7,
+        "sites_d1_with_station": 3,
+        "sites_u1_with_station": 2,
+        "sites_u2_with_station": 2,
+        "source_outfalls_with_all_three_sites_near_station": 1,
+        "source_outfalls_with_station_near_any_site": 4,
+        "source_outfalls_with_u1_and_d1_both_near_station": 1,
+        "unique_monitoring_stations_in_any_radius": 8
+      }
+    }
+  },
+  "date": "2026-11-07T11:47:47.050292+00:00",
+  "date_gate": "metadata start/end overlap 2011-2024 PLUS .2_years start/end overlap",
+  "files": [
+    {
+      "file": "TN.2_meta.csv",
+      "file_id": 70896135,
+      "md5": "b1501b0f40cc235a6259c2cc326e0d1b",
+      "original_download_size_bytes": 1413055,
+      "original_n": 19424
+    },
+    {
+      "file": "TN.2_years.csv",
+      "file_id": 70896138,
+      "md5": "2832ad4aef4b57ec0160a6c8ac62b56d",
+      "original_download_size_bytes": 942333,
+      "original_n": 15409
+    },
+    {
+      "file": "TP.2_meta.csv",
+      "file_id": 70896147,
+      "md5": "d282fc25c53f9e1c84450efa4b0236a6",
+      "original_download_size_bytes": 2977837,
+      "original_n": 41639
+    },
+    {
+      "file": "TP.2_years.csv",
+      "file_id": 70896156,
+      "md5": "dd5c5776170ceef09676830659c9c21d",
+      "original_download_size_bytes": 2103307,
+      "original_n": 34898
+    }
+  ],
+  "measurement_concentrations_loaded": false,
+  "proximity_km": [
+    0.5,
+    1,
+    2,
+    5,
+    10
+  ],
+  "schema": "gesui_Peters2026_real_TN_TP_metadata_spatial_cover_gate_v01",
+  "site_to_station_river_topology_verified": false,
+  "source_doi": "10.25400/lincolnuninz.30546371.v5",
+  "source_license": "CC BY 4.0",
+  "station_candidate_pairs_within_10km": 48,
+  "study_outfalls": 16,
+  "study_sites": 48,
+  "warning": "A station near a plant site may lie in a different water body; metadata time envelope does not establish actual measurements in the requested years. This is a source support census only."
+}

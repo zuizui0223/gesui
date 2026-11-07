@@ -1,0 +1,39 @@
+name: gesui Peters 2026 measured TN TP station-site proximity support
+
+on:
+  push:
+    branches:
+      - "analysis/nutrient-source-coverage-20261107"
+    paths:
+      - "scripts/gesui_tn_tp_station_coverage.py"
+      - ".github/workflows/gesui-peters-station-coverage.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy scipy pandas requests
+      - name: Source-locked TN TP monitoring station proximity (NOT causal river matching)
+        run: |
+          python -u scripts/gesui_tn_tp_station_coverage.py \
+            --sites results/directed_river_plantae_20261107/plantae_site_registry.csv \
+            --outdir /tmp/gesui_nutrient_station_coverage/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Peters2026-TNTP-station-site-coverage
+          path: /tmp/gesui_nutrient_station_coverage/
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,160 @@
+{
+  "schema": "gesui_focal_24249_Peters2026_measured_NP_source_gate_v01",
+  "retrieved_utc": "2026-11-07T11:57:35.183789+00:00",
+  "source_doi": "10.25400/lincolnuninz.30546371.v5",
+  "source_file_checksums": [
+    {
+      "name": "TN.2_-_Harmonised.zip",
+      "original_id": 70896279,
+      "md5": "75b11044141464050031ec1ff191662c",
+      "actual_bytes": 10897672,
+      "license": "CC BY 4.0"
+    },
+    {
+      "name": "TP.2_-_Harmonised.zip",
+      "original_id": 70896288,
+      "md5": "b596dbe9833c49426147a99f10f3fe31",
+      "actual_bytes": 25003722,
+      "license": "CC BY 4.0"
+    },
+    {
+      "name": "TN.2_meta.csv",
+      "original_id": 70896135,
+      "md5": "b1501b0f40cc235a6259c2cc326e0d1b",
+      "actual_bytes": 1413055,
+      "license": "CC BY 4.0"
+    },
+    {
+      "name": "TP.2_meta.csv",
+      "original_id": 70896147,
+      "md5": "d282fc25c53f9e1c84450efa4b0236a6",
+      "actual_bytes": 2977837,
+      "license": "CC BY 4.0"
+    },
+    {
+      "name": "TN.2_unavailable_ID.csv",
+      "original_id": 70896186,
+      "md5": "eaf7866ba4683e389d2f1aafe194d09d",
+      "actual_bytes": 8826,
+      "license": "CC BY 4.0"
+    }
+  ],
+  "outfall_id": 24249,
+  "estimated_ww_flow_fraction": 1.7102364894632606e-06,
+  "data_source": "harmonised_observed_concentration_mg_L_no_WRTDS",
+  "predeclared_up_down_stations": {
+    "TN": {
+      "upstream": "WQ016702",
+      "downstream": "WQ016695"
+    },
+    "TP": {
+      "upstream": "WQ976406",
+      "downstream": "WQ977059",
+      "alternative_upstream": "WQ977062"
+    }
+  },
+  "per_station_source_qc": {
+    "TN_upstream": {
+      "station_id": "WQ016702",
+      "source_zip_site_file_exists": false,
+      "listed_in_TN_unavailable_ID_file": true,
+      "metadata_available_flag": "0",
+      "metadata_date_first": "2012-03-21",
+      "metadata_date_last": "2013-12-16"
+    },
+    "TN_downstream": {
+      "station_id": "WQ016695",
+      "source_zip_site_file_exists": false,
+      "listed_in_TN_unavailable_ID_file": true,
+      "metadata_available_flag": "0",
+      "metadata_date_first": "2008-01-16",
+      "metadata_date_last": "2013-12-16"
+    },
+    "TP_upstream": {
+      "station_id": "WQ976406",
+      "source_zip_site_file_exists": true,
+      "listed_in_TN_unavailable_ID_file": null,
+      "metadata_available_flag": "1",
+      "metadata_date_first": "2008-01-02",
+      "metadata_date_last": "2022-12-13",
+      "source_rows": 271,
+      "missing_date_or_value": 0,
+      "nonpositive_values": 0,
+      "usable_positive_obs": 271,
+      "earliest_obs": "2008-01-02",
+      "latest_obs": "2022-12-13"
+    },
+    "TP_downstream": {
+      "station_id": "WQ977059",
+      "source_zip_site_file_exists": true,
+      "listed_in_TN_unavailable_ID_file": null,
+      "metadata_available_flag": "1",
+      "metadata_date_first": "2008-01-02",
+      "metadata_date_last": "2022-12-19",
+      "source_rows": 293,
+      "missing_date_or_value": 0,
+      "nonpositive_values": 0,
+      "usable_positive_obs": 293,
+      "earliest_obs": "2008-01-02",
+      "latest_obs": "2022-12-19"
+    },
+    "TP_alternative_upstream": {
+      "station_id": "WQ977062",
+      "source_zip_site_file_exists": true,
+      "listed_in_TN_unavailable_ID_file": null,
+      "metadata_available_flag": "1",
+      "metadata_date_first": "2021-01-11",
+      "metadata_date_last": "2022-12-19",
+      "source_rows": 48,
+      "missing_date_or_value": 0,
+      "nonpositive_values": 0,
+      "usable_positive_obs": 48,
+      "earliest_obs": "2021-01-11",
+      "latest_obs": "2022-12-19"
+    }
+  },
+  "TN_both_primary_site_files_available": false,
+  "TP_both_primary_site_files_available": true,
+  "combined_TN_TP_primary_estimand_testable": false,
+  "analyses": {
+    "common_2012_2013": {
+      "period": "2012-2013",
+      "upstream_original_measurement_count_in_window": 52,
+      "downstream_original_measurement_count_in_window": 49,
+      "valid_same_calendar_month_pairs": 24,
+      "sufficient_six_month_pairs": true,
+      "downstream_over_upstream_months": 15,
+      "equal_months": 3,
+      "median_monthly_downstream_upstream_ratio": 1.1666666666666667,
+      "mean_log_ratio": 0.13613949093659508,
+      "median_log_ratio": 0.15415067982725836,
+      "monthly_values_are_independent_observations": false
+    },
+    "TP_premarked_2008_2022_sensitivity": {
+      "period": "2008-2022",
+      "upstream_original_measurement_count_in_window": 271,
+      "downstream_original_measurement_count_in_window": 293,
+      "valid_same_calendar_month_pairs": 179,
+      "sufficient_six_month_pairs": true,
+      "downstream_over_upstream_months": 128,
+      "equal_months": 13,
+      "median_monthly_downstream_upstream_ratio": 1.40625,
+      "mean_log_ratio": 0.2734126481302434,
+      "median_log_ratio": 0.3409265869705932,
+      "monthly_values_are_independent_observations": false
+    },
+    "TN_common_2012_2013": {
+      "status": "NOT_TESTABLE_SOURCE_ID_MISSING_FROM_PUBLIC_HARMONISED_ZIP",
+      "no_imputation_or_modelled_values_substituted": true
+    }
+  },
+  "primary_result_status": "NOT_TESTABLE",
+  "cautions": [
+    "Observations are in-river, NOT WWTP effluent concentrations or loads",
+    "One outfall, with extreme dilution and asymmetric network station distances",
+    "Upstream and downstream locations may receive other pollution from multiple sources",
+    "Source metadata overlap is not proof of concurrent concentration measures",
+    "No plant trait-response fitted or general wastewater mechanism identified",
+    "No unavailable TN source station records reconstructed from estimates"
+  ]
+}

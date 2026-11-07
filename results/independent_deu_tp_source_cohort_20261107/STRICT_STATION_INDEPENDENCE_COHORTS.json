@@ -1,0 +1,427 @@
+{
+  "independent_source_only_cohorts": {
+    "TN": [],
+    "TP": [
+      {
+        "country": "DEU",
+        "d1_lat": 48.89644352753863,
+        "d1_lon": 8.142276860872002,
+        "d1_river_id": 20401559,
+        "distance_u1_d1_km": 8.100846485028738,
+        "distance_u2_d1_km": 11.591854503610493,
+        "distance_u2_u1_km": 3.519247981833767,
+        "effluent_fraction_proxy": 6.535884267795967e-06,
+        "estimated_river_m3_sec": 1254.797,
+        "estimated_ww_m3_day": 708.589,
+        "hydrobasin_l12": "2120457340",
+        "independent_source_fraction_stratum": "low",
+        "location_quality": 2,
+        "measured_source_stations": {
+          "TP": {
+            "DOWNSTREAM": {
+              "lat": 48.92298,
+              "lon": 8.16898,
+              "network_distance_km": 11.64,
+              "side": "DOWNSTREAM",
+              "source_end": "2022-12-12",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 10.204915190934509,
+              "source_start": "2008-01-01",
+              "station_hyriv_id": 20400396,
+              "station_id": "WQ976439"
+            },
+            "UPSTREAM": {
+              "lat": 48.80998,
+              "lon": 8.00986,
+              "network_distance_km": 15.31,
+              "side": "UPSTREAM",
+              "source_end": "2023-12-28",
+              "source_observation_total": 23,
+              "source_snap_distance_m": 7.354631342640337,
+              "source_start": "1997-01-13",
+              "station_hyriv_id": 20404034,
+              "station_id": "WQ998175"
+            }
+          }
+        },
+        "outfall_lat": 48.831,
+        "outfall_lon": 8.102,
+        "parameter_specific_monitored_ready": "TP",
+        "river_hydraulic_chain": "U2>U1>OUTFALL_REACH>D1",
+        "river_id": 20402757,
+        "source_monitoring_station_ids_unique_across_cohort": true,
+        "source_status": "Not Reported",
+        "two_station_common_time_envelope": [
+          "2008-01-01",
+          "2022-12-12"
+        ],
+        "u1_lat": 48.82769352753861,
+        "u1_lon": 8.105639805793592,
+        "u1_river_id": 20402971,
+        "u2_lat": 48.79974724928365,
+        "u2_lon": 8.083080582617065,
+        "u2_river_id": 20403804,
+        "upstream_junction_count": 2,
+        "waste_quality": 1,
+        "wwtp_id": 21144,
+        "wwtp_lat": 48.786,
+        "wwtp_lon": 8.077
+      },
+      {
+        "country": "DEU",
+        "d1_lat": 48.57291666666608,
+        "d1_lon": 13.4874999999994,
+        "d1_river_id": 20409564,
+        "distance_u1_d1_km": 3.4209123883026007,
+        "distance_u2_d1_km": 7.227649232134186,
+        "distance_u2_u1_km": 3.9677454811238366,
+        "effluent_fraction_proxy": 9.569074503488547e-06,
+        "estimated_river_m3_sec": 709.48,
+        "estimated_ww_m3_day": 586.581,
+        "hydrobasin_l12": "2120465610",
+        "independent_source_fraction_stratum": "low",
+        "location_quality": 2,
+        "measured_source_stations": {
+          "TP": {
+            "DOWNSTREAM": {
+              "lat": 48.52069,
+              "lon": 13.70216,
+              "network_distance_km": 19.45,
+              "side": "DOWNSTREAM",
+              "source_end": "2022-12-19",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 124.1511624045318,
+              "source_start": "2008-01-02",
+              "station_hyriv_id": 20412242,
+              "station_id": "WQ977059"
+            },
+            "UPSTREAM": {
+              "lat": 48.69385,
+              "lon": 13.45266,
+              "network_distance_km": 15.45,
+              "side": "UPSTREAM",
+              "source_end": "2022-12-13",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 226.4231510323923,
+              "source_start": "2008-01-02",
+              "station_hyriv_id": 20406368,
+              "station_id": "WQ976411"
+            }
+          }
+        },
+        "outfall_lat": 48.577,
+        "outfall_lon": 13.477,
+        "parameter_specific_monitored_ready": "TP",
+        "river_hydraulic_chain": "U2>U1>OUTFALL_REACH>D1",
+        "river_id": 20409563,
+        "source_monitoring_station_ids_unique_across_cohort": true,
+        "source_status": "Not Reported",
+        "two_station_common_time_envelope": [
+          "2008-01-02",
+          "2022-12-13"
+        ],
+        "u1_lat": 48.57438980579359,
+        "u1_lon": 13.441056472460199,
+        "u1_river_id": 20409561,
+        "u2_lat": 48.590446278254355,
+        "u2_lon": 13.392887055077788,
+        "u2_river_id": 20409451,
+        "upstream_junction_count": 2,
+        "waste_quality": 1,
+        "wwtp_id": 21712,
+        "wwtp_lat": 48.651,
+        "wwtp_lon": 13.44
+      },
+      {
+        "country": "DEU",
+        "d1_lat": 48.21727686087196,
+        "d1_lon": 12.916056472460214,
+        "d1_river_id": 20419972,
+        "distance_u1_d1_km": 6.575906802299607,
+        "distance_u2_d1_km": 10.741713818700335,
+        "distance_u2_u1_km": 4.3788179270481224,
+        "effluent_fraction_proxy": 1.3702903817054614e-05,
+        "estimated_river_m3_sec": 428.085,
+        "estimated_ww_m3_day": 506.83,
+        "hydrobasin_l12": "2120475930",
+        "independent_source_fraction_stratum": "low",
+        "location_quality": 2,
+        "measured_source_stations": {
+          "TP": {
+            "DOWNSTREAM": {
+              "lat": 48.26098,
+              "lon": 13.03418,
+              "network_distance_km": 15.69,
+              "side": "DOWNSTREAM",
+              "source_end": "2022-12-13",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 62.61096947511983,
+              "source_start": "2008-01-07",
+              "station_hyriv_id": 20418432,
+              "station_id": "WQ977063"
+            },
+            "UPSTREAM": {
+              "lat": 48.2522,
+              "lon": 12.69689,
+              "network_distance_km": 20.17,
+              "side": "UPSTREAM",
+              "source_end": "2022-12-12",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 12.957799770460149,
+              "source_start": "2008-01-02",
+              "station_hyriv_id": 20418690,
+              "station_id": "WQ976409"
+            }
+          }
+        },
+        "outfall_lat": 48.24,
+        "outfall_lon": 12.89,
+        "parameter_specific_monitored_ready": "TP",
+        "river_hydraulic_chain": "U2>U1>OUTFALL_REACH>D1",
+        "river_id": 20419235,
+        "source_monitoring_station_ids_unique_across_cohort": true,
+        "source_status": "Not Reported",
+        "two_station_common_time_envelope": [
+          "2008-01-07",
+          "2022-12-12"
+        ],
+        "u1_lat": 48.25183058261706,
+        "u1_lon": 12.844002750715156,
+        "u1_river_id": 20419033,
+        "u2_lat": 48.26041666666611,
+        "u2_lon": 12.786279611587672,
+        "u2_river_id": 20418559,
+        "upstream_junction_count": 2,
+        "waste_quality": 1,
+        "wwtp_id": 21737,
+        "wwtp_lat": 48.305,
+        "wwtp_lon": 12.896
+      },
+      {
+        "country": "DEU",
+        "d1_lat": 48.52291666666609,
+        "d1_lon": 10.868749999999494,
+        "d1_river_id": 20411223,
+        "distance_u1_d1_km": 9.984076729718087,
+        "distance_u2_d1_km": 15.485679175541591,
+        "distance_u2_u1_km": 5.501964281353646,
+        "effluent_fraction_proxy": 0.017274539513899043,
+        "estimated_river_m3_sec": 90.042,
+        "estimated_ww_m3_day": 136751.83,
+        "hydrobasin_l12": "2120467560",
+        "independent_source_fraction_stratum": "high",
+        "location_quality": 2,
+        "measured_source_stations": {
+          "TP": {
+            "DOWNSTREAM": {
+              "lat": 48.72746,
+              "lon": 10.92126,
+              "network_distance_km": 14.18,
+              "side": "DOWNSTREAM",
+              "source_end": "2022-11-29",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 41.8674927502364,
+              "source_start": "2008-01-02",
+              "station_hyriv_id": 20409188,
+              "station_id": "WQ976389"
+            },
+            "UPSTREAM": {
+              "lat": 48.34559,
+              "lon": 10.93555,
+              "network_distance_km": 16.74,
+              "side": "UPSTREAM",
+              "source_end": "2022-12-13",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 105.26057806778607,
+              "source_start": "2008-01-02",
+              "station_hyriv_id": 20416364,
+              "station_id": "WQ976391"
+            }
+          }
+        },
+        "outfall_lat": 48.51,
+        "outfall_lon": 10.865,
+        "parameter_specific_monitored_ready": "TP",
+        "river_hydraulic_chain": "U2>U1>OUTFALL_REACH>D1",
+        "river_id": 20412618,
+        "source_monitoring_station_ids_unique_across_cohort": true,
+        "source_status": "Not Reported",
+        "two_station_common_time_envelope": [
+          "2008-01-02",
+          "2022-11-29"
+        ],
+        "u1_lat": 48.4341962782544,
+        "u1_lon": 10.88958333333278,
+        "u1_river_id": 20414383,
+        "u2_lat": 48.3854166666661,
+        "u2_lon": 10.902083333332792,
+        "u2_river_id": 20415213,
+        "upstream_junction_count": 2,
+        "waste_quality": 1,
+        "wwtp_id": 21749,
+        "wwtp_lat": 48.413,
+        "wwtp_lon": 10.889
+      },
+      {
+        "country": "DEU",
+        "d1_lat": 49.80441941738185,
+        "d1_lon": 10.991413915950385,
+        "d1_river_id": 20378618,
+        "distance_u1_d1_km": 4.252533804427348,
+        "distance_u2_d1_km": 8.500968229892532,
+        "distance_u2_u1_km": 4.281526864035386,
+        "effluent_fraction_proxy": 0.0033596235490811863,
+        "estimated_river_m3_sec": 49.831,
+        "estimated_ww_m3_day": 14513.277,
+        "hydrobasin_l12": "2120434370",
+        "independent_source_fraction_stratum": "high",
+        "location_quality": 2,
+        "measured_source_stations": {
+          "TP": {
+            "DOWNSTREAM": {
+              "lat": 49.92421,
+              "lon": 10.78723,
+              "network_distance_km": 21.6,
+              "side": "DOWNSTREAM",
+              "source_end": "2022-12-12",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 143.76982429110603,
+              "source_start": "2008-01-02",
+              "station_hyriv_id": 20375412,
+              "station_id": "WQ976403"
+            },
+            "UPSTREAM": {
+              "lat": 49.68719,
+              "lon": 11.04582,
+              "network_distance_km": 11.83,
+              "side": "UPSTREAM",
+              "source_end": "2022-12-12",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 149.39254878809658,
+              "source_start": "2008-01-02",
+              "station_hyriv_id": 20381050,
+              "station_id": "WQ976404"
+            }
+          }
+        },
+        "outfall_lat": 49.781,
+        "outfall_lon": 11.015,
+        "parameter_specific_monitored_ready": "TP",
+        "river_hydraulic_chain": "U2>U1>OUTFALL_REACH>D1",
+        "river_id": 20378706,
+        "source_monitoring_station_ids_unique_across_cohort": true,
+        "source_status": "Not Reported",
+        "two_station_common_time_envelope": [
+          "2008-01-02",
+          "2022-12-12"
+        ],
+        "u1_lat": 49.77291666666607,
+        "u1_lon": 11.024999999999453,
+        "u1_river_id": 20379129,
+        "u2_lat": 49.737857443489524,
+        "u2_lon": 11.049642556509372,
+        "u2_river_id": 20380551,
+        "upstream_junction_count": 2,
+        "waste_quality": 1,
+        "wwtp_id": 21945,
+        "wwtp_lat": 49.742,
+        "wwtp_lon": 11.046
+      },
+      {
+        "country": "DEU",
+        "d1_lat": 48.4604166666661,
+        "d1_lon": 8.884553721744545,
+        "d1_river_id": 20412985,
+        "distance_u1_d1_km": 5.10066964023944,
+        "distance_u2_d1_km": 9.545235640460557,
+        "distance_u2_u1_km": 4.858510000525859,
+        "effluent_fraction_proxy": 0.0008328492709667485,
+        "estimated_river_m3_sec": 24.453,
+        "estimated_ww_m3_day": 1761.06,
+        "hydrobasin_l12": "2120467420",
+        "independent_source_fraction_stratum": "high",
+        "location_quality": 2,
+        "measured_source_stations": {
+          "TP": {
+            "DOWNSTREAM": {
+              "lat": 48.53485,
+              "lon": 9.13344,
+              "network_distance_km": 23.729999999999997,
+              "side": "DOWNSTREAM",
+              "source_end": "2022-12-28",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 63.0605484925626,
+              "source_start": "2008-01-03",
+              "station_hyriv_id": 20410902,
+              "station_id": "WQ976436"
+            },
+            "UPSTREAM": {
+              "lat": 48.44455,
+              "lon": 8.79984,
+              "network_distance_km": 7.33,
+              "side": "UPSTREAM",
+              "source_end": "2022-12-28",
+              "source_observation_total": 15,
+              "source_snap_distance_m": 88.85359674205532,
+              "source_start": "2008-01-09",
+              "station_hyriv_id": 20413350,
+              "station_id": "WQ976437"
+            }
+          }
+        },
+        "outfall_lat": 48.448,
+        "outfall_lon": 8.856,
+        "parameter_specific_monitored_ready": "TP",
+        "river_hydraulic_chain": "U2>U1>OUTFALL_REACH>D1",
+        "river_id": 20413118,
+        "source_monitoring_station_ids_unique_across_cohort": true,
+        "source_status": "Not Reported",
+        "two_station_common_time_envelope": [
+          "2008-01-09",
+          "2022-12-28"
+        ],
+        "u1_lat": 48.44374999999942,
+        "u1_lon": 8.820118446352616,
+        "u1_river_id": 20413350,
+        "u2_lat": 48.452693527538656,
+        "u2_lon": 8.755639805793642,
+        "u2_river_id": 20413117,
+        "upstream_junction_count": 2,
+        "waste_quality": 1,
+        "wwtp_id": 21413,
+        "wwtp_lat": 48.39,
+        "wwtp_lon": 8.872
+      }
+    ]
+  },
+  "selection_made_without_plant_responses_or_nutrient_concentrations": true,
+  "source": "Peters2026 original site availability and HydroRIVERS only",
+  "strict_independence_audit": {
+    "TN": {
+      "all_hydrobasins_L12_distinct": true,
+      "all_station_ids_unique": true,
+      "country_and_strata": {},
+      "distance_min_km": null,
+      "original_source_only_selections_with_possible_station_reuse": 0,
+      "source_exclusion_counts_during_strict_selection": {},
+      "source_monitoring_eligible_outfalls_before_independence": 3,
+      "strict_monitoring_catchment_distance_independent_outfalls": 0
+    },
+    "TP": {
+      "all_hydrobasins_L12_distinct": true,
+      "all_station_ids_unique": true,
+      "country_and_strata": {
+        "DEU:high": 3,
+        "DEU:low": 3
+      },
+      "distance_min_km": 57.28443399536634,
+      "original_source_only_selections_with_possible_station_reuse": 6,
+      "source_exclusion_counts_during_strict_selection": {
+        "outfall_distance_under30km": 1,
+        "station_reused": 10
+      },
+      "source_monitoring_eligible_outfalls_before_independence": 46,
+      "strict_monitoring_catchment_distance_independent_outfalls": 6
+    }
+  }
+}
