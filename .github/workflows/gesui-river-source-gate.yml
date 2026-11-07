@@ -1,0 +1,58 @@
+name: gesui actual HydroWASTE x HydroRIVERS directed-reach source gate
+
+on:
+  push:
+    branches:
+      - "analysis/river-source-gate-20261107"
+    paths:
+      - "scripts/gesui_river_source_gate.py"
+      - "tests/test_gesui_river_source_gate.py"
+      - ".github/workflows/gesui-river-source-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install geospatial source packages
+        run: python -m pip install --quiet numpy pandas geopandas pyogrio shapely pytest
+      - name: Offline design / geometry tests
+        run: python -m pytest -q tests/test_gesui_river_source_gate.py
+      - name: Retrieve source-locked HydroWASTE and official HydroRIVERS Europe
+        run: |
+          mkdir -p /tmp/gesui-sources
+          curl --fail --location --silent --show-error --retry 3 --max-time 140 \
+            https://raw.githubusercontent.com/rfordatascience/tidytuesday/774fb8cc81e563d6d30efdcb7b48a38565e923cc/data/2022/2022-09-20/HydroWASTE_v10.csv \
+            -o /tmp/gesui-sources/HydroWASTE_v10.csv
+          test "$(git hash-object /tmp/gesui-sources/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
+          curl --fail --location --silent --show-error --retry 3 --max-time 240 \
+            https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip \
+            -o /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+          file /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+          sha256sum /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+      - name: Real directed reach coverage and plant-response-blind outfall sample design
+        run: |
+          python -u scripts/gesui_river_source_gate.py \
+            --hydrowaste /tmp/gesui-sources/HydroWASTE_v10.csv \
+            --hydrorivers-zip /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip \
+            --work-dir /tmp/gesui-sources/rivers \
+            --out-dir /tmp/gesui-sources/report
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-directed-river-source-qc-v01
+          path: /tmp/gesui-sources/report/
+          if-no-files-found: warn
+          retention-days: 30
