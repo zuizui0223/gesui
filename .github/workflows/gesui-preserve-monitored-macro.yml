@@ -1,0 +1,115 @@
+name: gesui independent audit and stable archive of observed TP TN macro comparisons
+on:
+  push:
+    branches:
+      - "analysis/monitored-river-macro-pilot-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-monitored-macro.yml"
+      - "scripts/audit_eu_monitored_nutrients.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  audit-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas scipy scikit-learn
+      - name: Recover original successful source and observed-chemistry artifacts without requerying publishers
+        run: |
+          mkdir -p /tmp/gesui-eu-macro/source /tmp/gesui-eu-macro/outcome
+          gh run download 42371629424 \
+            --repo zuizui0223/gesui \
+            --name gesui-EU-TP-TN-observed-station-source-only-upstream-wwtp \
+            --dir /tmp/gesui-eu-macro/source
+          gh run download 42372235775 \
+            --repo zuizui0223/gesui \
+            --name gesui-EU-real-TNTP-source-vs-upstream-WWTP-spatial-prediction \
+            --dir /tmp/gesui-eu-macro/outcome
+      - name: Independently reconstruct group-block CV and test frozen source SHA inputs
+        run: |
+          python scripts/audit_eu_monitored_nutrients.py \
+            --source-dir /tmp/gesui-eu-macro/source \
+            --outcome-dir /tmp/gesui-eu-macro/outcome \
+            --report /tmp/gesui-eu-macro/INDEPENDENT_AUDIT.json
+      - name: Publish only source QC, summary statistics and immutable receipt
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,shutil
+          source=Path("/tmp/gesui-eu-macro/source")
+          observed=Path("/tmp/gesui-eu-macro/outcome")
+          audit_file=Path("/tmp/gesui-eu-macro/INDEPENDENT_AUDIT.json")
+          a=json.loads(audit_file.read_text())
+          s=json.loads((source/"SOURCE_FEATURES_QC.json").read_text())
+          r=json.loads((observed/"MODEL_RESULTS_AND_AUDIT.json").read_text())
+          assert a["status"]=="PASS_SOURCE_SHA_AND_SPATIAL_CV_RECONSTRUCTION"
+          assert r["source_only_input_sha256"]==a["verified_input_sha256"]["nutrient_monitor_station_source_features.csv"]
+          assert (a["results"]["TP"]["n"],a["results"]["TP"]["independent_source_covariate_n"])==(1418,510)
+          assert (a["results"]["TN"]["n"],a["results"]["TN"]["independent_source_covariate_n"])==(236,20)
+          assert r["results"]["TP"]["primary_source_group_cv"]["metrics"]["delta_vs_M0"]["M1_plus_upstream_ww"]["mse_pct_improvement"]<0
+          assert r["results"]["TP"]["landuse_complete_source_group_cv"]["metrics"]["delta_vs_M0"]["M1_plus_upstream_ww"]["mse_pct_improvement"]<0
+          dest=Path("results/eu_monitored_nutrient_wwtp_macro_20261107")
+          dest.mkdir(parents=True,exist_ok=True)
+          shutil.copyfile(audit_file,dest/"INDEPENDENT_AUDIT.json")
+          shutil.copyfile(source/"SOURCE_FEATURES_QC.json",dest/"SOURCE_FEATURES_QC.json")
+          shutil.copyfile(observed/"MODEL_RESULTS_AND_AUDIT.json",dest/"MODEL_RESULTS_AND_AUDIT.json")
+          hashes={}
+          for name in ("INDEPENDENT_AUDIT.json","SOURCE_FEATURES_QC.json","MODEL_RESULTS_AND_AUDIT.json"):
+              hashes[name]=hashlib.sha256((dest/name).read_bytes()).hexdigest()
+          receipt={"source_run_id":42371629424,"original_measured_run_id":42372235775,
+              "independent_audit_sha":a["verified_input_sha256"],
+              "public_data_source":"10.25400/lincolnuninz.30546371.v5",
+              "HydroWASTE_git_blob":"0506f873f6541c5f324478894a9731290d722bce",
+              "HydroRIVERS_derived_GeoParquet_sha256":"5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+              "archive_file_sha256":hashes,
+              "original_measured_site_ID_coordinates_or_source_daily_observations_redistributed":False,
+              "noncausal_ecological_interpretation":True}
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          summary="""# Actual monitored river TP/TN vs directed wastewater source — European pilot
+
+          **Purpose:** assess whether upstream (not downstream) source-pinned WWTP treated-water volume helps explain independently measured river TN/TP concentration, without confusing WWTP volume with actual nutrient load. Original real-source runs: https://github.com/zuizui0223/gesui/actions/runs/42371629424 and https://github.com/zuizui0223/gesui/actions/runs/42372235775 . New independent zero-network source/metric audit in INDEPENDENT_AUDIT.json.
+
+          ## Actual source support
+          - Original HydroWASTE **58,502 facilities** re-verified by Git blob; 6,354 location/flow-quality and graph-compatible source facilities in European network study domain.
+          - Original Peters 2026 v5 observed TN/TP records; each station measured concentration response is 2011–2024 median with at least 12 positive observations in at least 2 distinct years. No source estimated TN/TP concentrations or response-derived covariates used as predictors.
+          - **TP: 1,418** eligible stations (28 geographic 3-degree blocks), **85** with at least one upstream WWTP source within 50 km, 510 stations with independent crop-cover and population-density predictors, **73** of those with upstream WWTP support.
+          - **TN: 236** eligible stations, only **13** with upstream registered WWTPs; land-cover/pop/deposition-source subset is 20 sites with **one exposed**, therefore low exposure support, not robust nutrient-generalization evidence.
+
+          ## Frozen source-only spatial-block CV
+          Fixed Ridge(alpha=10) with 5 folds held out by 3-degree geographic blocks, same site denominator throughout; no spatial leave-one-site-out leakage. Response = log observed station-median nutrient concentration in mg/L; baseline includes latitude, longitude, river mean flow and upstream drainage area. Source predictors: log(1+50km hydrologically upstream WWTP model discharge), and as negative control, modeled WWTP discharge on downstream river reaches.
+          
+          - TP full 1,418: Spearman raw rank TP versus upstream source **rho −0.00192 (p 0.942, descriptive)**; baseline MSE 0.68881, with upstream source **0.71635 (4.00% worse)**, downstream placebo **0.67181 (2.47% better)**.
+          - TP 510 crop/pop-complete: baseline MSE **0.50821**, with upstream WWTP **0.51374 (1.09% worse)**; downstream placebo **0.50765 (0.11% better)**. This schema repair uses exactly the two source-published land-use covariates for TP; **TP.4_land contains no N_deposition**, so requiring it would have incorrectly discarded all 510 available sites. Previous zero-subset source result was a **code/data-schema mismatch**, not evidence.
+          - TN full 236: baseline MSE 0.69413, plus upstream 0.69873 (0.66% worse). Only 13 exposed and the source rich subset contains just one exposed site; TN cannot support a meaningful land-adjusted hypothesis test.
+
+          **Interpretation:** This macro test finds no reproducible positive predictive effect of the current simplistic upstream WWTP-water-volume indicator. The source graph and source-status proxies do not quantify delivered TN/TP mass, treatment efficacy, non-WWTP sanitation, agriculture, urbanization or seasonal loads. Downstream-infrastructure placebo outperforming upstream in the large TP panel is a serious sign that spatial confounding or source-model mismatch remains. Neither this negative predictive result nor a local positive case disproves all wastewater effects. Original chocho positive butterfly-host resource and port trends remain independently valid.
+
+          ## Provenance and limitations
+          All underlying raw site series/coordinates and site-specific source features remain available in original 30-day GitHub Actions research artifacts and pinned public data DOIs; this public report retains only aggregated scientific outputs and file-level hashes to avoid unnecessary redistribution of underlying monitoring observations.
+          """
+          (dest/"RESULTS.md").write_text("\n".join(x.strip() for x in summary.splitlines())+"\n")
+          print("GESUI_EU_NUTRIENT_MACRO_ARCHIVE_VERIFIED",json.dumps({
+             "tp_n":a["results"]["TP"]["n"],
+             "tn_n":a["results"]["TN"]["n"],
+             "tp_land_n":a["results"]["TP"]["independent_source_covariate_n"],
+             "files":len(hashes)},sort_keys=True))
+          PY
+      - name: Commit audited summaries without source-data requery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eu_monitored_nutrient_wwtp_macro_20261107
+          git commit -m "Preserve EU real river TP TN blocked holdout, negatives and independent source audit"
+          git push origin HEAD:analysis/monitored-river-macro-pilot-20261107
