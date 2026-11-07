@@ -1,0 +1,89 @@
+{
+  "HydroRIVERS_derived_europe_sha256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "HydroRIVERS_official_original_independently_verified": false,
+  "candidate_station_site_pairs_within_10km": 48,
+  "measurement_values_or_dated_rows_loaded": false,
+  "network_distance_km_ceilings": {
+    "10": {
+      "TN": {
+        "source_outfalls_downstream_supported": 2,
+        "source_outfalls_upstream_supported": 1,
+        "source_outfalls_with_connected_any": 3,
+        "source_outfalls_with_upstream_and_downstream_connected": 0,
+        "unique_connected_stations": 4
+      },
+      "TP": {
+        "source_outfalls_downstream_supported": 3,
+        "source_outfalls_upstream_supported": 1,
+        "source_outfalls_with_connected_any": 4,
+        "source_outfalls_with_upstream_and_downstream_connected": 0,
+        "unique_connected_stations": 5
+      }
+    },
+    "25": {
+      "TN": {
+        "source_outfalls_downstream_supported": 3,
+        "source_outfalls_upstream_supported": 2,
+        "source_outfalls_with_connected_any": 4,
+        "source_outfalls_with_upstream_and_downstream_connected": 1,
+        "unique_connected_stations": 6
+      },
+      "TP": {
+        "source_outfalls_downstream_supported": 4,
+        "source_outfalls_upstream_supported": 3,
+        "source_outfalls_with_connected_any": 6,
+        "source_outfalls_with_upstream_and_downstream_connected": 1,
+        "unique_connected_stations": 10
+      }
+    },
+    "50": {
+      "TN": {
+        "source_outfalls_downstream_supported": 3,
+        "source_outfalls_upstream_supported": 2,
+        "source_outfalls_with_connected_any": 4,
+        "source_outfalls_with_upstream_and_downstream_connected": 1,
+        "unique_connected_stations": 6
+      },
+      "TP": {
+        "source_outfalls_downstream_supported": 4,
+        "source_outfalls_upstream_supported": 3,
+        "source_outfalls_with_connected_any": 6,
+        "source_outfalls_with_upstream_and_downstream_connected": 1,
+        "unique_connected_stations": 10
+      }
+    }
+  },
+  "plant_response_results_not_examined": true,
+  "position_count_by_nutrient": {
+    "TN": {
+      "DOWNSTREAM_CONNECTED": 3,
+      "NOT_CONNECTED_IN_SOURCE_GRAPH": 5,
+      "OUTFALL_REACH_UNPOSITIONED": 3,
+      "UPSTREAM_CONNECTED": 7
+    },
+    "TP": {
+      "DOWNSTREAM_CONNECTED": 4,
+      "NOT_CONNECTED_IN_SOURCE_GRAPH": 8,
+      "OUTFALL_REACH_UNPOSITIONED": 3,
+      "UPSTREAM_CONNECTED": 15
+    }
+  },
+  "schema": "gesui_Peters2026_TNTP_station_to_HydroRIVERS_source_network_20261107",
+  "source_Peters_figshare_v5": "10.25400/lincolnuninz.30546371.v5",
+  "source_candidate_table_sha256": "9dfa39f37ce7c8364c1999a466837b8ab1d4b10e24d3f7b73ae0ff1129cefe4a",
+  "source_metadata_sha256": "fd25dc8d7d14d69cfe7cc80ad5c1dd094a8ba7bedf9cb093cc9d83955edf6745",
+  "source_outfall_design_sha256": "9cf5757b96864b5918d205c0d1a9bd8734c85605522aab3763b1ed457d1af335",
+  "source_sites_48_outfalls_16": true,
+  "source_snapping_threshold_m": 500,
+  "source_station_metadata_original_run": 42369645480,
+  "timestamp_utc": "2026-11-07T11:51:31.111565+00:00",
+  "unique_monitoring_source_stations_by_nutrient": {
+    "TN": 11,
+    "TP": 17
+  },
+  "unique_stations_snapped_within_500m_by_nutrient": {
+    "TN": 11,
+    "TP": 17
+  },
+  "warning": "These are network-positioned station metadata candidates only; real TN/TP observations in 2011\u201324 have not been verified. Other WWTP discharges and land-use/effort are uncontrolled."
+}

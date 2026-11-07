@@ -1,0 +1,59 @@
+{
+  "schema": "gesui_peters_tntp_2026_v5_extracted_verified_20261107",
+  "source_doi": "10.25400/lincolnuninz.30546371.v5",
+  "source_license": "CC BY 4.0",
+  "source_artifact_files": [
+    {
+      "file": "SOURCE_COVERAGE.json",
+      "source_run": 42369645480,
+      "sha256": "fd25dc8d7d14d69cfe7cc80ad5c1dd094a8ba7bedf9cb093cc9d83955edf6745",
+      "bytes": 5870
+    },
+    {
+      "file": "nutrient_candidate_station_proximities.csv",
+      "source_run": 42369645480,
+      "sha256": "9dfa39f37ce7c8364c1999a466837b8ab1d4b10e24d3f7b73ae0ff1129cefe4a",
+      "bytes": 7055
+    },
+    {
+      "file": "NETWORK_SOURCE_QC.json",
+      "source_run": 42369909177,
+      "sha256": "efbade3cd4443f4208ed515e5ae1ab764f2c365aa7f5d78154fdf61868bab0bf",
+      "bytes": 3480
+    },
+    {
+      "file": "source_candidate_station_river_connections.csv",
+      "source_run": 42369909177,
+      "sha256": "b85b7c607f49803ad22f2e4ecb3c6cd19c7924d22de5064de64715d2fdd7fc89",
+      "bytes": 9941
+    },
+    {
+      "file": "SOURCE_AND_MEASURED_TP_REPORT.json",
+      "source_run": 42370327128,
+      "sha256": "59122a41d5eac1391fc270881649a916bd507689fe6c3e5dc1bf1860237fafdc",
+      "bytes": 5573
+    },
+    {
+      "file": "TP_TP_premarked_2008_2022_sensitivity_monthly_pairs.csv",
+      "source_run": 42370327128,
+      "sha256": "96e31508cc2903842bac2f54e88565073013de87e7dfaac41358eafac8e2fb5b",
+      "bytes": 6619
+    },
+    {
+      "file": "TP_common_2012_2013_monthly_pairs.csv",
+      "source_run": 42370327128,
+      "sha256": "f0c9d1eda11c07ef21adecc67036a9694753ffbb4657b721419550e770ca295b",
+      "bytes": 954
+    },
+    {
+      "file": "verified_source_schema.json",
+      "source_run": 42369418945,
+      "sha256": "04428d5205a5ac97b3c72dad0d43a44c2a06b004af7bd6c3572d5bff1dd86d2c",
+      "bytes": 12777
+    }
+  ],
+  "source_raw_Peters_harmonised_ZIPs_redistributed": false,
+  "TN_TP_joint_measured_effect_tested": false,
+  "source_data_queried_during_archive": false,
+  "older_plant_richness_results_not_used_in_station_selection": true
+}

@@ -1,0 +1,13 @@
+# Peters 2026 v5 independently verified TN/TP source gate (48 sites/16 outfalls)
+
+**Primary globally generalizable TN/TP→plants effect: NOT TESTABLE in these frozen 16 outfalls.** This is a true measured-data coverage and descriptive single-river result, not a causal wastewater nutrient effect.
+
+- Peters et al. Scientific Data 2026, [Figshare DOI v5](https://doi.org/10.25400/lincolnuninz.30546371.v5), public CC BY4; all original source files MD5 verified, with original site/year metadata and original harmonised observations distinguished from modeled WRTDS or random-forest estimates.
+- Original TN station metadata 19,424 rows, TP 41,639 rows; time-range/geographic filtered 5,604 TN and 12,779 TP candidates. In 48 fixed river plant sites, **zero monitoring stations within 1km** for either parameter. Within 10km: 12/48 sites have TN station neighbors, 16/48 TP; this is proximity only.
+- Nearest-station-to-HydroRIVERS snap ≤500m, actual directed upstream/downstream relation and network path ≤25km: **only one of 16 locked wastewater outfalls** (HydroWASTE 24249, Austria) supports both upstream and downstream station *metadata* for TN and TP. No pair exists within ≤10km network path for both roles.
+- Crucial data-access QC: 24249's TN upstream WQ016702 and downstream WQ016695 are both **listed unavailable**, have WQ.available=0 and no public TN.2 site CSV. **Never impute them from source modeled TN**; the joint TN/TP primary is blocked.
+- Observed TP upstream WQ976406 and downstream WQ977059 are available. Predeclared 2012–2013 **24 matched calendar months**, median downstream/upstream **1.1667**, 15 months downstream higher (3 equal). Predeclared broader 2008–2022 sensitivity: **179 matched months**, median ratio **1.40625**, 128 months higher (13 equal). Original source observations: 271 TP upstream and 293 TP downstream across full archive.
+- Interpretation: **positive single-river TP gradient**, NOT attributable to the WWTP. Its model wastewater fraction is ~1.71×10^-6 of river flow (0.000171%). Station locations are asymmetric (~23.54km upstream, ~8.59km downstream network route), and agricultural land, other discharges, hydrology and sampling conditions are uncontrolled.
+- Station/river mirror sourced from third-party HydroRIVERS EU v1-derived GeoParquet with pinned SHA256; independent official original comparison pending.
+
+Source results are separated by table. Dataset originals (large 10.9/25MB ZIPs, licensed data) are **not redistributed**; only small derived metadata candidate/source-grain QC and monthly paired summaries are committed, all with file receipts.

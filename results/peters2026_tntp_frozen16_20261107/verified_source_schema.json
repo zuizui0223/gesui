@@ -1,0 +1,339 @@
+{
+  "schema": "gesui_peters2026_figshare_v5_observational_meta_schema_gate_v01",
+  "timestamp_utc": "2026-11-07T11:44:29.344586+00:00",
+  "source_doi": "10.25400/lincolnuninz.30546371.v5",
+  "article_id": 30546371,
+  "article_published_date": "2026-10-29T21:47:16Z",
+  "article_license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "file_count_article": 73,
+  "used_file_names": [
+    "!README.txt",
+    "TN.2_meta.csv",
+    "TP.2_meta.csv",
+    "TN.2_years.csv",
+    "TP.2_years.csv"
+  ],
+  "no_original_site_rows_redistributed": true,
+  "no_nutrient_to_plant_effect_test": true,
+  "file_schema": [
+    {
+      "name": "!README.txt",
+      "file_id": 70896174,
+      "source_size": 12843,
+      "content_md5": "930df7044ee581971357a077e19202ec",
+      "bytes_downloaded": 12843,
+      "data_source": "observation_year_inventory",
+      "readme_source_schema_excerpt": [
+        {
+          "line": 16,
+          "excerpt": "\"Streamflow.1_-_Source_Data\"  - Contains 27,766 .csv files containing the streamflow data from the original data sources. The original data is unaltered other than being converted to the same .csv format.  \"Streamflow.2_-_Harmonised\""
+        },
+        {
+          "line": 25,
+          "excerpt": "\"TN.1_-_Source_Data\"  - Contains 19,797 .csv files containing the total nitrogen concentration data from the original data sources. The original data is unaltered other than being converted to the same .csv format.  \"TN.2_-_Harmonised\""
+        },
+        {
+          "line": 37,
+          "excerpt": "\"TP.1_-_Source_Data\"  - Contains 42,961 .csv files containing the total phosphorus concentration data from the original data sources. The original data is unaltered other than being converted to the same .csv format.  \"TP.2_-_Harmonised\""
+        },
+        {
+          "line": 50,
+          "excerpt": "\"S_Sources.xlsx\"  - A table describing the sources of data used in folder \"Streamflow.1_-_Source_Data\" along with download instructions should users want to access the source data themselves.   \"WQ_Sources.xlsx\""
+        },
+        {
+          "line": 53,
+          "excerpt": "\"WQ_Sources.xlsx\"  - A table describing the sources of data used in folders \"TN.1_-_Source_Data\" and \"TP.1_-_Source_Data\" along with download instructions should users want to access the source data themselves.   31 .csv files:"
+        },
+        {
+          "line": 70,
+          "excerpt": "WQ.ID: Site ID number from source water quality database S.lat: Latitude of streamflow site (WGS84) S.lon: Longitude of streamflow site (WGS84) WQ.lat: Latitude of water quality site (WGS84)"
+        },
+        {
+          "line": 71,
+          "excerpt": "S.lat: Latitude of streamflow site (WGS84) S.lon: Longitude of streamflow site (WGS84) WQ.lat: Latitude of water quality site (WGS84) WQ.lon: Longitude of water quality site (WGS84)"
+        },
+        {
+          "line": 72,
+          "excerpt": "S.lon: Longitude of streamflow site (WGS84) WQ.lat: Latitude of water quality site (WGS84) WQ.lon: Longitude of water quality site (WGS84) region: Continent"
+        },
+        {
+          "line": 73,
+          "excerpt": "WQ.lat: Latitude of water quality site (WGS84) WQ.lon: Longitude of water quality site (WGS84) region: Continent start: Start date of series"
+        },
+        {
+          "line": 92,
+          "excerpt": " \"Streamflow.2_years.csv\", \"TN.2_years.csv\", \"TN.2_years.csv\"  - Lists of consecutive streches of years with high-frequency measurements. Uses the same column terminology as the metadata files. "
+        },
+        {
+          "line": 104,
+          "excerpt": " \"TN.3_flow_interpolation.csv\", \"TP.3_flow_interpolation.csv\" - List of days which had their streamflow values calculated by linear interpolation. Values were only interpolated for gaps of one or two consecutive missing days, which affected 392 TN sites and 512 TP sites. "
+        },
+        {
+          "line": 105,
+          "excerpt": "\"TN.3_flow_interpolation.csv\", \"TP.3_flow_interpolation.csv\" - List of days which had their streamflow values calculated by linear interpolation. Values were only interpolated for gaps of one or two consecutive missing days, which affected 392 TN sites and 512 TP sites.  \"TN.4_estimated.csv\", \"TP.4_estimated.csv\""
+        },
+        {
+          "line": 121,
+          "excerpt": "\"4.hydrobasins_land.csv\", \"TN.4_land.csv\", \"TP.4_land.csv\"  - Contains land use and climate characteristics for Level 7 HydroBASIN catchments as well as for the input TN and TP data for the random forest modelling. Values were calculated by averaging rasters for each characteristic over each catchment the \"Zonal statistics as table\" function in ArcGIS.  Column names (For more information see Table 4 in the associated paper):"
+        },
+        {
+          "line": 144,
+          "excerpt": "sheep: Number of sheep (count) pop_dens: Population density (count/km^2) silt: Proportion of soil made up of silt sand: Proportion of soil made up of sand"
+        },
+        {
+          "line": 180,
+          "excerpt": "Water quality data archive https://environment.data.gov.uk/water-quality/view/landing (2025). Department of Water and Environmental Regulation Western Australia. Sourced from Water Information Reporting tool (WIR) wir.water.wa.gov.au. (2025) PHYSICOCHIMIE https://naiades.eaufrance.fr/ (2025). Historic UK Water Quality Sampling Harmonised Monitoring Scheme Summary Data https://www.data.gov.uk/dataset/bda4e065-41e5-4b78-b405-41c1d3606225/historic-uk-water-quality-sampling-harmonised-monitoring-scheme-summary-data (2025)."
+        }
+      ],
+      "readme_first_1700_chars": "\r\nAll units are as follows unless otherwise specified:\r\nConcentration: mg/L\r\nStreamflow: m^3/s\r\nLoad: kg/year\r\nYield: kg/ha/year\r\n\r\n13 Folders:\r\n\"Maps\"\r\n - Contains 4 high-resolution and 4 low-resolution TIFF images of maps of the results of the random forest modelling. These shape files can be accessed directly in the \"Shape_files\" folder.\r\n\r\n\"Shape_Files\"\r\n - Contains 2 .shp files of Level 7 HydroBASIN boundaries joined with global TN and TP concentration and load estimates.\r\n\r\n\"Streamflow.1_-_Source_Data\"\r\n - Contains 27,766 .csv files containing the streamflow data from the original data sources. The original data is unaltered other than being converted to the same .csv format.\r\n\r\n\"Streamflow.2_-_Harmonised\"\r\n - Contains 27,497 .csv files containing the complete list of streamflow sites after removing duplicate sites. Output of 1.streamflow_duplicates.R.\r\n\r\n\"Streamflow.3_-_Site_Matched\"\r\n - Contains 2,966 .csv files containing streamflow data after pairing streamflow and concentration sites and truncating to the same start/end dates. Data is formatted for WRTDS modelling using the r package \"EGRET\". Output of \t2.downstream_matching2.R. NOTE: Metadata for Streamflow.3_-_Site_Matched can be found across TN.3_meta.csv and TP.3_meta.csv.\r\n\r\n\"TN.1_-_Source_Data\"\r\n - Contains 19,797 .csv files containing the total nitrogen concentration data from the original data sources. The original data is unaltered other than being converted to the same .csv format.\r\n\r\n\"TN.2_-_Harmonised\"\r\n - Contains 19,100 .csv files containing the complete list of total nitrogen sites after removing duplicate sites. Output of 1.concentration_duplicates.R. NOTE: The site IDs begin at WQ000002 rather "
+    },
+    {
+      "name": "TN.2_meta.csv",
+      "file_id": 70896135,
+      "source_size": 1413055,
+      "content_md5": "b1501b0f40cc235a6259c2cc326e0d1b",
+      "bytes_downloaded": 1413055,
+      "data_source": "original_observational_site_metadata",
+      "row_count": 19424,
+      "column_names": [
+        "WQ.ID",
+        "WQ.lat",
+        "WQ.lon",
+        "region",
+        "start",
+        "end",
+        "duration",
+        "sum",
+        "n.days",
+        "WQ.available"
+      ],
+      "column_dtypes": {
+        "WQ.ID": "str",
+        "WQ.lat": "float64",
+        "WQ.lon": "float64",
+        "region": "str",
+        "start": "str",
+        "end": "str",
+        "duration": "float64",
+        "sum": "int64",
+        "n.days": "int64",
+        "WQ.available": "int64"
+      },
+      "first_values": {
+        "WQ.ID": [
+          "WQ000002",
+          "WQ000003"
+        ],
+        "WQ.lat": [
+          "55.9254",
+          "55.55261"
+        ],
+        "WQ.lon": [
+          "-130.0355",
+          "-121.20351"
+        ],
+        "region": [
+          "North America",
+          "North America"
+        ]
+      },
+      "null_counts": {
+        "WQ.ID": 0,
+        "WQ.lat": 0,
+        "WQ.lon": 0,
+        "region": 0,
+        "start": 0,
+        "end": 0,
+        "duration": 0,
+        "sum": 0,
+        "n.days": 0,
+        "WQ.available": 0
+      },
+      "coordinate_candidates": [
+        "WQ.lat",
+        "WQ.lon"
+      ],
+      "river_network_candidates": []
+    },
+    {
+      "name": "TP.2_meta.csv",
+      "file_id": 70896147,
+      "source_size": 2977837,
+      "content_md5": "d282fc25c53f9e1c84450efa4b0236a6",
+      "bytes_downloaded": 2977837,
+      "data_source": "original_observational_site_metadata",
+      "row_count": 41639,
+      "column_names": [
+        "WQ.ID",
+        "WQ.lat",
+        "WQ.lon",
+        "region",
+        "start",
+        "end",
+        "duration",
+        "sum",
+        "n.days",
+        "WQ.available"
+      ],
+      "column_dtypes": {
+        "WQ.ID": "str",
+        "WQ.lat": "float64",
+        "WQ.lon": "float64",
+        "region": "str",
+        "start": "str",
+        "end": "str",
+        "duration": "float64",
+        "sum": "int64",
+        "n.days": "int64",
+        "WQ.available": "int64"
+      },
+      "first_values": {
+        "WQ.ID": [
+          "WQ999999",
+          "WQ999998"
+        ],
+        "WQ.lat": [
+          "55.9254",
+          "49.1139"
+        ],
+        "WQ.lon": [
+          "-130.0355",
+          "-113.8389"
+        ],
+        "region": [
+          "North America",
+          "North America"
+        ]
+      },
+      "null_counts": {
+        "WQ.ID": 0,
+        "WQ.lat": 0,
+        "WQ.lon": 0,
+        "region": 0,
+        "start": 0,
+        "end": 0,
+        "duration": 0,
+        "sum": 0,
+        "n.days": 0,
+        "WQ.available": 0
+      },
+      "coordinate_candidates": [
+        "WQ.lat",
+        "WQ.lon"
+      ],
+      "river_network_candidates": []
+    },
+    {
+      "name": "TN.2_years.csv",
+      "file_id": 70896138,
+      "source_size": 942333,
+      "content_md5": "2832ad4aef4b57ec0160a6c8ac62b56d",
+      "bytes_downloaded": 942333,
+      "data_source": "observation_year_inventory",
+      "row_count": 15409,
+      "column_names": [
+        "WQ.ID",
+        "start",
+        "end",
+        "duration",
+        "WQ.lat",
+        "WQ.lon",
+        "region"
+      ],
+      "column_dtypes": {
+        "WQ.ID": "str",
+        "start": "str",
+        "end": "str",
+        "duration": "int64",
+        "WQ.lat": "float64",
+        "WQ.lon": "float64",
+        "region": "str"
+      },
+      "first_values": {
+        "WQ.ID": [
+          "WQ000002",
+          "WQ000002"
+        ],
+        "WQ.lat": [
+          "55.9254",
+          "55.9254"
+        ],
+        "WQ.lon": [
+          "-130.0355",
+          "-130.0355"
+        ],
+        "region": [
+          "North America",
+          "North America"
+        ]
+      },
+      "null_counts": {
+        "WQ.ID": 0,
+        "start": 0,
+        "end": 0,
+        "duration": 0,
+        "WQ.lat": 0,
+        "WQ.lon": 0,
+        "region": 0
+      }
+    },
+    {
+      "name": "TP.2_years.csv",
+      "file_id": 70896156,
+      "source_size": 2103307,
+      "content_md5": "dd5c5776170ceef09676830659c9c21d",
+      "bytes_downloaded": 2103307,
+      "data_source": "observation_year_inventory",
+      "row_count": 34898,
+      "column_names": [
+        "WQ.ID",
+        "start",
+        "end",
+        "duration",
+        "WQ.lat",
+        "WQ.lon",
+        "region"
+      ],
+      "column_dtypes": {
+        "WQ.ID": "str",
+        "start": "str",
+        "end": "str",
+        "duration": "int64",
+        "WQ.lat": "float64",
+        "WQ.lon": "float64",
+        "region": "str"
+      },
+      "first_values": {
+        "WQ.ID": [
+          "WQ958362",
+          "WQ958363"
+        ],
+        "WQ.lat": [
+          "57.523",
+          "57.7646"
+        ],
+        "WQ.lon": [
+          "-1.83387",
+          "-5.60234"
+        ],
+        "region": [
+          "Europe",
+          "Europe"
+        ]
+      },
+      "null_counts": {
+        "WQ.ID": 0,
+        "start": 0,
+        "end": 0,
+        "duration": 0,
+        "WQ.lat": 0,
+        "WQ.lon": 0,
+        "region": 0
+      }
+    }
+  ]
+}
