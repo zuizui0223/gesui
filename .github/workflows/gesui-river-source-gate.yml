@@ -6,6 +6,7 @@ on:
       - "analysis/river-source-gate-20261107"
     paths:
       - "scripts/gesui_river_source_gate.py"
+      - "scripts/gesui_river_arcgis_gate.py"
       - "tests/test_gesui_river_source_gate.py"
       - ".github/workflows/gesui-river-source-gate.yml"
   workflow_dispatch:
@@ -49,18 +50,28 @@ jobs:
           test "$(git hash-object /tmp/gesui-sources/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
           echo "HydroWASTE SHA matches immutable original"
           echo "Downloading official HydroRIVERS Europe/Middle East vector"
-          curl --fail --location --silent --show-error --retry 2 --max-time 240 \
+          if curl --fail --location --silent --show-error --retry 1 --max-time 180 \
             https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip \
-            -o /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
-          file /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
-          sha256sum /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+            -o /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip; then
+            file /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+            sha256sum /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+          else
+            echo "Official HydroRIVERS ZIP unavailable (HTTP 403); use clearly labelled third-party ArcGIS mirror"
+            rm -f /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+          fi
       - name: Real directed reach coverage and plant-response-blind outfall sample design
         run: |
-          python -u scripts/gesui_river_source_gate.py \
-            --hydrowaste /tmp/gesui-sources/HydroWASTE_v10.csv \
-            --hydrorivers-zip /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip \
-            --work-dir /tmp/gesui-sources/rivers \
-            --out-dir /tmp/gesui-sources/report
+          if test -s /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip; then
+            python -u scripts/gesui_river_source_gate.py \
+              --hydrowaste /tmp/gesui-sources/HydroWASTE_v10.csv \
+              --hydrorivers-zip /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip \
+              --work-dir /tmp/gesui-sources/rivers \
+              --out-dir /tmp/gesui-sources/report
+          else
+            python -u scripts/gesui_river_arcgis_gate.py \
+              --hydrowaste /tmp/gesui-sources/HydroWASTE_v10.csv \
+              --out-dir /tmp/gesui-sources/report
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
