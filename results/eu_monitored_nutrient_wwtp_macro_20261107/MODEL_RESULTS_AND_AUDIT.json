@@ -1,0 +1,780 @@
+{
+  "Peters_doi": "10.25400/lincolnuninz.30546371.v5",
+  "Peters_published_C_mean_C_median_L_Y_leakage_columns_excluded": true,
+  "causal_claims": false,
+  "constraints": [
+    "Estimated WWTP water volume is not nutrient mass load or local measured discharged TP",
+    "Urbanization, upstream agriculture, sediment sources, seasonality and monitoring selection can confound",
+    "Peters published environmental covariate subset selected on original model inputs",
+    "Spatial block CV is observational source prediction not causal mechanism",
+    "Zero registered WWTP upstream50km does not mean no sewer discharge",
+    "Station medians are individual response units; sampling detection frequencies vary"
+  ],
+  "date_utc": "2026-11-07T12:23:32.555164+00:00",
+  "landuse_census_selects_Peters_original_model_input_subset": true,
+  "matched_observation_years": "2011-2024",
+  "measurements_original_not_WRTDS_or_RF": true,
+  "min_positive_measurements_per_station": 12,
+  "min_unique_observation_years": 2,
+  "original_plant_response_examined": false,
+  "results": {
+    "TN": {
+      "exposure_support_warning": "Under 20 stations have nonzero observed upstream WWTP proxy; nutrient associations unstable",
+      "landuse_complete_source_group_cv": {
+        "n": 20,
+        "spatial_blocks": 9,
+        "status": "INSUFFICIENT_SOURCE_SUPPORT"
+      },
+      "landuse_exposure_support_warning": "Under 20 land-complete stations have nonzero upstream WWTP proxy; rich-model result particularly fragile",
+      "mean_observed_concentration_mgL": 3.5943256869542886,
+      "median_observed_station_concentration_mgL": 2.512,
+      "nutrient": "TN",
+      "original_upstream_WWTP_positive_sites": 13,
+      "primary_source_group_cv": {
+        "alpha_fixed": 10.0,
+        "fold_metrics": [
+          {
+            "fold": 1,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 5,
+            "test_mae": 0.9205754134340213,
+            "test_mse": 1.0398899253936589,
+            "test_sites": 48
+          },
+          {
+            "fold": 2,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 6,
+            "test_mae": 0.6434139130330786,
+            "test_mse": 0.6675894488643828,
+            "test_sites": 47
+          },
+          {
+            "fold": 3,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 7,
+            "test_mae": 0.5285450359111358,
+            "test_mse": 0.4315919081978864,
+            "test_sites": 47
+          },
+          {
+            "fold": 4,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 7,
+            "test_mae": 0.5220775826301146,
+            "test_mse": 0.44556961173976795,
+            "test_sites": 47
+          },
+          {
+            "fold": 5,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 7,
+            "test_mae": 0.7328835359111431,
+            "test_mse": 0.8786487791254052,
+            "test_sites": 47
+          },
+          {
+            "fold": 1,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 5,
+            "test_mae": 0.9253252148272102,
+            "test_mse": 1.0503928476399362,
+            "test_sites": 48
+          },
+          {
+            "fold": 2,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 6,
+            "test_mae": 0.64662920976962,
+            "test_mse": 0.6740623739572924,
+            "test_sites": 47
+          },
+          {
+            "fold": 3,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 7,
+            "test_mae": 0.5305229700872172,
+            "test_mse": 0.43199504321180227,
+            "test_sites": 47
+          },
+          {
+            "fold": 4,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 7,
+            "test_mae": 0.5227743842001467,
+            "test_mse": 0.44535157236121764,
+            "test_sites": 47
+          },
+          {
+            "fold": 5,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 7,
+            "test_mae": 0.7352915009881772,
+            "test_mse": 0.8843653183290064,
+            "test_sites": 47
+          },
+          {
+            "fold": 1,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 5,
+            "test_mae": 0.9282877858941164,
+            "test_mse": 1.0579102880951727,
+            "test_sites": 48
+          },
+          {
+            "fold": 2,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 6,
+            "test_mae": 0.649336904244714,
+            "test_mse": 0.6772599947708963,
+            "test_sites": 47
+          },
+          {
+            "fold": 3,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 7,
+            "test_mae": 0.5321288326271143,
+            "test_mse": 0.4339822575164929,
+            "test_sites": 47
+          },
+          {
+            "fold": 4,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 7,
+            "test_mae": 0.5322810097570349,
+            "test_mse": 0.46037564272491344,
+            "test_sites": 47
+          },
+          {
+            "fold": 5,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 7,
+            "test_mae": 0.748809385531397,
+            "test_mse": 0.9152686257040942,
+            "test_sites": 47
+          },
+          {
+            "fold": 1,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 5,
+            "test_mae": 0.9291911580729063,
+            "test_mse": 1.0598557939469426,
+            "test_sites": 48
+          },
+          {
+            "fold": 2,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 6,
+            "test_mae": 0.655352929435193,
+            "test_mse": 0.6844341467751616,
+            "test_sites": 47
+          },
+          {
+            "fold": 3,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 7,
+            "test_mae": 0.5376298239293719,
+            "test_mse": 0.43695824902934455,
+            "test_sites": 47
+          },
+          {
+            "fold": 4,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 7,
+            "test_mae": 0.5322816434951404,
+            "test_mse": 0.4603790687069495,
+            "test_sites": 47
+          },
+          {
+            "fold": 5,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 7,
+            "test_mae": 0.7486179514999841,
+            "test_mse": 0.9146268887967098,
+            "test_sites": 47
+          }
+        ],
+        "metrics": {
+          "M0_geography_hydrology": {
+            "geographic_3degree_blocks": 32,
+            "heldout_mae": 0.6705629788841111,
+            "heldout_mse": 0.6941292566588365,
+            "n": 236
+          },
+          "M1_plus_upstream_ww": {
+            "geographic_3degree_blocks": 32,
+            "heldout_mae": 0.6731816074950365,
+            "heldout_mse": 0.6987298693055294,
+            "n": 236
+          },
+          "M2_plus_downstream_placebo": {
+            "geographic_3degree_blocks": 32,
+            "heldout_mae": 0.6792286098917365,
+            "heldout_mse": 0.7104379673823684,
+            "n": 236
+          },
+          "M3_upstream_and_downstream": {
+            "geographic_3degree_blocks": 32,
+            "heldout_mae": 0.6816679913576479,
+            "heldout_mse": 0.7127279691310892,
+            "n": 236
+          },
+          "delta_vs_M0": {
+            "M1_plus_upstream_ww": {
+              "mse_absolute_reduction": -0.00460061264669287,
+              "mse_pct_improvement": -0.662789041458609
+            },
+            "M2_plus_downstream_placebo": {
+              "mse_absolute_reduction": -0.016308710723531905,
+              "mse_pct_improvement": -2.349520722125045
+            },
+            "M3_upstream_and_downstream": {
+              "mse_absolute_reduction": -0.018598712472252643,
+              "mse_pct_improvement": -2.6794307103228587
+            }
+          }
+        },
+        "n": 236,
+        "spatial_3degree_blocks": 32,
+        "spatial_block_signs": {
+          "M1_plus_upstream_ww": {
+            "blocks_total": 32,
+            "blocks_with_positive_delta": 15
+          },
+          "M2_plus_downstream_placebo": {
+            "blocks_total": 32,
+            "blocks_with_positive_delta": 8
+          },
+          "M3_upstream_and_downstream": {
+            "blocks_total": 32,
+            "blocks_with_positive_delta": 9
+          }
+        },
+        "status": "FIXED_SPATIAL_GROUP_CV_COMPLETE"
+      },
+      "secondary_WWTP_positive_sites": 1,
+      "secondary_covariates_source_available": [
+        "crop2",
+        "pop_dens",
+        "N_deposition"
+      ],
+      "secondary_landcover_population_deposition_sites": 20,
+      "source_associations": {
+        "source_downstream_WWTP_placebo": {
+          "n": 236,
+          "p_exploratory": 0.2769148033089796,
+          "rho": -0.07106344442203164
+        },
+        "source_upstream_WWTP_volume": {
+          "n": 236,
+          "p_exploratory": 0.26118809457047776,
+          "rho": -0.07343041247555586
+        }
+      },
+      "source_total_sites_with_measured_2011_2024": 236,
+      "status": "OBSERVATIONAL_SOURCE_ALIGNED_PREDICTION_NOT_CAUSAL"
+    },
+    "TP": {
+      "landuse_complete_source_group_cv": {
+        "alpha_fixed": 10.0,
+        "fold_metrics": [
+          {
+            "fold": 1,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 3,
+            "test_mae": 0.6685705458441256,
+            "test_mse": 0.6544058651699629,
+            "test_sites": 102
+          },
+          {
+            "fold": 2,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 6,
+            "test_mae": 0.4902400078174824,
+            "test_mse": 0.3952821474664915,
+            "test_sites": 102
+          },
+          {
+            "fold": 3,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 5,
+            "test_mae": 0.6246631791713922,
+            "test_mse": 0.5994531481483434,
+            "test_sites": 102
+          },
+          {
+            "fold": 4,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 6,
+            "test_mae": 0.4065488776601582,
+            "test_mse": 0.2660809267706628,
+            "test_sites": 102
+          },
+          {
+            "fold": 5,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 6,
+            "test_mae": 0.6270834592841491,
+            "test_mse": 0.6258046636890978,
+            "test_sites": 102
+          },
+          {
+            "fold": 1,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 3,
+            "test_mae": 0.6766452439358901,
+            "test_mse": 0.669779057902117,
+            "test_sites": 102
+          },
+          {
+            "fold": 2,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 6,
+            "test_mae": 0.48970666495768755,
+            "test_mse": 0.40264369072418493,
+            "test_sites": 102
+          },
+          {
+            "fold": 3,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 5,
+            "test_mae": 0.6259721981534322,
+            "test_mse": 0.6020914205770262,
+            "test_sites": 102
+          },
+          {
+            "fold": 4,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 6,
+            "test_mae": 0.4161794345619428,
+            "test_mse": 0.27612820798522264,
+            "test_sites": 102
+          },
+          {
+            "fold": 5,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 6,
+            "test_mae": 0.6226856724108872,
+            "test_mse": 0.6180544188742726,
+            "test_sites": 102
+          },
+          {
+            "fold": 1,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 3,
+            "test_mae": 0.6700329800252737,
+            "test_mse": 0.6571197329421083,
+            "test_sites": 102
+          },
+          {
+            "fold": 2,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 6,
+            "test_mae": 0.48501179454889126,
+            "test_mse": 0.3842364931220984,
+            "test_sites": 102
+          },
+          {
+            "fold": 3,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 5,
+            "test_mae": 0.6249413016881229,
+            "test_mse": 0.6028588307476778,
+            "test_sites": 102
+          },
+          {
+            "fold": 4,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 6,
+            "test_mae": 0.40007451098701535,
+            "test_mse": 0.256907245047559,
+            "test_sites": 102
+          },
+          {
+            "fold": 5,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 6,
+            "test_mae": 0.6321423634094397,
+            "test_mse": 0.6371078421100909,
+            "test_sites": 102
+          },
+          {
+            "fold": 1,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 3,
+            "test_mae": 0.7039859301419503,
+            "test_mse": 0.7214908178192075,
+            "test_sites": 102
+          },
+          {
+            "fold": 2,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 6,
+            "test_mae": 0.48791971163047476,
+            "test_mse": 0.39057861569729746,
+            "test_sites": 102
+          },
+          {
+            "fold": 3,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 5,
+            "test_mae": 0.6277063593185369,
+            "test_mse": 0.608337788886233,
+            "test_sites": 102
+          },
+          {
+            "fold": 4,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 6,
+            "test_mae": 0.4092006270669126,
+            "test_mse": 0.26372690387544745,
+            "test_sites": 102
+          },
+          {
+            "fold": 5,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 6,
+            "test_mae": 0.6156558171286953,
+            "test_mse": 0.6132141537919092,
+            "test_sites": 102
+          }
+        ],
+        "metrics": {
+          "M0_geography_hydrology": {
+            "geographic_3degree_blocks": 26,
+            "heldout_mae": 0.5634212139554615,
+            "heldout_mse": 0.5082053502489117,
+            "n": 510
+          },
+          "M1_plus_upstream_ww": {
+            "geographic_3degree_blocks": 26,
+            "heldout_mae": 0.5662378428039678,
+            "heldout_mse": 0.5137393592125648,
+            "n": 510
+          },
+          "M2_plus_downstream_placebo": {
+            "geographic_3degree_blocks": 26,
+            "heldout_mae": 0.5624405901317486,
+            "heldout_mse": 0.507646028793907,
+            "n": 510
+          },
+          "M3_upstream_and_downstream": {
+            "geographic_3degree_blocks": 26,
+            "heldout_mae": 0.5688936890573141,
+            "heldout_mse": 0.519469656014019,
+            "n": 510
+          },
+          "delta_vs_M0": {
+            "M1_plus_upstream_ww": {
+              "mse_absolute_reduction": -0.005534008963653081,
+              "mse_pct_improvement": -1.088931661373223
+            },
+            "M2_plus_downstream_placebo": {
+              "mse_absolute_reduction": 0.0005593214550047021,
+              "mse_pct_improvement": 0.11005815950791437
+            },
+            "M3_upstream_and_downstream": {
+              "mse_absolute_reduction": -0.011264305765107285,
+              "mse_pct_improvement": -2.2164870479207255
+            }
+          }
+        },
+        "n": 510,
+        "spatial_3degree_blocks": 26,
+        "spatial_block_signs": {
+          "M1_plus_upstream_ww": {
+            "blocks_total": 26,
+            "blocks_with_positive_delta": 10
+          },
+          "M2_plus_downstream_placebo": {
+            "blocks_total": 26,
+            "blocks_with_positive_delta": 13
+          },
+          "M3_upstream_and_downstream": {
+            "blocks_total": 26,
+            "blocks_with_positive_delta": 15
+          }
+        },
+        "status": "FIXED_SPATIAL_GROUP_CV_COMPLETE"
+      },
+      "mean_observed_concentration_mgL": 0.11132574047954864,
+      "median_observed_station_concentration_mgL": 0.08,
+      "nutrient": "TP",
+      "original_upstream_WWTP_positive_sites": 85,
+      "primary_source_group_cv": {
+        "alpha_fixed": 10.0,
+        "fold_metrics": [
+          {
+            "fold": 1,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 7,
+            "test_mae": 0.543037495387817,
+            "test_mse": 0.5696359139022081,
+            "test_sites": 284
+          },
+          {
+            "fold": 2,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 7,
+            "test_mae": 0.905800384885308,
+            "test_mse": 1.269200528095891,
+            "test_sites": 284
+          },
+          {
+            "fold": 3,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 7,
+            "test_mae": 0.4831297498890263,
+            "test_mse": 0.4169972393798972,
+            "test_sites": 284
+          },
+          {
+            "fold": 4,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 3,
+            "test_mae": 0.6537355564987882,
+            "test_mse": 0.6752621260055223,
+            "test_sites": 283
+          },
+          {
+            "fold": 5,
+            "model": "M0_geography_hydrology",
+            "test_blocks": 4,
+            "test_mae": 0.5664613105226949,
+            "test_mse": 0.512307831836836,
+            "test_sites": 283
+          },
+          {
+            "fold": 1,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 7,
+            "test_mae": 0.5505363538116355,
+            "test_mse": 0.5837511153151671,
+            "test_sites": 284
+          },
+          {
+            "fold": 2,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 7,
+            "test_mae": 0.8994289911867461,
+            "test_mse": 1.2578016647028152,
+            "test_sites": 284
+          },
+          {
+            "fold": 3,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 7,
+            "test_mae": 0.5119186143077776,
+            "test_mse": 0.4621925696646556,
+            "test_sites": 284
+          },
+          {
+            "fold": 4,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 3,
+            "test_mae": 0.717522788036189,
+            "test_mse": 0.7825330738175953,
+            "test_sites": 283
+          },
+          {
+            "fold": 5,
+            "model": "M1_plus_upstream_ww",
+            "test_blocks": 4,
+            "test_mae": 0.5564947318255605,
+            "test_mse": 0.4949242936611808,
+            "test_sites": 283
+          },
+          {
+            "fold": 1,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 7,
+            "test_mae": 0.5609651737476682,
+            "test_mse": 0.6071011977857064,
+            "test_sites": 284
+          },
+          {
+            "fold": 2,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 7,
+            "test_mae": 0.8653245788547919,
+            "test_mse": 1.1812506965239606,
+            "test_sites": 284
+          },
+          {
+            "fold": 3,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 7,
+            "test_mae": 0.5455195273583032,
+            "test_mse": 0.5140415108317693,
+            "test_sites": 284
+          },
+          {
+            "fold": 4,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 3,
+            "test_mae": 0.6203017412280915,
+            "test_mse": 0.5918745146656157,
+            "test_sites": 283
+          },
+          {
+            "fold": 5,
+            "model": "M2_plus_downstream_placebo",
+            "test_blocks": 4,
+            "test_mae": 0.5398378145263165,
+            "test_mse": 0.46377024058002847,
+            "test_sites": 283
+          },
+          {
+            "fold": 1,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 7,
+            "test_mae": 0.5585020115500744,
+            "test_mse": 0.604375745000511,
+            "test_sites": 284
+          },
+          {
+            "fold": 2,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 7,
+            "test_mae": 0.8723451470271775,
+            "test_mse": 1.1900957697084873,
+            "test_sites": 284
+          },
+          {
+            "fold": 3,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 7,
+            "test_mae": 0.5418315019962646,
+            "test_mse": 0.5084818179483974,
+            "test_sites": 284
+          },
+          {
+            "fold": 4,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 3,
+            "test_mae": 0.6468515730659474,
+            "test_mse": 0.6311227114371945,
+            "test_sites": 283
+          },
+          {
+            "fold": 5,
+            "model": "M3_upstream_and_downstream",
+            "test_blocks": 4,
+            "test_mae": 0.5452232277184416,
+            "test_mse": 0.4720242296799113,
+            "test_sites": 283
+          }
+        ],
+        "metrics": {
+          "M0_geography_hydrology": {
+            "geographic_3degree_blocks": 28,
+            "heldout_mae": 0.6304615799246338,
+            "heldout_mse": 0.6888145723418466,
+            "n": 1418
+          },
+          "M1_plus_upstream_ww": {
+            "geographic_3degree_blocks": 28,
+            "heldout_mae": 0.6471946421465616,
+            "heldout_mse": 0.7163498690453898,
+            "n": 1418
+          },
+          "M2_plus_downstream_placebo": {
+            "geographic_3degree_blocks": 28,
+            "heldout_mae": 0.6264550985806447,
+            "heldout_mse": 0.6718104321542209,
+            "n": 1418
+          },
+          "M3_upstream_and_downstream": {
+            "geographic_3degree_blocks": 28,
+            "heldout_mae": 0.6330027561529342,
+            "heldout_mse": 0.6814029131247118,
+            "n": 1418
+          },
+          "delta_vs_M0": {
+            "M1_plus_upstream_ww": {
+              "mse_absolute_reduction": -0.027535296703543155,
+              "mse_pct_improvement": -3.9974904436077856
+            },
+            "M2_plus_downstream_placebo": {
+              "mse_absolute_reduction": 0.01700414018762575,
+              "mse_pct_improvement": 2.4686092412090974
+            },
+            "M3_upstream_and_downstream": {
+              "mse_absolute_reduction": 0.007411659217134825,
+              "mse_pct_improvement": 1.0760020932682226
+            }
+          }
+        },
+        "n": 1418,
+        "spatial_3degree_blocks": 28,
+        "spatial_block_signs": {
+          "M1_plus_upstream_ww": {
+            "blocks_total": 28,
+            "blocks_with_positive_delta": 14
+          },
+          "M2_plus_downstream_placebo": {
+            "blocks_total": 28,
+            "blocks_with_positive_delta": 15
+          },
+          "M3_upstream_and_downstream": {
+            "blocks_total": 28,
+            "blocks_with_positive_delta": 14
+          }
+        },
+        "status": "FIXED_SPATIAL_GROUP_CV_COMPLETE"
+      },
+      "secondary_WWTP_positive_sites": 73,
+      "secondary_covariates_source_available": [
+        "crop2",
+        "pop_dens"
+      ],
+      "secondary_landcover_population_deposition_sites": 510,
+      "source_associations": {
+        "source_downstream_WWTP_placebo": {
+          "n": 1418,
+          "p_exploratory": 0.00012243342639656432,
+          "rho": 0.10183131233371691
+        },
+        "source_upstream_WWTP_volume": {
+          "n": 1418,
+          "p_exploratory": 0.942293988759587,
+          "rho": -0.0019239987429169035
+        }
+      },
+      "source_total_sites_with_measured_2011_2024": 1418,
+      "status": "OBSERVATIONAL_SOURCE_ALIGNED_PREDICTION_NOT_CAUSAL"
+    }
+  },
+  "river_network_is_derived_third_party_not_independent_official": true,
+  "schema": "gesui_EU_monitor_river_TNTP_measured_vs_sourceWWTP_v01",
+  "source_measurement_receipts": [
+    {
+      "archive_bytes": 25003722,
+      "archive_original_md5": "b596dbe9833c49426147a99f10f3fe31",
+      "duplicate_date_records_in_eligible_raw_windows": 0,
+      "measured_sites_passing_12_samples_and_two_years": 1418,
+      "nutrient": "TP",
+      "original_archive_name": "TP.2_-_Harmonised.zip",
+      "original_figshare_id": 70896288,
+      "positive_measured_2011_2024_low_depth_stations_excluded": 0,
+      "source_missing_date_or_value_rows": 0,
+      "source_missing_station_files": 0,
+      "source_selected_monitored_stations": 1418
+    },
+    {
+      "archive_bytes": 10897672,
+      "archive_original_md5": "75b11044141464050031ec1ff191662c",
+      "duplicate_date_records_in_eligible_raw_windows": 0,
+      "measured_sites_passing_12_samples_and_two_years": 236,
+      "nutrient": "TN",
+      "original_archive_name": "TN.2_-_Harmonised.zip",
+      "original_figshare_id": 70896279,
+      "positive_measured_2011_2024_low_depth_stations_excluded": 58,
+      "source_missing_date_or_value_rows": 0,
+      "source_missing_station_files": 0,
+      "source_selected_monitored_stations": 294
+    }
+  ],
+  "source_only_input_sha256": "47fb5bb92726602170a98473d02d2c810f98e49a51ef867d017190a85ae2f10b",
+  "source_run_id": 42371629424
+}

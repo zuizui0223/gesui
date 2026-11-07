@@ -1,0 +1,48 @@
+name: gesui EU monitored-river wastewater source exposure, response-blind
+on:
+  push:
+    branches:
+      - "analysis/monitored-river-macro-pilot-20261107"
+    paths:
+      - "scripts/gesui_build_monitor_exposures.py"
+      - ".github/workflows/gesui-macro-source-exposure.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas scipy geopandas pyogrio pyarrow shapely requests
+      - name: Fetch original fixed wastewater sources
+        run: |
+          mkdir -p /tmp/gesui_macro_sources
+          curl --fail --location --silent --show-error --retry 2 --max-time 140 \
+            https://raw.githubusercontent.com/rfordatascience/tidytuesday/774fb8cc81e563d6d30efdcb7b48a38565e923cc/data/2022/2022-09-20/HydroWASTE_v10.csv \
+            -o /tmp/gesui_macro_sources/HydroWASTE_v10.csv
+          test "$(git hash-object /tmp/gesui_macro_sources/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui_macro_sources/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui_macro_sources/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+      - name: Compute upstream versus downstream modelled WWTP discharge near real TN and TP station sites, without looking at concentrations
+        run: |
+          python -u scripts/gesui_build_monitor_exposures.py \
+            --hydrowaste /tmp/gesui_macro_sources/HydroWASTE_v10.csv \
+            --rivers /tmp/gesui_macro_sources/HydroRIVERS_v10_eu.geoparquet \
+            --out /tmp/gesui_macro_sources/output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EU-TP-TN-observed-station-source-only-upstream-wwtp
+          path: /tmp/gesui_macro_sources/output/
+          if-no-files-found: warn
+          retention-days: 30
