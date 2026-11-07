@@ -1,0 +1,45 @@
+name: gesui measured EU river nutrients vs upstream wastewater source, blocked holdout
+on:
+  push:
+    branches:
+      - "analysis/monitored-river-macro-pilot-20261107"
+    paths:
+      - "scripts/gesui_monitor_nutrient_outcomes.py"
+      - ".github/workflows/gesui-macro-measured-nutrients.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  observed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas scipy scikit-learn requests
+      - name: Retrieve pre-outcome source-only WWTP exposure and measured-station panel
+        run: |
+          mkdir -p /tmp/gesui_macro_original
+          gh run download 42371629424 --repo zuizui0223/gesui \
+            --name gesui-EU-TP-TN-observed-station-source-only-upstream-wwtp \
+            --dir /tmp/gesui_macro_original
+      - name: Fit predeclared original harmonised TN TP station median and 3degree-block-held-out ridge comparisons
+        run: |
+          python -u scripts/gesui_monitor_nutrient_outcomes.py \
+            --source-features /tmp/gesui_macro_original/nutrient_monitor_station_source_features.csv \
+            --out /tmp/gesui_macro_measured/results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EU-real-TNTP-source-vs-upstream-WWTP-spatial-prediction
+          path: /tmp/gesui_macro_measured/results/
+          retention-days: 30
+          if-no-files-found: warn
