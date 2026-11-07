@@ -32,3 +32,7 @@
 - `.github/workflows/gesui-offline-integrity.yml` runs these checks without invoking any archival HydroWASTE/GBIF/PANGAEA re-download workflow.
 
 These tests establish preservation and input hygiene, **not** independent re-analysis of wastewater–flora relationships.
+
+## Competing biological mechanisms
+
+The new [water-subsidy vs nutrient-enrichment vs contaminant-stress framework](docs/MECHANISM_CONTRASTS.md) separates effluent-supported dry-season habitats from N-driven compositional filtering and water-quality stress. This is a **pre-analysis hypothesis set**, not an empirical result from chocho.
