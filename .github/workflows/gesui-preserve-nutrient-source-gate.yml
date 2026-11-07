@@ -1,0 +1,103 @@
+name: gesui archive source-locked TN TP real coverage and focal TP evidence
+
+on:
+  push:
+    branches:
+      - "analysis/nutrient-source-coverage-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-nutrient-source-gate.yml"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch only original finished source artifacts; do not requery Figshare
+        run: |
+          mkdir -p /tmp/gesui-nutrient/coverage /tmp/gesui-nutrient/network /tmp/gesui-nutrient/focal /tmp/gesui-nutrient/schema
+          gh run download 42369645480 --repo zuizui0223/gesui \
+            --name gesui-Peters2026-TNTP-station-site-coverage --dir /tmp/gesui-nutrient/coverage
+          gh run download 42369909177 --repo zuizui0223/gesui \
+            --name gesui-Peters2026-TNTP-verified-river-network-coverage --dir /tmp/gesui-nutrient/network
+          gh run download 42370327128 --repo zuizui0223/gesui \
+            --name gesui-focal24249-original-TNTP-source-and-measured-TP --dir /tmp/gesui-nutrient/focal
+          gh run download 42369418945 --repo zuizui0223/gesui \
+            --name gesui-Peters2026-v5-measured-source-schema --dir /tmp/gesui-nutrient/schema
+      - name: Audit original source evidence and commit derived small files
+        run: |
+          python - <<'PY'
+          import hashlib,json,shutil
+          from pathlib import Path
+          root=Path("/tmp/gesui-nutrient")
+          cover=json.loads((root/"coverage/SOURCE_COVERAGE.json").read_text())
+          network=json.loads((root/"network/NETWORK_SOURCE_QC.json").read_text())
+          focal=json.loads((root/"focal/SOURCE_AND_MEASURED_TP_REPORT.json").read_text())
+          schema=json.loads((root/"schema/verified_source_schema.json").read_text())
+          assert cover["source_doi"]==network["source_Peters_figshare_v5"]==focal["source_doi"]=="10.25400/lincolnuninz.30546371.v5"
+          assert cover["all_source_files_md5_verified"] is True
+          assert (cover["study_sites"],cover["study_outfalls"])==(48,16)
+          assert (network["network_distance_km_ceilings"]["25"]["TN"]["source_outfalls_with_upstream_and_downstream_connected"],
+                  network["network_distance_km_ceilings"]["25"]["TP"]["source_outfalls_with_upstream_and_downstream_connected"])==(1,1)
+          assert focal["combined_TN_TP_primary_estimand_testable"] is False
+          assert focal["per_station_source_qc"]["TN_upstream"]["listed_in_TN_unavailable_ID_file"]
+          assert focal["per_station_source_qc"]["TN_downstream"]["listed_in_TN_unavailable_ID_file"]
+          assert focal["TP_both_primary_site_files_available"] is True
+          assert abs(focal["analyses"]["common_2012_2013"]["median_monthly_downstream_upstream_ratio"]-7/6)<1e-12
+          assert focal["analyses"]["common_2012_2013"]["valid_same_calendar_month_pairs"]==24
+          assert focal["analyses"]["TP_premarked_2008_2022_sensitivity"]["valid_same_calendar_month_pairs"]==179
+          assert len(schema["file_schema"])==5 and schema["source_doi"]==cover["source_doi"]
+          dst=Path("results/peters2026_tntp_frozen16_20261107")
+          dst.mkdir(parents=True,exist_ok=True)
+          entries=[]
+          for group in ("coverage","network","focal","schema"):
+              for x in sorted((root/group).iterdir()):
+                  if x.is_file():
+                      target=dst/x.name
+                      if target.exists():raise ValueError("Duplicate source filename "+x.name)
+                      shutil.copyfile(x,target)
+                      entries.append({"file":x.name,"source_run":{
+                         "coverage":42369645480,"network":42369909177,"focal":42370327128,"schema":42369418945}[group],
+                         "sha256":hashlib.sha256(x.read_bytes()).hexdigest(),"bytes":x.stat().st_size})
+          receipt={"schema":"gesui_peters_tntp_2026_v5_extracted_verified_20261107",
+            "source_doi":"10.25400/lincolnuninz.30546371.v5",
+            "source_license":"CC BY 4.0",
+            "source_artifact_files":entries,
+            "source_raw_Peters_harmonised_ZIPs_redistributed":False,
+            "TN_TP_joint_measured_effect_tested":False,
+            "source_data_queried_during_archive":False,
+            "older_plant_richness_results_not_used_in_station_selection":True}
+          (dst/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          readme="""# Peters 2026 v5 independently verified TN/TP source gate (48 sites/16 outfalls)
+
+          **Primary globally generalizable TN/TP→plants effect: NOT TESTABLE in these frozen 16 outfalls.** This is a true measured-data coverage and descriptive single-river result, not a causal wastewater nutrient effect.
+
+          - Peters et al. Scientific Data 2026, [Figshare DOI v5](https://doi.org/10.25400/lincolnuninz.30546371.v5), public CC BY4; all original source files MD5 verified, with original site/year metadata and original harmonised observations distinguished from modeled WRTDS or random-forest estimates.
+          - Original TN station metadata 19,424 rows, TP 41,639 rows; time-range/geographic filtered 5,604 TN and 12,779 TP candidates. In 48 fixed river plant sites, **zero monitoring stations within 1km** for either parameter. Within 10km: 12/48 sites have TN station neighbors, 16/48 TP; this is proximity only.
+          - Nearest-station-to-HydroRIVERS snap ≤500m, actual directed upstream/downstream relation and network path ≤25km: **only one of 16 locked wastewater outfalls** (HydroWASTE 24249, Austria) supports both upstream and downstream station *metadata* for TN and TP. No pair exists within ≤10km network path for both roles.
+          - Crucial data-access QC: 24249's TN upstream WQ016702 and downstream WQ016695 are both **listed unavailable**, have WQ.available=0 and no public TN.2 site CSV. **Never impute them from source modeled TN**; the joint TN/TP primary is blocked.
+          - Observed TP upstream WQ976406 and downstream WQ977059 are available. Predeclared 2012–2013 **24 matched calendar months**, median downstream/upstream **1.1667**, 15 months downstream higher (3 equal). Predeclared broader 2008–2022 sensitivity: **179 matched months**, median ratio **1.40625**, 128 months higher (13 equal). Original source observations: 271 TP upstream and 293 TP downstream across full archive.
+          - Interpretation: **positive single-river TP gradient**, NOT attributable to the WWTP. Its model wastewater fraction is ~1.71×10^-6 of river flow (0.000171%). Station locations are asymmetric (~23.54km upstream, ~8.59km downstream network route), and agricultural land, other discharges, hydrology and sampling conditions are uncontrolled.
+          - Station/river mirror sourced from third-party HydroRIVERS EU v1-derived GeoParquet with pinned SHA256; independent official original comparison pending.
+
+          Source results are separated by table. Dataset originals (large 10.9/25MB ZIPs, licensed data) are **not redistributed**; only small derived metadata candidate/source-grain QC and monthly paired summaries are committed, all with file receipts.
+          """
+          (dst/"RESULTS.md").write_text("\n".join(s.strip() for s in readme.splitlines())+"\n")
+          print("GESUI_NUTRIENT_SOURCE_ARCHIVE_COMPLETE",json.dumps({"files":len(entries),"result_folder":str(dst),
+            "tn_source_unavailable":True,"tp_months_primary":24,"tp_ratio":7/6},sort_keys=True))
+          PY
+      - name: Save source artifacts without triggering new remote queries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/peters2026_tntp_frozen16_20261107
+          git commit -m "Preserve MD5-verified river nutrient metadata, topology QC, TN access blocker and observed TP gradient"
+          git push origin HEAD:analysis/nutrient-source-coverage-20261107
