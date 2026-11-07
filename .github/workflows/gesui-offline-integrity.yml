@@ -30,3 +30,6 @@ jobs:
         run: |
           python -m unittest discover -s tests -p "test_gesui_migration_integrity.py" -v
           python -m unittest discover -s tests -p "test_gesui_plant_site_panel.py" -v
+      - name: Independently validate original 48-site real GBIF data and all source estimates
+        run: python scripts/audit_directed_river_plantae_source.py
+

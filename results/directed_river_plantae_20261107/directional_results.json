@@ -1,0 +1,765 @@
+{
+  "all_sites_any_plantae_records": 48,
+  "count_2011_2024_sites_by_country": {
+    "AUT": 12,
+    "CZE": 12,
+    "DEU": 12,
+    "DNK": 12
+  },
+  "depth10_association_sensitivity": {
+    "n": 14,
+    "spearman_rho": 0.17362637362637365,
+    "sufficient_support": true,
+    "two_sided_p_descriptive": 0.5527669411422413
+  },
+  "depth10_high_vs_low": {
+    "high_minus_low": 0.007325905654678722,
+    "mean_high": 0.010688069816372603,
+    "mean_low": 0.0033621641616938813,
+    "n_high": 8,
+    "n_low": 6
+  },
+  "depth30_all_balances_exploratory": {
+    "n": 12,
+    "spearman_rho": 0.1258741258741259,
+    "sufficient_support": true,
+    "two_sided_p_descriptive": 0.696683109395766
+  },
+  "limits": [
+    "GBIF presence-only occurrence records, not local plant abundance or verified absence",
+    "Kingdom Plantae includes non-vascular plants; no N trait or origin classification",
+    "HydroRIVERS third-party GeoParquet version unverified against original official",
+    "River reach centers differ in segment lengths, elevations, urbanization and recording effort",
+    "Other WWTPs upstream, unrelated land use, irrigation or nitrogen may explain differences",
+    "No measured wastewater N/P, delivered load, flow seasonality or causal attribution",
+    "16 source-selected outfalls only, 4 countries and non-independent catchments possible",
+    "Raw Jaccard turnover is sensitive to record effort and site distances"
+  ],
+  "primary_depth30_and_balance_n": 12,
+  "primary_high_vs_low": {
+    "high_minus_low": -0.05967832461397362,
+    "mean_high": 0.0012118226189920453,
+    "mean_low": 0.060890147232965666,
+    "n_high": 7,
+    "n_low": 5
+  },
+  "primary_source_fraction_association": {
+    "n": 12,
+    "spearman_rho": 0.1258741258741259,
+    "sufficient_support": true,
+    "two_sided_p_descriptive": 0.696683109395766
+  },
+  "sample_window": "2011,2024",
+  "sensitivity_depth10_n": 14,
+  "site_count": 48,
+  "source_run": 42364866919,
+  "source_selected_wwtps": 16,
+  "status": "OBSERVATIONAL_GBIF_ALL_PLANTAE_DIRECTED_REACH_NOT_WASTEWATER_EFFECT",
+  "unbalanced_depth30_n": 12,
+  "wwtp_outcomes": [
+    {
+      "country": "AUT",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.010082958122147545,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.04145013915060147,
+        "jaccard_dissimilarity_u1_d1": 0.9704142011834319,
+        "jaccard_dissimilarity_u2_u1": 0.8089887640449438,
+        "pre_outfall_upstream_log_richness_change": -0.03136718102845393,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.866395375331802,
+          9.530837450064391,
+          9.63755656108721
+        ],
+        "turnover_increment_across_minus_upstream": 0.16142543713848811
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.02562801628476663,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.12055411084652246,
+        "jaccard_dissimilarity_u1_d1": 0.9704142011834319,
+        "jaccard_dissimilarity_u2_u1": 0.8089887640449438,
+        "pre_outfall_upstream_log_richness_change": -0.09492609456175582,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          28.75067536127051,
+          26.05645850122359,
+          26.75882352941265
+        ],
+        "turnover_increment_across_minus_upstream": 0.16142543713848811
+      },
+      "distance_u1_d1_km": 16.479299108716276,
+      "distance_u2_u1_km": 2.268241076722915,
+      "river_id": 20423350,
+      "site_record_balance_ratio_maxmin": 9.51923076923077,
+      "site_species_key_record_counts": [
+        495,
+        255,
+        52
+      ],
+      "source_fraction": 0.05170810155103782,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": true,
+      "wwtp_id": 24094
+    },
+    {
+      "country": "AUT",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.06208361448181421,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.1174344983574942,
+        "jaccard_dissimilarity_u1_d1": 0.9444444444444444,
+        "jaccard_dissimilarity_u2_u1": 0.9259259259259259,
+        "pre_outfall_upstream_log_richness_change": -0.05535088387567999,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.184782608695594,
+          8.636363636363633,
+          9.253585361581795
+        ],
+        "turnover_increment_across_minus_upstream": 0.01851851851851849
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": null,
+        "eligible_by_records_and_species": false,
+        "extra_change_downstream_minus_prior_upstream": null,
+        "jaccard_dissimilarity_u1_d1": null,
+        "jaccard_dissimilarity_u2_u1": null,
+        "pre_outfall_upstream_log_richness_change": null,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          null,
+          null,
+          null
+        ],
+        "turnover_increment_across_minus_upstream": null
+      },
+      "distance_u1_d1_km": 15.148154174639469,
+      "distance_u2_u1_km": 8.072501933020733,
+      "river_id": 20449705,
+      "site_record_balance_ratio_maxmin": 8.916666666666666,
+      "site_species_key_record_counts": [
+        24,
+        12,
+        107
+      ],
+      "source_fraction": 0.056962989923898415,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": false,
+      "wwtp_id": 24365
+    },
+    {
+      "country": "AUT",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.006319934721667586,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.009582121473038274,
+        "jaccard_dissimilarity_u1_d1": 0.887218045112782,
+        "jaccard_dissimilarity_u2_u1": 0.8068181818181819,
+        "pre_outfall_upstream_log_richness_change": 0.01590205619470586,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.444449882983907,
+          9.61186571197576,
+          9.67914438502694
+        ],
+        "turnover_increment_across_minus_upstream": 0.08039986329460014
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.007716756657410784,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.04287171774646037,
+        "jaccard_dissimilarity_u1_d1": 0.887218045112782,
+        "jaccard_dissimilarity_u2_u1": 0.8068181818181819,
+        "pre_outfall_upstream_log_richness_change": 0.05058847440387115,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          25.31828527231144,
+          26.683939109961045,
+          26.898395721925148
+        ],
+        "turnover_increment_across_minus_upstream": 0.08039986329460014
+      },
+      "distance_u1_d1_km": 4.096085763749731,
+      "distance_u2_u1_km": 2.515291401619309,
+      "river_id": 20418922,
+      "site_record_balance_ratio_maxmin": 5.764705882352941,
+      "site_species_key_record_counts": [
+        170,
+        196,
+        34
+      ],
+      "source_fraction": 1.305079873286709e-06,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": true,
+      "wwtp_id": 24158
+    },
+    {
+      "country": "AUT",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.07722430792705337,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.14902112769225972,
+        "jaccard_dissimilarity_u1_d1": 0.96,
+        "jaccard_dissimilarity_u2_u1": 0.9476190476190476,
+        "pre_outfall_upstream_log_richness_change": -0.07179681976520635,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.81317235986218,
+          9.064035567974463,
+          9.872020278568476
+        ],
+        "turnover_increment_across_minus_upstream": 0.012380952380952381
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.2277042453420881,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.43805039222902753,
+        "jaccard_dissimilarity_u1_d1": 0.96,
+        "jaccard_dissimilarity_u2_u1": 0.9476190476190476,
+        "pre_outfall_upstream_log_richness_change": -0.21034614688693942,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          28.278782227354,
+          22.724705960089942,
+          28.79144274563892
+        ],
+        "turnover_increment_across_minus_upstream": 0.012380952380952381
+      },
+      "distance_u1_d1_km": 6.8496110882601995,
+      "distance_u2_u1_km": 2.531357192010404,
+      "river_id": 20410203,
+      "site_record_balance_ratio_maxmin": 5.76,
+      "site_species_key_record_counts": [
+        288,
+        50,
+        286
+      ],
+      "source_fraction": 1.7102364894632606e-06,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": true,
+      "wwtp_id": 24249
+    },
+    {
+      "country": "CZE",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.12014846021126369,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.16752211672773942,
+        "jaccard_dissimilarity_u1_d1": 0.9345794392523364,
+        "jaccard_dissimilarity_u2_u1": 0.8512396694214877,
+        "pre_outfall_upstream_log_richness_change": -0.04737365651647574,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          8.880680529249767,
+          8.423510958362652,
+          9.62655644009057
+        ],
+        "turnover_increment_across_minus_upstream": 0.08333976983084879
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.22614389569266935,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.2832435892012035,
+        "jaccard_dissimilarity_u1_d1": 0.9345794392523364,
+        "jaccard_dissimilarity_u2_u1": 0.8512396694214877,
+        "pre_outfall_upstream_log_richness_change": -0.057099693508534166,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          22.396723641649917,
+          21.098203237278597,
+          26.705756276790954
+        ],
+        "turnover_increment_across_minus_upstream": 0.08333976983084879
+      },
+      "distance_u1_d1_km": 6.13209834484336,
+      "distance_u2_u1_km": 2.6992499661024465,
+      "river_id": 20369104,
+      "site_record_balance_ratio_maxmin": 2.25,
+      "site_species_key_record_counts": [
+        162,
+        114,
+        72
+      ],
+      "source_fraction": 0.17715376781112924,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": true,
+      "wwtp_id": 23287
+    },
+    {
+      "country": "CZE",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.004373102747285529,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.05375333111986391,
+        "jaccard_dissimilarity_u1_d1": 0.873015873015873,
+        "jaccard_dissimilarity_u2_u1": 0.9215686274509804,
+        "pre_outfall_upstream_log_richness_change": 0.05812643386714944,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          8.659836476625891,
+          9.237967914438675,
+          9.282837638501244
+        ],
+        "turnover_increment_across_minus_upstream": -0.048552754435107426
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.004405822395408876,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.09013198217105112,
+        "jaccard_dissimilarity_u1_d1": 0.873015873015873,
+        "jaccard_dissimilarity_u2_u1": 0.9215686274509804,
+        "pre_outfall_upstream_log_richness_change": 0.09453780456646,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          21.383592017738316,
+          23.602941176470598,
+          23.711576503949097
+        ],
+        "turnover_increment_across_minus_upstream": -0.048552754435107426
+      },
+      "distance_u1_d1_km": 10.415095718594792,
+      "distance_u2_u1_km": 2.517377686629832,
+      "river_id": 20353464,
+      "site_record_balance_ratio_maxmin": 2.411764705882353,
+      "site_species_key_record_counts": [
+        44,
+        34,
+        82
+      ],
+      "source_fraction": 0.15258473613466073,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": true,
+      "wwtp_id": 23499
+    },
+    {
+      "country": "CZE",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": null,
+        "eligible_by_records_and_species": false,
+        "extra_change_downstream_minus_prior_upstream": null,
+        "jaccard_dissimilarity_u1_d1": null,
+        "jaccard_dissimilarity_u2_u1": null,
+        "pre_outfall_upstream_log_richness_change": null,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          null,
+          null,
+          null
+        ],
+        "turnover_increment_across_minus_upstream": null
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": null,
+        "eligible_by_records_and_species": false,
+        "extra_change_downstream_minus_prior_upstream": null,
+        "jaccard_dissimilarity_u1_d1": null,
+        "jaccard_dissimilarity_u2_u1": null,
+        "pre_outfall_upstream_log_richness_change": null,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          null,
+          null,
+          null
+        ],
+        "turnover_increment_across_minus_upstream": null
+      },
+      "distance_u1_d1_km": 10.438112621966662,
+      "distance_u2_u1_km": 2.2650311030586168,
+      "river_id": 20378714,
+      "site_record_balance_ratio_maxmin": 10.555555555555555,
+      "site_species_key_record_counts": [
+        42,
+        9,
+        95
+      ],
+      "source_fraction": 8.93466470807505e-06,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": false,
+      "wwtp_id": 23281
+    },
+    {
+      "country": "CZE",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": -0.0012555347927052374,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.0015890427577645028,
+        "jaccard_dissimilarity_u1_d1": 0.9357142857142857,
+        "jaccard_dissimilarity_u2_u1": 0.9301075268817205,
+        "pre_outfall_upstream_log_richness_change": -0.00284457755046974,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.752689672301155,
+          9.722146274779075,
+          9.708692694564952
+        ],
+        "turnover_increment_across_minus_upstream": 0.0056067588325652284
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": -0.0026727964315194086,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.009595476438620576,
+        "jaccard_dissimilarity_u1_d1": 0.9357142857142857,
+        "jaccard_dissimilarity_u2_u1": 0.9301075268817205,
+        "pre_outfall_upstream_log_richness_change": -0.012268272870139985,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          27.763919877736672,
+          27.41319207108697,
+          27.337350792011158
+        ],
+        "turnover_increment_across_minus_upstream": 0.0056067588325652284
+      },
+      "distance_u1_d1_km": 9.927147874883723,
+      "distance_u2_u1_km": 6.493052146086627,
+      "river_id": 20357462,
+      "site_record_balance_ratio_maxmin": 4.157894736842105,
+      "site_species_key_record_counts": [
+        237,
+        57,
+        153
+      ],
+      "source_fraction": 1.2138273577088441e-06,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": true,
+      "wwtp_id": 23477
+    },
+    {
+      "country": "DEU",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": -0.24217800205509477,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.23798497798234974,
+        "jaccard_dissimilarity_u1_d1": 0.8409090909090909,
+        "jaccard_dissimilarity_u2_u1": 0.7905138339920948,
+        "pre_outfall_upstream_log_richness_change": -0.004193024072745022,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.746111593498673,
+          9.701147223120653,
+          7.399506471912742
+        ],
+        "turnover_increment_across_minus_upstream": 0.05039525691699609
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": -0.45301833876714426,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.4377089731445629,
+        "jaccard_dissimilarity_u1_d1": 0.8409090909090909,
+        "jaccard_dissimilarity_u2_u1": 0.7905138339920948,
+        "pre_outfall_upstream_log_richness_change": -0.015309365622581339,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          27.714504376583797,
+          27.278251428944156,
+          16.976667547683785
+        ],
+        "turnover_increment_across_minus_upstream": 0.05039525691699609
+      },
+      "distance_u1_d1_km": 13.13760875611174,
+      "distance_u2_u1_km": 2.3840809933089138,
+      "river_id": 20335897,
+      "site_record_balance_ratio_maxmin": 2.7552447552447554,
+      "site_species_key_record_counts": [
+        394,
+        146,
+        143
+      ],
+      "source_fraction": 0.372077111640913,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": true,
+      "wwtp_id": 19654
+    },
+    {
+      "country": "DEU",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": -0.005834830252949175,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.016392099802177817,
+        "jaccard_dissimilarity_u1_d1": 0.7704918032786885,
+        "jaccard_dissimilarity_u2_u1": 0.729903536977492,
+        "pre_outfall_upstream_log_richness_change": -0.022226930055126992,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.594803516835366,
+          9.361911386683062,
+          9.301627436984122
+        ],
+        "turnover_increment_across_minus_upstream": 0.040588266301196496
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": -0.017912800094948444,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.037855269808621195,
+        "jaccard_dissimilarity_u1_d1": 0.7704918032786885,
+        "jaccard_dissimilarity_u2_u1": 0.729903536977492,
+        "pre_outfall_upstream_log_richness_change": -0.05576806990356964,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          26.539845915338518,
+          25.04604226996455,
+          24.583638558305566
+        ],
+        "turnover_increment_across_minus_upstream": 0.040588266301196496
+      },
+      "distance_u1_d1_km": 9.140887152455793,
+      "distance_u2_u1_km": 4.3337893301647865,
+      "river_id": 20307244,
+      "site_record_balance_ratio_maxmin": 2.1886363636363635,
+      "site_species_key_record_counts": [
+        627,
+        440,
+        963
+      ],
+      "source_fraction": 0.6398481818704671,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": true,
+      "wwtp_id": 22573
+    },
+    {
+      "country": "DEU",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": -0.03393136162474075,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.038129077246637166,
+        "jaccard_dissimilarity_u1_d1": 0.8142292490118577,
+        "jaccard_dissimilarity_u2_u1": 0.7928994082840237,
+        "pre_outfall_upstream_log_richness_change": 0.004197715621896414,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.679157488190398,
+          9.72407977393366,
+          9.366301424612503
+        ],
+        "turnover_increment_across_minus_upstream": 0.02132984072783395
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": -0.09000522143513434,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.10717346085763868,
+        "jaccard_dissimilarity_u1_d1": 0.8142292490118577,
+        "jaccard_dissimilarity_u2_u1": 0.7928994082840237,
+        "pre_outfall_upstream_log_richness_change": 0.01716823942250434,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          27.073024911827012,
+          27.55915034339216,
+          25.10096183884062
+        ],
+        "turnover_increment_across_minus_upstream": 0.02132984072783395
+      },
+      "distance_u1_d1_km": 7.018322112727878,
+      "distance_u2_u1_km": 2.9909972851656272,
+      "river_id": 20366037,
+      "site_record_balance_ratio_maxmin": 3.489051094890511,
+      "site_species_key_record_counts": [
+        137,
+        161,
+        478
+      ],
+      "source_fraction": 1.591376677379183e-06,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": true,
+      "wwtp_id": 20700
+    },
+    {
+      "country": "DEU",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.026190521622024843,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": -0.08479339030879318,
+        "jaccard_dissimilarity_u1_d1": 0.8758620689655172,
+        "jaccard_dissimilarity_u2_u1": 0.9693877551020408,
+        "pre_outfall_upstream_log_richness_change": 0.11098391193081802,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          8.256112969156428,
+          9.342567095731468,
+          9.617022702390878
+        ],
+        "turnover_increment_across_minus_upstream": -0.09352568613652357
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": null,
+        "eligible_by_records_and_species": false,
+        "extra_change_downstream_minus_prior_upstream": null,
+        "jaccard_dissimilarity_u1_d1": null,
+        "jaccard_dissimilarity_u2_u1": null,
+        "pre_outfall_upstream_log_richness_change": null,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          null,
+          null,
+          null
+        ],
+        "turnover_increment_across_minus_upstream": null
+      },
+      "distance_u1_d1_km": 6.225313850232966,
+      "distance_u2_u1_km": 3.9658789134621686,
+      "river_id": 20399008,
+      "site_record_balance_ratio_maxmin": 6.2592592592592595,
+      "site_species_key_record_counts": [
+        27,
+        169,
+        106
+      ],
+      "source_fraction": 3.05854874241244e-06,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": false,
+      "wwtp_id": 20740
+    },
+    {
+      "country": "DNK",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.0019901403620865565,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.006013735750439508,
+        "jaccard_dissimilarity_u1_d1": 0.5817610062893082,
+        "jaccard_dissimilarity_u2_u1": 0.8520710059171598,
+        "pre_outfall_upstream_log_richness_change": -0.004023595388352952,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.75089099858702,
+          9.707720671350714,
+          9.729051757331879
+        ],
+        "turnover_increment_across_minus_upstream": -0.2703099996278516
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.004420661755924815,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.015121462134422448,
+        "jaccard_dissimilarity_u1_d1": 0.5817610062893082,
+        "jaccard_dissimilarity_u2_u1": 0.8520710059171598,
+        "pre_outfall_upstream_log_richness_change": -0.010700800378497632,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          27.70513358297417,
+          27.399603303374466,
+          27.525426249017816
+        ],
+        "turnover_increment_across_minus_upstream": -0.2703099996278516
+      },
+      "distance_u1_d1_km": 7.989512159768882,
+      "distance_u2_u1_km": 4.457447120084467,
+      "river_id": 20241720,
+      "site_record_balance_ratio_maxmin": 3.918181818181818,
+      "site_species_key_record_counts": [
+        220,
+        862,
+        473
+      ],
+      "source_fraction": 0.051573657597503715,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": true,
+      "wwtp_id": 12106
+    },
+    {
+      "country": "DNK",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.012830873084368921,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.028430277844742058,
+        "jaccard_dissimilarity_u1_d1": 0.4852941176470589,
+        "jaccard_dissimilarity_u2_u1": 0.5234042553191489,
+        "pre_outfall_upstream_log_richness_change": -0.015599404760373137,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.5409189857084,
+          9.377762802119003,
+          9.511776477195452
+        ],
+        "turnover_increment_across_minus_upstream": -0.03811013767209004
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.03568094450992687,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.07954928165778874,
+        "jaccard_dissimilarity_u1_d1": 0.4852941176470589,
+        "jaccard_dissimilarity_u2_u1": 0.5234042553191489,
+        "pre_outfall_upstream_log_richness_change": -0.04386833714786187,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          26.020023484843435,
+          24.86032302458633,
+          25.7997030989734
+        ],
+        "turnover_increment_across_minus_upstream": -0.03811013767209004
+      },
+      "distance_u1_d1_km": 6.954469131739232,
+      "distance_u2_u1_km": 2.4789616970731245,
+      "river_id": 20229656,
+      "site_record_balance_ratio_maxmin": 1.886046511627907,
+      "site_species_key_record_counts": [
+        811,
+        534,
+        430
+      ],
+      "source_fraction": 0.20973149195907786,
+      "source_fraction_stratum": "high",
+      "strict_primary_eligible": true,
+      "wwtp_id": 12282
+    },
+    {
+      "country": "DNK",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": null,
+        "eligible_by_records_and_species": false,
+        "extra_change_downstream_minus_prior_upstream": null,
+        "jaccard_dissimilarity_u1_d1": null,
+        "jaccard_dissimilarity_u2_u1": null,
+        "pre_outfall_upstream_log_richness_change": null,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          null,
+          null,
+          null
+        ],
+        "turnover_increment_across_minus_upstream": null
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": null,
+        "eligible_by_records_and_species": false,
+        "extra_change_downstream_minus_prior_upstream": null,
+        "jaccard_dissimilarity_u1_d1": null,
+        "jaccard_dissimilarity_u2_u1": null,
+        "pre_outfall_upstream_log_richness_change": null,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          null,
+          null,
+          null
+        ],
+        "turnover_increment_across_minus_upstream": null
+      },
+      "distance_u1_d1_km": 8.162686206582407,
+      "distance_u2_u1_km": 2.3569484270407353,
+      "river_id": 20249827,
+      "site_record_balance_ratio_maxmin": 160.5,
+      "site_species_key_record_counts": [
+        2,
+        100,
+        321
+      ],
+      "source_fraction": 0.0008972380056320494,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": false,
+      "wwtp_id": 12215
+    },
+    {
+      "country": "DNK",
+      "depth10_sensitivity": {
+        "across_outfall_downstream_log_richness_change": 0.0015074840324285077,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.0020674035486076825,
+        "jaccard_dissimilarity_u1_d1": 0.5649122807017544,
+        "jaccard_dissimilarity_u2_u1": 0.5477178423236515,
+        "pre_outfall_upstream_log_richness_change": -0.0005599195161791748,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          9.647063689689272,
+          9.641103859607707,
+          9.657157250838827
+        ],
+        "turnover_increment_across_minus_upstream": 0.01719443837810286
+      },
+      "depth30": {
+        "across_outfall_downstream_log_richness_change": 0.005138690563639248,
+        "eligible_by_records_and_species": true,
+        "extra_change_downstream_minus_prior_upstream": 0.006850046101279261,
+        "jaccard_dissimilarity_u1_d1": 0.5649122807017544,
+        "jaccard_dissimilarity_u2_u1": 0.5477178423236515,
+        "pre_outfall_upstream_log_richness_change": -0.0017113555376400136,
+        "rarefied_expected_plant_species_u2_u1_d1": [
+          26.83123526246133,
+          26.783646855831655,
+          26.926785878346394
+        ],
+        "turnover_increment_across_minus_upstream": 0.01719443837810286
+      },
+      "distance_u1_d1_km": 4.522696534039614,
+      "distance_u2_u1_km": 3.0512935881355845,
+      "river_id": 20224708,
+      "site_record_balance_ratio_maxmin": 2.3578199052132702,
+      "site_species_key_record_counts": [
+        587,
+        422,
+        995
+      ],
+      "source_fraction": 0.0003325095461875279,
+      "source_fraction_stratum": "low",
+      "strict_primary_eligible": true,
+      "wwtp_id": 12317
+    }
+  ]
+}
