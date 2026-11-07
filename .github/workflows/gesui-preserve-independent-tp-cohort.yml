@@ -1,0 +1,91 @@
+name: gesui preserve independent source-blind German TP outfall cohort
+
+on:
+  push:
+    branches:
+      - "analysis/nutrient-source-coverage-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-independent-tp-cohort.yml"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Get existing source-only independent cohort; do not rerun remote queries
+        run: |
+          mkdir -p /tmp/gesui-original
+          gh run download 42371319376 --repo zuizui0223/gesui \
+            --name gesui-independent-monitored-TNTP-source-only-cohort \
+            --dir /tmp/gesui-original
+      - name: Preserve source-independent cohort with SHA256 checks
+        run: |
+          python - <<'PY'
+          import json,hashlib,shutil
+          from pathlib import Path
+          root=Path("/tmp/gesui-original")
+          names=("SOURCE_READY_COHORT_QC.json",
+                 "SINGLE_NUTRIENT_SOURCE_ONLY_COHORTS.json",
+                 "STRICT_STATION_INDEPENDENCE_COHORTS.json")
+          d={x:json.loads((root/x).read_text()) for x in names}
+          a=d["STRICT_STATION_INDEPENDENCE_COHORTS.json"]
+          q=d["SOURCE_READY_COHORT_QC.json"]
+          assert q["original_source_candidates_nonoverlap"]==3569
+          assert q["new_candidate_outfalls_after_old16_exclusion"]==3553
+          assert q["source_outfalls_with_all_four_available_TNTP_station_positions_and_overlap"]==0
+          strict=a["independent_source_only_cohorts"]
+          selected=strict["TP"]
+          assert len(selected)==6 and len(strict["TN"])==0
+          assert len({x["hydrobasin_l12"] for x in selected})==6
+          assert set(x["country"] for x in selected)=={"DEU"}
+          assert {x["wwtp_id"] for x in selected}.isdisjoint(
+              {int(x["wwtp_id"]) for x in json.loads(
+              Path("results/hydrorivers_eu_source_gate_20261107/candidate_site_design.json").read_text())["selected"]})
+          ids=[v["station_id"] for w in selected for v in w["measured_source_stations"]["TP"].values()]
+          assert len(ids)==len(set(ids))==12
+          assert sorted(x["independent_source_fraction_stratum"] for x in selected)==["high"]*3+["low"]*3
+          assert a["strict_independence_audit"]["TP"]["distance_min_km"]>50
+          out=Path("results/independent_deu_tp_source_cohort_20261107")
+          out.mkdir(parents=True,exist_ok=True)
+          for n in names:shutil.copyfile(root/n,out/n)
+          receipt={
+              "original_success_run":42371319376,
+              "original_run_git_sha":"8559a5642111fb635950a70a54ba28daa27301b2",
+              "original_artifact_id":13573713042,
+              "source_inputs":"MD5-verified Peters2026 v5 metadata + source-locked original HydroWASTE and HydroRIVERS",
+              "source_file_SHA256":{n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in names},
+              "source_selected_independent_TP_outfalls":6,
+              "source_selected_independent_TN_outfalls":0,
+              "no_measured_concentration_values_read_during_selection":True,
+              "no_plant_observation_values_read_during_selection":True,
+          }
+          (out/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          md="""# Independently selected monitoring-ready outfalls (source-only, 2026-11-07)
+
+          Source full candidate river chains: 3,569. Exclude the prior biology-sampled 16 -> 3,553. Public Peters2026 v5 original site metadata and actual source file existence, hydrographically connected TN/TP stations within 25km from each river outfall, filtered using only metadata.
+
+          **Joint TN+TP upstream/downstream: 0 source-eligible new outfalls** under the strict four-station eligibility gate. **TP-only:** 46 candidate outfalls, 40 in Germany. The original six source-selected included reused monitors/coordinates and cannot be independent replicates.
+
+          New strict source-independence filter: all 12 TP monitoring station IDs used once, all six distinct HydroBASINS L12, each source outfall >=30km from all others (observed minimum 57.284km). **Result: six Germany outfalls**, 3 high vs 3 low modeled wastewater fraction, all separate from original 16. No TP concentrations, GBIF plant responses or outcome-selected model criteria were used.
+
+          Original site-source files, original quality-gate report and exact SHA-256 receipt are archived here. Source-derived monitoring availability is not actual confirmed same-calendar-month water-quality time-series overlap; that next audit must precede any ecological effect claims. All six are in one country and n=6, so the cohort is a descriptive feasibility/replication pilot, not a global or causal wastewater experiment.
+          """
+          (out/"README.md").write_text("\n".join(x.strip() for x in md.splitlines())+"\n")
+          print("GESUI_DEDUPLICATED_TP_SOURCE_ARCHIVE_VERIFIED",json.dumps(receipt,sort_keys=True))
+          PY
+      - name: Commit source-only cohort on analysis branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/independent_deu_tp_source_cohort_20261107
+          git commit -m "Freeze six independent German river TP sources before biological or nutrient outcomes"
+          git push origin HEAD:analysis/nutrient-source-coverage-20261107
