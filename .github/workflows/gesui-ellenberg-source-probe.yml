@@ -1,0 +1,36 @@
+name: gesui European Ellenberg nutrient-affinity trait source and GBIF name schema
+
+on:
+  push:
+    branches:
+      - "analysis/eea2022-eiv-trait-coverage-20261107"
+    paths:
+      - "scripts/gesui_probe_europe_ellenberg_trait.py"
+      - ".github/workflows/gesui-ellenberg-source-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet pandas requests
+      - name: Independently verify original 2023 European species trait file and sample GBIF taxonomy before trait fitting
+        run: |
+          python -u scripts/gesui_probe_europe_ellenberg_trait.py \
+            --plants results/eea2022_p_matched_river_plantae_20261107/ALL_NEW_PLANT_SPECIES_FACETS.json \
+            --out /tmp/gesui-eiv-probe/SOURCE_SCHEMA.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-European-Ellenberg-2023-GBIF-species-mapping-source-schema
+          path: /tmp/gesui-eiv-probe/
+          if-no-files-found: warn
+          retention-days: 30
