@@ -35,6 +35,7 @@ def source_locked_sites(path):
     ids=[v["station_id"] for e in a for v in e["measured_source_stations"]["TP"].values()]
     assert len(ids)==len(set(ids))==12
     modified=[{**e,"exposure_stratum":e["independent_source_fraction_stratum"]} for e in a]
+    source_plants.SOURCE_OUTFALLS=len(modified)  # six in the independently source-locked new cohort, not the prior 16
     source_plants.SOURCE_RUN_ID=SOURCE_RUN
     source_plants.YEAR=YEAR
     source_plants.RADIUS_KM=RADIUS
