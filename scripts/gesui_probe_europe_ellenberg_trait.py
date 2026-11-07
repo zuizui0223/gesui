@@ -47,7 +47,7 @@ def main():
     for enc in ("utf-8-sig","latin1"):
         try:
             text=raw.decode(enc)
-            frame=pd.read_csv(io.StringIO(text),sep=None,engine="python",low_memory=False)
+            frame=pd.read_csv(io.StringIO(text),sep=None,engine="python")
             decoded=enc
             break
         except Exception:continue
