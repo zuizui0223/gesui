@@ -1,0 +1,51 @@
+name: gesui live all-Plantae outfall/WWTP recording pilot (noncausal)
+
+on:
+  push:
+    branches:
+      - "analysis/wwtp-plantae-gbif-observation-pilot-20261107"
+    paths:
+      - "scripts/gesui_plantae_outfall_pilot.py"
+      - "tests/test_gesui_plantae_outfall_pilot.py"
+      - ".github/workflows/gesui-plantae-outfall-pilot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-and-plant-facets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent maths/record-index dependencies
+        run: python -m pip install --quiet numpy pandas scipy pytest
+      - name: Validate pre-specified source selection and rarefaction maths offline
+        run: python -m pytest -q tests/test_gesui_plantae_outfall_pilot.py
+      - name: Retrieve 58,502 public source-verified HydroWASTE facilities
+        run: |
+          mkdir -p /tmp/gesui-plants
+          curl --fail --location --silent --show-error --retry 2 --max-time 120 \
+            https://raw.githubusercontent.com/rfordatascience/tidytuesday/774fb8cc81e563d6d30efdcb7b48a38565e923cc/data/2022/2022-09-20/HydroWASTE_v10.csv \
+            -o /tmp/gesui-plants/HydroWASTE_v10.csv
+          test "$(git hash-object /tmp/gesui-plants/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
+      - name: Fixed-source high/low water fractions and fresh all-Plantae GBIF recording index
+        run: |
+          python -u scripts/gesui_plantae_outfall_pilot.py \
+            --hydrowaste /tmp/gesui-plants/HydroWASTE_v10.csv \
+            --out /tmp/gesui-plants/results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-GBIF-Plantae-outfall-observation-v01
+          path: /tmp/gesui-plants/results/
+          retention-days: 30
+          if-no-files-found: warn
