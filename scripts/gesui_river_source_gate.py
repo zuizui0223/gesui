@@ -64,11 +64,21 @@ def extract_shp(source_zip: Path, target: Path) -> Path:
 def read_river_subset(shp: Path):
     fields = ["HYRIV_ID", "NEXT_DOWN", "DIS_AV_CMS", "LENGTH_KM", "UPLAND_SKM",
               "HYBAS_L12", "DIST_DN_KM"]
-    gdf = gpd.read_file(shp, bbox=BBOX, engine="pyogrio",
-                        columns=fields, use_arrow=False)
-    if gdf.crs is None:
-        raise ValueError("HydroRIVERS has no CRS")
-    gdf = gdf.to_crs("EPSG:4326")
+    if shp.suffix.lower() in (".parquet", ".geoparquet"):
+        # Immutable third-party conversion of HydroRIVERS v1 Europe:
+        # do NOT treat as official identical GIS bytes without verification.
+        gdf = gpd.read_parquet(shp)
+        gdf = gdf.rename(columns={x:x.upper() for x in gdf.columns if x != gdf.geometry.name})
+        if gdf.crs is None:
+            raise ValueError("GeoParquet mirror has no CRS")
+        gdf = gdf.to_crs("EPSG:4326")
+        gdf = gdf.cx[BBOX[0]:BBOX[2],BBOX[1]:BBOX[3]].copy()
+    else:
+        gdf = gpd.read_file(shp, bbox=BBOX, engine="pyogrio",
+                            columns=fields, use_arrow=False)
+        if gdf.crs is None:
+            raise ValueError("HydroRIVERS has no CRS")
+        gdf = gdf.to_crs("EPSG:4326")
     missing = set(fields) - set(gdf.columns)
     if missing:
         raise ValueError(f"HydroRIVERS missing {missing}")
@@ -238,12 +248,38 @@ def run(args):
         & ww.LAT_OUT.between(BBOX[1],BBOX[3])
         & ww.LON_OUT.between(BBOX[0],BBOX[2])
     ].copy()
-    zip_sha=hashlib.sha256(args.hydrorivers_zip.read_bytes()).hexdigest()
-    shp=extract_shp(args.hydrorivers_zip,args.work_dir)
+    if args.hydrorivers_parquet:
+        shp=args.hydrorivers_parquet
+        zip_sha=hashlib.sha256(shp.read_bytes()).hexdigest()
+        trusted_mirror_sha="5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f"
+        if zip_sha != trusted_mirror_sha:
+            raise ValueError("HydroRIVERS third-party GeoParquet SHA-256 mismatch")
+        source_kind="independent_huggingface_conversion_not_official_original"
+    else:
+        shp=extract_shp(args.hydrorivers_zip,args.work_dir)
+        zip_sha=hashlib.sha256(args.hydrorivers_zip.read_bytes()).hexdigest()
+        source_kind="official_zip"
     river,upstream,rivers_n=read_river_subset(shp)
     cand,valid_n=cohort_candidates(eligible,river,upstream)
     selected=select_preoutcome(cand)
     summary=summarize_source(ww,eligible,rivers_n,len(cand),valid_n,selected,zip_sha)
+    summary["sources"]["hydrorivers_format_and_access"]=source_kind
+    summary["sources"]["third_party_geoparquet_version_verified_against_official"]=False if args.hydrorivers_parquet else None
+    summary["quality"]["hydrowaste_eligible_river_ids_found_in_europe_mirror"]=int(eligible.HYRIV_ID.astype(int).isin(river.keys()).sum())
+    summary["quality"]["hydrowaste_eligible_river_ids_not_in_europe_mirror"]=int((~eligible.HYRIV_ID.astype(int).isin(river.keys())).sum())
+    if selected:
+        from shapely.geometry import Point
+        from shapely.ops import nearest_points
+        snap=[]
+        for x in selected:
+            line=river[x["river_id"]].geometry
+            lon,lat=x["outfall_lon"],x["outfall_lat"]
+            closest=nearest_points(Point(lon,lat),line)[1]
+            snap.append(haversine(lat,lon,closest.y,closest.x))
+        summary["quality"]["selected_outfall_to_matching_reach_km_median"]=float(np.median(snap))
+        summary["quality"]["selected_outfall_to_matching_reach_km_max"]=float(np.max(snap))
+        if float(np.max(snap)) > 2.0:
+            raise ValueError("Outfall matching reach is geographically distant, fail before plant requests")
     args.out_dir.mkdir(parents=True,exist_ok=True)
     (args.out_dir/"source_qc.json").write_text(json.dumps(summary,indent=2,sort_keys=True)+"\n",encoding="utf8")
     (args.out_dir/"candidate_site_design.json").write_text(
@@ -262,7 +298,9 @@ def run(args):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--hydrowaste",type=Path,required=True)
-    p.add_argument("--hydrorivers-zip",type=Path,required=True)
+    src=p.add_mutually_exclusive_group(required=True)
+    src.add_argument("--hydrorivers-zip",type=Path)
+    src.add_argument("--hydrorivers-parquet",type=Path)
     p.add_argument("--work-dir",type=Path,required=True)
     p.add_argument("--out-dir",type=Path,required=True)
     run(p.parse_args())
