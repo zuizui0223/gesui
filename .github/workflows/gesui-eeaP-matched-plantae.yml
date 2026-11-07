@@ -1,0 +1,40 @@
+name: gesui real 36-plant-site GBIF after source-only EEA measured P matching
+
+on:
+  push:
+    branches:
+      - "analysis/eea2022-matched-river-plantae-20261107"
+    paths:
+      - "scripts/gesui_new_eeaP_matched_plantae.py"
+      - ".github/workflows/gesui-eeaP-matched-plantae.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  survey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy scipy
+      - name: Query only the 36 already committed pre-response source-matched river sites
+        run: |
+          python -u scripts/gesui_new_eeaP_matched_plantae.py \
+            --design results/eea2022_p_blind_river_plant_pairs_20261107/SOURCE_MATCHED_PAIR_SELECTION.json \
+            --receipt results/eea2022_p_blind_river_plant_pairs_20261107/SOURCE_RECEIPT.json \
+            --out /tmp/gesui-EEAp-new-plants/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2022-18matched-river-pairs-36-Plantae-2022-2024
+          path: /tmp/gesui-EEAp-new-plants/
+          if-no-files-found: warn
+          retention-days: 30
