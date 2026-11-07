@@ -175,6 +175,7 @@ def main():
     point_tree=cKDTree(xyz(ss.lat,ss.lon))
     rows=[]
     country_count=Counter()
+    separate_ready={"TN":[],"TP":[]}
     for outfall in candid:
         nearby=point_tree.query_ball_point(
             xyz([outfall["outfall_lat"]],[outfall["outfall_lon"]])[0],
@@ -202,6 +203,22 @@ def main():
                 "source_snap_distance_m":float(station.snap_m),
                 "network_distance_km":float(d),
                 "source_start":station.start_date,"source_end":station.end_date})
+        # Independent source-only sensitivity: report the availability of ONE
+        # measured nutrient even if combined TN+TP is infeasible. This does not
+        # replace the joint test or examine any plant/chemical outcome values.
+        for one in ("TN","TP"):
+            if all(options[one][side] for side in ("UPSTREAM","DOWNSTREAM")):
+                station_pair={}
+                for side in ("UPSTREAM","DOWNSTREAM"):
+                    station_pair[side]=min(options[one][side],
+                        key=lambda x:(x["network_distance_km"],x["station_id"]))
+                start=max(v["source_start"] for v in station_pair.values())
+                end=min(v["source_end"] for v in station_pair.values())
+                if start<=end:
+                    separate_ready[one].append({
+                        **outfall,"measured_source_stations":{one:station_pair},
+                        "two_station_common_time_envelope":[start,end],
+                        "parameter_specific_monitored_ready":one})
         if not all(options[p][side] for p in ("TN","TP") for side in ("UPSTREAM","DOWNSTREAM")):
             continue
         chosen={p:{} for p in ("TN","TP")}
@@ -233,6 +250,20 @@ def main():
             for x in group[:3]:
                 if x["wwtp_id"] in {z["wwtp_id"] for z in selected}:continue
                 selected.append({**x,"monitoring_water_fraction_stratum":source_type})
+    separate_selected={}
+    for nutrient in ("TN","TP"):
+        source=sorted(separate_ready[nutrient],
+            key=lambda x:(x["country"],x["effluent_fraction_proxy"],x["wwtp_id"]))
+        chosen_one=[]
+        for country in COUNTRIES:
+            c=[x for x in source if x["country"]==country]
+            if len(c)<4:continue
+            m=max(2,len(c)//4)
+            for stratum,group in (("low",c[:m]),("high",list(reversed(c[-m:])))):
+                for x in group[:3]:
+                    if x["wwtp_id"] not in {v["wwtp_id"] for v in chosen_one}:
+                        chosen_one.append({**x,"monitored_source_only_fraction_stratum":stratum})
+        separate_selected[nutrient]=chosen_one
     report={
       "schema":"gesui_new_independent_monitored_source_cohort_v01",
       "timestamp_utc":datetime.now(timezone.utc).isoformat(),
@@ -248,6 +279,12 @@ def main():
       "stations_snapped_under_500m":dict(Counter(ss.parameter)),
       "source_outfalls_with_all_four_available_TNTP_station_positions_and_overlap":len(rows),
       "cohort_geographic_available_by_country":dict(country_count),
+      "single_nutrient_source_only_coverage":{
+          p:{"eligible_outfalls":len(separate_ready[p]),
+             "countries_with_eligible_source":dict(Counter(v["country"] for v in separate_ready[p])),
+             "selected_new_outfalls":len(separate_selected[p]),
+             "selected_by_country":dict(Counter(v["country"] for v in separate_selected[p]))}
+          for p in ("TN","TP")},
       "source_only_stratified_selected_outfalls":len(selected),
       "selected_by_country":dict(Counter(x["country"] for x in selected)),
       "selection_before_any_new_biological_response":True,
@@ -265,6 +302,13 @@ def main():
     (a.out/"SOURCE_READY_COHORT_QC.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
     (a.out/"NEW_SOURCE_BLIND_COHORT.json").write_text(json.dumps({
        "provenance":report,"selected":selected},indent=2,sort_keys=True)+"\n")
+    (a.out/"SINGLE_NUTRIENT_SOURCE_ONLY_COHORTS.json").write_text(
+        json.dumps({"source":"Peters2026 v5 only, original16 excluded",
+                    "independent_new_cohorts":separate_selected,
+                    "source_only_no_plants_or_TNTP_measured_values":True},
+            indent=2,sort_keys=True)+"\n")
+    print("GESUI_INDEPENDENT_ONE_NUTRIENT_COVERAGE",
+          json.dumps(report["single_nutrient_source_only_coverage"],sort_keys=True),flush=True)
     print("GESUI_NEW_MEASURED_TNTP_SOURCE_READY_COHORT",
        json.dumps({k:v for k,v in report.items() if k not in ("Peters_original_verified_source_files","caveats")},
                   sort_keys=True),flush=True)
