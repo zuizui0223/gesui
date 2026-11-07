@@ -1,0 +1,594 @@
+{
+  "distinct_new_GBIF_plant_sites": 36,
+  "distinct_source_pairs": 18,
+  "gbif_2022_2024_window": "2022,2024",
+  "limits": [
+    "GBIF Plantae index includes nonvascular plant species and is not plant biomass or coverage",
+    "Source-zero sites are not clean wastewater-free rivers or nutrient-free controls",
+    "EEA 2022 reported P mass is not direct plant-soil/floodplain P exposure, and source persistence over 2022-2024 is unverified",
+    "Nearby stream sampling opportunities and recorder bias may be unmatched after source-only covariates",
+    "Pairs may be nested in watersheds and 3-degree blocks are not independent experiments",
+    "No causal inference or nutrient-based selection effects claimed"
+  ],
+  "paired": [
+    {
+      "block": "17_4",
+      "control_id": "WQ967019",
+      "distinct_specieskeys_exposed_control": [
+        13,
+        4
+      ],
+      "exposed_id": "WQ976456",
+      "jaccard_recorded_species_dissimilarity_descriptive": 1.0,
+      "pair_id": "EUP22_01",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        15,
+        4
+      ],
+      "record_depth_ratio": 3.75,
+      "sensitivity_depth10": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "source_P_load_tonyr": 0.6252,
+      "source_matching_distance_km": 25.50354725298585,
+      "source_matching_score": 0.16815094959428198
+    },
+    {
+      "block": "16_2",
+      "control_id": "WQ997870",
+      "distinct_specieskeys_exposed_control": [
+        201,
+        26
+      ],
+      "exposed_id": "WQ997850",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9820627802690582,
+      "pair_id": "EUP22_02",
+      "primary_depth30": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          29.329985600974897,
+          24.15322580645163
+        ],
+        "richness_log_difference_source_minus_control": 0.18715069595230505
+      },
+      "record_count_exposed_control": [
+        236,
+        33
+      ],
+      "record_depth_ratio": 7.151515151515151,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.929204134038118,
+          9.340175953079383
+        ],
+        "richness_log_difference_source_minus_control": 0.05540159904489661
+      },
+      "source_P_load_tonyr": 2.05,
+      "source_matching_distance_km": 21.09205238100482,
+      "source_matching_score": 0.23498015479972134
+    },
+    {
+      "block": "15_2",
+      "control_id": "WQ976443",
+      "distinct_specieskeys_exposed_control": [
+        27,
+        20
+      ],
+      "exposed_id": "WQ976442",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9782608695652174,
+      "pair_id": "EUP22_03",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        33,
+        24
+      ],
+      "record_depth_ratio": 1.375,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.425403225806672,
+          9.244071146244986
+        ],
+        "richness_log_difference_source_minus_control": 0.017546332195621073
+      },
+      "source_P_load_tonyr": 30.88,
+      "source_matching_distance_km": 36.15129157363423,
+      "source_matching_score": 0.698444873215627
+    },
+    {
+      "block": "17_4",
+      "control_id": "WQ976459",
+      "distinct_specieskeys_exposed_control": [
+        1,
+        2
+      ],
+      "exposed_id": "WQ976458",
+      "jaccard_recorded_species_dissimilarity_descriptive": 1.0,
+      "pair_id": "EUP22_04",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        1,
+        2
+      ],
+      "record_depth_ratio": 2.0,
+      "sensitivity_depth10": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "source_P_load_tonyr": 3.2199,
+      "source_matching_distance_km": 17.26122566589562,
+      "source_matching_score": 0.7504517787178973
+    },
+    {
+      "block": "16_1",
+      "control_id": "WQ998597",
+      "distinct_specieskeys_exposed_control": [
+        136,
+        14
+      ],
+      "exposed_id": "WQ976816",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.951048951048951,
+      "pair_id": "EUP22_05",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        271,
+        15
+      ],
+      "record_depth_ratio": 18.066666666666666,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          8.72202303028068,
+          9.571428571428555
+        ],
+        "richness_log_difference_source_minus_control": -0.08376121664538116
+      },
+      "source_P_load_tonyr": 7.04,
+      "source_matching_distance_km": 90.83683640624912,
+      "source_matching_score": 0.86926819233705
+    },
+    {
+      "block": "16_1",
+      "control_id": "WQ998047",
+      "distinct_specieskeys_exposed_control": [
+        33,
+        23
+      ],
+      "exposed_id": "WQ997672",
+      "jaccard_recorded_species_dissimilarity_descriptive": 1.0,
+      "pair_id": "EUP22_06",
+      "primary_depth30": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          26.906116642958754,
+          20.0259671436142
+        ],
+        "richness_log_difference_source_minus_control": 0.2830876948162624
+      },
+      "record_count_exposed_control": [
+        38,
+        37
+      ],
+      "record_depth_ratio": 1.027027027027027,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.67994310099569,
+          8.66159436747671
+        ],
+        "richness_log_difference_source_minus_control": 0.1002088228972573
+      },
+      "source_P_load_tonyr": 5.83,
+      "source_matching_distance_km": 88.23260271461908,
+      "source_matching_score": 0.901141157581472
+    },
+    {
+      "block": "16_3",
+      "control_id": "WQ976391",
+      "distinct_specieskeys_exposed_control": [
+        8,
+        59
+      ],
+      "exposed_id": "WQ976416",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.953125,
+      "pair_id": "EUP22_07",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        8,
+        80
+      ],
+      "record_depth_ratio": 10.0,
+      "sensitivity_depth10": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "source_P_load_tonyr": 4.335,
+      "source_matching_distance_km": 69.79888275886738,
+      "source_matching_score": 1.162624415655364
+    },
+    {
+      "block": "16_3",
+      "control_id": "WQ976445",
+      "distinct_specieskeys_exposed_control": [
+        157,
+        16
+      ],
+      "exposed_id": "WQ976394",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9823529411764705,
+      "pair_id": "EUP22_08",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        316,
+        17
+      ],
+      "record_depth_ratio": 18.58823529411765,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.76140733210179,
+          9.66911764705885
+        ],
+        "richness_log_difference_source_minus_control": 0.008612971979111705
+      },
+      "source_P_load_tonyr": 5.632,
+      "source_matching_distance_km": 120.02648061770672,
+      "source_matching_score": 1.1733154656643503
+    },
+    {
+      "block": "16_3",
+      "control_id": "WQ976429",
+      "distinct_specieskeys_exposed_control": [
+        48,
+        28
+      ],
+      "exposed_id": "WQ976398",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9295774647887324,
+      "pair_id": "EUP22_09",
+      "primary_depth30": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          25.70945376958688,
+          23.860360360360357
+        ],
+        "richness_log_difference_source_minus_control": 0.07174299493695724
+      },
+      "record_count_exposed_control": [
+        63,
+        37
+      ],
+      "record_depth_ratio": 1.7027027027027026,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.46721119409829,
+          9.287644787644778
+        ],
+        "richness_log_difference_source_minus_control": 0.01730398776940012
+      },
+      "source_P_load_tonyr": 2.354,
+      "source_matching_distance_km": 7.2859867083050895,
+      "source_matching_score": 1.1829186904493825
+    },
+    {
+      "block": "16_1",
+      "control_id": "WQ997956",
+      "distinct_specieskeys_exposed_control": [
+        13,
+        22
+      ],
+      "exposed_id": "WQ997668",
+      "jaccard_recorded_species_dissimilarity_descriptive": 1.0,
+      "pair_id": "EUP22_10",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        13,
+        27
+      ],
+      "record_depth_ratio": 2.076923076923077,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.999999999999996,
+          9.358974358974338
+        ],
+        "richness_log_difference_source_minus_control": 0.060042040966868715
+      },
+      "source_P_load_tonyr": 5.83,
+      "source_matching_distance_km": 55.70630697424093,
+      "source_matching_score": 1.2055861432078174
+    },
+    {
+      "block": "17_1",
+      "control_id": "WQ976822",
+      "distinct_specieskeys_exposed_control": [
+        344,
+        305
+      ],
+      "exposed_id": "WQ976818",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.6365546218487395,
+      "pair_id": "EUP22_11",
+      "primary_depth30": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          18.94680958721505,
+          27.48769659557157
+        ],
+        "richness_log_difference_source_minus_control": -0.35640308555813904
+      },
+      "record_count_exposed_control": [
+        4685,
+        685
+      ],
+      "record_depth_ratio": 6.839416058394161,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          7.43643524495887,
+          9.716092020158023
+        ],
+        "richness_log_difference_source_minus_control": -0.23918668377406904
+      },
+      "source_P_load_tonyr": 12.36,
+      "source_matching_distance_km": 54.14833369918053,
+      "source_matching_score": 1.4439679396302387
+    },
+    {
+      "block": "15_1",
+      "control_id": "WQ989275",
+      "distinct_specieskeys_exposed_control": [
+        69,
+        7
+      ],
+      "exposed_id": "WQ989110",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9866666666666667,
+      "pair_id": "EUP22_12",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        112,
+        9
+      ],
+      "record_depth_ratio": 12.444444444444445,
+      "sensitivity_depth10": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "source_P_load_tonyr": 83.774,
+      "source_matching_distance_km": 107.91965791990997,
+      "source_matching_score": 1.5996269071475377
+    },
+    {
+      "block": "16_1",
+      "control_id": "WQ997650",
+      "distinct_specieskeys_exposed_control": [
+        68,
+        3
+      ],
+      "exposed_id": "WQ997657",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9857142857142858,
+      "pair_id": "EUP22_13",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        242,
+        4
+      ],
+      "record_depth_ratio": 60.5,
+      "sensitivity_depth10": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "source_P_load_tonyr": 5.83,
+      "source_matching_distance_km": 12.97297589807452,
+      "source_matching_score": 1.766680633741721
+    },
+    {
+      "block": "16_3",
+      "control_id": "WQ976434",
+      "distinct_specieskeys_exposed_control": [
+        37,
+        173
+      ],
+      "exposed_id": "WQ976405",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9285714285714286,
+      "pair_id": "EUP22_14",
+      "primary_depth30": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          27.47386759581894,
+          27.454686257864896
+        ],
+        "richness_log_difference_source_minus_control": 0.0006738740888869721
+      },
+      "record_count_exposed_control": [
+        42,
+        360
+      ],
+      "record_depth_ratio": 8.571428571428571,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.738675958188608,
+          9.721589925652381
+        ],
+        "richness_log_difference_source_minus_control": 0.0015923415151442022
+      },
+      "source_P_load_tonyr": 6.575,
+      "source_matching_distance_km": 162.16798114037857,
+      "source_matching_score": 1.861224736558049
+    },
+    {
+      "block": "15_1",
+      "control_id": "WQ989347",
+      "distinct_specieskeys_exposed_control": [
+        14,
+        1
+      ],
+      "exposed_id": "WQ989074",
+      "jaccard_recorded_species_dissimilarity_descriptive": 1.0,
+      "pair_id": "EUP22_15",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        16,
+        1
+      ],
+      "record_depth_ratio": 16.0,
+      "sensitivity_depth10": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "source_P_load_tonyr": 1.177,
+      "source_matching_distance_km": 144.66591577899388,
+      "source_matching_score": 2.0871587935130393
+    },
+    {
+      "block": "15_3",
+      "control_id": "WQ976451",
+      "distinct_specieskeys_exposed_control": [
+        131,
+        12
+      ],
+      "exposed_id": "WQ976392",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9858156028368794,
+      "pair_id": "EUP22_16",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        294,
+        12
+      ],
+      "record_depth_ratio": 24.5,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.56188623309946,
+          9.999999999999993
+        ],
+        "richness_log_difference_source_minus_control": -0.04064338991234617
+      },
+      "source_P_load_tonyr": 3.716586,
+      "source_matching_distance_km": 87.79421976167757,
+      "source_matching_score": 2.138146703314649
+    },
+    {
+      "block": "16_3",
+      "control_id": "WQ976430",
+      "distinct_specieskeys_exposed_control": [
+        9,
+        2
+      ],
+      "exposed_id": "WQ976389",
+      "jaccard_recorded_species_dissimilarity_descriptive": 1.0,
+      "pair_id": "EUP22_17",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        17,
+        2
+      ],
+      "record_depth_ratio": 8.5,
+      "sensitivity_depth10": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "source_P_load_tonyr": 14.973,
+      "source_matching_distance_km": 134.03493424436815,
+      "source_matching_score": 2.3005800544999304
+    },
+    {
+      "block": "16_3",
+      "control_id": "WQ976433",
+      "distinct_specieskeys_exposed_control": [
+        9,
+        134
+      ],
+      "exposed_id": "WQ976387",
+      "jaccard_recorded_species_dissimilarity_descriptive": 0.9785714285714285,
+      "pair_id": "EUP22_18",
+      "primary_depth30": {
+        "eligible": false,
+        "richness_log_difference_source_minus_control": null
+      },
+      "record_count_exposed_control": [
+        10,
+        171
+      ],
+      "record_depth_ratio": 17.1,
+      "sensitivity_depth10": {
+        "eligible": true,
+        "expected_richness_record_standardized": [
+          9.0,
+          9.87660065583374
+        ],
+        "richness_log_difference_source_minus_control": -0.08402865989312813
+      },
+      "source_P_load_tonyr": 3.001,
+      "source_matching_distance_km": 177.02078907874565,
+      "source_matching_score": 2.3680938504606437
+    }
+  ],
+  "primary": {
+    "eligible_spatial_blocks": 4,
+    "equal_pairs": 0,
+    "exact_two_sided_sign_test_descriptive_p": null,
+    "mean_log_richness_source_minus_control": 0.03725043484725452,
+    "median_log_richness_source_minus_control": 0.07174299493695724,
+    "n_eligible_pairs": 5,
+    "negative_pairs": 1,
+    "not_randomized_source_assignment": true,
+    "positive_pairs": 4,
+    "support_status": "INSUFFICIENT_SITE_DEPTH_OR_GEOGRAPHIC_INDEPENDENCE"
+  },
+  "schema": "gesui_EEA2022_measured_P_load_blind_matched_plant_recording_v01",
+  "sensitivity": {
+    "eligible_spatial_blocks": 6,
+    "equal_pairs": 0,
+    "exact_two_sided_sign_test_descriptive_p": 0.548828125,
+    "mean_log_richness_source_minus_control": -0.016991986714238617,
+    "median_log_richness_source_minus_control": 0.008612971979111705,
+    "n_eligible_pairs": 11,
+    "negative_pairs": 4,
+    "not_randomized_source_assignment": true,
+    "positive_pairs": 7,
+    "support_status": "DESCRIPTIVE_PAIRED_STATISTICS_SUPPORTED"
+  },
+  "source_2022_measured_P_WWTP_load_is_not_verified_plant_NP_exposure": true,
+  "source_only_selection_original_run_id": 42377235104,
+  "specieskeys_union": 1006,
+  "status": "FIRST_NEW_GBIF_ALL_PLANTAE_MATCHED_EEA_REPORTED_P_SOURCE_PILOT"
+}
