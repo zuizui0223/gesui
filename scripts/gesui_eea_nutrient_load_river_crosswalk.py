@@ -89,11 +89,21 @@ def normalize_country_reporter(reporter):
 
 def normalize_key(frame):
     frame=frame.copy()
+    # EEA repCode isn't standardized to a two-letter prefix in every country.
+    # The original crosswalk accidentally dropped 3,111 of 5,492 eligible
+    # facilities solely because it enforced an optional country-code regex.
+    # Use the FULL official reporting-cycle code with the official facility
+    # uwwCode, exactly as present in *both* EEA public layers.
+    # This source-key repair uses no observed TN/TP receptor chemistry outcomes.
     frame["country_reported"]=frame.repCode.map(normalize_country_reporter)
     frame["plant_key"]=frame.uwwCode.astype("string").str.strip()
-    frame["report_code_norm"]=frame.repCode.astype("string").str.strip()
-    frame["compound_join_key"]=frame["country_reported"]+"|"+frame["plant_key"].fillna("")
-    frame.loc[frame.country_reported.eq("")|frame.plant_key.eq(""),"compound_join_key"]=None
+    frame["report_code_norm"]=frame.repCode.astype("string").str.strip().str.upper()
+    frame["compound_join_key"]=frame["report_code_norm"].fillna("")+"|"+frame["plant_key"].fillna("")
+    frame.loc[
+        frame.report_code_norm.isna() | frame.report_code_norm.eq("") |
+        frame.plant_key.isna() | frame.plant_key.eq(""),
+        "compound_join_key"
+    ]=None
     return frame
 
 def gdf_points(df,lat,lon):
