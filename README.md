@@ -23,3 +23,12 @@
 - [完全一致したGit blobの照合台帳](provenance/CHOCHO_PR122_FILE_MANIFEST.json)
 
 元PR122から **80/80ファイルを内容変更なしにコピー**。内訳：25旧Actions YAML、21解析スクリプト、18テスト、16監査・結果。旧Actions設定は archive 下にあり自動実行されない。**外部原データ・GitHub Actions artifact・旧chocho共通入力は複製していない**ため、移植先での独立実行はまだ未検証。
+
+## Offline verification and new all-plant table contract
+
+- `python scripts/verify_migration_integrity.py` verifies all original 80 Git blob SHA values **without network access**.
+- `python -m unittest discover -s tests -p 'test_gesui_*.py' -v` runs the archival check and **synthetic-only** schema quality tests.
+- `python scripts/validate_plant_site_panel.py data/site_period_template.csv` validates a site × period × plant taxon CSV schema. The supplied template is header-only, **not empirical data**. Measured/report-level/modelled nutrient mass is distinguished from modeled wastewater volume.
+- `.github/workflows/gesui-offline-integrity.yml` runs these checks without invoking any archival HydroWASTE/GBIF/PANGAEA re-download workflow.
+
+These tests establish preservation and input hygiene, **not** independent re-analysis of wastewater–flora relationships.

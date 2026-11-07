@@ -1,0 +1,30 @@
+name: gesui source integrity and plant-table contract (offline only)
+
+on:
+  push:
+    paths:
+      - "archive/**"
+      - "provenance/**"
+      - "scripts/**"
+      - "tests/**"
+      - "data/**"
+      - ".github/workflows/gesui-offline-integrity.yml"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-contract-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify source Git blobs
+        run: python scripts/verify_migration_integrity.py
+      - name: Run independent synthetic tests
+        run: python -m unittest discover -s tests -p "test_gesui_*.py" -v

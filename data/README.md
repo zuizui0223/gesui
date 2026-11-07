@@ -3,3 +3,6 @@
 この移行には生のHydroWASTE、Jones、NIES、CIRAD、GBIFの大量CSVや元Actions artifactは含まない。[出典・単位・注意点](../docs/DATA_AND_REPRODUCIBILITY.md) を参照。
 
 新しい植物主体の表は、地点×観測期間×受理植物種を主キーに、流域・生息地・栄養指標・放流先・下流距離・農地N・市街地・観測努力を分離して集計する。旧chochoで使った候補寄主だけに母集団を固定しない。実際の放流水Nの量・受水河道を確認できるまでは単なる処理場の近さを曝露と呼ばない。
+
+
+New CSV schema: [site_period_template.csv](site_period_template.csv). The checker requires unique site-period-taxon keys, verified sample denominators, separate water volume and effluent N mass sources, and outfall connectivity for records flagged downstream. The header-only template does not contain actual field measurements.
