@@ -1,0 +1,88 @@
+name: gesui independent frozen 36 plant sites and 18 P source matched pairs archive
+
+on:
+  push:
+    branches:
+      - "analysis/eea2022-matched-river-plantae-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-eeaP-matched-plants.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  audit-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Recover actual successful 36-site GBIF original recording data
+        run: |
+          mkdir -p /tmp/gesui-eeap-plants
+          gh run download 42377454765 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-18matched-river-pairs-36-Plantae-2022-2024 \
+            --dir /tmp/gesui-eeap-plants
+      - name: Independently validate original site ID, exact rarefaction and complete case results
+        run: |
+          python scripts/audit_eea2022_new_matched_plants.py \
+            --source results/eea2022_p_blind_river_plant_pairs_20261107/SOURCE_MATCHED_PAIR_SELECTION.json \
+            --receipt results/eea2022_p_blind_river_plant_pairs_20261107/SOURCE_RECEIPT.json \
+            --raw /tmp/gesui-eeap-plants/ALL_NEW_PLANT_SPECIES_FACETS.json \
+            --result /tmp/gesui-eeap-plants/PAIRED_PLANTAE_RESULT.json \
+            --gates /tmp/gesui-eeap-plants/RESPONSE_GATES_FIXED_BEFORE_GBIF.json \
+            --out /tmp/gesui-eeap-plants/INDEPENDENT_NO_SCIPY_AUDIT.json
+      - name: Preserve original plant source and independent offline evidence
+        run: |
+          python - <<'PY'
+          import hashlib,json,shutil
+          from pathlib import Path
+          src=Path("/tmp/gesui-eeap-plants")
+          dst=Path("results/eea2022_p_matched_river_plantae_20261107")
+          dst.mkdir(parents=True,exist_ok=True)
+          files=("ALL_NEW_PLANT_SPECIES_FACETS.json","PAIRED_PLANTAE_RESULT.json",
+                 "RESPONSE_GATES_FIXED_BEFORE_GBIF.json","INDEPENDENT_NO_SCIPY_AUDIT.json")
+          for x in files:shutil.copyfile(src/x,dst/x)
+          outcome=json.loads((dst/"PAIRED_PLANTAE_RESULT.json").read_text())
+          audit=json.loads((dst/"INDEPENDENT_NO_SCIPY_AUDIT.json").read_text())
+          assert audit["status"]=="PASS_INDEPENDENT_NO_NETWORK_NO_SCIPY_SOURCE_RECOMPUTATION"
+          assert (audit["source_matched_pairs"],audit["new_plant_site_n"],audit["gbif_plant_species_key_n"])==(18,36,1006)
+          assert outcome["primary"]["n_eligible_pairs"]==5
+          assert outcome["sensitivity"]["n_eligible_pairs"]==11
+          receipt={"original_plant_data_run":42377454765,
+            "original_source_blind_pairs_run":42377235104,
+            "source_pairs_preserved_before_any_GBIF_data_run":True,
+            "all_source_file_SHA256":{x:hashlib.sha256((src/x).read_bytes()).hexdigest() for x in files},
+            "new_live_GBIF_queries_in_archival_run":0,
+            "source_registry_EEA_original_SHA256":"79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3",
+            "plant_response_not_a_measured_wastewater_effect":True}
+          (dst/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          doc="""# New all-Plantae river source-positive versus source-zero pair study
+
+          Source-only selection first: https://github.com/zuizui0223/gesui/actions/runs/42377235104 .
+          New GBIF 2022–2024 observed source run: https://github.com/zuizui0223/gesui/actions/runs/42377454765 .
+
+          Fixed before new vegetation data: 18 nonoverlapping matched pairs in 8 geographic blocks, comprising 36 independent river monitoring locations. Source-positive sites receive modelled flow paths from EEA WWTP with **reported measured 2022 P annual load**; source-zero controls lack registered measured P source *within the 50km graph*, which does NOT prove sewage-free waters. Pairing used only flow, upstream area, cropland, population density and geography, not plant outcomes or observed in-river P concentrations.
+
+          New GBIF survey returned 1,006 distinct Plantae speciesKeys in the 36 original site buffers. The preregistered strict expected richness rarefaction to **30 records** and recording-balance gate supports only **5/18 pairs** (4 positive/1 negative), **insufficient** for the predeclared paired inferential statistic. The fixed 10-record sensitivity supports **11/18 pairs**, 7 positive / 4 negative, exact paired sign p **0.548828125** (descriptive only), mean source-minus-control log richness **−0.01699**. No robust positive source-linked plant diversity difference was observed.
+
+          These are GBIF indexed species records, not independent standardized field vegetation abundance or species-specific eutrophication indicator values. EEA actual reported source P load is a 2022 annual facility mass, not measured plant exposure, so no causal effect on vegetation can be inferred. The original chocho resource and port positives, independent 6 German TP-gradient exploratory positive, and 1,291 EU receptor negative prediction results remain distinct and unchanged.
+
+          Original raw speciesKey counts and frozen source site lists are permanently saved alongside an independent built-in-Python audit, which verifies the original source digest, all 36 sites, 1,006 speciesKeys and exact rarefaction/sign tests.
+          """
+          (dst/"RESULTS.md").write_text("\n".join(t.strip() for t in doc.splitlines())+"\n")
+          print("GESUI_EEAP_NEW_PLANT_ARCHIVED",json.dumps({"files":len(files),
+             "source_matched_pairs":18,"site_n":36,"unique_speciesKeys":1006},sort_keys=True))
+          PY
+      - name: Commit audited outcomes and preserve original source branch without forcing main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2022_p_matched_river_plantae_20261107
+          git commit -m "Preserve independent 18-pair EEA reported-P matched GBIF Plantae source and strict quality-limited result"
+          git push origin HEAD:analysis/eea2022-matched-river-plantae-20261107
