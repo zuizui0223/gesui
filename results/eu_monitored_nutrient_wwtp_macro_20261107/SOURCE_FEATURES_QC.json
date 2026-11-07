@@ -1,0 +1,127 @@
+{
+  "HydroRIVERS_official_original_independently_verified": false,
+  "Peters_figshare_doi": "10.25400/lincolnuninz.30546371.v5",
+  "Peters_source_original_md5_files": [
+    {
+      "bytes": 1413055,
+      "id": 70896135,
+      "md5": "b1501b0f40cc235a6259c2cc326e0d1b",
+      "name": "TN.2_meta.csv"
+    },
+    {
+      "bytes": 942333,
+      "id": 70896138,
+      "md5": "2832ad4aef4b57ec0160a6c8ac62b56d",
+      "name": "TN.2_years.csv"
+    },
+    {
+      "bytes": 963157,
+      "id": 70896126,
+      "md5": "a822c0e695335c65081c917056fd11d4",
+      "name": "TN.4_land.csv"
+    },
+    {
+      "bytes": 10897672,
+      "id": 70896279,
+      "md5": "75b11044141464050031ec1ff191662c",
+      "name": "TN.2_-_Harmonised.zip"
+    },
+    {
+      "bytes": 2977837,
+      "id": 70896147,
+      "md5": "d282fc25c53f9e1c84450efa4b0236a6",
+      "name": "TP.2_meta.csv"
+    },
+    {
+      "bytes": 2103307,
+      "id": 70896156,
+      "md5": "dd5c5776170ceef09676830659c9c21d",
+      "name": "TP.2_years.csv"
+    },
+    {
+      "bytes": 1553947,
+      "id": 70896132,
+      "md5": "26b9848d7ba9b498fa99eba392aadbd9",
+      "name": "TP.4_land.csv"
+    },
+    {
+      "bytes": 25003722,
+      "id": 70896288,
+      "md5": "b596dbe9833c49426147a99f10f3fe31",
+      "name": "TP.2_-_Harmonised.zip"
+    }
+  ],
+  "caveats": [
+    "Peters .4_land source was assembled from model-input sites; land-use-complete subset may not represent all monitoring stations",
+    "HydroWASTE facility operational status often 'Not Reported'; source WWTP volumes are estimates, not measured effluent nitrogen",
+    "Mean river discharge does not capture historical or seasonal mixing",
+    "Upstream and downstream river-graph exposure is not a unique wastewater signature; all municipal/agricultural urban confounds remain",
+    "Some reaches truncated at BBOX edges; interior selection and residual edge diagnostics required",
+    "No measured river nutrient outcome or plant community outcome inspected by this source gate",
+    "A positive source geometry association is not N-load causation"
+  ],
+  "excluded_peters_source_columns": [
+    "C_mean",
+    "C_median",
+    "L",
+    "Y"
+  ],
+  "hydrorivers_reaches_within_outer_BBOX": 199545,
+  "max_snap_m": 500,
+  "measured_nutrient_values_accessed": false,
+  "published_land_covariates_source_subset_only": true,
+  "sampling_interior_bbox": [
+    -11,
+    45,
+    25,
+    63
+  ],
+  "schema": "gesui_monitored_river_wwtp_upstream_source_features_v01",
+  "source_50km_downstream_WWTP_placebo": true,
+  "source_date_utc": "2026-11-07T12:15:45.480286+00:00",
+  "source_git_blob_HydroWASTE": "0506f873f6541c5f324478894a9731290d722bce",
+  "source_hash_HydroRIVERS_Europe": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "source_network_outer_bbox": [
+    -12,
+    44,
+    26,
+    64
+  ],
+  "source_support_by_nutrient": {
+    "TN": {
+      "both_up_and_down_ww_positive": 9,
+      "dropped_for_missing_independent_land_covariates": 274,
+      "independent_3deg_blocks": 33,
+      "independent_crop_pop_source_join_n": 20,
+      "original_monitoring_metadata_rows": 19424,
+      "positive_downstream_ww50km": 23,
+      "positive_upstream_ww50km": 15,
+      "source_time_and_licence_filtered_station_ids": 517,
+      "unique_HYBAS_L12": 272,
+      "upstream_flow_fraction_percentile_p50": 0.0,
+      "upstream_flow_fraction_percentile_p90": 0.0,
+      "valid_river_snap_and_q_ge_0_5": 294
+    },
+    "TP": {
+      "both_up_and_down_ww_positive": 80,
+      "dropped_for_missing_independent_land_covariates": 908,
+      "independent_3deg_blocks": 28,
+      "independent_crop_pop_source_join_n": 510,
+      "original_monitoring_metadata_rows": 41639,
+      "positive_downstream_ww50km": 142,
+      "positive_upstream_ww50km": 85,
+      "source_time_and_licence_filtered_station_ids": 1663,
+      "unique_HYBAS_L12": 1181,
+      "upstream_flow_fraction_percentile_p50": 0.0,
+      "upstream_flow_fraction_percentile_p90": 0.0,
+      "valid_river_snap_and_q_ge_0_5": 1418
+    }
+  },
+  "status": "SOURCE_ONLY_NO_NUTRIENT_VALUES_ANALYSED",
+  "upstream_50km_excludes_same_source_reach": true,
+  "wwtp_source_active_or_not_reported_hq_in_BBOX": 6354,
+  "wwtp_upstream_network_50km": {
+    "WWTP_with_matching_river_id": 6354,
+    "directed_50km_WWTP_segment_exposure_links": 67766
+  }
+}

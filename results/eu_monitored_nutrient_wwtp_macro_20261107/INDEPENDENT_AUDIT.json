@@ -1,0 +1,51 @@
+{
+  "claim_scope": "observational modelled wastewater water flows and monitored river chemistry, NOT sewage-specific nutrient load",
+  "outcome_ARTIFACT_run_id": 42372235775,
+  "raw_nutrient_source_redownloaded": false,
+  "results": {
+    "TN": {
+      "all_panel_holdout_mse_verified": {
+        "M0_geography_hydrology": 0.694129256668282,
+        "M1_plus_upstream_ww": 0.6987298693140928,
+        "M2_plus_downstream_placebo": 0.7104379673805861,
+        "M3_upstream_and_downstream": 0.7127279691310004
+      },
+      "exposed": 13,
+      "independent_source_covariate_exposed_n": 1,
+      "independent_source_covariate_n": 20,
+      "landuse_panel_holdout_mse_verified": {},
+      "n": 236,
+      "spearman_upstream_rho_verified": -0.07343041247555586,
+      "unique_3degree_blocks": 32
+    },
+    "TP": {
+      "all_panel_holdout_mse_verified": {
+        "M0_geography_hydrology": 0.6888145723418466,
+        "M1_plus_upstream_ww": 0.7163498690493229,
+        "M2_plus_downstream_placebo": 0.6718104321469218,
+        "M3_upstream_and_downstream": 0.6814029131308597
+      },
+      "exposed": 85,
+      "independent_source_covariate_exposed_n": 73,
+      "independent_source_covariate_n": 510,
+      "landuse_panel_holdout_mse_verified": {
+        "M0_geography_hydrology": 0.5082053488241829,
+        "M1_plus_upstream_ww": 0.5137393579719619,
+        "M2_plus_downstream_placebo": 0.5076460274761412,
+        "M3_upstream_and_downstream": 0.5194696555109426
+      },
+      "n": 1418,
+      "spearman_upstream_rho_verified": -0.0019239987469678913,
+      "unique_3degree_blocks": 28
+    }
+  },
+  "schema": "gesui_independent_offline_real_river_measured_tp_tn_audit_v01",
+  "source_ARTIFACT_run_id": 42371629424,
+  "status": "PASS_SOURCE_SHA_AND_SPATIAL_CV_RECONSTRUCTION",
+  "verified_input_sha256": {
+    "MODEL_RESULTS_AND_AUDIT.json": "912ae7a912522ff9836203e4a47c8a9696564cfcaeb3cd7a4f8990ce23c5ac34",
+    "TN_monitored_river_wwtp_derived_station_panel.csv": "0d85bd1ba51e263684a690cc0cb147f1569eb0727600e9716701f8c267d6df04",
+    "TP_monitored_river_wwtp_derived_station_panel.csv": "3e284ba3e4a3ee6b0dfc5cace1384d9d4a23b4331b31694d37fa4288fc4edbe5",
+    "nutrient_monitor_station_source_features.csv": "47fb5bb92726602170a98473d02d2c810f98e49a51ef867d017190a85ae2f10b"
+  }
+}
