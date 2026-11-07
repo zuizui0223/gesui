@@ -1,0 +1,30 @@
+name: gesui Peters 2026 matched landuse population covariate availability
+on:
+  push:
+    branches:
+      - "analysis/monitored-river-macro-pilot-20261107"
+    paths:
+      - "scripts/probe_peters_landcover_covariates.py"
+      - ".github/workflows/gesui-probe-nutrient-covariates.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read-only-source-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet pandas requests
+      - name: Read independently sourced river landuse and demographic covariate table schemas
+        run: python scripts/probe_peters_landcover_covariates.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Peters2026-landuse-covariate-schemas
+          path: /tmp/gesui_landcov_probe/
+          if-no-files-found: warn
+          retention-days: 30
