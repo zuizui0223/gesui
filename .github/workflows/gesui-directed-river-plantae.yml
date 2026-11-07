@@ -1,0 +1,45 @@
+name: gesui real upstream/downstream all-Plantae GBIF river pilot
+
+on:
+  push:
+    branches:
+      - "analysis/river-plantae-directional-20261107"
+    paths:
+      - "scripts/gesui_directed_river_plantae.py"
+      - "tests/test_gesui_directed_river_plantae.py"
+      - ".github/workflows/gesui-directed-river-plantae.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-gbif-plants:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install species-facet and statistical dependencies
+        run: python -m pip install --quiet numpy scipy pytest
+      - name: Source-blind fixed sample and rarefaction tests
+        run: python -m pytest -q tests/test_gesui_directed_river_plantae.py
+      - name: Obtain real GBIF species-key plant records at 48 preselected river sites
+        run: |
+          python -u scripts/gesui_directed_river_plantae.py \
+            --design results/hydrorivers_eu_source_gate_20261107/candidate_site_design.json \
+            --qc results/hydrorivers_eu_source_gate_20261107/source_qc.json \
+            --out-dir /tmp/gesui-river-plant-results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-16-river-outfall-all-Plantae-GBIF-2011-2024
+          path: /tmp/gesui-river-plant-results/
+          retention-days: 30
+          if-no-files-found: warn
