@@ -1,0 +1,36 @@
+name: gesui EEA2022 measured P river source-blind plant pair selection
+
+on:
+  push:
+    branches:
+      - "analysis/eea2022-matched-river-plantae-20261107"
+    paths:
+      - "scripts/gesui_eea2022_match_rivers_before_gbif.py"
+      - ".github/workflows/gesui-eea2022-source-blind-plant-matching.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet pandas
+      - name: Fixed 2022 N/P source, geography, land use and flow only; no plant queries
+        run: |
+          python -u scripts/gesui_eea2022_match_rivers_before_gbif.py \
+            --source results/eea2022_measured_nutrient_load_river_20261107/source_only_eea2022_loads_on_original_peters_station_registry.csv \
+            --out /tmp/gesui-eeaP-matched-source
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2022-measuredP-blind-matched-plant-site-design
+          path: /tmp/gesui-eeaP-matched-source/
+          if-no-files-found: warn
+          retention-days: 30
