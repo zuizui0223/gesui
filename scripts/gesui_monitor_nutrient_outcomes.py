@@ -183,19 +183,27 @@ def analyze(df,nutrient):
     base=len(df)
     if base==0:return {"status":"NO_MEASUREMENTS_PASS_PRESPECIFIED_RULE"}
     exposed=int(df.upstream_50km_ww_m3day.gt(0).sum())
-    secondary=df.loc[df[["crop2","pop_dens","N_deposition"]].notna().all(axis=1)].copy()
+    # Protocol repair: primary land-use set is always crop2 and pop_dens.
+    # The public TP.4_land table does NOT contain N_deposition, whereas TN.4_land
+    # does; source builder uses NaN for unavailable columns. Requiring N_deposition
+    # for TP erroneously discarded all 510 crop/pop source-complete TP stations.
+    secondary_columns=("crop2","pop_dens")
+    if nutrient=="TN" and "N_deposition" in df.columns:
+        secondary_columns+=("N_deposition",)
+    secondary=df.loc[df[list(secondary_columns)].notna().all(axis=1)].copy()
     secondary_exposed=int(secondary.upstream_50km_ww_m3day.gt(0).sum())
     out={
       "nutrient":nutrient,"status":"OBSERVATIONAL_SOURCE_ALIGNED_PREDICTION_NOT_CAUSAL",
       "source_total_sites_with_measured_2011_2024":base,
       "original_upstream_WWTP_positive_sites":exposed,
+      "secondary_covariates_source_available":list(secondary_columns),
       "secondary_landcover_population_deposition_sites":len(secondary),
       "secondary_WWTP_positive_sites":secondary_exposed,
       "mean_observed_concentration_mgL":float(df.measured_median_mgL.mean()),
       "median_observed_station_concentration_mgL":float(df.measured_median_mgL.median()),
       "source_associations":simple_associations(df),
       "primary_source_group_cv":fixed_group_cv(df),
-      "landuse_complete_source_group_cv":fixed_group_cv(secondary,("crop2","pop_dens","N_deposition"))}
+      "landuse_complete_source_group_cv":fixed_group_cv(secondary,secondary_columns)}
     if exposed<20:
         out["exposure_support_warning"]="Under 20 stations have nonzero observed upstream WWTP proxy; nutrient associations unstable"
     if secondary_exposed<20:
