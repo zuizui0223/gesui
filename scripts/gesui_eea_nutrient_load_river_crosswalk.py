@@ -200,6 +200,16 @@ def main():
     quality["unique_dcp_in_europe_study_bbox"]=len(unique)
     quality["dcp_waterbody_code_distribution"]={
         str(k):int(v) for k,v in unique.dcpWaterBodyType.fillna("MISSING").value_counts().head(20).items()}
+    # EEA's own public code list, independently checked before reading
+    # recipient TN/TP values:
+    # FW = discharge into freshwater; CW = coastal, ES = estuary,
+    # LF/LC = discharge onto land in freshwater/coastal catchments.
+    # Spatial snapping of a non-FW point to a river does not prove its
+    # effluent enters that stream. Only direct-FW points enter primary.
+    source_geo_n=len(unique)
+    unique=unique[unique.dcpWaterBodyType.astype("string").str.strip().str.upper().eq("FW")].copy()
+    quality["freshwater_direct_source_points_before_snapping"]=len(unique)
+    quality["excluded_nonfreshwater_outlets_before_snapping"]=source_geo_n-len(unique)
     g=gpd.read_parquet(a.river_parquet).to_crs("EPSG:4326")
     g=g.rename(columns={x:x.upper() for x in g.columns if x!=g.geometry.name})
     if set(("HYRIV_ID","NEXT_DOWN","LENGTH_KM"))-set(g.columns):
