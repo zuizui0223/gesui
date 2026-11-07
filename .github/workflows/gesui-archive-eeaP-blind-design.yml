@@ -1,0 +1,73 @@
+name: gesui preserve source-blind P river pairs before any plant observations
+
+on:
+  push:
+    branches:
+      - "analysis/eea2022-matched-river-plantae-20261107"
+    paths:
+      - ".github/workflows/gesui-archive-eeaP-blind-design.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Recover original source-only pre-biological sample design
+        run: |
+          mkdir -p /tmp/gesui-eep-blind
+          gh run download 42377235104 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measuredP-blind-matched-plant-site-design \
+            --dir /tmp/gesui-eep-blind
+      - name: Verify exact frozen 18-pair source registry and persist before GBIF
+        run: |
+          python - <<'PY'
+          import json,hashlib,shutil
+          from pathlib import Path
+          src=Path("/tmp/gesui-eep-blind")
+          design=json.loads((src/"SOURCE_MATCHED_PAIR_SELECTION.json").read_text())
+          qc=json.loads((src/"MATCHING_QC.json").read_text())
+          assert qc==design["source_design"]
+          assert (qc["pairs_fixed"],qc["plant_sites_fixed"],len(qc["geographic_3deg_blocks"]))==(18,36,8)
+          assert len(design["pairs"])==18
+          assert qc["observed_Peters_2022_TP_concentrations_used_for_selection"] is False
+          assert qc["previous_GBIF_plant_community_used_for_selection"] is False
+          assert qc["source_only_registry_sha256"]=="79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3"
+          seen=set()
+          for p in design["pairs"]:
+              a=p["source_exposed"];b=p["source_control"]
+              assert a["eea2022_reported_measured_upstream_P_ton_yr"]>0
+              assert b["eea2022_reported_measured_upstream_P_ton_yr"]==0
+              assert a["block"]==b["block"]
+              for v in (a,b):
+                  if v["station_id"] in seen:raise ValueError("Station reused between pairs")
+                  seen.add(v["station_id"])
+          assert len(seen)==36
+          dst=Path("results/eea2022_p_blind_river_plant_pairs_20261107")
+          dst.mkdir(parents=True,exist_ok=True)
+          for name in ("SOURCE_MATCHED_PAIR_SELECTION.json","MATCHING_QC.json"):
+              shutil.copyfile(src/name,dst/name)
+          receipt={"original_Github_actions_source_run":42377235104,
+                   "original_source_SHA256":qc["source_only_registry_sha256"],
+                   "selection_only_source_covariates_no_plants_or_TP_values":True,
+                   "original_files_SHA256":{name:hashlib.sha256((src/name).read_bytes()).hexdigest()
+                      for name in ("SOURCE_MATCHED_PAIR_SELECTION.json","MATCHING_QC.json")}}
+          (dst/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          print("GESUI_PREPLANT_EEA2022_PAIRS_ARCHIVED",json.dumps(receipt,sort_keys=True))
+          PY
+      - name: Commit source-only cohort before any GBIF calls
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2022_p_blind_river_plant_pairs_20261107
+          git commit -m "Freeze 18 source-only river P load matched pairs before new plant records"
+          git push origin HEAD:analysis/eea2022-matched-river-plantae-20261107

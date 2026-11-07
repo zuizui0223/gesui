@@ -1,0 +1,42 @@
+{
+  "geographic_3deg_blocks": {
+    "15_1": 2,
+    "15_2": 1,
+    "15_3": 1,
+    "16_1": 4,
+    "16_2": 1,
+    "16_3": 6,
+    "17_1": 1,
+    "17_4": 2
+  },
+  "new_GBIF_buffer_km": 1,
+  "new_GBIF_window": "2022,2024",
+  "not_a_causal_plant_or_2022_P_discharge_effect": true,
+  "observed_Peters_2022_TP_concentrations_used_for_selection": false,
+  "pair_constraints": {
+    "all_site_center_minimum_distance_km": 5,
+    "max_absolute_crop_fraction_difference": 0.2,
+    "max_flow_ratio": 3,
+    "max_log_population_density_difference": 1.5,
+    "max_upstream_area_ratio": 3,
+    "pair_distance_range_km": [
+      5,
+      180
+    ]
+  },
+  "pairs_fixed": 18,
+  "plant_sites_fixed": 36,
+  "previous_GBIF_plant_community_used_for_selection": false,
+  "primary_new_plant_record_depth": 30,
+  "schema": "gesui_EEA2022_source_positive_zero_plant_new_blind_match_v01",
+  "sensitivity_depth": 10,
+  "source_crop_population_complete": 510,
+  "source_eligible_TP_stations": 1418,
+  "source_only_registry_sha256": "79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3",
+  "source_only_selection": true,
+  "source_pair_candidates": 75,
+  "source_positive_crop_population_complete": 46,
+  "source_positive_definition": "2022_EEA_measured_reported_P_tonnes_upstream_50km",
+  "source_zero_crop_population_complete": 464,
+  "source_zero_definition": "NO_REPORTED_BOTH_POSITIVE_EEA_MEASURED_SOURCE_NOT_NATURAL_ZERO"
+}

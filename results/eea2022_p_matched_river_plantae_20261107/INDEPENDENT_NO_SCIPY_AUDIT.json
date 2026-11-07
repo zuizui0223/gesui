@@ -1,0 +1,36 @@
+{
+  "frozen_original_source_run": 42377235104,
+  "gbif_plant_species_key_n": 1006,
+  "new_plant_site_n": 36,
+  "no_live_source_or_GBIF_queries": true,
+  "original_GBIF_run": 42377454765,
+  "original_fixed_outcome_gates_SHA256": "07a99cb6241c9f01a44e31d8712d2ded44b9c8b2bfbcd3b9e47fc8f9be4c7140",
+  "original_results_SHA256": "9c15569a9861c71ca927561c2d8fbf3310e8e7d33db0c0573f756c46383d5392",
+  "plant_sites_no_records": 0,
+  "primary_and_secondary_recomputed": {
+    "primary": {
+      "exact_sign_p": null,
+      "mean_log_richness_source_minus_control": 0.0372504348472491,
+      "negative_pairs": 1,
+      "positive_pairs": 4,
+      "scientific_statistical_gate_pass": false,
+      "source_valid_pairs": 5,
+      "spatial_blocks": 4
+    },
+    "sensitivity": {
+      "exact_sign_p": 0.548828125,
+      "mean_log_richness_source_minus_control": -0.016991986714238495,
+      "negative_pairs": 4,
+      "positive_pairs": 7,
+      "scientific_statistical_gate_pass": true,
+      "source_valid_pairs": 11,
+      "spatial_blocks": 6
+    }
+  },
+  "raw_source_GBIF_SHA256": "90ecb8d2a10936103c86698f8f863aae16603724c10fd1332f6a4e6b6b111bb9",
+  "source_2022_EEA_P_load_biologically_causal": false,
+  "source_design_SHA256": "54798e82f91585bdca26af9b86e7bd0d862deb1515a141d36628c1c273a66249",
+  "source_matched_pairs": 18,
+  "status": "PASS_INDEPENDENT_NO_NETWORK_NO_SCIPY_SOURCE_RECOMPUTATION",
+  "total_all_Plantae_GBIF_occurrence_records": 8101
+}

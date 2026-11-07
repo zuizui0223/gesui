@@ -1,0 +1,730 @@
+{
+  "pairs": [
+    {
+      "between_site_distance_km": 25.50354725298585,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.0019909700000000363,
+        "log1p_population_density": 0.0021416234106090837,
+        "log_flow_ratio": 0.013206439605507273,
+        "log_upstream_area_ratio": 0.022374022018540853
+      },
+      "pair_id": "EUP22_01",
+      "source_control": {
+        "block": "17_4",
+        "cropland_fraction": 0.499868652,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 540.031,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 53.03479,
+        "longitude": 14.31251,
+        "population_density": 4.88466914,
+        "river_id": 20298550,
+        "station_id": "WQ967019",
+        "upstream_area_km2": 112580.1
+      },
+      "source_exposed": {
+        "block": "17_4",
+        "cropland_fraction": 0.497877682,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.6252,
+        "flow_m3s": 532.946,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 52.83602,
+        "longitude": 14.12264,
+        "population_density": 4.89728539,
+        "river_id": 20300748,
+        "station_id": "WQ976456",
+        "upstream_area_km2": 110089.2
+      },
+      "source_matching_score": 0.16815094959428198,
+      "spatial_block": "17_4"
+    },
+    {
+      "between_site_distance_km": 21.09205238100482,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.006185300999999976,
+        "log1p_population_density": 0.013658213081867876,
+        "log_flow_ratio": 0.04752842310734906,
+        "log_upstream_area_ratio": 0.0627917612464143
+      },
+      "pair_id": "EUP22_02",
+      "source_control": {
+        "block": "16_2",
+        "cropland_fraction": 0.280300998,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 151.738,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.29868,
+        "longitude": 6.16929,
+        "population_density": 4.83595333,
+        "river_id": 20390965,
+        "station_id": "WQ997870",
+        "upstream_area_km2": 10750.7
+      },
+      "source_exposed": {
+        "block": "16_2",
+        "cropland_fraction": 0.286486299,
+        "eea2022_reported_measured_upstream_P_ton_yr": 2.05,
+        "flow_m3s": 159.124,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.44907,
+        "longitude": 6.34683,
+        "population_density": 4.91620885,
+        "river_id": 20387042,
+        "station_id": "WQ997850",
+        "upstream_area_km2": 11447.4
+      },
+      "source_matching_score": 0.23498015479972134,
+      "spatial_block": "16_2"
+    },
+    {
+      "between_site_distance_km": 36.15129157363423,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.006185087999999998,
+        "log1p_population_density": 0.04550457077925296,
+        "log_flow_ratio": 0.25270383479125713,
+        "log_upstream_area_ratio": 0.22986211916657215
+      },
+      "pair_id": "EUP22_03",
+      "source_control": {
+        "block": "15_2",
+        "cropland_fraction": 0.0189600405,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 353.942,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 47.67529,
+        "longitude": 8.79546,
+        "population_density": 5.03482555,
+        "river_id": 20435542,
+        "station_id": "WQ976443",
+        "upstream_area_km2": 11674.5
+      },
+      "source_exposed": {
+        "block": "15_2",
+        "cropland_fraction": 0.0251451285,
+        "eea2022_reported_measured_upstream_P_ton_yr": 30.88,
+        "flow_m3s": 455.701,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 47.57099,
+        "longitude": 8.33859,
+        "population_density": 5.31578161,
+        "river_id": 20438769,
+        "station_id": "WQ976442",
+        "upstream_area_km2": 14691.5
+      },
+      "source_matching_score": 0.698444873215627,
+      "spatial_block": "15_2"
+    },
+    {
+      "between_site_distance_km": 17.26122566589562,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.041051426999999974,
+        "log1p_population_density": 0.03519979947158958,
+        "log_flow_ratio": 0.2358415784179821,
+        "log_upstream_area_ratio": 0.3286013182346423
+      },
+      "pair_id": "EUP22_04",
+      "source_control": {
+        "block": "17_4",
+        "cropland_fraction": 0.397596417,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 21.551,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 51.90962,
+        "longitude": 14.69232,
+        "population_density": 5.10028939,
+        "river_id": 20325586,
+        "station_id": "WQ976459",
+        "upstream_area_km2": 3166.9
+      },
+      "source_exposed": {
+        "block": "17_4",
+        "cropland_fraction": 0.35654499,
+        "eea2022_reported_measured_upstream_P_ton_yr": 3.2199,
+        "flow_m3s": 27.283,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 52.05985,
+        "longitude": 14.7558,
+        "population_density": 4.88929568,
+        "river_id": 20322049,
+        "station_id": "WQ976458",
+        "upstream_area_km2": 4398.9
+      },
+      "source_matching_score": 0.7504517787178973,
+      "spatial_block": "17_4"
+    },
+    {
+      "between_site_distance_km": 90.83683640624912,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.012728768000000001,
+        "log1p_population_density": 0.04048009303790545,
+        "log_flow_ratio": 0.19881588752841578,
+        "log_upstream_area_ratio": 0.17057054025843582
+      },
+      "pair_id": "EUP22_05",
+      "source_control": {
+        "block": "16_1",
+        "cropland_fraction": 0.665325472,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 10.294,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 50.47017,
+        "longitude": 3.46609,
+        "population_density": 6.14466126,
+        "river_id": 20362330,
+        "station_id": "WQ998597",
+        "upstream_area_km2": 761.4
+      },
+      "source_exposed": {
+        "block": "16_1",
+        "cropland_fraction": 0.67805424,
+        "eea2022_reported_measured_upstream_P_ton_yr": 7.04,
+        "flow_m3s": 8.438,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 50.80278,
+        "longitude": 4.64254,
+        "population_density": 5.86122027,
+        "river_id": 20353773,
+        "station_id": "WQ976816",
+        "upstream_area_km2": 642.0
+      },
+      "source_matching_score": 0.86926819233705,
+      "spatial_block": "16_1"
+    },
+    {
+      "between_site_distance_km": 88.23260271461908,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.034669194999999986,
+        "log1p_population_density": 0.38116233858243564,
+        "log_flow_ratio": 0.08501536834291498,
+        "log_upstream_area_ratio": 0.11504321637424378
+      },
+      "pair_id": "EUP22_06",
+      "source_control": {
+        "block": "16_1",
+        "cropland_fraction": 0.34842887,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 2.006,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.75097,
+        "longitude": 5.97002,
+        "population_density": 3.93456937,
+        "river_id": 20405068,
+        "station_id": "WQ998047",
+        "upstream_area_km2": 186.8
+      },
+      "source_exposed": {
+        "block": "16_1",
+        "cropland_fraction": 0.313759675,
+        "eea2022_reported_measured_upstream_P_ton_yr": 5.83,
+        "flow_m3s": 2.184,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.53689,
+        "longitude": 5.80282,
+        "population_density": 6.22413676,
+        "river_id": 20385101,
+        "station_id": "WQ997672",
+        "upstream_area_km2": 166.5
+      },
+      "source_matching_score": 0.901141157581472,
+      "spatial_block": "16_1"
+    },
+    {
+      "between_site_distance_km": 69.79888275886738,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.1760846867,
+        "log1p_population_density": 0.25262763732841576,
+        "log_flow_ratio": 0.17506161675731,
+        "log_upstream_area_ratio": 0.16008519303950927
+      },
+      "pair_id": "EUP22_07",
+      "source_control": {
+        "block": "16_3",
+        "cropland_fraction": 0.0179115263,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 63.763,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.34559,
+        "longitude": 10.93555,
+        "population_density": 4.44486616,
+        "river_id": 20416364,
+        "station_id": "WQ976391",
+        "upstream_area_km2": 2661.7
+      },
+      "source_exposed": {
+        "block": "16_3",
+        "cropland_fraction": 0.193996213,
+        "eea2022_reported_measured_upstream_P_ton_yr": 4.335,
+        "flow_m3s": 53.523,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.46074,
+        "longitude": 11.86503,
+        "population_density": 6.00974142,
+        "river_id": 20412867,
+        "station_id": "WQ976416",
+        "upstream_area_km2": 3123.8
+      },
+      "source_matching_score": 1.162624415655364,
+      "spatial_block": "16_3"
+    },
+    {
+      "between_site_distance_km": 120.02648061770672,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.06295853799999995,
+        "log1p_population_density": 0.01916038762771133,
+        "log_flow_ratio": 0.2814344724219622,
+        "log_upstream_area_ratio": 0.156251320339999
+      },
+      "pair_id": "EUP22_08",
+      "source_control": {
+        "block": "16_3",
+        "cropland_fraction": 0.597686143,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 19.307,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.24548,
+        "longitude": 9.19336,
+        "population_density": 4.69674851,
+        "river_id": 20392417,
+        "station_id": "WQ976445",
+        "upstream_area_km2": 1834.7
+      },
+      "source_exposed": {
+        "block": "16_3",
+        "cropland_fraction": 0.534727605,
+        "eea2022_reported_measured_upstream_P_ton_yr": 5.632,
+        "flow_m3s": 14.571,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.79357,
+        "longitude": 10.68817,
+        "population_density": 4.58863565,
+        "river_id": 20404551,
+        "station_id": "WQ976394",
+        "upstream_area_km2": 1569.3
+      },
+      "source_matching_score": 1.1733154656643503,
+      "spatial_block": "16_3"
+    },
+    {
+      "between_site_distance_km": 7.2859867083050895,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.062976802,
+        "log1p_population_density": 0.026631466884078803,
+        "log_flow_ratio": 0.5879962837311176,
+        "log_upstream_area_ratio": 0.41922313573470027
+      },
+      "pair_id": "EUP22_09",
+      "source_control": {
+        "block": "16_3",
+        "cropland_fraction": 0.235945516,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 74.731,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.3734,
+        "longitude": 9.96428,
+        "population_density": 4.90400769,
+        "river_id": 20416013,
+        "station_id": "WQ976429",
+        "upstream_area_km2": 5356.2
+      },
+      "source_exposed": {
+        "block": "16_3",
+        "cropland_fraction": 0.172968714,
+        "eea2022_reported_measured_upstream_P_ton_yr": 2.354,
+        "flow_m3s": 134.544,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.42405,
+        "longitude": 10.02689,
+        "population_density": 5.06335245,
+        "river_id": 20414380,
+        "station_id": "WQ976398",
+        "upstream_area_km2": 8145.6
+      },
+      "source_matching_score": 1.1829186904493825,
+      "spatial_block": "16_3"
+    },
+    {
+      "between_site_distance_km": 55.70630697424093,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.0039438480000000276,
+        "log1p_population_density": 0.5916951725650326,
+        "log_flow_ratio": 0.22060869571102162,
+        "log_upstream_area_ratio": 0.40271063034307497
+      },
+      "pair_id": "EUP22_10",
+      "source_control": {
+        "block": "16_1",
+        "cropland_fraction": 0.408874744,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 4.334,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.01236,
+        "longitude": 5.96182,
+        "population_density": 2.97394468,
+        "river_id": 20398332,
+        "station_id": "WQ997956",
+        "upstream_area_km2": 398.8
+      },
+      "source_exposed": {
+        "block": "16_1",
+        "cropland_fraction": 0.404930896,
+        "eea2022_reported_measured_upstream_P_ton_yr": 5.83,
+        "flow_m3s": 3.476,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.48376,
+        "longitude": 5.70202,
+        "population_density": 6.18111308,
+        "river_id": 20386263,
+        "station_id": "WQ997668",
+        "upstream_area_km2": 266.6
+      },
+      "source_matching_score": 1.2055861432078174,
+      "spatial_block": "16_1"
+    },
+    {
+      "between_site_distance_km": 54.14833369918053,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.019859208999999933,
+        "log1p_population_density": 0.0118914780075976,
+        "log_flow_ratio": 0.5971065739302532,
+        "log_upstream_area_ratio": 0.5304555402002841
+      },
+      "pair_id": "EUP22_11",
+      "source_control": {
+        "block": "17_1",
+        "cropland_fraction": 0.661557309,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 82.487,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 51.0016,
+        "longitude": 3.72403,
+        "population_density": 5.85798835,
+        "river_id": 20349897,
+        "station_id": "WQ976822",
+        "upstream_area_km2": 6079.0
+      },
+      "source_exposed": {
+        "block": "17_1",
+        "cropland_fraction": 0.6416981,
+        "eea2022_reported_measured_upstream_P_ton_yr": 12.36,
+        "flow_m3s": 45.401,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 51.02331,
+        "longitude": 4.49727,
+        "population_density": 5.94002678,
+        "river_id": 20347967,
+        "station_id": "WQ976818",
+        "upstream_area_km2": 3576.5
+      },
+      "source_matching_score": 1.4439679396302387,
+      "spatial_block": "17_1"
+    },
+    {
+      "between_site_distance_km": 107.91965791990997,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.0557028599,
+        "log1p_population_density": 0.09118797661532363,
+        "log_flow_ratio": 0.5774828380031872,
+        "log_upstream_area_ratio": 0.32554607143713893
+      },
+      "pair_id": "EUP22_12",
+      "source_control": {
+        "block": "15_1",
+        "cropland_fraction": 0.0799159746,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 185.089,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 46.90345,
+        "longitude": 5.08501,
+        "population_density": 4.69469835,
+        "river_id": 20457393,
+        "station_id": "WQ989275",
+        "upstream_area_km2": 7456.6
+      },
+      "source_exposed": {
+        "block": "15_1",
+        "cropland_fraction": 0.0242131147,
+        "eea2022_reported_measured_upstream_P_ton_yr": 83.774,
+        "flow_m3s": 329.745,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 46.14466,
+        "longitude": 5.96454,
+        "population_density": 5.23839916,
+        "river_id": 20477207,
+        "station_id": "WQ989110",
+        "upstream_area_km2": 10325.8
+      },
+      "source_matching_score": 1.5996269071475377,
+      "spatial_block": "15_1"
+    },
+    {
+      "between_site_distance_km": 12.97297589807452,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.14576880400000003,
+        "log1p_population_density": 0.06538755083262804,
+        "log_flow_ratio": 0.6966324633689073,
+        "log_upstream_area_ratio": 0.6809519074661271
+      },
+      "pair_id": "EUP22_13",
+      "source_control": {
+        "block": "16_1",
+        "cropland_fraction": 0.399716195,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 16.383,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.50921,
+        "longitude": 5.33618,
+        "population_density": 5.06453958,
+        "river_id": 20385501,
+        "station_id": "WQ997650",
+        "upstream_area_km2": 1271.4
+      },
+      "source_exposed": {
+        "block": "16_1",
+        "cropland_fraction": 0.545484999,
+        "eea2022_reported_measured_upstream_P_ton_yr": 5.83,
+        "flow_m3s": 8.163,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.48401,
+        "longitude": 5.51157,
+        "population_density": 5.47433679,
+        "river_id": 20385934,
+        "station_id": "WQ997657",
+        "upstream_area_km2": 643.5
+      },
+      "source_matching_score": 1.766680633741721,
+      "spatial_block": "16_1"
+    },
+    {
+      "between_site_distance_km": 162.16798114037857,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.111769322,
+        "log1p_population_density": 0.20590342968651076,
+        "log_flow_ratio": 0.5997835118371987,
+        "log_upstream_area_ratio": 0.12411096017570183
+      },
+      "pair_id": "EUP22_14",
+      "source_control": {
+        "block": "16_3",
+        "cropland_fraction": 0.289621475,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 63.345,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.91266,
+        "longitude": 9.24789,
+        "population_density": 6.28195393,
+        "river_id": 20401191,
+        "station_id": "WQ976434",
+        "upstream_area_km2": 5015.5
+      },
+      "source_exposed": {
+        "block": "16_3",
+        "cropland_fraction": 0.401390797,
+        "eea2022_reported_measured_upstream_P_ton_yr": 6.575,
+        "flow_m3s": 34.772,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.92454,
+        "longitude": 10.86251,
+        "population_density": 4.9268673,
+        "river_id": 20375413,
+        "station_id": "WQ976405",
+        "upstream_area_km2": 4430.1
+      },
+      "source_matching_score": 1.861224736558049,
+      "spatial_block": "16_3"
+    },
+    {
+      "between_site_distance_km": 144.66591577899388,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.1933334172,
+        "log1p_population_density": 0.1926433848541793,
+        "log_flow_ratio": 0.795283910417619,
+        "log_upstream_area_ratio": 0.08555677737336138
+      },
+      "pair_id": "EUP22_15",
+      "source_control": {
+        "block": "15_1",
+        "cropland_fraction": 0.214930056,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 181.834,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 47.0737,
+        "longitude": 5.16564,
+        "population_density": 4.09737974,
+        "river_id": 20454435,
+        "station_id": "WQ989347",
+        "upstream_area_km2": 11701.3
+      },
+      "source_exposed": {
+        "block": "15_1",
+        "cropland_fraction": 0.0215966388,
+        "eea2022_reported_measured_upstream_P_ton_yr": 1.177,
+        "flow_m3s": 402.775,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 45.84882,
+        "longitude": 5.80229,
+        "population_density": 5.18031979,
+        "river_id": 20484952,
+        "station_id": "WQ989074",
+        "upstream_area_km2": 12746.5
+      },
+      "source_matching_score": 2.0871587935130393,
+      "spatial_block": "15_1"
+    },
+    {
+      "between_site_distance_km": 87.79421976167757,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.0598436908252,
+        "log1p_population_density": 0.4080067705312125,
+        "log_flow_ratio": 0.7835536185395914,
+        "log_upstream_area_ratio": 0.5919312190506635
+      },
+      "pair_id": "EUP22_16",
+      "source_control": {
+        "block": "15_3",
+        "cropland_fraction": 0.0598552994,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 17.655,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 47.67201,
+        "longitude": 9.53494,
+        "population_density": 5.46899138,
+        "river_id": 20435801,
+        "station_id": "WQ976451",
+        "upstream_area_km2": 781.2
+      },
+      "source_exposed": {
+        "block": "15_3",
+        "cropland_fraction": 1.16085748e-05,
+        "eea2022_reported_measured_upstream_P_ton_yr": 3.716586,
+        "flow_m3s": 38.651,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 47.56081,
+        "longitude": 10.69456,
+        "population_density": 3.30171351,
+        "river_id": 20439258,
+        "station_id": "WQ976392",
+        "upstream_area_km2": 1412.0
+      },
+      "source_matching_score": 2.138146703314649,
+      "spatial_block": "15_3"
+    },
+    {
+      "between_site_distance_km": 134.03493424436815,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.15822690109999998,
+        "log1p_population_density": 0.03990787208263069,
+        "log_flow_ratio": 0.7818405775315928,
+        "log_upstream_area_ratio": 0.5121570675051818
+      },
+      "pair_id": "EUP22_17",
+      "source_control": {
+        "block": "16_3",
+        "cropland_fraction": 0.205844123,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 44.428,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.07265,
+        "longitude": 9.39687,
+        "population_density": 4.94363548,
+        "river_id": 20423962,
+        "station_id": "WQ976430",
+        "upstream_area_km2": 2792.1
+      },
+      "source_exposed": {
+        "block": "16_3",
+        "cropland_fraction": 0.0476172219,
+        "eea2022_reported_measured_upstream_P_ton_yr": 14.973,
+        "flow_m3s": 97.097,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.72746,
+        "longitude": 10.92126,
+        "population_density": 5.18562995,
+        "river_id": 20409188,
+        "station_id": "WQ976389",
+        "upstream_area_km2": 4659.7
+      },
+      "source_matching_score": 2.3005800544999304,
+      "spatial_block": "16_3"
+    },
+    {
+      "between_site_distance_km": 177.02078907874565,
+      "covariate_distance": {
+        "absolute_crop_fraction": 0.08849354000000001,
+        "log1p_population_density": 0.18506975967195172,
+        "log_flow_ratio": 0.680186962228068,
+        "log_upstream_area_ratio": 0.5332809830028719
+      },
+      "pair_id": "EUP22_18",
+      "source_control": {
+        "block": "16_3",
+        "cropland_fraction": 0.291737419,
+        "eea2022_reported_measured_upstream_P_ton_yr": 0.0,
+        "flow_m3s": 27.981,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 49.00181,
+        "longitude": 9.1473,
+        "population_density": 6.27807589,
+        "river_id": 20398342,
+        "station_id": "WQ976433",
+        "upstream_area_km2": 2208.2
+      },
+      "source_exposed": {
+        "block": "16_3",
+        "cropland_fraction": 0.203243879,
+        "eea2022_reported_measured_upstream_P_ton_yr": 3.001,
+        "flow_m3s": 14.173,
+        "hydrowaste_prior_upstream_flow_volume": null,
+        "latitude": 48.75675,
+        "longitude": 11.53928,
+        "population_density": 5.0484181,
+        "river_id": 20405394,
+        "station_id": "WQ976387",
+        "upstream_area_km2": 1295.5
+      },
+      "source_matching_score": 2.3680938504606437,
+      "spatial_block": "16_3"
+    }
+  ],
+  "source_design": {
+    "geographic_3deg_blocks": {
+      "15_1": 2,
+      "15_2": 1,
+      "15_3": 1,
+      "16_1": 4,
+      "16_2": 1,
+      "16_3": 6,
+      "17_1": 1,
+      "17_4": 2
+    },
+    "new_GBIF_buffer_km": 1,
+    "new_GBIF_window": "2022,2024",
+    "not_a_causal_plant_or_2022_P_discharge_effect": true,
+    "observed_Peters_2022_TP_concentrations_used_for_selection": false,
+    "pair_constraints": {
+      "all_site_center_minimum_distance_km": 5,
+      "max_absolute_crop_fraction_difference": 0.2,
+      "max_flow_ratio": 3,
+      "max_log_population_density_difference": 1.5,
+      "max_upstream_area_ratio": 3,
+      "pair_distance_range_km": [
+        5,
+        180
+      ]
+    },
+    "pairs_fixed": 18,
+    "plant_sites_fixed": 36,
+    "previous_GBIF_plant_community_used_for_selection": false,
+    "primary_new_plant_record_depth": 30,
+    "schema": "gesui_EEA2022_source_positive_zero_plant_new_blind_match_v01",
+    "sensitivity_depth": 10,
+    "source_crop_population_complete": 510,
+    "source_eligible_TP_stations": 1418,
+    "source_only_registry_sha256": "79641d984b28fdbc11dbf02e32f32cda2818ec256f219439a1ccfae601da7dc3",
+    "source_only_selection": true,
+    "source_pair_candidates": 75,
+    "source_positive_crop_population_complete": 46,
+    "source_positive_definition": "2022_EEA_measured_reported_P_tonnes_upstream_50km",
+    "source_zero_crop_population_complete": 464,
+    "source_zero_definition": "NO_REPORTED_BOTH_POSITIVE_EEA_MEASURED_SOURCE_NOT_NATURAL_ZERO"
+  }
+}
