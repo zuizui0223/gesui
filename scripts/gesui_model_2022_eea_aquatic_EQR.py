@@ -194,8 +194,15 @@ def study_one(source_registry,original,code,label):
             how="inner",validate="one_to_one",suffixes=("_source","_observed"))
     count_before=len(join)
     measured=join.normalised_EQR
-    numerical_valid=np.isfinite(measured) & measured.ge(0)
-    q=join[numerical_valid].copy().reset_index(drop=True)
+    # Correct 2026-11-08 source-audit repair: with nullable Float64/Boolean
+    # source fields, np.isfinite(<NA>) produces <NA>, and pandas sum() skips
+    # missing entries. The previous "invalid EQRs: 0" was a QC COUNTER bug
+    # even though the model correctly excluded these observations.
+    # Make the validity mask explicitly two-valued with NA -> False.
+    numeric_values=pd.to_numeric(measured,errors="coerce").to_numpy(
+        dtype=float,na_value=np.nan)
+    numerical_valid=np.isfinite(numeric_values) & (numeric_values>=0)
+    q=join.loc[numerical_valid].copy().reset_index(drop=True)
     number_bad=int((~numerical_valid).sum())
     country_n=int(q.countryCode.nunique())
     positive=q[q.upstream_2022_unique_EEA_both_load_WWTP_count.gt(0)]
