@@ -25,7 +25,7 @@ In the 42 matched same original source cells (DE27/AT15) compute per-cell family
 - **Pearson r +0.5143**, nominal exploratory p ≈0.000494.
 - **Spearman ρ +0.5107**, nominal exploratory p ≈0.000548.
 - Unweighted mean original 2022-minus-2021 logit change only **+0.0212** across matched regional cells, with country-specific means **Germany −0.0246**, **Austria +0.1038**. This is observed photo-reporting composition, not population stasis or ecological no-change.
-- 2021 supported **three-family photos** original IT-like sample: DE2,801, AT1,555; 2022 same selected sites DE3,321, AT2,393. This highlights uneven reporting across seasons/years and cannot be used as abundance trends.
+- 2021 supported **three-family photo records** in the same original fixed geographic cohort: DE2,801, AT1,555; 2022 same selected sites DE3,321, AT2,393. This highlights uneven reporting across seasons/years and cannot be used as abundance trends.
 
 ## 4. Strict same-42-cell original 2° geographic heldout prediction
 
