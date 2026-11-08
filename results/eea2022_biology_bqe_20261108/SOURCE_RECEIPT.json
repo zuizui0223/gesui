@@ -1,0 +1,49 @@
+{
+  "original_source_run": 42432030617,
+  "original_measured_BQE_run": 42432384196,
+  "2022_fixed_river_EEA_WWTP_PN_loads": "reported measured annual mass (tonnes/year)",
+  "official_EEA_Biology2026_uncompressed_EQR_SHA256": "f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9",
+  "HydroRIVERS_v1_third_party_GeoParquet_source_SHA256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "all_original_files": [
+    {
+      "file": "SOURCE_EXPOSURE_QC.json",
+      "original_artifact_file": "source/BQE_SOURCE_EXPOSURE_COVERAGE.json",
+      "original_file_SHA256": "a6d7a95b634ea796cefd091a2c0510a769a683358db86ed8b4d9e1bd01ea3f17",
+      "bytes": 10028
+    },
+    {
+      "file": "SOURCE_ONLY_BQE_SITE_REGISTRY.csv",
+      "original_artifact_file": "source/EQR_2022_river_source_only_station_registry.csv",
+      "original_file_SHA256": "e12df511d64c4c580ef2422dccdbbd11a1309c84d29d467fd4527206e41fa636",
+      "bytes": 1697988
+    },
+    {
+      "file": "ORIGINAL_EQR_BIOLOGICAL_RESULTS.json",
+      "original_artifact_file": "outcome/SOURCE_LOCKED_2022_AQUATIC_EQR_RESULTS.json",
+      "original_file_SHA256": "7e647daa7f797740bd970e14079b6338add4a4faf04bf67f8eaac1ddd9e3f374",
+      "bytes": 40892
+    },
+    {
+      "file": "BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv",
+      "original_artifact_file": "outcome/benthic_invertebrates_EEA2022_EQR_source_matched_monitoring.csv",
+      "original_file_SHA256": "5e1f3c31b389d0bd769984ab055d3e2c54b63ccaa4f5eedfb2d82bcdc83c28e6",
+      "bytes": 337590
+    },
+    {
+      "file": "PHYTOBENTHOS_2022_SOURCE_EQR.csv",
+      "original_artifact_file": "outcome/phytobenthos_EEA2022_EQR_source_matched_monitoring.csv",
+      "original_file_SHA256": "7fa5dfff9023337ac0a62a87fe406eb71783979858d9d924ab97019c6e4e5fc3",
+      "bytes": 375282
+    },
+    {
+      "file": "INDEPENDENT_AUDIT.json",
+      "original_artifact_file": "check/INDEPENDENT_AUDIT.json",
+      "original_file_SHA256": "4259896f385867262de72a55fac0d1fe7049663c3df00329a25a2c4837ce4f98",
+      "bytes": 61308
+    }
+  ],
+  "original_full_EEA_Biology_132MB_archive_redistributed": false,
+  "no_fresh_EEA_or_GBIF_downloads_in_audit": true,
+  "not_a_causal_wastewater_ecology_estimate": true,
+  "source_reporter_coverage_from_2022_only": true
+}
