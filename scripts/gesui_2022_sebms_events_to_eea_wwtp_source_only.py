@@ -11,7 +11,55 @@ import argparse,csv,hashlib,io,json,math,urllib.request,zipfile,xml.etree.Elemen
 from collections import defaultdict,Counter
 from pathlib import Path
 import numpy as np,pandas as pd
-import gesui_eea_nutrient_load_river_crosswalk as eea
+import requests,time
+BASE="https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD"
+PLANT=BASE+"/TreatmentPlants_2022/MapServer/0"
+OUTFALL=BASE+"/DischargePoints_2022/MapServer/0"
+PLANT_FIELDS=("OBJECTID","repCode","uwwCode","uwwLatitude","uwwLongitude",
+              "uwwNDischargeMeasured","uwwPDischargeMeasured","uwwState")
+OUT_FIELDS=("OBJECTID","repCode","uwwCode","dcpCode","dcpLatitude",
+            "dcpLongitude","dcpWaterBodyType","dcpState")
+BOTH_WHERE="uwwNDischargeMeasured > 0 AND uwwPDischargeMeasured > 0"
+def api(url,params):
+    last=None
+    for attempt in range(4):
+        try:
+            r=requests.get(url,params=params,timeout=55,
+                   headers={"User-Agent":"gesui-2022-EEA-Swedish-BMS-no-species-source-QC"})
+            r.raise_for_status()
+            j=r.json()
+            if "error" in j:raise ValueError(str(j["error"])[:400])
+            return j,hashlib.sha256(r.content).hexdigest()
+        except Exception as e:
+            last=str(e)
+            if attempt<3:time.sleep(1.5*(attempt+1))
+    raise RuntimeError("Official public EEA API request failed: "+str(last))
+def download_layer(url,where,fields,expected):
+    counts,_=api(url+"/query",{"f":"json","where":where,"returnCountOnly":"true"})
+    total=int(counts["count"])
+    if total!=expected:raise ValueError(f"EEA official source count changed {url}: {total} != {expected}")
+    records=[];receipts=[]
+    for off in range(0,total,1000):
+        x,digest=api(url+"/query",{"f":"json","where":where,"returnGeometry":"false",
+          "outFields":",".join(fields),"orderByFields":"OBJECTID ASC",
+          "resultOffset":off,"resultRecordCount":1000})
+        entries=[z["attributes"] for z in x.get("features",[])]
+        if not entries:raise ValueError("Empty EEA source query page")
+        records.extend(entries)
+        receipts.append({"offset":off,"items":len(entries),"sha256_response":digest})
+    d=pd.DataFrame.from_records(records)
+    if len(d)!=total or d.OBJECTID.duplicated().any() or set(fields)-set(d.columns):
+        raise ValueError("Incomplete EEA response page coverage")
+    return d,receipts
+def normalize_key(d):
+    d=d.copy()
+    d["report_code_norm"]=d.repCode.astype("string").str.strip().str.upper()
+    d["plant_code_norm"]=d.uwwCode.astype("string").str.strip()
+    d["compound_join_key"]=d.report_code_norm.fillna("")+"|"+d.plant_code_norm.fillna("")
+    invalid=d.report_code_norm.isna()|d.report_code_norm.eq("")|d.plant_code_norm.isna()|d.plant_code_norm.eq("")
+    d.loc[invalid,"compound_join_key"]=None
+    return d
+
 
 SE_SOURCE="https://www.gbif.se/ipt/archive.do?r=lu_sebms"
 SE_ARCHIVE_SHA="384a2e5145df29268fe2de79fde9e196fc113e68adfc922a81acd58069437348"
@@ -117,10 +165,10 @@ def haversine(lat1,lon1,lat2,lon2):
     return 6371*2*math.asin(min(1,math.sqrt(q)))
 
 def source_eea():
-    fields=eea.PLANT_FIELDS
-    w,wp=eea.download_layer(eea.PLANT,eea.BOTH_WHERE,fields,EXPECTED_PLANTS)
-    d,dp=eea.download_layer(eea.OUTFALL,"1=1",eea.OUT_FIELDS,EXPECTED_DCP)
-    w=eea.normalize_key(w);d=eea.normalize_key(d)
+    fields=PLANT_FIELDS
+    w,wp=download_layer(PLANT,BOTH_WHERE,fields,EXPECTED_PLANTS)
+    d,dp=download_layer(OUTFALL,"1=1",OUT_FIELDS,EXPECTED_DCP)
+    w=normalize_key(w);d=normalize_key(d)
     # Source-only reporter+facility full ID, do not substitute 2018/2020 sources.
     w=w[w.compound_join_key.notna()].copy()
     d=d[d.compound_join_key.notna()].copy()
