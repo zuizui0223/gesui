@@ -110,6 +110,10 @@ def extract(db,tname,cols,kind):
          "joining_fields":[rep,key],"model_year_reference_field_candidates":extra,
          "observed_measured_P_field":p,"observed_measured_N_field":n,
          "latitude_field":lat,"longitude_field":lon,"waterbody_field":water}
+    rep_values=[str(x[rep]).strip() for x in unique if x[rep] is not None]
+    out["official_reporter_code_year_suffix_counts"]={str(k):int(v) for k,v in
+          Counter((v[-4:] if v[-4:].isdigit() else "OTHER") for v in rep_values).most_common(15)}
+    out["official_reporter_code_year_suffix_2020_n"]=sum(v.endswith("2020") for v in rep_values)
     if p and n:
         ppos=sum(numeric(x[p]) is not None and numeric(x[p])>0 for x in unique)
         npos=sum(numeric(x[n]) is not None and numeric(x[n])>0 for x in unique)
@@ -137,6 +141,7 @@ def main():
             "no_2020_biological_EQR_opened":True,
             "same_calendar_2020_reported_mass_year_not_yet_verified":True,
             "datasets":{}}
+    rows_by_kind={}
     for k in SOURCES:
         path=args.temporary_dir/(k+".gpkg")
         provenance=download(k,path)
@@ -149,6 +154,7 @@ def main():
             cols=[x["name"] for x in info[tab]["column_info"]]
             qc,rows=extract(db,tab,cols,k)
             data["quality"]=qc
+            rows_by_kind[k]=rows
             if rows is not None and k=="WWTP" and qc.get("observed_measured_P_field") and qc.get("observed_measured_N_field"):
                 possible=[x for x in rows
                           if numeric(x[qc["observed_measured_P_field"]]) is not None and
@@ -163,6 +169,47 @@ def main():
             "dataset":k,"SHA256":provenance["source_SHA256"],
             "file_size":provenance["download_bytes"],"layers":feature,
             "source_quality":data.get("quality",{})},sort_keys=True),flush=True)
+    # Source-only 1:1 plant and discharge point linkage, exact original IDs.
+    # The public spatial product includes active/correct-coordinate source rows;
+    # not all treatment sources or receiving paths are included.
+    if rows_by_kind.get("WWTP") is not None and rows_by_kind.get("DCP") is not None:
+        plants=rows_by_kind["WWTP"];outlets=rows_by_kind["DCP"]
+        seen={x["source_key"]:x for x in outlets}
+        matched=[]
+        for p in plants:
+            pv=numeric(p.get("uwwPDischargeMeasured"))
+            nv=numeric(p.get("uwwNDischargeMeasured"))
+            d=seen.get(p["source_key"])
+            if not(pv is not None and pv>0 and nv is not None and nv>0 and d):
+                continue
+            if str(d.get("dcpWaterBodyType","")).strip().upper()!="FW":
+                continue
+            lat=numeric(d.get("dcpLatitude"));lon=numeric(d.get("dcpLongitude"))
+            if lat is None or lon is None or not(44<=lat<=64 and -12<=lon<=26):
+                continue
+            matched.append({
+                "source_key":p["source_key"],
+                "repCode":p["repCode"],"uwwCode":p["uwwCode"],
+                "uwwNDischargeMeasured_t_per_year":nv,
+                "uwwPDischargeMeasured_t_per_year":pv,
+                "dcpLatitude":lat,"dcpLongitude":lon,
+                "dcpWaterBodyType":"FW",
+            })
+        import csv
+        source_csv=args.out.parent/"2020_PUBLIC_CYCLE_BOTH_MEASURED_NP_UNIQUE_FW_OUTFALLS.csv"
+        source_csv.parent.mkdir(parents=True,exist_ok=True)
+        cols=["source_key","repCode","uwwCode","uwwNDischargeMeasured_t_per_year",
+              "uwwPDischargeMeasured_t_per_year","dcpLatitude","dcpLongitude","dcpWaterBodyType"]
+        with source_csv.open("w",newline="") as f:
+            w=csv.DictWriter(f,fieldnames=cols);w.writeheader();w.writerows(matched)
+        report["official_both_measured_positive_NP_unique_FW_outlets_in_study_bbox"]=len(matched)
+        report["source_candidate_file_sha256"]=hashlib.sha256(source_csv.read_bytes()).hexdigest()
+        report["source_candidate_file_path"]=source_csv.name
+        report["source_candidate_original_2020_reporting_period_not_precise_measurement_date"]=True
+        print("GESUI_2020_PUBLIC_BOTH_NP_MEASURED_FRESHWATER_OUTFALL_SOURCE_ROWS",
+              json.dumps({"eligible_count":len(matched),"original_year_suffix_counts":
+                dict(Counter(str(x["repCode"])[-4:] for x in matched).most_common(15)),
+                "source_file_SHA256":report["source_candidate_file_sha256"]}),flush=True)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(report,indent=2,sort_keys=True,ensure_ascii=False)+"\n")
     print("GESUI_2020_SOURCE_ONLY_HISTORICAL_GPKG_ORIGINAL_BYTES_VERIFIED",flush=True)
