@@ -1,0 +1,43 @@
+name: gesui EEA2026 Biology EQR real 2022 river station source coverage
+
+on:
+  push:
+    branches:
+      - "analysis/eea2026-waterbase-biology-bqe-20261108"
+    paths:
+      - "scripts/gesui_eea2026_bqe_source_quality.py"
+      - ".github/workflows/gesui-eea2026-bqe-source-support.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  official-2022-source-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas
+      - name: Download exact pinned public EEA 2026 official biology ZIP
+        run: |
+          mkdir -p /tmp/gesui-bqe-support
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download \
+            -o /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip
+          echo "e621b1f5c43e9f2005d3a6fa40adefff6fd30d7030e76c4c8801d7717194769f  /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip" | sha256sum -c -
+      - name: Audit 2022 river EQR observation support and exact official location identifiers (no effects)
+        run: |
+          python -u scripts/gesui_eea2026_bqe_source_quality.py \
+            --archive /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip \
+            --out /tmp/gesui-bqe-support/EEA_BIOLOGY_2022_RIVER_SOURCE_SUPPORT.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA-Waterbase-Biology2026-2022-river-BQE-source-support
+          path: /tmp/gesui-bqe-support/EEA_BIOLOGY_2022_RIVER_SOURCE_SUPPORT.json
+          if-no-files-found: warn
+          retention-days: 30
