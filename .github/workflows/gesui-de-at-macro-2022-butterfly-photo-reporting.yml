@@ -1,0 +1,47 @@
+name: gesui 2022 DE AT 1degree Lycaenidae photo reporting after frozen 2021 Plantae effort
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108"
+    paths:
+      - ".github/workflows/gesui-de-at-macro-2022-butterfly-photo-reporting.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-source-and-2021-nonbutterfly-effort-locked:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install source-locked statistical tools
+        run: python -m pip install --quiet numpy scipy
+      - name: Check Git-committed source/2021 Plantae effort gate and read only 2022 aggregate butterfly family photo totals
+        run: |
+          python -m py_compile scripts/gesui_de_at_2022_lycaenidae_photo_share_after_source_gate.py
+          python -u scripts/gesui_de_at_2022_lycaenidae_photo_share_after_source_gate.py \
+            --2021-plant-source-gate results/lycaenidae_de_at_2022_macro_source_photo/2021_PLANT_ONLY_SOURCE_AND_EFFORT_GATE.json \
+            --out results/lycaenidae_de_at_2022_macro_source_photo/2022_DE_AT_LYCAENIDAE_PHOTO_SHARE_VS_WWTP_SOURCE_EXPLORATORY.json
+      - name: Archive full public family photo-source receipts and honest support-gated model results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_de_at_2022_macro_source_photo/2022_DE_AT_LYCAENIDAE_PHOTO_SHARE_VS_WWTP_SOURCE_EXPLORATORY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve all 2022 public photo family totals and prespecified DE/AT EEA source-vs-reporting analysis after independent botanical gate"
+          git fetch origin analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+          git rebase origin/analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+          git push origin HEAD:analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-AT-2022-macro-Lycaenidae-public-photo-reporting-source-locked
+          path: results/lycaenidae_de_at_2022_macro_source_photo/2022_DE_AT_LYCAENIDAE_PHOTO_SHARE_VS_WWTP_SOURCE_EXPLORATORY.json
+          retention-days: 90
+          if-no-files-found: warn
