@@ -1,0 +1,281 @@
+{
+  "cross_year_site_overlap_posthoc_descriptive": true,
+  "date_utc": "2026-11-08T03:28:24.092947+00:00",
+  "does_not_establish_2018_2022_causal_WWTP_treatment": true,
+  "fixed_original_model_prediction_not_recomputed_or_reselected": true,
+  "limits": [
+    "Same monitoring site appearing twice means time replication does not imply spatially independent ecological observations",
+    "Model source population and country EEA reporting differ across 2018 and 2022",
+    "Source presence/absence changes can be changes in reporting and plant location quality, not treatment intervention",
+    "In-river EQR year differences are not a controlled treatment contrast or nutrient concentration mass balance",
+    "No agriculture or other WWTP/P/N sources were retrospectively selected to maximize EQR correlation"
+  ],
+  "original_site_source_SHA256": {
+    "benthic_invertebrates_2018": "2a1a72d43656aca588a832dfae13860054c01a651e76bf25f984c5a374709b02",
+    "benthic_invertebrates_2022": "5e1f3c31b389d0bd769984ab055d3e2c54b63ccaa4f5eedfb2d82bcdc83c28e6",
+    "phytobenthos_2018": "8302daf2afa3f3556debc5ca769ee667bd06816d0de2e63afd4cb6b538587ad7",
+    "phytobenthos_2022": "7fa5dfff9023337ac0a62a87fe406eb71783979858d9d924ab97019c6e4e5fc3"
+  },
+  "original_year2018_WWTP_source_and_EQR_run": 42442266935,
+  "original_year2022_WWTP_source_and_EQR_run": 42432384196,
+  "results": {
+    "benthic_invertebrates": {
+      "2018_2022_source_data_not_from_two_independent_biological_agencies": true,
+      "2018_2022_source_reported_load_status_transition_on_same_sites": {
+        "0_to_0": 1139,
+        "0_to_1": 7,
+        "1_to_0": 4,
+        "1_to_1": 17
+      },
+      "2018_only_sites": 1467,
+      "2018_sites_reused_in_2022_fraction": 0.4430523917995444,
+      "2022_only_sites": 1308,
+      "2022_sites_also_observed_2018_fraction": 0.4715151515151515,
+      "analysis_predeclared_original_Ridge_models_NOT_refitted": true,
+      "descriptive_identical_BQE_method_site_year_EQR_spearman": 0.8068529258261893,
+      "descriptive_overlapping_site_2018_EQR_2022_EQR_spearman": 0.8073892036842769,
+      "exact_same_site_2018_and_2022": 1167,
+      "exact_source_station_overlap_by_country": [
+        {
+          "2018_source_positive": 1,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 1,
+          "country": "AT",
+          "exact_site_overlap": 1,
+          "same_HydroRIVERS_reach_ID": 1,
+          "same_biology_classification_method": 0
+        },
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 0,
+          "country": "BE",
+          "exact_site_overlap": 9,
+          "same_HydroRIVERS_reach_ID": 9,
+          "same_biology_classification_method": 9
+        },
+        {
+          "2018_source_positive": 1,
+          "2018_to_2022_source_presence_change": 5,
+          "2022_source_positive": 6,
+          "country": "FR",
+          "exact_site_overlap": 1073,
+          "same_HydroRIVERS_reach_ID": 1073,
+          "same_biology_classification_method": 1073
+        },
+        {
+          "2018_source_positive": 4,
+          "2018_to_2022_source_presence_change": 2,
+          "2022_source_positive": 4,
+          "country": "HR",
+          "exact_site_overlap": 8,
+          "same_HydroRIVERS_reach_ID": 8,
+          "same_biology_classification_method": 8
+        },
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 0,
+          "country": "IE",
+          "exact_site_overlap": 7,
+          "same_HydroRIVERS_reach_ID": 7,
+          "same_biology_classification_method": 7
+        },
+        {
+          "2018_source_positive": 2,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 2,
+          "country": "IT",
+          "exact_site_overlap": 10,
+          "same_HydroRIVERS_reach_ID": 10,
+          "same_biology_classification_method": 0
+        },
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 0,
+          "country": "LT",
+          "exact_site_overlap": 4,
+          "same_HydroRIVERS_reach_ID": 4,
+          "same_biology_classification_method": 0
+        },
+        {
+          "2018_source_positive": 8,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 8,
+          "country": "NL",
+          "exact_site_overlap": 10,
+          "same_HydroRIVERS_reach_ID": 10,
+          "same_biology_classification_method": 10
+        },
+        {
+          "2018_source_positive": 2,
+          "2018_to_2022_source_presence_change": 1,
+          "2022_source_positive": 3,
+          "country": "NO",
+          "exact_site_overlap": 38,
+          "same_HydroRIVERS_reach_ID": 38,
+          "same_biology_classification_method": 38
+        },
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 0,
+          "country": "SE",
+          "exact_site_overlap": 4,
+          "same_HydroRIVERS_reach_ID": 4,
+          "same_biology_classification_method": 0
+        },
+        {
+          "2018_source_positive": 3,
+          "2018_to_2022_source_presence_change": 3,
+          "2022_source_positive": 0,
+          "country": "SI",
+          "exact_site_overlap": 3,
+          "same_HydroRIVERS_reach_ID": 3,
+          "same_biology_classification_method": 3
+        }
+      ],
+      "group": "benthic_invertebrates",
+      "original_2018_monitored_site_n": 2634,
+      "original_2022_monitored_site_n": 2475,
+      "overlap_site_2018_EQR_median": 0.74,
+      "overlap_site_2022_EQR_median": 0.721951219512,
+      "overlap_site_2022_minus_2018_EQR_median": -0.023728813560000006,
+      "repeated_site_year_differences_are_not_instrumented_NP_effects": true,
+      "same_site_HydroRIVERS_reach_ID_count": 1167,
+      "same_site_biological_method_code_changed_count": 19,
+      "same_site_exact_biological_method_code_count": 1148,
+      "same_site_geographic_3degree_block_changed_count": 0,
+      "same_site_geographic_3degree_block_count": 1167,
+      "same_site_river_reach_ID_changed_count": 0,
+      "same_site_source_presence_changed_count": 11,
+      "shared_country_n": 11,
+      "source_years_have_different_reporting_firm_selection_and_source_status_definitions": true,
+      "source_zero_means_unreported_qualified_2018_or_2022_WWTP_load_not_no_effluent": true,
+      "status": "SOURCE_LOCKED_CROSS_YEAR_MONITOR_SITE_OVERLAP_QC_ONLY"
+    },
+    "phytobenthos": {
+      "2018_2022_source_data_not_from_two_independent_biological_agencies": true,
+      "2018_2022_source_reported_load_status_transition_on_same_sites": {
+        "0_to_0": 1383,
+        "0_to_1": 13,
+        "1_to_0": 4,
+        "1_to_1": 12
+      },
+      "2018_only_sites": 1258,
+      "2018_sites_reused_in_2022_fraction": 0.5288389513108614,
+      "2022_only_sites": 1372,
+      "2022_sites_also_observed_2018_fraction": 0.507183908045977,
+      "analysis_predeclared_original_Ridge_models_NOT_refitted": true,
+      "descriptive_identical_BQE_method_site_year_EQR_spearman": 0.7645105810797816,
+      "descriptive_overlapping_site_2018_EQR_2022_EQR_spearman": 0.7600876886800727,
+      "exact_same_site_2018_and_2022": 1412,
+      "exact_source_station_overlap_by_country": [
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 0,
+          "country": "BE",
+          "exact_site_overlap": 4,
+          "same_HydroRIVERS_reach_ID": 4,
+          "same_biology_classification_method": 4
+        },
+        {
+          "2018_source_positive": 3,
+          "2018_to_2022_source_presence_change": 9,
+          "2022_source_positive": 12,
+          "country": "FR",
+          "exact_site_overlap": 1323,
+          "same_HydroRIVERS_reach_ID": 1323,
+          "same_biology_classification_method": 1323
+        },
+        {
+          "2018_source_positive": 6,
+          "2018_to_2022_source_presence_change": 3,
+          "2022_source_positive": 5,
+          "country": "HR",
+          "exact_site_overlap": 15,
+          "same_HydroRIVERS_reach_ID": 15,
+          "same_biology_classification_method": 15
+        },
+        {
+          "2018_source_positive": 4,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 4,
+          "country": "IT",
+          "exact_site_overlap": 12,
+          "same_HydroRIVERS_reach_ID": 12,
+          "same_biology_classification_method": 0
+        },
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 2,
+          "2022_source_positive": 2,
+          "country": "LT",
+          "exact_site_overlap": 24,
+          "same_HydroRIVERS_reach_ID": 24,
+          "same_biology_classification_method": 0
+        },
+        {
+          "2018_source_positive": 1,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 1,
+          "country": "LU",
+          "exact_site_overlap": 1,
+          "same_HydroRIVERS_reach_ID": 1,
+          "same_biology_classification_method": 1
+        },
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 1,
+          "2022_source_positive": 1,
+          "country": "NO",
+          "exact_site_overlap": 20,
+          "same_HydroRIVERS_reach_ID": 20,
+          "same_biology_classification_method": 20
+        },
+        {
+          "2018_source_positive": 0,
+          "2018_to_2022_source_presence_change": 0,
+          "2022_source_positive": 0,
+          "country": "SE",
+          "exact_site_overlap": 11,
+          "same_HydroRIVERS_reach_ID": 11,
+          "same_biology_classification_method": 0
+        },
+        {
+          "2018_source_positive": 2,
+          "2018_to_2022_source_presence_change": 2,
+          "2022_source_positive": 0,
+          "country": "SI",
+          "exact_site_overlap": 2,
+          "same_HydroRIVERS_reach_ID": 2,
+          "same_biology_classification_method": 2
+        }
+      ],
+      "group": "phytobenthos",
+      "original_2018_monitored_site_n": 2670,
+      "original_2022_monitored_site_n": 2784,
+      "overlap_site_2018_EQR_median": 0.624237804878,
+      "overlap_site_2022_EQR_median": 0.625,
+      "overlap_site_2022_minus_2018_EQR_median": 0.0,
+      "repeated_site_year_differences_are_not_instrumented_NP_effects": true,
+      "same_site_HydroRIVERS_reach_ID_count": 1412,
+      "same_site_biological_method_code_changed_count": 47,
+      "same_site_exact_biological_method_code_count": 1365,
+      "same_site_geographic_3degree_block_changed_count": 0,
+      "same_site_geographic_3degree_block_count": 1412,
+      "same_site_river_reach_ID_changed_count": 0,
+      "same_site_source_presence_changed_count": 17,
+      "shared_country_n": 9,
+      "source_years_have_different_reporting_firm_selection_and_source_status_definitions": true,
+      "source_zero_means_unreported_qualified_2018_or_2022_WWTP_load_not_no_effluent": true,
+      "status": "SOURCE_LOCKED_CROSS_YEAR_MONITOR_SITE_OVERLAP_QC_ONLY"
+    }
+  },
+  "same_EEA_Biology2026_data_release_used_both_years": true,
+  "schema": "gesui_temporal_2018_2022_monitored_site_and_reported_WWTP_source_status_overlap_QC_v01",
+  "source_years_both_independently_reported_WWTP_NP_mass": true,
+  "status": "SOURCE_SHA_VERIFIED_TWO_YEAR_SITE_OVERLAP_QC_COMPLETE"
+}
