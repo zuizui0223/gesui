@@ -77,7 +77,7 @@ def inspect(archive,output,args_original_manifest):
     for c in ("lat","lon"):
         points[c]=pd.to_numeric(points[c],errors="coerce")
     points["valid_coordinate"]=points.lat.between(-90,90)&points.lon.between(-180,180)
-    points["location_sig"]=points[["lat","lon"]].astype("string").agg("|".join,axis=1)
+    points["location_sig"]=points[["lat","lon"]].astype("string").fillna("MISSING").agg("|".join,axis=1)
     p=points.dropna(subset=["monitor_key"])
     sizes=p.groupby("monitor_key").agg(n_position=("location_sig","nunique"),
                                      with_coords=("valid_coordinate","any"),
