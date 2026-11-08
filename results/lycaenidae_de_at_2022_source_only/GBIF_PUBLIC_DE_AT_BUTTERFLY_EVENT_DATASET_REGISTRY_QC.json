@@ -1,15 +1,96 @@
 {
   "GBIF_official_registry": "https://api.gbif.org/v1/dataset/search",
-  "candidate_detail_inspections": [],
-  "candidate_inventory": [],
+  "broad_DE_AT_event_candidates_can_be_nonbutterfly": true,
+  "candidate_detail_inspections": [
+    {
+      "2022_event_records_examined": false,
+      "catalogue_preview": {
+        "dataset_key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+        "matched_queries": [
+          "German butterflies monitoring"
+        ],
+        "metadata": {
+          "doi": "10.20363/zc0n-5a36",
+          "hostingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+          "key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-10-13T11:49:14.281+00:00",
+          "publishingCountry": "DE",
+          "publishingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+          "publishingOrganizationTitle": "Leibniz Institute for the Analysis of Biodiversity Change (LIB)",
+          "title": "DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape",
+          "type": "SAMPLING_EVENT"
+        }
+      },
+      "citation": "{'text': 'Hoffmann L, Stoll S, Rach B (2026). DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape. Version 1.8. Leibniz Institute for the Analysis of Biodiversity Change (LIB). Sampling event dataset https://doi.org/10.20363/zc0n-5a36 accessed via GBIF.org on 2026-11-08.', 'citationProvidedBySource': False}",
+      "dataset_key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+      "dataset_type": "SAMPLING_EVENT",
+      "description_preview": "<p>The dataset contains data on arthropods which was derived from DNA metabarcoding. The DNA metabarcoding was performed for samples from coloured canopy Malaise traps, caterpillar traps, branch sampling and blue and white pan traps. The traps were selected to capture predominantly flying insects, especially butterflies and hoverflies. They were placed as a defined set in four different habitat types: &#39;Forest (Beech and oak)&#39;, &#39;Centre of a short rotation coppice&#39;, &#39;Margin of a short rotation coppice&#39; and &#39;Maize field&#39;. There existed three replicates of each habitat type. The coloured canopy Malaise traps were e",
+      "eligibility_status": "CANDIDATE_SAMPLING_EVENT_METADATA_ONLY",
+      "event_core_confirmed_from_original_archive": false,
+      "homepage": "https://doi.org/10.20363/829z-5n75",
+      "metadata_request": {
+        "bytes": 23320,
+        "http": 200,
+        "retrieved_body_sha256": "1fd2ee81a999dee94b95700c7fd83df68a34fa8f02462b0393851d809b1a381e",
+        "url": "https://api.gbif.org/v1/dataset/96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf"
+      },
+      "official_gbif_metadata": {
+        "created": "2025-03-25T14:43:21.112+00:00",
+        "doi": "10.20363/zc0n-5a36",
+        "external": false,
+        "homepage": "https://doi.org/10.20363/829z-5n75",
+        "installationKey": "78aee337-e49b-4121-b081-8f764b01ac3f",
+        "key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2026-10-13T11:49:14.281+00:00",
+        "pubDate": "2026-10-13T00:00:00.000+00:00",
+        "publishingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+        "title": "DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape",
+        "type": "SAMPLING_EVENT"
+      },
+      "original_dataset_endpoints": [
+        {
+          "type": "DWC_ARCHIVE",
+          "url": "https://biocase.zfmk.de/ipt/archive.do?r=dna-mb_hoffmann_2021_arthropods"
+        },
+        {
+          "type": "EML",
+          "url": "https://biocase.zfmk.de/ipt/eml.do?r=dna-mb_hoffmann_2021_arthropods"
+        }
+      ],
+      "publisher_contacts_present": true
+    }
+  ],
+  "candidate_inventory": [
+    {
+      "dataset_key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+      "detail_inspected": true,
+      "matched_queries": [
+        "German butterflies monitoring"
+      ],
+      "metadata": {
+        "doi": "10.20363/zc0n-5a36",
+        "hostingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+        "key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2026-10-13T11:49:14.281+00:00",
+        "publishingCountry": "DE",
+        "publishingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+        "publishingOrganizationTitle": "Leibniz Institute for the Analysis of Biodiversity Change (LIB)",
+        "title": "DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape",
+        "type": "SAMPLING_EVENT"
+      }
+    }
+  ],
   "does_not_imply_EEA_outfall_matching": true,
   "explicit_UNVERIFIED_original_Event_core": true,
   "next_source_only_action": "For credible SAMPLING_EVENT candidates, verify public publisher ZIP and original Event core; if none, request coarse near/far site counts through eBMS/UFZ/Viel-Falter coordinators.",
   "no_download_of_butterfly_counts_or_species_records": true,
   "no_equating_occurrence_dataset_with_visit_sampling": true,
-  "number_detail_inspected_sampling_event_candidates": 0,
+  "number_detail_inspected_sampling_event_candidates": 1,
   "number_distinct_query_response_datasets": 101,
-  "number_possible_de_at_butterfly_metadata": 0,
+  "number_possible_de_at_butterfly_metadata": 1,
   "public_registry_query_does_not_bypass_coordinator_access": true,
   "query_receipts": [
     {
@@ -814,8 +895,9 @@
     "German butterflies monitoring",
     "butterfly transect"
   ],
-  "retrieved_UTC": "2026-11-08T07:08:02.673311+00:00",
+  "retrieved_UTC": "2026-11-08T07:09:41.027683+00:00",
   "schema": "gesui_GBIF_public_DE_AT_butterfly_monitoring_dataset_metadata_source_search_20261108_v01",
   "search_limit_per_query": 100,
+  "source_discovery_search_is_NOT_exhaustive": true,
   "verified_open_2022_DwC_Event_core_n": 0
 }
