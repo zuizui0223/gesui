@@ -1,0 +1,203 @@
+{
+  "EEA_Biology_EQR_scores_accessed": false,
+  "datasets": {
+    "DISCHARGE_2020_public": {
+      "CSV_schema_previews": [],
+      "GPKG": {
+        "http": 207,
+        "items": [
+          {
+            "directory": true,
+            "etag": "\"68e91d77197e8\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GPKG/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": false,
+            "etag": "\"da387aaa72a16e1490131134321edb60\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GPKG/UWWTD_DischargePoints.gpkg",
+            "mime": "application/octet-stream",
+            "size_bytes": 7073792
+          }
+        ],
+        "n": 2
+      },
+      "README_public_text": "# Urban Waste Water Treatment Directive, Discharge points reported under UWWTD data call 2021 - PUBLIC VERSION, Jan. 2023 (Spatial data)\r\n\r\nUWWTD Discharge Points, Jan. 2023 is one of the datasets produced within the frame of the reporting under 12th UWWTD Art.15 reporting period  (UWWTD data call 2021). \n\nThe Urban Waste Water Treatment Directive (UWWTD) (91/271/EEC) obliges Member States to report data on the implementation of the Directive upon request from the European Commission bi-annually. Reported data include receiving areas as designated under UWWTD, agglomerations, urban waste water treatment plants serving the agglomerations and points of discharges. \n\nDataset UWWTD_DischargePoints contains information on individual points of discharge from urban waste water treatment plants or collecting systems, including their coordinates of discharge, link to specific treatment plant, type of receiving area into which the effluent / wastewater is discharged, related waterbody (or river basin), information on the discharge on land and potential reuse of the treated waste water.\n\nThis dataset includes the reported discharge points which are displayed on the UWWTD maps (https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-3). The active discharge points with correct coordinates in the reported data were selected from the source European UWWTD tabular dataset, which is available on the download link\nhttps://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9. \n\nThe definition of the UWWTD Discharge Points dataset attributes (fields) is available on the link https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/DischargePoints\nThe full (internal) dataset including inactive discharge points is available under \"Urban Waste Water Treatment Directive, Discharge points reported under UWWTD data call 2021 - INTERNAL VERSION, Jan. 2023\" (https://sdi.eea.europa.eu/catalogue/inspire-pds/eng/catalog.search#/metadata/e68d4c7c-9273-4cea-a4e6-b48abd980c83).\n\nThe dataset is provided in GeoPackage and ESRI File geodatabase formats.https://sdi.eea.europa.eu/geonetwork/srv/api/records/fb78cfb7-dc6f-4294-95e9-e67f96b285c5\r\n\r\n\r\n[More information](https://sdi.eea.europa.eu/catalogue/srv/api/records/fb78cfb7-dc6f-4294-95e9-e67f96b285c5)\n    ",
+      "README_status": 206,
+      "archive_root": "eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00",
+      "root": {
+        "http": 207,
+        "items": [
+          {
+            "directory": true,
+            "etag": "\"6989dc2e3a655\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": true,
+            "etag": "\"68e91ae0d9657\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GDB/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": true,
+            "etag": "\"68e91d77197e8\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GPKG/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": false,
+            "etag": "\"d798088dd80b459fe1d0785faea0139d\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/README.md",
+            "mime": "text/markdown",
+            "size_bytes": 2399
+          },
+          {
+            "directory": false,
+            "etag": "\"eaf374458e29fb3652c6af194e932059\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/Urban_Waste_Water_Treatment_Directive_Discharge_points_reported_under__metadata_fb78cfb7-dc6f-4294-95e9-e67f96b285c5.xml",
+            "mime": "application/xml",
+            "size_bytes": 53038
+          },
+          {
+            "directory": false,
+            "etag": "\"3a1c419ae9459cdc1ec793181e188d89\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/UWWTD_GIS_reference_v4.pdf",
+            "mime": "application/pdf",
+            "size_bytes": 1087877
+          }
+        ],
+        "n": 6
+      }
+    },
+    "WWTP_2020_public": {
+      "CSV_schema_previews": [],
+      "Documents": {
+        "http": 207,
+        "items": [
+          {
+            "directory": true,
+            "etag": "\"68e93ef1d68b1\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Documents/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": false,
+            "etag": "\"9166bca5287d9bcc6c4f2a218646f906\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Documents/UWWTD_GIS_reference_v4.pdf",
+            "mime": "application/pdf",
+            "size_bytes": 1087877
+          }
+        ],
+        "n": 2
+      },
+      "GPKG": {
+        "http": 207,
+        "items": [
+          {
+            "directory": true,
+            "etag": "\"68e94cc8423df\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/GPKG/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": false,
+            "etag": "\"f89f949619b4f1d8c7585a600a998abf\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/GPKG/UWWTD_TreatmentPlants.gpkg",
+            "mime": "application/octet-stream",
+            "size_bytes": 7159808
+          }
+        ],
+        "n": 2
+      },
+      "README_public_text": "# Urban Waste Water Treatment Directive, Treatment plants reported under UWWTD data call 2021 - PUBLIC VERSION, Jan. 2023 (Spatial data)\r\n\r\nUWWTD Treatment Plants, Jan. 2023 is one of the datasets produced within the frame of the reporting under 12th UWWTD Art.15 reporting period  (UWWTD data call 2021). \n\nThe Urban Waste Water Treatment Directive (UWWTD) (91/271/EEC) obliges Member States to report data on the implementation of the Directive upon request from the European Commission bi-annually. Reported data include receiving areas as designated under UWWTD, agglomerations, urban waste water treatment plants serving the agglomerations and points of discharges. \n\nDataset UWWTD_TreatmentPlants contains urban waste water treatment plants and collecting systems without UWWTP, including their coordinates, capacity and actual load treated, type of treatment and data on the performance of plants.\n\nThis dataset includes the reported treatment plants displayed on the UWWTD maps (https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-3). The active and connected treatment plants with correct coordinates in the reported data were selected from the source European UWWTD tabular dataset which is available on the download link https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9 .\n \nThe definition of the UWWTD Treatment Plants dataset attributes (fields) is available on the link: https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPs\nThe full dataset, including non active and non connected treatment plants are available under \"Urban Waste Water Treatment Directive, Treatment plants reported under UWWTD data call 2022 - INTERNAL VERSION, Jan. 2023\" (https://sdi.eea.europa.eu/catalogue/inspire-pds/eng/catalog.search#/metadata/0d0c9029-735e-4968-a577-9c22fcf7b2b0).\n\nThe published output contains data reported in 2022. Current output is provisional, as it is subject to the Commission's compliance check, following which some records may be amended and further information will be added. \n\nThe dataset is provided in GeoPackage and ESRI File geodatabase formats.https://sdi.eea.europa.eu/geonetwork/srv/api/records/3a69dbaf-15d8-443d-a0ff-fa2c4bb8ab0d\r\n\r\n\r\n[More information](https://sdi.eea.europa.eu/catalogue/srv/api/records/3a69dbaf-15d8-443d-a0ff-fa2c4bb8ab0d)\n    ",
+      "README_status": 206,
+      "Tabular": {
+        "http": 207,
+        "items": [
+          {
+            "directory": true,
+            "etag": "\"68ebc3a330c04\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Tabular/",
+            "mime": null,
+            "size_bytes": null
+          }
+        ],
+        "n": 1
+      },
+      "archive_root": "eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00",
+      "root": {
+        "http": 207,
+        "items": [
+          {
+            "directory": true,
+            "etag": "\"6988e1d592a1e\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": true,
+            "etag": "\"68e93ef1d68b1\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Documents/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": true,
+            "etag": "\"68e9c717ec5fd\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/GDB/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": true,
+            "etag": "\"68e94cc8423df\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/GPKG/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": false,
+            "etag": "\"bab16d7c342147a61db0eb18b7229924\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/README.md",
+            "mime": "text/markdown",
+            "size_bytes": 2442
+          },
+          {
+            "directory": true,
+            "etag": "\"68ebc3a330c04\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Tabular/",
+            "mime": null,
+            "size_bytes": null
+          },
+          {
+            "directory": false,
+            "etag": "\"5cf9acb4ad1458fae5ec140e443872f0\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Urban_Waste_Water_Treatment_Directive_Treatment_plants_reported_under__metadata_3a69dbaf-15d8-443d-a0ff-fa2c4bb8ab0d.xml",
+            "mime": "application/xml",
+            "size_bytes": 56955
+          },
+          {
+            "directory": false,
+            "etag": "\"15e86cdadf68407d00ce1d71c3aa37b9\"",
+            "href": "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/UWWTD_GIS_reference_v4.pdf",
+            "mime": "application/pdf",
+            "size_bytes": 1087877
+          }
+        ],
+        "n": 8
+      }
+    }
+  },
+  "official_public_share_URL": "https://sdi.eea.europa.eu/datastore/public",
+  "original_2020_NP_reported_mass_not_yet_verified": true,
+  "schema": "gesui_2020_official_public_UWWTD_source_full_directory_inventory_v01"
+}
