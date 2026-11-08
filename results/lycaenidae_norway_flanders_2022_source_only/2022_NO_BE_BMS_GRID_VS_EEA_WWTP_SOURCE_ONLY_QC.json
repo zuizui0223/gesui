@@ -1,0 +1,111 @@
+{
+  "NO_BUTTERFLY_SPECIES_ABUNDANCE_EQR_OR_PUDDLING_DATA_OPENED": true,
+  "all_segment_source_exposure_footprint_bound_conservative": true,
+  "caveats": [
+    "Norwegian Lucas squares, not 50m segments or visits, are independent monitoring units",
+    "Annual treatment outfall N/P mass not directly measured environmental water protein/sodium",
+    "Geographic proximity not directed in-stream exposure; terrestrial butterflies can disperse away from river",
+    "Outfalls not reported in EEA 2022 are not proof of absence of wastewater",
+    "No observation of Lycaenidae behavior or biological response read"
+  ],
+  "close_proximity_is_not_effluent_dose": true,
+  "date_UTC": "2026-11-08T06:44:18.945700+00:00",
+  "geographic_source_distance_bands_km": {
+    "remote": 10.0,
+    "secondary_near": 5.0,
+    "strict_near": 2.0
+  },
+  "original_EEA_2022_measured_NP_FW_source_only": {
+    "country_source_checks": {
+      "BE": {
+        "all_qualifying_reporter_code_geographic_outlets_n": 175,
+        "annual_reported_measured_NP_fields_used": true,
+        "geographic_country_extent_bbox": [
+          2.0,
+          49.0,
+          7.0,
+          52.0
+        ],
+        "geography_candidate_reporter_codes": {
+          "BE-2022": 15,
+          "LU100": 29,
+          "NL2024": 131
+        },
+        "native_country_prefix_matched_FW_outlets_n": 15,
+        "original_reporter_codes_matching_country": {
+          "BE-2022": 15
+        },
+        "year_specific_individual_lab_date_not_verified": true
+      },
+      "NO": {
+        "all_qualifying_reporter_code_geographic_outlets_n": 347,
+        "annual_reported_measured_NP_fields_used": true,
+        "geographic_country_extent_bbox": [
+          4.0,
+          55.0,
+          33.0,
+          72.0
+        ],
+        "geography_candidate_reporter_codes": {
+          "DK2022": 191,
+          "EE2024": 32,
+          "FI2022": 12,
+          "LT-2022": 35,
+          "LV009": 20,
+          "NO_UWWTD_2022": 43,
+          "SE369": 14
+        },
+        "native_country_prefix_matched_FW_outlets_n": 43,
+        "original_reporter_codes_matching_country": {
+          "NO_UWWTD_2022": 43
+        },
+        "year_specific_individual_lab_date_not_verified": true
+      }
+    },
+    "official_2022_DCP_query_page_digest": "02ae63ed574094ea222ee2aa5c793d443c46dfdc945efcef8b38b7d51acf780f",
+    "official_2022_plant_query_page_digest": "e3839c8096af953a7d2f861d14b178f44bca14128d9a63820afcee566e7af25b",
+    "original_2022_EEA_both_positive_measured_mass_facility_rows": 5492,
+    "original_2022_EEA_discharge_point_rows": 24416,
+    "original_one_to_one_FW_outfalls_valid_in_Wider_EU_extent": 3909,
+    "original_source_is_not_delivered_instream_organic_N_or_sodium": true
+  },
+  "original_public_2022_Flanders_Event_source_QC_SHA256": "bcdac886eafe33a4f348367a1b1638e731f3398d039b9b2a4fdca03c62a45d40",
+  "original_public_2022_Norway_Event_source_QC_SHA256": "a1e516e2ff88605327a4d8b57e4d40fadb6c204a3d798bd82d7a04efcb41649a",
+  "original_public_2022_Norway_independent_grid_CSV_SHA256": "bf7dcaa2cad0ef735707b12f1113412d4a3a05ec406febdb527f96f81d0660c3",
+  "original_source_only_grid_distance_CSV": "NORWAY_2022_INDEPENDENT_LUCAS_GRIDS_VS_REPORTING_WWTP_SOURCE_ONLY.csv",
+  "original_source_only_grid_distance_CSV_SHA256": "ee1aa8e283f4feb082c58b4d068fae664d98bcf018b4f587b6652d5041095857",
+  "outcome_data_permission_only_if_gate_pass": false,
+  "registered_source_zero_is_not_no_sewage": true,
+  "schema": "gesui_2022_Norway_Flanders_publisher_Event_only_to_EEA_WWTP_proximity_feasibility_v01",
+  "source_independent_Norway_grid_units": 70,
+  "source_only_country_gates": {
+    "BE": {
+      "predeclared_source_distance_gate_pass": false,
+      "reason": "original Belgian 2022 public transect coordinates generalized >=1km, observed uncertainty 7071m",
+      "strict_2022_event_sites_after_public_500m_accuracy_gate": 0
+    },
+    "NO": {
+      "secondary_5km": {
+        "independent_Lucas_grid_near_n": 2,
+        "independent_Lucas_grid_remote_ge_10km_n": 63,
+        "overlap_counties": [
+          "Viken"
+        ],
+        "predeclared_near_ge_10_remote_ge_10_and_ge_2_common_counties_pass": false,
+        "source_near_counties": 1,
+        "source_remote_counties": 7,
+        "within_county_near_far_overlap_n": 1
+      },
+      "strict_2km": {
+        "independent_Lucas_grid_near_n": 0,
+        "independent_Lucas_grid_remote_ge_10km_n": 63,
+        "overlap_counties": [],
+        "predeclared_near_ge_10_remote_ge_10_and_ge_2_common_counties_pass": false,
+        "source_near_counties": 0,
+        "source_remote_counties": 7,
+        "within_county_near_far_overlap_n": 0
+      }
+    }
+  },
+  "strict_original_individual_public_location_uncertainty_le_500m": true
+}

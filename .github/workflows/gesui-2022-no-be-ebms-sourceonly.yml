@@ -1,0 +1,45 @@
+name: gesui Norway Flanders 2022 public BMS Event-only cohort source freeze
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-norway-belgium-ebms-source-20261108"
+    paths:
+      - "scripts/gesui_2022_norway_flanders_public_bms_event_only.py"
+      - ".github/workflows/gesui-2022-no-be-ebms-sourceonly.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publisher-original-event-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Retrieve open publisher DwC archives Norway and Flanders, read Event only, no butterfly counts
+        run: |
+          python -m py_compile scripts/gesui_2022_norway_flanders_public_bms_event_only.py
+          python -u scripts/gesui_2022_norway_flanders_public_bms_event_only.py \
+            --temporary-dir /tmp/gesui-no-be-2022-public-events \
+            --out results/lycaenidae_norway_flanders_2022_source_only/PUBLIC_NORWAY_FLANDERS_2022_EVENT_SITE_SOURCE_QC.json
+      - name: Archive original source hashes and 2022 visit metadata before any WWTP matching/outcomes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_norway_flanders_2022_source_only/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Freeze Norway/Flanders public 2022 butterfly monitoring visit sites from original Event cores without species counts"
+          git fetch origin analysis/lycaenidae-norway-belgium-ebms-source-20261108
+          git rebase origin/analysis/lycaenidae-norway-belgium-ebms-source-20261108
+          git push origin HEAD:analysis/lycaenidae-norway-belgium-ebms-source-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-norway-flanders-public-2022-original-Event-only-source-gate
+          path: results/lycaenidae_norway_flanders_2022_source_only/
+          retention-days: 90
+          if-no-files-found: warn

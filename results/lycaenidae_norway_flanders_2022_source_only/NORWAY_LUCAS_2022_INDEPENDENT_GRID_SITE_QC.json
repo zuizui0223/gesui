@@ -1,0 +1,117 @@
+{
+  "2022_event_metadata_count": {
+    "2022_dated_precise_section_events": 4199,
+    "2022_missing_coordinates_or_accuracy": 212
+  },
+  "20_section_grid_group_share": 1.0,
+  "event_fields_used": [
+    "continent",
+    "coordinateUncertaintyInMeters",
+    "country",
+    "countryCode",
+    "decimalLatitude",
+    "decimalLongitude",
+    "dynamicProperties",
+    "eventDate",
+    "eventID",
+    "eventRemarks",
+    "eventTime",
+    "footprintSRS",
+    "footprintWKT",
+    "geodeticDatum",
+    "locality",
+    "locationID",
+    "locationRemarks",
+    "modified",
+    "municipality",
+    "ownerInstitutionCode",
+    "parentEventID",
+    "sampleSizeUnit",
+    "sampleSizeValue",
+    "samplingProtocol",
+    "stateProvince",
+    "type"
+  ],
+  "first_six_anonymized_site_structure_examples": [
+    {
+      "dates": 3,
+      "max_coord_uncertainty_m": 5.0,
+      "max_segment_radius_km": 0.2755022857384166,
+      "original_grid_key_SHA256": "2c5a14ad9c43e281ba055c3642fabf17e307d05ca82f329812e4eb77a7be3d9d",
+      "protocols": [
+        "Sweep netting"
+      ],
+      "sections": 20
+    },
+    {
+      "dates": 3,
+      "max_coord_uncertainty_m": 5.0,
+      "max_segment_radius_km": 0.468080940925913,
+      "original_grid_key_SHA256": "4c9a87f67751b8f63d1b67f2c6a62508db804d970c5d1f490e30fe0f30a380dc",
+      "protocols": [
+        "Sweep netting"
+      ],
+      "sections": 20
+    },
+    {
+      "dates": 3,
+      "max_coord_uncertainty_m": 5.0,
+      "max_segment_radius_km": 0.522842449870112,
+      "original_grid_key_SHA256": "a424c4f0b747f6537e544610d864e78ef6f1f8a019ecfec4fcd31cdcc1f30270",
+      "protocols": [
+        "Sweep netting"
+      ],
+      "sections": 20
+    },
+    {
+      "dates": 3,
+      "max_coord_uncertainty_m": 5.0,
+      "max_segment_radius_km": 0.4092540728720326,
+      "original_grid_key_SHA256": "bd0e7a1057f83d0e84acaae36bdc1d86367df2ee6c1cfc5dd8ab3c63c819dedb",
+      "protocols": [
+        "Sweep netting"
+      ],
+      "sections": 20
+    },
+    {
+      "dates": 3,
+      "max_coord_uncertainty_m": 5.0,
+      "max_segment_radius_km": 0.44554624700647927,
+      "original_grid_key_SHA256": "f899929e82d35ba6eff342d9f5365fa39897dec6757a860bbf3c5f543723ba6c",
+      "protocols": [
+        "Sweep netting"
+      ],
+      "sections": 20
+    },
+    {
+      "dates": 3,
+      "max_coord_uncertainty_m": 5.0,
+      "max_segment_radius_km": 0.45981071770474574,
+      "original_grid_key_SHA256": "cf6840bd8bb3f2dc242916291e7b4fb77956cbc2c45f253690b2c02b7b5e0f9b",
+      "protocols": [
+        "Sweep netting"
+      ],
+      "sections": 20
+    }
+  ],
+  "grid_footprint_not_a_single_butterfly_point": true,
+  "grid_from_original_locality_20_segment_criterion_pass": true,
+  "grid_independence_criterion": "Source grid grouping requires >=80% of locality groups to have exactly 20 locationIDs",
+  "grid_sites_should_be_treated_as_independent_sampling_units": true,
+  "max_grid_radius_km": 2.5,
+  "no_2022_qualifying_WWTP_data_used_to_select_or_redefine_grid_units": true,
+  "no_association_results": true,
+  "no_butterfly_or_EQR_species_or_count_data_read": true,
+  "original_2022_locality_grid_group_count": 70,
+  "original_2022_source_only_site_count_before_grid_independence_verification": 70,
+  "original_national_source_archive_SHA256": "44928a2ad02ca85e58325a3f2025e2ea5edea0fb8afefd15bdca52a0a1cf45af",
+  "schema": "gesui_2022_Norway_NINA_source_only_locality_Lucas_grid_independence_QC_v01",
+  "source_independence_summary": {
+    "grid_groups_with_20_sections": 70,
+    "grid_groups_with_3_distinct_dates": 68,
+    "original_locality_grid_groups": 70
+  },
+  "source_only_2022_verified_grid_csv_path": "NORWAY_2022_LUCAS_GRID_SOURCE_ONLY_SITES.csv",
+  "source_only_2022_verified_grid_csv_sha256": "bf7dcaa2cad0ef735707b12f1113412d4a3a05ec406febdb527f96f81d0660c3",
+  "timestamp": "2026-11-08T06:41:49.219990+00:00"
+}
