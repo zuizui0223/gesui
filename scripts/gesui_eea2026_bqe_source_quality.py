@@ -82,7 +82,7 @@ def inspect(archive,output,args_original_manifest):
     sizes=p.groupby("monitor_key").agg(n_position=("location_sig","nunique"),
                                      with_coords=("valid_coordinate","any"),
                                      waterbody_count=("waterBodyIdentifier","nunique"))
-    reliable=set(sizes.loc[sizes.n_position.eq(1)&sizes.with_coords,"monitor_key"])
+    reliable=set(sizes.index[sizes.n_position.eq(1)&sizes.with_coords])
     points_unique=p[p.monitor_key.isin(reliable)].drop_duplicates("monitor_key")
     year=frame[frame.phenomenonTimeReferenceYear.eq(PRIMARY_YEAR)].copy()
     year["normalizedEQR_numeric"]=pd.to_numeric(year.resultNormalisedEQRValue,errors="coerce")
