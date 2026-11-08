@@ -157,6 +157,11 @@ def main():
     spatial=spatial[spatial.HYRIV_ID.notna()].copy()
     spatial["HYRIV_ID"]=spatial.HYRIV_ID.astype("int64")
     spatial=spatial[spatial.HYRIV_ID.isin(river)].copy()
+    # Only source-published hydrologic predictors, before EQR outcomes.
+    for col in ("DIS_AV_CMS","UPLAND_SKM"):
+        g[col]=pd.to_numeric(g[col],errors="coerce")
+    river_meta=g[["HYRIV_ID","DIS_AV_CMS","UPLAND_SKM"]].drop_duplicates("HYRIV_ID")
+    spatial=spatial.merge(river_meta,on="HYRIV_ID",how="left",validate="many_to_one")
     for nutrient,idx in (("N",1),("P",2)):
         spatial[f"upstream_2022_EEA_{nutrient}_measured_t_per_yr"]=spatial.HYRIV_ID.map(
           lambda x:upstream.get(int(x),[0,0.,0.,0])[idx])
@@ -169,11 +174,30 @@ def main():
     spatial["region_3deg_block"]=(np.floor(spatial.lat.astype(float)/3).astype("int64").astype(str)+"_"+
                                   np.floor(spatial.lon.astype(float)/3).astype("int64").astype(str))
     matched=meta.merge(spatial[["site_key","HYRIV_ID","snap_distance_m","region_3deg_block",
+       "DIS_AV_CMS","UPLAND_SKM",
        "upstream_2022_EEA_N_measured_t_per_yr","upstream_2022_EEA_P_measured_t_per_yr",
        "upstream_2022_unique_EEA_both_load_WWTP_count",
        "downstream_2022_WWTP_count_placebo",
        "downstream_2022_EEA_N_t_per_yr_placebo","downstream_2022_EEA_P_t_per_yr_placebo"]],
        on="site_key",how="inner",validate="many_to_one")
+    # Fixed outcome-blind spatial folds: assign whole 3degree regions by
+    # descending sample count then region ID; choose currently least-loaded
+    # fold and resolve ties by fold number. Independent of EQR values and
+    # of scikit-learn GroupKFold version-specific tie-breaking.
+    matched["fixed_spatial_cv_fold"]=0
+    folds_manifest={}
+    for code,label in BQE_CODES.items():
+        mask=matched.observedPropertyDeterminandBiologyEQRCode.eq(code)
+        size=matched.loc[mask].groupby("region_3deg_block").size().to_dict()
+        bins=[0,0,0,0,0]
+        assignments={}
+        for region,n in sorted(size.items(),key=lambda x:(-x[1],str(x[0]))):
+            fold=min(range(5),key=lambda idx:(bins[idx],idx))
+            assignments[str(region)]=fold+1
+            bins[fold]+=int(n)
+        matched.loc[mask,"fixed_spatial_cv_fold"]=matched.loc[mask,"region_3deg_block"].map(assignments)
+        folds_manifest[label]={"region_to_fold":assignments,"test_sites_per_fold":bins,
+           "from_biological_response_values":False}
     stats={}
     for code,label in BQE_CODES.items():
         rows=matched[matched.observedPropertyDeterminandBiologyEQRCode.eq(code)].copy()
@@ -218,6 +242,7 @@ def main():
         "source_2022_BQE_and_spatial_coverage":bioqc,
         "EEA2022_official_FW_source_join":eeaqc,
         "2022_biological_element_monitoring_source_support":stats,
+       "fixed_2022_geographic_fold_manifest":folds_manifest,
         "no_normalized_EQR_values_loaded_or_used":True,
         "no_GBIF_plant_biodiversity_values_loaded":True,
         "future_EQR_primary_year":"2022",
@@ -237,7 +262,8 @@ def main():
       "observedPropertyDeterminandLabel","procedureClassificationSystem",
       "phenomenonTimeReferenceYear","resultObservationStatus","lat","lon",
       "waterBodyIdentifier","surfaceWaterBodyTypeCode","HYRIV_ID","snap_distance_m",
-      "region_3deg_block","upstream_2022_EEA_N_measured_t_per_yr",
+      "region_3deg_block","fixed_spatial_cv_fold","DIS_AV_CMS","UPLAND_SKM",
+      "upstream_2022_EEA_N_measured_t_per_yr",
       "upstream_2022_EEA_P_measured_t_per_yr","upstream_2022_unique_EEA_both_load_WWTP_count",
       "downstream_2022_WWTP_count_placebo",
       "downstream_2022_EEA_N_t_per_yr_placebo","downstream_2022_EEA_P_t_per_yr_placebo"]
