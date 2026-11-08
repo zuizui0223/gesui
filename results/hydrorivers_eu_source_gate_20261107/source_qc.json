@@ -1,0 +1,52 @@
+{
+  "future_biological_gate": "All-Plantae GBIF species facets require independently pre-registered habitat/record-effort checks; no plant data queried by this source gate.",
+  "interpretation": "Exposure is potential effluent water fraction at reported/estimated discharge, not measured nitrogen, ecological response, or biologically realized dispersal.",
+  "quality": {
+    "eligible_facilities_in_western_and_central_europe": 4713,
+    "hydrowaste_eligible_river_ids_found_in_europe_mirror": 4713,
+    "hydrowaste_eligible_river_ids_not_in_europe_mirror": 0,
+    "hydrowaste_facilities_with_linked_hyriv": 58123,
+    "hydrowaste_status_counts": {
+      "Closed": 1164,
+      "Construction Completed": 20,
+      "Decommissioned": 28,
+      "Non-Operational": 76,
+      "Not Reported": 53033,
+      "Operational": 3767,
+      "Projected": 193,
+      "Proposed": 81,
+      "Under Construction": 140
+    },
+    "selected_countries": {
+      "AUT": 4,
+      "CZE": 4,
+      "DEU": 4,
+      "DNK": 4
+    },
+    "selected_exposure_strata": {
+      "high": 8,
+      "low": 8
+    },
+    "selected_outfall_to_matching_reach_km_max": 0.04673540376947561,
+    "selected_outfall_to_matching_reach_km_median": 0.025032413092956507,
+    "selected_outfall_units": 16,
+    "sites_meeting_nonoverlap_gate": 3569,
+    "topology_chains": 4497
+  },
+  "schema": "gesui_HydroWASTE_HydroRIVERS_directed_river_source_gate_v0.1",
+  "sources": {
+    "hydrorivers_europe_bbox": [
+      -12,
+      44,
+      26,
+      64
+    ],
+    "hydrorivers_europe_shp_zip_sha256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+    "hydrorivers_format_and_access": "independent_huggingface_conversion_not_official_original",
+    "hydrowaste_csv_git_blob": "0506f873f6541c5f324478894a9731290d722bce",
+    "hydrowaste_original_facilities": 58502,
+    "river_reaches_in_bbox": 199545,
+    "third_party_geoparquet_version_verified_against_official": false
+  },
+  "status": "ACTUAL_PUBLIC_SOURCE_SPATIAL_GATE__NO_PLANT_OUTCOME_QUERIED"
+}

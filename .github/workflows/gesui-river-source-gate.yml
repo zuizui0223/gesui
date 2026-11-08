@@ -1,0 +1,81 @@
+name: gesui actual HydroWASTE x HydroRIVERS directed-reach source gate
+
+on:
+  push:
+    branches:
+      - "analysis/river-source-gate-20261107"
+    paths:
+      - "scripts/gesui_river_source_gate.py"
+      - "scripts/gesui_river_arcgis_gate.py"
+      - "tests/test_gesui_river_source_gate.py"
+      - ".github/workflows/gesui-river-source-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install geospatial source packages
+        run: python -m pip install --quiet numpy pandas geopandas pyogrio shapely pytest
+      - name: Offline design / geometry tests
+        run: python -m pytest -q tests/test_gesui_river_source_gate.py
+      - name: Retrieve source-locked HydroWASTE and official HydroRIVERS Europe
+        run: |
+          mkdir -p /tmp/gesui-sources
+          echo "Downloading source-pinned HydroWASTE"
+          if curl --fail --location --silent --show-error --retry 1 --max-time 75 \
+            https://raw.githubusercontent.com/rfordatascience/tidytuesday/774fb8cc81e563d6d30efdcb7b48a38565e923cc/data/2022/2022-09-20/HydroWASTE_v10.csv \
+            -o /tmp/gesui-sources/HydroWASTE_v10.csv ; then
+            echo "HydroWASTE original raw source retrieved"
+          else
+            echo "HydroWASTE raw host blocked: attempt source commit through GitHub git transport"
+            git init -q /tmp/gesui-sources/source_tidy
+            git -C /tmp/gesui-sources/source_tidy remote add origin https://github.com/rfordatascience/tidytuesday.git
+            git -C /tmp/gesui-sources/source_tidy -c protocol.version=2 fetch --no-tags --depth=1 origin 774fb8cc81e563d6d30efdcb7b48a38565e923cc
+            git -C /tmp/gesui-sources/source_tidy show FETCH_HEAD:data/2022/2022-09-20/HydroWASTE_v10.csv > /tmp/gesui-sources/HydroWASTE_v10.csv
+          fi
+          echo "HydroWASTE bytes $(wc -c < /tmp/gesui-sources/HydroWASTE_v10.csv)"
+          test "$(git hash-object /tmp/gesui-sources/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
+          echo "HydroWASTE SHA matches immutable original"
+          echo "Downloading official HydroRIVERS Europe/Middle East vector"
+          if curl --fail --location --silent --show-error --retry 1 --max-time 180 \
+            https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip \
+            -o /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip; then
+            file /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+            sha256sum /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+          else
+            echo "Official HydroRIVERS ZIP unavailable (HTTP 403); use clearly labelled third-party ArcGIS mirror"
+            rm -f /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip
+          fi
+      - name: Real directed reach coverage and plant-response-blind outfall sample design
+        run: |
+          if test -s /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip; then
+            python -u scripts/gesui_river_source_gate.py \
+              --hydrowaste /tmp/gesui-sources/HydroWASTE_v10.csv \
+              --hydrorivers-zip /tmp/gesui-sources/HydroRIVERS_v10_eu_shp.zip \
+              --work-dir /tmp/gesui-sources/rivers \
+              --out-dir /tmp/gesui-sources/report
+          else
+            python -u scripts/gesui_river_arcgis_gate.py \
+              --hydrowaste /tmp/gesui-sources/HydroWASTE_v10.csv \
+              --out-dir /tmp/gesui-sources/report
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-directed-river-source-qc-v01
+          path: /tmp/gesui-sources/report/
+          if-no-files-found: warn
+          retention-days: 30
