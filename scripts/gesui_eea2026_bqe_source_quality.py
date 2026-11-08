@@ -41,9 +41,25 @@ def top_counts(df,col,max_items=80):
     if col not in df.columns:return {}
     return {str(k):int(v) for k,v in df[col].fillna("MISSING").value_counts().head(max_items).items()}
 
-def inspect(archive,output):
-    if sha_file(archive)!=SOURCE_SHA:raise ValueError("Official EEA Biology 2026 ZIP changed")
+def inspect(archive,output,args_original_manifest):
+    current_zip_sha=sha_file(archive)
+    reference=json.loads(args_original_manifest.read_text())
+    expected={x["relative_path"]:(x["original_uncompressed_bytes"],x["zip_crc32"])
+              for x in reference["all_file_inventory"]}
     with zipfile.ZipFile(archive) as z:
+        actual={x.filename:(x.file_size,format(x.CRC,"08x")) for x in z.infolist() if not x.is_dir()}
+        if actual != expected:
+            raise ValueError("EEA Biology official ZIP changed internal file names, bytes or CRC; refuse analyses")
+        # Nextcloud may repackage unchanged inner source files into a ZIP with
+        # different metadata/timestamps. Pin both the old manifest and actual
+        # cryptographic SHA-256 of the uncompressed EQR/spatial source tables.
+        inner_sha={}
+        for name in (EQR,SPATIAL,DEFINITIONS):
+            dig=hashlib.sha256()
+            with z.open(name) as src:
+                for block in iter(lambda:src.read(1024*1024),b""):
+                    dig.update(block)
+            inner_sha[name]=dig.hexdigest()
         index=set(z.namelist())
         if not {EQR,SPATIAL,DEFINITIONS}<=index:
             raise ValueError("Official EQR CSV, spatial CSV or definitions are missing")
@@ -100,7 +116,11 @@ def inspect(archive,output):
     summary={
       "schema":"gesui_eea_biology2026_EQR_2022_river_site_coverage_preoutcome_v01",
       "original_source_url":"https://www.eea.europa.eu/en/datahub/datahubitem-view/7bd881f0-59ca-4f0a-a43c-7e0cd0c66d6c",
-      "original_archive_sha256":SOURCE_SHA,
+      "first_download_archive_sha256":SOURCE_SHA,
+      "current_download_archive_sha256":current_zip_sha,
+      "ZIP_container_SHA_differs_from_first_download":current_zip_sha!=SOURCE_SHA,
+      "original_12_internal_source_files_bytes_CRC_identical":True,
+      "uncompressed_individual_source_file_SHA256":inner_sha,
       "source_EQR_CSV_name":EQR,"source_spatial_CSV_name":SPATIAL,
       "timestamp_utc":datetime.now(timezone.utc).isoformat(),
       "2022_calendar_year_locked_before_EQR_modeling":PRIMARY_YEAR,
@@ -147,5 +167,6 @@ if __name__=="__main__":
     ap=argparse.ArgumentParser()
     ap.add_argument("--archive",type=Path,required=True)
     ap.add_argument("--out",type=Path,required=True)
+    ap.add_argument("--original-manifest",type=Path,required=True)
     a=ap.parse_args()
-    inspect(a.archive,a.out)
+    inspect(a.archive,a.out,a.original_manifest)
