@@ -5,6 +5,7 @@ on:
       - "analysis/lycaenidae-prioryear-butterfly-composition-20261108"
     paths:
       - ".github/workflows/gesui-2021-2022-lycaenid-prioryear-history-predictive-qc.yml"
+      - "scripts/gesui_2021_prior_lycaenidae_photo_share_2022_Psource_geoCV.py"
   workflow_dispatch:
 permissions:
   contents: write
