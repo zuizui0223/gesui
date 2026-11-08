@@ -15,6 +15,10 @@ UA="gesui/2020-source-only-archive-verification (scientific source inventory)"
 TIMEOUT=23
 MAX_BYTES=400000
 OFFICIAL={
+ "EEA_2019_2020_treatment_public_spatial_GPKG_directory":"https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00",
+ "EEA_2019_2020_discharge_public_spatial_GPKG_directory":"https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00",
+ "EEA_2019_2020_treatment_public_spatial_REST":"https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_TreatmentPlants_public_ETRS89_v1/MapServer?f=pjson",
+ "EEA_2019_2020_discharge_public_spatial_REST":"https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_DischargePoints_public_ETRS89_v1/MapServer?f=pjson",
  "EEA_UWWTD_datahub":"https://www.eea.europa.eu/en/datahub/datahubitem-view/6244937d-1c2c-47f5-bdf1-33ca01ff1715",
  "EEA_historical_2019_2020_tabular_landing":"https://sdi.eea.europa.eu/data/3a69dbaf-15d8-443d-a0ff-fa2c4bb8ab0d/Tabular/",
  "EEA_historical_tabular_catalogue_candidate":"https://sdi.eea.europa.eu/catalogue/srv/api/records/3a69dbaf-15d8-443d-a0ff-fa2c4bb8ab0d",
@@ -117,7 +121,7 @@ def main():
         "official_source_probes":notes,
     }
     a.out.parent.mkdir(parents=True,exist_ok=True)
-    a.out.write_text(json.dumps(result,ensure_ascii=False,indent=2,sort_keys=True)+"\\n")
+    a.out.write_text(json.dumps(result,ensure_ascii=False,indent=2,sort_keys=True)+"\n")
     print("GESUI_2020_SOURCE_ACCESS_AUDIT_SAVED",
           json.dumps({"sources_probed":len(notes),"EQR_opened":False}),flush=True)
 
