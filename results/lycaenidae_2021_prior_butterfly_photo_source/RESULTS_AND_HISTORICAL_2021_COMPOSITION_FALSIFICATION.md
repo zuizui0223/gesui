@@ -43,6 +43,22 @@ Country breakdown for **2022 after 2021 historical butterfly composition/target-
 
 [Source-frozen complete 2021→2022 historical photo CV GitHub Actions SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42465437203) | [full same-42 region predictions and historical controls](2021_PRIORYEAR_LYCAENIDAE_COMPOSITION_VS_2022_P_SOURCE_BLOCK_CV.json).
 
+
+
+## 4b. Explicitly posthoc geographical prediction-error uncertainty
+
+A separate follow-up was frozen **after** observing the +3.70% historical-adjusted improvement, and resampled **entire original 22 country×2° geographical heldout test groups** 1,999 times from the exact saved original 42-cell predictions (seed 20261108). The original predictions, photo/source data and original 2021 support selection were never modified. These are **descriptive spatial resamples of correlated heldout prediction errors**; they are NOT intervals for a causal P effect and do not replicate independent monitoring datasets.
+
+| Model: source-P incremental 2° heldout MSE improvement | Observed gain | 1,999-block-resample descriptive 95% interval | Fraction source MSE gain ≤0 |
+| --- | ---: | ---: | ---: |
+| 2022 with original WorldCover/2021-Plantae/geography baseline | +10.37% | **[−27.85%, +31.60%]** | 23.76% |
+| **2022 after 2021 butterfly photo composition + target-group photo count** | **+3.70%** | **[−31.10%, +28.27%]** | **38.12%** |
+| 2021 historical photo composition predicted by the original reported 2022 source-P | −8.43% | [−20.99%, +1.00%] | 95.65% |
+
+The key new uncertainty result is that **+3.70% historical-adjusted gain is NOT regionally precise or clearly different from zero in this descriptive geographic error resample**. The result should be described only as a small, geographically uncertain posthoc apparent increase in prediction for public butterfly *photo reporting composition*. A 2021–2022 causal source-phosphorus effect is not established.
+
+[Regional bootstrap reproducible GitHub Actions SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42465827581) | [full frozen original-block error resamples and three-model uncertainty](2022_P_SOURCE_AFTER_2021_LYCAENIDAE_HISTORY_2DEG_ERROR_BOOTSTRAP.json).
+
 ## 5. What could actually distinguish mechanisms?
 
 Original 2022 reported effluent mass is neither actual organic P/N input to the 1° terrestrial area nor a butterfly mud-puddling substrate resource. More observational controls alone cannot replace:
