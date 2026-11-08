@@ -1,0 +1,26 @@
+# Independent 2018 temporal validation (source-frozen before EQR outcomes)
+
+Source year and biological response year are both **2018**. No 2018 biological EQR has been opened for this study. The original 2022 study, in [gesui PR #14](https://github.com/zuizui0223/gesui/pull/14), used 2,475 benthic monitoring stations and found an exploratory improvement in geographic-heldout prediction of EQR from adding measured-reported WWTP phosphorus load (+1.10%) and nitrogen load (+1.40%). A repeated 2022 test is not temporal validation.
+
+## Genuine independent historical sources
+
+- [EEA Waterbase UWWTD, reporting 2017–2018 v07 r01](https://sdi.eea.europa.eu/data/dbbccc77-ec41-4b19-8ec5-093bba1ba7a8). EEA's publicly linked [direct archive](https://sdi.eea.europa.eu/datashare/s/mGmXg3zcEqKQLTG/download). Do not assume 2022 field names, units, measured-source availability or outlet join rules for 2018. The archived ZIP source and its UWWTP/discharge member files must be checksum-locked and inspected first.
+- [EEA Waterbase Biology 2026](https://www.eea.europa.eu/en/datahub/datahubitem-view/7bd881f0-59ca-4f0a-a43c-7e0cd0c66d6c) EQR records from 2012–2024, uncompressed original EQR member SHA256 f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9. Study may read 2018 normalized EQR only after source-only cohort and model choices are fixed.
+
+## Source-only eligibility and physical exposure definition
+
+1. Confirm publicly available original 2018 facility-level *measured* annual phosphorus and nitrogen loads and their units, flags and exact reporting reference year. Only field-measured source N/P tonnes/year, no 2018 calculated or modeled mass silently labeled measured. Do not use 2022 source loads in a 2018 biological test. If 2018 measured N/P absent, STOP causal-sounding mass validation and report source-coverage failure.
+2. Join unique 2018 facility reporting ID to ONE unique inland direct-freshwater discharge point with defensible original coordinates; exclude ambiguous multiple outlets and coastal/land discharges. Quantify the missing/duplicate cases.
+3. Same Europe third-party derived HydroRIVERS v1 graph SHA256 5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f. Snap original source and EEA river monitoring points ≤500m in EPSG:3035; using original NEXT_DOWN connectivity, sum 2018 measured source mass only on directed reaches ≤50km upstream, excluding same-reach source because station/outfall order inside a reach is not available. Save corresponding physically downstream source load as a negative control. Mere nearest-line proximity does not prove delivery and official HydroRIVERS original-to-mirror equality has not been independently verified.
+4. Biological response classes fixed: primary EEA_13-01-4 (benthic invertebrate EQR_G), separate secondary EEA_124-04-9 (phytobenthos EQR_E), optional EEA_14-02-8 (fish EQR_H). River category RW only, exact country+site ID+scheme and original year 2018. Report country/method/response missingness. A valid original numeric normalized EQR is finite and ≥0; do not impute missing or clip >1.
+5. Freeze region membership by 3-degree geographic blocks and deterministic five-fold block assignments BEFORE accessing EQR. A BQE qualifies for the validation model only if **≥100 sites, ≥20 positive-upstream measured-load sites, ≥5 reporting countries, ≥3 source-positive countries and ≥10 geographic blocks**. Thresholds remain fixed regardless of effect sign.
+
+## Model lock
+
+Replicate original 2022 5-fold geographic-heldout Ridge alpha=10 model: baseline M0 = latitude, longitude, log(1+mean river Q), log(1+upstream catchment area), countryCode and countryCode × original classification procedure. Standardize numerical variables and one-hot encode categorical variables **using training folds only**. M1 adds log(1+2018 upstream *measured* P or N reported discharge tonnes/year); M2 instead adds 2018 **downstream** reported load as a negative control; M3 adds both. N and P are separate analyses because source masses may correlate strongly.
+
+2018 independent temporal replication criterion: M1 (upstream) improves heldout 2018 EQR MSE over baseline and outperforms downstream M2. Report any negative or null result identically. Preserve full site denominator, country coverage and original 2018 source year. Do not tune model/threshold after seeing 2018 outcome direction; no randomized-treatment p-values. A successful prediction is not proof of a causal wastewater ecological effect.
+
+## Main limitations
+
+Some 2018 sites and countries may overlap 2022, and EQR data come from the same 2026 harmonized release, so this is a temporal rather than institutional replication. Reporting-year and WWTP source availability may vary. 2022 PR #16 documented 807 missing original Polish benthic EQR and missing independent diffuse agricultural source loads, which may recur in 2018. Country-specific methods, agriculture, urbanization, river engineering and seasonality remain potential alternative sources. Preserve chocho port/island/host positives and prior gesui positive/negative results without retroactive adjustment.
