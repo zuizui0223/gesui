@@ -1,0 +1,45 @@
+name: gesui source-only EEA DE AT public freshwater outfall spatial density inventory
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-de-at-public-event-discovery-20261108"
+    paths:
+      - "scripts/gesui_audit_2022_eea_de_at_public_fw_source_tiles.py"
+      - ".github/workflows/gesui-de-at-eea-2022-source-tile-qc.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  public-source-only-tile-qc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Inventory public 2022 WWTP outfall source 1 degree cells, no BMS locations or butterfly responses
+        run: |
+          python -m py_compile scripts/gesui_audit_2022_eea_de_at_public_fw_source_tiles.py
+          python -u scripts/gesui_audit_2022_eea_de_at_public_fw_source_tiles.py \
+            --source results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_BOTH_NP_MEASURED_ONE_FW_OUTFALLS.csv \
+            --out-dir results/lycaenidae_de_at_2022_source_only
+      - name: Save coarsened public wastewater source inventory and SHA only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_FW_OUTFALLS_IN_ONE_DEGREE_SOURCE_TILES.csv results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_WWTP_SOURCE_1DEG_TILE_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record original 2022 German Austrian source-only EEA WWTP 1-degree tile density without butterfly observations"
+          git fetch origin analysis/lycaenidae-de-at-public-event-discovery-20261108
+          git rebase origin/analysis/lycaenidae-de-at-public-event-discovery-20261108
+          git push origin HEAD:analysis/lycaenidae-de-at-public-event-discovery-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-AT-2022-WWTP-public-source-only-spatial-tiles
+          path: |
+            results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_FW_OUTFALLS_IN_ONE_DEGREE_SOURCE_TILES.csv
+            results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_WWTP_SOURCE_1DEG_TILE_QC.json
+          retention-days: 90
+          if-no-files-found: warn

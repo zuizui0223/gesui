@@ -1,0 +1,42 @@
+name: gesui Germany Austria official GBIF butterfly sampling-event source registry discovery
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-de-at-public-event-discovery-20261108"
+    paths:
+      - "scripts/gesui_search_gbif_de_at_bms_sampling_event_metadata.py"
+      - ".github/workflows/gesui-de-at-bms-public-event-dataset-discovery.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  catalog-metadata-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Search official GBIF dataset registry, NO occurrence/EQR/count/biology access
+        run: |
+          python -m py_compile scripts/gesui_search_gbif_de_at_bms_sampling_event_metadata.py
+          python -u scripts/gesui_search_gbif_de_at_bms_sampling_event_metadata.py \
+            --out results/lycaenidae_de_at_2022_source_only/GBIF_PUBLIC_DE_AT_BUTTERFLY_EVENT_DATASET_REGISTRY_QC.json
+      - name: Persist original source metadata and access status, not butterfly events or counts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_de_at_2022_source_only/GBIF_PUBLIC_DE_AT_BUTTERFLY_EVENT_DATASET_REGISTRY_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record original GBIF DE/AT butterfly Event dataset discovery source-only metadata"
+          git fetch origin analysis/lycaenidae-de-at-public-event-discovery-20261108
+          git rebase origin/analysis/lycaenidae-de-at-public-event-discovery-20261108
+          git push origin HEAD:analysis/lycaenidae-de-at-public-event-discovery-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Germany-Austria-BMS-public-registry-metadata-no-butterfly-counts
+          path: results/lycaenidae_de_at_2022_source_only/GBIF_PUBLIC_DE_AT_BUTTERFLY_EVENT_DATASET_REGISTRY_QC.json
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,903 @@
+{
+  "GBIF_official_registry": "https://api.gbif.org/v1/dataset/search",
+  "broad_DE_AT_event_candidates_can_be_nonbutterfly": true,
+  "candidate_detail_inspections": [
+    {
+      "2022_event_records_examined": false,
+      "catalogue_preview": {
+        "dataset_key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+        "matched_queries": [
+          "German butterflies monitoring"
+        ],
+        "metadata": {
+          "doi": "10.20363/zc0n-5a36",
+          "hostingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+          "key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-10-13T11:49:14.281+00:00",
+          "publishingCountry": "DE",
+          "publishingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+          "publishingOrganizationTitle": "Leibniz Institute for the Analysis of Biodiversity Change (LIB)",
+          "title": "DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape",
+          "type": "SAMPLING_EVENT"
+        }
+      },
+      "citation": "{'text': 'Hoffmann L, Stoll S, Rach B (2026). DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape. Version 1.8. Leibniz Institute for the Analysis of Biodiversity Change (LIB). Sampling event dataset https://doi.org/10.20363/zc0n-5a36 accessed via GBIF.org on 2026-11-08.', 'citationProvidedBySource': False}",
+      "dataset_key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+      "dataset_type": "SAMPLING_EVENT",
+      "description_preview": "<p>The dataset contains data on arthropods which was derived from DNA metabarcoding. The DNA metabarcoding was performed for samples from coloured canopy Malaise traps, caterpillar traps, branch sampling and blue and white pan traps. The traps were selected to capture predominantly flying insects, especially butterflies and hoverflies. They were placed as a defined set in four different habitat types: &#39;Forest (Beech and oak)&#39;, &#39;Centre of a short rotation coppice&#39;, &#39;Margin of a short rotation coppice&#39; and &#39;Maize field&#39;. There existed three replicates of each habitat type. The coloured canopy Malaise traps were e",
+      "eligibility_status": "CANDIDATE_SAMPLING_EVENT_METADATA_ONLY",
+      "event_core_confirmed_from_original_archive": false,
+      "homepage": "https://doi.org/10.20363/829z-5n75",
+      "metadata_request": {
+        "bytes": 23320,
+        "http": 200,
+        "retrieved_body_sha256": "1fd2ee81a999dee94b95700c7fd83df68a34fa8f02462b0393851d809b1a381e",
+        "url": "https://api.gbif.org/v1/dataset/96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf"
+      },
+      "official_gbif_metadata": {
+        "created": "2025-03-25T14:43:21.112+00:00",
+        "doi": "10.20363/zc0n-5a36",
+        "external": false,
+        "homepage": "https://doi.org/10.20363/829z-5n75",
+        "installationKey": "78aee337-e49b-4121-b081-8f764b01ac3f",
+        "key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2026-10-13T11:49:14.281+00:00",
+        "pubDate": "2026-10-13T00:00:00.000+00:00",
+        "publishingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+        "title": "DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape",
+        "type": "SAMPLING_EVENT"
+      },
+      "original_dataset_endpoints": [
+        {
+          "type": "DWC_ARCHIVE",
+          "url": "https://biocase.zfmk.de/ipt/archive.do?r=dna-mb_hoffmann_2021_arthropods"
+        },
+        {
+          "type": "EML",
+          "url": "https://biocase.zfmk.de/ipt/eml.do?r=dna-mb_hoffmann_2021_arthropods"
+        }
+      ],
+      "publisher_contacts_present": true
+    }
+  ],
+  "candidate_inventory": [
+    {
+      "dataset_key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+      "detail_inspected": true,
+      "matched_queries": [
+        "German butterflies monitoring"
+      ],
+      "metadata": {
+        "doi": "10.20363/zc0n-5a36",
+        "hostingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+        "key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2026-10-13T11:49:14.281+00:00",
+        "publishingCountry": "DE",
+        "publishingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+        "publishingOrganizationTitle": "Leibniz Institute for the Analysis of Biodiversity Change (LIB)",
+        "title": "DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape",
+        "type": "SAMPLING_EVENT"
+      }
+    }
+  ],
+  "does_not_imply_EEA_outfall_matching": true,
+  "explicit_UNVERIFIED_original_Event_core": true,
+  "next_source_only_action": "For credible SAMPLING_EVENT candidates, verify public publisher ZIP and original Event core; if none, request coarse near/far site counts through eBMS/UFZ/Viel-Falter coordinators.",
+  "no_download_of_butterfly_counts_or_species_records": true,
+  "no_equating_occurrence_dataset_with_visit_sampling": true,
+  "number_detail_inspected_sampling_event_candidates": 1,
+  "number_distinct_query_response_datasets": 101,
+  "number_possible_de_at_butterfly_metadata": 1,
+  "public_registry_query_does_not_bypass_coordinator_access": true,
+  "query_receipts": [
+    {
+      "matching_title_metadata": [],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 0,
+      "query": "Tagfalter-Monitoring Deutschland",
+      "records_returned_first100": 0,
+      "request": {
+        "bytes": 79,
+        "http": 200,
+        "retrieved_body_sha256": "16004ddeb6b1eb033e3665fa6082d9cdd36533ce1f36272a2a95f5664f1b9dcd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Tagfalter-Monitoring+Deutschland&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 0,
+      "query": "Tagfaltermonitoring",
+      "records_returned_first100": 0,
+      "request": {
+        "bytes": 79,
+        "http": 200,
+        "retrieved_body_sha256": "16004ddeb6b1eb033e3665fa6082d9cdd36533ce1f36272a2a95f5664f1b9dcd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Tagfaltermonitoring&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [
+        {
+          "doi": "10.30963/aramit5911",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "832a4b0d-511a-4903-b210-b122a4379c66",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2022-05-06T12:49:31.529+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Vom Wert alter Amateursammlungen - vier Spinnenarten neu für die Schweiz in der Sammlung Ketterer",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.11646/zootaxa.402.1.1",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "88ecdd06-5707-43d7-ad58-afff6f774383",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-09T06:39:15.428+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Two new records of Epitoniidae from Easter Island, Chile",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.11646/zootaxa.420.1.1",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "20f5fe8c-3238-4a2d-9fc6-dbfb54a4381d",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-09T05:48:13.803+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Globuloverruca spongophila gen. nov., sp. nov. a sponge-associated verrucid (Crustacea: Cirripedia: Thoracica) from Easter Island, with discussion on the morphology of the plate tubules",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.11646/zootaxa.1839.1.3",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "458656e6-2ee9-4c6f-94ab-93e315f6d7f5",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-09T06:08:24.684+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Glyptothorax coracinus, a new species of hillstream catfish from Cambodia (Teleostei: Sisoridae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.5852/ejt.2017.348",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "e6b25548-6721-4e1e-a68e-663c949b3306",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-30T12:45:54.152+00:00",
+          "publishingCountry": "FR",
+          "publishingOrganizationKey": "a064f300-1bc8-41ea-9364-b864ef4e8938",
+          "publishingOrganizationTitle": "European Journal of Taxonomy",
+          "title": "Big and beautiful: the Megaxyela species (Hymenoptera, Xyelidae) of East Asia and North America",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/3pwf35",
+          "hostingOrganizationKey": "09a9c196-cb5b-4fa1-afc2-3499b868b225",
+          "key": "14ce8c8b-cf92-4fa2-8072-ff1a6bed6b32",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-02-11T04:54:48.193+00:00",
+          "publishingCountry": "CA",
+          "publishingOrganizationKey": "09a9c196-cb5b-4fa1-afc2-3499b868b225",
+          "publishingOrganizationTitle": "Canadian node of the Ocean Biogeographic Information System (OBIS Canada)",
+          "title": "Distribution of benthonic foraminifera in Bras d'Or Lakes, Nova Scotia during the summer  of 1965",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/dbkrga",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "6240f114-6541-46f9-b561-b233c598fad7",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-30T11:35:28.276+00:00",
+          "publishingCountry": "BG",
+          "publishingOrganizationKey": "b0e7edd4-d8b5-4b1c-bb5f-f6484e16c21c",
+          "publishingOrganizationTitle": "MycoKeys",
+          "title": "Two new species and one new record of Bolbitius (Bolbitiaceae, Agaricales) from northeast China",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.11646/zootaxa.3277.1.3",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "6e894d08-6a6d-4160-b96e-0e05d3e76656",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-09T05:48:00.458+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Systematics of the Etheostoma cinereum (Teleostei: Percidae) species complex (subgenus Allohistium)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.11646/zootaxa.4139.1.1",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "c9bebfbe-c01f-4f32-ad89-7cdb4a35301a",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-10T06:44:19.112+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "A new ant genus from southern Argentina and southern Chile, Patagonomyrmex (Hymenoptera: Formicidae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.11646/zootaxa.4927.4.2",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "0aa851eb-552a-43c4-b4dd-1dcc0a1297df",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-09T10:23:33.510+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Paleotelmatoscopus, a proposed new genus for some fossil moth flies (Diptera Psychodidae, Psychodinae) in Eocene Baltic amber, with description of a new species",
+          "type": "CHECKLIST"
+        }
+      ],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 26,
+      "query": "Viel-Falter",
+      "records_returned_first100": 26,
+      "request": {
+        "bytes": 151665,
+        "http": 200,
+        "retrieved_body_sha256": "9dd948b2b13e593cc6d8b5183c14da100fc1e6baefa207ef8eadda8d6c220fbd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Viel-Falter&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 0,
+      "query": "Butterfly Monitoring Austria",
+      "records_returned_first100": 0,
+      "request": {
+        "bytes": 79,
+        "http": 200,
+        "retrieved_body_sha256": "16004ddeb6b1eb033e3665fa6082d9cdd36533ce1f36272a2a95f5664f1b9dcd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Butterfly+Monitoring+Austria&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 0,
+      "query": "Schmetterlingsmonitoring",
+      "records_returned_first100": 0,
+      "request": {
+        "bytes": 79,
+        "http": 200,
+        "retrieved_body_sha256": "16004ddeb6b1eb033e3665fa6082d9cdd36533ce1f36272a2a95f5664f1b9dcd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Schmetterlingsmonitoring&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 0,
+      "query": "Lepidoptera monitoring Germany",
+      "records_returned_first100": 0,
+      "request": {
+        "bytes": 79,
+        "http": 200,
+        "retrieved_body_sha256": "16004ddeb6b1eb033e3665fa6082d9cdd36533ce1f36272a2a95f5664f1b9dcd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Lepidoptera+monitoring+Germany&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [
+        {
+          "doi": "10.5281/zenodo.6820319",
+          "hostingOrganizationKey": "3c5e4331-7f2f-4a8d-aa56-81ece7014fc8",
+          "key": "044f96bc-3bf2-4a38-9f7c-8808ab48dbf1",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2022-07-12T08:07:43.245+00:00",
+          "publishingCountry": "AU",
+          "publishingOrganizationKey": "3c5e4331-7f2f-4a8d-aa56-81ece7014fc8",
+          "publishingOrganizationTitle": "Atlas of Living Australia",
+          "title": "Catches of numerous insect species in Rothamsted 160W light trap at Devonport, Tasmania, 1992-2019",
+          "type": "SAMPLING_EVENT"
+        }
+      ],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 1,
+      "query": "Lepidoptera monitoring Austria",
+      "records_returned_first100": 1,
+      "request": {
+        "bytes": 3250,
+        "http": 200,
+        "retrieved_body_sha256": "dd23a638b9303e34de72e90a65163dbd358f1311b41c7d6901cfd821f9c097d1",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Lepidoptera+monitoring+Austria&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [
+        {
+          "doi": "10.15468/8dnhut",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "09bafadb-2895-4513-aa23-a3a312d619b9",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-28T09:39:28.808+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Zum Vorkommen zweier heimlicher Blattkäfer in der Schweiz: Cryptocephalus imperialis (Laicharting, 1781) und C. octomaculatus Rossi, 1790 (Coleoptera, Chrysomelidae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/p283mk",
+          "hostingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "key": "1ffe055f-adda-461e-823a-d98e53d1e8de",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2021-04-12T04:37:42.770+00:00",
+          "publishingCountry": "MK",
+          "publishingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "publishingOrganizationTitle": "Macedonian Ecological Society",
+          "title": "Annotated checklist of endemic species from the Western Balkans",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/m9na8d",
+          "hostingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "key": "718258bd-5004-4fb5-9675-4e333d48c170",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2021-07-06T01:27:16.363+00:00",
+          "publishingCountry": "MK",
+          "publishingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "publishingOrganizationTitle": "Macedonian Ecological Society",
+          "title": "Classic localities of fishes from the Western Balkans",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/qhezg8",
+          "hostingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "key": "eddd4649-f6e6-4c26-82d9-10367bb26dc9",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2022-01-18T08:24:56.578+00:00",
+          "publishingCountry": "MK",
+          "publishingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "publishingOrganizationTitle": "Macedonian Ecological Society",
+          "title": "Classic localities of cave dwelling Arthropoda (excl. Coleoptera) from the Western Balkans",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/hv94tx",
+          "hostingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "key": "a1e3d691-c4d9-4fdd-a52c-d6f377f57769",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2021-07-06T01:09:10.065+00:00",
+          "publishingCountry": "MK",
+          "publishingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "publishingOrganizationTitle": "Macedonian Ecological Society",
+          "title": "Classic localities of aquatic Arthropoda from the Western Balkans",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/8gf8cu",
+          "hostingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "key": "e7731ade-2877-467e-a9d7-ac19cb1dafb4",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2021-07-07T11:14:56.241+00:00",
+          "publishingCountry": "MK",
+          "publishingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "publishingOrganizationTitle": "Macedonian Ecological Society",
+          "title": "Classic localities of terrestrial Mollusca from the Western Balkans",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/ygzvjr",
+          "hostingOrganizationKey": "0674aea0-a7e1-11d8-9534-b8a03c50a862",
+          "key": "cd9570ce-b6ed-4dba-9654-6582add155ef",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2025-07-23T09:35:06.146+00:00",
+          "publishingCountry": "DE",
+          "publishingOrganizationKey": "0674aea0-a7e1-11d8-9534-b8a03c50a862",
+          "publishingOrganizationTitle": "Staatliche Naturwissenschaftliche Sammlungen Bayerns",
+          "title": "Rodent composition of urban and forested areas in Potsdam, Germany",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.82144/58458ea2",
+          "hostingOrganizationKey": "67b2263f-6990-4d9d-b32b-20aa72ef4fbc",
+          "key": "93c8cc03-30cf-474e-8173-dbe5a22a5d28",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2025-10-09T11:02:22.892+00:00",
+          "publishingCountry": "US",
+          "publishingOrganizationKey": "67b2263f-6990-4d9d-b32b-20aa72ef4fbc",
+          "publishingOrganizationTitle": "OBIS-SEAMAP",
+          "title": "JNCC seabird distribution and abundance data (all trips) from ESAS database",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/hf2e8b",
+          "hostingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "key": "8e3c688d-9e44-488c-9fb3-89618fd185d7",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2021-07-06T12:24:12.862+00:00",
+          "publishingCountry": "MK",
+          "publishingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "publishingOrganizationTitle": "Macedonian Ecological Society",
+          "title": "Classic localities of endemic vascular plants from the Western Balkans",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/4cfhz6",
+          "hostingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "key": "6b5003f4-5ede-4dae-becb-c3c9094cd57d",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2021-07-06T12:35:49.026+00:00",
+          "publishingCountry": "MK",
+          "publishingOrganizationKey": "856529fb-02f1-4539-80c1-174f7231ef0f",
+          "publishingOrganizationTitle": "Macedonian Ecological Society",
+          "title": "Distributional data on high altitude endemic taxa of vascular plants from western Balkans",
+          "type": "OCCURRENCE"
+        }
+      ],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 23,
+      "query": "BMS Germany",
+      "records_returned_first100": 23,
+      "request": {
+        "bytes": 116754,
+        "http": 200,
+        "retrieved_body_sha256": "7a9b59f7885d2f408a3ab14a16639decd1a10a9b38683a7ecef3a06036243634",
+        "url": "https://api.gbif.org/v1/dataset/search?q=BMS+Germany&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [
+        {
+          "doi": "10.15468/4bpsxx",
+          "hostingOrganizationKey": "5fa89f68-9af0-4a0d-8998-ea39695c1db9",
+          "key": "a5a3193e-691f-4844-a438-dc068ed0b817",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2026-11-04T12:53:28.951+00:00",
+          "publishingCountry": "AU",
+          "publishingOrganizationKey": "5fa89f68-9af0-4a0d-8998-ea39695c1db9",
+          "publishingOrganizationTitle": "CSIRO National Collections and Marine Infrastructure (NCMI) Information and Data Centre (IDC)",
+          "title": "Marine fauna sightings within Australian marine parks during surveys by the company BMT, Western Australia (2019)",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/xgv3wb",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "912a9220-4bf0-413e-93d7-ff76012133ad",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-07T11:51:32.795+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Distribution of intertidal rock oysters in the Pilbara, Western Australia",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/wxutqe",
+          "hostingOrganizationKey": "5fa89f68-9af0-4a0d-8998-ea39695c1db9",
+          "key": "fb51b95e-e234-44ca-92d3-25003c333cca",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2023-07-03T11:39:31.296+00:00",
+          "publishingCountry": "AU",
+          "publishingOrganizationKey": "5fa89f68-9af0-4a0d-8998-ea39695c1db9",
+          "publishingOrganizationTitle": "CSIRO National Collections and Marine Infrastructure (NCMI) Information and Data Centre (IDC)",
+          "title": "BRUVS data from Elizabeth and Middleton Reefs, Tasman Sea, Australia (2020)",
+          "type": "SAMPLING_EVENT"
+        },
+        {
+          "doi": "10.5281/zenodo.189744",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "6a2f3119-e07a-40c1-9c23-c05b3bfb163b",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-10T08:25:28.329+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "A new genus of Chrysomelinae from Australia (Coleoptera: Chrysomelidae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/qdd8p5",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "520984e9-5579-42e7-9013-1786e6df5abe",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-08T01:53:18.081+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Two further species groups and new species among Australian Hydrobiosella Tillyard: new species from south-eastern Australia (Trichoptera: Philopotamidae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/h9ke4g",
+          "hostingOrganizationKey": "5fa89f68-9af0-4a0d-8998-ea39695c1db9",
+          "key": "5e236c72-914d-4501-9f6d-937d16cd1b0c",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2023-06-28T05:50:47.166+00:00",
+          "publishingCountry": "AU",
+          "publishingOrganizationKey": "5fa89f68-9af0-4a0d-8998-ea39695c1db9",
+          "publishingOrganizationTitle": "CSIRO National Collections and Marine Infrastructure (NCMI) Information and Data Centre (IDC)",
+          "title": "Jervis Bay Infaunal species level data, Australia (2008)",
+          "type": "SAMPLING_EVENT"
+        },
+        {
+          "doi": "10.11646/zootaxa.4695.2.9",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "179c5d36-13f1-4e49-b207-2ab71c406622",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-09T04:40:00.008+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Discovery of the transantarctic distribution of the genus Metanteon Olmi (Hymenoptera: Dryinidae), with description of a new species from New Caledonia",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/zc23qf",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "6ad26aa8-4bdb-45d2-85d8-8aa6f4e968a0",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-07T06:06:53.826+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "The distribution, origins and taxonomy of Tricellaria inopinata d’Hondt and Occhipinti Ambrogi, 1985, an invasive bryozoan new to the Atlantic",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/a9hk3x",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "86c2b543-7318-42be-be19-ee428a21f5ef",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-07T11:00:43.437+00:00",
+          "publishingCountry": "BG",
+          "publishingOrganizationKey": "78b5476e-1eb5-4531-9ff1-e1971d43eb4d",
+          "publishingOrganizationTitle": "Subterranean Biology",
+          "title": "Lost & Found - Rediscovery of H. Hauffen’s Carychium material in the Dominik Bilimek Collection, BOKU University, including a contemporary assessment within the genus Zospeum (Gastropoda, Ellobioidea, Carychiinae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/9wrb4p",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "7c563466-5045-432e-91bf-fc97e289ed5f",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-07T11:51:44.043+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Revisiting horseshoe crab fossils from the Middle Triassic (Anisian) Strelovec Formation Konservat-Lagerstätte of Slovenia",
+          "type": "CHECKLIST"
+        }
+      ],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 20,
+      "query": "BMS Austria",
+      "records_returned_first100": 20,
+      "request": {
+        "bytes": 52455,
+        "http": 200,
+        "retrieved_body_sha256": "cc54cb77c02512fdfe1d436e2ededd98c520001d28931ee27965c1743d85a5ba",
+        "url": "https://api.gbif.org/v1/dataset/search?q=BMS+Austria&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [
+        {
+          "doi": "10.15468/9lkyhl",
+          "hostingOrganizationKey": "3c5e4331-7f2f-4a8d-aa56-81ece7014fc8",
+          "key": "e731a329-1fe3-4497-9e3c-24cb9235b5a1",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-05-05T12:51:16.493+00:00",
+          "publishingCountry": "AU",
+          "publishingOrganizationKey": "1a565dd5-98a1-4ffc-907d-3c24178c8745",
+          "publishingOrganizationTitle": "Plant Health Australia",
+          "title": "PaDIL",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/xjfnhh",
+          "hostingOrganizationKey": "04fd2e13-6881-4e5c-9dd1-8fdd9ab993c1",
+          "key": "7f23b626-ed2f-4c46-b522-60eed712bf0d",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2024-03-18T09:29:54.737+00:00",
+          "publishingCountry": "FI",
+          "publishingOrganizationKey": "2f462930-4d96-11d8-b290-b8a03c50a862",
+          "publishingOrganizationTitle": "University of Helsinki - Department of Forest Sciences",
+          "title": "Lepidoptera from Rancho Grande, Rondônia, Brasil",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.3897/bdj.9.e69073",
+          "hostingOrganizationKey": "1f27e074-e2c0-4cf2-9b78-731e9f789f00",
+          "key": "aa33fa89-4749-4284-8978-f43bf84bde0a",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2021-08-05T03:20:54.647+00:00",
+          "publishingCountry": "BG",
+          "publishingOrganizationKey": "750a8724-fa66-4c27-b645-bd58ac5ee010",
+          "publishingOrganizationTitle": "Biodiversity Data Journal",
+          "title": "New records of two lycaenid butterfly species (Lepidoptera: Lycaenidae) in China, with the description of a new subspecies",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.5281/zenodo.184436",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "65eb4a07-b386-419f-b81b-11d637609e28",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-10T02:00:55.386+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "A new species of Neominois from northeastern Mexico (Lepidoptera: Nymphalidae: Satyrinae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/9z8y9s",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "83121e9c-1522-40c2-a706-bd9f7614c5fb",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-07T03:54:55.359+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "New and critically endangered Sun Moth species associated with Australian grasslands (Lepidoptera, Castniidae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/hwcp8y",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "f6eb3a12-ce17-4933-bd7f-b08cf8d85c9c",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-07T07:07:47.549+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Around the World in 26 Million Years: Diversification and Biogeography of Pantropical Grass-Yellow Eurema Butterflies (Pieridae: Coliadinae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/48qe24",
+          "hostingOrganizationKey": "fd515d3a-b237-42de-bba6-760008580da5",
+          "key": "092cad26-523a-417a-8d8b-59af1da50e3c",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2023-04-17T12:55:17.407+00:00",
+          "publishingCountry": "KE",
+          "publishingOrganizationKey": "d8d6c888-92e7-4036-9808-fb3812be61e1",
+          "publishingOrganizationTitle": "A Rocha Kenya",
+          "title": "Occurrence of Acraea Butterflies in Africa, 1892- 2022",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.5281/zenodo.175929",
+          "hostingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "key": "d280489c-4168-4888-ac6d-ea85f3b362e7",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-09-10T02:51:37.202+00:00",
+          "publishingCountry": "CH",
+          "publishingOrganizationKey": "7ce8aef0-9e92-11dc-8738-b8a03c50a862",
+          "publishingOrganizationTitle": "Plazi.org taxonomic treatments database",
+          "title": "Gone with the wind: westward dispersal across the Indian Ocean and island speciation in Hemicordulia dragonflies (Odonata: Corduliidae)",
+          "type": "CHECKLIST"
+        },
+        {
+          "doi": "10.15468/wwjm5s",
+          "hostingOrganizationKey": "bf0d80b3-46da-4e60-b1cf-39f2320acb43",
+          "key": "ec4e6fa9-9bae-4e5b-af77-17cf0a1a6725",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2025-12-19T07:08:32.224+00:00",
+          "publishingCountry": "CL",
+          "publishingOrganizationKey": "025d493f-c50c-4d6e-948b-62e86c86a49f",
+          "publishingOrganizationTitle": "Pontificia Universidad Católica de Valparaíso",
+          "title": "Chilean flower visitors",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/sanyq7",
+          "hostingOrganizationKey": "3c6ad080-bdbe-11da-ac59-b8a03c50a862",
+          "key": "ba9984d8-d982-4fe6-b81c-a7585790034a",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-11-02T06:01:53.736+00:00",
+          "publishingCountry": "US",
+          "publishingOrganizationKey": "3c6ad080-bdbe-11da-ac59-b8a03c50a862",
+          "publishingOrganizationTitle": "University of Texas at Austin, Biodiversity Collections",
+          "title": "University of Texas, Biodiversity Center, Entomology Collection (UTIC)",
+          "type": "OCCURRENCE"
+        }
+      ],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 12,
+      "query": "Austrian butterflies",
+      "records_returned_first100": 12,
+      "request": {
+        "bytes": 32369,
+        "http": 200,
+        "retrieved_body_sha256": "0ce424caa08ec52ab10645348d7da4f6fae9c50bd354a5dd2313c947b88833fd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=Austrian+butterflies&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [
+        {
+          "doi": "10.20363/zc0n-5a36",
+          "hostingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+          "key": "96e0d5f7-50c7-4aeb-b587-f9fb998f6eaf",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-10-13T11:49:14.281+00:00",
+          "publishingCountry": "DE",
+          "publishingOrganizationKey": "6e1cad80-bdf5-11d8-84ea-b8a03c50a862",
+          "publishingOrganizationTitle": "Leibniz Institute for the Analysis of Biodiversity Change (LIB)",
+          "title": "DNA metabarcoding data of arthropods captured with different traps in the southwestern German agricultural landscape",
+          "type": "SAMPLING_EVENT"
+        }
+      ],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 1,
+      "query": "German butterflies monitoring",
+      "records_returned_first100": 1,
+      "request": {
+        "bytes": 4549,
+        "http": 200,
+        "retrieved_body_sha256": "faaa8c0199e7660790defcd0a77fd700d1ff75e61007c019a471ebb2d1a898bd",
+        "url": "https://api.gbif.org/v1/dataset/search?q=German+butterflies+monitoring&limit=100"
+      }
+    },
+    {
+      "matching_title_metadata": [
+        {
+          "doi": "10.15468/nch6xe",
+          "hostingOrganizationKey": "37e82b90-1e21-11de-ab90-f72009d2669b",
+          "key": "c46d695c-bc44-439c-8645-cb04ef4cfe5d",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-06-15T11:20:17.141+00:00",
+          "publishingCountry": "BE",
+          "publishingOrganizationKey": "37e82b90-1e21-11de-ab90-f72009d2669b",
+          "publishingOrganizationTitle": "Belgian Biodiversity Platform",
+          "title": "Butterfly transect counts at the Zwin Nature Park",
+          "type": "SAMPLING_EVENT"
+        },
+        {
+          "doi": "10.15468/cmjmsc",
+          "hostingOrganizationKey": "0c392aa0-a452-4254-be5c-e49dd60e9b02",
+          "key": "caa38f94-ddeb-43e7-9a27-1ac46d7ddc5c",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2026-02-20T02:03:37.663+00:00",
+          "publishingCountry": "GB",
+          "publishingOrganizationKey": "0c392aa0-a452-4254-be5c-e49dd60e9b02",
+          "publishingOrganizationTitle": "Biological Records Centre",
+          "title": "EBMS Denmark transects",
+          "type": "SAMPLING_EVENT"
+        },
+        {
+          "doi": "10.15468/jgm7ci",
+          "hostingOrganizationKey": "07f617d0-c688-11d8-bf62-b8a03c50a862",
+          "key": "0e7ec47d-6247-4fdd-bfb7-96281e0b5ebe",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-02-12T07:30:21.691+00:00",
+          "publishingCountry": "GB",
+          "publishingOrganizationKey": "179ccc1f-7315-4925-9725-69377ca8b6d4",
+          "publishingOrganizationTitle": "UK Butterfly Monitoring Scheme",
+          "title": "Wider Countryside Butterfly Scheme (WCBS)",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/eh7tvg",
+          "hostingOrganizationKey": "fbca90e3-8aed-48b1-84e3-369afbd000ce",
+          "key": "1897eef5-1e10-4842-97f7-cad98925b59d",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2025-10-29T10:20:41.193+00:00",
+          "publishingCountry": "NL",
+          "publishingOrganizationKey": "21c07296-77a8-4adf-aba1-e1035429be3a",
+          "publishingOrganizationTitle": "Dutch Butterfly Conservation",
+          "title": "Dutch Butterfly Monitoring Indexes",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/gmqvmk",
+          "hostingOrganizationKey": "07f617d0-c688-11d8-bf62-b8a03c50a862",
+          "key": "1e266c3d-92ef-4d5a-8e4a-c04742c772c3",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2026-02-18T03:53:08.121+00:00",
+          "publishingCountry": "GB",
+          "publishingOrganizationKey": "179ccc1f-7315-4925-9725-69377ca8b6d4",
+          "publishingOrganizationTitle": "UK Butterfly Monitoring Scheme",
+          "title": "UK Butterfly Monitoring Scheme (UKBMS)",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/vqb2zs",
+          "hostingOrganizationKey": "fd515d3a-b237-42de-bba6-760008580da5",
+          "key": "fc1b2c73-040f-4556-87df-740db505d4e1",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2022-08-05T01:54:31.919+00:00",
+          "publishingCountry": "KE",
+          "publishingOrganizationKey": "d8d6c888-92e7-4036-9808-fb3812be61e1",
+          "publishingOrganizationTitle": "A Rocha Kenya",
+          "title": "Butterfly Survey at A Rocha Kenya Conservation Centre",
+          "type": "SAMPLING_EVENT"
+        },
+        {
+          "doi": "10.15468/wwrgcd",
+          "hostingOrganizationKey": "1cd669d0-80ea-11de-a9d0-f1765f95f18b",
+          "key": "81b909c7-5612-4148-8e70-99fea2cdb572",
+          "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+          "modified": "2025-10-16T12:28:09.471+00:00",
+          "publishingCountry": "BE",
+          "publishingOrganizationKey": "1cd669d0-80ea-11de-a9d0-f1765f95f18b",
+          "publishingOrganizationTitle": "Research Institute for Nature and Forest (INBO)",
+          "title": "Butterfly monitoring scheme in Flanders, Belgium",
+          "type": "SAMPLING_EVENT"
+        },
+        {
+          "doi": "10.15470/tc3gdq",
+          "hostingOrganizationKey": "6c4a0bb0-2a4d-11d8-aa2d-b8a03c50a862",
+          "key": "d7a3df60-e856-438b-851d-74653ef6c0d2",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2021-12-17T11:08:32.017+00:00",
+          "publishingCountry": "ES",
+          "publishingOrganizationKey": "4b4b2111-ee51-45f5-bf5e-f535f4a1c9dc",
+          "publishingOrganizationTitle": "Sierra Nevada Global-Change Observatory (UGR-JA)",
+          "title": "Dataset of butterfly monitoring in Sierra Nevada (Spain)",
+          "type": "SAMPLING_EVENT"
+        },
+        {
+          "doi": "10.15468/2q9shq",
+          "hostingOrganizationKey": "fd515d3a-b237-42de-bba6-760008580da5",
+          "key": "d5ac2667-a141-4563-86d2-7c2caffe0824",
+          "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "modified": "2026-11-03T02:10:18.997+00:00",
+          "publishingCountry": "KE",
+          "publishingOrganizationKey": "fd515d3a-b237-42de-bba6-760008580da5",
+          "publishingOrganizationTitle": "National Museums of Kenya",
+          "title": "Butterfly (Lepidoptera: Papilionidae) database for the East African Coastal Forests",
+          "type": "OCCURRENCE"
+        },
+        {
+          "doi": "10.15468/axcydv",
+          "hostingOrganizationKey": "12b1df00-3f75-11d8-aa2d-b8a03c50a862",
+          "key": "54eaea55-f346-442e-9414-039c25658877",
+          "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+          "modified": "2025-10-29T12:14:13.223+00:00",
+          "publishingCountry": "TW",
+          "publishingOrganizationKey": "7c07cec1-2925-443c-81f1-333e4187bdea",
+          "publishingOrganizationTitle": "Taiwan Biodiversity Research Institute",
+          "title": "2009-2020台灣蝴蝶普查",
+          "type": "SAMPLING_EVENT"
+        }
+      ],
+      "not_exhaustive_if_more_than_limit": false,
+      "original_search_count_total": 18,
+      "query": "butterfly transect",
+      "records_returned_first100": 18,
+      "request": {
+        "bytes": 38338,
+        "http": 200,
+        "retrieved_body_sha256": "86e687e9a59b1aeef7487f54917b02f49e74d80a34d7c598bc6047a19ad42602",
+        "url": "https://api.gbif.org/v1/dataset/search?q=butterfly+transect&limit=100"
+      }
+    }
+  ],
+  "query_terms_fixed": [
+    "Tagfalter-Monitoring Deutschland",
+    "Tagfaltermonitoring",
+    "Viel-Falter",
+    "Butterfly Monitoring Austria",
+    "Schmetterlingsmonitoring",
+    "Lepidoptera monitoring Germany",
+    "Lepidoptera monitoring Austria",
+    "BMS Germany",
+    "BMS Austria",
+    "Austrian butterflies",
+    "German butterflies monitoring",
+    "butterfly transect"
+  ],
+  "retrieved_UTC": "2026-11-08T07:09:41.027683+00:00",
+  "schema": "gesui_GBIF_public_DE_AT_butterfly_monitoring_dataset_metadata_source_search_20261108_v01",
+  "search_limit_per_query": 100,
+  "source_discovery_search_is_NOT_exhaustive": true,
+  "verified_open_2022_DwC_Event_core_n": 0
+}

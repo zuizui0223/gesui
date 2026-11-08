@@ -1,0 +1,142 @@
+{
+  "UTC": "2026-11-08T08:04:57.555807+00:00",
+  "country_source_density_summary": {
+    "AT": {
+      "all_source_1deg_tiles": 21,
+      "source_count_in_10densest_tiles": 421,
+      "source_original_qualified_fw_outfalls_n": 526,
+      "source_tiles_ge10_outfalls_n": 15,
+      "top10_public_outfall_source_tiles": [
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 16.0,
+          "original_outfall_count": 73
+        },
+        {
+          "WGS84_lat_floor": 47.0,
+          "WGS84_lon_floor": 16.0,
+          "original_outfall_count": 50
+        },
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 15.0,
+          "original_outfall_count": 49
+        },
+        {
+          "WGS84_lat_floor": 47.0,
+          "WGS84_lon_floor": 15.0,
+          "original_outfall_count": 45
+        },
+        {
+          "WGS84_lat_floor": 47.0,
+          "WGS84_lon_floor": 13.0,
+          "original_outfall_count": 40
+        },
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 14.0,
+          "original_outfall_count": 39
+        },
+        {
+          "WGS84_lat_floor": 46.0,
+          "WGS84_lon_floor": 15.0,
+          "original_outfall_count": 38
+        },
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 13.0,
+          "original_outfall_count": 33
+        },
+        {
+          "WGS84_lat_floor": 47.0,
+          "WGS84_lon_floor": 14.0,
+          "original_outfall_count": 30
+        },
+        {
+          "WGS84_lat_floor": 47.0,
+          "WGS84_lon_floor": 12.0,
+          "original_outfall_count": 24
+        }
+      ]
+    },
+    "DE": {
+      "all_source_1deg_tiles": 32,
+      "source_count_in_10densest_tiles": 432,
+      "source_original_qualified_fw_outfalls_n": 630,
+      "source_tiles_ge10_outfalls_n": 19,
+      "top10_public_outfall_source_tiles": [
+        {
+          "WGS84_lat_floor": 49.0,
+          "WGS84_lon_floor": 10.0,
+          "original_outfall_count": 64
+        },
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 12.0,
+          "original_outfall_count": 57
+        },
+        {
+          "WGS84_lat_floor": 54.0,
+          "WGS84_lon_floor": 9.0,
+          "original_outfall_count": 51
+        },
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 13.0,
+          "original_outfall_count": 45
+        },
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 10.0,
+          "original_outfall_count": 44
+        },
+        {
+          "WGS84_lat_floor": 51.0,
+          "WGS84_lon_floor": 11.0,
+          "original_outfall_count": 39
+        },
+        {
+          "WGS84_lat_floor": 48.0,
+          "WGS84_lon_floor": 11.0,
+          "original_outfall_count": 36
+        },
+        {
+          "WGS84_lat_floor": 52.0,
+          "WGS84_lon_floor": 11.0,
+          "original_outfall_count": 34
+        },
+        {
+          "WGS84_lat_floor": 49.0,
+          "WGS84_lon_floor": 11.0,
+          "original_outfall_count": 33
+        },
+        {
+          "WGS84_lat_floor": 53.0,
+          "WGS84_lon_floor": 10.0,
+          "original_outfall_count": 29
+        }
+      ]
+    }
+  },
+  "no_butterfly_monitoring_site_location_used": true,
+  "no_butterfly_taxa_or_count_outcome_opened": true,
+  "no_wastewater_biological_effect_calculated": true,
+  "not_independent_country_transect_sample": true,
+  "notes": [
+    "Tile count is public WWTP original unique freshwater outfall geography, not butterfly sampling effort",
+    "Top 10 are highest source count regions independent of any butterfly outcomes",
+    "Latitude/longitude 1 degree WGS84 cells have varying km areas by latitude",
+    "EIA/EEA reported annual measured N/P load not actual sampled butterfly-substrate nutrient dose",
+    "Contact protected transect managers only for aggregate site coverage without disclosing locations"
+  ],
+  "schema": "gesui_2022_original_EEA_DE_AT_public_both_measured_FW_outfalls_1degree_aggregate_source_only_v01",
+  "source_1deg_tile_CSV": "EEA2022_DE_AT_ORIGINAL_FW_OUTFALLS_IN_ONE_DEGREE_SOURCE_TILES.csv",
+  "source_exact_country_n": {
+    "AT": 526,
+    "DE": 630
+  },
+  "source_original_sha256": "926ab310904be048d5d36bbfebd5eabfe0b318279800142f2e2a86bee924f4ce",
+  "source_spatial_bin_WGS84_degrees": 1.0,
+  "source_tile_CSV_SHA256": "cbc261b9f868153374b21b5e92d1aab3edae39ae22abae22fb2cad0e937a2eeb",
+  "source_tiles_total": 53
+}
