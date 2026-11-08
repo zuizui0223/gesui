@@ -1,0 +1,1519 @@
+{
+  "2023_all_family_API_success_cells": 43,
+  "2023_cells_meeting_photo_support": 42,
+  "2023_outcome_year_source_gate_pass": true,
+  "2023_photo_original_API_queries": 129,
+  "2023_photo_support_by_country": {
+    "AT": 15,
+    "DE": 27
+  },
+  "2023_photo_support_independent_country_2degree_blocks": 22,
+  "EEA_reported2022_annual_outfall_mass_may_reflect_stable_infrastructure_geography": true,
+  "POSTHOC_2023_year_check_AFTER_positive_2022_photo_reporting_result": true,
+  "exact_source_only_fixed_DE_AT_43_country_1degree_cells": 43,
+  "min_2023_AT": 9,
+  "min_2023_DE": 18,
+  "min_2023_country_2degree_blocks": 12,
+  "min_2023_total_supported_cells": 30,
+  "min_three_family_photo_records_2023_each_original_cell": 20,
+  "no_2023_WWTP_source_mass_asserted": true,
+  "no_photo_pixels_or_individual_observer_identification_downloaded": true,
+  "not_individual_butterfly_counts_or_puddling": true,
+  "official_iNat_country_place_ids": {
+    "AT": 8057,
+    "DE": 7207
+  },
+  "original_2022_EEA_measured_reported_P_source_sha256": "926ab310904be048d5d36bbfebd5eabfe0b318279800142f2e2a86bee924f4ce",
+  "original_2022_WorldCover_land_photo_source_sha256": "752f4411c7999f3065be2f8c4afd52ab36f53d517a3c0e4c1f39c08587b93a34",
+  "original_2022_family_photo_source_sha256": "36af83f445ecaf6ac6c75a8b1cab12567352a0c8097ac9c1d974adab3509d79d",
+  "original_family_descendant_taxon_ids": {
+    "Lycaenidae": 47923,
+    "Papilionidae": 47223,
+    "Pieridae": 48508
+  },
+  "schema": "gesui_2023_DE_AT_public_butterfly_family_photo_source_only_original43_WorldCover2021_v01",
+  "source_2023_all_original43_butterfly_photo_count_and_receipts": [
+    {
+      "2023_Lycaenidae_photo_n": 33,
+      "2023_Papilionidae_photo_n": 15,
+      "2023_Pieridae_photo_n": 18,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 66,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "46.0",
+      "lon_floor": "13.0",
+      "original_country_2degree_block": "23_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "55f397707f35bbb87a0bac3fde03813fa7f458f38aa9161452961fca4fbd7b72",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=46.0&swlng=13.0&nelat=47.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 33
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "4950a4d5f7b60dee717479a2dd84a864966b00eb21df33031aaf34b5225c9e02",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=46.0&swlng=13.0&nelat=47.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 15
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "8c4f2f644f9d28a63f58ca8d4eba2816725eb2a287c3f63d8cef0283720f59e5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=46.0&swlng=13.0&nelat=47.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 18
+        }
+      },
+      "source_original_2022_reported_P_t_year": "18.671290000000006"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 23,
+      "2023_Papilionidae_photo_n": 11,
+      "2023_Pieridae_photo_n": 32,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 66,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "46.0",
+      "lon_floor": "14.0",
+      "original_country_2degree_block": "23_7",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "d8cba8197e1a99fc12385329751884d423dc76625d0ebf50ce9d39b52f8cb2ea",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=46.0&swlng=14.0&nelat=47.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 23
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "92739b4f046b77d443e90dde4397ca3da2415097276f2b919f74f24a8db27c00",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=46.0&swlng=14.0&nelat=47.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 11
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "3ca446bf28710169d810faceaaacf3f85f0a5680aa7bfd98c353f76fd3e9b7ff",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=46.0&swlng=14.0&nelat=47.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 32
+        }
+      },
+      "source_original_2022_reported_P_t_year": "22.94178"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 80,
+      "2023_Papilionidae_photo_n": 23,
+      "2023_Pieridae_photo_n": 63,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 166,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "46.0",
+      "lon_floor": "15.0",
+      "original_country_2degree_block": "23_7",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "709d6e46a0d6c05233cd66ad6347eaae6d488148652e9697d567a18757cd1290",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=46.0&swlng=15.0&nelat=47.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 80
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "5336d355d7851924ffdf2b93b2dfa87820b414ca79505b4c51429a00ae81ca10",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=46.0&swlng=15.0&nelat=47.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 23
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "126014fb602a24cf91d7e77887fd62a26af944ca296b46346043cb3a594c33ae",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=46.0&swlng=15.0&nelat=47.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 63
+        }
+      },
+      "source_original_2022_reported_P_t_year": "40.30881399999999"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 33,
+      "2023_Papilionidae_photo_n": 14,
+      "2023_Pieridae_photo_n": 25,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 72,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "9.0",
+      "original_country_2degree_block": "23_4",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "f0219aa8c7ee3ceeecbf88579233f146ab05319657bd18d1b81f193ecacfbdf0",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 33
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "3bf206cd5a5b13b7f39c4828c0176b0f740cfe290cbce8871d0f1e635ce41d34",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 14
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "7937a0bc460191df9b2c7252fe0c531a0074865a5191838613d63e05735c960f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 25
+        }
+      },
+      "source_original_2022_reported_P_t_year": "12.031000000000002"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 55,
+      "2023_Papilionidae_photo_n": 17,
+      "2023_Pieridae_photo_n": 37,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 109,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "23_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "68408e3b148227d55a7f573be3a9f5229b3a02e419202d25ecb49c44cc266547",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 55
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "27a61f9a71c999852d550474501307077454293efbd50ce66831e6428cffa4d3",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 17
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "c7ee9fd081753d5f191f3e6a42f37fd126b2583ddc7b5a6158b6a139d5b7ad05",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 37
+        }
+      },
+      "source_original_2022_reported_P_t_year": "14.892506000000003"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 114,
+      "2023_Papilionidae_photo_n": 19,
+      "2023_Pieridae_photo_n": 95,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 228,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "11.0",
+      "original_country_2degree_block": "23_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "366a3f142421e274dffa4836f431e34a30873d471b868ed7d8c483d76d078f2d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 114
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "2d2024c55788e34213950c8c3ccf888268933196a1ce71a857ef985ca58db842",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 19
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "7150a705a5f3e3f6fa5936e4e372ace668459731dc6a3c9a51307626d55c27f4",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 95
+        }
+      },
+      "source_original_2022_reported_P_t_year": "25.383399999999998"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 54,
+      "2023_Papilionidae_photo_n": 16,
+      "2023_Pieridae_photo_n": 61,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 131,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "12.0",
+      "original_country_2degree_block": "23_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "626620ff863fc7ef93062898bf600856e4a522d6269bb109ff1938c80cc34b07",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 54
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "ace31b7e70817fcb8ea6a957d1894dad4bccfbf97d2bd1fb2b046b8ceb89a03a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 16
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "45bea8fe2b52eedf301994ea51cf7936ea6a6a4031e3076ffd123dc6306197e6",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 61
+        }
+      },
+      "source_original_2022_reported_P_t_year": "47.68166200000001"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 34,
+      "2023_Papilionidae_photo_n": 32,
+      "2023_Pieridae_photo_n": 37,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 103,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "13.0",
+      "original_country_2degree_block": "23_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "264a790edf925f7456e8a9396e08b2590ba1d6f986968a4f69a39c00cf1f3dc9",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=13.0&nelat=48.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 34
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "ddb58b40a162c0c975e06a7f8d0008c388e1cda52e820ba65948cca86c9f7d22",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=13.0&nelat=48.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 32
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "089da48ac16b6844a45790ad9b73531e21b384d56d3253baedc6bd7840abb48b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=13.0&nelat=48.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 37
+        }
+      },
+      "source_original_2022_reported_P_t_year": "22.009957000000004"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 45,
+      "2023_Papilionidae_photo_n": 32,
+      "2023_Pieridae_photo_n": 96,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 173,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "14.0",
+      "original_country_2degree_block": "23_7",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "8226a8a38affb83b40375e98ff26f3d79fc269d5a2a1823abd3f20e9a9a9f76d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=14.0&nelat=48.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 45
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "d2a681ae28d92bf631501707ec41c4b7e5293c8e02379e5b45ec246eb318f357",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=14.0&nelat=48.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 32
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "c475bae4f634da1d22995f1d9d55647352b49a076dfa7de7a8827c42b331a155",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=14.0&nelat=48.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 96
+        }
+      },
+      "source_original_2022_reported_P_t_year": "9.80164"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 119,
+      "2023_Papilionidae_photo_n": 50,
+      "2023_Pieridae_photo_n": 163,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 332,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "15.0",
+      "original_country_2degree_block": "23_7",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "502754ecf89f0184b76b66511f63783fa2d674a1ddac06133446a888081033de",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=15.0&nelat=48.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 119
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "af37e423b723d3d61d8ee8883a0920b738e3605ddd6a4061227b4d80939b8a2a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=15.0&nelat=48.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 50
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "25daf4a4d36c09daf1daf74a03d08d21bfce960aa44dd4dd694e557ecdf5fe6a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=15.0&nelat=48.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 163
+        }
+      },
+      "source_original_2022_reported_P_t_year": "24.053849999999997"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 92,
+      "2023_Papilionidae_photo_n": 25,
+      "2023_Pieridae_photo_n": 61,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 178,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "16.0",
+      "original_country_2degree_block": "23_8",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "aae34acae77bd90981ff3d1070c89513e9e638a0d356dd9218055020988d23e6",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=16.0&nelat=48.0&nelng=17.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 92
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "a0696e9f0fc8f5a7ca5e347f24866ddca6045b450a7a9c095650955a90e607a1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=16.0&nelat=48.0&nelng=17.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 25
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "8295658aa9de249ad16d42836614485ea4474374160e1632f82bd09275ca12af",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=16.0&nelat=48.0&nelng=17.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 61
+        }
+      },
+      "source_original_2022_reported_P_t_year": "34.34315199999999"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 22,
+      "2023_Papilionidae_photo_n": 4,
+      "2023_Pieridae_photo_n": 22,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 48,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "13.0",
+      "original_country_2degree_block": "24_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "757bc032a190983c086c910c98ef8a3c3687c63ecc330cf9402d87b1bf4120bb",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 22
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "ad993383a6e2f6cb8a2574975074e8eac062678dd66f8c940df9ba5f36e88712",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 4
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "17bff36e93d342358242b804336fc3cac5b4fdfd7b579ff667e1afbd2a24cc87",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 22
+        }
+      },
+      "source_original_2022_reported_P_t_year": "23.11074"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 33,
+      "2023_Papilionidae_photo_n": 12,
+      "2023_Pieridae_photo_n": 30,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 75,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "14.0",
+      "original_country_2degree_block": "24_7",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "61994fe844a64b8a379b61a132d44cd262f62c5da6a2da056f6c37cf4906e1d7",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=14.0&nelat=49.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 33
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "7acb23fcf2bc8b1b820a256aa4998fbefe1fb58aa6e1d6f3fc839be543d6f2bf",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=14.0&nelat=49.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 12
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "5ba2f2fc78d0e93d310f68c787a0ae53d218292d91f3a59823a1f1c707404241",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=14.0&nelat=49.0&nelng=15.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 30
+        }
+      },
+      "source_original_2022_reported_P_t_year": "44.31989499999999"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 92,
+      "2023_Papilionidae_photo_n": 29,
+      "2023_Pieridae_photo_n": 49,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 170,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "15.0",
+      "original_country_2degree_block": "24_7",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "3e86c0c5cbdeaef1a64933909f4009f71a1d7bb44e11322f14b427cd1486feca",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=15.0&nelat=49.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 92
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "acb5a35a7a3dbf4b6bee42c859b65d9b0d2cb66433876ff8feca6674cbf3a83e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=15.0&nelat=49.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 29
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "9a0efbaebe609e3bc3b624201a2acaddd20806dae6596bc6570ce9500ea399db",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=15.0&nelat=49.0&nelng=16.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 49
+        }
+      },
+      "source_original_2022_reported_P_t_year": "24.977203999999997"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 372,
+      "2023_Papilionidae_photo_n": 127,
+      "2023_Pieridae_photo_n": 182,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 681,
+      "countryCode": "AT",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "16.0",
+      "original_country_2degree_block": "24_8",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "e6ddbec8ea1fd94f74ca00706ce4651a895a642b6f64ceb42dfbac16136bdf10",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=16.0&nelat=49.0&nelng=17.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 372
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "652463283d0c5b9963894812739175262f3dd0ed4a70560ea575e89c4a91c535",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=16.0&nelat=49.0&nelng=17.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 127
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "d4292e0ec9b06c1ffb3bb34327ae05441d98ed6ff8af259f12f9573e868b08e6",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=16.0&nelat=49.0&nelng=17.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 182
+        }
+      },
+      "source_original_2022_reported_P_t_year": "170.674759"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 19,
+      "2023_Papilionidae_photo_n": 2,
+      "2023_Pieridae_photo_n": 18,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 39,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "9.0",
+      "original_country_2degree_block": "23_4",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "bd162ed1aba4ff00faf3a8044db834d2ff5295598e2dcd1f7c9939580f7524da",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 19
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "06305a99930803b4ec16258f4b74f41544a1807a037940bbd5f16d40a7c66346",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 2
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "1cfdeae0e6cf4f432c2ae0afd5e25a1168c1f1bdf3ce586c5f30e798f542d879",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 18
+        }
+      },
+      "source_original_2022_reported_P_t_year": "0.402"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 46,
+      "2023_Papilionidae_photo_n": 16,
+      "2023_Pieridae_photo_n": 32,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 94,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "23_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "f100904d694dbe0210bd42c9ae507ab072615d604202a5337a8cd27ae5bf4b12",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 46
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "2c0fc2450a9e31b3af7c36d5a0b4e613462c40bd0b7a893d343b8f45fc824f60",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 16
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "81a4d34c54afc5814966dbe2434fef2affbe9e640c8e57aa390f9c53d54b2a96",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 32
+        }
+      },
+      "source_original_2022_reported_P_t_year": "27.583"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 76,
+      "2023_Papilionidae_photo_n": 16,
+      "2023_Pieridae_photo_n": 63,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 155,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "11.0",
+      "original_country_2degree_block": "23_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "35155d781d66804d530f85d57d168159d8f90473afe47f47fbea880a507e0bbc",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 76
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "1c1781c5183b4dc76008724e95687596d57f9e247ac59f11351e919df8b89612",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 16
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "d470d76b9c34bea5b5186f446ede7368751a9916e4647286edc35ada157d7305",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 63
+        }
+      },
+      "source_original_2022_reported_P_t_year": "3.1690000000000005"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 47,
+      "2023_Papilionidae_photo_n": 10,
+      "2023_Pieridae_photo_n": 34,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 91,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "47.0",
+      "lon_floor": "12.0",
+      "original_country_2degree_block": "23_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "e20626ff528e97f3f0f16c958dc525faee1081e8fa12848e2d365f3565150da5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 47
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "14ce4a3ed93153ea8490abc6db022bc31a2d92900adf7373207da28740ec0c6e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 10
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "f9d60a2b8bf42c80a1bf204bc0ee06f724a96e60ec86d8215bec584570ca276e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 34
+        }
+      },
+      "source_original_2022_reported_P_t_year": "18.643"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 82,
+      "2023_Papilionidae_photo_n": 5,
+      "2023_Pieridae_photo_n": 95,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 182,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "24_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "f590680efe8c69fb90cd412343749e3ba4609f551ac7119e0e8c514e191cee21",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=10.0&nelat=49.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 82
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "27189bfa6ff96fbfc70209b3c4c12f154c4ff1cf408074b501d4f34355726377",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=10.0&nelat=49.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 5
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "1f041c0a1b954e4229edc303a250b2c90b8d59d5e847c9303f0be71dbaaf336e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=10.0&nelat=49.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 95
+        }
+      },
+      "source_original_2022_reported_P_t_year": "55.968999999999994"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 187,
+      "2023_Papilionidae_photo_n": 13,
+      "2023_Pieridae_photo_n": 123,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 323,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "11.0",
+      "original_country_2degree_block": "24_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "ade38e906e56cf18deac76c9c89a1a8f29f6d48998038a048b9f7b82951d9447",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=11.0&nelat=49.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 187
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "f69ee2e61e988be9b79490520ff8632b70e21313f6ff664fc7f97808eb5cc9b3",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=11.0&nelat=49.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 13
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "ea3768e8978eeb9d4e7024223d79f4e2b23f1168f7b575c9963d5dd7adafd7e9",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=11.0&nelat=49.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 123
+        }
+      },
+      "source_original_2022_reported_P_t_year": "38.63100000000001"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 42,
+      "2023_Papilionidae_photo_n": 5,
+      "2023_Pieridae_photo_n": 13,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 60,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "12.0",
+      "original_country_2degree_block": "24_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "e845462e8eab201d361436f44f70c97aeb256d9fa19057e1b3fae3f58c3543ee",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=12.0&nelat=49.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 42
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "6e1d551eb867758f1ddd9d0ee38350e7d935f2338aef682a5b92324579fea877",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=12.0&nelat=49.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 5
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "02fec93e19923c69569d66e9ed4e52917dca753e3195eb9bb559ef7ce742826a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=12.0&nelat=49.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 13
+        }
+      },
+      "source_original_2022_reported_P_t_year": "47.956999999999994"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 32,
+      "2023_Papilionidae_photo_n": 0,
+      "2023_Pieridae_photo_n": 16,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 48,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "48.0",
+      "lon_floor": "13.0",
+      "original_country_2degree_block": "24_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "3b2adafb86e8bf08dc1d0f880ebc2cf98e7fe7d3d9e11b84c21fdb8c97dfee32",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 32
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 0
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "475bbe9784e3a9b11a3beef47dae7961374904bcafe5e4ca0ed88178e8791444",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 16
+        }
+      },
+      "source_original_2022_reported_P_t_year": "31.551999999999996"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 169,
+      "2023_Papilionidae_photo_n": 11,
+      "2023_Pieridae_photo_n": 85,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 265,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "49.0",
+      "lon_floor": "9.0",
+      "original_country_2degree_block": "24_4",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "e16a74fdf756697fe721ed2fbad58857d31350df38a90de7067362067132bedb",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=9.0&nelat=50.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 169
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "73091be76ce1da9c5847c257d701d3d11a3f93c13ef7a71255f216e7c5cf94dc",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=9.0&nelat=50.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 11
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "9e25e2f2a89b722b564b6361177d4a6a67833ead94c8dd042f3ddda09647ccc9",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=9.0&nelat=50.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 85
+        }
+      },
+      "source_original_2022_reported_P_t_year": "18.473"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 50,
+      "2023_Papilionidae_photo_n": 6,
+      "2023_Pieridae_photo_n": 45,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 101,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "49.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "24_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "aba1f17f44b7fdb1425532fa014981bce7027ea7106b980598fa241be00996c0",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=10.0&nelat=50.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 50
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "7badddc756657cccb2f24fbd67bb2b2d3d23ab7855fe29b6e30cb98c1f376447",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=10.0&nelat=50.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 6
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "feada4921003e3c3d07e54783d849ff4551f6dc0821aa210e3a90828f05a918c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=10.0&nelat=50.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 45
+        }
+      },
+      "source_original_2022_reported_P_t_year": "40.77100000000001"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 63,
+      "2023_Papilionidae_photo_n": 8,
+      "2023_Pieridae_photo_n": 38,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 109,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "49.0",
+      "lon_floor": "11.0",
+      "original_country_2degree_block": "24_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "5759b5900c854fdc012b5eef0d82a7fc368a48b919cc417d6d762bc80c054b04",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=11.0&nelat=50.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 63
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "9a9ccfd3847193cfeba90c3f48cecd3191651af40c2681a2aa2c85a93508bf3e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=11.0&nelat=50.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 8
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "4db21c87f7cbebf27ca7726e5676727c0366e2e92e474dcf40d99728936109d1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=11.0&nelat=50.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 38
+        }
+      },
+      "source_original_2022_reported_P_t_year": "30.043000000000006"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 42,
+      "2023_Papilionidae_photo_n": 2,
+      "2023_Pieridae_photo_n": 21,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 65,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "49.0",
+      "lon_floor": "12.0",
+      "original_country_2degree_block": "24_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "3adcc487eee66a7938e30c3c16714f0918111ad05488c2f4ceed9f913f772c9b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=12.0&nelat=50.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 42
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "1ebae5008af1612cdfc45d154327a57aac4828af0fe4f2c51d96d939a60199cb",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=12.0&nelat=50.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 2
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "72cf9c34a0e8052425abd9fb38ec28623eaa8603610fa9f616246ba776154d0d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=12.0&nelat=50.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 21
+        }
+      },
+      "source_original_2022_reported_P_t_year": "24.855"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 0,
+      "2023_Papilionidae_photo_n": 0,
+      "2023_Pieridae_photo_n": 2,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": false,
+      "2023_three_family_photo_total": 2,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "49.0",
+      "lon_floor": "13.0",
+      "original_country_2degree_block": "24_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=13.0&nelat=50.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 0
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=13.0&nelat=50.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 0
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "763b6bd9b5b0b56bc26fe3a93348a858c2ce20cc03028ed85f1586f442cd552f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=13.0&nelat=50.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 2
+        }
+      },
+      "source_original_2022_reported_P_t_year": "3.048"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 68,
+      "2023_Papilionidae_photo_n": 2,
+      "2023_Pieridae_photo_n": 33,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 103,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "50.0",
+      "lon_floor": "9.0",
+      "original_country_2degree_block": "25_4",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "28b2c2ef14ebe1970e6e0d427a2b9f23b365e4ebda2bd535dceb86c34adddcf1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=9.0&nelat=51.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 68
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "6ca6c6848d7bcc16e4fe3e88a2428444730c7b10d06086c0a2119753e4f1d095",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=9.0&nelat=51.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 2
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "a50b8853fa63ac119e292f99b2e83702ade00b703ab04955147d056ae05f36a8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=9.0&nelat=51.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 33
+        }
+      },
+      "source_original_2022_reported_P_t_year": "9.032"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 72,
+      "2023_Papilionidae_photo_n": 5,
+      "2023_Pieridae_photo_n": 33,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 110,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "50.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "25_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "51d8de51aa8cd637d423161c54edce49f697e04eb36e2b979afbeeddc2099352",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=10.0&nelat=51.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 72
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "e1ba5243630642de761e2f71370e5da6c1bdcb4b06f48ab4bc8cd2d53974a202",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=10.0&nelat=51.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 5
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "ec55d75c8e79e1e973740f9476d422593c2bea381bd4fab77f668453d598d843",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=10.0&nelat=51.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 33
+        }
+      },
+      "source_original_2022_reported_P_t_year": "22.439000000000004"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 39,
+      "2023_Papilionidae_photo_n": 5,
+      "2023_Pieridae_photo_n": 36,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 80,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "50.0",
+      "lon_floor": "11.0",
+      "original_country_2degree_block": "25_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "241212a1d5e5a9d961e19d80588f73a2bd743cda9aecb5428422b67433445d33",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=11.0&nelat=51.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 39
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "b2e804026a11cda33821c3bf9bac65019d3d7acbf7990744ab8de84bd4a5d72f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=11.0&nelat=51.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 5
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "d52539c88a87b21af46a718aa5191d6748a9ebd19ee1c940d7b34426adf4a971",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=11.0&nelat=51.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 36
+        }
+      },
+      "source_original_2022_reported_P_t_year": "12.997999999999998"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 51,
+      "2023_Papilionidae_photo_n": 7,
+      "2023_Pieridae_photo_n": 51,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 109,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "50.0",
+      "lon_floor": "12.0",
+      "original_country_2degree_block": "25_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "b42642fe6239dfaba8c944bb009d64da993d4c4211dd52b9b98b4339a110c744",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=12.0&nelat=51.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 51
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "7e4344dec32c3c140e058e5c6e8f4bb771452d0374aea67dc39ee6352969ed2e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=12.0&nelat=51.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 7
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "bc3ffc2be601f1880aab6f68f96470dd4e65e8f07ccf2bc503481865d66563ae",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=12.0&nelat=51.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 51
+        }
+      },
+      "source_original_2022_reported_P_t_year": "3.905"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 61,
+      "2023_Papilionidae_photo_n": 14,
+      "2023_Pieridae_photo_n": 50,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 125,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "51.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "25_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "531bb103ef8a43704d4cb5e05ed73ad162faa334985046e13f9df19026fcccaf",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=10.0&nelat=52.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 61
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "851e8f3a54a43a80b93a31f5c360e7f3185ea028061c81ca667cb03add4c1b2a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=10.0&nelat=52.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 14
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "c7b2ea44b023c0c354dc75cb13210fde2ed60d338c3fd460e95b06537a6a21ae",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=10.0&nelat=52.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 50
+        }
+      },
+      "source_original_2022_reported_P_t_year": "6.43714"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 83,
+      "2023_Papilionidae_photo_n": 9,
+      "2023_Pieridae_photo_n": 67,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 159,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "51.0",
+      "lon_floor": "11.0",
+      "original_country_2degree_block": "25_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "f7907acfea199bce1518eec0add5b4de31b36030c37e556e244cbede52343930",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=11.0&nelat=52.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 83
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "de47583da5b7cfda0a5ce3f90ea309a54173145069201f8d40b18874809078e1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=11.0&nelat=52.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 9
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "5e29c013cd343ba25c37fe72ae173df191f6db27d8a06ea61b2327c4bddbe3af",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=11.0&nelat=52.0&nelng=12.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 67
+        }
+      },
+      "source_original_2022_reported_P_t_year": "40.91788"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 73,
+      "2023_Papilionidae_photo_n": 5,
+      "2023_Pieridae_photo_n": 101,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 179,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "51.0",
+      "lon_floor": "12.0",
+      "original_country_2degree_block": "25_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "3059db17fde38bc5a3737239b7d4510e0149d49e3d717279660ffcd9f3722aa0",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=12.0&nelat=52.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 73
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "431501cd4d9290c329f4d95b2995ef7feeb770de2fc0cfddf9e648546a881c4c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=12.0&nelat=52.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 5
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "7aefc42783f781eb57942ab0390ade5510cbdc01ad7e38c20c09d209a896ebeb",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=12.0&nelat=52.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 101
+        }
+      },
+      "source_original_2022_reported_P_t_year": "17.566509999999997"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 36,
+      "2023_Papilionidae_photo_n": 8,
+      "2023_Pieridae_photo_n": 38,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 82,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "51.0",
+      "lon_floor": "13.0",
+      "original_country_2degree_block": "25_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "ec09aa6980d84a14bbd523cbebab0ba8796e00deca61cdcac772a7eb1a1582a5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=13.0&nelat=52.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 36
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "8b5c4e0ebdae102af425a2dead81d1e5ca1c9d9fe32c1ef2aa8fd1a5f42399bd",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=13.0&nelat=52.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 8
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "149e39d82c8eb8d2193b2594db1cb1a71f8ff9f75085cdde0dac7a0861c8a9ff",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=13.0&nelat=52.0&nelng=14.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 38
+        }
+      },
+      "source_original_2022_reported_P_t_year": "0.29775"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 54,
+      "2023_Papilionidae_photo_n": 11,
+      "2023_Pieridae_photo_n": 43,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 108,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "52.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "26_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "cd1f09cb3e710b66b8a63cbeba31d90917e03b02325b69b4dbb0a35ff0a4e2fd",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=52.0&swlng=10.0&nelat=53.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 54
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "e3e6d3099015b582d1458d6a8c79c8451185b1bc03b818d0059e35cae3e4cd34",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=52.0&swlng=10.0&nelat=53.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 11
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "1a66f8ade1e1740b59c3959d54ee428c9b3372a8b4a5568f3b20afdacacf549a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=52.0&swlng=10.0&nelat=53.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 43
+        }
+      },
+      "source_original_2022_reported_P_t_year": "1.61152"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 47,
+      "2023_Papilionidae_photo_n": 4,
+      "2023_Pieridae_photo_n": 22,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 73,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "52.0",
+      "lon_floor": "12.0",
+      "original_country_2degree_block": "26_6",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "184a36294c92ba1b8160e39cd286bf28865d6eb3cb48799e40552c28b6c78117",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=52.0&swlng=12.0&nelat=53.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 47
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "43354c5bf7cfa35e1e65a6128864d821187e716a8c5ba7a633f5539a0df65e5e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=52.0&swlng=12.0&nelat=53.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 4
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "67134fe3e81113d13d6db1e9664078c9b951890799bf6d186c36be58d23ecfd3",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=52.0&swlng=12.0&nelat=53.0&nelng=13.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 22
+        }
+      },
+      "source_original_2022_reported_P_t_year": "1.0669499999999998"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 86,
+      "2023_Papilionidae_photo_n": 1,
+      "2023_Pieridae_photo_n": 54,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 141,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "53.0",
+      "lon_floor": "8.0",
+      "original_country_2degree_block": "26_4",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "c541931a13b3b2485fc1fc24f184c17f7fc972e0084a81467650fc28349684fb",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=53.0&swlng=8.0&nelat=54.0&nelng=9.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 86
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "8f9c915defadd0b6d3378a44a44383d19aa70d89291173f3c22b09cea61d01bc",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=53.0&swlng=8.0&nelat=54.0&nelng=9.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 1
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "493dd072d41ced268c854401eb7fc7582eed8981280b10094e9efae597a4534b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=53.0&swlng=8.0&nelat=54.0&nelng=9.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 54
+        }
+      },
+      "source_original_2022_reported_P_t_year": "16.0014"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 83,
+      "2023_Papilionidae_photo_n": 0,
+      "2023_Pieridae_photo_n": 39,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 122,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "53.0",
+      "lon_floor": "9.0",
+      "original_country_2degree_block": "26_4",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "7e9fa13d707a307cf524df8096d6681b36b8c24bc7ac38fe75f4e34fdde526c0",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=53.0&swlng=9.0&nelat=54.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 83
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=53.0&swlng=9.0&nelat=54.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 0
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "ef023d7d589cc64be3ed01c8156dc73e2c1102753a654471cecc394ff6d86f10",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=53.0&swlng=9.0&nelat=54.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 39
+        }
+      },
+      "source_original_2022_reported_P_t_year": "6.39656"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 63,
+      "2023_Papilionidae_photo_n": 5,
+      "2023_Pieridae_photo_n": 51,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 119,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "53.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "26_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "4fc131c2b0a58ecbfb862230cbdbd9f7c471c7c1cfad94bf14f22d723309c93f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=53.0&swlng=10.0&nelat=54.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 63
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "915a6905e89f1bd76b8ee1532bbfa52199f728a147c29cf9146c87f656b43f2a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=53.0&swlng=10.0&nelat=54.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 5
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "120e086c41e7e63a6101d47e19adcb0b2c505686bdeddc285eebcf6ab91b159f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=53.0&swlng=10.0&nelat=54.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 51
+        }
+      },
+      "source_original_2022_reported_P_t_year": "14.422139999999997"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 16,
+      "2023_Papilionidae_photo_n": 0,
+      "2023_Pieridae_photo_n": 24,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 40,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "54.0",
+      "lon_floor": "9.0",
+      "original_country_2degree_block": "27_4",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "d08e61a21b84aa28a2d83c9125caa7b301fb5a88c21c607508de7a7a8d852ccb",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=54.0&swlng=9.0&nelat=55.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 16
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=54.0&swlng=9.0&nelat=55.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 0
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "3411a35b9789f124d1187e91c9f839d97e93087a1037874bd09f1de90b1dc942",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=54.0&swlng=9.0&nelat=55.0&nelng=10.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 24
+        }
+      },
+      "source_original_2022_reported_P_t_year": "16.54237"
+    },
+    {
+      "2023_Lycaenidae_photo_n": 38,
+      "2023_Papilionidae_photo_n": 0,
+      "2023_Pieridae_photo_n": 62,
+      "2023_all_families_query_success": true,
+      "2023_photo_support_ge20": true,
+      "2023_three_family_photo_total": 100,
+      "countryCode": "DE",
+      "individual_butterfly_abundance_or_adult_puddling_observed": false,
+      "lat_floor": "54.0",
+      "lon_floor": "10.0",
+      "original_country_2degree_block": "27_5",
+      "public_source_2023_response_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "74834d557c3ab2bda1cb7498cbd1f277fba65ef9e0b1d25f1f78fd6c351bed7b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=54.0&swlng=10.0&nelat=55.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 38
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=54.0&swlng=10.0&nelat=55.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 0
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "bb12e8943b1e35d504171fa5bfbd19a3c55717179a3fcecca85a698daff4beaa",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=54.0&swlng=10.0&nelat=55.0&nelng=11.0&d1=2023-04-01&d2=2023-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2023": 62
+        }
+      },
+      "source_original_2022_reported_P_t_year": "4.50283"
+    }
+  ],
+  "source_2023_public_photo_window": [
+    "2023-04-01",
+    "2023-10-31"
+  ],
+  "utc": "2026-11-08T09:09:15.463120+00:00"
+}
