@@ -1,0 +1,47 @@
+name: gesui DE AT 2022 Lycaenidae posthoc 2degree spatial block out-of-sample stress test
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108"
+    paths:
+      - ".github/workflows/gesui-de-at-2022-lycaenid-posthoc-2deg-block-cv.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  posthoc-OOS-no-new-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet numpy
+      - name: Validate original independently gated 52 1deg source cells and 44 target cells with no new butterfly API
+        run: |
+          python -m py_compile scripts/gesui_de_at_2022_posthoc_source_block_cv.py
+          python -u scripts/gesui_de_at_2022_posthoc_source_block_cv.py \
+            --source-result results/lycaenidae_de_at_2022_macro_source_photo/2022_DE_AT_LYCAENIDAE_PHOTO_SHARE_VS_WWTP_SOURCE_EXPLORATORY.json \
+            --plant-gate results/lycaenidae_de_at_2022_macro_source_photo/2021_PLANT_ONLY_SOURCE_AND_EFFORT_GATE.json \
+            --out results/lycaenidae_de_at_2022_macro_source_photo/2022_POSTHOC_2DEG_BLOCK_OUTOFREGION_WWTP_SOURCE_PREDICTION.json
+      - name: Preserve independent geographical heldout failures and positives on equal footing
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_de_at_2022_macro_source_photo/2022_POSTHOC_2DEG_BLOCK_OUTOFREGION_WWTP_SOURCE_PREDICTION.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit honest posthoc heldout DE/AT 2degree spatial transfer of wastewater-source photo-share signal"
+          git fetch origin analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+          git rebase origin/analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+          git push origin HEAD:analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-AT-2022-Lycaenidae-source-posthoc-2deg-CV
+          path: results/lycaenidae_de_at_2022_macro_source_photo/2022_POSTHOC_2DEG_BLOCK_OUTOFREGION_WWTP_SOURCE_PREDICTION.json
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,44 @@
+name: gesui 2021 Plantae effort-only gate for 2022 DE/AT source-grid Lycaenidae macro
+on:
+  push:
+    branches: ["analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108"]
+    paths:
+      - scripts/gesui_2021_de_at_plantae_effort_before_butterfly.py
+      - .github/workflows/gesui-de-at-macro-2021-plantae-effort-gate.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  no-2022-butterfly-outcomes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Query only 2021 botanical photo reporting at 53 unchanged original 2022 EEA 1degree source grids
+        run: |
+          python -m py_compile scripts/gesui_2021_de_at_plantae_effort_before_butterfly.py
+          python -u scripts/gesui_2021_de_at_plantae_effort_before_butterfly.py \
+            --source-manifest results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_BOTH_NP_MEASURED_ONE_FW_OUTFALLS.csv \
+            --source-tiles results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_FW_OUTFALLS_IN_ONE_DEGREE_SOURCE_TILES.csv \
+            --source-tiles-qc results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_WWTP_SOURCE_1DEG_TILE_QC.json \
+            --out results/lycaenidae_de_at_2022_macro_source_photo/2021_PLANT_ONLY_SOURCE_AND_EFFORT_GATE.json
+      - name: Commit independent source and previous-year non-butterfly selection BEFORE 2022 butterfly queries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_de_at_2022_macro_source_photo/2021_PLANT_ONLY_SOURCE_AND_EFFORT_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 53 DE/AT 2022 WWTP source landscape cells and prior 2021 nonbutterfly plant photo opportunity"
+          git fetch origin analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+          git rebase origin/analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+          git push origin HEAD:analysis/lycaenidae-de-at-2022-landscape-source-photo-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-AT-original-source-2021-Plantae-effort-before-butterflies
+          path: results/lycaenidae_de_at_2022_macro_source_photo/2021_PLANT_ONLY_SOURCE_AND_EFFORT_GATE.json
+          retention-days: 90
+          if-no-files-found: warn
