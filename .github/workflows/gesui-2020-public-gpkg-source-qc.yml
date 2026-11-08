@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/eea2020_source_only_20261108/2020_PUBLIC_GPKG_NP_SOURCE_QC.json
+          git add results/eea2020_source_only_20261108/2020_PUBLIC_GPKG_NP_SOURCE_QC.json results/eea2020_source_only_20261108/2020_PUBLIC_CYCLE_BOTH_MEASURED_NP_UNIQUE_FW_OUTFALLS.csv
           git diff --cached --quiet && exit 0
           git commit -m "Record public EEA 2019–2020 GPKG original source hashes and measured nutrient field coverage"
           git fetch origin analysis/uwwtd2020-source-only-feasibility-20261108
@@ -43,6 +43,8 @@ jobs:
         if: always()
         with:
           name: gesui-public-2019-2020-WWTP-outfall-GPKG-source-only
-          path: results/eea2020_source_only_20261108/2020_PUBLIC_GPKG_NP_SOURCE_QC.json
+          path: |
+            results/eea2020_source_only_20261108/2020_PUBLIC_GPKG_NP_SOURCE_QC.json
+            results/eea2020_source_only_20261108/2020_PUBLIC_CYCLE_BOTH_MEASURED_NP_UNIQUE_FW_OUTFALLS.csv
           retention-days: 90
           if-no-files-found: warn
