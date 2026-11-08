@@ -182,6 +182,13 @@ def main():
             d=seen.get(p["source_key"])
             if not(pv is not None and pv>0 and nv is not None and nv>0 and d):
                 continue
+            # This spatial product mixes reporter cycles! To measure an
+            # actual 2020 reporter cohort, never silently include the
+            # records whose official repCode suffix is 2022/other years.
+            if not str(p.get("repCode","")).strip().endswith("_2020"):
+                continue
+            if not str(d.get("repCode","")).strip().endswith("_2020"):
+                continue
             if str(d.get("dcpWaterBodyType","")).strip().upper()!="FW":
                 continue
             lat=numeric(d.get("dcpLatitude"));lon=numeric(d.get("dcpLongitude"))
@@ -203,6 +210,8 @@ def main():
         with source_csv.open("w",newline="") as f:
             w=csv.DictWriter(f,fieldnames=cols);w.writeheader();w.writerows(matched)
         report["official_both_measured_positive_NP_unique_FW_outlets_in_study_bbox"]=len(matched)
+        report["official_2020_reporter_suffix_enforced_in_candidate_CSV"]=True
+        report["official_2020_reporter_code_yyyy_ref_not_individual_measurement_date"]=True
         report["source_candidate_file_sha256"]=hashlib.sha256(source_csv.read_bytes()).hexdigest()
         report["source_candidate_file_path"]=source_csv.name
         report["source_candidate_original_2020_reporting_period_not_precise_measurement_date"]=True
