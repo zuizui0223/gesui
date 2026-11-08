@@ -65,14 +65,14 @@ def main():
     sources["WFD_2022_ArcGIS_pressure_layer_list"]=rec
     print("GESUI_WFD2022_PUBLIC_SOURCE_PROBE",json.dumps({"name":"ArcGIS_layers",**rec},sort_keys=True),flush=True)
     if layers:
-        for layer in layers[:3]:
+        for layer in [x for x in layers if x.get("id") in (1,2,4,5,7,8,16,17)]:
             id=layer.get("id")
             sub,info=req(ARCGIS+"/"+str(id),{"f":"pjson"})
             if isinstance(sub,dict):
                 info["name"]=sub.get("name")
                 info["geometryType"]=sub.get("geometryType")
                 info["maxRecordCount"]=sub.get("maxRecordCount")
-                info["field_names"]=[t.get("name") for t in sub.get("fields",[])[:90]]
+                info["field_names"]=[t.get("name") for t in (sub.get("fields") or [])[:90]]
                 info["capabilities"]=sub.get("capabilities")
             sources["WFD_2022_ArcGIS_layer_"+str(id)]=info
             print("GESUI_WFD2022_PUBLIC_SOURCE_LAYER",json.dumps(info,sort_keys=True),flush=True)
