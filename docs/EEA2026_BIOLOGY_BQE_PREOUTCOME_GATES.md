@@ -31,3 +31,27 @@ Only when gates pass, fit fixed baseline predicting normalized within-method EQR
 A putative lower EQR in higher reported-load reaches could reflect sewage effects, but also agricultural P/N, channel modifications, other industrial discharges, wastewater treatment removal, stream temperature, flow regime and imperfect monitoring. An unchanged EQR would not prove no sewage effects at seasonal flow or individual species level.
 
 **Strict claims boundary:** EQR is a nationally calibrated biological quality indicator; not population size, species richness, macroinvertebrate abundance or proof of local fish declines. The initial step is to verify genuine public measured EQR and its spatiotemporal topology. Only positive *out-of-region* evidence after negative controls, confounding, calibration and power checks could support a strong ecological association. Even this cannot establish causal WWTP discharge without experimental or quasi-experimental design.
+
+
+## Exact numerical endpoint and model freeze (before observing EQR outcomes)
+
+The original biological indicator has normalized EQR (higher generally means reference-like ecological condition, not number of species). Preserve reported scores: accept finite original EQR values >=0, do **not** arbitrarily clip >1 (flag out-of-usual-range), exclude nonnumeric/missing with counts. One unit is the original unique (country, monitoringSiteIdentifier, monitoringSiteIdentifierScheme, BQE code, reference year 2022). Repeated unit rows require separate source QC, never select the outcome-sign-favorable row.
+
+Fixed independent response classes:
+- **EEA_13-01-4** InvertebrateEQR_G (benthic invertebrates).
+- **EEA_124-04-9** PhytobenthosEQR_E.
+- **EEA_14-02-8** FishEQR_H, independently subject to the source support gate; no pooling with alternate fish EQR code.
+
+The independent 2022 original EEA reported P and N loads, hydrologic upstream 50km source counts, downstream WWTP placebo, river mean discharge Q, upstream drainage area, observed country, original procedure classification system, geodetic lat/lon and deterministic region 3-degree fold labels are **source-only** and fixed before the EQR values are retrieved. Source-zero is zero registered eligible both-measured outlet in the source graph, not a sewage-free river.
+
+Only BQE cohorts with >=100 unique monitoring sites, >=20 registered upstream source-positive sites, >=5 total reporting countries, >=3 positive-source countries and >=10 distinct 3-degree geographic blocks proceed to fitted EQR comparisons.
+
+For every eligible BQE:
+1. Response y = original station-year-2022 normalized EQR, never plant species richness or invertebrate abundance.
+2. Fixed Ridge(alpha=10) five-fold regional holdout. Baseline M0 numeric lat/lon, log1p(river mean Q), log1p(drainage area); categorical countryCode and countryCode crossed with reported classification procedure. Missing method is a fixed UNKNOWN level. Fold-specific OneHotEncoder(handle_unknown=ignore) and StandardScaler are fit on **training only**. Original deterministic 3-degree block-to-fold map is stored from source-only sampling to prevent library-version instability.
+3. P series M1 adds log1p(upstream reported WWTP measured annual P tonnes/year); M2 adds log1p(hydrologically downstream reported P load) negative control; M3 adds both. Independently repeat these fixed covariate comparisons using N. Do not choose whichever nutrient/sign gives better significance.
+4. Report exactly the same withheld monitoring sites for M0 through M3, MSE and MAE, paired changes and fold/region support. Also report descriptive source-rank Spearman and block/country-stratified residual signs **without causal p-value claims**.
+5. Record distinct waterbody IDs as effective grouping and report sensitivity to multiple monitoring sites in one waterbody. If country/method scales are noncomparable, restrict to within-class comparisons, not pooled unadjusted EQR interpretations.
+6. Never declare downstream placebo improves/does not improve based on which outcome class is favorable; retain all classes and both N/P results.
+
+A correlation or predictive increment alone cannot identify causal source N/P effects on aquatic community status: river engineering, farm/urban runoff, industrial discharge and monitor placement remain potential confounds.
