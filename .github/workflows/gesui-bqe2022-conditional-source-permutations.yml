@@ -1,0 +1,41 @@
+name: gesui EQR 2022 source-amount within-country/river-Q permutations
+
+on:
+  push:
+    branches:
+      - "analysis/bqe2022-missingness-wfd-pressure-20261108"
+    paths:
+      - "scripts/gesui_bqe2022_conditional_source_load_permutation.py"
+      - ".github/workflows/gesui-bqe2022-conditional-source-permutations.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  posthoc-exchangeability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install source-locked independent statistical replay dependencies
+        run: python -m pip install --quiet numpy pandas scikit-learn
+      - name: Fix EEA original site population, country, river-Q and WWTP presence; shuffle only reported annual mass
+        run: |
+          python -u scripts/gesui_bqe2022_conditional_source_load_permutation.py \
+            --results-dir results/eea2022_biology_bqe_20261108 \
+            --out /tmp/gesui-bqe-permute/SOURCE_MASS_WITHIN_COUNTRY_Q_PERMUTATIONS.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2022-BQE-source-mass-conditional-permutation-null
+          path: /tmp/gesui-bqe-permute/SOURCE_MASS_WITHIN_COUNTRY_Q_PERMUTATIONS.json
+          retention-days: 60
+          if-no-files-found: warn
