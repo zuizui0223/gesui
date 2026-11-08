@@ -1,0 +1,52 @@
+name: gesui Norway 2022 Lucas grid and Belgian public BMS vs measured FW WWTP source-only gate
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-norway-belgium-ebms-source-20261108"
+    paths:
+      - "scripts/gesui_2022_norway_lucas_grid_vs_eea_wwtp_source_only.py"
+      - ".github/workflows/gesui-2022-norway-grid-eea-source-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  official-outfalls-and-independent-grid-sites-no-ecological-outcomes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install only source match dependencies and replay original EEA 2022 outfall API
+        run: python -m pip install --quiet requests numpy pandas
+      - name: Validate prior source-only event/grid checksum and 2022 actual reported both-NP direct FW outfalls
+        run: |
+          python -m py_compile scripts/gesui_2022_norway_lucas_grid_vs_eea_wwtp_source_only.py
+          python -u scripts/gesui_2022_norway_lucas_grid_vs_eea_wwtp_source_only.py \
+            --source-grid-qc results/lycaenidae_norway_flanders_2022_source_only/NORWAY_LUCAS_2022_INDEPENDENT_GRID_SITE_QC.json \
+            --source-grid-csv results/lycaenidae_norway_flanders_2022_source_only/NORWAY_2022_LUCAS_GRID_SOURCE_ONLY_SITES.csv \
+            --flanders-events-qc results/lycaenidae_norway_flanders_2022_source_only/PUBLIC_NORWAY_FLANDERS_2022_EVENT_SITE_SOURCE_QC.json \
+            --out results/lycaenidae_norway_flanders_2022_source_only/2022_NO_BE_BMS_GRID_VS_EEA_WWTP_SOURCE_ONLY_QC.json
+      - name: Commit outcome-blind source proximity and support result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_norway_flanders_2022_source_only/2022_NO_BE_BMS_GRID_VS_EEA_WWTP_SOURCE_ONLY_QC.json results/lycaenidae_norway_flanders_2022_source_only/NORWAY_2022_INDEPENDENT_LUCAS_GRIDS_VS_REPORTING_WWTP_SOURCE_ONLY.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive Norway independent 2022 BMS grid versus original same-cycle WWTP N/P exposure-source feasibility"
+          git fetch origin analysis/lycaenidae-norway-belgium-ebms-source-20261108
+          git rebase origin/analysis/lycaenidae-norway-belgium-ebms-source-20261108
+          git push origin HEAD:analysis/lycaenidae-norway-belgium-ebms-source-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-norway-BMS-independent-grids-versus-original-NP-FW-outfalls
+          path: |
+            results/lycaenidae_norway_flanders_2022_source_only/2022_NO_BE_BMS_GRID_VS_EEA_WWTP_SOURCE_ONLY_QC.json
+            results/lycaenidae_norway_flanders_2022_source_only/NORWAY_2022_INDEPENDENT_LUCAS_GRIDS_VS_REPORTING_WWTP_SOURCE_ONLY.csv
+          retention-days: 90
+          if-no-files-found: warn
