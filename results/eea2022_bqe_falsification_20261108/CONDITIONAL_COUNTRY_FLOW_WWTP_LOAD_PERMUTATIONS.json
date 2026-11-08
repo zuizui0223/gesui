@@ -1,0 +1,176 @@
+{
+  "country_and_Q_stratification_not_full_agriculture_or_urban_adjustment": true,
+  "date": "2026-11-08T02:37:08.078437+00:00",
+  "limitations": [
+    "This null relies on unproven conditional exchangeability of upstream WWTP loads within the selected country/river flow stratum",
+    "River network and catchment-source errors, population density and agricultural pressures are unadjusted",
+    "Country-specific EQR method scales and original source missingness could produce spurious predictive ordering",
+    "Repeated 2022 EQR sites are observational, not randomized sewage load treatments",
+    "This permutation is posthoc because original EQR predictive results were already known; p is descriptive only",
+    "N and P loads strongly correlate in the original EEA both-positive-source sample, so nutrient-specific mechanism unidentified"
+  ],
+  "numpy_version": "2.4.6",
+  "original_2022_EQR_outcome_run": 42432384196,
+  "original_5_geographic_folds_reused": true,
+  "original_EEA_BQE_source_run": 42432030617,
+  "original_EEA_reported_N_and_P_mass_are_collinear": true,
+  "original_fixed_Ridge_alpha": 10,
+  "posthoc_not_preregistered": true,
+  "random_seed": 20261108,
+  "results": {
+    "benthic_invertebrates": {
+      "N": {
+        "within_country_and_source_positive_river_flow_strata": {
+          "actual_2022_observed_MSE": 0.057523296165529335,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.005,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.05779132699355259,
+          "null_95th_MSE": 0.05804045616182201,
+          "null_MSE_max": 0.058125432870356535,
+          "null_MSE_min": 0.05773624523301192,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.05791014017141583,
+          "null_randomized_better_or_equal_count": 0,
+          "number_of_exchangeable_cells": 15,
+          "number_of_exposed_sites_reassigned": 146,
+          "river_flow_strata_preserved": true,
+          "source_positive_presence_preserved": true
+        },
+        "within_country_source_positive": {
+          "actual_2022_observed_MSE": 0.057523296165529335,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.005,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.057745578285262326,
+          "null_95th_MSE": 0.058111307258649325,
+          "null_MSE_max": 0.058201310775833244,
+          "null_MSE_min": 0.057689555535339644,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.05795147287719779,
+          "null_randomized_better_or_equal_count": 0,
+          "number_of_exchangeable_cells": 9,
+          "number_of_exposed_sites_reassigned": 146,
+          "river_flow_strata_preserved": false,
+          "source_positive_presence_preserved": true
+        }
+      },
+      "P": {
+        "within_country_and_source_positive_river_flow_strata": {
+          "actual_2022_observed_MSE": 0.057694631651226055,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.005,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.05794203968968994,
+          "null_95th_MSE": 0.05821593300331074,
+          "null_MSE_max": 0.05833076540799867,
+          "null_MSE_min": 0.057853727887605705,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.05807220675055183,
+          "null_randomized_better_or_equal_count": 0,
+          "number_of_exchangeable_cells": 15,
+          "number_of_exposed_sites_reassigned": 146,
+          "river_flow_strata_preserved": true,
+          "source_positive_presence_preserved": true
+        },
+        "within_country_source_positive": {
+          "actual_2022_observed_MSE": 0.057694631651226055,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.005,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.05790129868653789,
+          "null_95th_MSE": 0.058331042168911634,
+          "null_MSE_max": 0.05840876948021268,
+          "null_MSE_min": 0.05781656624999119,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.05813587183209722,
+          "null_randomized_better_or_equal_count": 0,
+          "number_of_exchangeable_cells": 9,
+          "number_of_exposed_sites_reassigned": 146,
+          "river_flow_strata_preserved": false,
+          "source_positive_presence_preserved": true
+        }
+      }
+    },
+    "phytobenthos": {
+      "N": {
+        "within_country_and_source_positive_river_flow_strata": {
+          "actual_2022_observed_MSE": 0.03587107976431051,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.015,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.035881939739686945,
+          "null_95th_MSE": 0.035946037380497876,
+          "null_MSE_max": 0.03595769360315974,
+          "null_MSE_min": 0.03586176268345057,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.035913960851996385,
+          "null_randomized_better_or_equal_count": 2,
+          "number_of_exchangeable_cells": 15,
+          "number_of_exposed_sites_reassigned": 110,
+          "river_flow_strata_preserved": true,
+          "source_positive_presence_preserved": true
+        },
+        "within_country_source_positive": {
+          "actual_2022_observed_MSE": 0.03587107976431051,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.015,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.035883390308223795,
+          "null_95th_MSE": 0.03595376546207606,
+          "null_MSE_max": 0.035971382495418945,
+          "null_MSE_min": 0.03584013059940345,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.035922475427660576,
+          "null_randomized_better_or_equal_count": 2,
+          "number_of_exchangeable_cells": 8,
+          "number_of_exposed_sites_reassigned": 110,
+          "river_flow_strata_preserved": false,
+          "source_positive_presence_preserved": true
+        }
+      },
+      "P": {
+        "within_country_and_source_positive_river_flow_strata": {
+          "actual_2022_observed_MSE": 0.03587595022352748,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.215,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.03585088510819083,
+          "null_95th_MSE": 0.035941833873622084,
+          "null_MSE_max": 0.03595577411559888,
+          "null_MSE_min": 0.035811137103473424,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.035899289112157326,
+          "null_randomized_better_or_equal_count": 42,
+          "number_of_exchangeable_cells": 15,
+          "number_of_exposed_sites_reassigned": 110,
+          "river_flow_strata_preserved": true,
+          "source_positive_presence_preserved": true
+        },
+        "within_country_source_positive": {
+          "actual_2022_observed_MSE": 0.03587595022352748,
+          "country_membership_preserved": true,
+          "monte_carlo_one_sided_extremeness_probability": 0.16,
+          "n_permutations": 199,
+          "null_05th_MSE": 0.03585668136883762,
+          "null_95th_MSE": 0.03595005281239425,
+          "null_MSE_max": 0.035973292257662624,
+          "null_MSE_min": 0.035774546099606654,
+          "null_is_not_a_valid_causal_or_confirmatory_exchangeability_test": true,
+          "null_median_MSE": 0.03591400331249536,
+          "null_randomized_better_or_equal_count": 31,
+          "number_of_exchangeable_cells": 8,
+          "number_of_exposed_sites_reassigned": 110,
+          "river_flow_strata_preserved": false,
+          "source_positive_presence_preserved": true
+        }
+      }
+    }
+  },
+  "schema": "gesui_2022_posthoc_reported_WWTP_mass_within_exposed_country_and_Q_permutation_v01",
+  "scientific_scope": "annual WWTP reported N/P mass conditional prediction, not direct pollutant dose",
+  "sklearn_version": "1.9.1",
+  "source_mass_randomized_only_among_registered_positive_source_sites": true,
+  "source_zero_sites_not_reassigned": true,
+  "status": "PASS_SOURCE_LOCKED_CONDITIONAL_PERMUTATION_EXPLORATORY"
+}

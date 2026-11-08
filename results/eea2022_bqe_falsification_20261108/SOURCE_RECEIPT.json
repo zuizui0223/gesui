@@ -1,0 +1,55 @@
+{
+  "new_source_exact_file_sha256": [
+    {
+      "bytes": 20621,
+      "file": "BQE_2022_ORIGINAL_MISSINGNESS_AUDIT.json",
+      "original_file_SHA256": "1a17a2798d72ba671cc82f490f9d2f00dd1449540273acedd793752c6b466f6d",
+      "original_run_id": 42438230754
+    },
+    {
+      "bytes": 22964,
+      "file": "WFD2022_REGULATORY_PRESSURE_SOURCE_METADATA.json",
+      "original_file_SHA256": "cbcb689ae4cdce5c1dd16e58b202f5ad03045adc7144e0840ae555913076ef67",
+      "original_run_id": 42438360158
+    },
+    {
+      "bytes": 12188,
+      "file": "EMISSIONS2026_OFFICIAL_SOURCE_INVENTORY.json",
+      "original_file_SHA256": "ee6b521331813aee9184f6acfc0dfbd250f0f4ffee173951a2d91f3db49bc41f",
+      "original_run_id": 42438505287
+    },
+    {
+      "bytes": 9176,
+      "file": "EMISSIONS_2022_SOURCE_GRAIN_QC.json",
+      "original_file_SHA256": "d0b6f2b2d6b62fe42d13b5595ed7f174fb8cad16edb3ca87fac13c9db571857d",
+      "original_run_id": 42438695309
+    },
+    {
+      "bytes": 5125,
+      "file": "NP1_AGRICULTURAL_2022_SOURCE_SUPPORT.json",
+      "original_file_SHA256": "914489c73dc95bdc8c9914a3bbee029a40032574c7c04158a1d9c632619aae68",
+      "original_run_id": 42439118473
+    },
+    {
+      "bytes": 874712,
+      "file": "NP1_2022_INDEPENDENT_REGIONAL_SOURCE_STATION_CROSSWALK.csv",
+      "original_file_SHA256": "e86eb393564a639b04713be58ce89f5006ebee53f2cb0939da0d85b720b64c88",
+      "original_run_id": 42439118473
+    },
+    {
+      "bytes": 8581,
+      "file": "CONDITIONAL_COUNTRY_FLOW_WWTP_LOAD_PERMUTATIONS.json",
+      "original_file_SHA256": "4a5b03158221aa8eb76ed006943a93b307a9d623326391e478c36e2039fe4a23",
+      "original_run_id": 42439198765
+    }
+  ],
+  "no_new_network_calls_to_publisher_in_archive": true,
+  "original_EEA_biological_model_run": 42432384196,
+  "original_independent_model_audit_run": 42436814278,
+  "primary_causal_sewage_effect_or_P_vs_N_mechanism_proven": false,
+  "raw_2026_EEA_Biology_or_Emissions_ZIP_rehosted": false,
+  "scientific_scope": "2022 WWTP N/P mass association with benthic EQR; missing-data, agricultural source-coverage and posthoc permutation falsification",
+  "source_original_2022_EEA_Emissions2026_archive_sha256": "8765eea4b5a4d48fc8b34d7a05e2ba42a4af098013dbf992455009c4126252ef",
+  "source_original_2022_EEA_WWTP_BQE_site_registry_sha256": "e12df511d64c4c580ef2422dccdbbd11a1309c84d29d467fd4527206e41fa636",
+  "source_original_EEA_Biology2026_uncompressed_EQR_sha256": "f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9"
+}

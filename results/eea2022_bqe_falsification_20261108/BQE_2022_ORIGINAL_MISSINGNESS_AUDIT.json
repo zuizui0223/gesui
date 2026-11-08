@@ -1,0 +1,496 @@
+{
+  "audit_utc": "2026-11-08T02:22:26.659101+00:00",
+  "findings": {
+    "benthic_invertebrates": {
+      "by_country": [
+        {
+          "country": "PL",
+          "missing_fraction_source_zero": 1.0,
+          "missing_fraction_upstream_positive": 1.0,
+          "not_modelled_due_to_original_normalized_EQR": 807,
+          "not_modelled_upstream_WWTP_positive": 247,
+          "numeric_2022_EQR_model_sites": 0,
+          "source_2022_BQE_candidate_sites": 807,
+          "source_upstream_WWTP_positive_candidate_sites": 247,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "AT",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 68,
+          "source_2022_BQE_candidate_sites": 68,
+          "source_upstream_WWTP_positive_candidate_sites": 53,
+          "source_upstream_WWTP_positive_model_sites": 53
+        },
+        {
+          "country": "BE",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 69,
+          "source_2022_BQE_candidate_sites": 69,
+          "source_upstream_WWTP_positive_candidate_sites": 3,
+          "source_upstream_WWTP_positive_model_sites": 3
+        },
+        {
+          "country": "FR",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 1592,
+          "source_2022_BQE_candidate_sites": 1592,
+          "source_upstream_WWTP_positive_candidate_sites": 7,
+          "source_upstream_WWTP_positive_model_sites": 7
+        },
+        {
+          "country": "HR",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 29,
+          "source_2022_BQE_candidate_sites": 29,
+          "source_upstream_WWTP_positive_candidate_sites": 5,
+          "source_upstream_WWTP_positive_model_sites": 5
+        },
+        {
+          "country": "IE",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 57,
+          "source_2022_BQE_candidate_sites": 57,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "IT",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 358,
+          "source_2022_BQE_candidate_sites": 358,
+          "source_upstream_WWTP_positive_candidate_sites": 36,
+          "source_upstream_WWTP_positive_model_sites": 36
+        },
+        {
+          "country": "LT",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 99,
+          "source_2022_BQE_candidate_sites": 99,
+          "source_upstream_WWTP_positive_candidate_sites": 6,
+          "source_upstream_WWTP_positive_model_sites": 6
+        },
+        {
+          "country": "LU",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 38,
+          "source_2022_BQE_candidate_sites": 38,
+          "source_upstream_WWTP_positive_candidate_sites": 16,
+          "source_upstream_WWTP_positive_model_sites": 16
+        },
+        {
+          "country": "NL",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 43,
+          "source_2022_BQE_candidate_sites": 43,
+          "source_upstream_WWTP_positive_candidate_sites": 14,
+          "source_upstream_WWTP_positive_model_sites": 14
+        },
+        {
+          "country": "NO",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 110,
+          "source_2022_BQE_candidate_sites": 110,
+          "source_upstream_WWTP_positive_candidate_sites": 6,
+          "source_upstream_WWTP_positive_model_sites": 6
+        },
+        {
+          "country": "SE",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 5,
+          "source_2022_BQE_candidate_sites": 5,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "SI",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 3,
+          "source_2022_BQE_candidate_sites": 3,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "SK",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 4,
+          "source_2022_BQE_candidate_sites": 4,
+          "source_upstream_WWTP_positive_candidate_sites": 1,
+          "source_upstream_WWTP_positive_model_sites": 1
+        }
+      ],
+      "code": "EEA_13-01-4",
+      "element": "benthic_invertebrates",
+      "fraction_of_source_zero_sites_removed": 0.19390581717451524,
+      "fraction_of_upstream_source_sites_removed": 0.6269035532994924,
+      "missing_original_normalized_EQR_values": 807,
+      "missing_upstream_reported_load_positive": 247,
+      "model_upstream_reported_load_positive": 147,
+      "negative_original_numeric_EQR": 0,
+      "nonfinite_nonmissing_values": 0,
+      "not_an_effect_of_sewage_or_model_fit": true,
+      "numeric_EQR_usable_sites": 2475,
+      "original_2022_EQR_rows_matched_by_site_key": 3282,
+      "original_classification_method_by_missingness": {
+        "excluded_count": {
+          "MISSING": 807
+        },
+        "retained_count": {
+          "ASPT": 115,
+          "I2M2": 1592,
+          "IBGN": 69,
+          "MI-RW-AT": 68,
+          "MI-RW-SK": 4,
+          "MISSING": 3,
+          "MacrOper": 358,
+          "Other": 209,
+          "Q-value": 57
+        }
+      },
+      "original_status_codes_among_excluded": {
+        "A": 807
+      },
+      "raw_EQR_greater_than_one_among_excluded": 0,
+      "raw_EQR_numeric_among_excluded": 0,
+      "source_site_n_before_numeric_EQR_validation": 3282,
+      "source_sites_excluded_due_to_non_numeric_or_missing_EQR": 807,
+      "source_total_upstream_reported_load_positive": 394
+    },
+    "fish": {
+      "by_country": [
+        {
+          "country": "AT",
+          "missing_fraction_source_zero": 1.0,
+          "missing_fraction_upstream_positive": 1.0,
+          "not_modelled_due_to_original_normalized_EQR": 57,
+          "not_modelled_upstream_WWTP_positive": 43,
+          "numeric_2022_EQR_model_sites": 0,
+          "source_2022_BQE_candidate_sites": 57,
+          "source_upstream_WWTP_positive_candidate_sites": 43,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "BE",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 34,
+          "source_2022_BQE_candidate_sites": 34,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "FR",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 843,
+          "source_2022_BQE_candidate_sites": 843,
+          "source_upstream_WWTP_positive_candidate_sites": 5,
+          "source_upstream_WWTP_positive_model_sites": 5
+        },
+        {
+          "country": "IT",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 91,
+          "source_2022_BQE_candidate_sites": 91,
+          "source_upstream_WWTP_positive_candidate_sites": 22,
+          "source_upstream_WWTP_positive_model_sites": 22
+        },
+        {
+          "country": "LT",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 275,
+          "source_2022_BQE_candidate_sites": 275,
+          "source_upstream_WWTP_positive_candidate_sites": 28,
+          "source_upstream_WWTP_positive_model_sites": 28
+        }
+      ],
+      "code": "EEA_14-02-8",
+      "element": "fish",
+      "fraction_of_source_zero_sites_removed": 0.011647254575707155,
+      "fraction_of_upstream_source_sites_removed": 0.4387755102040816,
+      "missing_original_normalized_EQR_values": 57,
+      "missing_upstream_reported_load_positive": 43,
+      "model_upstream_reported_load_positive": 55,
+      "negative_original_numeric_EQR": 0,
+      "nonfinite_nonmissing_values": 0,
+      "not_an_effect_of_sewage_or_model_fit": true,
+      "numeric_EQR_usable_sites": 1243,
+      "original_2022_EQR_rows_matched_by_site_key": 1300,
+      "original_classification_method_by_missingness": {
+        "excluded_count": {
+          "FIA": 57
+        },
+        "retained_count": {
+          "IBIP": 34,
+          "IPR": 843,
+          "LZI": 275,
+          "NISECI": 91
+        }
+      },
+      "original_status_codes_among_excluded": {
+        "M": 57
+      },
+      "raw_EQR_greater_than_one_among_excluded": 0,
+      "raw_EQR_numeric_among_excluded": 0,
+      "source_site_n_before_numeric_EQR_validation": 1300,
+      "source_sites_excluded_due_to_non_numeric_or_missing_EQR": 57,
+      "source_total_upstream_reported_load_positive": 98
+    },
+    "phytobenthos": {
+      "by_country": [
+        {
+          "country": "PL",
+          "missing_fraction_source_zero": 1.0,
+          "missing_fraction_upstream_positive": 1.0,
+          "not_modelled_due_to_original_normalized_EQR": 802,
+          "not_modelled_upstream_WWTP_positive": 233,
+          "numeric_2022_EQR_model_sites": 0,
+          "source_2022_BQE_candidate_sites": 802,
+          "source_upstream_WWTP_positive_candidate_sites": 233,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "AT",
+          "missing_fraction_source_zero": 1.0,
+          "missing_fraction_upstream_positive": 1.0,
+          "not_modelled_due_to_original_normalized_EQR": 77,
+          "not_modelled_upstream_WWTP_positive": 60,
+          "numeric_2022_EQR_model_sites": 0,
+          "source_2022_BQE_candidate_sites": 77,
+          "source_upstream_WWTP_positive_candidate_sites": 60,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "BE",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 75,
+          "source_2022_BQE_candidate_sites": 75,
+          "source_upstream_WWTP_positive_candidate_sites": 3,
+          "source_upstream_WWTP_positive_model_sites": 3
+        },
+        {
+          "country": "FR",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 1845,
+          "source_2022_BQE_candidate_sites": 1845,
+          "source_upstream_WWTP_positive_candidate_sites": 12,
+          "source_upstream_WWTP_positive_model_sites": 12
+        },
+        {
+          "country": "HR",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 31,
+          "source_2022_BQE_candidate_sites": 31,
+          "source_upstream_WWTP_positive_candidate_sites": 5,
+          "source_upstream_WWTP_positive_model_sites": 5
+        },
+        {
+          "country": "IE",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 152,
+          "source_2022_BQE_candidate_sites": 152,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "IT",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 337,
+          "source_2022_BQE_candidate_sites": 337,
+          "source_upstream_WWTP_positive_candidate_sites": 42,
+          "source_upstream_WWTP_positive_model_sites": 42
+        },
+        {
+          "country": "LT",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 184,
+          "source_2022_BQE_candidate_sites": 184,
+          "source_upstream_WWTP_positive_candidate_sites": 20,
+          "source_upstream_WWTP_positive_model_sites": 20
+        },
+        {
+          "country": "LU",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 46,
+          "source_2022_BQE_candidate_sites": 46,
+          "source_upstream_WWTP_positive_candidate_sites": 20,
+          "source_upstream_WWTP_positive_model_sites": 20
+        },
+        {
+          "country": "LV",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 40,
+          "source_2022_BQE_candidate_sites": 40,
+          "source_upstream_WWTP_positive_candidate_sites": 4,
+          "source_upstream_WWTP_positive_model_sites": 4
+        },
+        {
+          "country": "NO",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": 0.0,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 57,
+          "source_2022_BQE_candidate_sites": 57,
+          "source_upstream_WWTP_positive_candidate_sites": 4,
+          "source_upstream_WWTP_positive_model_sites": 4
+        },
+        {
+          "country": "SE",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 12,
+          "source_2022_BQE_candidate_sites": 12,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "SI",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 3,
+          "source_2022_BQE_candidate_sites": 3,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        },
+        {
+          "country": "SK",
+          "missing_fraction_source_zero": 0.0,
+          "missing_fraction_upstream_positive": null,
+          "not_modelled_due_to_original_normalized_EQR": 0,
+          "not_modelled_upstream_WWTP_positive": 0,
+          "numeric_2022_EQR_model_sites": 2,
+          "source_2022_BQE_candidate_sites": 2,
+          "source_upstream_WWTP_positive_candidate_sites": 0,
+          "source_upstream_WWTP_positive_model_sites": 0
+        }
+      ],
+      "code": "EEA_124-04-9",
+      "element": "phytobenthos",
+      "fraction_of_source_zero_sites_removed": 0.17975460122699385,
+      "fraction_of_upstream_source_sites_removed": 0.7270471464019851,
+      "missing_original_normalized_EQR_values": 879,
+      "missing_upstream_reported_load_positive": 293,
+      "model_upstream_reported_load_positive": 110,
+      "negative_original_numeric_EQR": 0,
+      "nonfinite_nonmissing_values": 0,
+      "not_an_effect_of_sewage_or_model_fit": true,
+      "numeric_EQR_usable_sites": 2784,
+      "original_2022_EQR_rows_matched_by_site_key": 3663,
+      "original_classification_method_by_missingness": {
+        "excluded_count": {
+          "IO": 802,
+          "PB-AU": 77
+        },
+        "retained_count": {
+          "IBD": 1845,
+          "ICMi": 337,
+          "IPS": 123,
+          "MISSING": 3,
+          "Other": 71,
+          "PBd-SE": 12,
+          "PIT": 57,
+          "TDI": 152,
+          "UFBI-LT": 184
+        }
+      },
+      "original_status_codes_among_excluded": {
+        "A": 802,
+        "M": 77
+      },
+      "raw_EQR_greater_than_one_among_excluded": 0,
+      "raw_EQR_numeric_among_excluded": 0,
+      "source_site_n_before_numeric_EQR_validation": 3663,
+      "source_sites_excluded_due_to_non_numeric_or_missing_EQR": 879,
+      "source_total_upstream_reported_load_positive": 403
+    }
+  },
+  "no_causal_WWTP_effect_inference": true,
+  "no_propagation_or_reconstruction_of_missing_normalized_EQR": true,
+  "old_biological_prediction_coefficients_untouched": true,
+  "original_EEA_Biology_model_run": 42432384196,
+  "original_EEA_Biology_uncompressed_EQR_SHA256": "f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9",
+  "original_source_only_2022_registry_SHA256": "e12df511d64c4c580ef2422dccdbbd11a1309c84d29d467fd4527206e41fa636",
+  "pandas_nullable_numeric_NA_counted_explicitly": true,
+  "schema": "gesui_EEA2026_Biology_EQR_original_2022_completeness_and_source_exposure_audit_v01",
+  "source_region_folds_and_station_selection_unchanged": true,
+  "source_reported_status_definitions_need_official_dictionary_interpretation": true,
+  "study_year": 2022
+}
