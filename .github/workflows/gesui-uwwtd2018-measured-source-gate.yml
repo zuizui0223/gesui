@@ -1,0 +1,49 @@
+name: gesui 2018 independent WWTP measured N P discharge and fresh-water outlet source QC
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2018-independent-bqe-validation-20261108"
+    paths:
+      - "scripts/gesui_uwwtd2018_measured_source_qc.py"
+      - ".github/workflows/gesui-uwwtd2018-measured-source-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original2018-plant-outlet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas
+      - name: Restore historical original UWWTD first-seen source-member inventory
+        run: |
+          mkdir -p /tmp/gesui2018-source /tmp/gesui2018-source/old
+          gh run download 42440990345 --repo zuizui0223/gesui \
+            --name gesui-independent2018-UWWTD-original-source-only-inventory \
+            --dir /tmp/gesui2018-source/old
+          curl --fail --location --silent --show-error --retry 2 --max-time 420 \
+            https://sdi.eea.europa.eu/datashare/s/mGmXg3zcEqKQLTG/download \
+            -o /tmp/gesui2018-source/UWWTD2018_original.zip
+      - name: Verify exact original source 2018 measured N/P values, 2018 report periods and unique direct FW outlet support
+        run: |
+          python -u scripts/gesui_uwwtd2018_measured_source_qc.py \
+            --archive /tmp/gesui2018-source/UWWTD2018_original.zip \
+            --inventory /tmp/gesui2018-source/old/SOURCE_2018_ORIGINAL_INVENTORY.json \
+            --out /tmp/gesui2018-source/2018_NP_MEASURED_SOURCE_QC.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-independent2018-WWTP-NP-measured-original-source-support
+          path: /tmp/gesui2018-source/2018_NP_MEASURED_SOURCE_QC.json
+          retention-days: 90
+          if-no-files-found: warn

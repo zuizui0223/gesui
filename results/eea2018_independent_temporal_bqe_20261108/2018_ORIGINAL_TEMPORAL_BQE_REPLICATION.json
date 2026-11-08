@@ -1,0 +1,964 @@
+{
+  "2018_EEA_UWWTD_source_archive_version": "eea_t_uwwtd-waterbase_p_2017-2018_v07_r01",
+  "2018_source_only_registry_sha256": "5a074f5182711c4ab74ef9bdacfa3918e9fcb434dd0b75c67072a0f06459c3e1",
+  "all_predeclared_biological_classes_preserved": [
+    "benthic_invertebrates",
+    "phytobenthos",
+    "fish"
+  ],
+  "biological_year_matches_WWTP_report_year": true,
+  "date_utc": "2026-11-08T03:20:28.923207+00:00",
+  "limitations": [
+    "This is retrospective independently chosen year 2018, not a randomized WWTP emission change",
+    "2018 EQR source country/method and monitor locations differ from 2022, and missing EQR must not be imputed",
+    "Historical 2018 UWWTD measured annual load subset may differ from 2022 reporting completeness",
+    "2018 measured WWTP load is not actual received N or P in a BQE sampling stream",
+    "P and N source masses may collinear, inability to isolate P-vs-N cause",
+    "Predefined source-only 3degree folds, country and national assessment method adjustment do not remove agriculture/urban/hydro confounds",
+    "Official HydroRIVERS original not independently reproduced from the 3rd-party transformed v1 EU mirror",
+    "Same EEA Biology2026 source release spans both 2018 and 2022, so temporal replication is not independent-institution replication"
+  ],
+  "official_EEA_Biology_original_uncompressed_SHA256": "f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9",
+  "original_2018_model_selection_not_tuned_to_2018_outcomes": true,
+  "original_2018_source_only_run": 42441999786,
+  "original_2022_benthic_prediction_MSE_gains": {
+    "N_percent": 1.397,
+    "P_percent": 1.103
+  },
+  "results": {
+    "benthic_invertebrates": {
+      "element": "benthic_invertebrates",
+      "nutrients": {
+        "N": {
+          "descriptive_source_mass_vs_EQR_spearman_p_unadjusted": 1.0475529592713502e-11,
+          "descriptive_source_mass_vs_EQR_spearman_rho": -0.13197457375982907,
+          "fixed_source_year_geographic_holdout": {
+            "Ridge_fixed_alpha": 10.0,
+            "geographic_MSE_changes": {
+              "M1_plus_2018_upstream_measured_mass": {
+                "MSE_absolute_improvement": 0.0006298152693850131,
+                "MSE_relative_improvement_pct": 1.1902435174161137,
+                "positive_3deg_geographic_blocks": 35,
+                "total_3deg_geographic_blocks": 52
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "MSE_absolute_improvement": 1.6840485453355203e-05,
+                "MSE_relative_improvement_pct": 0.03182564732126731,
+                "positive_3deg_geographic_blocks": 35,
+                "total_3deg_geographic_blocks": 52
+              },
+              "M3_upstream_and_downstream": {
+                "MSE_absolute_improvement": 0.0004941844272204829,
+                "MSE_relative_improvement_pct": 0.9339243417860069,
+                "positive_3deg_geographic_blocks": 35,
+                "total_3deg_geographic_blocks": 52
+              }
+            },
+            "heldout_MSE_MAE_and_folds": {
+              "M0_country_method_hydrogeo": {
+                "heldout_MAE": 0.18278069279956538,
+                "heldout_MSE": 0.052914824585835345,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.18274169908217708,
+                    "MSE": 0.05448438091118107,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.1745805366926111,
+                    "MSE": 0.04343310641465785,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20601887726955742,
+                    "MSE": 0.06985122888331748,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.1603110197125731,
+                    "MSE": 0.04043461373405851,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.18685749328385962,
+                    "MSE": 0.054182963666769626,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              },
+              "M1_plus_2018_upstream_measured_mass": {
+                "heldout_MAE": 0.18162645777416936,
+                "heldout_MSE": 0.05228500931645033,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.18091875486967499,
+                    "MSE": 0.05309291093041855,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.1735506340114562,
+                    "MSE": 0.043161652994423975,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20495031066400615,
+                    "MSE": 0.06910131885360993,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.15939133628014926,
+                    "MSE": 0.04021428548032982,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.1859469607447784,
+                    "MSE": 0.05371894136206734,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "heldout_MAE": 0.1828412251736348,
+                "heldout_MSE": 0.05289798410038199,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.1829831588194022,
+                    "MSE": 0.05471102091172729,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.17488901537621784,
+                    "MSE": 0.04370247572826068,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20541527353531408,
+                    "MSE": 0.06937589981330007,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.16127863755731336,
+                    "MSE": 0.040678742474961706,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.1863715782373886,
+                    "MSE": 0.05388857643335567,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              },
+              "M3_upstream_and_downstream": {
+                "heldout_MAE": 0.18187187828050622,
+                "heldout_MSE": 0.05242064015861486,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.18128736966207426,
+                    "MSE": 0.053394869635550096,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.17402100243420665,
+                    "MSE": 0.04340303486017959,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20468162619017416,
+                    "MSE": 0.06889252660661357,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.1604343419872477,
+                    "MSE": 0.040792307956170754,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.18566836763861191,
+                    "MSE": 0.05354650700341519,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              }
+            },
+            "nutrient": "N",
+            "original_2018_preoutcome_fold_assignments_used": true,
+            "original_2022_BQE_data_used_in_2018_model": false,
+            "passes_predeclared_temporal_prediction_direction_rule": true,
+            "same_station_denominator": true
+          }
+        },
+        "P": {
+          "descriptive_source_mass_vs_EQR_spearman_p_unadjusted": 1.2719890194306418e-11,
+          "descriptive_source_mass_vs_EQR_spearman_rho": -0.1314354249246941,
+          "fixed_source_year_geographic_holdout": {
+            "Ridge_fixed_alpha": 10.0,
+            "geographic_MSE_changes": {
+              "M1_plus_2018_upstream_measured_mass": {
+                "MSE_absolute_improvement": 0.000519417398202375,
+                "MSE_relative_improvement_pct": 0.9816103563941829,
+                "positive_3deg_geographic_blocks": 36,
+                "total_3deg_geographic_blocks": 52
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "MSE_absolute_improvement": 0.00016542075361546116,
+                "MSE_relative_improvement_pct": 0.312617031068723,
+                "positive_3deg_geographic_blocks": 36,
+                "total_3deg_geographic_blocks": 52
+              },
+              "M3_upstream_and_downstream": {
+                "MSE_absolute_improvement": 0.00047734678954661214,
+                "MSE_relative_improvement_pct": 0.9021040762826077,
+                "positive_3deg_geographic_blocks": 34,
+                "total_3deg_geographic_blocks": 52
+              }
+            },
+            "heldout_MSE_MAE_and_folds": {
+              "M0_country_method_hydrogeo": {
+                "heldout_MAE": 0.18278069279956538,
+                "heldout_MSE": 0.052914824585835345,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.18274169908217708,
+                    "MSE": 0.05448438091118107,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.1745805366926111,
+                    "MSE": 0.04343310641465785,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20601887726955742,
+                    "MSE": 0.06985122888331748,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.1603110197125731,
+                    "MSE": 0.04043461373405851,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.18685749328385962,
+                    "MSE": 0.054182963666769626,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              },
+              "M1_plus_2018_upstream_measured_mass": {
+                "heldout_MAE": 0.18160357904811025,
+                "heldout_MSE": 0.05239540718763297,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.18185303586445845,
+                    "MSE": 0.05385484308046839,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.17369262122088786,
+                    "MSE": 0.04314486144074485,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20525216463891952,
+                    "MSE": 0.06932732782536437,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.1577968810633224,
+                    "MSE": 0.039694462449225365,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.1858917188161243,
+                    "MSE": 0.05375263871020338,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "heldout_MAE": 0.18252310157800974,
+                "heldout_MSE": 0.052749403832219884,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.1827567299173329,
+                    "MSE": 0.05451945365631044,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.17489701890481424,
+                    "MSE": 0.04371766673121139,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20507794185244296,
+                    "MSE": 0.06916760602854338,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.16047364021968888,
+                    "MSE": 0.04039083854359026,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.18610515340172107,
+                    "MSE": 0.053811644465320774,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              },
+              "M3_upstream_and_downstream": {
+                "heldout_MAE": 0.18171289198667437,
+                "heldout_MSE": 0.05243747779628873,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.18194779894854582,
+                    "MSE": 0.053941593469879506,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 534
+                  },
+                  {
+                    "MAE": 0.17426204488218566,
+                    "MSE": 0.04343326512583614,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 520
+                  },
+                  {
+                    "MAE": 0.20472468842730165,
+                    "MSE": 0.06893546092312725,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 558
+                  },
+                  {
+                    "MAE": 0.1587893570103186,
+                    "MSE": 0.04022197695249749,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 484
+                  },
+                  {
+                    "MAE": 0.18543669996321877,
+                    "MSE": 0.053525620254573046,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 538
+                  }
+                ]
+              }
+            },
+            "nutrient": "P",
+            "original_2018_preoutcome_fold_assignments_used": true,
+            "original_2022_BQE_data_used_in_2018_model": false,
+            "passes_predeclared_temporal_prediction_direction_rule": true,
+            "same_station_denominator": true
+          }
+        }
+      },
+      "original_2018_EEA_EQR_code": "EEA_13-01-4",
+      "source_QC": {
+        "2018_all_source_only_upstream_reported_measured_NP_sites": 204,
+        "2018_country_n": 15,
+        "2018_mean_normalized_EQR": 0.6206686686342864,
+        "2018_missing_by_country": {
+          "AT": 1,
+          "IT": 4
+        },
+        "2018_missing_invalid_original_normalized_EQR": 5,
+        "2018_missing_source_positive_by_country": {
+          "AT": 1,
+          "IT": 1
+        },
+        "2018_missing_upstream_reported_measured_NP_sites": 2,
+        "2018_numeric_EQR_country_counts": {
+          "AT": 1,
+          "BE": 53,
+          "FR": 1507,
+          "HR": 8,
+          "HU": 258,
+          "IE": 65,
+          "IT": 156,
+          "LT": 83,
+          "LU": 1,
+          "LV": 51,
+          "NL": 36,
+          "NO": 145,
+          "PL": 253,
+          "SE": 6,
+          "SI": 11
+        },
+        "2018_numeric_EQR_range": [
+          0.0,
+          1.0
+        ],
+        "2018_original_BQE_source_only_river_sites": 2639,
+        "2018_original_EQR_above_1": 0,
+        "2018_original_EQR_site_values_matched": 2634,
+        "2018_original_raw_EQR_numeric_among_normalized_missing": 4,
+        "2018_spatial_3deg_blocks": 52,
+        "2018_upstream_source_country_n": 12,
+        "2018_valid_EQR_upstream_reported_measured_NP_sites": 202,
+        "2018_valid_original_numeric_normalized_EQR": 2634,
+        "predeclared_2018_validation_source_and_EQR_support_pass": true
+      },
+      "status": "2018_INDEPENDENT_YEAR_VALID_BQE_TEST_COMPLETE__OBSERVATIONAL",
+      "year": 2018
+    },
+    "fish": {
+      "element": "fish",
+      "original_2018_EEA_EQR_code": "EEA_14-02-8",
+      "source_QC": {
+        "2018_all_source_only_upstream_reported_measured_NP_sites": 3,
+        "2018_country_n": 2,
+        "2018_mean_normalized_EQR": 0.4728267718115369,
+        "2018_missing_by_country": {
+          "AT": 1
+        },
+        "2018_missing_invalid_original_normalized_EQR": 1,
+        "2018_missing_source_positive_by_country": {
+          "AT": 1
+        },
+        "2018_missing_upstream_reported_measured_NP_sites": 1,
+        "2018_numeric_EQR_country_counts": {
+          "BE": 30,
+          "FR": 1018
+        },
+        "2018_numeric_EQR_range": [
+          0.13463848,
+          1.0
+        ],
+        "2018_original_BQE_source_only_river_sites": 1049,
+        "2018_original_EQR_above_1": 0,
+        "2018_original_EQR_site_values_matched": 1048,
+        "2018_original_raw_EQR_numeric_among_normalized_missing": 0,
+        "2018_spatial_3deg_blocks": 14,
+        "2018_upstream_source_country_n": 1,
+        "2018_valid_EQR_upstream_reported_measured_NP_sites": 2,
+        "2018_valid_original_numeric_normalized_EQR": 1048,
+        "predeclared_2018_validation_source_and_EQR_support_pass": false
+      },
+      "status": "2018_NOT_TESTABLE_ORIGINAL_SOURCE_AND_BIOLOGY_SUPPORT_GATE_FAILED",
+      "year": 2018
+    },
+    "phytobenthos": {
+      "element": "phytobenthos",
+      "nutrients": {
+        "N": {
+          "descriptive_source_mass_vs_EQR_spearman_p_unadjusted": 0.7869269367068016,
+          "descriptive_source_mass_vs_EQR_spearman_rho": 0.005233547079194061,
+          "fixed_source_year_geographic_holdout": {
+            "Ridge_fixed_alpha": 10.0,
+            "geographic_MSE_changes": {
+              "M1_plus_2018_upstream_measured_mass": {
+                "MSE_absolute_improvement": 4.709576323591591e-05,
+                "MSE_relative_improvement_pct": 0.12542557557805611,
+                "positive_3deg_geographic_blocks": 24,
+                "total_3deg_geographic_blocks": 47
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "MSE_absolute_improvement": 0.0001534565144235278,
+                "MSE_relative_improvement_pct": 0.4086858418953262,
+                "positive_3deg_geographic_blocks": 32,
+                "total_3deg_geographic_blocks": 47
+              },
+              "M3_upstream_and_downstream": {
+                "MSE_absolute_improvement": 0.00014786214557812455,
+                "MSE_relative_improvement_pct": 0.39378690228337526,
+                "positive_3deg_geographic_blocks": 28,
+                "total_3deg_geographic_blocks": 47
+              }
+            },
+            "heldout_MSE_MAE_and_folds": {
+              "M0_country_method_hydrogeo": {
+                "heldout_MAE": 0.15178383636227064,
+                "heldout_MSE": 0.03754877186639403,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.1616925201610244,
+                    "MSE": 0.03891827012148534,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.12220401138883016,
+                    "MSE": 0.02584837830352385,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.15790656839572986,
+                    "MSE": 0.04052035509863719,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.16017524174236392,
+                    "MSE": 0.04230549949203667,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15852495297398506,
+                    "MSE": 0.04078661286215384,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              },
+              "M1_plus_2018_upstream_measured_mass": {
+                "heldout_MAE": 0.15172783370130158,
+                "heldout_MSE": 0.03750167610315811,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.16208273297068654,
+                    "MSE": 0.03898517797193614,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.12219726547956584,
+                    "MSE": 0.02593071037693823,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.1575406622079994,
+                    "MSE": 0.04040300598910525,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15994881640977865,
+                    "MSE": 0.04205922295055133,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.1584527437977652,
+                    "MSE": 0.04076079842547001,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "heldout_MAE": 0.15142577664379692,
+                "heldout_MSE": 0.0373953153519705,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.16106667472536865,
+                    "MSE": 0.03872186265882924,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.1222954272860893,
+                    "MSE": 0.025932931507314346,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.15742022125842153,
+                    "MSE": 0.04039041281700214,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.1606455617682052,
+                    "MSE": 0.04233412513666688,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15723411629500636,
+                    "MSE": 0.040208064610548926,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              },
+              "M3_upstream_and_downstream": {
+                "heldout_MAE": 0.15146374109497243,
+                "heldout_MSE": 0.0374009097208159,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.16144951010076727,
+                    "MSE": 0.03879809358551085,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.12237841802091588,
+                    "MSE": 0.02604406693955612,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.15717287219657033,
+                    "MSE": 0.04031507517538098,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.16048833115172997,
+                    "MSE": 0.04218593450167664,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15736491984064865,
+                    "MSE": 0.04026949189431731,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              }
+            },
+            "nutrient": "N",
+            "original_2018_preoutcome_fold_assignments_used": true,
+            "original_2022_BQE_data_used_in_2018_model": false,
+            "passes_predeclared_temporal_prediction_direction_rule": false,
+            "same_station_denominator": true
+          }
+        },
+        "P": {
+          "descriptive_source_mass_vs_EQR_spearman_p_unadjusted": 0.7394953835310029,
+          "descriptive_source_mass_vs_EQR_spearman_rho": 0.006438181671897002,
+          "fixed_source_year_geographic_holdout": {
+            "Ridge_fixed_alpha": 10.0,
+            "geographic_MSE_changes": {
+              "M1_plus_2018_upstream_measured_mass": {
+                "MSE_absolute_improvement": 3.1837844367069157e-06,
+                "MSE_relative_improvement_pct": 0.008479064103708776,
+                "positive_3deg_geographic_blocks": 24,
+                "total_3deg_geographic_blocks": 47
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "MSE_absolute_improvement": 0.00025297425603893614,
+                "MSE_relative_improvement_pct": 0.6737217849336555,
+                "positive_3deg_geographic_blocks": 31,
+                "total_3deg_geographic_blocks": 47
+              },
+              "M3_upstream_and_downstream": {
+                "MSE_absolute_improvement": 0.00024322482443266125,
+                "MSE_relative_improvement_pct": 0.6477570699198988,
+                "positive_3deg_geographic_blocks": 32,
+                "total_3deg_geographic_blocks": 47
+              }
+            },
+            "heldout_MSE_MAE_and_folds": {
+              "M0_country_method_hydrogeo": {
+                "heldout_MAE": 0.15178383636227064,
+                "heldout_MSE": 0.03754877186639403,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.1616925201610244,
+                    "MSE": 0.03891827012148534,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.12220401138883016,
+                    "MSE": 0.02584837830352385,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.15790656839572986,
+                    "MSE": 0.04052035509863719,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.16017524174236392,
+                    "MSE": 0.04230549949203667,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15852495297398506,
+                    "MSE": 0.04078661286215384,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              },
+              "M1_plus_2018_upstream_measured_mass": {
+                "heldout_MAE": 0.15181804575669605,
+                "heldout_MSE": 0.03754558808195732,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.16183878506047863,
+                    "MSE": 0.038926820635336125,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.12223345048867856,
+                    "MSE": 0.02590066828198784,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.15781220178629693,
+                    "MSE": 0.04048968830771139,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.16031638735517695,
+                    "MSE": 0.042273068217128944,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15847135148966043,
+                    "MSE": 0.0407700716291772,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              },
+              "M2_plus_2018_downstream_source_placebo": {
+                "heldout_MAE": 0.15115854708538048,
+                "heldout_MSE": 0.03729579761035509,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.1611435788738216,
+                    "MSE": 0.03871562170023608,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.122071679540535,
+                    "MSE": 0.025863527595145406,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.1573413145165338,
+                    "MSE": 0.04037846268673994,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.16026730355506016,
+                    "MSE": 0.04220653417998371,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15648597170490133,
+                    "MSE": 0.03991859747357174,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              },
+              "M3_upstream_and_downstream": {
+                "heldout_MAE": 0.15119407339469051,
+                "heldout_MSE": 0.037305547041961366,
+                "regional_fold_results": [
+                  {
+                    "MAE": 0.1612127232783644,
+                    "MSE": 0.03872535918739502,
+                    "fold": 1,
+                    "test_original_3deg_blocks": 8,
+                    "test_site_n": 531
+                  },
+                  {
+                    "MAE": 0.12212536785810905,
+                    "MSE": 0.025909591466456206,
+                    "fold": 2,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 557
+                  },
+                  {
+                    "MAE": 0.15734464081537441,
+                    "MSE": 0.04037973243033362,
+                    "fold": 3,
+                    "test_original_3deg_blocks": 9,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.1603189294927925,
+                    "MSE": 0.04219686600825441,
+                    "fold": 4,
+                    "test_original_3deg_blocks": 11,
+                    "test_site_n": 533
+                  },
+                  {
+                    "MAE": 0.15648392835618696,
+                    "MSE": 0.039917975695632914,
+                    "fold": 5,
+                    "test_original_3deg_blocks": 10,
+                    "test_site_n": 516
+                  }
+                ]
+              }
+            },
+            "nutrient": "P",
+            "original_2018_preoutcome_fold_assignments_used": true,
+            "original_2022_BQE_data_used_in_2018_model": false,
+            "passes_predeclared_temporal_prediction_direction_rule": false,
+            "same_station_denominator": true
+          }
+        }
+      },
+      "original_2018_EEA_EQR_code": "EEA_124-04-9",
+      "source_QC": {
+        "2018_all_source_only_upstream_reported_measured_NP_sites": 222,
+        "2018_country_n": 12,
+        "2018_mean_normalized_EQR": 0.6557158740072323,
+        "2018_missing_by_country": {
+          "AT": 6
+        },
+        "2018_missing_invalid_original_normalized_EQR": 6,
+        "2018_missing_source_positive_by_country": {
+          "AT": 2
+        },
+        "2018_missing_upstream_reported_measured_NP_sites": 2,
+        "2018_numeric_EQR_country_counts": {
+          "BE": 48,
+          "FR": 1676,
+          "HR": 15,
+          "HU": 218,
+          "IT": 148,
+          "LT": 84,
+          "LU": 1,
+          "LV": 6,
+          "NO": 105,
+          "PL": 343,
+          "SE": 15,
+          "SI": 11
+        },
+        "2018_numeric_EQR_range": [
+          0.0,
+          1.0
+        ],
+        "2018_original_BQE_source_only_river_sites": 2676,
+        "2018_original_EQR_above_1": 0,
+        "2018_original_EQR_site_values_matched": 2670,
+        "2018_original_raw_EQR_numeric_among_normalized_missing": 0,
+        "2018_spatial_3deg_blocks": 47,
+        "2018_upstream_source_country_n": 10,
+        "2018_valid_EQR_upstream_reported_measured_NP_sites": 220,
+        "2018_valid_original_numeric_normalized_EQR": 2670,
+        "predeclared_2018_validation_source_and_EQR_support_pass": true
+      },
+      "status": "2018_INDEPENDENT_YEAR_VALID_BQE_TEST_COMPLETE__OBSERVATIONAL",
+      "year": 2018
+    }
+  },
+  "schema": "gesui_2018_independent_temporal_source_year_real_NP_WWTP_BQE_EQR_v01",
+  "sewage_causal_benthic_effect_proven": false,
+  "source_2018_measured_loads_are_not_2022_WWTP_loads": true,
+  "spatial_site_source_values_and_folds_frozen_before_2018_EQR": true,
+  "validation_year_2018_frozen_before_results": true
+}

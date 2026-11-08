@@ -1,0 +1,42 @@
+name: gesui site-disjoint 2018 to 2022 and reverse year-specific WWTP source transfer audit
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2018-independent-bqe-validation-20261108"
+    paths:
+      - "scripts/audit_2018_2022_site_disjoint_temporal_model_transfer.py"
+      - ".github/workflows/gesui-2018-2022-disjoint-transport.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  posthoc-site-disjoint-temporal-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet pandas numpy scikit-learn
+      - name: Test unchanged alpha10 source+country/method models on year-specific monitoring sites NOT represented in training year
+        run: |
+          python -u scripts/audit_2018_2022_site_disjoint_temporal_model_transfer.py \
+            --year2018 results/eea2018_independent_temporal_bqe_20261108 \
+            --year2022 results/eea2022_biology_bqe_20261108 \
+            --out results/eea2018_independent_temporal_bqe_20261108/SITE_DISJOINT_TWO_YEAR_MODEL_TRANSPORT_POSTHOC.json
+      - name: Archive explicitly posthoc temporal transport result with original site/year hashes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2018_independent_temporal_bqe_20261108/SITE_DISJOINT_TWO_YEAR_MODEL_TRANSPORT_POSTHOC.json
+          git commit -m "Record 2018-to-2022 and reverse year-specific EQR transport onto site-disjoint monitoring cohorts (posthoc)"
+          git push origin HEAD:analysis/uwwtd2018-independent-bqe-validation-20261108

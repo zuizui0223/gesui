@@ -1,0 +1,60 @@
+name: gesui 2018-2022 EQR country-method compatible site-disjoint transport QC
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2018-independent-bqe-validation-20261108"
+    paths:
+      - "scripts/audit_2018_2022_method_compatible_transport.py"
+      - ".github/workflows/gesui-2018-2022-method-compatible-transport.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  posthoc-country-method-compatible-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install fixed model dependencies
+        run: python -m pip install --quiet numpy pandas scikit-learn
+      - name: Validate source-locked 2018/2022 model replay before exploring compatible EQR methods
+        run: |
+          python -m py_compile scripts/audit_2018_2022_method_compatible_transport.py
+          python -u scripts/audit_2018_2022_method_compatible_transport.py \
+            --year2018 results/eea2018_independent_temporal_bqe_20261108 \
+            --year2022 results/eea2022_biology_bqe_20261108 \
+            --original-transport results/eea2018_independent_temporal_bqe_20261108/SITE_DISJOINT_TWO_YEAR_MODEL_TRANSPORT_POSTHOC.json \
+            --out results/eea2018_independent_temporal_bqe_20261108/METHOD_COMPATIBLE_TEMPORAL_TRANSPORT_POSTHOC.json
+      - name: Preserve exploratory strata and country sensitivity alongside original frozen year results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2018_independent_temporal_bqe_20261108/METHOD_COMPATIBLE_TEMPORAL_TRANSPORT_POSTHOC.json
+          if git diff --cached --quiet; then
+            echo "No new results; replay is byte-identical to the committed source-locked JSON."
+            exit 0
+          fi
+          git commit -m "Archive posthoc country-method compatible cross-year EQR transfer audit (original datasets locked)"
+          git fetch origin analysis/uwwtd2018-independent-bqe-validation-20261108
+          git rebase origin/analysis/uwwtd2018-independent-bqe-validation-20261108
+          git push origin HEAD:analysis/uwwtd2018-independent-bqe-validation-20261108
+      - name: Upload transparent JSON even if archival push is temporarily unavailable
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-method-compatible-temporal-transfer-posthoc
+          path: results/eea2018_independent_temporal_bqe_20261108/METHOD_COMPATIBLE_TEMPORAL_TRANSPORT_POSTHOC.json
+          retention-days: 90
+          if-no-files-found: warn

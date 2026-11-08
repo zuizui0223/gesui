@@ -1,0 +1,98 @@
+name: gesui freeze 2018 measured WWTP to biological cohort before 2018 numeric EQR
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2018-independent-bqe-validation-20261108"
+    paths:
+      - ".github/workflows/gesui-preserve-2018-preoutcome-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  save-locked-source-before-outcomes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Retrieve only ORIGINAL source-only 2018 GIS and EQR site selection artifact
+        run: |
+          mkdir -p /tmp/gesui-2018-frozen
+          gh run download 42441999786 --repo zuizui0223/gesui \
+            --name gesui-independent2018-measured-NP-to-BQE-source-locked-river-network \
+            --dir /tmp/gesui-2018-frozen
+      - name: Validate source selection and permanently freeze source CSV before opening new 2018 EQR
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,shutil
+          folder=Path("/tmp/gesui-2018-frozen")
+          q=json.loads((folder/"2018_MEASURED_SOURCE_BIOLOGY_COHORT_QC.json").read_text())
+          assert q["source_state"]=="SOURCE_FROZEN_BEFORE_2018_NUMERIC_EQR_OUTCOMES"
+          assert q["2018_EEA_Biology_normalized_EQR_values_read"] is False
+          assert q["original_2018_UWWTD_report_qc_run"]==42441852933
+          assert q["original_2018_BQE_source_only_run"]==42441464939
+          assert q["2018_annual_WWTP_measured_both_NP_source"]["2018_original_both_positive_NP_measured_plant_n"]==2507
+          assert q["source_EEA_Fw_2018_outfalls_snapped_500m"]==1422
+          assert q["source_2018_BQE"]["benthic_invertebrates"]["upstream_2018_true_measured_both_NP_source_sites"]==204
+          assert q["source_2018_BQE"]["phytobenthos"]["upstream_2018_true_measured_both_NP_source_sites"]==222
+          assert q["source_2018_BQE"]["fish"]["source_sufficient_before_opening_2018_EQR"] is False
+          data=folder/"2018_SOURCE_ONLY_BQE_WWTP_NP_UPSTREAM_AND_NEGATIVE_CONTROL.csv"
+          header=data.read_text().splitlines()[0]
+          assert "resultNormalisedEQRValue" not in header and "normalised_EQR" not in header
+          assert "2018_measured_upstream_P_t_per_year" in header
+          assert "2018_measured_upstream_N_t_per_year" in header
+          dest=Path("results/eea2018_independent_source_frozen_20261108")
+          dest.mkdir(parents=True,exist_ok=True)
+          for name in ("2018_MEASURED_SOURCE_BIOLOGY_COHORT_QC.json",
+                       "2018_SOURCE_ONLY_BQE_WWTP_NP_UPSTREAM_AND_NEGATIVE_CONTROL.csv"):
+              shutil.copyfile(folder/name,dest/name)
+          rec={
+             "frozen_before_any_independent_2018_EQR_outcome_fitted":True,
+             "historical_2018_UWWTD_v07r01_source_original_run":42440990345,
+             "original_2018_measured_NP_source_QC_run":42441852933,
+             "original_2018_Biology_source_only_site_run":42441464939,
+             "physical_2018_nutrient_to_BQE_station_year_source_only_run":42441999786,
+             "original_historic_NP_report_year":2018,
+             "source_2018_NP_annual_mass_units":"reported measured tonnes/year",
+             "original_2018_Biology_EQR_data_not_opened":True,
+             "river_GeoParquet_SHA256":"5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+             "original_2018_source_file_SHA256":q["source_original_archive_data_sha256"],
+             "original_source_snapshot_files":[{
+               "name":f.name,"sha256":hashlib.sha256(f.read_bytes()).hexdigest(),
+               "bytes":f.stat().st_size} for f in dest.iterdir() if f.is_file()],
+             "downstream_negative_control_already_fixed":True,
+             "no_2018_EQR_or_GBIF_biological_values_in_current_source_files":True,
+             "not_a_causal_WWTP_effect":True
+          }
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(rec,indent=2,sort_keys=True)+"\n")
+          readme="""# Independent 2018 source-only lock (BEFORE 2018 numerical biology)
+
+          The original year is 2018, not the 2022 source sample. National EEA UWWTD Waterbase v07/r01 has 2,507 original facility rows reporting positive BOTH measured annual N and P discharge loads, 1,889 unique FW discharge-outlet facilities in Europe study domain, and 1,422 that snap to the same hash-locked derived HydroRIVERS EU network within 500m.
+          
+          Pre-2018-EQR source-only biological site inventory from official Biology2026 EQR IDs and spatial metadata (without any EQR scores): 2,639 river benthic invertebrate monitoring sites (204 with a matching 2018 source upstream <=50km), 2,676 phytobenthos sites (222 upstream matching 2018 measured source), 1,049 fish sites (3 exposed, fails preregistered biological source gate). Original five 3-degree regional blocked folds, source-positive zeros and upstream/downstream placebo loads are saved on the source CSV. Future numeric 2018 EQR must use this exact table and file receipt.
+          
+          Source-year EEA state and measured-load flags were inspected, but exact source geography remains subject to third-party HydroRIVERS conversion bias and outside-of-domain missing facilities. No extra 2018 response values have been queried in this frozen source set. The original source archive is with EEA and was not republished.
+          
+          Link to protocol: docs/EEA_UWWTD_2018_TEMPORAL_BQE_PREOUTCOME_FREEZE.md. Source-only original action: https://github.com/zuizui0223/gesui/actions/runs/42441999786 .
+          """
+          (dest/"README.md").write_text("\n".join(x.strip() for x in readme.splitlines())+"\n")
+          print("GESUI_2018_ORIGINAL_SOURCE_FREEZE_COMMITTED",json.dumps({
+             "source_original_year":2018,"original_archive_source_id":"eea_t_uwwtd-waterbase_p_2017-2018_v07_r01",
+             "source_direct_FW_river_outlets":1422,"benthic_upstream_2018_measured_source":204,
+             "phytobenthos_upstream_2018_measured_source":222,"original_2018_EQR_read":False}))
+          PY
+      - name: Save source snapshot before biological outcome script is created
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2018_independent_source_frozen_20261108
+          git commit -m "Freeze source-only genuine EEA 2018 measured N/P to river BQE sample and country folds before historical EQR"
+          git push origin HEAD:analysis/uwwtd2018-independent-bqe-validation-20261108

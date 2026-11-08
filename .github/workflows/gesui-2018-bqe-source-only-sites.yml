@@ -1,0 +1,42 @@
+name: gesui independent 2018 WISE Biology monitoring source-only cohort before EQR
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2018-independent-bqe-validation-20261108"
+    paths:
+      - "scripts/gesui_2018_bqe_source_only_sites.py"
+      - ".github/workflows/gesui-2018-bqe-source-only-sites.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-BQE-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet pandas numpy
+      - name: Retrieve only official Waterbase Biology 2026 archive; 2018 site/method metadata only
+        run: |
+          mkdir -p /tmp/gesui-2018-EQR-source
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download \
+            -o /tmp/gesui-2018-EQR-source/EEA_Biology2026_original.zip
+      - name: Preserve original uncompressed source SHA, 2018 river biological-site IDs and source-only geographic fold
+        run: |
+          python -u scripts/gesui_2018_bqe_source_only_sites.py \
+            --archive /tmp/gesui-2018-EQR-source/EEA_Biology2026_original.zip \
+            --out /tmp/gesui-2018-EQR-source/results/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2018-independent-BQE-source-only-site-frozen-cohort
+          path: /tmp/gesui-2018-EQR-source/results/
+          retention-days: 90
+          if-no-files-found: warn
