@@ -11,11 +11,14 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   official-2022-source-coverage:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -28,12 +31,14 @@ jobs:
           curl --fail --location --silent --show-error --retry 2 --max-time 360 \
             https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download \
             -o /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip
-          echo "e621b1f5c43e9f2005d3a6fa40adefff6fd30d7030e76c4c8801d7717194769f  /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip" | sha256sum -c -
+          echo "EEA Nextcloud may repackage ZIP with non-identical container SHA. Inner 12-file manifest is the source lock."
+          sha256sum /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip
+          mkdir -p /tmp/gesui-bqe-reference
+          gh run download 42430869887 --repo zuizui0223/gesui             --name gesui-EEA-Waterbase-Biology2026-source-inventory             --dir /tmp/gesui-bqe-reference
       - name: Audit 2022 river EQR observation support and exact official location identifiers (no effects)
         run: |
           python -u scripts/gesui_eea2026_bqe_source_quality.py \
-            --archive /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip \
-            --out /tmp/gesui-bqe-support/EEA_BIOLOGY_2022_RIVER_SOURCE_SUPPORT.json
+            --archive /tmp/gesui-bqe-support/Waterbase_Biology_2026_original.zip             --original-manifest /tmp/gesui-bqe-reference/SOURCE_FILE_INVENTORY.json             --out /tmp/gesui-bqe-support/EEA_BIOLOGY_2022_RIVER_SOURCE_SUPPORT.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
