@@ -1,0 +1,42 @@
+name: gesui official open eBMS national transect EVENT-only source feasibility
+on:
+  push:
+    branches: ["analysis/lycaenidae-effort-rich-river-cohort-20261108"]
+    paths:
+      - scripts/gesui_probe_ebms_public_national_event_archives.py
+      - .github/workflows/gesui-ebms-swedish-danish-event-source-only.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  event-metadata-without-occurrences:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Download official public national eBMS DwC archives and audit EVENT core only
+        run: |
+          python -m py_compile scripts/gesui_probe_ebms_public_national_event_archives.py
+          python -u scripts/gesui_probe_ebms_public_national_event_archives.py \
+            --tmpdir /tmp/gesui-ebms-national-source \
+            --out results/lycaenidae_2022_effort_rich_new5km/EBMS_SE_DK_ORIGINAL_PUBLIC_EVENT_ONLY_SOURCE_QC.json
+      - name: Archive source-only eBMS metadata and licences, not raw counts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_effort_rich_new5km/EBMS_SE_DK_ORIGINAL_PUBLIC_EVENT_ONLY_SOURCE_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve public Sweden/Denmark eBMS event source availability and 2022 transect coverage without species outcomes"
+          git fetch origin analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git rebase origin/analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git push origin HEAD:analysis/lycaenidae-effort-rich-river-cohort-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-se-dk-ebms-national-public-event-only
+          path: results/lycaenidae_2022_effort_rich_new5km/EBMS_SE_DK_ORIGINAL_PUBLIC_EVENT_ONLY_SOURCE_QC.json
+          retention-days: 90
+          if-no-files-found: warn

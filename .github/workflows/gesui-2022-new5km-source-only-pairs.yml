@@ -1,0 +1,45 @@
+name: gesui 2022 independent 5km source-only river pairs PRE botanical effort
+on:
+  push:
+    branches: ["analysis/lycaenidae-effort-rich-river-cohort-20261108"]
+    paths:
+      - scripts/gesui_build_2022_lycaenidae_new5km_source_only_pairs.py
+      - .github/workflows/gesui-2022-new5km-source-only-pairs.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  no-butterfly-no-plant-source-pairs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          mkdir -p /tmp/gesui-new5km
+          curl --fail --location --silent --show-error --retry 2 --max-time 100 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/625af95fc12e01e9c796230ca4709be72225ab50/results/eea2022_biology_bqe_20261108/SOURCE_ONLY_BQE_SITE_REGISTRY.csv \
+            -o /tmp/gesui-new5km/EEA2022_SOURCE_ONLY_BQE.csv
+          python -m py_compile scripts/gesui_build_2022_lycaenidae_new5km_source_only_pairs.py
+          python -u scripts/gesui_build_2022_lycaenidae_new5km_source_only_pairs.py \
+            --source /tmp/gesui-new5km/EEA2022_SOURCE_ONLY_BQE.csv \
+            --out results/lycaenidae_2022_effort_rich_new5km
+      - name: Commit new PRE plant-and-butterfly cohort
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_effort_rich_new5km/
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 5km country-capped independent 2022 WWTP river pairs without any biological outcomes"
+          git fetch origin analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git rebase origin/analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git push origin HEAD:analysis/lycaenidae-effort-rich-river-cohort-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-5km-new-pairs-sourceonly-before-all-photo-data
+          path: results/lycaenidae_2022_effort_rich_new5km/
+          retention-days: 90
+          if-no-files-found: warn

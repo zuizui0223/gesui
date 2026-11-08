@@ -1,0 +1,48 @@
+name: gesui SeBMS 2022 source-only standard visit locations vs measured WWTP freshwater outfall proximity
+on:
+  push:
+    branches: ["analysis/lycaenidae-effort-rich-river-cohort-20261108"]
+    paths:
+      - scripts/gesui_2022_sebms_events_to_eea_wwtp_source_only.py
+      - .github/workflows/gesui-sebms-eea2022-wwtp-sourceonly-gate.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-swedish-butterfly-site-metadata-no-counts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet pandas numpy geopandas requests
+      - name: Download exact open SeBMS original and match only EVENT sites to original 2022 EEA unique FW point sources
+        run: |
+          python -m py_compile scripts/gesui_2022_sebms_events_to_eea_wwtp_source_only.py
+          python -u scripts/gesui_2022_sebms_events_to_eea_wwtp_source_only.py \
+            --tmpdir /tmp/gesui-sweden-2022-events \
+            --out results/lycaenidae_2022_effort_rich_new5km/SEBMS_2022_SITE_VS_EEA_WWTP_SOURCE_ONLY_QC.json
+      - name: Archive pre-butterfly 2022 event-site and WWTP proximity gate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_effort_rich_new5km/SEBMS_2022_SITE_VS_EEA_WWTP_SOURCE_ONLY_QC.json results/lycaenidae_2022_effort_rich_new5km/SWEDEN_2022_SEBMS_EVENT_SITE_METADATA_OUTFALL_DISTANCES_SOURCE_ONLY.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze Swedish standardized butterfly event site proximity to EEA 2022 WWTP source before species counts"
+          git fetch origin analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git rebase origin/analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git push origin HEAD:analysis/lycaenidae-effort-rich-river-cohort-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-sweden-sebms-repeat-visits-to-WWTP-source-only
+          path: |
+            results/lycaenidae_2022_effort_rich_new5km/SEBMS_2022_SITE_VS_EEA_WWTP_SOURCE_ONLY_QC.json
+            results/lycaenidae_2022_effort_rich_new5km/SWEDEN_2022_SEBMS_EVENT_SITE_METADATA_OUTFALL_DISTANCES_SOURCE_ONLY.csv
+          retention-days: 90
+          if-no-files-found: warn

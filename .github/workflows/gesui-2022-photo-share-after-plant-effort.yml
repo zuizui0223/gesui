@@ -1,0 +1,47 @@
+name: gesui 2022 5km WWTP river Lycaenidae photos after independent 2021 plant-effort freeze
+on:
+  push:
+    branches: ["analysis/lycaenidae-effort-rich-river-cohort-20261108"]
+    paths:
+      - .github/workflows/gesui-2022-photo-share-after-plant-effort.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-source-and-prioryear-effort-locked-butterfly-reporting:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet numpy
+      - name: Verify prior-year 2021 nonbutterfly source eligibility pre-frozen then read 2022 butterfly photo counts
+        run: |
+          python -m py_compile scripts/gesui_2022_lycaenid_photos_after_2021_plant_effort.py
+          python -u scripts/gesui_2022_lycaenid_photos_after_2021_plant_effort.py \
+            --source-only-qc results/lycaenidae_2022_effort_rich_new5km/2022_NEW_5KM_PREPHOTO_SOURCE_ONLY_PAIR_QC.json \
+            --effort-qc results/lycaenidae_2022_effort_rich_new5km/2021_PLANT_EFFORT_SELECTED_PAIRS_FROZEN.json \
+            --selected-pairs results/lycaenidae_2022_effort_rich_new5km/2021_PLANT_EFFORT_SELECTED_PAIRS_FROZEN.csv \
+            --out results/lycaenidae_2022_effort_rich_new5km/2022_BUTTERFLY_PHOTO_SHARE_AFTER_PREYEAR_PLANT_EFFORT.json
+      - name: Persist 2022 stage-C photo opportunity result separately from 2021 source-only selection
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_effort_rich_new5km/2022_BUTTERFLY_PHOTO_SHARE_AFTER_PREYEAR_PLANT_EFFORT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive 2022 Lycaenidae public photo opportunity after frozen 2021 non-butterfly effort cohort"
+          git fetch origin analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git rebase origin/analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git push origin HEAD:analysis/lycaenidae-effort-rich-river-cohort-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-lycaenidae-photos-after-2021-plant-source-freeze
+          path: results/lycaenidae_2022_effort_rich_new5km/2022_BUTTERFLY_PHOTO_SHARE_AFTER_PREYEAR_PLANT_EFFORT.json
+          retention-days: 90
+          if-no-files-found: warn

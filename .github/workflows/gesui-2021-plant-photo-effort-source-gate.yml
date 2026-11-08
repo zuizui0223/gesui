@@ -1,0 +1,43 @@
+name: gesui freeze 2021 Plantae photo reporting effort at 2022 WWTP 5km river pairs
+on:
+  push:
+    branches: ["analysis/lycaenidae-effort-rich-river-cohort-20261108"]
+    paths:
+      - scripts/gesui_select_2022_river_pairs_using_2021_plant_effort.py
+      - .github/workflows/gesui-2021-plant-photo-effort-source-gate.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  historical-nonbutterfly-effort-source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Count previous-year public plant photographs at frozen matched river sites only
+        run: |
+          python -m py_compile scripts/gesui_select_2022_river_pairs_using_2021_plant_effort.py
+          python -u scripts/gesui_select_2022_river_pairs_using_2021_plant_effort.py \
+            --source-pairs results/lycaenidae_2022_effort_rich_new5km/2022_NEW_5KM_SOURCE_ONLY_PAIRS_BEFORE_PLANT_AND_BUTTERFLY.csv \
+            --source-qc results/lycaenidae_2022_effort_rich_new5km/2022_NEW_5KM_PREPHOTO_SOURCE_ONLY_PAIR_QC.json \
+            --out results/lycaenidae_2022_effort_rich_new5km/2021_PLANT_EFFORT_SELECTED_PAIRS_FROZEN.json
+      - name: Store 2021 nonbutterfly photo effort before any 2022 butterfly analysis
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_effort_rich_new5km/2021_PLANT_EFFORT_SELECTED_PAIRS_FROZEN.*
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 2021 botanical photo reporting-effort-balanced river pair sample before butterfly results"
+          git fetch origin analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git rebase origin/analysis/lycaenidae-effort-rich-river-cohort-20261108
+          git push origin HEAD:analysis/lycaenidae-effort-rich-river-cohort-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-prioryear-plant-only-photo-effort-screen
+          path: results/lycaenidae_2022_effort_rich_new5km/2021_PLANT_EFFORT_SELECTED_PAIRS_FROZEN.*
+          retention-days: 90
+          if-no-files-found: warn

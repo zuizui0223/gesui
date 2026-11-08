@@ -1,0 +1,157 @@
+{
+  "date_utc": "2026-11-08T06:24:03.355406+00:00",
+  "no_occurrence_taxa_or_count_data_opened": true,
+  "schema": "gesui_eBMS_official_open_national_sampling_event_source_only_QC_v01",
+  "source_method": "original IPT archive.do official public national DwC-A only",
+  "source_reports": {
+    "Denmark_eBMS": {
+      "ZIP_original_entry_names": [
+        "event.txt",
+        "eml.xml",
+        "meta.xml"
+      ],
+      "event_source_only_quality": {
+        "2022_event_rows": 125,
+        "2022_event_rows_with_lat_lon": 125,
+        "2022_events_in_Europe_study_bbox": 125,
+        "2022_events_with_explicit_samplingEffort_field": 0,
+        "2022_independent_unique_coordinate_points": 22,
+        "2022_unique_eventIDs": 125,
+        "NO_BUTTERFLY_COUNTS_OPENED": true,
+        "NO_OCCURRENCE_SPECIES_DATA_OPENED": true,
+        "event_core_compatible": true,
+        "event_core_relative_path": "event.txt",
+        "event_row_locations_not_redistributed": true,
+        "original_sampling_protocol_counts": {},
+        "rowType": "http://rs.tdwg.org/dwc/terms/Event",
+        "source_country_code_counts": {
+          "MISSING": 15606
+        },
+        "source_event_field_names": [
+          "coordinateUncertaintyInMeters",
+          "decimalLatitude",
+          "decimalLongitude",
+          "eventDate",
+          "eventID",
+          "eventRemarks",
+          "locality",
+          "parentEventID"
+        ],
+        "source_event_rows": 15606,
+        "source_year_event_counts": {
+          "2011": 711,
+          "2018": 380,
+          "2019": 5,
+          "2020": 9,
+          "2021": 33,
+          "2022": 125,
+          "2023": 3100,
+          "2024": 4461,
+          "2025": 6782
+        }
+      },
+      "gbif_datasetKey": "caa38f94-ddeb-43e7-9a27-1ac46d7ddc5c",
+      "meta_xml_SHA256": "bcaf1a25c1d7eeda3a36a01cea94cafeceaf19215d2006b588be6788ae466369",
+      "original_archive": {
+        "download_byte_size": 1314210,
+        "download_sha256": "2cc64ec352754223db06a92eef5b01803968eac94bae34057c17f1abdb6da79b"
+      },
+      "original_publisher_URL": "https://ipt.brc.ac.uk/archive.do?r=ebms_denmark_transects",
+      "publication_license": "CC-BY-NC 4.0",
+      "publisher": "Biological Records Centre (UK CEH), Danish EBMS"
+    },
+    "Sweden_SeBMS": {
+      "ZIP_original_entry_names": [
+        "event.txt",
+        "extendedmeasurementorfact.txt",
+        "eml.xml",
+        "meta.xml"
+      ],
+      "event_source_only_quality": {
+        "2022_event_rows": 2677,
+        "2022_event_rows_with_lat_lon": 2677,
+        "2022_events_in_Europe_study_bbox": 2562,
+        "2022_events_with_explicit_samplingEffort_field": 0,
+        "2022_independent_unique_coordinate_points": 448,
+        "2022_unique_eventIDs": 2677,
+        "NO_BUTTERFLY_COUNTS_OPENED": true,
+        "NO_OCCURRENCE_SPECIES_DATA_OPENED": true,
+        "event_core_compatible": true,
+        "event_core_relative_path": "event.txt",
+        "event_row_locations_not_redistributed": true,
+        "original_sampling_protocol_counts": {
+          "Fixed route Pollard walk transect": 13049,
+          "Point site count": 26417
+        },
+        "rowType": "http://rs.tdwg.org/dwc/terms/Event",
+        "source_country_code_counts": {
+          "SE": 39466
+        },
+        "source_event_field_names": [
+          "accessRights",
+          "continent",
+          "coordinateUncertaintyInMeters",
+          "country",
+          "countryCode",
+          "county",
+          "datasetID",
+          "datasetName",
+          "decimalLatitude",
+          "decimalLongitude",
+          "endDayOfYear",
+          "eventDate",
+          "eventID",
+          "eventRemarks",
+          "eventTime",
+          "geodeticDatum",
+          "informationWithheld",
+          "institutionCode",
+          "language",
+          "locality",
+          "locationID",
+          "locationRemarks",
+          "modified",
+          "municipality",
+          "ownerInstitutionCode",
+          "samplingProtocol",
+          "startDayOfYear",
+          "stateProvince",
+          "verbatimLocality",
+          "verbatimSRS"
+        ],
+        "source_event_rows": 39466,
+        "source_year_event_counts": {
+          "2006": 9,
+          "2007": 15,
+          "2008": 10,
+          "2009": 10,
+          "2010": 1007,
+          "2011": 1778,
+          "2012": 1987,
+          "2013": 2188,
+          "2014": 2372,
+          "2015": 2529,
+          "2016": 2454,
+          "2017": 2406,
+          "2018": 2430,
+          "2019": 2925,
+          "2020": 2935,
+          "2021": 2949,
+          "2022": 2677,
+          "2023": 2595,
+          "2024": 2808,
+          "2025": 3382
+        }
+      },
+      "gbif_datasetKey": "be77e203-486c-4651-91b9-8347968b728c",
+      "meta_xml_SHA256": "e172f873b97821a235003869989914f835c1ac8e16b149fb151e59600cbcd4e7",
+      "original_archive": {
+        "download_byte_size": 6715941,
+        "download_sha256": "384a2e5145df29268fe2de79fde9e196fc113e68adfc922a81acd58069437348"
+      },
+      "original_publisher_URL": "https://www.gbif.se/ipt/archive.do?r=lu_sebms",
+      "publication_license": "CC0 1.0",
+      "publisher": "Lund University, Sweden"
+    }
+  }
+}

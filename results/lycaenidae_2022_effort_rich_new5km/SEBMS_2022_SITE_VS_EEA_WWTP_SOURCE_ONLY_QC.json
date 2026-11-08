@@ -1,0 +1,120 @@
+{
+  "SEbms_license": "CC0 1.0",
+  "limits": [
+    "2022 reported measured WWTP N/P mass is not recipient organic N/sodium/protein or butterfly puddling exposure",
+    "BMS transects are terrestrial and do not physically follow directed river contaminant paths",
+    "Within-source-distance near controls may differ in land use, effort and native host plants",
+    "Only one publicly reported direct freshwater outfall included per plant",
+    "Missing registered sources do not mean no pollution",
+    "Exact original 2022 site coordinates might have location uncertainty and distribution sensitivity; >500m excluded"
+  ],
+  "max_original_position_uncertainty_m": 500.0,
+  "min_repeated_2022_visits": 2,
+  "no_2022_butterfly_occurrence_species_counts_loaded": true,
+  "not_sewage_causality": true,
+  "original_EEA2022_WWTP_source": {
+    "EEA_source_query_page_receipts_SHA256": {
+      "DCP": "02ae63ed574094ea222ee2aa5c793d443c46dfdc945efcef8b38b7d51acf780f",
+      "WWTP": "e3839c8096af953a7d2f861d14b178f44bca14128d9a63820afcee566e7af25b"
+    },
+    "Sweden_approx_bbox_all_reporter_outfalls_n": 155,
+    "Sweden_approx_bbox_reporter_codes_counts": {
+      "DK2022": 69,
+      "EE2024": 6,
+      "FI2022": 4,
+      "LT-2022": 26,
+      "LV009": 13,
+      "NO_UWWTD_2022": 23,
+      "SE369": 14
+    },
+    "Sweden_qualifying_unique_FW_outfalls_in_44_64N_bbox": 14,
+    "Sweden_reporter_substring_SE_record_count": 14,
+    "Swedish_source_reporter_code": "SE369",
+    "individual_WWTP_mass_measurement_year_not_verified": true,
+    "original_2022_all_public_discharge_points_count": 24416,
+    "original_2022_both_measured_positive_reported_WWTP_count": 5492,
+    "original_Fw_unambiguous_all_nation_outfalls": 4057,
+    "original_full_eligible_reporter_prefix_counts": {
+      "AT": 526,
+      "BE": 15,
+      "CH": 215,
+      "DE": 630,
+      "HR": 3,
+      "HU": 781,
+      "LT": 53,
+      "NO": 43,
+      "UNRECOGNIZED": 1791
+    },
+    "outlets_not_any_nonFW_or_multi_outlet": true,
+    "source_layer_is_EEA_2022_but_repCode_SE369_has_no_year_suffix": true
+  },
+  "original_GBIF_dwc_dataset": "be77e203-486c-4651-91b9-8347968b728c",
+  "original_SeBMS_archive_SHA256": "384a2e5145df29268fe2de79fde9e196fc113e68adfc922a81acd58069437348",
+  "original_SeBMS_event_metadata": {
+    "event_metadata_fields": {
+      "coordinateUncertaintyInMeters": 29,
+      "countryCode": 19,
+      "decimalLatitude": 26,
+      "decimalLongitude": 27,
+      "eventDate": 10,
+      "eventID": 9,
+      "locationID": 16,
+      "samplingProtocol": 14,
+      "stateProvince": 20
+    },
+    "event_summary": {
+      "2022_event_rows": 2677,
+      "coordinates_unusable_or_outside_study_extent": 115,
+      "protocol_Fixed route Pollard walk transect": 864,
+      "protocol_Point site count": 1813,
+      "uncertainty_over_500m": 815
+    },
+    "no_original_occurrence_species_or_counts_read": true,
+    "qc_eligible_sites": 226,
+    "site_rejection_reasons": {
+      "less_than_2_distinct_dates": 51,
+      "missing_or_large_coordinate_uncertainty": 141
+    },
+    "site_unique_id_groups_before_qc": 418
+  },
+  "public_source_only_site_CSV": "SWEDEN_2022_SEBMS_EVENT_SITE_METADATA_OUTFALL_DISTANCES_SOURCE_ONLY.csv",
+  "public_source_only_site_CSV_SHA256": "5a0c90ba5bd7504e113781bc31da73ee94aebe3bd00a310f41df66ab265be341",
+  "schema": "gesui_2022_SeBMS_public_event_sites_vs_EEA_reported_FW_WWTP_source_only_v01",
+  "source_distance_bands_km": {
+    "near_primary": 2.0,
+    "near_secondary": 5.0,
+    "remote": 10.0
+  },
+  "source_only_protocol_support": {
+    "Fixed route Pollard walk transect": {
+      "2022_event_visits_n": 0,
+      "counties_near2km": 0,
+      "counties_near5km": 0,
+      "counties_remote": 0,
+      "county_overlap_primary_near2_and_far_n": 0,
+      "county_overlap_secondary_near5_and_far_n": 0,
+      "predeclared_primary_feasible": false,
+      "predeclared_secondary_feasible": false,
+      "registered_source_remote_10km_or_more_n": 0,
+      "sites_eligible_public_coordinates_2_2022_visits": 0,
+      "source_near_within2km_n": 0,
+      "source_near_within5km_n": 0
+    },
+    "Point site count": {
+      "2022_event_visits_n": 1720,
+      "counties_near2km": 0,
+      "counties_near5km": 2,
+      "counties_remote": 20,
+      "county_overlap_primary_near2_and_far_n": 0,
+      "county_overlap_secondary_near5_and_far_n": 2,
+      "predeclared_primary_feasible": false,
+      "predeclared_secondary_feasible": false,
+      "registered_source_remote_10km_or_more_n": 215,
+      "sites_eligible_public_coordinates_2_2022_visits": 226,
+      "source_near_within2km_n": 0,
+      "source_near_within5km_n": 2
+    }
+  },
+  "source_proximity_is_not_measured_butterfly_exposure": true,
+  "study_protocol_primary": "Fixed route Pollard walk transect"
+}
