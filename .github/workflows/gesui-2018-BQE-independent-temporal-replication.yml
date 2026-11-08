@@ -1,0 +1,51 @@
+name: gesui source-frozen independent 2018 reported measured WWTP P N vs 2018 aquatic EQR
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2018-independent-bqe-validation-20261108"
+    paths:
+      - "scripts/gesui_2018_independent_bqe_EQR_outcomes.py"
+      - ".github/workflows/gesui-2018-BQE-independent-temporal-replication.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-2018-biology-replication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy scipy pandas scikit-learn
+      - name: Check original 2018 source-only 6364 site-element rows were already committed
+        run: |
+          test -f results/eea2018_independent_source_frozen_20261108/SOURCE_RECEIPT.json
+          echo "5a074f5182711c4ab74ef9bdacfa3918e9fcb434dd0b75c67072a0f06459c3e1  results/eea2018_independent_source_frozen_20261108/2018_SOURCE_ONLY_BQE_WWTP_NP_UPSTREAM_AND_NEGATIVE_CONTROL.csv" | sha256sum -c -
+      - name: Retrieve original official EEA Waterbase Biology 2026 original archive for year 2018 only
+        run: |
+          mkdir -p /tmp/gesui-2018-actual
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download \
+            -o /tmp/gesui-2018-actual/EEA_Biology_2026_original.zip
+      - name: Test preregistered 2018 temporal prediction against actual normalized original 2018 benthic and phytobenthos EQR
+        run: |
+          python -u scripts/gesui_2018_independent_bqe_EQR_outcomes.py \
+            --frozen-source results/eea2018_independent_source_frozen_20261108/2018_SOURCE_ONLY_BQE_WWTP_NP_UPSTREAM_AND_NEGATIVE_CONTROL.csv \
+            --source-receipt results/eea2018_independent_source_frozen_20261108/SOURCE_RECEIPT.json \
+            --original-Biology-2026 /tmp/gesui-2018-actual/EEA_Biology_2026_original.zip \
+            --out /tmp/gesui-2018-actual/results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-independent-2018-real-WWTP-NP-vs-2018-aquatic-EQR-outcomes
+          path: /tmp/gesui-2018-actual/results/
+          retention-days: 90
+          if-no-files-found: warn
