@@ -1,0 +1,49 @@
+name: gesui 2021 ESA WorldCover independent built crop and land-area 2022 DE AT Lycaenidae WWTP source heldout QC
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-worldcover2021-urban-crop-20261108"
+    paths:
+      - ".github/workflows/gesui-worldcover2021-builtin-crop-2022-lycaenid-heldout-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  posthoc-independent-2021-original-landclass-adjusted-2deg-CV:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install numerical/statistical reproducible dependencies
+        run: python -m pip install --quiet numpy scipy
+      - name: Verify frozen ESA 2021 COG source, source-matched original 2022 photo cohort, 2021 plant effort, then 2degree spatial heldout
+        run: |
+          python -m py_compile scripts/gesui_2022_de_at_lycaenidae_WorldCover2021_posthoc_geo_cv.py
+          python -u scripts/gesui_2022_de_at_lycaenidae_WorldCover2021_posthoc_geo_cv.py \
+            --land-source-only results/lycaenidae_worldcover2021_source_only/ESA_WORLD_COVER_2021_DE_AT_ALL53_COUNTRY_MASKED_SOURCE_QC.json \
+            --original-2022-family-photo results/lycaenidae_de_at_2022_macro_source_photo/2022_DE_AT_LYCAENIDAE_PHOTO_SHARE_VS_WWTP_SOURCE_EXPLORATORY.json \
+            --original-2021-plant-gate results/lycaenidae_de_at_2022_macro_source_photo/2021_PLANT_ONLY_SOURCE_AND_EFFORT_GATE.json \
+            --out results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json
+      - name: Commit original landcover-adjusted source prediction and falsifiers
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve exact 2022 Lycaenidae heldout source P/N/count results with original ESA 2021 WorldCover urban/crop and land-area controls plus shuffled sources"
+          git fetch origin analysis/lycaenidae-worldcover2021-urban-crop-20261108
+          git rebase origin/analysis/lycaenidae-worldcover2021-urban-crop-20261108
+          git push origin HEAD:analysis/lycaenidae-worldcover2021-urban-crop-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-Lycaenidae-ESA2021-urban-crop-2degree-heldout-source-qa
+          path: results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json
+          retention-days: 90
+          if-no-files-found: warn
