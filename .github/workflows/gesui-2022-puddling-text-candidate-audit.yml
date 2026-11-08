@@ -1,0 +1,44 @@
+name: gesui 2022 European puddling free-text photo candidates public source audit
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-wastewater-stage-contrast-20261108"
+    paths:
+      - "scripts/gesui_audit_2022_inat_puddling_candidates.py"
+      - ".github/workflows/gesui-2022-puddling-text-candidate-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fixed-2022-text-candidates-no-photo-claims:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Enumerate historical source-confirmed puddling text candidates without photo inference
+        run: |
+          python -m py_compile scripts/gesui_audit_2022_inat_puddling_candidates.py
+          python -u scripts/gesui_audit_2022_inat_puddling_candidates.py \
+            --out results/lycaenidae_inat_source_gate_20261108/I_NAT_2022_EU_PUDDLING_TEXT_CANDIDATE_SOURCE_AUDIT.json
+      - name: Preserve candidate metadata and observation URLs only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_inat_source_gate_20261108/I_NAT_2022_EU_PUDDLING_TEXT_CANDIDATE_SOURCE_AUDIT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive exact 2022 puddling text candidates and positional-quality screen without photo-confirmed labels"
+          git fetch origin analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git rebase origin/analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git push origin HEAD:analysis/lycaenidae-wastewater-stage-contrast-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-European-puddling-text-unverified
+          path: results/lycaenidae_inat_source_gate_20261108/I_NAT_2022_EU_PUDDLING_TEXT_CANDIDATE_SOURCE_AUDIT.json
+          retention-days: 90
+          if-no-files-found: warn
