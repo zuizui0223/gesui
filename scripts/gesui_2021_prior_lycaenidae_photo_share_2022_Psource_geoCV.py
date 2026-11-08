@@ -137,7 +137,7 @@ def main():
         raise ValueError("2021 family history not source frozen to exact previous 43-cell cohort")
     if not hist["POSTHOC_after_positive_2022_source_photo_and_landcover_effect_seen"]:
         raise ValueError("History must carry posthoc classification")
-    if not earlier["original_WorldCover_country_land_area_and_resolution_gate_pass"]:
+    if not earlier["original_worldcover_country_land_area_and_resolution_gate_pass"]:
         raise ValueError("Previously reported 2021 independent landcov source QC did not pass")
     prior={key(r):r for r in hist["source_2021_same43_cell_historical_butterfly_photo_records"]}
     original=earlier["all_original_same_sample_cells_2022_photo_counts_and_WorldCover_categorical_2021_covariates"]
