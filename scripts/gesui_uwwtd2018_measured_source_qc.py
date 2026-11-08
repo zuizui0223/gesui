@@ -74,9 +74,19 @@ def main():
         uw[col]=pd.to_numeric(uw[col],errors="coerce")
     for col in POINT_FIELDS:
         outlets[col]=pd.to_numeric(outlets[col],errors="coerce")
-    uw["both_NP_measured_positive"]=uw[list(MEASURED)].gt(0).all(axis=1)
-    uw["N_measured_positive"]=uw[MEASURED[0]].gt(0)
-    uw["P_measured_positive"]=uw[MEASURED[1]].gt(0)
+    # Critical: pandas nullable booleans with .all(axis=1) can count
+    # missing<NA> as a true value. Here we require both original measurements
+    # to be finite AND >0, explicitly two-valued NumPy bool. This eliminates
+    # the erroneous >24k pseudo-"both measured" facilities when one/both
+    # reported nutrient loads were missing.
+    mass=uw[list(MEASURED)].to_numpy(dtype=float,na_value=np.nan)
+    present=np.isfinite(mass) & (mass>0)
+    uw["N_measured_positive"]=present[:,0]
+    uw["P_measured_positive"]=present[:,1]
+    uw["both_NP_measured_positive"]=present.all(axis=1)
+    if int(uw["both_NP_measured_positive"].sum())>min(
+        int(uw["N_measured_positive"].sum()),int(uw["P_measured_positive"].sum())):
+        raise ValueError("Both-positive measured load exceed individual nutrient source availability")
     whole=len(uw)
     sourcecodes=uw.source_key.value_counts()
     distinct_ww=uw[uw.source_key.notna() & uw.source_key.map(sourcecodes).eq(1)].copy()
