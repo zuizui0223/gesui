@@ -113,7 +113,7 @@ def main():
                if "dcpWaterBodyType" in outlets else {},
       "outlet_surface_water_codes":freq(outlets,"dcpSurfaceWaters",40)
                if "dcpSurfaceWaters" in outlets else {},
-      "source_reference_Codelist_LOV_sample":[dict(x) for _,x in lov.head(5).iterrows()],
+      "source_reference_Codelist_LOV_sample":[{str(k):(None if pd.isna(v) else str(v)) for k,v in x.items()} for _,x in lov.head(5).iterrows()],
       "source_2018_N_measured_positive_plant_rows":int(uw.N_measured_positive.sum()),
       "source_2018_P_measured_positive_plant_rows":int(uw.P_measured_positive.sum()),
       "source_2018_NP_both_measured_positive_plant_rows":int(uw.both_NP_measured_positive.sum()),
@@ -125,7 +125,7 @@ def main():
       "source_2018_positive_both_measured_unique_outlet_waterbody_code":{
           str(k):int(v) for k,v in europe.dcpWaterBodyType.fillna("MISSING").value_counts().items()},
       "source_2018_positive_both_unique_outlet_by_reporter":{
-          str(k):int(v) for k,v in europe.repCode.value_counts().items()},
+          str(k):int(v) for k,v in europe["repCode_plant"].value_counts().items()},
       "source_2018_missing_or_multiple_outlet":{
          "no_outlet":int(both.n_source_outlets.eq(0).sum()),
          "multiple_outlets":int(both.n_source_outlets.gt(1).sum())},
