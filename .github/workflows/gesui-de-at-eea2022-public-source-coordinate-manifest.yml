@@ -1,0 +1,48 @@
+name: gesui 2022 official EEA measured WWTP source manifest for DE/AT butterfly transect pre-screen
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-de-at-public-event-discovery-20261108"
+    paths:
+      - "scripts/gesui_2022_eea_public_de_at_fw_source_manifest.py"
+      - ".github/workflows/gesui-de-at-eea2022-public-source-coordinate-manifest.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  official-public-outfall-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet pandas numpy requests
+      - name: Verify original 2022 N/P measured annual wastewater outfall source and create public coordinate manifest (no butterfly outcomes)
+        run: |
+          python -m py_compile scripts/gesui_2022_eea_public_de_at_fw_source_manifest.py
+          python -u scripts/gesui_2022_eea_public_de_at_fw_source_manifest.py \
+            --out-dir results/lycaenidae_de_at_2022_source_only
+      - name: Preserve public EEA source coordinates and provenance, no restricted butterfly sites
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_BOTH_NP_MEASURED_ONE_FW_OUTFALLS.csv results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_WWTP_NP_SOURCE_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive official EEA 2022 public Germany/Austria both-NP freshwater source outfall manifest for private transect screening"
+          git fetch origin analysis/lycaenidae-de-at-public-event-discovery-20261108
+          git rebase origin/analysis/lycaenidae-de-at-public-event-discovery-20261108
+          git push origin HEAD:analysis/lycaenidae-de-at-public-event-discovery-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EU2022-Germany-Austria-public-WWTP-both-measured-NP-outfall-source
+          path: |
+            results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_BOTH_NP_MEASURED_ONE_FW_OUTFALLS.csv
+            results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_WWTP_NP_SOURCE_QC.json
+          retention-days: 90
+          if-no-files-found: warn
