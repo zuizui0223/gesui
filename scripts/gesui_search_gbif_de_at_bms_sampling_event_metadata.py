@@ -99,7 +99,9 @@ def main():
         time.sleep(0.35)
     candidate=[
         {**v,"dataset_key":k} for k,v in found.items()
-        if is_eligible_metadata(v["metadata"])
+        if is_eligible_metadata(v["metadata"]) or
+           (v["metadata"].get("type")=="SAMPLING_EVENT" and
+            v["metadata"].get("publishingCountry") in ("DE","AT"))
     ]
     # DWC source type and likely geography first, query frequency second.
     candidate.sort(key=lambda v:(
@@ -146,6 +148,8 @@ def main():
                  for i,x in enumerate(candidate)],
       "candidate_detail_inspections":details,
       "number_detail_inspected_sampling_event_candidates":len(selected_event),
+      "broad_DE_AT_event_candidates_can_be_nonbutterfly":True,
+      "source_discovery_search_is_NOT_exhaustive":True,
       "verified_open_2022_DwC_Event_core_n":0,
       "explicit_UNVERIFIED_original_Event_core":True,
       "no_download_of_butterfly_counts_or_species_records":True,
