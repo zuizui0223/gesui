@@ -118,7 +118,7 @@ def main():
         if grain not in places.columns:
             report["spatial_join_"+grain]={"status":"MISSING_SOURCE_COLUMN"};continue
         location=places[places[grain].notna()].copy()
-        map_=location[["countryCode","waterBodyIdentifier",grain]].copy()
+        map_=location[list(dict.fromkeys(["countryCode","waterBodyIdentifier",grain]))].copy()
         map_=map_.dropna(subset=["waterBodyIdentifier"])
         map_["waterBodyIdentifier"]=map_.waterBodyIdentifier.str.strip()
         map_[grain]=map_[grain].str.strip()
