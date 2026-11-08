@@ -1,0 +1,448 @@
+{
+  "bbox": {
+    "nelat": "64",
+    "nelng": "26",
+    "swlat": "44",
+    "swlng": "-12"
+  },
+  "no_butterfly_population_changes_tested": true,
+  "no_puddling_behavior_photo_confirmed": true,
+  "no_wwtp_sewage_exposure_assigned": true,
+  "previous_family_name_only_count_is_invalid_as_species_coverage": true,
+  "queries": {
+    "Lycaenidae": {
+      "2018": {
+        "descendant_species_photo_pool": {
+          "request": {
+            "http": 200,
+            "source_sha256": "8ea95fa6c76bd3cc8f5e23b022dc7e54bf0564bedbda2de93670f98466bba832",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47923&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2"
+          },
+          "sample_field_validation": [
+            [],
+            []
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2018-07-25",
+              "id": 413377718,
+              "name": "Polyommatus coridon",
+              "positional_accuracy_m": 15,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2018-06-05",
+              "id": 413330723,
+              "name": "Plebejus argus",
+              "positional_accuracy_m": null,
+              "rank": "species"
+            }
+          ],
+          "total_results": 6924
+        },
+        "described_as_puddling_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47923&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&q=puddling"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        },
+        "field_name_yes_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47923&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&field%3ALepidopterans+aggregating%2FRoosting%2Fmud+puddling=Yes"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        }
+      },
+      "2022": {
+        "descendant_species_photo_pool": {
+          "request": {
+            "http": 200,
+            "source_sha256": "5439a2b4356b9ec3de718f3e81bc81fd716e5c7c91a5b0328d0d311f3c8d7abe",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47923&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2"
+          },
+          "sample_field_validation": [
+            [],
+            []
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2022-09-26",
+              "id": 413199903,
+              "name": "Polyommatus eros",
+              "positional_accuracy_m": 122,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2022-07-31",
+              "id": 413039516,
+              "name": "Polyommatus",
+              "positional_accuracy_m": 4,
+              "rank": "genus"
+            }
+          ],
+          "total_results": 40726
+        },
+        "described_as_puddling_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "525421faa196a5197c20fb1aa10ed9a702f79f4d17ad514fe8c96643fd69b1b6",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47923&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&q=puddling"
+          },
+          "sample_field_validation": [
+            [
+              {
+                "id": null,
+                "value": "puddling su fatta di lupo"
+              }
+            ],
+            [
+              {
+                "id": null,
+                "value": ""
+              },
+              {
+                "id": null,
+                "value": ""
+              },
+              {
+                "id": null,
+                "value": ""
+              },
+              {
+                "id": null,
+                "value": ""
+              },
+              {
+                "id": null,
+                "value": ""
+              },
+              {
+                "id": null,
+                "value": "3"
+              }
+            ]
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2022-08-25",
+              "id": 132371389,
+              "name": "Polyommatus coridon",
+              "positional_accuracy_m": 16,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2022-07-04",
+              "id": 124854362,
+              "name": "Cyaniris semiargus",
+              "positional_accuracy_m": 8,
+              "rank": "species"
+            }
+          ],
+          "total_results": 4
+        },
+        "field_name_yes_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47923&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&field%3ALepidopterans+aggregating%2FRoosting%2Fmud+puddling=Yes"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        }
+      }
+    },
+    "Papilionidae": {
+      "2018": {
+        "descendant_species_photo_pool": {
+          "request": {
+            "http": 200,
+            "source_sha256": "e27185aaca53bbd2b01cf2da7173a2d35f54aebe519fb65a601204a1956162bb",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47223&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2"
+          },
+          "sample_field_validation": [
+            [],
+            []
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2018-07-20",
+              "id": 410439666,
+              "name": "Iphiclides podalirius",
+              "positional_accuracy_m": 4071,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2018-08-18",
+              "id": 410239955,
+              "name": "Papilio machaon",
+              "positional_accuracy_m": 5038,
+              "rank": "species"
+            }
+          ],
+          "total_results": 1816
+        },
+        "described_as_puddling_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47223&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&q=puddling"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        },
+        "field_name_yes_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47223&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&field%3ALepidopterans+aggregating%2FRoosting%2Fmud+puddling=Yes"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        }
+      },
+      "2022": {
+        "descendant_species_photo_pool": {
+          "request": {
+            "http": 200,
+            "source_sha256": "feff195bdde15314efb6424a25f6aacfbe6ae0c1d38cc0ee59f0ce58f1cd5dcf",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47223&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2"
+          },
+          "sample_field_validation": [
+            [],
+            []
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2022-07-31",
+              "id": 411237484,
+              "name": "Papilio machaon",
+              "positional_accuracy_m": 15,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2022-07-02",
+              "id": 410520614,
+              "name": "Parnassius apollo",
+              "positional_accuracy_m": 6,
+              "rank": "species"
+            }
+          ],
+          "total_results": 6441
+        },
+        "described_as_puddling_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47223&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&q=puddling"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        },
+        "field_name_yes_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47223&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&field%3ALepidopterans+aggregating%2FRoosting%2Fmud+puddling=Yes"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        }
+      }
+    },
+    "Pieridae": {
+      "2018": {
+        "descendant_species_photo_pool": {
+          "request": {
+            "http": 200,
+            "source_sha256": "71b25d685ee1fa290c8244c5910799adca2a3ca2c08bd44f2437af92c301eb78",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=48508&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2"
+          },
+          "sample_field_validation": [
+            [],
+            []
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2018-10-20",
+              "id": 413168409,
+              "name": "Colias crocea",
+              "positional_accuracy_m": 4910,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2018-10-20",
+              "id": 413168344,
+              "name": "Colias hyale",
+              "positional_accuracy_m": 4910,
+              "rank": "complex"
+            }
+          ],
+          "total_results": 4923
+        },
+        "described_as_puddling_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=48508&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&q=puddling"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        },
+        "field_name_yes_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=48508&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&field%3ALepidopterans+aggregating%2FRoosting%2Fmud+puddling=Yes"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        }
+      },
+      "2022": {
+        "descendant_species_photo_pool": {
+          "request": {
+            "http": 200,
+            "source_sha256": "1cf2847c617966ca98281901d3bbc368a8917580774c8ef92cc343e52a3acd56",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=48508&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2"
+          },
+          "sample_field_validation": [
+            [],
+            []
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2022-08-04",
+              "id": 413009045,
+              "name": "Pieris napi",
+              "positional_accuracy_m": 2628,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2022-09-09",
+              "id": 412174722,
+              "name": "Pieris napi",
+              "positional_accuracy_m": null,
+              "rank": "species"
+            }
+          ],
+          "total_results": 29124
+        },
+        "described_as_puddling_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "606bd0a5c67dfa944e5f2efb299e3d20c74c8a7c8e4c1140a3eec59d3b284f26",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=48508&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&q=puddling"
+          },
+          "sample_field_validation": [
+            [],
+            []
+          ],
+          "sample_taxon_rank": [
+            {
+              "coordinates_obscured": null,
+              "date": "2022-06-05",
+              "id": 126054574,
+              "name": "Aporia crataegi",
+              "positional_accuracy_m": 409,
+              "rank": "species"
+            },
+            {
+              "coordinates_obscured": null,
+              "date": "2022-07-07",
+              "id": 125202318,
+              "name": "Pieris napi",
+              "positional_accuracy_m": 607,
+              "rank": "species"
+            }
+          ],
+          "total_results": 5
+        },
+        "field_name_yes_candidate": {
+          "request": {
+            "http": 200,
+            "source_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=48508&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&per_page=2&field%3ALepidopterans+aggregating%2FRoosting%2Fmud+puddling=Yes"
+          },
+          "sample_field_validation": [],
+          "sample_taxon_rank": [],
+          "total_results": 0
+        }
+      }
+    }
+  },
+  "recorded_at_UTC": "2026-11-08T04:25:29.155377+00:00",
+  "schema": "gesui_iNat_source_only_2018_2022_europe_taxon_id_descendant_puddling_gate_v02",
+  "source_limitations": [
+    "Taxon ID selects descendants but does not validate visual feeding action",
+    "Field 17428 combines aggregation, roosting and mud-puddling",
+    "Field search may be incomplete / differently indexed",
+    "Observed date is not date uploaded",
+    "Geoprivacy, spatial uncertainty, observer effort and urbanization remain confounders",
+    "0 field hits cannot be equated with 0 true puddling events",
+    "Public photo records are ecological opportunity, not local occurrence zeros"
+  ],
+  "taxonomy": {
+    "Lycaenidae": {
+      "id": 47923,
+      "name": "Lycaenidae",
+      "observations_count_indexed": 2192417,
+      "rank": "family",
+      "taxonomy_api": {
+        "http": 200,
+        "source_sha256": "3a4da623011a0669c58fa31f7978097ce8fa7e053121f6362ce026638970686b",
+        "url": "https://api.inaturalist.org/v1/taxa/autocomplete?q=Lycaenidae&per_page=20"
+      }
+    },
+    "Papilionidae": {
+      "id": 47223,
+      "name": "Papilionidae",
+      "observations_count_indexed": 1349962,
+      "rank": "family",
+      "taxonomy_api": {
+        "http": 200,
+        "source_sha256": "8e654a54ff112649ec7b73a8cd6e749c870b7e1c2198535e2f5166eb52026dd4",
+        "url": "https://api.inaturalist.org/v1/taxa/autocomplete?q=Papilionidae&per_page=20"
+      }
+    },
+    "Pieridae": {
+      "id": 48508,
+      "name": "Pieridae",
+      "observations_count_indexed": 1715750,
+      "rank": "family",
+      "taxonomy_api": {
+        "http": 200,
+        "source_sha256": "0d7000bb1d6dbb986fc6bb3c52d3e048c55ddae921f93a3e7585c790b63433db",
+        "url": "https://api.inaturalist.org/v1/taxa/autocomplete?q=Pieridae&per_page=20"
+      }
+    }
+  }
+}

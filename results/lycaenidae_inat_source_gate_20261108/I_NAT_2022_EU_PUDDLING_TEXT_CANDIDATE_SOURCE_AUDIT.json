@@ -1,0 +1,320 @@
+{
+  "all_obs_pending_visual_review": true,
+  "bbox": {
+    "nelat": "64",
+    "nelng": "26",
+    "swlat": "44",
+    "swlng": "-12"
+  },
+  "candidates_by_family": {
+    "Lycaenidae": {
+      "IDs": [
+        132371389,
+        124854362,
+        124589932,
+        123508338
+      ],
+      "api_total_results": 4,
+      "candidate_source_n": 4,
+      "candidates": [
+        {
+          "eligible_500m_positional_accuracy": true,
+          "family_query": "Lycaenidae",
+          "fieldIDs_and_values": [
+            {
+              "id": null,
+              "value_contains_puddling": true
+            }
+          ],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Polyommatus coridon",
+          "identified_taxon_rank": "species",
+          "observation_id": 132371389,
+          "observed_on": "2022-08-25",
+          "photo_first_license": "cc-by",
+          "photos_n": 3,
+          "positional_accuracy_m": 16,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 46.1405918134,
+          "public_wgs84_longitude": 11.9037429418,
+          "source_observation_url": "https://www.inaturalist.org/observations/132371389",
+          "visual_behavior_confirmed": false
+        },
+        {
+          "eligible_500m_positional_accuracy": true,
+          "family_query": "Lycaenidae",
+          "fieldIDs_and_values": [
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            }
+          ],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Cyaniris semiargus",
+          "identified_taxon_rank": "species",
+          "observation_id": 124854362,
+          "observed_on": "2022-07-04",
+          "photo_first_license": null,
+          "photos_n": 3,
+          "positional_accuracy_m": 8,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 46.233585,
+          "public_wgs84_longitude": 12.2354616667,
+          "source_observation_url": "https://www.inaturalist.org/observations/124854362",
+          "visual_behavior_confirmed": false
+        },
+        {
+          "eligible_500m_positional_accuracy": true,
+          "family_query": "Lycaenidae",
+          "fieldIDs_and_values": [
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            }
+          ],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Celastrina argiolus",
+          "identified_taxon_rank": "species",
+          "observation_id": 124589932,
+          "observed_on": "2022-07-03",
+          "photo_first_license": null,
+          "photos_n": 1,
+          "positional_accuracy_m": 9,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 46.0281483167,
+          "public_wgs84_longitude": 11.2687281892,
+          "source_observation_url": "https://www.inaturalist.org/observations/124589932",
+          "visual_behavior_confirmed": false
+        },
+        {
+          "eligible_500m_positional_accuracy": true,
+          "family_query": "Lycaenidae",
+          "fieldIDs_and_values": [
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": true
+            }
+          ],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Cyaniris semiargus",
+          "identified_taxon_rank": "species",
+          "observation_id": 123508338,
+          "observed_on": "2022-06-23",
+          "photo_first_license": "cc-by",
+          "photos_n": 1,
+          "positional_accuracy_m": 48,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 46.2438216252,
+          "public_wgs84_longitude": 12.1603582959,
+          "source_observation_url": "https://www.inaturalist.org/observations/123508338",
+          "visual_behavior_confirmed": false
+        }
+      ],
+      "eligible_500m_public_geo_n": 4,
+      "source_response_sha256": "7c54b29ed300aee98351f29520181196c51008a0331ebebf11f8f78035f00618",
+      "source_url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47923&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&q=puddling&per_page=100"
+    },
+    "Papilionidae": {
+      "IDs": [],
+      "api_total_results": 0,
+      "candidate_source_n": 0,
+      "candidates": [],
+      "eligible_500m_public_geo_n": 0,
+      "source_response_sha256": "4df45dc13212f27ad9c0f4ec1dbd642e3a78f95b4aeec566fa500db26434e8b7",
+      "source_url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=47223&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&q=puddling&per_page=100"
+    },
+    "Pieridae": {
+      "IDs": [
+        126054574,
+        125202318,
+        124590882,
+        123090529,
+        122869724
+      ],
+      "api_total_results": 5,
+      "candidate_source_n": 5,
+      "candidates": [
+        {
+          "eligible_500m_positional_accuracy": true,
+          "family_query": "Pieridae",
+          "fieldIDs_and_values": [],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Aporia crataegi",
+          "identified_taxon_rank": "species",
+          "observation_id": 126054574,
+          "observed_on": "2022-06-05",
+          "photo_first_license": "cc-by-nc",
+          "photos_n": 2,
+          "positional_accuracy_m": 409,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 44.3432404,
+          "public_wgs84_longitude": 7.0358608,
+          "source_observation_url": "https://www.inaturalist.org/observations/126054574",
+          "visual_behavior_confirmed": false
+        },
+        {
+          "eligible_500m_positional_accuracy": false,
+          "family_query": "Pieridae",
+          "fieldIDs_and_values": [],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Pieris napi",
+          "identified_taxon_rank": "species",
+          "observation_id": 125202318,
+          "observed_on": "2022-07-07",
+          "photo_first_license": "cc-by",
+          "photos_n": 6,
+          "positional_accuracy_m": 607,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 53.8204271531,
+          "public_wgs84_longitude": -1.560875763,
+          "source_observation_url": "https://www.inaturalist.org/observations/125202318",
+          "visual_behavior_confirmed": false
+        },
+        {
+          "eligible_500m_positional_accuracy": true,
+          "family_query": "Pieridae",
+          "fieldIDs_and_values": [
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            },
+            {
+              "id": null,
+              "value_contains_puddling": false
+            }
+          ],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Leptidea",
+          "identified_taxon_rank": "genus",
+          "observation_id": 124590882,
+          "observed_on": "2022-07-03",
+          "photo_first_license": null,
+          "photos_n": 1,
+          "positional_accuracy_m": 9,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 46.0287416667,
+          "public_wgs84_longitude": 11.2690583333,
+          "source_observation_url": "https://www.inaturalist.org/observations/124590882",
+          "visual_behavior_confirmed": false
+        },
+        {
+          "eligible_500m_positional_accuracy": false,
+          "family_query": "Pieridae",
+          "fieldIDs_and_values": [],
+          "has_text_puddling_casefold": false,
+          "identified_taxon": "Pieris napi",
+          "identified_taxon_rank": "species",
+          "observation_id": 123090529,
+          "observed_on": "2022-06-22",
+          "photo_first_license": "cc-by",
+          "photos_n": 5,
+          "positional_accuracy_m": null,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 49.7226190476,
+          "public_wgs84_longitude": 7.9702256944,
+          "source_observation_url": "https://www.inaturalist.org/observations/123090529",
+          "visual_behavior_confirmed": false
+        },
+        {
+          "eligible_500m_positional_accuracy": false,
+          "family_query": "Pieridae",
+          "fieldIDs_and_values": [],
+          "has_text_puddling_casefold": true,
+          "identified_taxon": "Pieris napi",
+          "identified_taxon_rank": "species",
+          "observation_id": 122869724,
+          "observed_on": "2022-06-21",
+          "photo_first_license": "cc-by-nc",
+          "photos_n": 1,
+          "positional_accuracy_m": null,
+          "proven_photo_2022_effluent_chemistry": false,
+          "public_open_precise_location_not_obscured": true,
+          "public_wgs84_latitude": 53.0352666667,
+          "public_wgs84_longitude": 6.6490133333,
+          "source_observation_url": "https://www.inaturalist.org/observations/122869724",
+          "visual_behavior_confirmed": false
+        }
+      ],
+      "eligible_500m_public_geo_n": 2,
+      "source_response_sha256": "befff2bf49b1c8c7002bb8d8f8890135a096c6f64e8124f87efc2b0db9894201",
+      "source_url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_id=48508&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&q=puddling&per_page=100"
+    }
+  },
+  "limitations": [
+    "Query hits are search-engine responses, not behavior-confirmed photos",
+    "Obscured or inaccurate locations excluded from exact WWTP proximity",
+    "Photo license and original observer credits govern any reproduction",
+    "Observer effort, seasonal detectability, and field presence not controlled",
+    "No zero-absence inference from untagged photos"
+  ],
+  "no_actual_puddling_rate_or_wwtp_effect_estimated": true,
+  "recorded_at": "2026-11-08T04:28:40.079306+00:00",
+  "schema": "gesui_2022_iNat_Europe_puddling_free_text_candidates_unverified_v01",
+  "source_EEA_WWTP_and_nutrient_exposure_not_linked": true,
+  "visual_confirmation_is_REQUIRED_for_puddling": true,
+  "year": 2022
+}

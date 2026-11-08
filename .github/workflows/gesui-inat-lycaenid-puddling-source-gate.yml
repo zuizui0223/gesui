@@ -1,0 +1,44 @@
+name: gesui Lycaenidae public puddling candidate audit 2018 2022 (no WWTP inference)
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-wastewater-stage-contrast-20261108"
+    paths:
+      - "scripts/gesui_probe_inat_lycaenid_puddling_2018_2022.py"
+      - ".github/workflows/gesui-inat-lycaenid-puddling-source-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  public-obs-source-feasibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Probe public official observation API for 2018/2022 photo and behavior labels
+        run: |
+          python -m py_compile scripts/gesui_probe_inat_lycaenid_puddling_2018_2022.py
+          python -u scripts/gesui_probe_inat_lycaenid_puddling_2018_2022.py \
+            --out results/lycaenidae_inat_source_gate_20261108/I_NAT_EU_2018_2022_PUBLIC_PUDDLING_CANDIDATE_GATE.json
+      - name: Archive public counts and schema only, not photos, owners or coordinates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_inat_source_gate_20261108/
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit publicly tagged Lycaenidae puddling candidates and control family effort before wastewater analysis"
+          git fetch origin analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git rebase origin/analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git push origin HEAD:analysis/lycaenidae-wastewater-stage-contrast-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-iNat-Lycaenidae-puddling-source-only-candidates
+          path: results/lycaenidae_inat_source_gate_20261108/
+          retention-days: 90
+          if-no-files-found: warn

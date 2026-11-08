@@ -1,0 +1,397 @@
+{
+  "critically_uncertain": [
+    "field 17428 has mixed aggregation/roosting/puddling categories",
+    "field-by-ID API filtering may be unsupported and therefore zero must be schema-verified",
+    "text search matches are only candidate labels, not confirmed behavior",
+    "presence of a photograph alone does not show substrate contact",
+    "geoprivacy, taxon geoprivacy, coordinate accuracy and observer effort are nonrandom",
+    "modern iNaturalist public API may reject queries, producing NA rather than zeros"
+  ],
+  "field_id_target": 17428,
+  "metadata": {
+    "legacy_field_details": {
+      "allowed_values": "Yes|No|Maybe",
+      "datatype": "text",
+      "description": "Active Aggregation of butterflies for resting, mud puddling. Observable features include several butterflies of the same species or mixture of related species with flexed wings or actively seeking nectar or water observed",
+      "id": 17428,
+      "name": "Lepidopterans aggregating/Roosting/mud puddling",
+      "raw_fields": [
+        "id",
+        "name",
+        "datatype",
+        "user_id",
+        "description",
+        "created_at",
+        "updated_at",
+        "allowed_values",
+        "values_count",
+        "users_count",
+        "uuid"
+      ],
+      "request": {
+        "api_domain": "www.inaturalist.org",
+        "body_sha256": "ba5da02b1a18c954339db9d442804e0be1a7aa7bae4129d770f2ea9cbb46e2e7",
+        "status": 200,
+        "url": "https://www.inaturalist.org/observation_fields/17428.json"
+      }
+    },
+    "v1_field_details": {
+      "request": {
+        "api_domain": "api.inaturalist.org",
+        "error": "HTTP Error 404: Not Found",
+        "retry_after": null,
+        "status": 404,
+        "url": "https://api.inaturalist.org/v1/observation_fields/17428"
+      }
+    }
+  },
+  "no_coarse_observation_counts_interpreted_as_absence": true,
+  "no_photo_images_downloaded": true,
+  "no_real_sewage_association_or_ecological_prediction_fitted": true,
+  "photo_confirmed_puddling_n": null,
+  "query_date_is_observation_date_not_upload_date": true,
+  "region_bbox": {
+    "nelat": "64",
+    "nelng": "26",
+    "swlat": "44",
+    "swlng": "-12"
+  },
+  "run_date_UTC": "2026-11-08T04:23:54.625406+00:00",
+  "schema": "gesui_iNaturalist_Europe_butterfly_2018_2022_puddling_source_candidate_gate_v01",
+  "searches": {
+    "Lycaenidae": {
+      "2018": {
+        "all_photo_georeferenced": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "c2cc98cb8188f5a4ad164743920804adea51133fb5eadc813f0c047d9e9aa3a2",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Lycaenidae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2"
+          },
+          "returned_n": 2,
+          "returned_total": 21,
+          "sample_for_schema": [
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 265439127,
+              "observation_fields": [],
+              "position_accuracy_m": 228,
+              "taxon": "Lycaenidae"
+            },
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 122800305,
+              "observation_fields": [],
+              "position_accuracy_m": 4396,
+              "taxon": "Lycaenidae"
+            }
+          ]
+        },
+        "field_id_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Lycaenidae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&field%3A17428=Yes"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        },
+        "text_puddling_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Lycaenidae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&q=puddling"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        }
+      },
+      "2022": {
+        "all_photo_georeferenced": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "03dbb1de02a55098dd2cf8f8c15cd90ce4ab6f2e341af21ce46a342ab0398ffc",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Lycaenidae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2"
+          },
+          "returned_n": 2,
+          "returned_total": 208,
+          "sample_for_schema": [
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 409150524,
+              "observation_fields": [],
+              "position_accuracy_m": 200,
+              "taxon": "Lycaenidae"
+            },
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 408985082,
+              "observation_fields": [],
+              "position_accuracy_m": 4353,
+              "taxon": "Lycaenidae"
+            }
+          ]
+        },
+        "field_id_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Lycaenidae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&field%3A17428=Yes"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        },
+        "text_puddling_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Lycaenidae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&q=puddling"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        }
+      }
+    },
+    "Papilionidae": {
+      "2018": {
+        "all_photo_georeferenced": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Papilionidae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        },
+        "field_id_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Papilionidae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&field%3A17428=Yes"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        },
+        "text_puddling_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Papilionidae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&q=puddling"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        }
+      },
+      "2022": {
+        "all_photo_georeferenced": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "0e34a06797b37b9aa4a41b06f4ab81441393540a58149e4774ce30312b30e51e",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Papilionidae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2"
+          },
+          "returned_n": 2,
+          "returned_total": 4,
+          "sample_for_schema": [
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 139870886,
+              "observation_fields": [],
+              "position_accuracy_m": 513,
+              "taxon": "Papilionidae"
+            },
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 139870848,
+              "observation_fields": [],
+              "position_accuracy_m": 514,
+              "taxon": "Papilionidae"
+            }
+          ]
+        },
+        "field_id_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Papilionidae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&field%3A17428=Yes"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        },
+        "text_puddling_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Papilionidae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&q=puddling"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        }
+      }
+    },
+    "Pieridae": {
+      "2018": {
+        "all_photo_georeferenced": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "ed728b0309f5a7ecc11104cfba48bef2e594532457c8047d1995e991f7315a77",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Pieridae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2"
+          },
+          "returned_n": 2,
+          "returned_total": 17,
+          "sample_for_schema": [
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 307145209,
+              "observation_fields": [],
+              "position_accuracy_m": 122,
+              "taxon": "Pieridae"
+            },
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 150731391,
+              "observation_fields": [],
+              "position_accuracy_m": 61,
+              "taxon": "Pieridae"
+            }
+          ]
+        },
+        "field_id_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Pieridae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&field%3A17428=Yes"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        },
+        "text_puddling_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Pieridae&d1=2018-01-01&d2=2018-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&q=puddling"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        }
+      },
+      "2022": {
+        "all_photo_georeferenced": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "0213307014d5cf2a03f58e4bef5c270e9c8a2204e79ec9acfb92c1b3637487a4",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Pieridae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2"
+          },
+          "returned_n": 2,
+          "returned_total": 131,
+          "sample_for_schema": [
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 350279527,
+              "observation_fields": [],
+              "position_accuracy_m": 180,
+              "taxon": "Pieridae"
+            },
+            {
+              "coordinates_obscured": null,
+              "geoprivacy": null,
+              "has_photos": true,
+              "id": 277982783,
+              "observation_fields": [],
+              "position_accuracy_m": 4,
+              "taxon": "Pieridae"
+            }
+          ]
+        },
+        "field_id_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Pieridae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&field%3A17428=Yes"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        },
+        "text_puddling_candidate": {
+          "candidate_not_photo_confirmed": true,
+          "request": {
+            "api_domain": "api.inaturalist.org",
+            "body_sha256": "f8113ec0242286332d3ad18998ba1ac8e28bc0e4756fdf42ba19e36fadc9ad21",
+            "status": 200,
+            "url": "https://api.inaturalist.org/v1/observations?swlat=44&swlng=-12&nelat=64&nelng=26&taxon_name=Pieridae&d1=2022-01-01&d2=2022-12-31&photos=true&geo=true&geoprivacy=open&per_page=2&q=puddling"
+          },
+          "returned_n": 0,
+          "returned_total": 0,
+          "sample_for_schema": []
+        }
+      }
+    }
+  },
+  "source": "iNaturalist official public v1 observations",
+  "years": [
+    2018,
+    2022
+  ]
+}
