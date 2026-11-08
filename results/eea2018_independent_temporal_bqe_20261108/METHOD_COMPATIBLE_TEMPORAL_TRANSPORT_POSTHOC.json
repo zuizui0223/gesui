@@ -1,5 +1,6 @@
 {
   "bootstrap_country_cluster_descriptive_only": true,
+  "frozen_posthoc_protocol_date_utc": "2026-11-08",
   "limitations": [
     "Designed after original two-year positive EQR prediction",
     "EQR assessment methods and calibration are national",
@@ -147,7 +148,21 @@
             "upstream_gain_pct": 0.3063389035725174
           },
           "known_test_country_method_share": 0.577217125382263,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2022",
@@ -376,7 +391,21 @@
             "upstream_gain_pct": 0.37637372735748836
           },
           "known_test_country_method_share": 0.577217125382263,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2022",
@@ -607,7 +636,21 @@
             "upstream_gain_pct": 0.22101210139827107
           },
           "known_test_country_method_share": 0.4608043626448534,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2018",
@@ -854,7 +897,21 @@
             "upstream_gain_pct": 0.12225407281550782
           },
           "known_test_country_method_share": 0.4608043626448534,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2018",
@@ -1114,7 +1171,21 @@
             "upstream_gain_pct": 0.1416534821839766
           },
           "known_test_country_method_share": 0.5335276967930029,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2022",
@@ -1343,7 +1414,21 @@
             "upstream_gain_pct": 0.054065304160969746
           },
           "known_test_country_method_share": 0.5335276967930029,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2022",
@@ -1556,7 +1641,21 @@
             "upstream_gain_pct": 0.28998052967416593
           },
           "known_test_country_method_share": 0.39507154213036566,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2018",
@@ -1767,7 +1866,21 @@
             "upstream_gain_pct": 0.2480766078698903
           },
           "known_test_country_method_share": 0.39507154213036566,
-          "original_MSE_reproduced": true,
+          "original_MSE_replay_drift_by_model": {
+            "M0_baseline": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M1_upstream_reported_mass": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            },
+            "M2_downstream_negative_control": {
+              "MSE_absolute_difference": 0.0,
+              "MSE_relative_difference": 0.0
+            }
+          },
+          "original_MSE_reproduced_within_relative_1e-5": true,
           "posthoc_not_confirmatory": true,
           "site_disjoint": true,
           "testing_year": "2018",
@@ -1864,6 +1977,5 @@
     "benthic_invertebrates_2022": "5e1f3c31b389d0bd769984ab055d3e2c54b63ccaa4f5eedfb2d82bcdc83c28e6",
     "phytobenthos_2018": "8302daf2afa3f3556debc5ca769ee667bd06816d0de2e63afd4cb6b538587ad7",
     "phytobenthos_2022": "7fa5dfff9023337ac0a62a87fe406eb71783979858d9d924ab97019c6e4e5fc3"
-  },
-  "utc_created": "2026-11-08T03:46:47.681096+00:00"
+  }
 }
