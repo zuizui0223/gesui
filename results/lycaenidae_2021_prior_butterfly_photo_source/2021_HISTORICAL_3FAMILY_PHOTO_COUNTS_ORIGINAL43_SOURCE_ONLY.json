@@ -1,0 +1,1493 @@
+{
+  "2021_photo_support_before_historical_comparison_model_gate": true,
+  "2021_photo_window": [
+    "2021-04-01",
+    "2021-10-31"
+  ],
+  "2021_supported_cells_n": 42,
+  "2021_supported_countries": {
+    "AT": 15,
+    "DE": 27
+  },
+  "2021_supported_original_country2deg_blocks_n": 18,
+  "NO_PHOTO_PIXELS_NO_INDIVIDUAL_OBSERVATION_IDS_OR_PERSONAL_OBSERVERS": true,
+  "POSTHOC_after_positive_2022_source_photo_and_landcover_effect_seen": true,
+  "all_2021_API_success": 43,
+  "all_2021_API_total_queries": 129,
+  "date_utc": "2026-11-08T08:59:43.748442+00:00",
+  "historical_photo_composition_is_not_butterfly_population_history": true,
+  "min_prior_2021_AT_cells": 9,
+  "min_prior_2021_DE_cells": 18,
+  "min_prior_2021_country2deg_blocks": 12,
+  "min_prior_2021_family_photos_each": 15,
+  "min_prior_2021_supported_countries_1deg_cells": 30,
+  "new_2021_photo_data_is_not_independent_preregistered_outcome_test": true,
+  "original_2021_2022_public_photo_FAMILY_taxon_ids": {
+    "Lycaenidae": 47923,
+    "Papilionidae": 47223,
+    "Pieridae": 48508
+  },
+  "original_2021_WorldCover2022_photo_source_full_SHA256": "752f4411c7999f3065be2f8c4afd52ab36f53d517a3c0e4c1f39c08587b93a34",
+  "original_2021_butterfly_photo_year": 2021,
+  "original_2022_DE_AT_WorldCover_fixed_cells": {
+    "AT": 15,
+    "DE": 28
+  },
+  "original_2022_fixed_cell_total": 43,
+  "original_2022_photo_source_full_SHA256": "36af83f445ecaf6ac6c75a8b1cab12567352a0c8097ac9c1d974adab3509d79d",
+  "schema": "gesui_prior2021_butterfly_photo_composition_source_only_same43_original_2022_WorldCover_sample_v01",
+  "source_2021_same43_cell_historical_butterfly_photo_records": [
+    {
+      "2021_Lycaenidae_photo_n": 18,
+      "2021_Papilionidae_photo_n": 7,
+      "2021_Pieridae_photo_n": 11,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 36,
+      "countryCode": "AT",
+      "lat_floor": "46.0",
+      "lon_floor": "13.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "0e76191714730ea7471f18ca70b3dad5b5a418126caab1fca27c2900b58b0e05",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=46.0&swlng=13.0&nelat=47.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 18
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "5a84ea72c2b14071be0e585e603294f6abf57a7a072b32b5ea465f5cc193db6d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=46.0&swlng=13.0&nelat=47.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 7
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "8d024b6d8dc2b6af860e366884d500e48602e0c8248f96894670507bfdb0007a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=46.0&swlng=13.0&nelat=47.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 11
+        }
+      },
+      "original_spatial_2degree_block": "23_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 21,
+      "2021_Papilionidae_photo_n": 9,
+      "2021_Pieridae_photo_n": 8,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 38,
+      "countryCode": "AT",
+      "lat_floor": "46.0",
+      "lon_floor": "14.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "e1a1261dd899efc3710fa4f216aa2b8c2f37c05a7929d221c80e0920b6ea4ec7",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=46.0&swlng=14.0&nelat=47.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 21
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "91747cc4c0dfbffb60a96431d892bcfa9c36f36dbf47dfd5c8cdf485ca903bd1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=46.0&swlng=14.0&nelat=47.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 9
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "001bfa68d96d26748f7890d94b67e69c6847d24c79836c2613ae5bb40c35e862",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=46.0&swlng=14.0&nelat=47.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 8
+        }
+      },
+      "original_spatial_2degree_block": "23_7",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 76,
+      "2021_Papilionidae_photo_n": 24,
+      "2021_Pieridae_photo_n": 58,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 158,
+      "countryCode": "AT",
+      "lat_floor": "46.0",
+      "lon_floor": "15.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "954a6f80d5b8a6a1ddb86b2d24d9c16f2bd57f4e556f92a42aa3e3c5c5dcdbd5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=46.0&swlng=15.0&nelat=47.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 76
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "d935e5867a38029edba2a4d390a2d8f99fdd0dcb15d9b651467f889c14e88c55",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=46.0&swlng=15.0&nelat=47.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 24
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "a050442a070c1b1073bf0a817e211b553551f37fd88f4eb8f31ac8304b6b943f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=46.0&swlng=15.0&nelat=47.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 58
+        }
+      },
+      "original_spatial_2degree_block": "23_7",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 5,
+      "2021_Papilionidae_photo_n": 3,
+      "2021_Pieridae_photo_n": 9,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 17,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "9.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "e771786132ed8251c437b5a72aff2d7ab0d2c9b67fa52a75a9c097445ce8a809",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 5
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "79dc02ed889e4cc497d530febf32453dbd3cf907d9a3117573015dbfc7142e22",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 3
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "8c3de8c3de8a121a9f205bb2ca0ef12336f8cd203f77678273e3e3fe8820a378",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 9
+        }
+      },
+      "original_spatial_2degree_block": "23_4",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 31,
+      "2021_Papilionidae_photo_n": 9,
+      "2021_Pieridae_photo_n": 37,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 77,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "17467f6d1ded858511fb1a703931785796a240db1a5c83bb6a615a17cd546cde",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 31
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "1993f34fc751f26fcb96c1d819d279b78913c647b740699d6a064c2378223e4a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 9
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "2d3e18eefc047e4946a7cc9431e59a792843776b96e3dbbca7667d5bd1f0c502",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 37
+        }
+      },
+      "original_spatial_2degree_block": "23_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 30,
+      "2021_Papilionidae_photo_n": 15,
+      "2021_Pieridae_photo_n": 27,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 72,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "11.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "70d4765a4d953c98c092e9cc3d816ba9f761f5660beff860176e8beb9915be4d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 30
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "ef9ef7991b8d36488b4eaa3bc9859ab1e0cd73c6e264b2b2d27460df28b5c844",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 15
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "b92c472012b0e39bf8e6905cb4bcda84f7c08c5ca8a521f966bcdb54afec40d9",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 27
+        }
+      },
+      "original_spatial_2degree_block": "23_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 21,
+      "2021_Papilionidae_photo_n": 3,
+      "2021_Pieridae_photo_n": 14,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 38,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "12.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "9fd7a80b9be111f78bc6ae9f641cbb3c975d366ecc6a4b0726d974c78d21ddfd",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 21
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "4bf7b2c02b2916896bc643e2d10b3c7116e55cacb2cc55220a621834d733793b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 3
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "22f2ed4dba19d54cb3e8b2a4cb8bd12314b98c7c0756bd32a73ac5d2618d879a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 14
+        }
+      },
+      "original_spatial_2degree_block": "23_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 34,
+      "2021_Papilionidae_photo_n": 9,
+      "2021_Pieridae_photo_n": 24,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 67,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "13.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "e3ad73fb5db91f6608f23af9193d4db7b4fe91faf05efe8aff673264ff284862",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=13.0&nelat=48.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 34
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "a709d0a65325969f3960bd69d56f9bc0b4675fdfc95d192a2a1e20283a2c8480",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=13.0&nelat=48.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 9
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "180e67ea1ae373e8b34e74c577e9d6ddcd8d91d9e30b3a72e8f27058ed641962",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=13.0&nelat=48.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 24
+        }
+      },
+      "original_spatial_2degree_block": "23_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 58,
+      "2021_Papilionidae_photo_n": 28,
+      "2021_Pieridae_photo_n": 89,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 175,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "14.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "824bd45c90652ea49a495b406293aae8c190a8500d1d7fc2e372a54df2302be9",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=14.0&nelat=48.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 58
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "29ee5676929a91ba260d9168d9f4e2266795a6b6547547f86204c47e7ce8c35a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=14.0&nelat=48.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 28
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "6bb19fc28c48c1f1c19116fb5425906f9319bd0a99496de6ff757cd6c0d07faf",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=14.0&nelat=48.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 89
+        }
+      },
+      "original_spatial_2degree_block": "23_7",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 54,
+      "2021_Papilionidae_photo_n": 44,
+      "2021_Pieridae_photo_n": 78,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 176,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "15.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "5739200ccb87b7526293a5f63526d92bea420f6a13700c427681b24c6001520a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=15.0&nelat=48.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 54
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "a1185e9cf597d100c26c3ecae699867cb6be9ef289ab7ca804d3c9e63dae6f57",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=15.0&nelat=48.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 44
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "86a4038c34e5f6aaa72c387755e809e1483b2a158253f2236d8185b192fef061",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=15.0&nelat=48.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 78
+        }
+      },
+      "original_spatial_2degree_block": "23_7",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 59,
+      "2021_Papilionidae_photo_n": 22,
+      "2021_Pieridae_photo_n": 32,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 113,
+      "countryCode": "AT",
+      "lat_floor": "47.0",
+      "lon_floor": "16.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "45b3955b33cff1d66546a1f09a7938f3e9573c3b07c4565cab6c969b14180491",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=47.0&swlng=16.0&nelat=48.0&nelng=17.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 59
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "37a04ed57c7046f60b5a2c9d41937c4b49805a1a1bb677d8b93e9f4f75ca3c79",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=47.0&swlng=16.0&nelat=48.0&nelng=17.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 22
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "b74ce5a4c22a93c54e064ce1ce517426a3f65ef9c67107e5153a4ddbcdb4ebe3",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=47.0&swlng=16.0&nelat=48.0&nelng=17.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 32
+        }
+      },
+      "original_spatial_2degree_block": "23_8",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 11,
+      "2021_Papilionidae_photo_n": 4,
+      "2021_Pieridae_photo_n": 11,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 26,
+      "countryCode": "AT",
+      "lat_floor": "48.0",
+      "lon_floor": "13.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "8da6214cc53b730250032b2eb43a5eaeb9d0deeac522ce9237afc4ebe6267d72",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 11
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "c49a1c646e7ea9fbcf82e686ba6f687a8aa053eced23b2d4310cff09ad9a6897",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 4
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "6b56104bca2474075f3265db846d7bc826bfe364b9cb6395b1270298cc2136bc",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 11
+        }
+      },
+      "original_spatial_2degree_block": "24_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 63,
+      "2021_Papilionidae_photo_n": 7,
+      "2021_Pieridae_photo_n": 35,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 105,
+      "countryCode": "AT",
+      "lat_floor": "48.0",
+      "lon_floor": "14.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "6269e48c4389b2e1e010b3069226bb2e267ab9ee910cc67af45c4bd4cb6c39e5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=14.0&nelat=49.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 63
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "0233dd440d5459e09d2041c13bd096fa2d4454d68ad9737fb236b8f7b04bac03",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=14.0&nelat=49.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 7
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "01047617ad452ae5133caf1079fb7fb55567cc394ed60c8102204c23d9a7ce57",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=14.0&nelat=49.0&nelng=15.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 35
+        }
+      },
+      "original_spatial_2degree_block": "24_7",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 49,
+      "2021_Papilionidae_photo_n": 23,
+      "2021_Pieridae_photo_n": 63,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 135,
+      "countryCode": "AT",
+      "lat_floor": "48.0",
+      "lon_floor": "15.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "d8d7ebafec3f039087aa3cb7946428c979ec129b6f2f10b75c14b99b0c8d38a5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=15.0&nelat=49.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 49
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "050f531170264c95197c673fe17cfe79f0aa859b607ef7262550017942764853",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=15.0&nelat=49.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 23
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "40bf414c7b8e1aa1c45a1701b05e97f28f413139941475e7fcd536e36e0ad691",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=15.0&nelat=49.0&nelng=16.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 63
+        }
+      },
+      "original_spatial_2degree_block": "24_7",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 109,
+      "2021_Papilionidae_photo_n": 70,
+      "2021_Pieridae_photo_n": 143,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 322,
+      "countryCode": "AT",
+      "lat_floor": "48.0",
+      "lon_floor": "16.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "8995acd75353def9c9fe1019da917057f7c510578523f7e73ae89db97a2cebd7",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=8057&swlat=48.0&swlng=16.0&nelat=49.0&nelng=17.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 109
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "92aef7f22cdd9399bdde30dca318f291ad1ee75aa25226549151471ed51a418c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=8057&swlat=48.0&swlng=16.0&nelat=49.0&nelng=17.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 70
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "0f70cf670666055f9b34cbfd195fd548dbffeb00a6544acba1dc27a768daefe2",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=8057&swlat=48.0&swlng=16.0&nelat=49.0&nelng=17.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 143
+        }
+      },
+      "original_spatial_2degree_block": "24_8",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 16,
+      "2021_Papilionidae_photo_n": 3,
+      "2021_Pieridae_photo_n": 8,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 27,
+      "countryCode": "DE",
+      "lat_floor": "47.0",
+      "lon_floor": "9.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "fc5ecfe24baec6291177baebd1f82f7550b2458f11f12b808af836b6f8927c96",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 16
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "ce29b2268479186e2436640d03bc7d432396b0d85414288dde61b260cb6bf65c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 3
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "498e8574b2315fb9aacf3c35d3c0800ee43b3f935f302d34de014c60f02f2b46",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=9.0&nelat=48.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 8
+        }
+      },
+      "original_spatial_2degree_block": "23_4",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 31,
+      "2021_Papilionidae_photo_n": 4,
+      "2021_Pieridae_photo_n": 24,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 59,
+      "countryCode": "DE",
+      "lat_floor": "47.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "d4c4f903b629688ba84911add12bd704e8c6ae0f1390742d1bc855a46c9fbae7",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 31
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "6b6841bd3225ffa98e6154d8ec3f39b4f3c3447856c23a10cd0c2bece0a8b3f4",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 4
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "ab0a14d8bb06d86d80dba548f37c83d664bddc51a88cfd5cb5632ac8cf8946e3",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=10.0&nelat=48.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 24
+        }
+      },
+      "original_spatial_2degree_block": "23_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 61,
+      "2021_Papilionidae_photo_n": 8,
+      "2021_Pieridae_photo_n": 23,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 92,
+      "countryCode": "DE",
+      "lat_floor": "47.0",
+      "lon_floor": "11.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "ad50a53d4ee730c3157d0d468573f827612b66ccd254335b833b81c74d8bac15",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 61
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "c8bf090b28fb629177b9fa91cc2fd54c0da4e55c92072bd5db670643ecfa130c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 8
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "a226fd42713ab74abd1e725e369d388c8f0fea543de5b2ad8b25bc698c1a7eb5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=11.0&nelat=48.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 23
+        }
+      },
+      "original_spatial_2degree_block": "23_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 25,
+      "2021_Papilionidae_photo_n": 8,
+      "2021_Pieridae_photo_n": 15,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 48,
+      "countryCode": "DE",
+      "lat_floor": "47.0",
+      "lon_floor": "12.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "667784a83959deae3f276d35be2d5debbaa151664a8725fc20bab4eb3ce961f1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 25
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "bf4c47b40481c294064670b83e0913ecefbfd9ef2570e5382fb8d0a04839892a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 8
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "9fb7d7f8bbf3c4ad775eac1ee70f3fd981b872fefe180a4033fd625ceec7caf1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=47.0&swlng=12.0&nelat=48.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 15
+        }
+      },
+      "original_spatial_2degree_block": "23_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 144,
+      "2021_Papilionidae_photo_n": 8,
+      "2021_Pieridae_photo_n": 98,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 250,
+      "countryCode": "DE",
+      "lat_floor": "48.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "3418adb6ea91150254e63f853527f613bd0dcd32452b809199a87ff10bad8648",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=10.0&nelat=49.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 144
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "ea52592123ccf1620ae02d4b0461780f4699377f0feef73e8c24d7a3b89466d5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=10.0&nelat=49.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 8
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "5d74f25681a374f978ce7aaa62960e08a4f6a4b0a4d259dcf190964e295e801d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=10.0&nelat=49.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 98
+        }
+      },
+      "original_spatial_2degree_block": "24_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 489,
+      "2021_Papilionidae_photo_n": 6,
+      "2021_Pieridae_photo_n": 132,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 627,
+      "countryCode": "DE",
+      "lat_floor": "48.0",
+      "lon_floor": "11.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "a8108a65a364772d8accb51702c9310cbad7a32b13092b90dd1676d6682f019c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=11.0&nelat=49.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 489
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "d5359024f16de593ea17044352ebf91589a991f92c49731736fa08f2503c7951",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=11.0&nelat=49.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 6
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "35892b57874d11507730406b21264bf489474eb415971e89b3085baf0190a163",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=11.0&nelat=49.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 132
+        }
+      },
+      "original_spatial_2degree_block": "24_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 180,
+      "2021_Papilionidae_photo_n": 2,
+      "2021_Pieridae_photo_n": 55,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 237,
+      "countryCode": "DE",
+      "lat_floor": "48.0",
+      "lon_floor": "12.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "31290c5433c677460ae9e522ba28dac3bddfb155dbdcbfd6d23baf8da31c73b9",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=12.0&nelat=49.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 180
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "3a7c0b182752bb3786dc48113ff5e26bb038262ac9004cb5944c73d10dd520fa",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=12.0&nelat=49.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 2
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "4d48f2edf3fc1e940390903cd4914220ea2b71fefefbfcacedf617fbda6469fc",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=12.0&nelat=49.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 55
+        }
+      },
+      "original_spatial_2degree_block": "24_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 23,
+      "2021_Papilionidae_photo_n": 1,
+      "2021_Pieridae_photo_n": 10,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 34,
+      "countryCode": "DE",
+      "lat_floor": "48.0",
+      "lon_floor": "13.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "6dec5392843dacb76d1bc0d164a92289ee6cdfc99ed8b81f0c69e52d5c1da262",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 23
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "b5ffbb81bd78a03d470b3e188f1504191b639f23d8612b6c717ae1a62569e8fa",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 1
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "dcb8a9fcc3c5e3ea25966be43add8512e596f1ab260e3f4b32ce56c70f5c7397",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=48.0&swlng=13.0&nelat=49.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 10
+        }
+      },
+      "original_spatial_2degree_block": "24_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 39,
+      "2021_Papilionidae_photo_n": 4,
+      "2021_Pieridae_photo_n": 37,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 80,
+      "countryCode": "DE",
+      "lat_floor": "49.0",
+      "lon_floor": "9.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "9a08282b7d13b3a211bc863fe22916506c73401f81778049ef220d7c980d4452",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=9.0&nelat=50.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 39
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "a0687984f149988c02fc0728c7266a929d24a9e15bb55b7acb6edf5349bf1c9a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=9.0&nelat=50.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 4
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "75c18d77b68fc95be5bcb0ba37f1c1ab8c93f16303eebaad32d060d79c1d9c13",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=9.0&nelat=50.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 37
+        }
+      },
+      "original_spatial_2degree_block": "24_4",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 15,
+      "2021_Papilionidae_photo_n": 2,
+      "2021_Pieridae_photo_n": 17,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 34,
+      "countryCode": "DE",
+      "lat_floor": "49.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "f7f86795ffe434a403ad722bf483267187a043a78a1678ac211e074df871fc87",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=10.0&nelat=50.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 15
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "880229450203dcbf05c47a609db6d8cc45bfe860c9d64a38de6ecad0dabb7b4c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=10.0&nelat=50.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 2
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "36c4f7adc6de41ea8844886069b344505696838222dd937ee3703a5cf1cc256b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=10.0&nelat=50.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 17
+        }
+      },
+      "original_spatial_2degree_block": "24_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 54,
+      "2021_Papilionidae_photo_n": 3,
+      "2021_Pieridae_photo_n": 39,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 96,
+      "countryCode": "DE",
+      "lat_floor": "49.0",
+      "lon_floor": "11.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "18fe8b6ad886411ecf93d1d70e94d28e9683a6503054d7a6d358d133b1357e98",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=11.0&nelat=50.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 54
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "f6f976123482be67d7d3d10785f23f026aa6bc2b083389e98d9ca08b2bb0e9f0",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=11.0&nelat=50.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 3
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "53e7023dbf30bd6dac80828018ff13fc1baf03e815f4a3b71e4ca1fbde09c533",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=11.0&nelat=50.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 39
+        }
+      },
+      "original_spatial_2degree_block": "24_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 14,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 11,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 25,
+      "countryCode": "DE",
+      "lat_floor": "49.0",
+      "lon_floor": "12.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "79442162d1c7c6d54de1ada7cfa9102657f3bf3c24365aadde28c9dc856411ec",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=12.0&nelat=50.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 14
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=12.0&nelat=50.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "a557db180d387cdb80b50b998e5f86f485e2c7bc9369d8fe2700cbd91a430311",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=12.0&nelat=50.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 11
+        }
+      },
+      "original_spatial_2degree_block": "24_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 0,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 2,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": false,
+      "2021_three_family_photo_total": 2,
+      "countryCode": "DE",
+      "lat_floor": "49.0",
+      "lon_floor": "13.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=49.0&swlng=13.0&nelat=50.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=49.0&swlng=13.0&nelat=50.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "e7e20caa094cda85a3214831a71afa926f0c93f0c2978fc447a20b2464cfb67d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=49.0&swlng=13.0&nelat=50.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 2
+        }
+      },
+      "original_spatial_2degree_block": "24_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 24,
+      "2021_Papilionidae_photo_n": 2,
+      "2021_Pieridae_photo_n": 15,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 41,
+      "countryCode": "DE",
+      "lat_floor": "50.0",
+      "lon_floor": "9.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "e705d1310a940073311b2e95e654c17869a9c51466031e1ce4def4289b598403",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=9.0&nelat=51.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 24
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "c2cc0b158049a3db206939820b1909881b1ed74c01d2211dc26319a8582b87c4",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=9.0&nelat=51.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 2
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "d2fd618c4dc407dc3cba2d89c289f4b93c997bf4ac04d5f971bb72b08a25c63a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=9.0&nelat=51.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 15
+        }
+      },
+      "original_spatial_2degree_block": "25_4",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 43,
+      "2021_Papilionidae_photo_n": 2,
+      "2021_Pieridae_photo_n": 30,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 75,
+      "countryCode": "DE",
+      "lat_floor": "50.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "31144cc9034871fa4976916f6a0d5c81b5a8baadac44a0ba22acd0e1f8593664",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=10.0&nelat=51.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 43
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "2fbbdcc543c3eccf4ff5f54b8af8363505cd2ee924057f8aaa294cf336bd2536",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=10.0&nelat=51.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 2
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "ff01d6e014c1658247a858a6f94627c4a8da6c560e1370c28abc41a1dd3e1242",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=10.0&nelat=51.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 30
+        }
+      },
+      "original_spatial_2degree_block": "25_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 18,
+      "2021_Papilionidae_photo_n": 1,
+      "2021_Pieridae_photo_n": 42,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 61,
+      "countryCode": "DE",
+      "lat_floor": "50.0",
+      "lon_floor": "11.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "3078b3663b43dff3aaa9caed3030bc9055c1b07daa5c0297f04553682fbaf5fc",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=11.0&nelat=51.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 18
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "0e93689a4b6a0085d6327a90df532a2b1eff79938cc8ec3f0f6d97fd6f0af10a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=11.0&nelat=51.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 1
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "017e55af896771ab4a261c2f540a23dad521c9d810800940631bfb7b69b0d299",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=11.0&nelat=51.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 42
+        }
+      },
+      "original_spatial_2degree_block": "25_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 26,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 38,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 64,
+      "countryCode": "DE",
+      "lat_floor": "50.0",
+      "lon_floor": "12.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "ed0027efec78e6c487054c8e0a46ca5f73a1bc10bfdf661722bd9c7ee6ae9a91",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=50.0&swlng=12.0&nelat=51.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 26
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=50.0&swlng=12.0&nelat=51.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "67828c8164d3958c3a4486f5e4742b505771f16c19f6145515c2fdae9a50cd55",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=50.0&swlng=12.0&nelat=51.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 38
+        }
+      },
+      "original_spatial_2degree_block": "25_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 59,
+      "2021_Papilionidae_photo_n": 3,
+      "2021_Pieridae_photo_n": 29,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 91,
+      "countryCode": "DE",
+      "lat_floor": "51.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "0d0180945a30bb676cf1c9e856cb1b87a2b64fa26429f3fc0571ccba3ba9cc56",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=10.0&nelat=52.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 59
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "b1da75807bddf6bdd396d978a631b6110fc702a9a0fd328998e6bffe89311f8c",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=10.0&nelat=52.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 3
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "0a472c9fb546cb7e678ec2cd4335fba92b056a8e57a101b74afa7277149b81be",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=10.0&nelat=52.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 29
+        }
+      },
+      "original_spatial_2degree_block": "25_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 25,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 27,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 52,
+      "countryCode": "DE",
+      "lat_floor": "51.0",
+      "lon_floor": "11.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "481559c9b90c0e23a955b03e96d430ec445facdabc23c9545047a9874ef3ad64",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=11.0&nelat=52.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 25
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=11.0&nelat=52.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "98584a556dde52aa2526325dfd310bf33b10da7f7d3c2cf7d9ceaca66284aa8b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=11.0&nelat=52.0&nelng=12.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 27
+        }
+      },
+      "original_spatial_2degree_block": "25_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 75,
+      "2021_Papilionidae_photo_n": 5,
+      "2021_Pieridae_photo_n": 142,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 222,
+      "countryCode": "DE",
+      "lat_floor": "51.0",
+      "lon_floor": "12.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "43c6f4a401b298d5f8a83b3aa74089dca85765fe8e9c3b0d727af60c5062952d",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=12.0&nelat=52.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 75
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "69d1236b1253ada96cb334b2f7dde5a2cf36c7deb10a5ab3d685213e284ef79a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=12.0&nelat=52.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 5
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "46a2529b6f2634aedb11931b6ac0924c6b71685439ec3db523c2879f56f04c9a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=12.0&nelat=52.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 142
+        }
+      },
+      "original_spatial_2degree_block": "25_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 27,
+      "2021_Papilionidae_photo_n": 8,
+      "2021_Pieridae_photo_n": 48,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 83,
+      "countryCode": "DE",
+      "lat_floor": "51.0",
+      "lon_floor": "13.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "8ab0bb9eb1459609b0d8a31dd37416032adc1d7b66e2d6e1c275b616295ff91f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=51.0&swlng=13.0&nelat=52.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 27
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "f88daea370b81e4a56584c622114cb9ade32257a62d4b12df2fad8026e3c3b02",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=51.0&swlng=13.0&nelat=52.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 8
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "5399951a5c58584588d234156249ee2120b4d4ee5e4f8cb94bb23435dad36b63",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=51.0&swlng=13.0&nelat=52.0&nelng=14.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 48
+        }
+      },
+      "original_spatial_2degree_block": "25_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 47,
+      "2021_Papilionidae_photo_n": 3,
+      "2021_Pieridae_photo_n": 47,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 97,
+      "countryCode": "DE",
+      "lat_floor": "52.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "db4a9f1ed832223fda8e6b96f5766fc2a059b649b83ece7556b76d5c20907480",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=52.0&swlng=10.0&nelat=53.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 47
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "ae664fc31fd78f5b04868906b086b13cff549f62f649c9c4b13f1dd78a4d455f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=52.0&swlng=10.0&nelat=53.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 3
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "feace6d6bb514bd6288ee9e7fd01604c3af965d33ff4eb5c1236c027aa9ec4cb",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=52.0&swlng=10.0&nelat=53.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 47
+        }
+      },
+      "original_spatial_2degree_block": "26_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 18,
+      "2021_Papilionidae_photo_n": 1,
+      "2021_Pieridae_photo_n": 11,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 30,
+      "countryCode": "DE",
+      "lat_floor": "52.0",
+      "lon_floor": "12.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "7eea606a396038d20a83aa3b290b7914de28acd3bfadafa31de5a36be88a50df",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=52.0&swlng=12.0&nelat=53.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 18
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "a925c11a919a64414f98147451cf6cb76bc158c9e09409eb1fc106bdc957e927",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=52.0&swlng=12.0&nelat=53.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 1
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "17af2c38d5698e8ad820820f45c7218d61cabad721a92c528091e9a5203802d6",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=52.0&swlng=12.0&nelat=53.0&nelng=13.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 11
+        }
+      },
+      "original_spatial_2degree_block": "26_6",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 53,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 80,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 133,
+      "countryCode": "DE",
+      "lat_floor": "53.0",
+      "lon_floor": "8.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "27c32472cecddb0010d0eeb2596829f31e9aec0e36803d32df57671cb13d13a1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=53.0&swlng=8.0&nelat=54.0&nelng=9.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 53
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=53.0&swlng=8.0&nelat=54.0&nelng=9.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "13470b6cd793b77e54ffd05d69befaa75a5e88f99e337df7ee1071e912f359f5",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=53.0&swlng=8.0&nelat=54.0&nelng=9.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 80
+        }
+      },
+      "original_spatial_2degree_block": "26_4",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 40,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 52,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 92,
+      "countryCode": "DE",
+      "lat_floor": "53.0",
+      "lon_floor": "9.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "7c9d55366becf3cac27a878bae2803f42e18ac00c9c04b28448b1a0a19e7e22f",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=53.0&swlng=9.0&nelat=54.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 40
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=53.0&swlng=9.0&nelat=54.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "87a646ebf0dfba499ff0119fdb63165b3975584c694754852a4346291f3aafe1",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=53.0&swlng=9.0&nelat=54.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 52
+        }
+      },
+      "original_spatial_2degree_block": "26_4",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 35,
+      "2021_Papilionidae_photo_n": 2,
+      "2021_Pieridae_photo_n": 61,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 98,
+      "countryCode": "DE",
+      "lat_floor": "53.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "4b1cbb837fa73840cf516b223870bb3f58930e781daba339b6966a865fbaf78e",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=53.0&swlng=10.0&nelat=54.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 35
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "84863dac5de47dc3a21ad8a88e9608ce773ffc57ceaf987d9636cf3947d4bd4a",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=53.0&swlng=10.0&nelat=54.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 2
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "8a7ef14d783602543c42abdc0f0f82914b9f4746b633b73558e4298e1b788447",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=53.0&swlng=10.0&nelat=54.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 61
+        }
+      },
+      "original_spatial_2degree_block": "26_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 5,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 13,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 18,
+      "countryCode": "DE",
+      "lat_floor": "54.0",
+      "lon_floor": "9.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "http": 200,
+          "original_JSON_sha256": "39703bc75636d2073a07cfc56072503d2a03052c236b619f32b6c5517ef26006",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=54.0&swlng=9.0&nelat=55.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 5
+        },
+        "Papilionidae": {
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=54.0&swlng=9.0&nelat=55.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "53c2fd470780134d37c5adc61822609ca9ec7391749d6d99f74968c95cef41a6",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=54.0&swlng=9.0&nelat=55.0&nelng=10.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 13
+        }
+      },
+      "original_spatial_2degree_block": "27_4",
+      "previous_2022_original_cell_and_source_unchanged": true
+    },
+    {
+      "2021_Lycaenidae_photo_n": 12,
+      "2021_Papilionidae_photo_n": 0,
+      "2021_Pieridae_photo_n": 23,
+      "2021_photo_support_complete": true,
+      "2021_photo_support_min15": true,
+      "2021_three_family_photo_total": 35,
+      "countryCode": "DE",
+      "lat_floor": "54.0",
+      "lon_floor": "10.0",
+      "original_2021_source_receipts": {
+        "Lycaenidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "5944be0d539523457b29ddde1959b800f42d851a2595c587aa35b18f08b062f3",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47923&place_id=7207&swlat=54.0&swlng=10.0&nelat=55.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 12
+        },
+        "Papilionidae": {
+          "error": "HTTP429",
+          "http": 200,
+          "original_JSON_sha256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47223&place_id=7207&swlat=54.0&swlng=10.0&nelat=55.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 0
+        },
+        "Pieridae": {
+          "http": 200,
+          "original_JSON_sha256": "74130884a36c51d7119cb82df7b28595d32ede5d5a5753932b1740e10ce47c9b",
+          "original_public_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=48508&place_id=7207&swlat=54.0&swlng=10.0&nelat=55.0&nelng=11.0&d1=2021-04-01&d2=2021-10-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "photo_records_2021": 23
+        }
+      },
+      "original_spatial_2degree_block": "27_5",
+      "previous_2022_original_cell_and_source_unchanged": true
+    }
+  ],
+  "source_2022_EEA_outfall_is_not_verified_2021_exposure_or_treatment": true
+}
