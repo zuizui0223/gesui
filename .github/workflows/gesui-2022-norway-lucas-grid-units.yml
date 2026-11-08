@@ -1,0 +1,45 @@
+name: gesui Norway 2022 BMS 50m sections -> independent Lucas grid source-only validation
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-norway-belgium-ebms-source-20261108"
+    paths:
+      - "scripts/gesui_2022_norway_independent_lucas_grid_event_qc.py"
+      - ".github/workflows/gesui-2022-norway-lucas-grid-units.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  freeze-independent-grid-units-without-species:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Derive real independent Lucas monitoring areas from exact publisher original Event core
+        run: |
+          python -m py_compile scripts/gesui_2022_norway_independent_lucas_grid_event_qc.py
+          python -u scripts/gesui_2022_norway_independent_lucas_grid_event_qc.py \
+            --temporary-dir /tmp/gesui-norway-independent-grid \
+            --out results/lycaenidae_norway_flanders_2022_source_only/NORWAY_LUCAS_2022_INDEPENDENT_GRID_SITE_QC.json
+      - name: Archive source-only sample units (not individual butterfly observations)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_norway_flanders_2022_source_only/NORWAY_LUCAS_2022_INDEPENDENT_GRID_SITE_QC.json results/lycaenidae_norway_flanders_2022_source_only/NORWAY_2022_LUCAS_GRID_SOURCE_ONLY_SITES.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original Norway 2022 Lucas grid independent visit units from 50m event sections before wastewater association"
+          git fetch origin analysis/lycaenidae-norway-belgium-ebms-source-20261108
+          git rebase origin/analysis/lycaenidae-norway-belgium-ebms-source-20261108
+          git push origin HEAD:analysis/lycaenidae-norway-belgium-ebms-source-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-norway-original-BMS-independent-grid-source-only
+          path: |
+            results/lycaenidae_norway_flanders_2022_source_only/NORWAY_LUCAS_2022_INDEPENDENT_GRID_SITE_QC.json
+            results/lycaenidae_norway_flanders_2022_source_only/NORWAY_2022_LUCAS_GRID_SOURCE_ONLY_SITES.csv
+          retention-days: 90
+          if-no-files-found: warn
