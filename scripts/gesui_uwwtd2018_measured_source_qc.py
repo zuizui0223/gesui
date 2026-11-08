@@ -74,7 +74,7 @@ def main():
         uw[col]=pd.to_numeric(uw[col],errors="coerce")
     for col in POINT_FIELDS:
         outlets[col]=pd.to_numeric(outlets[col],errors="coerce")
-    uw["both_NP_measured_positive"]=uw[MEASURED].gt(0).all(axis=1)
+    uw["both_NP_measured_positive"]=uw[list(MEASURED)].gt(0).all(axis=1)
     uw["N_measured_positive"]=uw[MEASURED[0]].gt(0)
     uw["P_measured_positive"]=uw[MEASURED[1]].gt(0)
     whole=len(uw)
