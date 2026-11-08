@@ -1,0 +1,44 @@
+name: gesui official EEA Waterbase Biology 2026 multiclass river BQE source inventory
+
+on:
+  push:
+    branches:
+      - "analysis/eea2026-waterbase-biology-bqe-20261108"
+    paths:
+      - "scripts/probe_eea2026_biology_source.py"
+      - ".github/workflows/gesui-eea2026-biology-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  official-biological-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download original EEA Biology 2026 versioned public archive (do not redistribute)
+        run: |
+          mkdir -p /tmp/gesui-biology-source
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download \
+            -o /tmp/gesui-biology-source/EEA_Waterbase_Biology_2026_original.zip
+          file /tmp/gesui-biology-source/EEA_Waterbase_Biology_2026_original.zip
+          wc -c /tmp/gesui-biology-source/EEA_Waterbase_Biology_2026_original.zip
+          sha256sum /tmp/gesui-biology-source/EEA_Waterbase_Biology_2026_original.zip
+      - name: Inspect original normalized EQR and spatial monitoring site file schemas only
+        run: |
+          python -u scripts/probe_eea2026_biology_source.py \
+            --archive /tmp/gesui-biology-source/EEA_Waterbase_Biology_2026_original.zip \
+            --out /tmp/gesui-biology-source/SOURCE_FILE_INVENTORY.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA-Waterbase-Biology2026-source-inventory
+          path: /tmp/gesui-biology-source/SOURCE_FILE_INVENTORY.json
+          if-no-files-found: warn
+          retention-days: 30

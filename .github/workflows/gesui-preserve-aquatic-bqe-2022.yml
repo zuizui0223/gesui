@@ -1,0 +1,138 @@
+name: gesui independent aquatic EQR audit and preserved 2022 source/response panels
+
+on:
+  push:
+    branches:
+      - "analysis/eea2026-waterbase-biology-bqe-20261108"
+    paths:
+      - "scripts/audit_eea2022_aquatic_bqe_source.py"
+      - ".github/workflows/gesui-preserve-aquatic-bqe-2022.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  independent-audit-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent numerical source-audit packages
+        run: python -m pip install --quiet numpy pandas scipy scikit-learn
+      - name: Restore immutable source-only river sample and original 2022 EEA biological results
+        run: |
+          mkdir -p /tmp/gesui-eqr-audit/source /tmp/gesui-eqr-audit/outcome /tmp/gesui-eqr-audit/check
+          gh run download 42432030617 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measured-NP-to-Biology2026-BQE-source-only \
+            --dir /tmp/gesui-eqr-audit/source
+          gh run download 42432384196 --repo zuizui0223/gesui \
+            --name gesui-real2022-benthic-phyto-fish-EQR-WWTP-reported-NP-models \
+            --dir /tmp/gesui-eqr-audit/outcome
+      - name: Refit all predeclared five-fold source-frozen geographic block comparisons
+        run: |
+          python -u scripts/audit_eea2022_aquatic_bqe_source.py \
+            --source-dir /tmp/gesui-eqr-audit/source \
+            --outcome-dir /tmp/gesui-eqr-audit/outcome \
+            --out /tmp/gesui-eqr-audit/check/INDEPENDENT_AUDIT.json
+      - name: Check source audits and permanently save original EEA derived source data
+        run: |
+          python - <<'PY'
+          import hashlib,json,shutil
+          from pathlib import Path
+          base=Path("/tmp/gesui-eqr-audit")
+          qc=json.loads((base/"check/INDEPENDENT_AUDIT.json").read_text())
+          orig=json.loads((base/"outcome/SOURCE_LOCKED_2022_AQUATIC_EQR_RESULTS.json").read_text())
+          if qc["status"]!="PASS_INDEPENDENT_OFFLINE_RECONSTRUCTION_2022_BQE":
+              raise ValueError("Independent source/model replay did not pass")
+          expected={"benthic_invertebrates":(2475,147),
+                    "phytobenthos":(2784,110)}
+          for group,(n,exposed) in expected.items():
+              q=orig["results"][group]["support"]
+              if (q["numeric_original_EQR_sites"],q["EEA_2022_upstream_source_positive_sites"])!=(n,exposed):
+                  raise ValueError("Original EEA source EQR denominator changed")
+              assert qc["audited_groups"][group]["support"]["real_outcome_sites"]==n
+              for nut in ("P","N"):
+                  z=qc["audited_groups"][group]["models"][nut]
+                  assert z["confirmed_model_MSE"]["M0"]["absolute_replay_difference"]<4e-6
+                  assert z["confirmed_model_MSE"]["M1"]["absolute_replay_difference"]<4e-6
+                  assert z["source_P_and_N_collinearity_among_positive_upstream_sites"]["n"]==exposed
+          assert orig["results"]["fish"]["support"]["country_count"]==4
+          assert qc["fish_failed_original_geographic_coverage_gate"]
+          dest=Path("results/eea2022_biology_bqe_20261108")
+          dest.mkdir(parents=True,exist_ok=True)
+          names={
+            "source/BQE_SOURCE_EXPOSURE_COVERAGE.json":"SOURCE_EXPOSURE_QC.json",
+            "source/EQR_2022_river_source_only_station_registry.csv":"SOURCE_ONLY_BQE_SITE_REGISTRY.csv",
+            "outcome/SOURCE_LOCKED_2022_AQUATIC_EQR_RESULTS.json":"ORIGINAL_EQR_BIOLOGICAL_RESULTS.json",
+            "outcome/benthic_invertebrates_EEA2022_EQR_source_matched_monitoring.csv":"BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv",
+            "outcome/phytobenthos_EEA2022_EQR_source_matched_monitoring.csv":"PHYTOBENTHOS_2022_SOURCE_EQR.csv",
+            "check/INDEPENDENT_AUDIT.json":"INDEPENDENT_AUDIT.json"
+          }
+          sourcefiles=[]
+          for old,new in names.items():
+              file=base/old
+              assert file.is_file()
+              shutil.copyfile(file,dest/new)
+              sourcefiles.append({"file":new,"original_artifact_file":old,
+                  "original_file_SHA256":hashlib.sha256(file.read_bytes()).hexdigest(),
+                  "bytes":file.stat().st_size})
+          receipt={"original_source_run":42432030617,
+              "original_measured_BQE_run":42432384196,
+              "2022_fixed_river_EEA_WWTP_PN_loads":"reported measured annual mass (tonnes/year)",
+              "official_EEA_Biology2026_uncompressed_EQR_SHA256":
+                   "f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9",
+              "HydroRIVERS_v1_third_party_GeoParquet_source_SHA256":
+                   "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+              "all_original_files":sourcefiles,
+              "original_full_EEA_Biology_132MB_archive_redistributed":False,
+              "no_fresh_EEA_or_GBIF_downloads_in_audit":True,
+              "not_a_causal_wastewater_ecology_estimate":True,
+              "source_reporter_coverage_from_2022_only":True}
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n")
+          report="""# Observed aquatic biological condition versus official reported wastewater N/P (2022)
+
+          Original real result: https://github.com/zuizui0223/gesui/actions/runs/42432384196 .
+          Original source-only 2022 river-EQR site registry and deterministic geographical holdout folds: https://github.com/zuizui0223/gesui/actions/runs/42432030617 .
+          The scientific data and all effect directions are preserved unchanged; INDEPENDENT_AUDIT.json recomputes all four fixed models for P and N using a separate implementation and compares MSE from the same original 3-degree geographic blocks.
+
+          ## Actual EQR, independent source support
+          - River benthic macroinvertebrate normalized EQR: **2,475** sites from 13 reporting countries, 45 spatial blocks, including **147** sites with 2022 measured reported EEA source N/P on directed upstream reaches. Original 2022 source-only geography/biology rows were 3,282; 807 Polish source rows are absent from the original numeric response panel, important coverage limitation.
+          - Phytobenthos normalized EQR: **2,784** sites, 12 countries, 44 blocks, **110** exposed. Original source geography/biology rows were 3,663; 802 Polish and 77 Austrian source rows are absent from original numeric panel.
+          - Fish EQR: **1,243** source-linked numeric sites across only four reporting countries, **fails preregistered >=5-country ecology inference threshold**; no outcome model fitted.
+
+          ## Source-frozen heldout ecological prediction, descriptive only
+          Original fixed five spatially held-out regional folds, Ridge(alpha=10), baseline country/classification method + latitude/longitude + river flow + upstream drainage area. Compare upstream 50km measured EEA P or N source mass to a negative-control physically DOWNSTREAM WWTP source mass at the same sites.
+          - Benthic invertebrates: original baseline MSE **0.058338**, plus upstream reported P mass **0.057695 (1.10% better)** and N mass **0.057523 (1.40% better)**. Downstream placebo is **0.058541 (0.35% worse)** for P and **0.058590 (0.43% worse)** for N. Original Spearman EQR vs source mass rho ~**−0.072**, suggesting EQR is *lower* at high observed source load on average, not that wastewater is beneficial.
+          - Phytobenthos: baseline MSE **0.035934**, upstream P **0.035876 (0.163% better)** and upstream N **0.035871 (0.176% better)**; both near negligible. Downstream placebo does not improve; raw rho ~+0.0026.
+          - **N and P source masses are nearly perfectly collinear on full panels (mostly joint source absence), and strongly correlated even among exposed sites**. N vs P driver cannot be separated by this source-only both-positive EEA sample.
+          - The independent audit reports positive geographic blocks/countries, 5000 fixed-block bootstrap draws, source-coverage attrition and load collinearity. It is a **posthoc prediction heterogeneity diagnostic**, not a confirmatory interval for causal sewage effect. P/N nutrient source loads, EQR and coordinates remain from original reports, not posthoc selected.
+          - The EEA biological source has national calibrated EQR methods; OneHot encoding of country + country-method on training folds mitigates *some* scaling differences but cannot remove source-network and land-use confounding. River morphology, agriculture, other discharges, data reporting and seasonal flow may account for a small prediction increment.
+
+          ## Scientific conclusion
+          **Positive exploratory physical direction-specific prediction for invertebrates; no demonstrated N-vs-P specific mechanism and no sewage-caused biodiversity improvement/deterioration.** An actual causal wastewater effect needs independent agricultural/urban sources, actual treatment load mass/dilution through the receiving reach, standard biological BQE quality classification, and region-robust replication. The separate original gesui EU 2022 ambient river TP/TN concentration source prediction null, positive single-river TP gradients and chocho island/port/butterfly host positives are preserved, not erased.
+          """
+          (dest/"RESULTS.md").write_text("\n".join(t.strip() for t in report.splitlines())+"\n")
+          print("GESUI_BQE_AUDIT_VERIFIED_ARCHIVE",json.dumps({
+             "benthic_valid_sites":2475,"benthic_source_sites":147,
+             "phytobenthos_valid_sites":2784,"phytobenthos_source_sites":110,
+             "independent_source_files":len(sourcefiles),"fish_not_tested":True},sort_keys=True))
+          PY
+      - name: Commit evidence to research branch only (no main merge)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2022_biology_bqe_20261108
+          git commit -m "Preserve independently verified EEA2022 aquatic invertebrate and phytobenthos source and model evidence"
+          git push origin HEAD:analysis/eea2026-waterbase-biology-bqe-20261108

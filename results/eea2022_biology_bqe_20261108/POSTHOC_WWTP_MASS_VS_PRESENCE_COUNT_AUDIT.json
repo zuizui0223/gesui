@@ -1,0 +1,168 @@
+{
+  "added_model_variants_are_posthoc_and_not_preregistered": true,
+  "fixed_3deg_geographic_holdout_unchanged": true,
+  "limits": [
+    "Presence count and annual reported source mass correlate and are derived from same limited EEA both-positive measured facility population",
+    "Incremental prediction gain beyond binary source presence cannot rule out urbanization/agricultural runoff and monitoring selection",
+    "Posthoc exploratory new model comparisons must not be promoted to confirmatory preregistered significance",
+    "Same source registry excludes other unreported or multiple-outlet wastewater facilities",
+    "National EQR scales and source country/method levels differ, P and N mass cannot be disentangled"
+  ],
+  "no_new_source_network_download": true,
+  "no_plant_or_GBIF_response_reanalysed": true,
+  "not_a_causal_exposure_or_P_vs_N_mechanism_test": true,
+  "original_biological_outcome_run": 42432384196,
+  "original_country_method_and_hydrology_predictors_unchanged": true,
+  "original_source_only_run": 42432030617,
+  "results": {
+    "benthic_invertebrates": {
+      "N": {
+        "original_BQE_fold_count": 5,
+        "original_WWTP_facility_presence_vs_count_vs_source_load": {
+          "baseline": {
+            "heldout_MSE": 0.058338079343617094,
+            "percent_improvement_from_baseline": 0.0
+          },
+          "incremental_measured_load_beyond_registered_presence": {
+            "MSE_reduction_pct_relative_presence_only": 0.7320430579809528,
+            "absolute_MSE_reduction": 0.000424383789955074
+          },
+          "registered_upstream_WWTP_count": {
+            "heldout_MSE": 0.05809126324000716,
+            "percent_improvement_from_baseline": 0.42307889870039356
+          },
+          "reported_eligible_WWTP_presence": {
+            "heldout_MSE": 0.05797251750813216,
+            "percent_improvement_from_baseline": 0.6266264498214554
+          },
+          "reported_measured_source_load": {
+            "heldout_MSE": 0.057523296165529335,
+            "percent_improvement_from_baseline": 1.3966575301332862
+          },
+          "source_load_beyond_WWTP_count": {
+            "heldout_MSE": 0.05765576042382815,
+            "percent_improvement_from_baseline": 1.169594418372983
+          },
+          "source_load_beyond_presence": {
+            "heldout_MSE": 0.05754813371817709,
+            "percent_improvement_from_baseline": 1.3540823323770177
+          }
+        },
+        "original_exposed_sites": 147,
+        "sites": 2475
+      },
+      "P": {
+        "original_BQE_fold_count": 5,
+        "original_WWTP_facility_presence_vs_count_vs_source_load": {
+          "baseline": {
+            "heldout_MSE": 0.058338079343617094,
+            "percent_improvement_from_baseline": 0.0
+          },
+          "incremental_measured_load_beyond_registered_presence": {
+            "MSE_reduction_pct_relative_presence_only": 0.34059628481833315,
+            "absolute_MSE_reduction": 0.0001974522408483559
+          },
+          "registered_upstream_WWTP_count": {
+            "heldout_MSE": 0.05809126324000716,
+            "percent_improvement_from_baseline": 0.42307889870039356
+          },
+          "reported_eligible_WWTP_presence": {
+            "heldout_MSE": 0.05797251750813216,
+            "percent_improvement_from_baseline": 0.6266264498214554
+          },
+          "reported_measured_source_load": {
+            "heldout_MSE": 0.057694631651226055,
+            "percent_improvement_from_baseline": 1.1029634496553575
+          },
+          "source_load_beyond_WWTP_count": {
+            "heldout_MSE": 0.057881388246864694,
+            "percent_improvement_from_baseline": 0.7828353313835443
+          },
+          "source_load_beyond_presence": {
+            "heldout_MSE": 0.05777506526728381,
+            "percent_improvement_from_baseline": 0.9650884682320077
+          }
+        },
+        "original_exposed_sites": 147,
+        "sites": 2475
+      }
+    },
+    "phytobenthos": {
+      "N": {
+        "original_BQE_fold_count": 5,
+        "original_WWTP_facility_presence_vs_count_vs_source_load": {
+          "baseline": {
+            "heldout_MSE": 0.03593437628266662,
+            "percent_improvement_from_baseline": 0.0
+          },
+          "incremental_measured_load_beyond_registered_presence": {
+            "MSE_reduction_pct_relative_presence_only": 0.16979211218997345,
+            "absolute_MSE_reduction": 6.100628558463467e-05
+          },
+          "registered_upstream_WWTP_count": {
+            "heldout_MSE": 0.035932538361166555,
+            "percent_improvement_from_baseline": 0.005114660918589056
+          },
+          "reported_eligible_WWTP_presence": {
+            "heldout_MSE": 0.03592998802934805,
+            "percent_improvement_from_baseline": 0.012211853307419668
+          },
+          "reported_measured_source_load": {
+            "heldout_MSE": 0.03587107976431051,
+            "percent_improvement_from_baseline": 0.17614475303038504
+          },
+          "source_load_beyond_WWTP_count": {
+            "heldout_MSE": 0.035897249286901564,
+            "percent_improvement_from_baseline": 0.10331888182227271
+          },
+          "source_load_beyond_presence": {
+            "heldout_MSE": 0.03586898174376341,
+            "percent_improvement_from_baseline": 0.1819832307337249
+          }
+        },
+        "original_exposed_sites": 110,
+        "sites": 2784
+      },
+      "P": {
+        "original_BQE_fold_count": 5,
+        "original_WWTP_facility_presence_vs_count_vs_source_load": {
+          "baseline": {
+            "heldout_MSE": 0.03593437628266662,
+            "percent_improvement_from_baseline": 0.0
+          },
+          "incremental_measured_load_beyond_registered_presence": {
+            "MSE_reduction_pct_relative_presence_only": 0.021043420570823385,
+            "absolute_MSE_reduction": 7.560898492062207e-06
+          },
+          "registered_upstream_WWTP_count": {
+            "heldout_MSE": 0.035932538361166555,
+            "percent_improvement_from_baseline": 0.005114660918589056
+          },
+          "reported_eligible_WWTP_presence": {
+            "heldout_MSE": 0.03592998802934805,
+            "percent_improvement_from_baseline": 0.012211853307419668
+          },
+          "reported_measured_source_load": {
+            "heldout_MSE": 0.03587595022352748,
+            "percent_improvement_from_baseline": 0.16259099275733857
+          },
+          "source_load_beyond_WWTP_count": {
+            "heldout_MSE": 0.03597933911427,
+            "percent_improvement_from_baseline": -0.12512484215585887
+          },
+          "source_load_beyond_presence": {
+            "heldout_MSE": 0.035922427130855986,
+            "percent_improvement_from_baseline": 0.03325270408659208
+          }
+        },
+        "original_exposed_sites": 110,
+        "sites": 2784
+      }
+    }
+  },
+  "schema": "gesui_EEA2022_BQE_posthoc_mass_presence_count_comparative_validation_v01",
+  "source_EEA_2022_N_P_both_measured_positive_set_only": true,
+  "source_WWTP_count_is_registered_both_positive_annual_load_facilities": true,
+  "source_station_registry_SHA256": "e12df511d64c4c580ef2422dccdbbd11a1309c84d29d467fd4527206e41fa636",
+  "status": "PASS_SAME_ORIGINAL_SITES_FOLDS_POSTHOC_LOAD_AMPLITUDE_COMPARISON"
+}
