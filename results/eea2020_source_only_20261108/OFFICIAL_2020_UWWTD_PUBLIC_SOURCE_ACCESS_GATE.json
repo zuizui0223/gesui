@@ -7,7 +7,7 @@
   "candidate_urls_are_from_official_public_EEA_pages": true,
   "official_source_probes": {
     "EEA_2018_historical_tabular_reference": {
-      "body_SHA256_first_400KB": "74e3f642405fa132f3bac4b9198a2fa9bdb3f5caa6a6daa95480139a39733371",
+      "body_SHA256_first_400KB": "795a1a3c0c75fa39722dd999cbb63e7253deb6141c6b8fe27c1203758357946a",
       "bytes_read": 28648,
       "candidate_anchors": [
         {
@@ -141,6 +141,96 @@
       ],
       "truncated": false
     },
+    "EEA_2019_2020_discharge_public_spatial_GPKG_directory": {
+      "body_SHA256_first_400KB": "486326329e3ec7550638447d131969ee364beb406f122a0810162b88914503ff",
+      "bytes_read": 28429,
+      "candidate_anchors": [
+        {
+          "href": "https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download",
+          "title": "None"
+        },
+        {
+          "href": "https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download",
+          "title": "None"
+        }
+      ],
+      "candidate_identifiers": [],
+      "content_length_header": "28429",
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://sdi.eea.europa.eu/datastore/public?path=/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00",
+      "http_status": 200,
+      "search_excerpts": [
+        "\"og:title\" content=\"public\"/><meta property=\"og:description\" content=\"EEA\"/><meta property=\"og:site_name\" content=\"EEA\"/><meta property=\"og:url\" content=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5\"/><meta property=\"og:type\" content=\"object\"/><meta property=\"og:image\" content=\"https://sdi.eea.europa.eu/datashare/apps/theming/icon?v=0501da12\"/><link rel=\"stylesheet\" media=\"\" href=\"/datashare/apps/theming/theme/default.css?plain=1&amp;v=0501da12\" class=\"theme\"/><link ",
+        "\t\t\tpublic\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"header-right\">\n\t\t\t\t\t<span id=\"header-primary-action\" class=\"\">\n\t\t\t\t<a href=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" class=\"primary button\">\n\t\t\t\t\t<span>Download all files</span>\n\t\t\t\t</a>\n\t\t\t</span>\n\t\t\t\t\t\t<div id=\"header-secondary-action\">\n\t\t\t\t<button id=\"header-actions-toggle\" class=\"menutoggle icon-more-white\"></button>\n\t\t\t\t<div id=\"header-actions-menu\" class=\"popovermenu men",
+        "ggle\" class=\"menutoggle icon-more-white\"></button>\n\t\t\t\t<div id=\"header-actions-menu\" class=\"popovermenu menu\">\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li id=\"download\"><a href=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\"><span class=\"icon icon-download\"></span>Download all files &nbsp;<span class=\"download-size\">(1.4 TB)</span></a></li><li><a id=\"directLink-container\"><span class=\"icon icon-public\"></span><label for=\"directLink\">Direct link</label></a></li><li><span class=\"menui",
+        " icon-public\"></span><label for=\"directLink\">Direct link</label></a></li><li><span class=\"menuitem\"><input id=\"directLink\" type=\"text\" readonly=\"\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\"></span></li><li>    <button id=\"save-external-share\" class=\"icon icon-external\" data-protected=\"false\" data-owner-display-name=\"\" data-owner=\"\" data-name=\"public\">Add to your Nextcloud</button></li><li id=\"external-share-menu-item\" class=\"hidden\">    <span class",
+        "n\" id=\"filesApp\" name=\"filesApp\" value=\"1\">\n<input type=\"hidden\" id=\"isPublic\" name=\"isPublic\" value=\"1\">\n\t<input type=\"hidden\" name=\"downloadURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"downloadURL\">\n<input type=\"hidden\" name=\"previewURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"previewURL\">\n<input type=\"hidden\" name=\"sharingToken\" value=\"sptXqwkQr5g7Bp5\" id=\"sharingToken\">\n<input type=\"hidden\" name=\"filena",
+        "name=\"downloadURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"downloadURL\">\n<input type=\"hidden\" name=\"previewURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"previewURL\">\n<input type=\"hidden\" name=\"sharingToken\" value=\"sptXqwkQr5g7Bp5\" id=\"sharingToken\">\n<input type=\"hidden\" name=\"filename\" value=\"public\" id=\"filename\">\n<input type=\"hidden\" name=\"mimetype\" value=\"httpd/unix-directory\" id=\"mimetype\">\n<input type=\""
+      ],
+      "truncated": false
+    },
+    "EEA_2019_2020_discharge_public_spatial_REST": {
+      "JSON_possible_hits": "",
+      "JSON_root_keys": [
+        "error"
+      ],
+      "JSON_source_matches": [],
+      "body_SHA256_first_400KB": "1c74331b1274109ea17d0bb72145df5f8f915de7612cd37be28b10d6d165eec1",
+      "bytes_read": 76,
+      "candidate_anchors": [],
+      "candidate_identifiers": [],
+      "content_length_header": "76",
+      "content_type": "text/plain;charset=UTF-8",
+      "final_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_DischargePoints_public_ETRS89_v1/MapServer?f=pjson",
+      "http_status": 200,
+      "search_excerpts": [],
+      "truncated": false
+    },
+    "EEA_2019_2020_treatment_public_spatial_GPKG_directory": {
+      "body_SHA256_first_400KB": "4f621843e2a209f188a1ff9431b430ec653706f6579aa75490d45f47ea88346a",
+      "bytes_read": 28429,
+      "candidate_anchors": [
+        {
+          "href": "https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download",
+          "title": "None"
+        },
+        {
+          "href": "https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download",
+          "title": "None"
+        }
+      ],
+      "candidate_identifiers": [],
+      "content_length_header": "28429",
+      "content_type": "text/html; charset=UTF-8",
+      "final_url": "https://sdi.eea.europa.eu/datastore/public?path=/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00",
+      "http_status": 200,
+      "search_excerpts": [
+        "\"og:title\" content=\"public\"/><meta property=\"og:description\" content=\"EEA\"/><meta property=\"og:site_name\" content=\"EEA\"/><meta property=\"og:url\" content=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5\"/><meta property=\"og:type\" content=\"object\"/><meta property=\"og:image\" content=\"https://sdi.eea.europa.eu/datashare/apps/theming/icon?v=0501da12\"/><link rel=\"stylesheet\" media=\"\" href=\"/datashare/apps/theming/theme/default.css?plain=1&amp;v=0501da12\" class=\"theme\"/><link ",
+        "\t\t\tpublic\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"header-right\">\n\t\t\t\t\t<span id=\"header-primary-action\" class=\"\">\n\t\t\t\t<a href=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" class=\"primary button\">\n\t\t\t\t\t<span>Download all files</span>\n\t\t\t\t</a>\n\t\t\t</span>\n\t\t\t\t\t\t<div id=\"header-secondary-action\">\n\t\t\t\t<button id=\"header-actions-toggle\" class=\"menutoggle icon-more-white\"></button>\n\t\t\t\t<div id=\"header-actions-menu\" class=\"popovermenu men",
+        "ggle\" class=\"menutoggle icon-more-white\"></button>\n\t\t\t\t<div id=\"header-actions-menu\" class=\"popovermenu menu\">\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li id=\"download\"><a href=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\"><span class=\"icon icon-download\"></span>Download all files &nbsp;<span class=\"download-size\">(1.4 TB)</span></a></li><li><a id=\"directLink-container\"><span class=\"icon icon-public\"></span><label for=\"directLink\">Direct link</label></a></li><li><span class=\"menui",
+        " icon-public\"></span><label for=\"directLink\">Direct link</label></a></li><li><span class=\"menuitem\"><input id=\"directLink\" type=\"text\" readonly=\"\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\"></span></li><li>    <button id=\"save-external-share\" class=\"icon icon-external\" data-protected=\"false\" data-owner-display-name=\"\" data-owner=\"\" data-name=\"public\">Add to your Nextcloud</button></li><li id=\"external-share-menu-item\" class=\"hidden\">    <span class",
+        "n\" id=\"filesApp\" name=\"filesApp\" value=\"1\">\n<input type=\"hidden\" id=\"isPublic\" name=\"isPublic\" value=\"1\">\n\t<input type=\"hidden\" name=\"downloadURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"downloadURL\">\n<input type=\"hidden\" name=\"previewURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"previewURL\">\n<input type=\"hidden\" name=\"sharingToken\" value=\"sptXqwkQr5g7Bp5\" id=\"sharingToken\">\n<input type=\"hidden\" name=\"filena",
+        "name=\"downloadURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"downloadURL\">\n<input type=\"hidden\" name=\"previewURL\" value=\"https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download\" id=\"previewURL\">\n<input type=\"hidden\" name=\"sharingToken\" value=\"sptXqwkQr5g7Bp5\" id=\"sharingToken\">\n<input type=\"hidden\" name=\"filename\" value=\"public\" id=\"filename\">\n<input type=\"hidden\" name=\"mimetype\" value=\"httpd/unix-directory\" id=\"mimetype\">\n<input type=\""
+      ],
+      "truncated": false
+    },
+    "EEA_2019_2020_treatment_public_spatial_REST": {
+      "JSON_possible_hits": "",
+      "JSON_root_keys": [
+        "error"
+      ],
+      "JSON_source_matches": [],
+      "body_SHA256_first_400KB": "1c74331b1274109ea17d0bb72145df5f8f915de7612cd37be28b10d6d165eec1",
+      "bytes_read": 76,
+      "candidate_anchors": [],
+      "candidate_identifiers": [],
+      "content_length_header": "76",
+      "content_type": "text/plain;charset=UTF-8",
+      "final_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_TreatmentPlants_public_ETRS89_v1/MapServer?f=pjson",
+      "http_status": 200,
+      "search_excerpts": [],
+      "truncated": false
+    },
     "EEA_2021_2020_final_source_access_list": {
       "body_SHA256_first_400KB": null,
       "candidate_anchors": [],
@@ -177,7 +267,7 @@
       "truncated": false
     },
     "EEA_UWWTD_datahub": {
-      "body_SHA256_first_400KB": "88c38b6b87a36c62760b56e6530bbe515a7fd0afbacbf89c172d50d4cd5d6e95",
+      "body_SHA256_first_400KB": "d4974b3cf2b4ac58c9eb80d5c2a0c791718e4a417ed435e7ff60a04733f2ae33",
       "bytes_read": 400000,
       "candidate_anchors": [
         {
@@ -340,7 +430,7 @@
         }
       ],
       "candidate_identifiers": [],
-      "content_length_header": null,
+      "content_length_header": "3401500",
       "content_type": "text/html; charset=utf-8",
       "final_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/7c22ae09-4827-4a7b-a190-1504a22cf094",
       "http_status": 200,
@@ -417,5 +507,5 @@
   },
   "schema": "gesui_EEA_historical_2020_source_access_gate_v01",
   "source_only_2020_station_folds_frozen": false,
-  "utc": "2026-11-08T03:56:31.084464+00:00"
-}\n
+  "utc": "2026-11-08T03:58:06.391186+00:00"
+}
