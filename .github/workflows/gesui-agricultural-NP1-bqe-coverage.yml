@@ -1,0 +1,50 @@
+name: gesui 2022 diffuse agricultural N/P emissions source-only coverage at aquatic BQE sites
+
+on:
+  push:
+    branches:
+      - "analysis/bqe2022-missingness-wfd-pressure-20261108"
+    paths:
+      - "scripts/gesui_2022_agricultural_emission_bqe_source_gate.py"
+      - ".github/workflows/gesui-agricultural-NP1-bqe-coverage.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-only-agricultural-NP1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas
+      - name: Obtain EEA 2026 Emissions original dataset and fixed 2022 pre-EQR BQE stations
+        run: |
+          mkdir -p /tmp/gesui-np1 /tmp/gesui-np1/source
+          gh run download 42432030617 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measured-NP-to-Biology2026-BQE-source-only \
+            --dir /tmp/gesui-np1/source
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/KkqFMjiif9eS7bn/download \
+            -o /tmp/gesui-np1/Waterbase_Emissions2026_original.zip
+      - name: Attach source-coded annual NP1 agricultural nutrient emissions by exact reported EEA subunit/RBD, no biological outcomes
+        run: |
+          python -u scripts/gesui_2022_agricultural_emission_bqe_source_gate.py \
+            --original-archive /tmp/gesui-np1/Waterbase_Emissions2026_original.zip \
+            --registry /tmp/gesui-np1/source/EQR_2022_river_source_only_station_registry.csv \
+            --out /tmp/gesui-np1/out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-NP1-agricultural-nutrient-source-only-BQE-crosswalk
+          path: /tmp/gesui-np1/out/
+          retention-days: 60
+          if-no-files-found: warn
