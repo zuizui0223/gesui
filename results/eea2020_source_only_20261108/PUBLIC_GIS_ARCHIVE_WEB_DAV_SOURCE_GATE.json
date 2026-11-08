@@ -1,0 +1,109 @@
+{
+  "created_utc": "2026-11-08T03:59:39.585952+00:00",
+  "no_biological_EQR_opened": true,
+  "no_original_2020_exposure_measurements_claimed": true,
+  "official_EEA_public_catalogue_provenance_only": true,
+  "probes": {
+    "public_2020_discharge": {
+      "EEA_public_MapServer_response": {
+        "GIS_layers": [],
+        "JSON_error": {
+          "code": 404,
+          "details": [],
+          "message": "Service not found"
+        },
+        "JSON_keys": [
+          "error"
+        ],
+        "content_length": "76",
+        "content_type": "text/plain;charset=UTF-8",
+        "final_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_DischargePoints_public_ETRS89_v1/MapServer?f=pjson",
+        "first120KB_sha256": "1c74331b1274109ea17d0bb72145df5f8f915de7612cd37be28b10d6d165eec1",
+        "head": "{\"error\": {\n \"code\": 404,\n \"details\": [],\n \"message\": \"Service not found\"\n}}",
+        "status": 200
+      },
+      "catalogue_public_path": "eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00",
+      "public_specific_folder_DOWNLOAD_HEAD": {
+        "content_length": null,
+        "content_type": "application/zip",
+        "final_url": "https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download?path=/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00",
+        "first120KB_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "head": "",
+        "status": 200
+      },
+      "public_webdav_method_PROPFIND": {
+        "content_length": "3086",
+        "content_type": "application/xml; charset=utf-8",
+        "final_url": "https://sdi.eea.europa.eu/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00",
+        "first120KB_sha256": "384a80289312ccf00c480a75aaa27217eade66afd8edc0f14e868e54124575cb",
+        "head": "<?xml version=\"1.0\"?>\n<d:multistatus xmlns:d=\"DAV:\" xmlns:s=\"http://sabredav.org/ns\" xmlns:oc=\"http://owncloud.org/ns\" xmlns:nc=\"http://nextcloud.org/ns\"><d:response><d:href>/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/</d:href><d:propstat><d:prop><d:getlastmodified>Mon, 09 Feb 2026 12:40:41 GMT</d:getlastmodified><d:resourcetype><d:collection/></d:resourcetype><d:quota-used-bytes>13383029</d:quota-used-bytes><d:quota-available-bytes>-3</d:quota-available-bytes><d:getetag>&quot;6989dc2e3a655&quot;</d:getetag></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response><d:response><d:href>/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GDB/</d:href><d:propstat><d:prop><d:getlastmodified>Sat, 04 Feb 2023 09:43:42 ",
+        "status": 207,
+        "webdav_hrefs": [
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GDB/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GPKG/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/README.md",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/Urban_Waste_Water_Treatment_Directive_Discharge_points_reported_under__metadata_fb78cfb7-dc6f-4294-95e9-e67f96b285c5.xml",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/UWWTD_GIS_reference_v4.pdf"
+        ]
+      },
+      "public_webdav_no_auth_PROPFIND": {
+        "error": "HTTP Error 401: Unauthorized",
+        "final_url": "https://sdi.eea.europa.eu/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00",
+        "status": 401
+      }
+    },
+    "public_2020_treatment": {
+      "EEA_public_MapServer_response": {
+        "GIS_layers": [],
+        "JSON_error": {
+          "code": 404,
+          "details": [],
+          "message": "Service not found"
+        },
+        "JSON_keys": [
+          "error"
+        ],
+        "content_length": "76",
+        "content_type": "text/plain;charset=UTF-8",
+        "final_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_TreatmentPlants_public_ETRS89_v1/MapServer?f=pjson",
+        "first120KB_sha256": "1c74331b1274109ea17d0bb72145df5f8f915de7612cd37be28b10d6d165eec1",
+        "head": "{\"error\": {\n \"code\": 404,\n \"details\": [],\n \"message\": \"Service not found\"\n}}",
+        "status": 200
+      },
+      "catalogue_public_path": "eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00",
+      "public_specific_folder_DOWNLOAD_HEAD": {
+        "content_length": null,
+        "content_type": "application/zip",
+        "final_url": "https://sdi.eea.europa.eu/datashare/s/sptXqwkQr5g7Bp5/download?path=/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00",
+        "first120KB_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "head": "",
+        "status": 200
+      },
+      "public_webdav_method_PROPFIND": {
+        "content_length": "3982",
+        "content_type": "application/xml; charset=utf-8",
+        "final_url": "https://sdi.eea.europa.eu/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00",
+        "first120KB_sha256": "caa8ce3008baebddbdfec5e0615eb44e919bfcba8d5b81db6b169f51ad4c5834",
+        "head": "<?xml version=\"1.0\"?>\n<d:multistatus xmlns:d=\"DAV:\" xmlns:s=\"http://sabredav.org/ns\" xmlns:oc=\"http://owncloud.org/ns\" xmlns:nc=\"http://nextcloud.org/ns\"><d:response><d:href>/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/</d:href><d:propstat><d:prop><d:getlastmodified>Sun, 08 Feb 2026 19:16:17 GMT</d:getlastmodified><d:resourcetype><d:collection/></d:resourcetype><d:quota-used-bytes>16756888</d:quota-used-bytes><d:quota-available-bytes>-3</d:quota-available-bytes><d:getetag>&quot;6988e1d592a1e&quot;</d:getetag></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response><d:response><d:href>/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Documents/</d:href><d:propstat><d:prop><d:getlastmodified>Mon, 09 Jan 2023 09:03:00 GMT</d",
+        "status": 207,
+        "webdav_hrefs": [
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Documents/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/GDB/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/GPKG/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/README.md",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Tabular/",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/Urban_Waste_Water_Treatment_Directive_Treatment_plants_reported_under__metadata_3a69dbaf-15d8-443d-a0ff-fa2c4bb8ab0d.xml",
+          "/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/UWWTD_GIS_reference_v4.pdf"
+        ]
+      },
+      "public_webdav_no_auth_PROPFIND": {
+        "error": "HTTP Error 401: Unauthorized",
+        "final_url": "https://sdi.eea.europa.eu/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00",
+        "status": 401
+      }
+    }
+  },
+  "schema": "gesui_2020_EEA_public_GIS_archive_and_REST_access_gate_v01"
+}

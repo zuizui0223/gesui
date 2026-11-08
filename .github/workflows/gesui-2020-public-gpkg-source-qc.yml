@@ -1,0 +1,50 @@
+name: gesui 2020 EEA public treatment and outfall real GPKG source verification (no biology)
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2020-source-only-feasibility-20261108"
+    paths:
+      - "scripts/gesui_2020_public_gpkg_source_qc.py"
+      - ".github/workflows/gesui-2020-public-gpkg-source-qc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  source-binary-and-reporting-QC:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: SHA-lock public 2020 source data and inspect measured discharge attributes only
+        run: |
+          python -m py_compile scripts/gesui_2020_public_gpkg_source_qc.py
+          python -u scripts/gesui_2020_public_gpkg_source_qc.py \
+            --temporary-dir /tmp/gesui-2020-original-public-gpkg \
+            --out results/eea2020_source_only_20261108/2020_PUBLIC_GPKG_NP_SOURCE_QC.json
+      - name: Archive original-source hashes, not complete official binary files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2020_source_only_20261108/2020_PUBLIC_GPKG_NP_SOURCE_QC.json results/eea2020_source_only_20261108/2020_PUBLIC_CYCLE_BOTH_MEASURED_NP_UNIQUE_FW_OUTFALLS.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Record public EEA 2019–2020 GPKG original source hashes and measured nutrient field coverage"
+          git fetch origin analysis/uwwtd2020-source-only-feasibility-20261108
+          git rebase origin/analysis/uwwtd2020-source-only-feasibility-20261108
+          git push origin HEAD:analysis/uwwtd2020-source-only-feasibility-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-public-2019-2020-WWTP-outfall-GPKG-source-only
+          path: |
+            results/eea2020_source_only_20261108/2020_PUBLIC_GPKG_NP_SOURCE_QC.json
+            results/eea2020_source_only_20261108/2020_PUBLIC_CYCLE_BOTH_MEASURED_NP_UNIQUE_FW_OUTFALLS.csv
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,46 @@
+name: gesui 2020 public historical WWTP GIS WebDAV source-only gate
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2020-source-only-feasibility-20261108"
+    paths:
+      - "scripts/gesui_2020_public_spatial_archive_access.py"
+      - ".github/workflows/gesui-2020-public-spatial-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  no-EQR-source-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          python -m py_compile scripts/gesui_2020_public_spatial_archive_access.py
+          python -u scripts/gesui_2020_public_spatial_archive_access.py \
+            --out results/eea2020_source_only_20261108/PUBLIC_GIS_ARCHIVE_WEB_DAV_SOURCE_GATE.json
+      - name: Archive no-EQR official-source access receipts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2020_source_only_20261108/PUBLIC_GIS_ARCHIVE_WEB_DAV_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve 2020 official public source access evidence without opening biological outcomes"
+          git fetch origin analysis/uwwtd2020-source-only-feasibility-20261108
+          git rebase origin/analysis/uwwtd2020-source-only-feasibility-20261108
+          git push origin HEAD:analysis/uwwtd2020-source-only-feasibility-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2020-EEA-public-spatial-source-NO-EQR
+          path: results/eea2020_source_only_20261108/PUBLIC_GIS_ARCHIVE_WEB_DAV_SOURCE_GATE.json
+          retention-days: 90
+          if-no-files-found: warn

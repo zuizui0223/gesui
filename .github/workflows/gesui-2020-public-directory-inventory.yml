@@ -1,0 +1,46 @@
+name: gesui official 2020 public WWTP and discharge directory inventory (NO EQR)
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2020-source-only-feasibility-20261108"
+    paths:
+      - "scripts/gesui_2020_public_archive_directory_inventory.py"
+      - ".github/workflows/gesui-2020-public-directory-inventory.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  public-2020-source-directory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          python -m py_compile scripts/gesui_2020_public_archive_directory_inventory.py
+          python -u scripts/gesui_2020_public_archive_directory_inventory.py \
+            --out results/eea2020_source_only_20261108/ORIGINAL_EEA_2020_PUBLIC_ARCHIVE_DIRECTORY_INVENTORY.json
+      - name: Commit no-outcome original source directory receipts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2020_source_only_20261108/ORIGINAL_EEA_2020_PUBLIC_ARCHIVE_DIRECTORY_INVENTORY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record available EEA 2019–2020 public treatment/discharge original source file structures"
+          git fetch origin analysis/uwwtd2020-source-only-feasibility-20261108
+          git rebase origin/analysis/uwwtd2020-source-only-feasibility-20261108
+          git push origin HEAD:analysis/uwwtd2020-source-only-feasibility-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-official-2020-source-directory-inventory-no-EQR
+          path: results/eea2020_source_only_20261108/ORIGINAL_EEA_2020_PUBLIC_ARCHIVE_DIRECTORY_INVENTORY.json
+          retention-days: 90
+          if-no-files-found: warn
