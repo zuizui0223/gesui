@@ -1,0 +1,53 @@
+name: gesui 2022 EEA aquatic biology EQR missingness and source-exposure attrition
+
+on:
+  push:
+    branches:
+      - "analysis/bqe2022-missingness-wfd-pressure-20261108"
+    paths:
+      - "scripts/audit_bqe2022_original_missingness.py"
+      - ".github/workflows/gesui-2022-bqe-raw-missingness.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  biological-source-missingness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      GH_TOKEN: __GH_TOKEN__
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas
+      - name: Retrieve original EEA Biology2026 archive with uncompressed EQR hash
+        run: |
+          mkdir -p /tmp/gesui-bqe-missing /tmp/gesui-bqe-missing/source /tmp/gesui-bqe-missing/outcome
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download \
+            -o /tmp/gesui-bqe-missing/EEA_Biology_2026.zip
+          gh run download 42432030617 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measured-NP-to-Biology2026-BQE-source-only \
+            --dir /tmp/gesui-bqe-missing/source
+          gh run download 42432384196 --repo zuizui0223/gesui \
+            --name gesui-real2022-benthic-phyto-fish-EQR-WWTP-reported-NP-models \
+            --dir /tmp/gesui-bqe-missing/outcome
+      - name: Compare 8245 original source-sampled sites with raw 2022 BQE normalized EQR and source statuses
+        run: |
+          python -u scripts/audit_bqe2022_original_missingness.py \
+            --official-zip /tmp/gesui-bqe-missing/EEA_Biology_2026.zip \
+            --frozen-registry /tmp/gesui-bqe-missing/source/EQR_2022_river_source_only_station_registry.csv \
+            --original-outcome-json /tmp/gesui-bqe-missing/outcome/SOURCE_LOCKED_2022_AQUATIC_EQR_RESULTS.json \
+            --out /tmp/gesui-bqe-missing/BQE_2022_ORIGINAL_MISSINGNESS_AUDIT.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-EEA-Biology-original-normalized-EQR-missingness-audit
+          path: /tmp/gesui-bqe-missing/BQE_2022_ORIGINAL_MISSINGNESS_AUDIT.json
+          retention-days: 60
+          if-no-files-found: warn
