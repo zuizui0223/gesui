@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 22
     env:
-      GH_TOKEN: __GH_TOKEN__
+      GH_TOKEN: ${{ github.token }}
       OPENBLAS_NUM_THREADS: "1"
     steps:
       - uses: actions/checkout@v4
