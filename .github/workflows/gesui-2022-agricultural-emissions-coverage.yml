@@ -1,0 +1,54 @@
+name: gesui EEA Waterbase Emissions 2026 year2022 diffuse nutrient source and 8245 river sites
+
+on:
+  push:
+    branches:
+      - "analysis/bqe2022-missingness-wfd-pressure-20261108"
+    paths:
+      - "scripts/audit_eea2026_emissions_2022_coverage.py"
+      - ".github/workflows/gesui-2022-agricultural-emissions-coverage.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet pandas numpy
+      - name: Download first verified EEA emissions source inventory and frozen pre-EQR river registry
+        run: |
+          mkdir -p /tmp/gesui-eea-emissions /tmp/gesui-eea-emissions/inventory /tmp/gesui-eea-emissions/source
+          gh run download 42438505287 --repo zuizui0223/gesui \
+            --name gesui-EEA2026-Waterbase-Emissions-source-inventory \
+            --dir /tmp/gesui-eea-emissions/inventory
+          gh run download 42432030617 --repo zuizui0223/gesui \
+            --name gesui-EEA2022-measured-NP-to-Biology2026-BQE-source-only \
+            --dir /tmp/gesui-eea-emissions/source
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/KkqFMjiif9eS7bn/download \
+            -o /tmp/gesui-eea-emissions/Waterbase_Emissions_2026.zip
+      - name: Audit exact original 2022 agricultural and other source categories and catchment geometry compatibility
+        run: |
+          python -u scripts/audit_eea2026_emissions_2022_coverage.py \
+            --archive /tmp/gesui-eea-emissions/Waterbase_Emissions_2026.zip \
+            --first-inventory /tmp/gesui-eea-emissions/inventory/EEA_2026_SOURCE_INVENTORY.json \
+            --source-biology-registry /tmp/gesui-eea-emissions/source/EQR_2022_river_source_only_station_registry.csv \
+            --out /tmp/gesui-eea-emissions/EMISSIONS_2022_SOURCE_COVERAGE.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-EEA-Waterbase-Emissions-nutrient-source-coverage
+          path: /tmp/gesui-eea-emissions/EMISSIONS_2022_SOURCE_COVERAGE.json
+          retention-days: 60
+          if-no-files-found: warn

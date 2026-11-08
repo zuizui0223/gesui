@@ -1,0 +1,43 @@
+name: gesui EEA 2026 point and diffuse nutrient emissions agricultural-source schema
+
+on:
+  push:
+    branches:
+      - "analysis/bqe2022-missingness-wfd-pressure-20261108"
+    paths:
+      - "scripts/probe_eea2026_waterbase_emissions.py"
+      - ".github/workflows/gesui-eea2026-emissions-source-inventory.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  official-source-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch original EEA 2026 Emissions public 120MB ZIP only, no biology
+        run: |
+          mkdir -p /tmp/gesui-emissions
+          curl --fail --location --silent --show-error --retry 2 --max-time 360 \
+            https://sdi.eea.europa.eu/datashare/s/KkqFMjiif9eS7bn/download \
+            -o /tmp/gesui-emissions/Waterbase_Emissions_2026.zip
+          file /tmp/gesui-emissions/Waterbase_Emissions_2026.zip
+          sha256sum /tmp/gesui-emissions/Waterbase_Emissions_2026.zip
+      - name: Validate EEA source ZIP and show pollutant and catchment table columns only
+        run: |
+          python -u scripts/probe_eea2026_waterbase_emissions.py \
+            --archive /tmp/gesui-emissions/Waterbase_Emissions_2026.zip \
+            --out /tmp/gesui-emissions/EEA_2026_SOURCE_INVENTORY.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2026-Waterbase-Emissions-source-inventory
+          path: /tmp/gesui-emissions/EEA_2026_SOURCE_INVENTORY.json
+          retention-days: 45
+          if-no-files-found: warn
