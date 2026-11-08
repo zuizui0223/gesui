@@ -42,7 +42,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add results/eea2018_independent_temporal_bqe_20261108/METHOD_COMPATIBLE_TEMPORAL_TRANSPORT_POSTHOC.json
-          git diff --cached --quiet || git commit -m "Archive posthoc country-method compatible cross-year EQR transfer audit (original datasets locked)"
+          if git diff --cached --quiet; then
+            echo "No new results; replay is byte-identical to the committed source-locked JSON."
+            exit 0
+          fi
+          git commit -m "Archive posthoc country-method compatible cross-year EQR transfer audit (original datasets locked)"
+          git fetch origin analysis/uwwtd2018-independent-bqe-validation-20261108
+          git rebase origin/analysis/uwwtd2018-independent-bqe-validation-20261108
           git push origin HEAD:analysis/uwwtd2018-independent-bqe-validation-20261108
       - name: Upload transparent JSON even if archival push is temporarily unavailable
         if: always()
