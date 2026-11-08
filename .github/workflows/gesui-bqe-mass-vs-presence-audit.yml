@@ -1,0 +1,59 @@
+name: gesui reported nutrient mass vs registered WWTP presence/count aquatic EQR audit
+
+on:
+  push:
+    branches:
+      - "analysis/eea2026-waterbase-biology-bqe-20261108"
+    paths:
+      - "scripts/audit_eea2022_bqe_nutrient_load_vs_facility_count.py"
+      - ".github/workflows/gesui-bqe-mass-vs-presence-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  posthoc-source-specificity-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install fixed-model validation dependencies
+        run: python -m pip install --quiet pandas numpy scikit-learn
+      - name: Independently compare original source annual mass, source presence, source count, and load beyond presence
+        run: |
+          python -u scripts/audit_eea2022_bqe_nutrient_load_vs_facility_count.py \
+            --results-dir results/eea2022_biology_bqe_20261108 \
+            --out results/eea2022_biology_bqe_20261108/POSTHOC_WWTP_MASS_VS_PRESENCE_COUNT_AUDIT.json
+      - name: Check audited source features and source-only original holdout compatibility
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          data=json.loads(Path("results/eea2022_biology_bqe_20261108/POSTHOC_WWTP_MASS_VS_PRESENCE_COUNT_AUDIT.json").read_text())
+          assert data["status"]=="PASS_SAME_ORIGINAL_SITES_FOLDS_POSTHOC_LOAD_AMPLITUDE_COMPARISON"
+          assert data["added_model_variants_are_posthoc_and_not_preregistered"]
+          for n in ("P","N"):
+              b=data["results"]["benthic_invertebrates"][n]
+              assert (b["sites"],b["original_exposed_sites"])==(2475,147)
+              c=b["original_WWTP_facility_presence_vs_count_vs_source_load"]
+              assert c["reported_measured_source_load"]["percent_improvement_from_baseline"]>0
+              p=data["results"]["phytobenthos"][n]
+              assert (p["sites"],p["original_exposed_sites"])==(2784,110)
+          print("GESUI_POSTHOC_MASS_VS_PRESENCE_SOURCE_VALIDATION_SUCCESS")
+          PY
+      - name: Persist audit separately from preregistered ecological model
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2022_biology_bqe_20261108/POSTHOC_WWTP_MASS_VS_PRESENCE_COUNT_AUDIT.json
+          git commit -m "Save nonconfirmatory aquatic EQR wastewater nutrient mass vs facility presence/count specificity audit"
+          git push origin HEAD:analysis/eea2026-waterbase-biology-bqe-20261108
