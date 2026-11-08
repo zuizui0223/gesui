@@ -1,0 +1,66 @@
+{
+  "POSTHOC_after_2021_history_P_source_3_70pct_gain_seen": true,
+  "important_statistical_limitations": [
+    "2deg blocks are spatial group units but training fitted models overlap",
+    "Bootstrap of heldout residuals does not capture full source data collection uncertainty",
+    "Broad ecological land-use and observer effort confounds are not removed",
+    "2021 WWTP source operation/history not known and 2022 annual reported mass is not environmental dose",
+    "Photo submissions are not butterflies, behavior or larval performance"
+  ],
+  "no_photo_or_2021_2022_API_data_requested": true,
+  "no_retroactive_outcome_year_sample_selection": true,
+  "original_2021_history_2022_outcome_source_SHA256": "41e0cc9fbb8ecfd8f97c2d33793b94e24a650897442dba7c7308e64c7ea82778",
+  "original_2022_source_P_historical_baseline_MSE_improvement_is_not_causal": true,
+  "original_region_error_model_results": {
+    "2021_prior_year_photo_reporting_with_2022_future_reported_Psource": {
+      "NOT_confidence_interval_for_wastewater_causality_or_independent_field_experiment": true,
+      "actual_MSE_improvement_percent_replayed": -8.427799196182074,
+      "descriptive_95pct_MSE_improvement_interval": [
+        -20.988531990870495,
+        1.0003809896896518
+      ],
+      "fraction_regional_resamples_gain_le0": 0.9564782391195598,
+      "median_MSE_improvement_percent": -8.178217024689314,
+      "original_P_source_MSE": 0.2806509585209388,
+      "original_baseline_MSE": 0.25883671955118037,
+      "original_predicted_cells": 42,
+      "regional_block_bootstrap_N": 1999,
+      "seed": 20261108,
+      "unique_original_country2degree_heldout_groups": 22
+    },
+    "2022_WITH_2021_butterfly_composition_and_targetgroup_photo_effort_baseline": {
+      "NOT_confidence_interval_for_wastewater_causality_or_independent_field_experiment": true,
+      "actual_MSE_improvement_percent_replayed": 3.6966446391922423,
+      "descriptive_95pct_MSE_improvement_interval": [
+        -31.10326158403552,
+        28.269081453784555
+      ],
+      "fraction_regional_resamples_gain_le0": 0.3811905952976488,
+      "median_MSE_improvement_percent": 4.729471969850917,
+      "original_P_source_MSE": 0.14977822277324285,
+      "original_baseline_MSE": 0.15552752259990058,
+      "original_predicted_cells": 42,
+      "regional_block_bootstrap_N": 1999,
+      "seed": 20261108,
+      "unique_original_country2degree_heldout_groups": 22
+    },
+    "2022_no_historical_butterfly_composition_baseline": {
+      "NOT_confidence_interval_for_wastewater_causality_or_independent_field_experiment": true,
+      "actual_MSE_improvement_percent_replayed": 10.368825730837703,
+      "descriptive_95pct_MSE_improvement_interval": [
+        -27.853087967275286,
+        31.60207221236443
+      ],
+      "fraction_regional_resamples_gain_le0": 0.23761880940470234,
+      "median_MSE_improvement_percent": 10.018597934740844,
+      "original_P_source_MSE": 0.14222141588426365,
+      "original_baseline_MSE": 0.15867405179494015,
+      "original_predicted_cells": 42,
+      "regional_block_bootstrap_N": 1999,
+      "seed": 20261108,
+      "unique_original_country2degree_heldout_groups": 22
+    }
+  },
+  "schema": "gesui_2022_2021_butterfly_historical_source_P_posthoc_2deg_block_prediction_error_resample_v01",
+  "utc": "2026-11-08T09:07:38.480514+00:00"
+}

@@ -1,0 +1,44 @@
+name: gesui 2021 historical butterfly photo family source gate on original 43 2022 DE AT source regions
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-prioryear-butterfly-composition-20261108"
+    paths:
+      - "scripts/gesui_2021_lycaenidae_family_photo_history_same43_source_cells.py"
+      - ".github/workflows/gesui-2021-butterfly-photo-history-source-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prior2021PhotoHistorySourceOnly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Query official 2021 Lycaenidae and comparison families public photo counts at fixed 43 source regions, not butterfly individuals
+        run: |
+          python -m py_compile scripts/gesui_2021_lycaenidae_family_photo_history_same43_source_cells.py
+          python -u scripts/gesui_2021_lycaenidae_family_photo_history_same43_source_cells.py \
+            --frozen-landcover-model results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --original-2022-photo-source results/lycaenidae_de_at_2022_macro_source_photo/2022_DE_AT_LYCAENIDAE_PHOTO_SHARE_VS_WWTP_SOURCE_EXPLORATORY.json \
+            --out results/lycaenidae_2021_prior_butterfly_photo_source/2021_HISTORICAL_3FAMILY_PHOTO_COUNTS_ORIGINAL43_SOURCE_ONLY.json
+      - name: Preserve 2021 photo history source counts and support before any new cross-year model
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2021_prior_butterfly_photo_source/2021_HISTORICAL_3FAMILY_PHOTO_COUNTS_ORIGINAL43_SOURCE_ONLY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 2021 Lycaenidae/Pieridae/Papilionidae public photo history from immutable DE/AT 43-cell WorldCover 2022 source sites"
+          git fetch origin analysis/lycaenidae-prioryear-butterfly-composition-20261108
+          git rebase origin/analysis/lycaenidae-prioryear-butterfly-composition-20261108
+          git push origin HEAD:analysis/lycaenidae-prioryear-butterfly-composition-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2021-historical-Lycaenidae-family-public-photo-source-43cells
+          path: results/lycaenidae_2021_prior_butterfly_photo_source/2021_HISTORICAL_3FAMILY_PHOTO_COUNTS_ORIGINAL43_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90

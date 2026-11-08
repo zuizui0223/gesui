@@ -1,0 +1,45 @@
+name: gesui 2021 history and 2022 WWTP P photographic prediction 2deg regional error bootstrap
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-prioryear-butterfly-composition-20261108"
+    paths:
+      - ".github/workflows/gesui-2022-2021history-Psource-2degree-error-bootstrap.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source-immutable-posthoc-error-resample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet numpy
+      - name: Resample fixed 42-site 2021-history and 2022-P source geographical heldout errors, preserve every sign
+        run: |
+          python -m py_compile scripts/gesui_2022_lycaenid_history_sourceP_posthoc_error_bootstrap.py
+          python -u scripts/gesui_2022_lycaenid_history_sourceP_posthoc_error_bootstrap.py \
+            --prior-result results/lycaenidae_2021_prior_butterfly_photo_source/2021_PRIORYEAR_LYCAENIDAE_COMPOSITION_VS_2022_P_SOURCE_BLOCK_CV.json \
+            --out results/lycaenidae_2021_prior_butterfly_photo_source/2022_P_SOURCE_AFTER_2021_LYCAENIDAE_HISTORY_2DEG_ERROR_BOOTSTRAP.json
+      - name: Persist independent region error-source audit, no new butterfly observations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2021_prior_butterfly_photo_source/2022_P_SOURCE_AFTER_2021_LYCAENIDAE_HISTORY_2DEG_ERROR_BOOTSTRAP.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive honest posthoc 2degree block-error uncertainty around Lycaenidae photo source P after historical baseline"
+          git fetch origin analysis/lycaenidae-prioryear-butterfly-composition-20261108
+          git rebase origin/analysis/lycaenidae-prioryear-butterfly-composition-20261108
+          git push origin HEAD:analysis/lycaenidae-prioryear-butterfly-composition-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2021-history-2022-Lycaenidae-Psource-2deg-error-bootstrap
+          path: results/lycaenidae_2021_prior_butterfly_photo_source/2022_P_SOURCE_AFTER_2021_LYCAENIDAE_HISTORY_2DEG_ERROR_BOOTSTRAP.json
+          retention-days: 90
+          if-no-files-found: warn

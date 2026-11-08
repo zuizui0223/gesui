@@ -1,0 +1,48 @@
+name: gesui 2021 Lycaenidae historical photo share vs 2022 EEA WWTP P source posthoc block CV
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-prioryear-butterfly-composition-20261108"
+    paths:
+      - ".github/workflows/gesui-2021-2022-lycaenid-prioryear-history-predictive-qc.yml"
+      - "scripts/gesui_2021_prior_lycaenidae_photo_share_2022_Psource_geoCV.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  no-new-photo-historical-CV:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet numpy scipy
+      - name: Freeze matched 2021 3family history sample before source P posthoc same-cell blocked CV
+        run: |
+          python -m py_compile scripts/gesui_2021_prior_lycaenidae_photo_share_2022_Psource_geoCV.py
+          python -u scripts/gesui_2021_prior_lycaenidae_photo_share_2022_Psource_geoCV.py \
+            --historical-2021-family-photo-source results/lycaenidae_2021_prior_butterfly_photo_source/2021_HISTORICAL_3FAMILY_PHOTO_COUNTS_ORIGINAL43_SOURCE_ONLY.json \
+            --frozen-2022-worldcover-43cell-model results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --out results/lycaenidae_2021_prior_butterfly_photo_source/2021_PRIORYEAR_LYCAENIDAE_COMPOSITION_VS_2022_P_SOURCE_BLOCK_CV.json
+      - name: Preserve favorable and unfavorable 2021-history/2022 source prediction, no new biodiversity downloads
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2021_prior_butterfly_photo_source/2021_PRIORYEAR_LYCAENIDAE_COMPOSITION_VS_2022_P_SOURCE_BLOCK_CV.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit 2022 WWTP source P geographic photo-share increment after prior-year 2021 butterfly historical composition and observer opportunity"
+          git fetch origin analysis/lycaenidae-prioryear-butterfly-composition-20261108
+          git rebase origin/analysis/lycaenidae-prioryear-butterfly-composition-20261108
+          git push origin HEAD:analysis/lycaenidae-prioryear-butterfly-composition-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2021-prioryear-butterfly-photo-share-versus-2022-WWTP-P-blockCV
+          path: results/lycaenidae_2021_prior_butterfly_photo_source/2021_PRIORYEAR_LYCAENIDAE_COMPOSITION_VS_2022_P_SOURCE_BLOCK_CV.json
+          retention-days: 90
+          if-no-files-found: warn
