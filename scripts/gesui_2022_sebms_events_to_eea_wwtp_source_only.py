@@ -199,7 +199,10 @@ def source_eea():
     geo_reporter=(geographic_sweden_approx["repCode_p"]
                   if "repCode_p" in geographic_sweden_approx.columns
                   else geographic_sweden_approx["repCode"]).astype("string").str.strip().str.upper()
-    source=eligible[reporter.str.startswith(("SE_","SE-"),na=False)].copy()
+    # Verified original Swedish reporter identifier in the official 2022 public REST layer
+    # is SE369 (not SE_UWWTD_2022). This correction uses only 2022 WWTP source
+    # geometry, not butterfly species or count data.
+    source=eligible[reporter.eq("SE369")].copy()
     qc={
         "original_2022_both_measured_positive_reported_WWTP_count":EXPECTED_PLANTS,
         "original_2022_all_public_discharge_points_count":EXPECTED_DCP,
@@ -213,7 +216,9 @@ def source_eea():
             "WWTP":hashlib.sha256(json.dumps(wp,sort_keys=True).encode()).hexdigest(),
             "DCP":hashlib.sha256(json.dumps(dp,sort_keys=True).encode()).hexdigest()},
         "outlets_not_any_nonFW_or_multi_outlet":True,
-        "Sweden_source_report_year_2022":True}
+        "Swedish_source_reporter_code":"SE369",
+        "source_layer_is_EEA_2022_but_repCode_SE369_has_no_year_suffix":True,
+        "individual_WWTP_mass_measurement_year_not_verified":True}
     return source,qc
 
 def main():
