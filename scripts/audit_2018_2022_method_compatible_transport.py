@@ -182,7 +182,7 @@ def audit_one(train: pd.DataFrame, test: pd.DataFrame, source_year: str,
         replay = float(err[name].mean())
         locked = published["MSE_and_MAE_by_model"][name]["test_MSE"]
         if not np.isclose(replay, locked, rtol=1e-7, atol=1e-9):
-            raise AssertionError(f"Original transport MSE not reproduced: {name}")
+            raise AssertionError(f"Original transport MSE not reproduced: {name}; observed={replay:.12f}; frozen={locked:.12f}; source={source_year}; test={target_year}; nutrient={nutrient}")
 
     mask_all = np.ones(len(test), dtype=bool)
     result = {
