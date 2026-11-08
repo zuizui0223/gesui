@@ -27,9 +27,10 @@
       "NO_UWWTD_2022": 23,
       "SE369": 14
     },
-    "Sweden_qualifying_unique_FW_outfalls_in_44_64N_bbox": 0,
+    "Sweden_qualifying_unique_FW_outfalls_in_44_64N_bbox": 14,
     "Sweden_reporter_substring_SE_record_count": 14,
-    "Sweden_source_report_year_2022": true,
+    "Swedish_source_reporter_code": "SE369",
+    "individual_WWTP_mass_measurement_year_not_verified": true,
     "original_2022_all_public_discharge_points_count": 24416,
     "original_2022_both_measured_positive_reported_WWTP_count": 5492,
     "original_Fw_unambiguous_all_nation_outfalls": 4057,
@@ -44,7 +45,8 @@
       "NO": 43,
       "UNRECOGNIZED": 1791
     },
-    "outlets_not_any_nonFW_or_multi_outlet": true
+    "outlets_not_any_nonFW_or_multi_outlet": true,
+    "source_layer_is_EEA_2022_but_repCode_SE369_has_no_year_suffix": true
   },
   "original_GBIF_dwc_dataset": "be77e203-486c-4651-91b9-8347968b728c",
   "original_SeBMS_archive_SHA256": "384a2e5145df29268fe2de79fde9e196fc113e68adfc922a81acd58069437348",
@@ -76,7 +78,7 @@
     "site_unique_id_groups_before_qc": 418
   },
   "public_source_only_site_CSV": "SWEDEN_2022_SEBMS_EVENT_SITE_METADATA_OUTFALL_DISTANCES_SOURCE_ONLY.csv",
-  "public_source_only_site_CSV_SHA256": "450f24437a7c93605fafad0021caa3ec828437eacd9f168728ee847f5185a25b",
+  "public_source_only_site_CSV_SHA256": "5a0c90ba5bd7504e113781bc31da73ee94aebe3bd00a310f41df66ab265be341",
   "schema": "gesui_2022_SeBMS_public_event_sites_vs_EEA_reported_FW_WWTP_source_only_v01",
   "source_distance_bands_km": {
     "near_primary": 2.0,
@@ -101,16 +103,16 @@
     "Point site count": {
       "2022_event_visits_n": 1720,
       "counties_near2km": 0,
-      "counties_near5km": 0,
-      "counties_remote": 21,
+      "counties_near5km": 2,
+      "counties_remote": 20,
       "county_overlap_primary_near2_and_far_n": 0,
-      "county_overlap_secondary_near5_and_far_n": 0,
+      "county_overlap_secondary_near5_and_far_n": 2,
       "predeclared_primary_feasible": false,
       "predeclared_secondary_feasible": false,
-      "registered_source_remote_10km_or_more_n": 226,
+      "registered_source_remote_10km_or_more_n": 215,
       "sites_eligible_public_coordinates_2_2022_visits": 226,
       "source_near_within2km_n": 0,
-      "source_near_within5km_n": 0
+      "source_near_within5km_n": 2
     }
   },
   "source_proximity_is_not_measured_butterfly_exposure": true,
