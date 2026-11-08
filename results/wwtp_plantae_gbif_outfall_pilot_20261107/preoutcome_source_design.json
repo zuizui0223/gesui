@@ -1,0 +1,88 @@
+{
+  "source_blob": "0506f873f6541c5f324478894a9731290d722bce",
+  "sample_design": {
+    "eligible_outfall_wwtp": 3518,
+    "countries_with_pairs": 5,
+    "matched_pairs": 5,
+    "selected_wwtps": 10,
+    "buffer_km": 2,
+    "source_selection_used_no_gbif": true
+  },
+  "facilities": [
+    {
+      "country": "AUT",
+      "pair_id": "AUT-01",
+      "pair_distance_km": 78.12202593089847,
+      "strata": {
+        "high": {
+          "WWTP_ID": 24293,
+          "nominal_water_fraction": 0.005981666575424362
+        },
+        "low": {
+          "WWTP_ID": 23958,
+          "nominal_water_fraction": 0.00022572235875942725
+        }
+      }
+    },
+    {
+      "country": "CHE",
+      "pair_id": "CHE-01",
+      "pair_distance_km": 57.488090322870256,
+      "strata": {
+        "high": {
+          "WWTP_ID": 21369,
+          "nominal_water_fraction": 0.00012565331592182734
+        },
+        "low": {
+          "WWTP_ID": 21336,
+          "nominal_water_fraction": 2.0281303289028e-05
+        }
+      }
+    },
+    {
+      "country": "CZE",
+      "pair_id": "CZE-01",
+      "pair_distance_km": 69.6574731756476,
+      "strata": {
+        "high": {
+          "WWTP_ID": 23805,
+          "nominal_water_fraction": 0.01325340142116062
+        },
+        "low": {
+          "WWTP_ID": 23830,
+          "nominal_water_fraction": 9.511013984097756e-05
+        }
+      }
+    },
+    {
+      "country": "DEU",
+      "pair_id": "DEU-01",
+      "pair_distance_km": 49.93306023406129,
+      "strata": {
+        "high": {
+          "WWTP_ID": 21192,
+          "nominal_water_fraction": 0.023377849252154588
+        },
+        "low": {
+          "WWTP_ID": 21014,
+          "nominal_water_fraction": 0.0006138289309919167
+        }
+      }
+    },
+    {
+      "country": "DNK",
+      "pair_id": "DNK-01",
+      "pair_distance_km": 45.169058711880346,
+      "strata": {
+        "high": {
+          "WWTP_ID": 12368,
+          "nominal_water_fraction": 0.03961665280900066
+        },
+        "low": {
+          "WWTP_ID": 12328,
+          "nominal_water_fraction": 0.0014431868526055501
+        }
+      }
+    }
+  ]
+}

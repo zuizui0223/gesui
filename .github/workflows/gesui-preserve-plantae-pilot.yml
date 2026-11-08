@@ -1,0 +1,80 @@
+name: gesui preserve successful first all-Plantae pilot artifact
+
+on:
+  push:
+    branches:
+      - "analysis/wwtp-plantae-gbif-observation-pilot-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-plantae-pilot.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch immutable successful prior GitHub Actions artifact (no new GBIF requests)
+        run: |
+          mkdir -p /tmp/gesui-original
+          gh run download 42364079195 --repo zuizui0223/gesui \
+            --name gesui-GBIF-Plantae-outfall-observation-v01 \
+            --dir /tmp/gesui-original
+      - name: Verify and preserve original results and auditable source receipts
+        run: |
+          python - <<'PY'
+          import json,hashlib,shutil
+          from pathlib import Path
+          src=Path("/tmp/gesui-original")
+          names=("plant_observational_pilot.json","raw_gbif_facets.json","preoutcome_source_design.json")
+          data={n:json.loads((src/n).read_text()) for n in names}
+          report=data["plant_observational_pilot.json"]
+          raw=data["raw_gbif_facets.json"]
+          design=data["preoutcome_source_design.json"]
+          assert report["status"]=="EXPLORATORY_LIVE_GBIF_PLANTAE_RECORD_INDEX_NOT_WASTEWATER_N_EFFECT"
+          assert report["hydrowaste_git_blob"]=="0506f873f6541c5f324478894a9731290d722bce"
+          assert (report["gbif_sites"],report["facility_count_quality"],report["matched_country_pairs_quality"])==(20,9,4)
+          assert len(raw["sites"])==20 and design["sample_design"]["matched_pairs"]==5
+          assert abs(report["spearman_of_fraction_vs_outfall_facility_delta"]["spearman_rho"]+.15)<1e-9
+          dest=Path("results/wwtp_plantae_gbif_outfall_pilot_20261107")
+          dest.mkdir(parents=True,exist_ok=True)
+          for n in names:
+              shutil.copyfile(src/n,dest/n)
+          receipt={"run_id":42364079195,"run_commit":"1541ae8d3a15657a2162036982a3f5a227aa77b2",
+              "artifact_id":13570667042,"source_blobs_are_byte_preserving":True,
+              "source_files_sha256":{n:hashlib.sha256((src/n).read_bytes()).hexdigest() for n in names},
+              "data":"GBIF aggregated speciesKey facets, no raw individual occurrence coordinates"}
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          doc="""# First real gesui all-Plantae GBIF index: source-frozen exploratory null
+          
+          Original successful real source run: https://github.com/zuizui0223/gesui/actions/runs/42364079195
+          
+          Model HydroWASTE outfall vs WWTP site; a 2-km radius GBIF 2011–2024 Plantae speciesKey index, with no butterfly-host filtering. The facilities were selected from source data BEFORE requesting any plant response.
+          
+          - 58,502 WWTP records source-verified; 3,518 qualify after source-only geography/status/flow/quality gates.
+          - Five high/low source-fraction country pairs (AUT,CHE,CZE,DEU,DNK), 10 WWTPs, 20 GBIF survey points.
+          - Nine facility comparisons have both sites sufficiently recorded; four high/low country pairs complete.
+          - Effluent-fraction proxy vs outfall-minus-WWTP, rarefied to 30 species-keyed GBIF records: rho = -0.150, descriptive p = 0.7001 (n=9).
+          - Mean high-minus-low country-pair outfall/WWTP contrast = -0.0831 log richness (4 country pairs); all four contrasts negative.
+          - This is NOT an actual hydrologic upstream/downstream test. WWTP and outfall points represent different landscapes and recording regimes, not a validated counterfactual. This pilot does not show an N/P mechanism or causal plant diversity decline.
+          - The CZE high outfall site had only 11 indexed plant records and failed the minimum 30-record gate.
+          
+          Raw source-lock sample design, per-site GBIF speciesKey counts, per-facility outcomes, and exact-byte hashes are included alongside this report. The original chocho GEB positive results and previously measured positive WWp/port-index correlations remain independent; no contradiction is implied.
+          """
+          (dest/"RESULTS.md").write_text("\n".join(s.strip() for s in doc.splitlines())+"\n")
+          print("GESUI_PRESERVE_RECEIPT",json.dumps(receipt,sort_keys=True))
+          PY
+      - name: Commit only source results on this research branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wwtp_plantae_gbif_outfall_pilot_20261107
+          git commit -m "Preserve source-authenticated live GBIF Plantae survey and null result"
+          git push origin HEAD:analysis/wwtp-plantae-gbif-observation-pilot-20261107

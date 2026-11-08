@@ -27,4 +27,8 @@ jobs:
       - name: Verify source Git blobs
         run: python scripts/verify_migration_integrity.py
       - name: Run independent synthetic tests
-        run: python -m unittest discover -s tests -p "test_gesui_*.py" -v
+        run: |
+          python -m unittest discover -s tests -p "test_gesui_migration_integrity.py" -v
+          python -m unittest discover -s tests -p "test_gesui_plant_site_panel.py" -v
+      - name: Independently reproduce stored GBIF plant richness and correlations
+        run: python scripts/audit_plantae_pilot_source.py
