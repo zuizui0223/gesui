@@ -1,0 +1,43 @@
+name: gesui independent 2018 EEA UWWTD original annual N P source availability
+
+on:
+  push:
+    branches:
+      - "analysis/uwwtd2018-independent-bqe-validation-20261108"
+    paths:
+      - "scripts/gesui_probe_eea_uwwtd2018_original.py"
+      - ".github/workflows/gesui-uwwtd2018-original-source-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-2018-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download public official 2017-2018 UWWTD archive
+        run: |
+          mkdir -p /tmp/gesui-2018-holdout
+          curl --fail --location --silent --show-error --retry 2 --max-time 420 \
+            https://sdi.eea.europa.eu/datashare/s/mGmXg3zcEqKQLTG/download \
+            -o /tmp/gesui-2018-holdout/original_UWWTD_2017_2018.zip
+          file /tmp/gesui-2018-holdout/original_UWWTD_2017_2018.zip
+          sha256sum /tmp/gesui-2018-holdout/original_UWWTD_2017_2018.zip
+      - name: Inspect exact historical UWWTP/DischargePoints table schemas only - no EQR values
+        run: |
+          python -u scripts/gesui_probe_eea_uwwtd2018_original.py \
+            --archive /tmp/gesui-2018-holdout/original_UWWTD_2017_2018.zip \
+            --out /tmp/gesui-2018-holdout/SOURCE_2018_ORIGINAL_INVENTORY.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-independent2018-UWWTD-original-source-only-inventory
+          path: /tmp/gesui-2018-holdout/SOURCE_2018_ORIGINAL_INVENTORY.json
+          retention-days: 90
+          if-no-files-found: warn
