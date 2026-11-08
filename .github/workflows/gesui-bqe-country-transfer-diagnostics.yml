@@ -1,0 +1,63 @@
+name: gesui nonconfirmatory 2022 BQE country-transfer and exposure-specific robustness audit
+
+on:
+  push:
+    branches:
+      - "analysis/eea2026-waterbase-biology-bqe-20261108"
+    paths:
+      - "scripts/audit_eea2022_bqe_transfer_sensitivities.py"
+      - ".github/workflows/gesui-bqe-country-transfer-diagnostics.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  no-source-query-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent posthoc audit dependencies
+        run: python -m pip install --quiet pandas numpy scikit-learn
+      - name: Use only committed original station EQR, source P/N and fixed regional folds
+        run: |
+          python -u scripts/audit_eea2022_bqe_transfer_sensitivities.py \
+            --results-dir results/eea2022_biology_bqe_20261108 \
+            --out results/eea2022_biology_bqe_20261108/POSTHOC_TRANSFER_AND_EXPOSURE_SENSITIVITY.json
+      - name: Verify numerical direction before preserving nonconfirmatory research result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          name=Path("results/eea2022_biology_bqe_20261108/POSTHOC_TRANSFER_AND_EXPOSURE_SENSITIVITY.json")
+          obj=json.loads(name.read_text())
+          assert obj["status"]=="PASS_ORIGINAL_FIXED_MODELS_AND_EXPLORATORY_TRANSFER_STRESS_TESTS"
+          assert obj["posthoc_diagnostics_not_preregistered"] is True
+          for nutrient in ("P","N"):
+              inv=obj["results"]["benthic_invertebrates"][nutrient]
+              phy=obj["results"]["phytobenthos"][nutrient]
+              main=inv["original_fixed_3degree_fold_exposure_split_diagnostic"]
+              assert main["registered_upstream_load_positive_stations"]["n"]==147
+              assert main["source_zero_registered_stations"]["n"]==2328
+              assert main["registered_upstream_load_positive_stations"]["improvement_MSE_pct"]>10
+              transfer=inv["posthoc_leave_one_country_out_transfer_stress_test"]
+              assert len(transfer["country_specific_heldout_contributions"])==13
+              assert len(phy["posthoc_leave_one_country_out_transfer_stress_test"]["country_specific_heldout_contributions"])==12
+          print("GESUI_EEA_BQE_COUNTRY_DIAGNOSTICS_ARCHIVE_GATE_PASS")
+          PY
+      - name: Save sensitivity separately from original preregistered analysis
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2022_biology_bqe_20261108/POSTHOC_TRANSFER_AND_EXPOSURE_SENSITIVITY.json
+          git commit -m "Preserve clearly labeled posthoc country-level transport and source-positive-only EQR prediction diagnostics"
+          git push origin HEAD:analysis/eea2026-waterbase-biology-bqe-20261108
