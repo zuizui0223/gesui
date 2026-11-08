@@ -113,3 +113,9 @@ chochoの全球潜在寄主資源+54.9%、155種予測MSE改善4.12%、51島の�
 | [2018年・2022年の観測地点重複と報告源の異同](https://github.com/zuizui0223/gesui/actions/runs/42442841272) | 底生の同一地点**1,167**（2018年の44.3%、2022年の47.2%）。同一地点のEQR順位相関ρ0.807。両年とも報告された上流排出源あり17地点、報告源の有無が変わった地点11。 | **独立の報告年の予測再現**であり、全地点独立／EQR調査機関独立／下水排出の増減に対する植生・底生生物の因果応答ではない。 |
 
 2018年の原本・サンプル固定は[別ディレクトリ](https://github.com/zuizui0223/gesui/tree/analysis/uwwtd2018-independent-bqe-validation-20261108/results/eea2018_independent_source_frozen_20261108)、実測EQR・監査・比較は[結果台帳](https://github.com/zuizui0223/gesui/tree/analysis/uwwtd2018-independent-bqe-validation-20261108/results/eea2018_independent_temporal_bqe_20261108)にSHAとともに保存済み。2022年の[PR #14](https://github.com/zuizui0223/gesui/pull/14)と原本欠測・農業負荷不足を追った[PR #16](https://github.com/zuizui0223/gesui/pull/16)の科学的境界は維持する。**肯定的結論は複数の実測年で報告された下水N/P質量が底生無脊椎動物EQRに小さな追加予測情報を持つことであり、下水の生態的因果効果は未実証**。
+
+### 2018年→2022年・逆方向の同一観測地点IDを除いたモデル転送（事後検証）
+
+[原本SHA付き地域・年越し比較のGitHub Actions SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42443038497)。元のBQEモデルのRidge α10・国／生物評価法・流域・地理の共変量と年別EEA実測報告P/N質量を用い、学習年に出た**全地点IDを評価年から除外**した。底生無脊椎動物の2018年学習→2022年の**新規1,308地点（源あり123）**：P+**1.124%**、N+**1.365%**のMSE改善。逆の2022年学習→2018年**新規1,467地点（源あり181）**：P+**2.578%**、N+**2.095%**。両方向の上流モデルは下流報告負荷の負の対照より良い。付着藻類では2018→2022のP**−0.042%**／N**−0.128%**と改善せず、全分類群普遍性は得られない。
+
+**必須の区別**：この転送試験は元の2018年・2022年の正の結果を見た後の**事後感度分析**であり、元の年別モデルの事前登録成績とは独立の確証検定ではない。地域／報告の異質性も大きく、新しい2022年地点の553/1,308と2018年地点の791/1,467で学習年にない国×評価手法が登場した。年別WWTP実測N/P排出質量は同一年で取得したが、測定される実際の河川到達量は不明。正の予測情報とN・Pの独立生態学的原因や下水起因の多様性変化を区別する。[原本・モデル転送の結果JSON](https://github.com/zuizui0223/gesui/blob/analysis/uwwtd2018-independent-bqe-validation-20261108/results/eea2018_independent_temporal_bqe_20261108/SITE_DISJOINT_TWO_YEAR_MODEL_TRANSPORT_POSTHOC.json)。
