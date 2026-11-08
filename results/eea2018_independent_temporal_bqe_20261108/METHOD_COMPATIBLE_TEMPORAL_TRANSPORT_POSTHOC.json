@@ -1,0 +1,1869 @@
+{
+  "bootstrap_country_cluster_descriptive_only": true,
+  "limitations": [
+    "Designed after original two-year positive EQR prediction",
+    "EQR assessment methods and calibration are national",
+    "Unreported WWTP source is not proof of absence of sewage",
+    "Country-cluster bootstrap is posthoc/descriptive and not causal",
+    "WWTP P and N source masses strongly collinear",
+    "HydroRIVERS topology, agricultural/urban runoff, river dilution and reporting completeness not causally validated"
+  ],
+  "not_nutrient_specific": true,
+  "not_sewage_causality": true,
+  "original_two_year_site_disjoint_transport_sha256": "909f71152934ca2d0529c9fb4d3060fa14e1d22a2d5ba25294a572cd23438d0e",
+  "posthoc": true,
+  "results": {
+    "benthic_invertebrates": {
+      "2018_training_to_2022_NEW_SITES": {
+        "N": {
+          "all_sites": {
+            "countries": 12,
+            "downstream_placebo_gain_pct": 0.5185258947460064,
+            "mse": {
+              "M0_baseline": 0.057714171038951434,
+              "M1_upstream_reported_mass": 0.056926593468662474,
+              "M2_downstream_negative_control": 0.05741490811717647
+            },
+            "n": 1308,
+            "source_positive_n": 123,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 1.3646173134106379
+          },
+          "known_method": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": -0.052863145739646164,
+            "mse": {
+              "M0_baseline": 0.06164191596937551,
+              "M1_upstream_reported_mass": 0.06124984959467125,
+              "M2_downstream_negative_control": 0.06167450182525111
+            },
+            "n": 755,
+            "source_positive_n": 14,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.6360385924717862
+          },
+          "known_method_country_analysis": {
+            "countries": 6,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 4,
+            "country_balanced_gain_pct": -3.3274079518131914,
+            "country_balanced_mse": {
+              "M0": 0.04242600181663614,
+              "M1": 0.0438376879747193,
+              "M2": 0.0425767908662664
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.027270008157535556,
+                "country": "BE",
+                "n": 60,
+                "placebo_mse": 0.02861478545533563,
+                "upstream_gain_pct": 4.143217928109952,
+                "upstream_mse": 0.026140152290555496,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.0733644948910436,
+                "country": "FR",
+                "n": 519,
+                "placebo_mse": 0.07334310365176008,
+                "upstream_gain_pct": 1.1912118930778843,
+                "upstream_mse": 0.07249056830260497,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05897209644927536,
+                "country": "HR",
+                "n": 21,
+                "placebo_mse": 0.059463638064341615,
+                "upstream_gain_pct": -17.564845601156783,
+                "upstream_mse": 0.06933045413835584,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.02453740618161648,
+                "country": "IE",
+                "n": 50,
+                "placebo_mse": 0.024600346219130906,
+                "upstream_gain_pct": -2.822486785391522,
+                "upstream_mse": 0.025229971228570448,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.018145525420660332,
+                "country": "NL",
+                "n": 33,
+                "placebo_mse": 0.01784773140853654,
+                "upstream_gain_pct": 2.083024605171758,
+                "upstream_mse": 0.01776754966141028,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.052266479799685496,
+                "country": "NO",
+                "n": 72,
+                "placebo_mse": 0.051591140398493635,
+                "upstream_gain_pct": 0.3808321770083176,
+                "upstream_mse": 0.05206743222681874,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.7098549274637319,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -7.097946833387826,
+              1.4449633713478953
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -6.868434873182937,
+              2.499705606484619
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": -0.29264171952347245,
+            "mse": {
+              "M0_baseline": 0.026333376014649936,
+              "M1_upstream_reported_mass": 0.015292630216946183,
+              "M2_downstream_negative_control": 0.02641043845902779
+            },
+            "n": 14,
+            "source_positive_n": 14,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 41.9268148207108
+          },
+          "known_method_source_zero": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": -0.05094855540244262,
+            "mse": {
+              "M0_baseline": 0.062309013890247525,
+              "M1_upstream_reported_mass": 0.06211813714026929,
+              "M2_downstream_negative_control": 0.06234075943271011
+            },
+            "n": 741,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.3063389035725174
+          },
+          "known_test_country_method_share": 0.577217125382263,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2022",
+          "training_year": "2018",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": 1.4370680251331036,
+            "mse": {
+              "M0_baseline": 0.052351698303924,
+              "M1_upstream_reported_mass": 0.05102413709409353,
+              "M2_downstream_negative_control": 0.05159936878698416
+            },
+            "n": 553,
+            "source_positive_n": 109,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 2.5358512767311
+          },
+          "unknown_method_country_analysis": {
+            "countries": 6,
+            "countries_upstream_outperforms_downstream": 4,
+            "countries_with_positive_upstream_gain": 3,
+            "country_balanced_gain_pct": 7.8874843152534675,
+            "country_balanced_mse": {
+              "M0": 0.08226506843047621,
+              "M1": 0.07577642406108986,
+              "M2": 0.07854635646690744
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.033143389334557134,
+                "country": "AT",
+                "n": 67,
+                "placebo_mse": 0.03362938116321573,
+                "upstream_gain_pct": 19.298334319423667,
+                "upstream_mse": 0.02674726725598609,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05393296871665177,
+                "country": "IT",
+                "n": 348,
+                "placebo_mse": 0.054367831182588006,
+                "upstream_gain_pct": -2.7336246431143545,
+                "upstream_mse": 0.05540729364025332,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.018488580372382782,
+                "country": "LT",
+                "n": 95,
+                "placebo_mse": 0.01940097921661728,
+                "upstream_gain_pct": -0.505736265994415,
+                "upstream_mse": 0.018582083828393447,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.1472115435389906,
+                "country": "LU",
+                "n": 38,
+                "placebo_mse": 0.1295277020424519,
+                "upstream_gain_pct": 13.726333220057466,
+                "upstream_mse": 0.12700479653443877,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.11750018035975975,
+                "country": "SE",
+                "n": 1,
+                "placebo_mse": 0.11375917808398059,
+                "upstream_gain_pct": -1.1646459519104184,
+                "upstream_mse": 0.11886864145380713,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.12331374826051524,
+                "country": "SK",
+                "n": 4,
+                "placebo_mse": 0.12059306711259109,
+                "upstream_gain_pct": 12.37922520577755,
+                "upstream_mse": 0.10804846165366046,
+                "upstream_outperforms_placebo": true
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.7798899449724862,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -2.4403786491840553,
+              15.671508768167245
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -1.5447546384980995,
+              15.015523237876428
+            ]
+          }
+        },
+        "P": {
+          "all_sites": {
+            "countries": 12,
+            "downstream_placebo_gain_pct": 0.543776081415983,
+            "mse": {
+              "M0_baseline": 0.057714171038951434,
+              "M1_upstream_reported_mass": 0.05706557600881117,
+              "M2_downstream_negative_control": 0.057400335181254106
+            },
+            "n": 1308,
+            "source_positive_n": 123,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 1.1238055029890817
+          },
+          "known_method": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": -0.2334750685434956,
+            "mse": {
+              "M0_baseline": 0.06164191596937551,
+              "M1_upstream_reported_mass": 0.06132393465374753,
+              "M2_downstream_negative_control": 0.06178583447493653
+            },
+            "n": 755,
+            "source_positive_n": 14,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.5158524205930819
+          },
+          "known_method_country_analysis": {
+            "countries": 6,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 3,
+            "country_balanced_gain_pct": -2.9863630385532853,
+            "country_balanced_mse": {
+              "M0": 0.04242600181663614,
+              "M1": 0.043692996253624106,
+              "M2": 0.042819131854929304
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.027270008157535556,
+                "country": "BE",
+                "n": 60,
+                "placebo_mse": 0.02896055481311806,
+                "upstream_gain_pct": 3.565931687445358,
+                "upstream_mse": 0.02629757829547706,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.0733644948910436,
+                "country": "FR",
+                "n": 519,
+                "placebo_mse": 0.07336028972718166,
+                "upstream_gain_pct": 1.024077923584796,
+                "upstream_mse": 0.07261318529511493,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05897209644927536,
+                "country": "HR",
+                "n": 21,
+                "placebo_mse": 0.05941941108228352,
+                "upstream_gain_pct": -14.802289307230915,
+                "upstream_mse": 0.06770131677623635,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.02453740618161648,
+                "country": "IE",
+                "n": 50,
+                "placebo_mse": 0.024581411028716825,
+                "upstream_gain_pct": -2.180426320748376,
+                "upstream_mse": 0.025072426244429385,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.018145525420660332,
+                "country": "NL",
+                "n": 33,
+                "placebo_mse": 0.018535942954280266,
+                "upstream_gain_pct": -0.888907565969307,
+                "upstream_mse": 0.018306822369009466,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.052266479799685496,
+                "country": "NO",
+                "n": 72,
+                "placebo_mse": 0.0520571815239955,
+                "upstream_gain_pct": 0.19100436568653006,
+                "upstream_mse": 0.05216664854147743,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.6843421710855427,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -6.178209112005372,
+              1.1628420883176802
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -5.266794891871624,
+              3.194976294697871
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": -1.7125251289282168,
+            "mse": {
+              "M0_baseline": 0.026333376014649936,
+              "M1_upstream_reported_mass": 0.02159762904480552,
+              "M2_downstream_negative_control": 0.026784341696195972
+            },
+            "n": 14,
+            "source_positive_n": 14,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 17.983820104227416
+          },
+          "known_method_source_zero": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": -0.22166511025933164,
+            "mse": {
+              "M0_baseline": 0.062309013890247525,
+              "M1_upstream_reported_mass": 0.062074499132189105,
+              "M2_downstream_negative_control": 0.062447131234588844
+            },
+            "n": 741,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.37637372735748836
+          },
+          "known_test_country_method_share": 0.577217125382263,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2022",
+          "training_year": "2018",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": 1.793253891705803,
+            "mse": {
+              "M0_baseline": 0.052351698303924,
+              "M1_upstream_reported_mass": 0.05125172288597759,
+              "M2_downstream_negative_control": 0.0514128994367148
+            },
+            "n": 553,
+            "source_positive_n": 109,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 2.1011265223156315
+          },
+          "unknown_method_country_analysis": {
+            "countries": 6,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 4,
+            "country_balanced_gain_pct": 6.654622672706318,
+            "country_balanced_mse": {
+              "M0": 0.08226506843047621,
+              "M1": 0.07679063853498437,
+              "M2": 0.07788626506179631
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.033143389334557134,
+                "country": "AT",
+                "n": 67,
+                "placebo_mse": 0.034312834251466556,
+                "upstream_gain_pct": 15.734640434478727,
+                "upstream_mse": 0.027928396194965198,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05393296871665177,
+                "country": "IT",
+                "n": 348,
+                "placebo_mse": 0.05427338134301235,
+                "upstream_gain_pct": -2.301139730641022,
+                "upstream_mse": 0.05517404168770484,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.018488580372382782,
+                "country": "LT",
+                "n": 95,
+                "placebo_mse": 0.0192969743343283,
+                "upstream_gain_pct": 0.5662542621530616,
+                "upstream_mse": 0.01838388799801257,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.1472115435389906,
+                "country": "LU",
+                "n": 38,
+                "placebo_mse": 0.12692888364623794,
+                "upstream_gain_pct": 11.249324939608822,
+                "upstream_mse": 0.13065123865767583,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.11750018035975975,
+                "country": "SE",
+                "n": 1,
+                "placebo_mse": 0.1137651404048132,
+                "upstream_gain_pct": -0.7680132461190768,
+                "upstream_mse": 0.1184025973091365,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.12331374826051524,
+                "country": "SK",
+                "n": 4,
+                "placebo_mse": 0.1187403763909196,
+                "upstream_gain_pct": 10.631481958043585,
+                "upstream_mse": 0.11020366936241127,
+                "upstream_outperforms_placebo": true
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.7818909454727364,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -2.0069091877482745,
+              12.856136725477905
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -1.8477087484053736,
+              13.776551206241875
+            ]
+          }
+        }
+      },
+      "2022_training_to_2018_NEW_SITES": {
+        "N": {
+          "all_sites": {
+            "countries": 13,
+            "downstream_placebo_gain_pct": 0.36173514104589183,
+            "mse": {
+              "M0_baseline": 0.05272494065345306,
+              "M1_upstream_reported_mass": 0.05162030922270358,
+              "M2_downstream_negative_control": 0.05253421601501393
+            },
+            "n": 1467,
+            "source_positive_n": 181,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 2.095083307935663
+          },
+          "known_method": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": 0.2819587538661427,
+            "mse": {
+              "M0_baseline": 0.059857973589047556,
+              "M1_upstream_reported_mass": 0.05927890340328337,
+              "M2_downstream_negative_control": 0.05968919879262635
+            },
+            "n": 676,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.9674069318479861
+          },
+          "known_method_country_analysis": {
+            "countries": 6,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 3,
+            "country_balanced_gain_pct": -8.30814117634347,
+            "country_balanced_mse": {
+              "M0": 0.05127850055194317,
+              "M1": 0.05553879077091067,
+              "M2": 0.050341350646080835
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.0511651363992558,
+                "country": "BE",
+                "n": 43,
+                "placebo_mse": 0.04993938345877333,
+                "upstream_gain_pct": 1.728955150129686,
+                "upstream_mse": 0.05028051413840999,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.06694493723000292,
+                "country": "FR",
+                "n": 434,
+                "placebo_mse": 0.066992439524028,
+                "upstream_gain_pct": -0.024607413484624464,
+                "upstream_mse": 0.06696141064751412,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.029380716592817543,
+                "country": "IE",
+                "n": 58,
+                "placebo_mse": 0.029356993078841796,
+                "upstream_gain_pct": -1.431275864587901,
+                "upstream_mse": 0.029801235698253513,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.031126863261739465,
+                "country": "NL",
+                "n": 26,
+                "placebo_mse": 0.031295790528525165,
+                "upstream_gain_pct": 2.3916925828636337,
+                "upstream_mse": 0.030382404381830336,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.0572119163373282,
+                "country": "NO",
+                "n": 107,
+                "placebo_mse": 0.05672406071772726,
+                "upstream_gain_pct": 10.233563627893059,
+                "upstream_mse": 0.051357098476210776,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.07184143349051512,
+                "country": "SI",
+                "n": 8,
+                "placebo_mse": 0.06773943656858947,
+                "upstream_gain_pct": -45.389751023043466,
+                "upstream_mse": 0.1044500812832453,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.7148574287143572,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -6.590983663555439,
+              7.635473751759774
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -8.043022967698699,
+              6.652135373097561
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 3,
+            "downstream_placebo_gain_pct": -0.43678443875493095,
+            "mse": {
+              "M0_baseline": 0.07569849039477058,
+              "M1_upstream_reported_mass": 0.0577652387089583,
+              "M2_downstream_negative_control": 0.07602912962118734
+            },
+            "n": 17,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 23.690368978680656
+          },
+          "known_method_source_zero": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": 0.305567744731289,
+            "mse": {
+              "M0_baseline": 0.05944934113730659,
+              "M1_upstream_reported_mass": 0.059317950899191604,
+              "M2_downstream_negative_control": 0.059267683126335714
+            },
+            "n": 659,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 0.22101210139827107
+          },
+          "known_test_country_method_share": 0.4608043626448534,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2018",
+          "training_year": "2022",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 8,
+            "downstream_placebo_gain_pct": 0.4492558789897058,
+            "mse": {
+              "M0_baseline": 0.046628947904449436,
+              "M1_upstream_reported_mass": 0.04507516425927508,
+              "M2_downstream_negative_control": 0.04641946461467765
+            },
+            "n": 791,
+            "source_positive_n": 164,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 3.332229687786048
+          },
+          "unknown_method_country_analysis": {
+            "countries": 8,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 4,
+            "country_balanced_gain_pct": -8.273748747439749,
+            "country_balanced_mse": {
+              "M0": 0.05800138270592885,
+              "M1": 0.06280027138105837,
+              "M2": 0.057637760973828306
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.06857885124858741,
+                "country": "BE",
+                "n": 1,
+                "placebo_mse": 0.07122828415390872,
+                "upstream_gain_pct": -40.38804651257924,
+                "upstream_mse": 0.09627650958865942,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.05842743733884603,
+                "country": "HU",
+                "n": 258,
+                "placebo_mse": 0.057832847531337946,
+                "upstream_gain_pct": 9.698609859525954,
+                "upstream_mse": 0.05276078814043236,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05949118317264691,
+                "country": "IT",
+                "n": 146,
+                "placebo_mse": 0.0587113622691353,
+                "upstream_gain_pct": 0.8436142662948665,
+                "upstream_mse": 0.058989307064214846,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.018621894092768567,
+                "country": "LT",
+                "n": 79,
+                "placebo_mse": 0.01883874165976399,
+                "upstream_gain_pct": 7.653905363981311,
+                "upstream_mse": 0.017196591941927235,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.06330773338346618,
+                "country": "LU",
+                "n": 1,
+                "placebo_mse": 0.06371949341228697,
+                "upstream_gain_pct": -51.314859111001596,
+                "upstream_mse": 0.09579400757556038,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.013748886163058891,
+                "country": "LV",
+                "n": 51,
+                "placebo_mse": 0.01372465171956228,
+                "upstream_gain_pct": -12.310961777923225,
+                "upstream_mse": 0.015441506283483246,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.0416558830717844,
+                "country": "PL",
+                "n": 253,
+                "placebo_mse": 0.04202312324843262,
+                "upstream_gain_pct": -2.908492189606684,
+                "upstream_mse": 0.042867441177438945,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.14017919317627234,
+                "country": "SE",
+                "n": 2,
+                "placebo_mse": 0.13502358379619867,
+                "upstream_gain_pct": 12.200936181744828,
+                "upstream_mse": 0.12307601927675055,
+                "upstream_outperforms_placebo": true
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.7348674337168585,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -3.420344511855603,
+              9.0276542879267
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -2.985310141104738,
+              8.123633694606337
+            ]
+          }
+        },
+        "P": {
+          "all_sites": {
+            "countries": 13,
+            "downstream_placebo_gain_pct": 0.6039921834278472,
+            "mse": {
+              "M0_baseline": 0.05272494065345306,
+              "M1_upstream_reported_mass": 0.05136562202693823,
+              "M2_downstream_negative_control": 0.05240648613318923
+            },
+            "n": 1467,
+            "source_positive_n": 181,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 2.578132112939243
+          },
+          "known_method": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": 0.3129899352289508,
+            "mse": {
+              "M0_baseline": 0.059857973589047556,
+              "M1_upstream_reported_mass": 0.05986731186476832,
+              "M2_downstream_negative_control": 0.05967062415628183
+            },
+            "n": 676,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -0.015600721442517977
+          },
+          "known_method_country_analysis": {
+            "countries": 6,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 3,
+            "country_balanced_gain_pct": -10.711807561857936,
+            "country_balanced_mse": {
+              "M0": 0.05127850055194317,
+              "M1": 0.05677135485167358,
+              "M2": 0.04985848584382511
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.0511651363992558,
+                "country": "BE",
+                "n": 43,
+                "placebo_mse": 0.04951151695549708,
+                "upstream_gain_pct": 1.3568104771933325,
+                "upstream_mse": 0.05047092246792044,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.06694493723000292,
+                "country": "FR",
+                "n": 434,
+                "placebo_mse": 0.06700860769907004,
+                "upstream_gain_pct": -0.04495932837867419,
+                "upstream_mse": 0.06697503522416505,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.029380716592817543,
+                "country": "IE",
+                "n": 58,
+                "placebo_mse": 0.02934875849788173,
+                "upstream_gain_pct": -1.0570027630727072,
+                "upstream_mse": 0.029691271579014186,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.031126863261739465,
+                "country": "NL",
+                "n": 26,
+                "placebo_mse": 0.03076432402656959,
+                "upstream_gain_pct": 1.9038190241445025,
+                "upstream_mse": 0.030534264117343023,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.0572119163373282,
+                "country": "NO",
+                "n": 107,
+                "placebo_mse": 0.057013827055801505,
+                "upstream_gain_pct": 4.426738214771529,
+                "upstream_mse": 0.05467929457342058,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.07184143349051512,
+                "country": "SI",
+                "n": 8,
+                "placebo_mse": 0.06550388082813066,
+                "upstream_gain_pct": -50.71712226131111,
+                "upstream_mse": 0.10827734114817819,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.48874437218609307,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -7.5821091647150975,
+              3.150299242978456
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -10.03538014921976,
+              2.455143705779646
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 3,
+            "downstream_placebo_gain_pct": 0.915068126126158,
+            "mse": {
+              "M0_baseline": 0.07569849039477058,
+              "M1_upstream_reported_mass": 0.07888721357571037,
+              "M2_downstream_negative_control": 0.07500579763720937
+            },
+            "n": 17,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -4.212399962417303
+          },
+          "known_method_source_zero": {
+            "countries": 6,
+            "downstream_placebo_gain_pct": 0.2932131099943592,
+            "mse": {
+              "M0_baseline": 0.05944934113730659,
+              "M1_upstream_reported_mass": 0.05937666189650425,
+              "M2_downstream_negative_control": 0.05927502787528674
+            },
+            "n": 659,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 0.12225407281550782
+          },
+          "known_test_country_method_share": 0.4608043626448534,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2018",
+          "training_year": "2022",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 8,
+            "downstream_placebo_gain_pct": 0.9232436863604908,
+            "mse": {
+              "M0_baseline": 0.046628947904449436,
+              "M1_upstream_reported_mass": 0.0440999553640139,
+              "M2_downstream_negative_control": 0.046198449086905284
+            },
+            "n": 791,
+            "source_positive_n": 164,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 5.42365344724884
+          },
+          "unknown_method_country_analysis": {
+            "countries": 8,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 4,
+            "country_balanced_gain_pct": -5.031317471195422,
+            "country_balanced_mse": {
+              "M0": 0.05800138270592885,
+              "M1": 0.060919616407547166,
+              "M2": 0.05762304403210068
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.06857885124858741,
+                "country": "BE",
+                "n": 1,
+                "placebo_mse": 0.07201532575579057,
+                "upstream_gain_pct": -34.114238079566896,
+                "upstream_mse": 0.09197400383576256,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.05842743733884603,
+                "country": "HU",
+                "n": 258,
+                "placebo_mse": 0.05708528635262218,
+                "upstream_gain_pct": 14.685974675988138,
+                "upstream_mse": 0.04984679868743427,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05949118317264691,
+                "country": "IT",
+                "n": 146,
+                "placebo_mse": 0.05846813874458877,
+                "upstream_gain_pct": 0.05591809489226312,
+                "upstream_mse": 0.059457916836387896,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.018621894092768567,
+                "country": "LT",
+                "n": 79,
+                "placebo_mse": 0.018847418491705653,
+                "upstream_gain_pct": 6.793340032471798,
+                "upstream_mse": 0.01735684550656002,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.06330773338346618,
+                "country": "LU",
+                "n": 1,
+                "placebo_mse": 0.06425868723058997,
+                "upstream_gain_pct": -34.38392490833005,
+                "upstream_mse": 0.08507541689120299,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.013748886163058891,
+                "country": "LV",
+                "n": 51,
+                "placebo_mse": 0.01400732657096608,
+                "upstream_gain_pct": -6.886442544020885,
+                "upstream_mse": 0.01469569530912078,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.0416558830717844,
+                "country": "PL",
+                "n": 253,
+                "placebo_mse": 0.04217698416288496,
+                "upstream_gain_pct": -2.395714249454975,
+                "upstream_mse": 0.042653838998271444,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.14017919317627234,
+                "country": "SE",
+                "n": 2,
+                "placebo_mse": 0.13412518494765724,
+                "upstream_gain_pct": 9.903593868726047,
+                "upstream_mse": 0.1262964151956374,
+                "upstream_outperforms_placebo": true
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.7188594297148574,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -2.482001805605632,
+              13.713794718408161
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -2.037780683606665,
+              11.612533409123005
+            ]
+          }
+        }
+      }
+    },
+    "phytobenthos": {
+      "2018_training_to_2022_NEW_SITES": {
+        "N": {
+          "all_sites": {
+            "countries": 12,
+            "downstream_placebo_gain_pct": -0.25355780951234674,
+            "mse": {
+              "M0_baseline": 0.03309201990859671,
+              "M1_upstream_reported_mass": 0.03313431162121362,
+              "M2_downstream_negative_control": 0.03317592730940034
+            },
+            "n": 1372,
+            "source_positive_n": 85,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -0.1278003359532706
+          },
+          "known_method": {
+            "countries": 7,
+            "downstream_placebo_gain_pct": 1.3470730459694813,
+            "mse": {
+              "M0_baseline": 0.02359667266696618,
+              "M1_upstream_reported_mass": 0.023518528633396547,
+              "M2_downstream_negative_control": 0.02327880824972383
+            },
+            "n": 732,
+            "source_positive_n": 29,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 0.33116547689805664
+          },
+          "known_method_country_analysis": {
+            "countries": 7,
+            "countries_upstream_outperforms_downstream": 2,
+            "countries_with_positive_upstream_gain": 4,
+            "country_balanced_gain_pct": -3.9545391260379357,
+            "country_balanced_mse": {
+              "M0": 0.028404169060184302,
+              "M1": 0.029527423039095252,
+              "M2": 0.028656530074896665
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.022755244903977408,
+                "country": "BE",
+                "n": 71,
+                "placebo_mse": 0.02086782958638183,
+                "upstream_gain_pct": -0.018613387652803088,
+                "upstream_mse": 0.02275948042592273,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.023113540063414047,
+                "country": "FR",
+                "n": 522,
+                "placebo_mse": 0.02309080393784726,
+                "upstream_gain_pct": 0.2464861342426564,
+                "upstream_mse": 0.02305656839202511,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.01986139767823294,
+                "country": "HR",
+                "n": 16,
+                "placebo_mse": 0.020289280956952455,
+                "upstream_gain_pct": -2.319806969976859,
+                "upstream_mse": 0.02032214376590741,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.02538079144896057,
+                "country": "LU",
+                "n": 45,
+                "placebo_mse": 0.024778247580586922,
+                "upstream_gain_pct": 1.8070977068244387,
+                "upstream_mse": 0.02492213574871251,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.019155396839380494,
+                "country": "LV",
+                "n": 40,
+                "placebo_mse": 0.019142885643382013,
+                "upstream_gain_pct": 0.8028885796180634,
+                "upstream_mse": 0.01900160034577659,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.03547715074492275,
+                "country": "NO",
+                "n": 37,
+                "placebo_mse": 0.03353556548934454,
+                "upstream_gain_pct": 1.2849219753616066,
+                "upstream_mse": 0.03502129703876907,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.05308566174240189,
+                "country": "SI",
+                "n": 1,
+                "placebo_mse": 0.058891097329781664,
+                "upstream_gain_pct": -16.05532178445783,
+                "upstream_mse": 0.061608735556553336,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.9554777388694348,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -0.18253211426175175,
+              1.0946157059723378
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -5.793193331974709,
+              0.1259358289006108
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 4,
+            "downstream_placebo_gain_pct": 7.314307158227216,
+            "mse": {
+              "M0_baseline": 0.019136759573882473,
+              "M1_upstream_reported_mass": 0.01798089443439807,
+              "M2_downstream_negative_control": 0.017737038198517255
+            },
+            "n": 29,
+            "source_positive_n": 29,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 6.040025402534228
+          },
+          "known_method_source_zero": {
+            "countries": 7,
+            "downstream_placebo_gain_pct": 1.1489840309524113,
+            "mse": {
+              "M0_baseline": 0.023780652012200074,
+              "M1_upstream_reported_mass": 0.02374696589053874,
+              "M2_downstream_negative_control": 0.02350741611812353
+            },
+            "n": 703,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 0.1416534821839766
+          },
+          "known_test_country_method_share": 0.5335276967930029,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2022",
+          "training_year": "2018",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": -1.2364168187060824,
+            "mse": {
+              "M0_baseline": 0.043952323316211635,
+              "M1_upstream_reported_mass": 0.044132363413529406,
+              "M2_downstream_negative_control": 0.04449575723390535
+            },
+            "n": 640,
+            "source_positive_n": 56,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -0.40962589399992927
+          },
+          "unknown_method_country_analysis": {
+            "countries": 5,
+            "countries_upstream_outperforms_downstream": 4,
+            "countries_with_positive_upstream_gain": 1,
+            "country_balanced_gain_pct": -1.3448397782135246,
+            "country_balanced_mse": {
+              "M0": 0.041041815100897536,
+              "M1": 0.04159376175607525,
+              "M2": 0.04090487589793329
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.03731333324235072,
+                "country": "IE",
+                "n": 152,
+                "placebo_mse": 0.03767621806098463,
+                "upstream_gain_pct": -0.61275381913915,
+                "upstream_mse": 0.03754197211684134,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.06322810379018942,
+                "country": "IT",
+                "n": 325,
+                "placebo_mse": 0.0639407970540892,
+                "upstream_gain_pct": -0.4463392517718435,
+                "upstream_mse": 0.06351031563555608,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.011030299015130442,
+                "country": "LT",
+                "n": 160,
+                "placebo_mse": 0.011452263390063413,
+                "upstream_gain_pct": 0.8366277379323048,
+                "upstream_mse": 0.010938016473992987,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.04339598360793158,
+                "country": "SE",
+                "n": 1,
+                "placebo_mse": 0.045531902528429535,
+                "upstream_gain_pct": -2.680939338115814,
+                "upstream_mse": 0.04455940360363891,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05024135584888548,
+                "country": "SK",
+                "n": 2,
+                "placebo_mse": 0.045923198456099656,
+                "upstream_gain_pct": -2.344174597922624,
+                "upstream_mse": 0.05141910095034696,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.08604302151075538,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -0.7012625636331827,
+              0.668503661259854
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              0.0061545183142879,
+              4.183843043787512
+            ]
+          }
+        },
+        "P": {
+          "all_sites": {
+            "countries": 12,
+            "downstream_placebo_gain_pct": -0.2833306070433647,
+            "mse": {
+              "M0_baseline": 0.03309201990859671,
+              "M1_upstream_reported_mass": 0.03310595182156435,
+              "M2_downstream_negative_control": 0.03318577972948665
+            },
+            "n": 1372,
+            "source_positive_n": 85,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -0.042100521533958934
+          },
+          "known_method": {
+            "countries": 7,
+            "downstream_placebo_gain_pct": 1.0109751946189391,
+            "mse": {
+              "M0_baseline": 0.02359667266696618,
+              "M1_upstream_reported_mass": 0.02357607339375321,
+              "M2_downstream_negative_control": 0.023358116159547724
+            },
+            "n": 732,
+            "source_positive_n": 29,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 0.08729736392795279
+          },
+          "known_method_country_analysis": {
+            "countries": 7,
+            "countries_upstream_outperforms_downstream": 4,
+            "countries_with_positive_upstream_gain": 5,
+            "country_balanced_gain_pct": -1.9305728784563465,
+            "country_balanced_mse": {
+              "M0": 0.028404169060184302,
+              "M1": 0.02895253224441111,
+              "M2": 0.028881024735021608
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.022755244903977408,
+                "country": "BE",
+                "n": 71,
+                "placebo_mse": 0.02066101089450859,
+                "upstream_gain_pct": 0.028037467388042865,
+                "upstream_mse": 0.022748864909608386,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.023113540063414047,
+                "country": "FR",
+                "n": 522,
+                "placebo_mse": 0.023107027438779498,
+                "upstream_gain_pct": 0.08074694212746972,
+                "upstream_mse": 0.023094876586595432,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.01986139767823294,
+                "country": "HR",
+                "n": 16,
+                "placebo_mse": 0.020378133826790417,
+                "upstream_gain_pct": -0.8348932889031964,
+                "upstream_mse": 0.020027219154530883,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.02538079144896057,
+                "country": "LU",
+                "n": 45,
+                "placebo_mse": 0.024813762583357837,
+                "upstream_gain_pct": 0.4232400544546653,
+                "upstream_mse": 0.025273369773410964,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.019155396839380494,
+                "country": "LV",
+                "n": 40,
+                "placebo_mse": 0.019264687081977375,
+                "upstream_gain_pct": 0.07660084011159149,
+                "upstream_mse": 0.01914072364447482,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.03547715074492275,
+                "country": "NO",
+                "n": 37,
+                "placebo_mse": 0.035059484448815174,
+                "upstream_gain_pct": 0.46473206834753505,
+                "upstream_mse": 0.035312277048475095,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.05308566174240189,
+                "country": "SI",
+                "n": 1,
+                "placebo_mse": 0.058883066870922374,
+                "upstream_gain_pct": -7.5062318535581385,
+                "upstream_mse": 0.05707039459378219,
+                "upstream_outperforms_placebo": true
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.9054527263631816,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -0.14735538196512957,
+              0.2717311622732232
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -5.763917764661768,
+              0.11287593696343798
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 4,
+            "downstream_placebo_gain_pct": 8.039857949207224,
+            "mse": {
+              "M0_baseline": 0.019136759573882473,
+              "M1_upstream_reported_mass": 0.018928478902949183,
+              "M2_downstream_negative_control": 0.017598191288061008
+            },
+            "n": 29,
+            "source_positive_n": 29,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 1.0883800370128895
+          },
+          "known_method_source_zero": {
+            "countries": 7,
+            "downstream_placebo_gain_pct": 0.7776435646990048,
+            "mse": {
+              "M0_baseline": 0.023780652012200074,
+              "M1_upstream_reported_mass": 0.023767794930358216,
+              "M2_downstream_negative_control": 0.023595723302183735
+            },
+            "n": 703,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": 0.054065304160969746
+          },
+          "known_test_country_method_share": 0.5335276967930029,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2022",
+          "training_year": "2018",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": -1.0780923183141267,
+            "mse": {
+              "M0_baseline": 0.043952323316211635,
+              "M1_upstream_reported_mass": 0.04400575027337335,
+              "M2_downstream_negative_control": 0.0444261699376043
+            },
+            "n": 640,
+            "source_positive_n": 56,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -0.12155661664876527
+          },
+          "unknown_method_country_analysis": {
+            "countries": 5,
+            "countries_upstream_outperforms_downstream": 4,
+            "countries_with_positive_upstream_gain": 1,
+            "country_balanced_gain_pct": -0.46248213692957924,
+            "country_balanced_mse": {
+              "M0": 0.041041815100897536,
+              "M1": 0.04123162616441085,
+              "M2": 0.04053149714818757
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.03731333324235072,
+                "country": "IE",
+                "n": 152,
+                "placebo_mse": 0.03770374793835224,
+                "upstream_gain_pct": -0.2293744765058618,
+                "upstream_mse": 0.03739892050514225,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.06322810379018942,
+                "country": "IT",
+                "n": 325,
+                "placebo_mse": 0.06387896326221551,
+                "upstream_gain_pct": -0.16669831046741612,
+                "upstream_mse": 0.06333350397094825,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.011030299015130442,
+                "country": "LT",
+                "n": 160,
+                "placebo_mse": 0.011293686648948448,
+                "upstream_gain_pct": 0.8097206693782645,
+                "upstream_mse": 0.010940984404110704,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.04339598360793158,
+                "country": "SE",
+                "n": 1,
+                "placebo_mse": 0.045436026397422793,
+                "upstream_gain_pct": -1.0957173333014623,
+                "upstream_mse": 0.04387148092228035,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05024135584888548,
+                "country": "SK",
+                "n": 2,
+                "placebo_mse": 0.044345061493998895,
+                "upstream_gain_pct": -0.7401973223131101,
+                "upstream_mse": 0.05061324101957273,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.15907953976988495,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -0.2592180524553009,
+              0.7233286231822657
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              0.409272879849389,
+              2.783381090579597
+            ]
+          }
+        }
+      },
+      "2022_training_to_2018_NEW_SITES": {
+        "N": {
+          "all_sites": {
+            "countries": 10,
+            "downstream_placebo_gain_pct": 0.14422557313648113,
+            "mse": {
+              "M0_baseline": 0.035148322706097475,
+              "M1_upstream_reported_mass": 0.03473605633944316,
+              "M2_downstream_negative_control": 0.035097629836226746
+            },
+            "n": 1258,
+            "source_positive_n": 204,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 1.1729332580151632
+          },
+          "known_method": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": 0.043627226294579415,
+            "mse": {
+              "M0_baseline": 0.03476203322944292,
+              "M1_upstream_reported_mass": 0.0346723736129616,
+              "M2_downstream_negative_control": 0.034746867518541315
+            },
+            "n": 497,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.2579239709298214
+          },
+          "known_method_country_analysis": {
+            "countries": 5,
+            "countries_upstream_outperforms_downstream": 2,
+            "countries_with_positive_upstream_gain": 2,
+            "country_balanced_gain_pct": -6.813885810377028,
+            "country_balanced_mse": {
+              "M0": 0.036211743677719385,
+              "M1": 0.03867917054186561,
+              "M2": 0.03621415906659084
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.03162726939995141,
+                "country": "BE",
+                "n": 44,
+                "placebo_mse": 0.031387950831965925,
+                "upstream_gain_pct": -0.6302612650816816,
+                "upstream_mse": 0.03182660382818234,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.031183083273725258,
+                "country": "FR",
+                "n": 353,
+                "placebo_mse": 0.031184515358362017,
+                "upstream_gain_pct": 0.41135333621907316,
+                "upstream_mse": 0.031054810620342817,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.01381749648277956,
+                "country": "LV",
+                "n": 6,
+                "placebo_mse": 0.01384004114003718,
+                "upstream_gain_pct": -12.161788754383409,
+                "upstream_mse": 0.015497951216159567,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.05071999294505674,
+                "country": "NO",
+                "n": 85,
+                "placebo_mse": 0.05072400736504239,
+                "upstream_gain_pct": 2.9419673044033594,
+                "upstream_mse": 0.04922782733581748,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05371087628708396,
+                "country": "SI",
+                "n": 9,
+                "placebo_mse": 0.05393428063754671,
+                "upstream_gain_pct": -22.48666239810768,
+                "upstream_mse": 0.0657886597088258,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.6078039019509754,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -9.758962373785316,
+              2.30938135612637
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -10.006097663957455,
+              2.186184806124001
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 3,
+            "downstream_placebo_gain_pct": -0.3721253541936657,
+            "mse": {
+              "M0_baseline": 0.046546293643120684,
+              "M1_upstream_reported_mass": 0.04673710229348558,
+              "M2_downstream_negative_control": 0.04671950420320417
+            },
+            "n": 17,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -0.40993306970445564
+          },
+          "known_method_source_zero": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": 0.06358298959216462,
+            "mse": {
+              "M0_baseline": 0.0343446740064585,
+              "M1_upstream_reported_mass": 0.034245081138859705,
+              "M2_downstream_negative_control": 0.03432283663595951
+            },
+            "n": 480,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.28998052967416593
+          },
+          "known_test_country_method_share": 0.39507154213036566,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2018",
+          "training_year": "2022",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": 0.2087400347624075,
+            "mse": {
+              "M0_baseline": 0.035400603744070294,
+              "M1_upstream_reported_mass": 0.034777646766593416,
+              "M2_downstream_negative_control": 0.03532670851150882
+            },
+            "n": 761,
+            "source_positive_n": 187,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 1.7597354609558749
+          },
+          "unknown_method_country_analysis": {
+            "countries": 5,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 3,
+            "country_balanced_gain_pct": 1.2863309774208627,
+            "country_balanced_mse": {
+              "M0": 0.04049435146667997,
+              "M1": 0.039973460079658386,
+              "M2": 0.040443399695075204
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.04305791492661314,
+                "country": "HU",
+                "n": 218,
+                "placebo_mse": 0.04292451911326747,
+                "upstream_gain_pct": 4.204416383321677,
+                "upstream_mse": 0.04124758089712191,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.029328888682246642,
+                "country": "IT",
+                "n": 136,
+                "placebo_mse": 0.029322380893402993,
+                "upstream_gain_pct": -2.906244610782934,
+                "upstream_mse": 0.03018125792897696,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.011753977160610262,
+                "country": "LT",
+                "n": 60,
+                "placebo_mse": 0.011750672432500525,
+                "upstream_gain_pct": -2.787102141370602,
+                "upstream_mse": 0.012081572509749842,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.036536703830554434,
+                "country": "PL",
+                "n": 343,
+                "placebo_mse": 0.036461115513180646,
+                "upstream_gain_pct": 1.6720490045923786,
+                "upstream_mse": 0.035925792237844784,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.08179427273337538,
+                "country": "SE",
+                "n": 4,
+                "placebo_mse": 0.08175831052302437,
+                "upstream_gain_pct": 1.6665909032781627,
+                "upstream_mse": 0.08043109682459841,
+                "upstream_outperforms_placebo": true
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.8859429714857429,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -2.634431578284045,
+              3.877024696832718
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -2.6596780747996593,
+              3.5857267718839267
+            ]
+          }
+        },
+        "P": {
+          "all_sites": {
+            "countries": 10,
+            "downstream_placebo_gain_pct": 0.1947078512725042,
+            "mse": {
+              "M0_baseline": 0.035148322706097475,
+              "M1_upstream_reported_mass": 0.034862067662060986,
+              "M2_downstream_negative_control": 0.03507988616219811
+            },
+            "n": 1258,
+            "source_positive_n": 204,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.8144202112575626
+          },
+          "known_method": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": 0.0843471280337357,
+            "mse": {
+              "M0_baseline": 0.03476203322944292,
+              "M1_upstream_reported_mass": 0.03482581893250828,
+              "M2_downstream_negative_control": 0.03473271245276775
+            },
+            "n": 497,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -0.1834924402849201
+          },
+          "known_method_country_analysis": {
+            "countries": 5,
+            "countries_upstream_outperforms_downstream": 2,
+            "countries_with_positive_upstream_gain": 2,
+            "country_balanced_gain_pct": -7.66689965498664,
+            "country_balanced_mse": {
+              "M0": 0.036211743677719385,
+              "M1": 0.0389880617288111,
+              "M2": 0.03615429053640218
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.03162726939995141,
+                "country": "BE",
+                "n": 44,
+                "placebo_mse": 0.03126656238005005,
+                "upstream_gain_pct": -0.5340179234398904,
+                "upstream_mse": 0.03179616468724177,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.031183083273725258,
+                "country": "FR",
+                "n": 353,
+                "placebo_mse": 0.03118467612325863,
+                "upstream_gain_pct": 0.32953888016311705,
+                "upstream_mse": 0.03108032289030469,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.01381749648277956,
+                "country": "LV",
+                "n": 6,
+                "placebo_mse": 0.013799681487113325,
+                "upstream_gain_pct": -8.446275913774409,
+                "upstream_mse": 0.014984560360091196,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.05071999294505674,
+                "country": "NO",
+                "n": 85,
+                "placebo_mse": 0.050720470916395984,
+                "upstream_gain_pct": 1.5641446794776612,
+                "upstream_mse": 0.04992665887397519,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.05371087628708396,
+                "country": "SI",
+                "n": 9,
+                "placebo_mse": 0.053800061775192885,
+                "upstream_gain_pct": -25.02607753690858,
+                "upstream_mse": 0.06715260183244263,
+                "upstream_outperforms_placebo": false
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.4487243621810905,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -10.434459879028301,
+              1.1925928165471105
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -11.008087880101947,
+              1.0856865378179825
+            ]
+          },
+          "known_method_definition": "test countryCode|procedureClassificationSystem present in training",
+          "known_method_source_positive": {
+            "countries": 3,
+            "downstream_placebo_gain_pct": -0.17583742421631068,
+            "mse": {
+              "M0_baseline": 0.046546293643120684,
+              "M1_upstream_reported_mass": 0.05081676561417351,
+              "M2_downstream_negative_control": 0.04662813944693091
+            },
+            "n": 17,
+            "source_positive_n": 17,
+            "upstream_better_than_baseline_and_placebo": false,
+            "upstream_gain_pct": -9.174676728925721
+          },
+          "known_method_source_zero": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": 0.09683576089391038,
+            "mse": {
+              "M0_baseline": 0.0343446740064585,
+              "M1_upstream_reported_mass": 0.034259472904199305,
+              "M2_downstream_negative_control": 0.03431141608005781
+            },
+            "n": 480,
+            "source_positive_n": 0,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 0.2480766078698903
+          },
+          "known_test_country_method_share": 0.39507154213036566,
+          "original_MSE_reproduced": true,
+          "posthoc_not_confirmatory": true,
+          "site_disjoint": true,
+          "testing_year": "2018",
+          "training_year": "2022",
+          "unchanged_source_and_EQR_years": true,
+          "unknown_method": {
+            "countries": 5,
+            "downstream_placebo_gain_pct": 0.2654829968679321,
+            "mse": {
+              "M0_baseline": 0.035400603744070294,
+              "M1_upstream_reported_mass": 0.03488574127387136,
+              "M2_downstream_negative_control": 0.035306621160341195
+            },
+            "n": 761,
+            "source_positive_n": 187,
+            "upstream_better_than_baseline_and_placebo": true,
+            "upstream_gain_pct": 1.4543889531408747
+          },
+          "unknown_method_country_analysis": {
+            "countries": 5,
+            "countries_upstream_outperforms_downstream": 3,
+            "countries_with_positive_upstream_gain": 3,
+            "country_balanced_gain_pct": 0.9245102419608392,
+            "country_balanced_mse": {
+              "M0": 0.04049435146667997,
+              "M1": 0.040119977039954895,
+              "M2": 0.040423848154998
+            },
+            "country_rows": [
+              {
+                "baseline_mse": 0.04305791492661314,
+                "country": "HU",
+                "n": 218,
+                "placebo_mse": 0.04286783679710312,
+                "upstream_gain_pct": 4.256906918037288,
+                "upstream_mse": 0.04122497956733954,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.029328888682246642,
+                "country": "IT",
+                "n": 136,
+                "placebo_mse": 0.02930396054857949,
+                "upstream_gain_pct": -4.1016862716669324,
+                "upstream_mse": 0.03053186768295883,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.011753977160610262,
+                "country": "LT",
+                "n": 60,
+                "placebo_mse": 0.011745944757103395,
+                "upstream_gain_pct": -2.587209492139227,
+                "upstream_mse": 0.012058077173413447,
+                "upstream_outperforms_placebo": false
+              },
+              {
+                "baseline_mse": 0.036536703830554434,
+                "country": "PL",
+                "n": 343,
+                "placebo_mse": 0.03646091140569127,
+                "upstream_gain_pct": 1.3555489368477485,
+                "upstream_mse": 0.03604143093022014,
+                "upstream_outperforms_placebo": true
+              },
+              {
+                "baseline_mse": 0.08179427273337538,
+                "country": "SE",
+                "n": 4,
+                "placebo_mse": 0.08174058726651275,
+                "upstream_gain_pct": 1.284616700435695,
+                "upstream_mse": 0.08074352984584252,
+                "upstream_outperforms_placebo": true
+              }
+            ],
+            "descriptive_bootstrap_probability_positive_gain": 0.8224112056028015,
+            "descriptive_country_bootstrap_gain_95pct": [
+              -3.609816019177642,
+              3.920557721364449
+            ],
+            "descriptive_country_bootstrap_replicates": 1999,
+            "descriptive_country_bootstrap_upstream_over_placebo_95pp": [
+              -3.69219621274662,
+              3.504394492865797
+            ]
+          }
+        }
+      }
+    }
+  },
+  "schema": "gesui_original_source_locked_country_method_compatible_transport_posthoc_v01",
+  "source_original_EQR_sha256": {
+    "benthic_invertebrates_2018": "2a1a72d43656aca588a832dfae13860054c01a651e76bf25f984c5a374709b02",
+    "benthic_invertebrates_2022": "5e1f3c31b389d0bd769984ab055d3e2c54b63ccaa4f5eedfb2d82bcdc83c28e6",
+    "phytobenthos_2018": "8302daf2afa3f3556debc5ca769ee667bd06816d0de2e63afd4cb6b538587ad7",
+    "phytobenthos_2022": "7fa5dfff9023337ac0a62a87fe406eb71783979858d9d924ab97019c6e4e5fc3"
+  },
+  "utc_created": "2026-11-08T03:46:47.681096+00:00"
+}
