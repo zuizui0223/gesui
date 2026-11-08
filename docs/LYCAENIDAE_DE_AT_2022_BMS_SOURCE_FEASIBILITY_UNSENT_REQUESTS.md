@@ -17,7 +17,7 @@
 
 ## Draft 1 — Germany: TMD coordination team
 
-**Recipient:** TMD/UFZ coordinator *via the official project data request channel; email address to be verified from current official contact directory before sending*. Do NOT assume `tagfalter-monitoring@ufz.de` is verified.
+**Recipient (official verified TMD programme address):** `tagfalter-monitoring@ufz.de`, listed on the [UFZ TMD official homepage](https://www.ufz.de/tagfalter-monitoring/) and [UFZ imprint](https://www.ufz.de/tagfalter-monitoring/index.php?de=41796). Programme coordinator Dr. Elisabeth Kühn: `elisabeth.kuehn@ufz.de`, listed on the [official UFZ staff page](https://www.ufz.de/index.php?de=48161). **Not sent.**
 
 **Subject:** Feasibility-only research inquiry — 2022 TMD butterfly transects near verified EEA freshwater wastewater outfalls
 
@@ -52,7 +52,7 @@ Best regards,
 
 ## Draft 2 — Austria: Viel-Falter coordination team
 
-**Recipient:** Viel-Falter / University of Innsbruck programme scientific coordination, via **official verified contact form**; no address guessed or contacted.
+**Recipient (official verified Viel-Falter programme lead):** Dr. Johannes Rüdisser, `johannes.ruedisser@uibk.ac.at`, confirmed by the [Viel-Falter public contact page](https://viel-falter.at/kontakt/) and [University of Innsbruck staff page](https://www.uibk.ac.at/de/peak/expertinnen/johannes-rudisser/). Alternative original programme address: `info@viel-falter.at` on its [University of Innsbruck team page](https://viel-falter.at/projektpartner_alt/universitaet-innsbruck/). **Not sent.**
 
 **Subject:** Research feasibility inquiry — 2022 Austrian butterfly monitoring sites and public EEA freshwater WWTP outfalls
 
@@ -82,7 +82,7 @@ Best regards,
 
 ## Coordination and permissions
 
-**No emails, Gmail drafts, coordinator submissions, private site coordinates, or occurrence-count data have been created/retrieved through these templates.** The attempted Gmail draft creation required user authorization and did not complete. This GitHub document is the preserved unsent reviewable alternative. Before actually sending, verify current official recipient/channel and insert sender name/affiliation, and explicitly secure the researcher's approval.
+**No emails, Gmail drafts, coordinator submissions, private site coordinates, or occurrence-count data have been created/retrieved through these templates.** The attempted Gmail draft creation required user authorization and did not complete. This GitHub document is the preserved unsent reviewable alternative. Before actually sending, review and insert sender name/affiliation, verify current recipients if the addresses change, and explicitly secure the researcher's approval. As of 2026-11-08, official live public programme pages substantiate the contact information above.
 
 ## Existing documented evidence
 
