@@ -1,6 +1,6 @@
 {
   "WWTP_measured_positive_P_and_N_unique_source_keys_count": 2789,
-  "created_utc": "2026-11-08T04:02:44.377996+00:00",
+  "created_utc": "2026-11-08T04:05:03.620634+00:00",
   "datasets": {
     "DCP": {
       "feature_layers": {
@@ -164,6 +164,12 @@
         ],
         "observed_measured_N_field": null,
         "observed_measured_P_field": null,
+        "official_reporter_code_year_suffix_2020_n": 10186,
+        "official_reporter_code_year_suffix_counts": {
+          "2020": 10186,
+          "2022": 1030,
+          "OTHER": 12253
+        },
         "unique_joinable_full_keys": 23469,
         "unique_source_coords_in_original_Europe_study_bbox": 15873,
         "waterbody_field": "dcpWaterBodyType",
@@ -526,6 +532,12 @@
         ],
         "observed_measured_N_field": "uwwNDischargeMeasured",
         "observed_measured_P_field": "uwwPDischargeMeasured",
+        "official_reporter_code_year_suffix_2020_n": 10090,
+        "official_reporter_code_year_suffix_counts": {
+          "2020": 10090,
+          "2022": 837,
+          "OTHER": 10521
+        },
         "reported_values_not_yet_verified_same_calendar_year": true,
         "unique_joinable_full_keys": 21448,
         "unique_plant_both_positive_reported_P_N": 2789,
@@ -560,6 +572,10 @@
     }
   },
   "no_2020_biological_EQR_opened": true,
+  "official_both_measured_positive_NP_unique_FW_outlets_in_study_bbox": 1933,
   "same_calendar_2020_reported_mass_year_not_yet_verified": true,
-  "schema": "gesui_EEA_public_2019_2020_GPKG_reported_NP_source_only_v01"
+  "schema": "gesui_EEA_public_2019_2020_GPKG_reported_NP_source_only_v01",
+  "source_candidate_file_path": "2020_PUBLIC_CYCLE_BOTH_MEASURED_NP_UNIQUE_FW_OUTFALLS.csv",
+  "source_candidate_file_sha256": "eb246543833ad0bd4b919e61ef339d6c5f36117b9aadbcbcfc6632a09077f957",
+  "source_candidate_original_2020_reporting_period_not_precise_measurement_date": true
 }
