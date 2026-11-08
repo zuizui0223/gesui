@@ -1,0 +1,8 @@
+# Final fixed uncertainty diagnostic for 2021-photo-history control
+
+**Created after seeing the 2021 history model +3.70% WWTP-P incremental heldout MSE**; new explicit **POSTHOC** source-condition re-evaluation, not a predeclared causal test.
+
+- Reuse the exact **42 matched original Germany/Austria 1° source-positive geographic cells** (DE27/AT15) and original **22 country×2°** geographical-block heldout 2022 predictions **without refitting**, no new public API or biological outcome access.
+- For the 2022 source model without historical photo composition, with historical 2021 family composition and 2021 target-group photo effort, and 2021 historical photo response respectively, resample **entire original 2° geographical test blocks** with replacement, 1999 source-fixed bootstrap draws, seed 20261108. Reuse source and baseline squared predictive residuals from the original model, recalculate `100*(MSE_baseline - MSE_source)/MSE_baseline` for each resampled set. This is a **descriptive geographical prediction-error uncertainty check**, NOT a confidence interval for causal P effects, and folds are dependent because fitted training sets overlap.
+- Record original MSE improvement unchanged, block-bootstrap descriptive median, 2.5th–97.5th percentile interval, the fraction of heldout-error resamples with source-added gain ≤0, and all original response/fold file SHA. Do not retain only positive draws, adjust regions, years or model.
+- Interpret a wide interval crossing zero as unstable marginal geographical prediction, even when raw point estimate +3.70% was positive. Crucial negative tests of 2021 photo history do **not** identify when WWTP plants began operating.
