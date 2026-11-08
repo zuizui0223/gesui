@@ -1,0 +1,42 @@
+name: gesui real EEA2022 P source river plants and European Ellenberg nutrient-affinity traits
+
+on:
+  push:
+    branches:
+      - "analysis/eea2022-eiv-trait-coverage-20261107"
+    paths:
+      - "scripts/gesui_eea2022_eiv_n_plant_pairs.py"
+      - ".github/workflows/gesui-eeaP-eiv-n-trait-pairs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original_eiv_plant_traits:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install data and taxonomy source tools
+        run: python -m pip install --quiet pandas numpy requests
+      - name: Resolve the exact 1006 GBIF speciesKeys and harmonized public European indicator N values
+        run: |
+          python -u scripts/gesui_eea2022_eiv_n_plant_pairs.py \
+            --plants results/eea2022_p_matched_river_plantae_20261107/ALL_NEW_PLANT_SPECIES_FACETS.json \
+            --pairs results/eea2022_p_blind_river_plant_pairs_20261107/SOURCE_MATCHED_PAIR_SELECTION.json \
+            --receipt results/eea2022_p_blind_river_plant_pairs_20261107/SOURCE_RECEIPT.json \
+            --out /tmp/gesui-eeaP-eiv/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2022-European-Ellenberg-N-traits-1006-GBIF-speciesKeys
+          path: /tmp/gesui-eeaP-eiv/
+          retention-days: 30
+          if-no-files-found: warn

@@ -1,0 +1,114 @@
+name: gesui preserve source-locked EIV NUTRI 36 site traits and audit coverage bias
+
+on:
+  push:
+    branches:
+      - "analysis/eea2022-eiv-trait-coverage-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-eea2022-eiv-trait-quality.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  audit-and-freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Retrieve original successful trait results without new GBIF or trait queries
+        run: |
+          mkdir -p /tmp/gesui_eiv_original
+          gh run download 42378520227 \
+            --repo zuizui0223/gesui \
+            --name gesui-EEA2022-European-Ellenberg-N-traits-1006-GBIF-speciesKeys \
+            --dir /tmp/gesui_eiv_original
+      - name: Independently recompute exact EIV joins, each of 36 sites, 18 pairs and coverage imbalance
+        run: |
+          python scripts/audit_eea2022_eiv_quality.py \
+            --source results/eea2022_p_blind_river_plant_pairs_20261107/SOURCE_MATCHED_PAIR_SELECTION.json \
+            --raw results/eea2022_p_matched_river_plantae_20261107/ALL_NEW_PLANT_SPECIES_FACETS.json \
+            --trait /tmp/gesui_eiv_original/EIV_N_MATCHED_RIVER_PLANT_TRAIT_RESULTS.json \
+            --taxonomy /tmp/gesui_eiv_original/GBIF_SPECIESKEY_EIV_EXACT_NAME_CROSSWALK.json \
+            --out /tmp/gesui_eiv_original/INDEPENDENT_EIV_QUALITY_AUDIT.json
+      - name: Preserve derived ecological trait results and GBIF taxonomy metadata, not source EIV numeric taxon table
+        run: |
+          python - <<'PY'
+          import json,shutil,hashlib
+          from pathlib import Path
+          src=Path("/tmp/gesui_eiv_original")
+          report=json.loads((src/"INDEPENDENT_EIV_QUALITY_AUDIT.json").read_text())
+          assert report["status"]=="PASS_SOURCE_HASH_AND_INDEPENDENT_EIV_36_SITE_RECOMPUTATION"
+          assert (report["distinct_GBIF_speciesKeys"],report["accepted_vascular_speciesKeys"],
+                  report["exact_EIV_N_rated_speciesKeys"])==(1006,911,624)
+          assert (report["plant_sites"],report["matched_pairs"],report["predeclared_quality_pairs"])==(36,18,9)
+          assert (report["source_positive_quality_sites"],report["source_zero_quality_sites"])==(14,11)
+          assert report["posthoc_trait_coverage_quality_diagnostic"]["source_coverage_lower_pairs"]==15
+          dest=Path("results/eea2022_p_eiv_nutri_traits_20261108")
+          dest.mkdir(parents=True,exist_ok=True)
+          original=src/"EIV_N_MATCHED_RIVER_PLANT_TRAIT_RESULTS.json"
+          shutil.copyfile(original,dest/"EIV_N_MATCHED_RIVER_PLANT_TRAIT_RESULTS.json")
+          shutil.copyfile(src/"INDEPENDENT_EIV_QUALITY_AUDIT.json",dest/"INDEPENDENT_EIV_QUALITY_AUDIT.json")
+          cross=json.loads((src/"GBIF_SPECIESKEY_EIV_EXACT_NAME_CROSSWALK.json").read_text())
+          # GBIF taxonomy names and the binary EIV match flag can be archived
+          # without redistributing 624 species-level NUTRI scores from the
+          # original harmonized European trait reference.
+          taxa=[]
+          for x in cross["species_taxonomy_and_matched_trait"]:
+              out={k:v for k,v in x.items() if k not in ("trait_NUTRI",)}
+              taxa.append(out)
+          (dest/"GBIF_SPECIESKEY_TAXONOMY_TRAIT_COVERAGE_NO_N_VALUES.json").write_text(
+              json.dumps({"source_original_GBIF_run":42377454765,
+                          "EIV_reference":"Tichy et al 2023, DOI 10.1111/jvs.13168",
+                          "source_EIV_csv_sha256":"ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+                          "full_original_taxon_score_result_sha256":report["speciesKey_trait_crosswalk_SHA256"],
+                          "numeric_species_trait_values_redistributed":False,
+                          "GBIF_taxonomy_and_match_flags":taxa},indent=2,ensure_ascii=False,sort_keys=True)+"\n")
+          receipt={"original_EIV_source_run":42378520227,
+                   "original_matched_GBIF_run":42377454765,
+                   "original_preplant_source_selection_run":42377235104,
+                   "original_taxonomy_with_EIV_numeric_source_SHA256":
+                       report["speciesKey_trait_crosswalk_SHA256"],
+                   "source_EIV_csv_sha256":"ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+                   "public_reference":"https://doi.org/10.1111/jvs.13168",
+                   "original_full_EIV_table_redistributed":False,
+                   "exact_source_file_SHA256":{x.name:hashlib.sha256(x.read_bytes()).hexdigest()
+                       for x in dest.iterdir() if x.is_file()},
+                   "no_new_source_queries_in_audit":True,
+                   "original_trait_effect_primary_support_pass":False}
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2,ensure_ascii=False,sort_keys=True)+"\n")
+          explanation="""# EEA2022 measured P-source matched river plant nutrient affinity — audited
+
+          **Original EIV run:** https://github.com/zuizui0223/gesui/actions/runs/42378520227
+
+          The frozen 18 pairs / 36 sites / 1,006 original GBIF Plantae speciesKeys were independently crosswalked to European Tichý et al. (2023) EIV NUTRI. Exact accepted vascular species-level binomial matching only; no genus/fuzzy substitutions. **911 accepted vascular** GBIF speciesKeys, **624 numeric exact EIV NUTRI matched**, and **25/36 sites** pass original >=10 rated taxa and >=40% matched taxa threshold. Only **9/18 whole pairs** pass, below original mandatory >=10 support gate.
+
+          **No prespecified positive or negative wastewater vegetation inference is possible.** Within the nine descriptive eligible pairs, source-positive minus source-zero species-equal mean NUTRI = **−0.2552**, 3 higher vs 6 lower (posthoc exact sign p 0.5078); a record-weighted sensitivity has mean −0.1383. Neither is causal evidence that wastewater lowers plant N preference.
+
+          **New independently verified missing-data result:** the source-positive member has LOWER EIV matching fraction in **15/18** pairs (exact two-sided sign p **0.00754**, a posthoc *data-quality* diagnostic, not the preregistered environmental effect). Source-positive has more plant GBIF record counts in 13/18 pairs (posthoc sign p 0.0963), while site-level rated-species quality is 14/18 source-positive and 11/18 controls. Uneven GBIF effort and trait-missingness can change which whole pairs are eligible. See INDEPENDENT_EIV_QUALITY_AUDIT.json for all pairs and source reproduction.
+
+          The 2022 EEA source P mass is a measured facility annual load (t/year), NOT observed soil or river-edge P at GBIF plant coordinates. Source-zero controls are only *reported-source-zero* within a 50km river graph. EIV NUTRI is an ecological species indicator, not effluent N concentration or plant tissue phosphorus. No causal sewage N/P→plants mechanism is established.
+
+          To preserve data reuse without unnecessarily republishing a third-party trait catalogue, original numerical EIV-by-species source remains at its own published URL/DOI. This repository retains source-verified GBIF taxonomy IDs, exact match flags, per-site EIV summaries, original source output hashes and the independent offline audit, **not** the source full EIV table nor the 624 species-level original numerical NUTRI scores.
+
+          This project remains independent of original chocho port/island butterfly host opportunities, which retain their positives unchanged.
+          """
+          (dest/"RESULTS.md").write_text("\n".join(s.strip() for s in explanation.splitlines())+"\n")
+          print("GESUI_EIV_SOURCE_ARCHIVE",json.dumps({
+             "original_sites":36,"source_pairs":18,"nutrient_trait_species":624,
+             "rated_pairs_passing":9,"lower_source_coverage_pairs":15,
+             "original_full_EIV_trait_scores_redistributed":False},sort_keys=True))
+          PY
+      - name: Commit source-hashed quality audit and derived trait statistics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2022_p_eiv_nutri_traits_20261108
+          git commit -m "Archive independent 1006-taxon EIV nutrient-affinity audit and 18-pair trait missingness diagnostics"
+          git push origin HEAD:analysis/eea2022-eiv-trait-coverage-20261107
