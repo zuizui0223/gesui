@@ -186,10 +186,28 @@ def source_eea():
                       eligible.dcpLongitude.between(BBOX[0],BBOX[2])]
     # Prefer Sweden reporter code, not an arbitrary geographically neighboring country's plant.
     repkey=eligible["repCode_p"] if "repCode_p" in eligible.columns else eligible["repCode"]
-    source=eligible[repkey.astype("string").str.strip().str.upper().str.startswith(("SE_","SE-"))].copy()
+    reporter=repkey.astype("string").str.strip().str.upper()
+    # Source-only error audit: country-coded public EEA 2022 reports could be
+    # absent or encoded differently from the Swedish SeBMS source country.
+    # Never recode a missing country after looking at any butterfly outcomes.
+    import re
+    prefix=reporter.map(lambda q: (re.match(r"^([A-Z]{2,3})[_-]",str(q)).group(1)
+                if re.match(r"^([A-Z]{2,3})[_-]",str(q)) else "UNRECOGNIZED"))
+    geographic_sweden_approx=eligible[
+       eligible.dcpLatitude.between(55.,64.) &
+       eligible.dcpLongitude.between(10.5,25.)].copy()
+    geo_reporter=(geographic_sweden_approx["repCode_p"]
+                  if "repCode_p" in geographic_sweden_approx.columns
+                  else geographic_sweden_approx["repCode"]).astype("string").str.strip().str.upper()
+    source=eligible[reporter.str.startswith(("SE_","SE-"),na=False)].copy()
     qc={
         "original_2022_both_measured_positive_reported_WWTP_count":EXPECTED_PLANTS,
         "original_2022_all_public_discharge_points_count":EXPECTED_DCP,
+        "original_Fw_unambiguous_all_nation_outfalls":len(eligible),
+        "original_full_eligible_reporter_prefix_counts":{str(k):int(v) for k,v in prefix.value_counts().items()},
+        "Sweden_approx_bbox_all_reporter_outfalls_n":len(geographic_sweden_approx),
+        "Sweden_approx_bbox_reporter_codes_counts":{str(k):int(v) for k,v in geo_reporter.value_counts().head(30).items()},
+        "Sweden_reporter_substring_SE_record_count":int(reporter.str.contains("SE",regex=False,na=False).sum()),
         "Sweden_qualifying_unique_FW_outfalls_in_44_64N_bbox":len(source),
         "EEA_source_query_page_receipts_SHA256":{
             "WWTP":hashlib.sha256(json.dumps(wp,sort_keys=True).encode()).hexdigest(),
