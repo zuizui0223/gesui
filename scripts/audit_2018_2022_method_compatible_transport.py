@@ -11,7 +11,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -252,7 +251,7 @@ def main() -> None:
 
     outcome = {
         "schema": "gesui_original_source_locked_country_method_compatible_transport_posthoc_v01",
-        "utc_created": datetime.now(timezone.utc).isoformat(),
+        "frozen_posthoc_protocol_date_utc": "2026-11-08",
         "posthoc": True, "not_sewage_causality": True,
         "not_nutrient_specific": True,
         "bootstrap_country_cluster_descriptive_only": True,
