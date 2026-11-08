@@ -1,0 +1,60 @@
+name: gesui ESA WorldCover 2021 original 53 DE AT country-masked land cover source freeze
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-worldcover2021-urban-crop-20261108"
+    paths:
+      - ".github/workflows/gesui-esawc2021-sourceonly-country-53cells.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original2021WorldCoverNoButterflies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      GDAL_DISABLE_READDIR_ON_OPEN: "EMPTY_DIR"
+      GDAL_HTTP_MAX_RETRY: "3"
+      GDAL_HTTP_RETRY_DELAY: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet rasterio numpy
+      - name: Original WorldCover 2021 v200 categorical COG, Natural Earth50m DE/AT country land mask for 53 source-frozen 1degree cells
+        run: |
+          python -m py_compile scripts/gesui_2021_esawc_original_cog_country_masked_source.py
+          python -u scripts/gesui_2021_esawc_original_cog_country_masked_source.py \
+            --source-manifest results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_BOTH_NP_MEASURED_ONE_FW_OUTFALLS.csv \
+            --source-tile-csv results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_FW_OUTFALLS_IN_ONE_DEGREE_SOURCE_TILES.csv \
+            --source-tile-qc results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_ORIGINAL_WWTP_SOURCE_1DEG_TILE_QC.json \
+            --out results/lycaenidae_worldcover2021_source_only/ESA_WORLD_COVER_2021_DE_AT_ALL53_COUNTRY_MASKED_SOURCE_QC.json \
+            --max-cells 53
+          python - <<'PY'
+          import json
+          p='results/lycaenidae_worldcover2021_source_only/ESA_WORLD_COVER_2021_DE_AT_ALL53_COUNTRY_MASKED_SOURCE_QC.json'
+          j=json.load(open(p))
+          assert j['source_only_processed_cells']==53
+          assert j['NO_2022_BUTTERFLY_PHOTO_RESULTS_OPENED'] is True
+          print('GESUI_2021_WORLDCOVER_ALL53_NO_BUTTERFLY_SOURCE_FILE_COMPLETE')
+          PY
+      - name: Commit original categorical land-cover aggregate and all quality/coverage failures before 2022 butterfly model update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_worldcover2021_source_only/ESA_WORLD_COVER_2021_DE_AT_ALL53_COUNTRY_MASKED_SOURCE_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve original ESA WorldCover 2021 categorical built/crop/tree, Natural Earth country-mask source fractions and resolution sensitivity for all 53 source cells"
+          git fetch origin analysis/lycaenidae-worldcover2021-urban-crop-20261108
+          git rebase origin/analysis/lycaenidae-worldcover2021-urban-crop-20261108
+          git push origin HEAD:analysis/lycaenidae-worldcover2021-urban-crop-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-AT-2021-ESA-WorldCover-original-53-country-masked-landcover-source
+          path: results/lycaenidae_worldcover2021_source_only/ESA_WORLD_COVER_2021_DE_AT_ALL53_COUNTRY_MASKED_SOURCE_QC.json
+          retention-days: 90
+          if-no-files-found: warn
