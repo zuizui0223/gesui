@@ -1,0 +1,44 @@
+name: gesui Germany 2022 WISE6 river TP 8-source versus 8 clean-sourcezero monitor quartet SOURCE ONLY
+on:
+  push:
+    branches: ["analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109"]
+    paths:
+      - scripts/gesui_2022_WISE6_DE_sourceonly_match_8_WWTP_and_zero_site_quartets.py
+      - .github/workflows/gesui-2022-WISE6-DE-sourceonly-matched-8-8-quartets.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sourceonly-32-DE-TP-observation-sites-no-results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Match 8 WWTP-source-between German upstream-downstream monitored TP paths to 8 source-zero German paths before numeric 2022 TP
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_DE_sourceonly_match_8_WWTP_and_zero_site_quartets.py
+          python -u scripts/gesui_2022_WISE6_DE_sourceonly_match_8_WWTP_and_zero_site_quartets.py \
+            --national-source-between results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_MONITORING_PAIRS_ACTUAL_EEA_WWTP_FWINTERNAL_REACH_SOURCEONLY_GATE.json \
+            --out results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json
+      - name: Freeze exact 32 independent Germany 2022 TP station hashes and source-only matched quartet selection BEFORE numeric original 36GB extraction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze Germany-only 2022 8 source-between plus 8 clean zero WWTP original same-river TP station quartets selected solely by reach source and geographic matching"
+          git fetch origin analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git rebase origin/analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git push origin HEAD:analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Germany-2022-original-WISE6-TP-32-unique-stations-8-source-8-control-sourceonly
+          path: results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,57 @@
+name: gesui NATIONAL 2022 WISE6 DE AT TP actual monitoring same-directed-river source-only pair feasibility
+on:
+  push:
+    branches: ["analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109"]
+    paths:
+      - scripts/gesui_2022_WISE6_national_DEAT_TP_same_directed_river_source_pairs.py
+      - .github/workflows/gesui-2022-WISE6-national-DEAT-same-river-TP-pairs.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  nationwide-original-2022-TP-directed-monitor-pairs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas geopandas pyarrow
+      - name: Download SHA-pinned third-party HydroRIVERS original EU converted stream topology
+        run: |
+          mkdir -p /tmp/gesui-national-DEAT-river-TP-pairs
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-national-DEAT-river-TP-pairs/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-national-DEAT-river-TP-pairs/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+      - name: Compute source-only SAME RIVER original national WISE6 DE AT 2022 sample station paths and validate old 187 site reach mapping
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_national_DEAT_TP_same_directed_river_source_pairs.py
+          python -u scripts/gesui_2022_WISE6_national_DEAT_TP_same_directed_river_source_pairs.py \
+            --national-site-source results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_DE_AT_2022_WISE6_RIVER_TP_PUBLIC_STATION_SOURCE_ONLY_QC.json \
+            --original-187-source-snap results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_TP_STATIONS_DIRECTED_ORIGINAL_EEA_WWTP_SOURCE_ONLY_QC.json \
+            --pinned-HydroRIVERS-eu /tmp/gesui-national-DEAT-river-TP-pairs/HydroRIVERS_v10_eu.geoparquet \
+            --out results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_SAME_DIRECTED_RIVER_50KM_MONITORING_PAIRS_SOURCE_ONLY_QC.json
+      - name: Commit entire source-only NATIONAL graph pair census before any real TP outcomes or WWTP between-pair effect
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_SAME_DIRECTED_RIVER_50KM_MONITORING_PAIRS_SOURCE_ONLY_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve independently sourced 2022 national Germany Austria river TP monitoring station same-river 50km paths and no-repeat-sample gate"
+          git fetch origin analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git rebase origin/analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git push origin HEAD:analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-national-DEAT-WISE6-TP-directed-river-monitoring-sourceonly-pair-panel
+          path: results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_SAME_DIRECTED_RIVER_50KM_MONITORING_PAIRS_SOURCE_ONLY_QC.json
+          retention-days: 90
+          if-no-files-found: warn

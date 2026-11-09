@@ -1,0 +1,63 @@
+name: "gesui NATIONAL 2022 WISE6 TP same-river monitoring - original EEA WWTP FW outlets strictly BETWEEN sites source-only"
+on:
+  push:
+    branches: ["analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109"]
+    paths:
+      - scripts/gesui_2022_national_WISE6_TP_original_EEA_WWTP_between_stations_sourceonly.py
+      - .github/workflows/gesui-2022-WISE6-national-DEAT-WWTP-between-TPsite-gate.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-2022-national-source-between-water-stations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy pandas geopandas pyarrow requests
+      - name: Restore pinned 2022 original HydroRIVERS and original EEA measured N and P official source helper
+        run: |
+          mkdir -p /tmp/gesui-original-national-TP-WWTP-source
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-original-national-TP-WWTP-source/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-original-national-TP-WWTP-source/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+          curl --fail --location --silent --show-error --retry 2 --max-time 130 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/6f037f65e9b948d6f8e324ad4eec9d8c03424b35/scripts/gesui_eea_nutrient_load_river_crosswalk.py \
+            -o /tmp/gesui-original-national-TP-WWTP-source/gesui_eea_nutrient_load_river_crosswalk.py
+          test "$(git hash-object /tmp/gesui-original-national-TP-WWTP-source/gesui_eea_nutrient_load_river_crosswalk.py)" = "9c07ce9de7f5104b47052c7598a943df405a4b83"
+      - name: Verify EXACT original official 2022 WWTP N and P public source REST digests and tag source outlet entering strictly BETWEEN national 2022 TP monitor reaches
+        run: |
+          python -m py_compile scripts/gesui_2022_national_WISE6_TP_original_EEA_WWTP_between_stations_sourceonly.py
+          python -u scripts/gesui_2022_national_WISE6_TP_original_EEA_WWTP_between_stations_sourceonly.py \
+            --national-original-pair-stageA results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_SAME_DIRECTED_RIVER_50KM_MONITORING_PAIRS_SOURCE_ONLY_QC.json \
+            --prior-original-79-pair-stageB results/wise6_2022_same_river_stationpair_sourceonly/2022_ORIGINAL_WWTP_STRICTLY_INTERVENING_REACHES_SAME_RIVER_TP_MONITOR_SOURCE_GATE.json \
+            --prior-WWTP-187-sourceonly results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_TP_STATIONS_DIRECTED_ORIGINAL_EEA_WWTP_SOURCE_ONLY_QC.json \
+            --river-parquet /tmp/gesui-original-national-TP-WWTP-source/HydroRIVERS_v10_eu.geoparquet \
+            --pinned-2022-UWWTD-script /tmp/gesui-original-national-TP-WWTP-source/gesui_eea_nutrient_load_river_crosswalk.py \
+            --out results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_MONITORING_PAIRS_ACTUAL_EEA_WWTP_FWINTERNAL_REACH_SOURCEONLY_GATE.json
+      - name: Preserve previously failed original photo-selected control and new national source results before numeric water TP
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_MONITORING_PAIRS_ACTUAL_EEA_WWTP_FWINTERNAL_REACH_SOURCEONLY_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze national WISE6 2022 water quality monitor same-river WWTP-between vs genuine no-registered-intervening-source pairs without numeric TP"
+          git fetch origin analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git rebase origin/analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git push origin HEAD:analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-national-DEAT-TPsame-river-original-EEA-FW-WWTP-strict-between-sourceonly
+          path: results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_2022_TP_MONITORING_PAIRS_ACTUAL_EEA_WWTP_FWINTERNAL_REACH_SOURCEONLY_GATE.json
+          retention-days: 90
+          if-no-files-found: warn
