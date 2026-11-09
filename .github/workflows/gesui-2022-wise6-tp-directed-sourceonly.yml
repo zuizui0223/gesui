@@ -41,6 +41,9 @@ jobs:
             https://raw.githubusercontent.com/zuizui0223/gesui/6f037f65e9b948d6f8e324ad4eec9d8c03424b35/scripts/gesui_eea_nutrient_load_river_crosswalk.py \
             -o scripts/gesui_eea_nutrient_load_river_crosswalk.py
           test "$(git hash-object scripts/gesui_eea_nutrient_load_river_crosswalk.py)" = "9c07ce9de7f5104b47052c7598a943df405a4b83"
+          curl --fail --location --silent --show-error --retry 2 --max-time 100 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/6f037f65e9b948d6f8e324ad4eec9d8c03424b35/results/eea2022_measured_nutrient_load_river_20261107/EEA_MEASURED_LOAD_SOURCE_QC.json \
+            -o /tmp/gesui-wise6-original-2022-source/EEA_MEASURED_LOAD_SOURCE_QC.json
       - name: Original WISE6 187-station metadata-only directed HydroRIVERS/WWTP source QC before using real river TP magnitudes
         run: |
           python -m py_compile scripts/gesui_2022_WISE6_TP_original_station_vs_directed_WWTP_sourceonly.py
@@ -49,6 +52,7 @@ jobs:
             --spatial-zip /tmp/gesui-wise6-original-2022-source/Waterbase_S_WISE_SpatialObject_DerivedData.zip \
             --river-parquet /tmp/gesui-wise6-original-2022-source/HydroRIVERS_v10_eu.geoparquet \
             --old-source-script scripts/gesui_eea_nutrient_load_river_crosswalk.py \
+            --original-2022-API-source-QC /tmp/gesui-wise6-original-2022-source/EEA_MEASURED_LOAD_SOURCE_QC.json \
             --out results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_SITES_HYDRORIVERS_DIRECTED_EEAWWTP_SOURCE_ONLY_QC.json
       - name: Commit source-only 2022 WWTP upstream/downstream exposure and objective stop criteria on analysis branch
         run: |
