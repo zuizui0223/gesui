@@ -1,0 +1,41 @@
+name: gesui 2026 official EEA WISE6 2022 river total-P monitoring-source availability ONLY
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-measured-river-P-source-20261109"]
+    paths:
+      - "scripts/gesui_probe_eea2026_wise6_source_access_no_concentration.py"
+      - ".github/workflows/gesui-2026-eea-wise6-river-tp-metadata-only.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  eea-source-schema-no-chemistry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Query 2026 official EEA WISE6 public station metadata TOP1 and bulk dataset HEAD only
+        run: |
+          python -m py_compile scripts/gesui_probe_eea2026_wise6_source_access_no_concentration.py
+          python -u scripts/gesui_probe_eea2026_wise6_source_access_no_concentration.py \
+            --out results/lycaenidae_2022_measured_river_P_bridge/EEA2026_WISE6_ORIGINAL_2022_TP_STATION_SOURCE_ACCESS_QC.json
+      - name: Archive source access report, no water chemistry concentrations or butterfly observations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/EEA2026_WISE6_ORIGINAL_2022_TP_STATION_SOURCE_ACCESS_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive official EEA 2026 WISE6 TP site metadata access gate without measured chemistry outcomes"
+          git fetch origin analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git rebase origin/analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-measured-river-P-source-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2026-WISE6-2022-TP-monitoring-source-only-availability
+          path: results/lycaenidae_2022_measured_river_P_bridge/EEA2026_WISE6_ORIGINAL_2022_TP_STATION_SOURCE_ACCESS_QC.json
+          retention-days: 90
+          if-no-files-found: warn
