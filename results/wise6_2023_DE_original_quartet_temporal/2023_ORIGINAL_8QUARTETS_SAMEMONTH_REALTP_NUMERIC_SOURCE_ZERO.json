@@ -1,0 +1,1274 @@
+{
+  "2023_equal_quartet_numeric_same_month_summary": {
+    "bootstrap_descriptive_9999_quartet_equal95pct_interval": [
+      0.017884260603733333,
+      0.43253243906839156
+    ],
+    "exact_quartet_signflip_reference_two_sided_fraction": 0.25,
+    "not_randomized_wastewater_treatment_pvalue": true,
+    "quartet_equal_mean_source_minus_sourcezero_logTP_gradient": 0.22520834983606247,
+    "quartet_equal_median_source_minus_sourcezero_logTP_gradient": 0.20439140244662632,
+    "quartet_leave_one_out_mean_range": [
+      0.15448583001471058,
+      0.29250121813736263
+    ],
+    "quartet_negative_n": 2,
+    "quartet_positive_n": 3,
+    "same_country_original_2degree_blocks": 4,
+    "source_original_independent_2022_selected_2023_retested_quartets": 5
+  },
+  "2023_numeric_same_day_min4_quartets_min3_blocks_GATE": false,
+  "2023_numeric_same_day_quartets_n": 0,
+  "2023_numeric_same_month_min5_quartets_min4_blocks_GATE": true,
+  "2023_numeric_same_month_original_blocks_n": 4,
+  "2023_numeric_same_month_quartets_n": 5,
+  "2023_sameday_realTP_source_vs_zero_summary": null,
+  "POSTHOC_to_known_2022_same_month_positive_quartet_result": true,
+  "all_original8_2023_numeric_fourarm_quartet_source_comparisons": [
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [
+        "2023-03",
+        "2023-08",
+        "2023-11"
+      ],
+      "2023_numeric_fourarm_month_gate": true,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-03",
+          "registered_zero_downstream_mgP_L": 0.085,
+          "registered_zero_pair_log_gradient": -0.02298951822469819,
+          "registered_zero_upstream_mgP_L": 0.087,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.19,
+          "source_minus_reference_logTP_gradient": 0.16327515791478486,
+          "source_pair_log_gradient": 0.14028563969008667,
+          "source_upstream_mgP_L": 0.165
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-08",
+          "registered_zero_downstream_mgP_L": 0.12,
+          "registered_zero_pair_log_gradient": 0.18067002875548166,
+          "registered_zero_upstream_mgP_L": 0.1,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.21000000000000002,
+          "source_minus_reference_logTP_gradient": 0.2959907815194336,
+          "source_pair_log_gradient": 0.47666081027491525,
+          "source_upstream_mgP_L": 0.13
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-11",
+          "registered_zero_downstream_mgP_L": 0.15,
+          "registered_zero_pair_log_gradient": 0.40215931997366483,
+          "registered_zero_upstream_mgP_L": 0.1,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.21,
+          "source_minus_reference_logTP_gradient": 0.15390826790566048,
+          "source_pair_log_gradient": 0.5560675878793253,
+          "source_upstream_mgP_L": 0.12
+        }
+      ],
+      "original_2022_EEA_reported_P_interposed_tpy": 13.573,
+      "original_station_hashes": {
+        "registered_zero_downstream": "d3e77a646a733518b2bc52c375269fb7b14d812f5787b7b5543192b81faf7c30",
+        "registered_zero_upstream": "d7f5b4ccf38e4afe37e203ef755f5ab5d9518fd45c573ca25dde2b57f5d1b55f",
+        "source_downstream": "6a92da1a084aeb406e625ecc8801851a49a0f4698946277f25469e4067d3f120",
+        "source_upstream": "8fb54bec9e1a93a7504a336dadb3ee76192318acd07bff4e78cb25790efe92aa"
+      },
+      "source_2022_original_country2degree_block": "26_4",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": 0.20439140244662632,
+      "source_original_2022_quartet_index": 1
+    },
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [
+        "2023-01",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08",
+        "2023-09",
+        "2023-10",
+        "2023-11",
+        "2023-12"
+      ],
+      "2023_numeric_fourarm_month_gate": true,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-01",
+          "registered_zero_downstream_mgP_L": 0.13,
+          "registered_zero_pair_log_gradient": 0.25022450991688006,
+          "registered_zero_upstream_mgP_L": 0.101,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.186,
+          "source_minus_reference_logTP_gradient": 0.10568678373655516,
+          "source_pair_log_gradient": 0.3559112936534352,
+          "source_upstream_mgP_L": 0.13
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-02",
+          "registered_zero_downstream_mgP_L": 0.088,
+          "registered_zero_pair_log_gradient": -0.07571182173569646,
+          "registered_zero_upstream_mgP_L": 0.095,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.0628,
+          "source_minus_reference_logTP_gradient": -0.4780651892258936,
+          "source_pair_log_gradient": -0.55377701096159,
+          "source_upstream_mgP_L": 0.11
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-03",
+          "registered_zero_downstream_mgP_L": 0.093,
+          "registered_zero_pair_log_gradient": 0.11247798342669046,
+          "registered_zero_upstream_mgP_L": 0.083,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.148,
+          "source_minus_reference_logTP_gradient": 0.2862981365306769,
+          "source_pair_log_gradient": 0.3987761199573674,
+          "source_upstream_mgP_L": 0.099
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-04",
+          "registered_zero_downstream_mgP_L": 0.083,
+          "registered_zero_pair_log_gradient": -0.174353387144778,
+          "registered_zero_upstream_mgP_L": 0.099,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.105,
+          "source_minus_reference_logTP_gradient": 0.5070591409705143,
+          "source_pair_log_gradient": 0.3327057538257363,
+          "source_upstream_mgP_L": 0.075
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-05",
+          "registered_zero_downstream_mgP_L": 0.081,
+          "registered_zero_pair_log_gradient": -0.32066857144808747,
+          "registered_zero_upstream_mgP_L": 0.112,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.114,
+          "source_minus_reference_logTP_gradient": 0.11684080943316899,
+          "source_pair_log_gradient": -0.20382776201491848,
+          "source_upstream_mgP_L": 0.14
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-06",
+          "registered_zero_downstream_mgP_L": 0.072,
+          "registered_zero_pair_log_gradient": -0.5998896870733628,
+          "registered_zero_upstream_mgP_L": 0.132,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.133,
+          "source_minus_reference_logTP_gradient": 0.4804496502093498,
+          "source_pair_log_gradient": -0.11944003686401294,
+          "source_upstream_mgP_L": 0.15
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-07",
+          "registered_zero_downstream_mgP_L": 0.059,
+          "registered_zero_pair_log_gradient": -0.11034805716886531,
+          "registered_zero_upstream_mgP_L": 0.066,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.146,
+          "source_minus_reference_logTP_gradient": -1.4658917858556393,
+          "source_pair_log_gradient": -1.5762398430245046,
+          "source_upstream_mgP_L": 0.71
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-08",
+          "registered_zero_downstream_mgP_L": 0.079,
+          "registered_zero_pair_log_gradient": -0.15057285847937463,
+          "registered_zero_upstream_mgP_L": 0.092,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.156,
+          "source_minus_reference_logTP_gradient": -0.19134403769007013,
+          "source_pair_log_gradient": -0.34191689616944476,
+          "source_upstream_mgP_L": 0.22
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-09",
+          "registered_zero_downstream_mgP_L": 0.086,
+          "registered_zero_pair_log_gradient": 0.023256862164267034,
+          "registered_zero_upstream_mgP_L": 0.084,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.147,
+          "source_minus_reference_logTP_gradient": 0.09875808839869649,
+          "source_pair_log_gradient": 0.12201495056296352,
+          "source_upstream_mgP_L": 0.13
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-10",
+          "registered_zero_downstream_mgP_L": 0.13,
+          "registered_zero_pair_log_gradient": 0.2308064240597787,
+          "registered_zero_upstream_mgP_L": 0.103,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.213,
+          "source_minus_reference_logTP_gradient": 0.0537652259776098,
+          "source_pair_log_gradient": 0.2845716500373885,
+          "source_upstream_mgP_L": 0.16
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-11",
+          "registered_zero_downstream_mgP_L": 0.245,
+          "registered_zero_pair_log_gradient": 0.823200308808143,
+          "registered_zero_upstream_mgP_L": 0.107,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.179,
+          "source_minus_reference_logTP_gradient": -0.3397736592302667,
+          "source_pair_log_gradient": 0.4834266495778763,
+          "source_upstream_mgP_L": 0.11
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-12",
+          "registered_zero_downstream_mgP_L": 0.13,
+          "registered_zero_pair_log_gradient": 0.07940677760441028,
+          "registered_zero_upstream_mgP_L": 0.12,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.161,
+          "source_minus_reference_logTP_gradient": 0.29865935631563967,
+          "source_pair_log_gradient": 0.37806613392004995,
+          "source_upstream_mgP_L": 0.11
+        }
+      ],
+      "original_2022_EEA_reported_P_interposed_tpy": 0.72212,
+      "original_station_hashes": {
+        "registered_zero_downstream": "dbb0cba5211fbdc16c4aaa1d1d9e06ebaa7ef141610c89c72e6fd19fc76f2d8b",
+        "registered_zero_upstream": "ebcc48442f2ce2dd65cb9e76f487859f1a6879fb97f2e9d0e4f83b3ce0c97f1c",
+        "source_downstream": "fe5fda3c0abb6bc034d56421243e8a7ff21604a12f35fc03b38e02252ea90c11",
+        "source_upstream": "1c5481ed933a537f83b15aa94d963db38df22ddc721edac2f2a5a0fdec5671f5"
+      },
+      "source_2022_original_country2degree_block": "26_5",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": -0.04396312336913821,
+      "source_original_2022_quartet_index": 2
+    },
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [],
+      "2023_numeric_fourarm_month_gate": false,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [],
+      "original_2022_EEA_reported_P_interposed_tpy": 6.0430399999999995,
+      "original_station_hashes": {
+        "registered_zero_downstream": "0fb4be0eac27af4222c14605cc966b149a427921677c3f5e17671b22d5accf5d",
+        "registered_zero_upstream": "3cc248152443873c0352035ad328803c91d40113fa977c3c25cd54422a603453",
+        "source_downstream": "9553ab8a8b2a30ce9e21ee0a13e62fa4d43c1626b740c3f2dee984ff6c6c21a7",
+        "source_upstream": "bd5d4d5d1e136c91cdd86c2f9b53ddd74255521a7fb7220da1e7bc636c673c33"
+      },
+      "source_2022_original_country2degree_block": "25_5",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": null,
+      "source_original_2022_quartet_index": 3
+    },
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [],
+      "2023_numeric_fourarm_month_gate": false,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [],
+      "original_2022_EEA_reported_P_interposed_tpy": 2.354,
+      "original_station_hashes": {
+        "registered_zero_downstream": "8b0199774c23a273d8c3b0fccf92260a2bfb290eb1288a790c8e7fb8364144ec",
+        "registered_zero_upstream": "cb98c844e643cccaf73ea9c869367a5067db2aaaceeec9a75c59fab669767923",
+        "source_downstream": "d6867743109190aa47493c1935a569c5fc5930fc10ec6948a2e9cafa81e5e437",
+        "source_upstream": "669aa6ad9da94a2fd313e139f986bc342362df3fecb5d77459de8d34c4658434"
+      },
+      "source_2022_original_country2degree_block": "24_4",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": null,
+      "source_original_2022_quartet_index": 4
+    },
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [
+        "2023-01",
+        "2023-02",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-08",
+        "2023-09",
+        "2023-10"
+      ],
+      "2023_numeric_fourarm_month_gate": true,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-01",
+          "registered_zero_downstream_mgP_L": 0.103,
+          "registered_zero_pair_log_gradient": 0.08004270767353638,
+          "registered_zero_upstream_mgP_L": 0.095,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.198,
+          "source_minus_reference_logTP_gradient": -0.07500491364357909,
+          "source_pair_log_gradient": 0.005037794029957299,
+          "source_upstream_mgP_L": 0.197
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-02",
+          "registered_zero_downstream_mgP_L": 0.069,
+          "registered_zero_pair_log_gradient": -0.5778164925822691,
+          "registered_zero_upstream_mgP_L": 0.12375,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.13,
+          "source_minus_reference_logTP_gradient": 0.3716094507989576,
+          "source_pair_log_gradient": -0.2062070417833115,
+          "source_upstream_mgP_L": 0.16
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-04",
+          "registered_zero_downstream_mgP_L": 0.064,
+          "registered_zero_pair_log_gradient": -0.4054651081081646,
+          "registered_zero_upstream_mgP_L": 0.0965,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.12,
+          "source_minus_reference_logTP_gradient": 0.11985128872044282,
+          "source_pair_log_gradient": -0.2856138193877218,
+          "source_upstream_mgP_L": 0.16
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-05",
+          "registered_zero_downstream_mgP_L": 0.082,
+          "registered_zero_pair_log_gradient": -0.17627924233799197,
+          "registered_zero_upstream_mgP_L": 0.098,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.13,
+          "source_minus_reference_logTP_gradient": -0.20079686250748652,
+          "source_pair_log_gradient": -0.3770761048454785,
+          "source_upstream_mgP_L": 0.19
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-06",
+          "registered_zero_downstream_mgP_L": 0.235,
+          "registered_zero_pair_log_gradient": 0.6931471805599452,
+          "registered_zero_upstream_mgP_L": 0.117,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.18,
+          "source_minus_reference_logTP_gradient": -0.846508282770186,
+          "source_pair_log_gradient": -0.1533611022102408,
+          "source_upstream_mgP_L": 0.21
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-08",
+          "registered_zero_downstream_mgP_L": 0.113,
+          "registered_zero_pair_log_gradient": -0.38776553100876354,
+          "registered_zero_upstream_mgP_L": 0.167,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.12,
+          "source_minus_reference_logTP_gradient": -0.06871735144112523,
+          "source_pair_log_gradient": -0.45648288244988877,
+          "source_upstream_mgP_L": 0.19
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-09",
+          "registered_zero_downstream_mgP_L": 0.088,
+          "registered_zero_pair_log_gradient": -0.17480272437992728,
+          "registered_zero_upstream_mgP_L": 0.10500000000000001,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.14,
+          "source_minus_reference_logTP_gradient": 0.3277720691613546,
+          "source_pair_log_gradient": 0.15296934478142732,
+          "source_upstream_mgP_L": 0.12
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-10",
+          "registered_zero_downstream_mgP_L": 0.115,
+          "registered_zero_pair_log_gradient": -0.07071552479839749,
+          "registered_zero_upstream_mgP_L": 0.1235,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.17,
+          "source_minus_reference_logTP_gradient": 0.2636191909228889,
+          "source_pair_log_gradient": 0.1929036661244914,
+          "source_upstream_mgP_L": 0.14
+        }
+      ],
+      "original_2022_EEA_reported_P_interposed_tpy": 5.03055,
+      "original_station_hashes": {
+        "registered_zero_downstream": "225d50ef02d949997c46c88c7d71d2357d977139cb5b6b5da7050b9460f31d75",
+        "registered_zero_upstream": "1b49f1b3bd9baae75bfaac9d8a5bd365e7b3efb4f3e048c441ea88b4f414bc46",
+        "source_downstream": "f3c6d530516ee51b327187f422607ddb8f436f9c4784d9cec4ad985656961bfc",
+        "source_upstream": "c52f8f536ecbc3430cc65e9fdd6ff659f0b514c3aa4a9a5e375e8f516932c09d"
+      },
+      "source_2022_original_country2degree_block": "25_5",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": -0.013521926344841617,
+      "source_original_2022_quartet_index": 5
+    },
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [
+        "2023-01",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08",
+        "2023-10",
+        "2023-11",
+        "2023-12"
+      ],
+      "2023_numeric_fourarm_month_gate": true,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-01",
+          "registered_zero_downstream_mgP_L": 0.11,
+          "registered_zero_pair_log_gradient": -0.044059989794030585,
+          "registered_zero_upstream_mgP_L": 0.115,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.06,
+          "source_minus_reference_logTP_gradient": 0.8968373159458598,
+          "source_pair_log_gradient": 0.8527773261518292,
+          "source_upstream_mgP_L": 0.025
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-02",
+          "registered_zero_downstream_mgP_L": 0.06,
+          "registered_zero_pair_log_gradient": 0.0,
+          "registered_zero_upstream_mgP_L": 0.06,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.07,
+          "source_minus_reference_logTP_gradient": 1.1716374236829998,
+          "source_pair_log_gradient": 1.1716374236829998,
+          "source_upstream_mgP_L": 0.021
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-03",
+          "registered_zero_downstream_mgP_L": 0.14,
+          "registered_zero_pair_log_gradient": -0.2497371408876572,
+          "registered_zero_upstream_mgP_L": 0.18,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.03,
+          "source_minus_reference_logTP_gradient": 0.42562780735132133,
+          "source_pair_log_gradient": 0.17589066646366414,
+          "source_upstream_mgP_L": 0.025
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-04",
+          "registered_zero_downstream_mgP_L": 0.08,
+          "registered_zero_pair_log_gradient": -0.22067136216882055,
+          "registered_zero_upstream_mgP_L": 0.1,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.05,
+          "source_minus_reference_logTP_gradient": 0.46361754077921,
+          "source_pair_log_gradient": 0.24294617861038947,
+          "source_upstream_mgP_L": 0.039
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-05",
+          "registered_zero_downstream_mgP_L": 0.07,
+          "registered_zero_pair_log_gradient": -0.5331106685554254,
+          "registered_zero_upstream_mgP_L": 0.12,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.08,
+          "source_minus_reference_logTP_gradient": 1.401199298611703,
+          "source_pair_log_gradient": 0.8680886300562776,
+          "source_upstream_mgP_L": 0.033
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-06",
+          "registered_zero_downstream_mgP_L": 0.14,
+          "registered_zero_pair_log_gradient": -0.06851994643675585,
+          "registered_zero_upstream_mgP_L": 0.15,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.02,
+          "source_minus_reference_logTP_gradient": 0.021999930801863243,
+          "source_pair_log_gradient": -0.04652001563489261,
+          "source_upstream_mgP_L": 0.021
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-07",
+          "registered_zero_downstream_mgP_L": 0.17,
+          "registered_zero_pair_log_gradient": -0.2101945769734066,
+          "registered_zero_upstream_mgP_L": 0.21,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.04,
+          "source_minus_reference_logTP_gradient": 0.5564708136912404,
+          "source_pair_log_gradient": 0.3462762367178338,
+          "source_upstream_mgP_L": 0.028
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-08",
+          "registered_zero_downstream_mgP_L": 0.19,
+          "registered_zero_pair_log_gradient": 0.30351353766846145,
+          "registered_zero_upstream_mgP_L": 0.14,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.05,
+          "source_minus_reference_logTP_gradient": 0.7950987509996481,
+          "source_pair_log_gradient": 1.0986122886681096,
+          "source_upstream_mgP_L": 0.016
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-10",
+          "registered_zero_downstream_mgP_L": 0.19,
+          "registered_zero_pair_log_gradient": 0.17086906306216698,
+          "registered_zero_upstream_mgP_L": 0.16,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.03,
+          "source_minus_reference_logTP_gradient": -0.13807924023917617,
+          "source_pair_log_gradient": 0.03278982282299081,
+          "source_upstream_mgP_L": 0.029
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-11",
+          "registered_zero_downstream_mgP_L": 0.23,
+          "registered_zero_pair_log_gradient": -0.19593695881195217,
+          "registered_zero_upstream_mgP_L": 0.28,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.04,
+          "source_minus_reference_logTP_gradient": 0.22062957140232342,
+          "source_pair_log_gradient": 0.024692612590371255,
+          "source_upstream_mgP_L": 0.039
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-12",
+          "registered_zero_downstream_mgP_L": 0.15,
+          "registered_zero_pair_log_gradient": 0.0,
+          "registered_zero_upstream_mgP_L": 0.15,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.07,
+          "source_minus_reference_logTP_gradient": -0.22595649269082418,
+          "source_pair_log_gradient": -0.22595649269082418,
+          "source_upstream_mgP_L": 0.088
+        }
+      ],
+      "original_2022_EEA_reported_P_interposed_tpy": 3.11,
+      "original_station_hashes": {
+        "registered_zero_downstream": "0669621e8e259aec0e8253248185e8f4a408d9ffc1bc3c8558146de7f88cda6d",
+        "registered_zero_upstream": "653dbe44e74648595891a3056a6fa1c60db97ce77b7445be754cac7f6b617036",
+        "source_downstream": "43d3a9eda1d680708047a41b1d9c57a85f264fa051c8e57aaaffa513a0ba402a",
+        "source_upstream": "d499d05f3c085cc25a369ad9517e134cce397f41d162eb7da6c2ffc7af8707a8"
+      },
+      "source_2022_original_country2degree_block": "24_5",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": 0.5080984291214699,
+      "source_original_2022_quartet_index": 6
+    },
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [
+        "2023-01",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08",
+        "2023-09",
+        "2023-10",
+        "2023-11"
+      ],
+      "2023_numeric_fourarm_month_gate": true,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-01",
+          "registered_zero_downstream_mgP_L": 0.095,
+          "registered_zero_pair_log_gradient": 0.24686007793152598,
+          "registered_zero_upstream_mgP_L": 0.074,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.14,
+          "source_minus_reference_logTP_gradient": 0.4392199354053268,
+          "source_pair_log_gradient": 0.6860800133368528,
+          "source_upstream_mgP_L": 0.07
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-03",
+          "registered_zero_downstream_mgP_L": 0.047,
+          "registered_zero_pair_log_gradient": -0.3483066942682158,
+          "registered_zero_upstream_mgP_L": 0.067,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.09,
+          "source_minus_reference_logTP_gradient": 0.3483066942682158,
+          "source_pair_log_gradient": 0.0,
+          "source_upstream_mgP_L": 0.09
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-04",
+          "registered_zero_downstream_mgP_L": 0.11299999999999999,
+          "registered_zero_pair_log_gradient": -0.1616413515564159,
+          "registered_zero_upstream_mgP_L": 0.133,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.15,
+          "source_minus_reference_logTP_gradient": 0.6680616818544902,
+          "source_pair_log_gradient": 0.5064203302980743,
+          "source_upstream_mgP_L": 0.09
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-05",
+          "registered_zero_downstream_mgP_L": 0.079,
+          "registered_zero_pair_log_gradient": -0.27193371548364187,
+          "registered_zero_upstream_mgP_L": 0.104,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.09,
+          "source_minus_reference_logTP_gradient": 1.0692211552961841,
+          "source_pair_log_gradient": 0.7972874398125422,
+          "source_upstream_mgP_L": 0.04
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-06",
+          "registered_zero_downstream_mgP_L": 0.075,
+          "registered_zero_pair_log_gradient": 0.2198594761130197,
+          "registered_zero_upstream_mgP_L": 0.06,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.12,
+          "source_minus_reference_logTP_gradient": -0.4413487673312029,
+          "source_pair_log_gradient": -0.22148929121818317,
+          "source_upstream_mgP_L": 0.15
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-07",
+          "registered_zero_downstream_mgP_L": 0.0895,
+          "registered_zero_pair_log_gradient": -0.36218459974970196,
+          "registered_zero_upstream_mgP_L": 0.129,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.14,
+          "source_minus_reference_logTP_gradient": 1.0482646130865547,
+          "source_pair_log_gradient": 0.6860800133368528,
+          "source_upstream_mgP_L": 0.07
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-08",
+          "registered_zero_downstream_mgP_L": 0.097,
+          "registered_zero_pair_log_gradient": -0.1335313926245223,
+          "registered_zero_upstream_mgP_L": 0.111,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.18,
+          "source_minus_reference_logTP_gradient": 0.6224982225780138,
+          "source_pair_log_gradient": 0.4889668299534915,
+          "source_upstream_mgP_L": 0.11
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-09",
+          "registered_zero_downstream_mgP_L": 0.082,
+          "registered_zero_pair_log_gradient": 0.12838116664820687,
+          "registered_zero_upstream_mgP_L": 0.072,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.16,
+          "source_minus_reference_logTP_gradient": 0.15723265273951492,
+          "source_pair_log_gradient": 0.2856138193877218,
+          "source_upstream_mgP_L": 0.12
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-10",
+          "registered_zero_downstream_mgP_L": 0.066,
+          "registered_zero_pair_log_gradient": -0.4348789933144577,
+          "registered_zero_upstream_mgP_L": 0.10250000000000001,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.15,
+          "source_minus_reference_logTP_gradient": 0.941299323612532,
+          "source_pair_log_gradient": 0.5064203302980743,
+          "source_upstream_mgP_L": 0.09
+        },
+        {
+          "not_same_day_when_YYYY_MM": true,
+          "original_2023_sampling_period": "2023-11",
+          "registered_zero_downstream_mgP_L": 0.2005,
+          "registered_zero_pair_log_gradient": 0.7731898882334816,
+          "registered_zero_upstream_mgP_L": 0.092,
+          "reported_2022_WWTP_annualP_is_not_2023_dose": true,
+          "source_downstream_mgP_L": 0.17,
+          "source_minus_reference_logTP_gradient": -0.1423858382476717,
+          "source_pair_log_gradient": 0.6308040499858099,
+          "source_upstream_mgP_L": 0.09
+        }
+      ],
+      "original_2022_EEA_reported_P_interposed_tpy": 4.15379,
+      "original_station_hashes": {
+        "registered_zero_downstream": "137b8c438efcd41c5d57bc2d1729b5a0389541851d9f28eb99dfe6996646afaa",
+        "registered_zero_upstream": "426e6c1030ec114232d9996348f35db67361764810247051fb5b8880d8510659",
+        "source_downstream": "e159bf65014e56357ffa3b71d5ba95f095aa91ab38eba3da821df75911df6851",
+        "source_upstream": "3942f113a1898ea8982f233ce48417d401b830d5f973c7ec4c838e1f5d98872c"
+      },
+      "source_2022_original_country2degree_block": "25_5",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": 0.4710369673261958,
+      "source_original_2022_quartet_index": 7
+    },
+    {
+      "2023_fourarm_shared_numeric_days": [],
+      "2023_fourarm_shared_numeric_months": [],
+      "2023_numeric_fourarm_month_gate": false,
+      "2023_numeric_fourarm_sameday_gate": false,
+      "2023_sameday_numeric_source_vs_zero_logTP_gradients": [],
+      "2023_samemonth_numeric_source_vs_zero_logTP_gradients": [],
+      "original_2022_EEA_reported_P_interposed_tpy": 0.5,
+      "original_station_hashes": {
+        "registered_zero_downstream": "70172cdf0d92f1c7e0120146faa3e932c8108a98bfd83084cc1943f32c8fe60b",
+        "registered_zero_upstream": "830594b025c3352a16e103a40cdff58b0900d2660af3d16c5811326a6336e2ed",
+        "source_downstream": "c4b20d192160347cf332a915e6a1eba13186f93328485b5d0a0c50d3fe7b4f30",
+        "source_upstream": "13dc0764efa7b329efe7594a1fdf80c6c555d5dc3a7e0adc26781b1d78b0b569"
+      },
+      "source_2022_original_country2degree_block": "24_6",
+      "source_minus_registeredzero_four_arm_logTP_gradient_mean": null,
+      "source_original_2022_quartet_index": 8
+    }
+  ],
+  "no_real_2023_WWTP_effluent_mass_or_original_Lycaenidae_abundance_measured": true,
+  "original22vs23_identical_quartets_only_temporal_persistence": {
+    "2022_original_year_mean_matchedsame_quartet": 0.3111429587500848,
+    "2023_mean_matchedsame_quartet": 0.23041258668342146,
+    "matched_original_quartet_n": 4,
+    "not_actual_2022_vs_2023_wastewater_treatment_change": true,
+    "paired_change_2023_minus_2022_mean": -0.08073037206666331,
+    "per_original_quartet": [
+      {
+        "2023_samemonth_logTP_gradient": -0.04396312336913821,
+        "original_2022_samemonth_logTP_gradient": -0.13765499424412592,
+        "quartet_index": 2,
+        "year23_minus22_difference": 0.0936918708749877
+      },
+      {
+        "2023_samemonth_logTP_gradient": -0.013521926344841617,
+        "original_2022_samemonth_logTP_gradient": 0.09423920936112035,
+        "quartet_index": 5,
+        "year23_minus22_difference": -0.10776113570596196
+      },
+      {
+        "2023_samemonth_logTP_gradient": 0.5080984291214699,
+        "original_2022_samemonth_logTP_gradient": 0.8229315581096865,
+        "quartet_index": 6,
+        "year23_minus22_difference": -0.3148331289882167
+      },
+      {
+        "2023_samemonth_logTP_gradient": 0.4710369673261958,
+        "original_2022_samemonth_logTP_gradient": 0.4650560617736581,
+        "quartet_index": 7,
+        "year23_minus22_difference": 0.005980905552537719
+      }
+    ]
+  },
+  "original_2022_source_year_matched_TP_file_SHA256": "b4c5afdbabebdf244c1124e826c7df074c913e6a17cf28dabf1e64e9dace8ff1",
+  "original_2023_32site_numeric_QC": [
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.14,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 11,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "0669621e8e259aec0e8253248185e8f4a408d9ffc1bc3c8558146de7f88cda6d"
+    },
+    {
+      "original_2023_numeric_site_QC": false,
+      "original_2023_resultObservationStatus_codes": {},
+      "original_2023_source_site_year_median_mgP_L": null,
+      "original_source_TP_rows_2023": 0,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 0,
+      "quantified_independent_months_2023": 0,
+      "source_2023_below_LOQ_fraction": 1.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "0fb4be0eac27af4222c14605cc966b149a427921677c3f5e17671b22d5accf5d"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 26
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.0825,
+      "original_source_TP_rows_2023": 26,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 26,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "137b8c438efcd41c5d57bc2d1729b5a0389541851d9f28eb99dfe6996646afaa"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.05,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "13dc0764efa7b329efe7594a1fdf80c6c555d5dc3a7e0adc26781b1d78b0b569"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 24
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.115,
+      "original_source_TP_rows_2023": 24,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 24,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "1b49f1b3bd9baae75bfaac9d8a5bd365e7b3efb4f3e048c441ea88b4f414bc46"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.13,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "1c5481ed933a537f83b15aa94d963db38df22ddc721edac2f2a5a0fdec5671f5"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.108,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "225d50ef02d949997c46c88c7d71d2357d977139cb5b6b5da7050b9460f31d75"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 10
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.09,
+      "original_source_TP_rows_2023": 10,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 10,
+      "quantified_independent_months_2023": 10,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "3942f113a1898ea8982f233ce48417d401b830d5f973c7ec4c838e1f5d98872c"
+    },
+    {
+      "original_2023_numeric_site_QC": false,
+      "original_2023_resultObservationStatus_codes": {},
+      "original_2023_source_site_year_median_mgP_L": null,
+      "original_source_TP_rows_2023": 0,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 0,
+      "quantified_independent_months_2023": 0,
+      "source_2023_below_LOQ_fraction": 1.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "3cc248152443873c0352035ad328803c91d40113fa977c3c25cd54422a603453"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 13
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.074,
+      "original_source_TP_rows_2023": 13,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 13,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "426e6c1030ec114232d9996348f35db67361764810247051fb5b8880d8510659"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.05,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "43d3a9eda1d680708047a41b1d9c57a85f264fa051c8e57aaaffa513a0ba402a"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.14500000000000002,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 11,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "653dbe44e74648595891a3056a6fa1c60db97ce77b7445be754cac7f6b617036"
+    },
+    {
+      "original_2023_numeric_site_QC": false,
+      "original_2023_resultObservationStatus_codes": {},
+      "original_2023_source_site_year_median_mgP_L": null,
+      "original_source_TP_rows_2023": 0,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 0,
+      "quantified_independent_months_2023": 0,
+      "source_2023_below_LOQ_fraction": 1.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "669aa6ad9da94a2fd313e139f986bc342362df3fecb5d77459de8d34c4658434"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 10
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.185,
+      "original_source_TP_rows_2023": 10,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 10,
+      "quantified_independent_months_2023": 9,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "6a92da1a084aeb406e625ecc8801851a49a0f4698946277f25469e4067d3f120"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 25
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.103,
+      "original_source_TP_rows_2023": 25,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 25,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "70172cdf0d92f1c7e0120146faa3e932c8108a98bfd83084cc1943f32c8fe60b"
+    },
+    {
+      "original_2023_numeric_site_QC": false,
+      "original_2023_resultObservationStatus_codes": {},
+      "original_2023_source_site_year_median_mgP_L": null,
+      "original_source_TP_rows_2023": 0,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 0,
+      "quantified_independent_months_2023": 0,
+      "source_2023_below_LOQ_fraction": 1.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "830594b025c3352a16e103a40cdff58b0900d2660af3d16c5811326a6336e2ed"
+    },
+    {
+      "original_2023_numeric_site_QC": false,
+      "original_2023_resultObservationStatus_codes": {},
+      "original_2023_source_site_year_median_mgP_L": null,
+      "original_source_TP_rows_2023": 0,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 0,
+      "quantified_independent_months_2023": 0,
+      "source_2023_below_LOQ_fraction": 1.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "8b0199774c23a273d8c3b0fccf92260a2bfb290eb1288a790c8e7fb8364144ec"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.13,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 11,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "8fb54bec9e1a93a7504a336dadb3ee76192318acd07bff4e78cb25790efe92aa"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 9
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.15,
+      "original_source_TP_rows_2023": 9,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 9,
+      "quantified_independent_months_2023": 9,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "9553ab8a8b2a30ce9e21ee0a13e62fa4d43c1626b740c3f2dee984ff6c6c21a7"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 9
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.13,
+      "original_source_TP_rows_2023": 9,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 9,
+      "quantified_independent_months_2023": 9,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "bd5d4d5d1e136c91cdd86c2f9b53ddd74255521a7fb7220da1e7bc636c673c33"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.033,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "c4b20d192160347cf332a915e6a1eba13186f93328485b5d0a0c50d3fe7b4f30"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 8
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.175,
+      "original_source_TP_rows_2023": 8,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 8,
+      "quantified_independent_months_2023": 8,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "c52f8f536ecbc3430cc65e9fdd6ff659f0b514c3aa4a9a5e375e8f516932c09d"
+    },
+    {
+      "original_2023_numeric_site_QC": false,
+      "original_2023_resultObservationStatus_codes": {},
+      "original_2023_source_site_year_median_mgP_L": null,
+      "original_source_TP_rows_2023": 0,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 0,
+      "quantified_independent_months_2023": 0,
+      "source_2023_below_LOQ_fraction": 1.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "cb98c844e643cccaf73ea9c869367a5067db2aaaceeec9a75c59fab669767923"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 4
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.125,
+      "original_source_TP_rows_2023": 4,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 4,
+      "quantified_independent_months_2023": 4,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "d3e77a646a733518b2bc52c375269fb7b14d812f5787b7b5543192b81faf7c30"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.026500000000000003,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "d499d05f3c085cc25a369ad9517e134cce397f41d162eb7da6c2ffc7af8707a8"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.0545,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "d6867743109190aa47493c1935a569c5fc5930fc10ec6948a2e9cafa81e5e437"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 4
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.1,
+      "original_source_TP_rows_2023": 4,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 4,
+      "quantified_independent_months_2023": 4,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "d7f5b4ccf38e4afe37e203ef755f5ab5d9518fd45c573ca25dde2b57f5d1b55f"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 14
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.0905,
+      "original_source_TP_rows_2023": 14,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 14,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "dbb0cba5211fbdc16c4aaa1d1d9e06ebaa7ef141610c89c72e6fd19fc76f2d8b"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 13
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.15,
+      "original_source_TP_rows_2023": 13,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 13,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "e159bf65014e56357ffa3b71d5ba95f095aa91ab38eba3da821df75911df6851"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.1,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "ebcc48442f2ce2dd65cb9e76f487859f1a6879fb97f2e9d0e4f83b3ce0c97f1c"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 9
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.14,
+      "original_source_TP_rows_2023": 9,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 9,
+      "quantified_independent_months_2023": 9,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "f3c6d530516ee51b327187f422607ddb8f436f9c4784d9cec4ad985656961bfc"
+    },
+    {
+      "original_2023_numeric_site_QC": true,
+      "original_2023_resultObservationStatus_codes": {
+        "": 12
+      },
+      "original_2023_source_site_year_median_mgP_L": 0.1475,
+      "original_source_TP_rows_2023": 12,
+      "original_unknown_LOQflag_rows": 0,
+      "quantified_independent_days_2023": 12,
+      "quantified_independent_months_2023": 12,
+      "source_2023_below_LOQ_fraction": 0.0,
+      "source_2023_below_LOQ_rows": 0,
+      "source_2023_other_status_rejected": 0,
+      "source_original_2022_station_hash": "fe5fda3c0abb6bc034d56421243e8a7ff21604a12f35fc03b38e02252ea90c11"
+    }
+  ],
+  "original_2023_WISE6_full_source_numeric_QC": {
+    "original_2023_DE_RW_TP_sample_rows_all_sites": 2818,
+    "original_2023_TP_rows_at_fixed_32_2022_sites": 322,
+    "original_source_all_WISE6_individual_rows": 102569057
+  },
+  "original_2023_sampling_date_source_QC_SHA256": "d5487b981389f6fe8714bf09525e4f9efb784b2a125ef5ac2009a28ad36cf0aa",
+  "original_WISE6_source_download": {
+    "original_2026_public_WISE6_original_URL": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
+    "original_public_compressed_zip_bytes": 2024284753,
+    "verified_source_SHA256": "2a2ef2a43a16ec068b7974a80ae5fca49e44697660a46ce3b91fb1813abe62d2"
+  },
+  "schema": "gesui_WISE6_2023_numeric_TP_original2022_WWTP_Germany_8fixed_fourarms_same_month_replication_v01",
+  "source_year_2022_reported_WWTP_P_NOT_proven_2023_treatment": true,
+  "timestamp_utc": "2026-11-09T11:20:55.918364+00:00"
+}

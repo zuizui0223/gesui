@@ -1,0 +1,48 @@
+name: gesui independent OFFLINE 2022 versus 2023 SAME calendar-month original 4-quartet TP difference replay
+on:
+  push:
+    branches:
+      - "analysis/wise6-2023-DE-original-quartets-time-support-20261109"
+    paths:
+      - ".github/workflows/gesui-2022-2023-DE-original-quartets-samecalendar-month-offline.yml"
+      - "scripts/gesui_2022_2023_DE_original_quartets_same_calendar_month_TP_verify.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  exactoriginal-4quartets-3blocks-two-year-seasonmatched-tp-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet numpy
+      - name: Independently recompute original each-month four-arm logarithmic gradients and SAME calendar-month-of-year 2022/23 matched quartet year change
+        run: |
+          python -m py_compile scripts/gesui_2022_2023_DE_original_quartets_same_calendar_month_TP_verify.py
+          python -u scripts/gesui_2022_2023_DE_original_quartets_same_calendar_month_TP_verify.py \
+            --original-2022-source-dates results/wise6_2022_DE_quartets_exacttime/2022_DE_8WWTP_QUARTETS_EXACT_SAMEDAY_MONTH_SAMPLE_SOURCE_ONLY_GATE.json \
+            --original-2023-source-dates results/wise6_2023_DE_original_quartet_temporal/2023_ORIGINAL8_QUARTETS_32SITE_SAMEDAY_SAMEMONTH_DATE_ONLY_GATE.json \
+            --original-2022-numeric-months results/wise6_2022_DE_quartets_exacttime/2022_DE_ORIGINAL_EEA_WISE6_SAMEMONTH_REAL_TP_WWTP_SOURCE_MINUS_SOURCEZERO.json \
+            --original-2023-numeric-months results/wise6_2023_DE_original_quartet_temporal/2023_ORIGINAL_8QUARTETS_SAMEMONTH_REALTP_NUMERIC_SOURCE_ZERO.json \
+            --out results/wise6_2023_DE_original_quartet_temporal/2022_2023_SAME_ORIGINAL_QUARTETS_SAME_CALENDAR_MONTH_REAL_TP_OFFLINE_REPLAY.json
+      - name: Persist verified raw same-month TP arithmetic and temporally controlled 4quartet changes without any new observations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2023_DE_original_quartet_temporal/2022_2023_SAME_ORIGINAL_QUARTETS_SAME_CALENDAR_MONTH_REAL_TP_OFFLINE_REPLAY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independently replay 2022 versus 2023 original Germany WISE6 same-calendar-month quartets and exact four-arm log TP arithmetic"
+          git fetch origin analysis/wise6-2023-DE-original-quartets-time-support-20261109
+          git rebase origin/analysis/wise6-2023-DE-original-quartets-time-support-20261109
+          git push origin HEAD:analysis/wise6-2023-DE-original-quartets-time-support-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-2022-2023-DE-fourarm-quartets-samecalendar-month-offline-validation
+          path: results/wise6_2023_DE_original_quartet_temporal/2022_2023_SAME_ORIGINAL_QUARTETS_SAME_CALENDAR_MONTH_REAL_TP_OFFLINE_REPLAY.json
+          retention-days: 90

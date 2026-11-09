@@ -1,0 +1,63 @@
+name: gesui 2023 original WISE6 Germany real TP SAME-MONTH gradients at 2022 WWTP/control 8 quartets after date gate
+on:
+  push:
+    branches:
+      - "analysis/wise6-2023-DE-original-quartets-time-support-20261109"
+    paths:
+      - ".github/workflows/gesui-2023-DE-original2022quartets-realTP-after-dates.yml"
+      - "scripts/gesui_2023_DE_original2022_quartets_same_month_realTP_after_date_gate.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original2023-realTP-quartets-after-fixed-source-dates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet numpy
+      - name: Verify official source-only 2023 5-quartet 4-geoblock gate is committed BEFORE opening any 2023 numeric TP
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('results/wise6_2023_DE_original_quartet_temporal/2023_ORIGINAL8_QUARTETS_32SITE_SAMEDAY_SAMEMONTH_DATE_ONLY_GATE.json')
+          x=json.loads(p.read_text())
+          assert x['never_parsed_2023_resultObservedValue_LOQ_or_WWTP_chemical_load'] is True
+          assert x['strict_2023_frozen_4arm_same_MONTH_numeric_gate_PASS'] is True
+          assert x['strict_2023_same_month_quartets_n']==5
+          assert x['strict_2023_same_month_source_blocks_n']==4
+          assert x['strict_2023_frozen_4arm_same_DAY_numeric_gate_PASS'] is False
+          assert x['original_2022_source_sites_n']==32
+          print('GESUI_2023_WISE6_PRENUMERIC_DATE_GATE_VERIFIED_5QUARTETS_4BLOCKS')
+          PY
+      - name: Stream official original 2026 WISE6 source ZIP 2023 TP at only 32 frozen sites, actual quantified monthly TP 4arm gradients (not 2023 WWTP dose)
+        run: |
+          python -m py_compile scripts/gesui_2023_DE_original2022_quartets_same_month_realTP_after_date_gate.py
+          python -u scripts/gesui_2023_DE_original2022_quartets_same_month_realTP_after_date_gate.py \
+            --original-2023-date-source results/wise6_2023_DE_original_quartet_temporal/2023_ORIGINAL8_QUARTETS_32SITE_SAMEDAY_SAMEMONTH_DATE_ONLY_GATE.json \
+            --original-2022-samemonth-numeric results/wise6_2022_DE_quartets_exacttime/2022_DE_ORIGINAL_EEA_WISE6_SAMEMONTH_REAL_TP_WWTP_SOURCE_MINUS_SOURCEZERO.json \
+            --tempdir /tmp/gesui-WISE6-2023-original32-monthly-realTP \
+            --out results/wise6_2023_DE_original_quartet_temporal/2023_ORIGINAL_8QUARTETS_SAMEMONTH_REALTP_NUMERIC_SOURCE_ZERO.json
+      - name: Commit successful and unsuccessful 2023 measured TP same-month gradients and exact-day failure
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2023_DE_original_quartet_temporal/2023_ORIGINAL_8QUARTETS_SAMEMONTH_REALTP_NUMERIC_SOURCE_ZERO.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit 2023 actual original WISE6 TP same-month measured source vs registeredzero gradients on 2022 fixed German 8 four-arm quartets"
+          git fetch origin analysis/wise6-2023-DE-original-quartets-time-support-20261109
+          git rebase origin/analysis/wise6-2023-DE-original-quartets-time-support-20261109
+          git push origin HEAD:analysis/wise6-2023-DE-original-quartets-time-support-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-2023-WISE6-source-2022-fixed-quartets-samemonth-realTP
+          path: results/wise6_2023_DE_original_quartet_temporal/2023_ORIGINAL_8QUARTETS_SAMEMONTH_REALTP_NUMERIC_SOURCE_ZERO.json
+          retention-days: 90
