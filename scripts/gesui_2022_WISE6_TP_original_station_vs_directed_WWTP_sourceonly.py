@@ -93,8 +93,19 @@ def snap_unambiguous(df,river,tag):
             stats["points_not_snapped_within_500m"]+=1
             continue
         min_dist=float(valid["snapped_m"].iloc[0])
-        near=valid[valid["snapped_m"]<=min_dist+NEAREST_TIE_M]
-        if near["HYRIV_ID"].nunique()>1:
+        # sjoin_nearest returns only exact distance ties, NOT all reaches
+        # within 2 metres of the best. Query all original projected lines
+        # intersecting a radius (best_distance + 2m) around the point
+        # before rejecting competing near-confluence assignments.
+        pt=valid.geometry.iloc[0]
+        candidate_offsets=right.sindex.query(
+            pt.buffer(min_dist+NEAREST_TIE_M),predicate="intersects")
+        competing=set()
+        for offset in candidate_offsets:
+            feature=right.iloc[int(offset)]
+            if float(feature.geometry.distance(pt))<=min_dist+NEAREST_TIE_M+1e-7:
+                competing.add(int(feature.HYRIV_ID))
+        if len(competing)>1:
             stats["ambiguous_competing_nearest_reaches_within2m"]+=1
             continue
         record=rows.iloc[0].to_dict()
