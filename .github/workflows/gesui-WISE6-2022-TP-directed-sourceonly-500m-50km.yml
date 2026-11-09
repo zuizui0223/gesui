@@ -1,0 +1,69 @@
+name: gesui original 2022 WISE6 TP stations to strictly directed WWTP freshwater sources (NO numeric TP)
+on:
+  push:
+    branches:
+      - "analysis/wise6-2022-TP-directed-WWTP-reaches-20261109"
+    paths:
+      - "scripts/gesui_2022_WISE6_TP_original_station_vs_directed_WWTP_sourceonly.py"
+      - ".github/workflows/gesui-WISE6-2022-TP-directed-sourceonly-500m-50km.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  strict-directed-reach-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original GIS, vector graph and API dependencies
+        run: python -m pip install --quiet numpy pandas geopandas shapely pyarrow requests
+      - name: Restore original 2022 EEA WWTP directed source code and publicly converted HydroRIVERS geometry with exact Git and SHA receipts
+        run: |
+          mkdir -p /tmp/gesui-directed-2022-original
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-directed-2022-original/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-directed-2022-original/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+          curl --fail --location --silent --show-error --retry 2 --max-time 100 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/6f037f65e9b948d6f8e324ad4eec9d8c03424b35/scripts/gesui_eea_nutrient_load_river_crosswalk.py \
+            -o scripts/gesui_eea_nutrient_load_river_crosswalk.py
+          test "$(git hash-object scripts/gesui_eea_nutrient_load_river_crosswalk.py)" = "9c07ce9de7f5104b47052c7598a943df405a4b83"
+          curl --fail --location --silent --show-error --retry 2 --max-time 90 \
+            https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_S_WISE_SpatialObject_DerivedData \
+            -o /tmp/gesui-directed-2022-original/EEA2026_WISE6_Spatial.zip
+          echo "afd64e1d5582492c09453f5a05aae0b1a9d9a38c8814778afdb5c07e43a1c974  /tmp/gesui-directed-2022-original/EEA2026_WISE6_Spatial.zip" | sha256sum -c -
+      - name: Source-blind 187 WISE6 2022 TP original monitoring site versus directed EEA WWTP 50km upstream and downstream source placebo
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_TP_original_station_vs_directed_WWTP_sourceonly.py
+          python -u scripts/gesui_2022_WISE6_TP_original_station_vs_directed_WWTP_sourceonly.py \
+            --TP-sourceonly results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json \
+            --spatial-zip /tmp/gesui-directed-2022-original/EEA2026_WISE6_Spatial.zip \
+            --river-parquet /tmp/gesui-directed-2022-original/HydroRIVERS_v10_eu.geoparquet \
+            --old-source-script scripts/gesui_eea_nutrient_load_river_crosswalk.py \
+            --out results/wise6_2022_riverTP_directed_WWTP_source_only/2022_EEA_WISE6_REALTP_SOURCE_ONLY_187_STATION_DIRECTED_50KM.json
+      - name: Persist all 187 original station source-only connections, negative controls, missed snaps and failures BEFORE opening numerical TP data in a directed model
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_riverTP_directed_WWTP_source_only/
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 187 source-frozen WISE6 2022 TP stations mapped to strict river-upstream EEA 2022 WWTP sources and downstream placebos"
+          git fetch origin analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git rebase origin/analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-WISE6-2022-real-riverTP-site-to-directed-EEA-WWTP-source-only
+          path: results/wise6_2022_riverTP_directed_WWTP_source_only/
+          retention-days: 90
+          if-no-files-found: warn
