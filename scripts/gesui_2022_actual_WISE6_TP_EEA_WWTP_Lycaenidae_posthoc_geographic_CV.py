@@ -195,8 +195,13 @@ def main():
         raise ValueError("TP analyte/unit not unambiguous")
     if wc["status"]!="POSTHOC_LANDCOVER_OUTOFREGION_PREDICTION_AND_PLACEBO_COMPLETED":
         raise ValueError("Original frozen 2022 landcover+photo source not final")
-    if w["original_2022_WorldCover43_SHA256"]!=sha(a.original_WorldCover_2022_photo) or p23["original_2022_WorldCover_land_photo_source_sha256"]!=sha(a.original_WorldCover_2022_photo):
-        raise ValueError("2021/2022/2023 photo records not source-locked to exact country/1degree grid")
+    # The numeric TP outcome is chained to the PRE-NUMERIC TP site-only
+    # source (not directly to the 2022 WorldCover file). The original
+    # source-only file in turn contains original WorldCover and 2023 SHA.
+    if w["original_PREnumeric_2022_TP_site_metadata_source_SHA256"]!="89cad5545966acf3def530ff3b6687a5f36a354ffccf4803599de21a210fbaa1":
+        raise ValueError("Numerical TP station source changed after original source-only gate")
+    if p23["original_2022_WorldCover_land_photo_source_sha256"]!=sha(a.original_WorldCover_2022_photo):
+        raise ValueError("Original 2023 source/photo records not source-locked to exact country/1degree grid")
     if h["original_2021_WorldCover2022_photo_source_full_SHA256"]!=sha(a.original_WorldCover_2022_photo):
         raise ValueError("2021 photo history not matched to original source grid")
     source={key(x):x for x in wc["all_original_same_sample_cells_2022_photo_counts_and_WorldCover_categorical_2021_covariates"]}
