@@ -111,6 +111,10 @@ def heldout(rows,outcome,source,with_preds=False):
         train=[x for x in rows if group(x)!=region]
         test=[x for x in rows if group(x)==region]
         X0,T0,X1,T1=design(train,test,outcome,source)
+        if isinstance(source,tuple) and len(source)==2:
+            # Nested incremental comparison: baseline already includes the
+            # SOURCE P model, added model includes P and observed river TP.
+            _,_,X0,T0=design(train,test,outcome,source[0])
         yt=arr(train,lambda r:target(r,outcome))
         yr=arr(test,lambda r:target(r,outcome))
         p0=ols(X0,T0,yt);p1=ols(X1,T1,yt)
@@ -142,6 +146,7 @@ def heldout(rows,outcome,source,with_preds=False):
        "source_MAE":float(np.mean([x["source_abs_err"] for x in pred])),
        "n_hyperparameters_tuned_on_test_data":0,
        "country_results":{},
+       "nested_WWTP_P_already_in_baseline_if_two_sources":bool(isinstance(source,tuple) and len(source)==2),
        "not_direct_2022_nutrient_chemical_mediation":True,
     }
     for c in ("DE","AT"):
