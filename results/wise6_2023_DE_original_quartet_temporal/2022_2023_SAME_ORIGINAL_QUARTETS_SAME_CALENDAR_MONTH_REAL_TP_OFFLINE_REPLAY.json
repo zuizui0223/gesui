@@ -1,0 +1,142 @@
+{
+  "UTC": "2026-11-09T11:21:56.723309+00:00",
+  "n_eligible_fourarm_quartets_after_numeric_QC": 4,
+  "n_original_country2deg_geographic_blocks": 3,
+  "no_true_wastewater_source_treatment_intervention_or_2023_reported_P_mass": true,
+  "original_2022_2023_same_exact_4site_and_calendar_month_quartet_records": [
+    {
+      "independently_recomputed_monthwise_difference": {
+        "02": -0.376704998928296,
+        "03": 0.47032868646027115,
+        "04": 0.18268992652054483,
+        "05": 0.4331254924668333,
+        "06": 0.8033498092850189,
+        "07": -0.9680464486046907,
+        "08": -0.32581078311869294
+      },
+      "no_year2023_WWTP_mass_or_true_dose_measured": true,
+      "original_2022_mean_gradient_over_identical_month_of_year": -0.13765499424412592,
+      "original_2022_quartet_index": 2,
+      "original_2023_mean_gradient_over_identical_month_of_year": -0.10637903937541328,
+      "original_2023_minus_2022_mean_gradient_on_same_months": 0.031275954868712645,
+      "original_country_2deg_source_block": "26_5",
+      "strict_original_same_calendar_months_in_both_years": [
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08"
+      ]
+    },
+    {
+      "independently_recomputed_monthwise_difference": {
+        "01": -0.44351321035399693,
+        "02": -0.5310666501106802,
+        "04": 0.5929365845035863,
+        "05": 0.7887577959830732,
+        "06": -1.1442270595757986,
+        "08": -0.015099621856210943,
+        "09": 0.06546078342291661,
+        "10": -0.11821275037047374
+      },
+      "no_year2023_WWTP_mass_or_true_dose_measured": true,
+      "original_2022_mean_gradient_over_identical_month_of_year": 0.08709858969985643,
+      "original_2022_quartet_index": 5,
+      "original_2023_mean_gradient_over_identical_month_of_year": -0.013521926344841617,
+      "original_2023_minus_2022_mean_gradient_on_same_months": -0.10062051604469804,
+      "original_country_2deg_source_block": "25_5",
+      "strict_original_same_calendar_months_in_both_years": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "06",
+        "08",
+        "09",
+        "10"
+      ]
+    },
+    {
+      "independently_recomputed_monthwise_difference": {
+        "01": 0.02346001040613377,
+        "03": 0.0015575114121229028,
+        "04": -0.393199378827918,
+        "05": 0.7212081897083293,
+        "06": -0.49257852264900404,
+        "07": -0.172838006807841,
+        "08": -0.7048549285927641,
+        "10": -1.0669468596613296,
+        "11": -0.06166382434809603
+      },
+      "no_year2023_WWTP_mass_or_true_dose_measured": true,
+      "original_2022_mean_gradient_over_identical_month_of_year": 0.7543619554115955,
+      "original_2022_quartet_index": 6,
+      "original_2023_mean_gradient_over_identical_month_of_year": 0.5159335321493326,
+      "original_2023_minus_2022_mean_gradient_on_same_months": -0.23842842326226302,
+      "original_country_2deg_source_block": "24_5",
+      "strict_original_same_calendar_months_in_both_years": [
+        "01",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "10",
+        "11"
+      ]
+    },
+    {
+      "independently_recomputed_monthwise_difference": {
+        "01": -0.012647980234609335,
+        "04": 0.2826488067801949,
+        "05": 0.5656948340118051,
+        "06": -0.38137362270847586,
+        "07": 0.7587524024380112,
+        "08": 1.038390717470513,
+        "09": -1.1694038891023726,
+        "10": -0.4241770609180302
+      },
+      "no_year2023_WWTP_mass_or_true_dose_measured": true,
+      "original_2022_mean_gradient_over_identical_month_of_year": 0.4808205761880472,
+      "original_2022_quartet_index": 7,
+      "original_2023_mean_gradient_over_identical_month_of_year": 0.5630561021551767,
+      "original_2023_minus_2022_mean_gradient_on_same_months": 0.08223552596712952,
+      "original_country_2deg_source_block": "25_5",
+      "strict_original_same_calendar_months_in_both_years": [
+        "01",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ]
+    }
+  ],
+  "original_2022_real_TP_numeric_months_file_SHA256": "b4c5afdbabebdf244c1124e826c7df074c913e6a17cf28dabf1e64e9dace8ff1",
+  "original_2022_sample_calendar_file_SHA256": "fca82e3e843433ff8d7bb71e3c878d190ee4ead18d8cf2e50e0bb2def312929d",
+  "original_2023_real_TP_numeric_months_file_SHA256": "5a12e5ba4454be0f2f6f2c045afa2808cc2a166fa7fb623d8c40883bed1ecff1",
+  "original_2023_sample_calendar_file_SHA256": "d5487b981389f6fe8714bf09525e4f9efb784b2a125ef5ac2009a28ad36cf0aa",
+  "posthoc_to_known_2022_positive_and_2023_year_temporal_test": true,
+  "schema": "gesui_2022_2023_DE_WISE6_realTP_original_same4arms_same_calendar_month_of_year_source_geoQC_v01",
+  "source_only_four_original_quartets_three_geoblocks_fixed_prior2023_numeric": true,
+  "strict_numeric_same_calendar_month_quartet_gate_pass": true,
+  "strict_original_same_month_year_to_year_comparison": {
+    "n_year_to_year_gradient_decreased": 2,
+    "n_year_to_year_gradient_increased": 2,
+    "no_causal_effluent_change_inference": true,
+    "original_2022_same_month_source_minus_control_mean": 0.29615653176384327,
+    "original_2023_minus2022_same_month_paired_quartet_mean_change": -0.05638436461777971,
+    "original_2023_same_month_source_minus_control_mean": 0.2397721671460636,
+    "original_exact_quartet_year_change_signflip_two_sided_fraction": 0.625,
+    "original_same_quartets_n": 4,
+    "year_change_9999_quartet_resampled_95pct_descriptive_interval": [
+      -0.171002328729519,
+      0.05675574041792106
+    ]
+  }
+}
