@@ -91,7 +91,7 @@ def main():
     if hashlib.sha256(natural).hexdigest()!=NATURAL_EARTH_SHA256:
         raise ValueError("Natural Earth50m country polygon original prior WorldCover source SHA changed")
     boundaries=geom(natural)
-    lines=origbytes.decode("utf8-sig").splitlines()
+    lines=origbytes.decode("utf-8-sig").splitlines()
     headers=lines[0].split(",")
     expected=["nutrient","WQ.ID","WQ.lat","WQ.lon",
         "HYRIV_ID","spatial_3deg_block",
