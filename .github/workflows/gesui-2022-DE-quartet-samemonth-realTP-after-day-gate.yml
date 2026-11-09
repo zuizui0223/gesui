@@ -1,0 +1,64 @@
+name: gesui Germany 2022 matched WWTP source vs registered-zero SAME MONTH real river TP gradients
+on:
+  push:
+    branches:
+      - "analysis/wise6-2022-DE-quartet-sameday-TP-20261109"
+    paths:
+      - "scripts/gesui_2022_DE_WISE6_4arm_same_month_realTP_after_date_gate.py"
+      - ".github/workflows/gesui-2022-DE-quartet-samemonth-realTP-after-day-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-2022-four-site-same-month-numeric-TP-after-metadata-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy
+      - name: Verify original 8 source quartets, original 32 site numeric QC and precommitted date-only source outcome-blind gates
+        run: |
+          test "$(git hash-object results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json)" = "8bd67be25968311ca16be4026888daa783fbe69f"
+          echo "28b679184cbebf6376f1c65d7c160f7511f057ff22787e98ff3fa265b617b261  results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json" | sha256sum -c -
+          python - <<'PY'
+          import json
+          p='results/wise6_2022_DE_quartets_exacttime/2022_DE_8WWTP_QUARTETS_EXACT_SAMEDAY_MONTH_SAMPLE_SOURCE_ONLY_GATE.json'
+          j=json.load(open(p))
+          assert j["NO_original_TP_numeric_resultObservedValue_or_LOQ_values_read"] is True
+          assert j["source_exact_fourstation_calendar_date_gate_PASS"] is False
+          assert j["source_same_calendar_month_fourstation_gate_PASS"] is True
+          print("GESUI_2022_MONTHLY_TP_ALLOWED_ONLY_WITH_SOURCE_ONLY_DATE_METADATA_GATE", j["source_quartets_ge3_same_month_n"])
+          PY
+      - name: Stream exact 2022 public EEA2026 TP original ZIP and calculate within-month four-arm actual source/control TP differences, no site re-selection
+        run: |
+          python -m py_compile scripts/gesui_2022_DE_WISE6_4arm_same_month_realTP_after_date_gate.py
+          python -u scripts/gesui_2022_DE_WISE6_4arm_same_month_realTP_after_date_gate.py \
+            --pre-numeric-original-dates results/wise6_2022_DE_quartets_exacttime/2022_DE_8WWTP_QUARTETS_EXACT_SAMEDAY_MONTH_SAMPLE_SOURCE_ONLY_GATE.json \
+            --original-32site-numeric-QC results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json \
+            --tempdir /tmp/gesui-DE-2022-original-WISE6-four-arm-monthly-TP \
+            --out results/wise6_2022_DE_quartets_exacttime/2022_DE_ORIGINAL_EEA_WISE6_SAMEMONTH_REAL_TP_WWTP_SOURCE_MINUS_SOURCEZERO.json
+      - name: Persist measured same-month TP source/control real contrasts and failed strict same-day gate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_DE_quartets_exacttime/2022_DE_ORIGINAL_EEA_WISE6_SAMEMONTH_REAL_TP_WWTP_SOURCE_MINUS_SOURCEZERO.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Test 2022 same-month original TP gradients for fixed 7 German WWTP source and registered-source-zero river quartets, strict same-day no-estimate"
+          git fetch origin analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+          git rebase origin/analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+          git push origin HEAD:analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-DE-WISE6-samemonth-7river-quartet-realTP-temporal-QC
+          path: results/wise6_2022_DE_quartets_exacttime/2022_DE_ORIGINAL_EEA_WISE6_SAMEMONTH_REAL_TP_WWTP_SOURCE_MINUS_SOURCEZERO.json
+          if-no-files-found: warn
+          retention-days: 90
