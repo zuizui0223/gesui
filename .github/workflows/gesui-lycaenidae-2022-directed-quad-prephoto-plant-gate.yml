@@ -1,0 +1,39 @@
+name: gesui source-only DE WISE6 8x8 river monitor Plantae photo effort BEFORE Lycaenidae
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109"]
+    paths:
+      - ".github/workflows/gesui-lycaenidae-2022-directed-quad-prephoto-plant-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source-only-2021-plantae-2km-5km:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Original 32 WISE6 station hashes / 2022 WWTP source freeze and 2019-2021 ONLY Plantae API
+        run: |
+          python -m py_compile scripts/gesui_2022_DE_WISE6_quartets_plant_effort_before_butterflies.py
+          python -u scripts/gesui_2022_DE_WISE6_quartets_plant_effort_before_butterflies.py \
+            --out results/lycaenidae_2022_wise6_directed_32_station_photo_sourceonly/2019_2021_ORIGINAL32_2KM_5KM_PLANT_ONLY_PREBUTTERFLY_GATE.json
+      - name: Preserve independent source/effort audit without querying butterfly response
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_wise6_directed_32_station_photo_sourceonly/2019_2021_ORIGINAL32_2KM_5KM_PLANT_ONLY_PREBUTTERFLY_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original WISE6 quartet independent 2019-2021 public Plantae photo support before butterfly outcome"
+          git fetch origin analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109
+          git rebase origin/analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-sourceonly-2019-2021-plantae-original32-stations-2km-5km
+          path: results/lycaenidae_2022_wise6_directed_32_station_photo_sourceonly/2019_2021_ORIGINAL32_2KM_5KM_PLANT_ONLY_PREBUTTERFLY_GATE.json
+          retention-days: 90
