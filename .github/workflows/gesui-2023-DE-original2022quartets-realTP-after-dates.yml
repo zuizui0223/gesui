@@ -5,6 +5,7 @@ on:
       - "analysis/wise6-2023-DE-original-quartets-time-support-20261109"
     paths:
       - ".github/workflows/gesui-2023-DE-original2022quartets-realTP-after-dates.yml"
+      - "scripts/gesui_2023_DE_original2022_quartets_same_month_realTP_after_date_gate.py"
   workflow_dispatch:
 permissions:
   contents: write
