@@ -1,0 +1,49 @@
+{
+  "EEA2026_original_published_full_individual_measurement_ZIP_URL": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
+  "HEAD": {
+    "accept_ranges_header": null,
+    "body_bytes_read": 0,
+    "bounded_body_sha256": null,
+    "content_length_header": "2024284753",
+    "content_range_header": null,
+    "content_type": "application/x-zip-compressed",
+    "http": 200,
+    "method": "HEAD",
+    "original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
+    "request_range": null
+  },
+  "bounded_range_start": {
+    "accept_ranges_header": null,
+    "body_bytes_read": 1024,
+    "bounded_body_sha256": "6e0be25d2c2741d8eff9b944f3cd5c7e243d0b6ae71d5ab0ddbc859a12661fa3",
+    "content_length_header": "1024",
+    "content_range_header": "bytes 0-1023/2024284753",
+    "content_type": "application/x-zip-compressed",
+    "http": 206,
+    "method": "GET",
+    "original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
+    "request_range": "bytes=0-1023"
+  },
+  "bounded_range_tail": {
+    "accept_ranges_header": null,
+    "body_bytes_read": 140000,
+    "bounded_body_sha256": "07888353ea1fc15699e148ad20d913c1fef3f2ffb4b9fb16fe4d1393708c1b0e",
+    "content_length_header": "2024284753",
+    "content_range_header": null,
+    "content_type": "application/x-zip-compressed",
+    "http": 200,
+    "method": "GET",
+    "original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
+    "request_range": "bytes=-131072"
+  },
+  "no_2022_TP_concentration_or_site_data_rows_read": true,
+  "no_2022_butterfly_photo_or_abundance_record_accessed": true,
+  "no_full_2GB_2026_individual_chemistry_ZIP_downloaded": true,
+  "original_ZIP_directory_when_range_supported": {
+    "range_response_contains_ZIP_EOCD": false,
+    "reason": "Server did not return 206 partial-content for tail probe"
+  },
+  "schema": "gesui_official_EEA2026_WISE6_original_2022_individual_TP_source_zip_range_and_size_gate_v01",
+  "source_only_failure_not_absence_of_DE_AT_2022_River_TP": true,
+  "utc": "2026-11-09T03:18:49.275962+00:00"
+}
