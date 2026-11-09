@@ -1,0 +1,477 @@
+{
+  "UTC": "2026-11-09T03:14:01.611087+00:00",
+  "WWTP_reported_P_tonnes_not_at_station_P_mgL": true,
+  "country_masked_geographic_quality": {},
+  "new_riverTP_vs_lycaenidae_three_layer_geographic_source_gate": false,
+  "no_numeric_river_WQ_results_used_to_select_country_cells": true,
+  "no_official_EEA2026_dated_disaggregated_data_unzipped_or_needed_here": true,
+  "no_original_TP_concentration_or_chemical_effect_values_loaded": true,
+  "no_photo_or_observer_personal_data_read": true,
+  "noncovered_WISE6_disaggregated_data_may_fill_aggregated_missingness": true,
+  "original_2022_WorldCover43_source_SHA256": "752f4411c7999f3065be2f8c4afd52ab36f53d517a3c0e4c1f39c08587b93a34",
+  "original_2023_photo_source_SHA256": "e0456f9ba98bae5e3dc182c666cbbbb18afff08cf58f73b3fdae3e4c8540c0eb",
+  "original_aggregated_reported_resultNumberOfSamples_ge4": true,
+  "schema": "gesui_EEA2026_original_WISE6_2022_countrymasked_RW_TP_aggregated_station_support_in_exact_42_Lycaenidae_cells_v01",
+  "source_2022_TP_cells_with_ge2_annual_aggregated_station_sources": 0,
+  "source_2022_TP_distinct_country2deg_source_blocks": 0,
+  "source_2022_TP_supported_cells_by_country": {},
+  "source_WQ2022_metadata_only_original": {
+    "2022_RW_observed_analyte_labels_top35": [],
+    "no_WQ_mean_or_median_TP_numeric_outcome_columns_parsed": true,
+    "source_row_counts": {
+      "annual_country_AT_2022_rows": 29111,
+      "annual_country_AT_all_year_rows": 382145,
+      "annual_country_DE_all_year_rows": 195978,
+      "invalid_annual_short_rows": 24,
+      "official_annual_data_records_checked": 6663213
+    },
+    "strict_total_phosphorus_2022_siteIDs_with_ge4_original_annual_samples": 0,
+    "strict_total_phosphorus_analyte_code_counts": {},
+    "strict_total_phosphorus_original_result_UOM_counts": {},
+    "strict_total_phosphorus_sample_period_counts": {}
+  },
+  "source_official_EEA2026_WISE_spatial_site_original_QC": {
+    "additional_duplicate_for_already_ambiguous_site_key": 11,
+    "different_positions_same_site_key": 2,
+    "spatial_country_AT_rows": 2923,
+    "spatial_country_DE_rows": 2170,
+    "spatial_invalid_latlon": 419,
+    "spatial_source_records": 104358
+  },
+  "source_official_EEA2026_aggregated_zip": {
+    "public_original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_AggregatedData",
+    "size_bytes": 199878007,
+    "zip_sha256": "8492c92702524ce23ac488cba62631f277b1e9bd4e5ea8ece3bea37569307b7c"
+  },
+  "source_official_EEA2026_spatial_zip": {
+    "public_original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_S_WISE_SpatialObject_DerivedData",
+    "size_bytes": 3394632,
+    "zip_sha256": "afd64e1d5582492c09453f5a05aae0b1a9d9a38c8814778afdb5c07e43a1c974"
+  },
+  "source_original_category_RW_only": true,
+  "source_original_year_2022_aggregated_total_P_label_exact": "Total phosphorus",
+  "source_zip_200MB_original_not_committed_or_uploaded": true,
+  "strict_2021_2022_2023_original42_photo_cell_station_metadata": [
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_6",
+      "lat_floor": 46,
+      "lon_floor": 13,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_7",
+      "lat_floor": 46,
+      "lon_floor": 14,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_7",
+      "lat_floor": 46,
+      "lon_floor": 15,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_4",
+      "lat_floor": 47,
+      "lon_floor": 9,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_5",
+      "lat_floor": 47,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_5",
+      "lat_floor": 47,
+      "lon_floor": 11,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_6",
+      "lat_floor": 47,
+      "lon_floor": 12,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_6",
+      "lat_floor": 47,
+      "lon_floor": 13,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_7",
+      "lat_floor": 47,
+      "lon_floor": 14,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_7",
+      "lat_floor": 47,
+      "lon_floor": 15,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "23_8",
+      "lat_floor": 47,
+      "lon_floor": 16,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "24_6",
+      "lat_floor": 48,
+      "lon_floor": 13,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "24_7",
+      "lat_floor": 48,
+      "lon_floor": 14,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "24_7",
+      "lat_floor": 48,
+      "lon_floor": 15,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "AT",
+      "country_2degree_block": "24_8",
+      "lat_floor": 48,
+      "lon_floor": 16,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "23_4",
+      "lat_floor": 47,
+      "lon_floor": 9,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "23_5",
+      "lat_floor": 47,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "23_5",
+      "lat_floor": 47,
+      "lon_floor": 11,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "23_6",
+      "lat_floor": 47,
+      "lon_floor": 12,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_5",
+      "lat_floor": 48,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_5",
+      "lat_floor": 48,
+      "lon_floor": 11,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_6",
+      "lat_floor": 48,
+      "lon_floor": 12,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_6",
+      "lat_floor": 48,
+      "lon_floor": 13,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_4",
+      "lat_floor": 49,
+      "lon_floor": 9,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_5",
+      "lat_floor": 49,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_5",
+      "lat_floor": 49,
+      "lon_floor": 11,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "24_6",
+      "lat_floor": 49,
+      "lon_floor": 12,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_4",
+      "lat_floor": 50,
+      "lon_floor": 9,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_5",
+      "lat_floor": 50,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_5",
+      "lat_floor": 50,
+      "lon_floor": 11,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_6",
+      "lat_floor": 50,
+      "lon_floor": 12,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_5",
+      "lat_floor": 51,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_5",
+      "lat_floor": 51,
+      "lon_floor": 11,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_6",
+      "lat_floor": 51,
+      "lon_floor": 12,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "25_6",
+      "lat_floor": 51,
+      "lon_floor": 13,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "26_5",
+      "lat_floor": 52,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "26_6",
+      "lat_floor": 52,
+      "lon_floor": 12,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "26_4",
+      "lat_floor": 53,
+      "lon_floor": 8,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "26_4",
+      "lat_floor": 53,
+      "lon_floor": 9,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "26_5",
+      "lat_floor": 53,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "27_4",
+      "lat_floor": 54,
+      "lon_floor": 9,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    },
+    {
+      "NO_TP_NUMERIC_CONCENTRATION_RESULTS_OPENED": true,
+      "countryCode": "DE",
+      "country_2degree_block": "27_5",
+      "lat_floor": 54,
+      "lon_floor": 10,
+      "official_2026_WISE6_original_TP_annual_year2022_distinct_station_n_ge4samples": 0,
+      "original_2026_waterquality_TP_2022_site_metadata": [],
+      "original_station_sample_support_ge2": false
+    }
+  ],
+  "strict_2021_2023_country_1deg_photo_sample_total": 42
+}
