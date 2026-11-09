@@ -1,5 +1,5 @@
 {
-  "UTC": "2026-11-09T07:17:59.498810+00:00",
+  "UTC": "2026-11-09T08:23:28.317196+00:00",
   "WWTP_same_reach_excluded_without_within_reach_order": true,
   "country2degree_blocks_with_strict_upstream_source": 20,
   "hydro_river_source_segment_count_in_EU_extent": 199545,
@@ -4112,28 +4112,28 @@
       "strict_upstream_qualified_WWTP_reported_P_native_t_year": 5.084
     },
     {
-      "HYRIV_ID": 20457204,
-      "HydroRIVERS_original_modeled_DIS_AV_CMS": 118.158,
-      "HydroRIVERS_original_upstream_basin_UPLAND_SKM": 7270.6,
+      "HYRIV_ID": null,
+      "HydroRIVERS_original_modeled_DIS_AV_CMS": null,
+      "HydroRIVERS_original_upstream_basin_UPLAND_SKM": null,
       "countryCode": "AT",
       "country_1deg_lat_floor": 46,
       "country_1deg_lon_floor": 15,
-      "distinct_upstream_qualified_source_reaches": 3,
+      "distinct_upstream_qualified_source_reaches": null,
       "original_2022_TP_numeric_values_not_read_for_source_matching": true,
       "original_WISE6_country_scheme_site_SHA256": "b3aa44876967956db42714bc486d5595c96159349a4b4e027f9c1019724b1708",
       "original_country2degree_block": "23_7",
-      "original_receptor_snap_m": 254.25128237064058,
+      "original_receptor_snap_m": null,
       "public_monitored_WGS84_lat": 46.90513,
       "public_monitored_WGS84_lon": 15.49083,
       "source_WISE6_TP_2022_distinct_sample_days": 12,
       "source_WISE6_TP_2022_distinct_sample_months": 12,
-      "source_apparent_P_load_over_modeled_avg_flow_mg_L": 0.0075217036620669545,
+      "source_apparent_P_load_over_modeled_avg_flow_mg_L": null,
       "source_same_reach_omitted_unknown_relative_withinreach_order": true,
-      "strict_downstream_50km_WWTP_placebo_P_native_t_year": 6.76421,
-      "strict_downstream_50km_WWTP_placebo_count": 7,
-      "strict_upstream_qualified_WWTP_count_50km": 3,
-      "strict_upstream_qualified_WWTP_reported_N_native_t_year": 544.1124,
-      "strict_upstream_qualified_WWTP_reported_P_native_t_year": 28.0468
+      "strict_downstream_50km_WWTP_placebo_P_native_t_year": null,
+      "strict_downstream_50km_WWTP_placebo_count": null,
+      "strict_upstream_qualified_WWTP_count_50km": null,
+      "strict_upstream_qualified_WWTP_reported_N_native_t_year": null,
+      "strict_upstream_qualified_WWTP_reported_P_native_t_year": null
     },
     {
       "HYRIV_ID": 20444122,
@@ -4509,10 +4509,11 @@
   },
   "original_2022_WISE_public_station_snap_500m_QC": {
     "all_original_points_attempted": 187,
+    "ambiguous_competing_nearest_reaches_within2m": 1,
     "max_source_snapped_m": 455.77577327760673,
-    "median_source_snapped_m": 106.47399229554134,
+    "median_source_snapped_m": 106.45828761028967,
     "points_not_snapped_within_500m": 13,
-    "unambiguous_snap_within500m": 174
+    "unambiguous_snap_within500m": 173
   },
   "original_2026_WISE6_spatial_source_SHA256": "afd64e1d5582492c09453f5a05aae0b1a9d9a38c8814778afdb5c07e43a1c974",
   "original_EEA_DCP_source_rows": 24416,
@@ -4679,30 +4680,30 @@
   ],
   "original_source_direct_FW_snap_500m_QC": {
     "all_original_points_attempted": 4057,
-    "ambiguous_competing_nearest_reaches_within2m": 2,
+    "ambiguous_competing_nearest_reaches_within2m": 11,
     "max_source_snapped_m": 499.7297662470601,
-    "median_source_snapped_m": 122.18184023014364,
+    "median_source_snapped_m": 122.14575072605246,
     "points_not_snapped_within_500m": 1088,
-    "unambiguous_snap_within500m": 2967
+    "unambiguous_snap_within500m": 2958
   },
   "original_source_directed_network_accumulation_QC": {
-    "distinct_original_source_reaches_with_eligible_WWTPs": 2816,
-    "receptor_reaches_with_strict_upstream_source": 11470,
-    "strict_source_downstream_reach_assignments": 31597
+    "distinct_original_source_reaches_with_eligible_WWTPs": 2807,
+    "receptor_reaches_with_strict_upstream_source": 11444,
+    "strict_source_downstream_reach_assignments": 31495
   },
   "original_station_source_support": {
-    "downstream_placebo_source_positive": 118,
+    "downstream_placebo_source_positive": 117,
     "original_2022_source_stations": 187,
     "registered_qualifying_upstream_source_zero": 60,
-    "station_not_unambiguously_snapped_within500m": 13,
-    "station_unambiguously_snap_within500m": 174,
-    "strict_upstream_exposed": 114,
-    "strict_upstream_exposed_AT": 59,
+    "station_not_unambiguously_snapped_within500m": 14,
+    "station_unambiguously_snap_within500m": 173,
+    "strict_upstream_exposed": 113,
+    "strict_upstream_exposed_AT": 58,
     "strict_upstream_exposed_DE": 55
   },
   "schema": "gesui_2022_EEA_WISE6_original_TP_187_stations_HydroRIVERS_directed_WWTP2022_SOURCE_ONLY_v01",
   "source_load_native_tonnes_year_as_reported_not_actual_2022_inriver_P": true,
   "source_zero_means_no_qualified_REGISTERED_original_WWTP_upstream": true,
-  "strict_source_positive_reaches_distinct": 112,
+  "strict_source_positive_reaches_distinct": 111,
   "thirdparty_converted_HydroRIVERS_mirror_NOT_independently_verified_against_official": true
 }
