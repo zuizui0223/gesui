@@ -1,0 +1,41 @@
+name: gesui original EEA 2026 individual WISE6 2GB source ZIP bounded range and archive size probe
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-measured-river-P-source-20261109"]
+    paths:
+      - "scripts/gesui_eea2026_wise6_disaggregated_original_zip_range_size_gate.py"
+      - ".github/workflows/gesui-2026-wise6-disaggregated-range-source-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  EEA2026_source_bounded_no_original_WQ_measurements:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Original official individual WISE6 2026 ZIP HEAD plus bounded range probes only, no numeric TP rows
+        run: |
+          python -m py_compile scripts/gesui_eea2026_wise6_disaggregated_original_zip_range_size_gate.py
+          python -u scripts/gesui_eea2026_wise6_disaggregated_original_zip_range_size_gate.py \
+            --out results/lycaenidae_2022_measured_river_P_bridge/EEA2026_WISE6_DISAGGREGATED_ORIGINAL_ZIP_RANGE_AND_SIZE_SOURCE_GATE.json
+      - name: Commit original source accessibility and archive size only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/EEA2026_WISE6_DISAGGREGATED_ORIGINAL_ZIP_RANGE_AND_SIZE_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record official EEA 2026 individual water chemistry source large ZIP range and uncompressed size access gate"
+          git fetch origin analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git rebase origin/analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-measured-river-P-source-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2026-original-2GB-individual-waterquality-ZIP-range-and-header-gate
+          path: results/lycaenidae_2022_measured_river_P_bridge/EEA2026_WISE6_DISAGGREGATED_ORIGINAL_ZIP_RANGE_AND_SIZE_SOURCE_GATE.json
+          retention-days: 90
+          if-no-files-found: warn
