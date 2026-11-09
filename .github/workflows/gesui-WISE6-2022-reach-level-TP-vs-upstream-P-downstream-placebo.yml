@@ -1,0 +1,51 @@
+name: gesui 2022 WISE6 real river TP 168 independent reaches vs strictly upstream WWTP P and downstream placebo
+on:
+  push:
+    branches:
+      - "analysis/wise6-2022-TP-directed-WWTP-reaches-20261109"
+    paths:
+      - "scripts/gesui_2022_WISE6_realTP_directed_WWTP_P_vs_downstream_placebo_blockCV.py"
+      - ".github/workflows/gesui-WISE6-2022-reach-level-TP-vs-upstream-P-downstream-placebo.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-precommitted-source-panel-gated-numeric-TP-CV:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install fixed quantitative inspection dependencies
+        run: python -m pip install --quiet numpy scipy
+      - name: Check immutable original PRE-numeric 170-site / 168-reach source-only panel and original 2022 TP source, compare strictly upstream WWTP P against downstream placebo
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_realTP_directed_WWTP_P_vs_downstream_placebo_blockCV.py
+          python -u scripts/gesui_2022_WISE6_realTP_directed_WWTP_P_vs_downstream_placebo_blockCV.py \
+            --original-source-frozen-panel results/wise6_2022_riverTP_directed_WWTP_source_only/2022_NUMERIC_ELIGIBLE_TP170_REGISTERED_UPSTREAM_WWTP_SOURCE_PANEL_FREEZE.json \
+            --original-numeric-TP results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_2022_MEASURED_TP_SITE_YEAR_MEDIANS_AND_42_LYCAENIDAE_CELLS_QC.json \
+            --out results/wise6_2022_riverTP_directed_WWTP_source_only/2022_REAL_TP_168_REACH_UPSTREAM_WWTP_P_VS_DOWNSTREAM_PLACEBO_BLOCKCV.json
+      - name: Commit directional source-to-river measured TP predictive successes and failures with original source SHA and 2deg regional blocks
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_riverTP_directed_WWTP_source_only/2022_REAL_TP_168_REACH_UPSTREAM_WWTP_P_VS_DOWNSTREAM_PLACEBO_BLOCKCV.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve measured river TP station/reach OOS tests of upstream 2022 registered P WWTP source vs downstream source placebo, not butterfly effect"
+          git fetch origin analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git rebase origin/analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-WISE6-2022-168-reach-original-realTP-directed-upstream-P-versus-downstream-placebo-blockCV
+          path: results/wise6_2022_riverTP_directed_WWTP_source_only/2022_REAL_TP_168_REACH_UPSTREAM_WWTP_P_VS_DOWNSTREAM_PLACEBO_BLOCKCV.json
+          if-no-files-found: warn
+          retention-days: 90
