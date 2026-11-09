@@ -1,0 +1,3694 @@
+{
+  "TP_source_cells_2deg_original_spatial_blocks": 21,
+  "TP_source_cells_with_ge2_by_country": {
+    "AT": 15,
+    "DE": 23
+  },
+  "TP_source_cells_with_ge2_stations": 38,
+  "no_adult_puddling_or_wastewater_causal_claim": true,
+  "no_butterfly_photo_API_queries_run_in_this_stage": true,
+  "no_original_numeric_river_TP_concentrations_or_LOQ_values_parsed": true,
+  "note_bulk_2GB_zip_not_committed_or_shared": true,
+  "one_country_1degree_photo_reporting_tile_is_not_a_single_river_reach": true,
+  "original_2022_TP_country_coordinate_and_cell_join_QC": {
+    "AT_2022_TP_date_supported_all_national_sites": 100,
+    "AT_2022_TP_sites_in_original_42_Lycaenidae_photo_cells": 83,
+    "AT_2022_TP_sites_with_actual_original_country_geocoordinates": 87,
+    "AT_TP_2022_site_outside_NaturalEarth50m_country": 13,
+    "DE_2022_TP_date_supported_all_national_sites": 242,
+    "DE_2022_TP_sites_in_original_42_Lycaenidae_photo_cells": 104,
+    "DE_2022_TP_sites_with_actual_original_country_geocoordinates": 214,
+    "DE_TP_2022_site_outside_NaturalEarth50m_country": 13,
+    "DE_TP_date_supported_site_unlinked_to_original_WISE_coordinates": 15,
+    "DE_TP_site_less_than4dates_or3months": 3
+  },
+  "original_2022_TP_date_supported_stations_in_42_photo_cells": 187,
+  "original_2022_TP_sample_country_analyte_and_station_metadata": {
+    "NO_NUMERIC_TP_CONCENTRATION_FIELDS_PARSED_OR_READ": true,
+    "all_source_rows_and_country_year_category_counts": {
+      "original_2026_WISE6_individual_total_source_rows_streamed": 102569057,
+      "original_AT_2022_RW_sample_rows": 59396,
+      "original_AT_2022_RW_total_phosphorus_sample_rows": 1281,
+      "original_AT_2022_non_RW_GW": 24834,
+      "original_AT_2022_non_RW_LW": 23405,
+      "original_AT_2022_sample_rows": 107635,
+      "original_AT_all_year_individual_records": 1338195,
+      "original_DE_2022_RW_sample_rows": 165782,
+      "original_DE_2022_RW_total_phosphorus_sample_rows": 3690,
+      "original_DE_2022_non_RW_GW": 94752,
+      "original_DE_2022_non_RW_LW": 6339,
+      "original_DE_2022_non_RW_TW": 2221,
+      "original_DE_2022_sample_rows": 269094,
+      "original_DE_all_year_individual_records": 1936320
+    },
+    "country_2022_RW_determinand_label_counts_top": [
+      {
+        "analyte": "Water temperature",
+        "country": "DE",
+        "n": 5937
+      },
+      {
+        "analyte": "Dissolved oxygen",
+        "country": "DE",
+        "n": 5893
+      },
+      {
+        "analyte": "pH",
+        "country": "DE",
+        "n": 5884
+      },
+      {
+        "analyte": "Nitrate",
+        "country": "DE",
+        "n": 4607
+      },
+      {
+        "analyte": "Chlorine Cl-",
+        "country": "DE",
+        "n": 4108
+      },
+      {
+        "analyte": "Total phosphorus",
+        "country": "DE",
+        "n": 3690
+      },
+      {
+        "analyte": "Ammonium",
+        "country": "DE",
+        "n": 3508
+      },
+      {
+        "analyte": "Total organic carbon (TOC)",
+        "country": "DE",
+        "n": 3476
+      },
+      {
+        "analyte": "Total nitrogen",
+        "country": "DE",
+        "n": 2998
+      },
+      {
+        "analyte": "Mercury and its compounds",
+        "country": "AT",
+        "n": 2329
+      },
+      {
+        "analyte": "Nickel and its compounds",
+        "country": "AT",
+        "n": 2318
+      },
+      {
+        "analyte": "Copper and its compounds",
+        "country": "AT",
+        "n": 2318
+      },
+      {
+        "analyte": "Aluminium and its compounds",
+        "country": "AT",
+        "n": 2318
+      },
+      {
+        "analyte": "Zinc and its compounds",
+        "country": "AT",
+        "n": 2318
+      },
+      {
+        "analyte": "Lead and its compounds",
+        "country": "AT",
+        "n": 2312
+      },
+      {
+        "analyte": "Chromium and its compounds",
+        "country": "AT",
+        "n": 2312
+      },
+      {
+        "analyte": "Arsenic and its compounds",
+        "country": "AT",
+        "n": 2312
+      },
+      {
+        "analyte": "Uranium",
+        "country": "AT",
+        "n": 2312
+      },
+      {
+        "analyte": "Cadmium and its compounds",
+        "country": "AT",
+        "n": 2312
+      },
+      {
+        "analyte": "Selenium and its compounds",
+        "country": "AT",
+        "n": 2306
+      },
+      {
+        "analyte": "Iron and its compounds",
+        "country": "AT",
+        "n": 2296
+      },
+      {
+        "analyte": "Manganese and its compounds",
+        "country": "AT",
+        "n": 2296
+      },
+      {
+        "analyte": "BOD5",
+        "country": "DE",
+        "n": 2042
+      },
+      {
+        "analyte": "Atrazine",
+        "country": "DE",
+        "n": 1825
+      },
+      {
+        "analyte": "Isoproturon",
+        "country": "DE",
+        "n": 1825
+      },
+      {
+        "analyte": "Cadmium and its compounds",
+        "country": "DE",
+        "n": 1794
+      },
+      {
+        "analyte": "Lead and its compounds",
+        "country": "DE",
+        "n": 1786
+      },
+      {
+        "analyte": "Nickel and its compounds",
+        "country": "DE",
+        "n": 1785
+      },
+      {
+        "analyte": "Metolachlor",
+        "country": "DE",
+        "n": 1713
+      },
+      {
+        "analyte": "Terbuthylazine",
+        "country": "DE",
+        "n": 1685
+      },
+      {
+        "analyte": "Benzene",
+        "country": "DE",
+        "n": 1684
+      },
+      {
+        "analyte": "Trichloroethylene",
+        "country": "DE",
+        "n": 1681
+      },
+      {
+        "analyte": "Tetrachloroethylene",
+        "country": "DE",
+        "n": 1681
+      },
+      {
+        "analyte": "Trichloromethane",
+        "country": "DE",
+        "n": 1672
+      },
+      {
+        "analyte": "Chlortoluron",
+        "country": "DE",
+        "n": 1648
+      },
+      {
+        "analyte": "1,2-dichloroethane",
+        "country": "DE",
+        "n": 1622
+      },
+      {
+        "analyte": "Dichloromethane",
+        "country": "DE",
+        "n": 1610
+      },
+      {
+        "analyte": "Carbon tetrachloride",
+        "country": "DE",
+        "n": 1610
+      },
+      {
+        "analyte": "Benzo(a)pyrene",
+        "country": "DE",
+        "n": 1496
+      },
+      {
+        "analyte": "Benzo(g,h,i)perylene",
+        "country": "DE",
+        "n": 1491
+      },
+      {
+        "analyte": "Benzo(b)fluoranthene",
+        "country": "DE",
+        "n": 1490
+      },
+      {
+        "analyte": "Benzo(k)fluoranthene",
+        "country": "DE",
+        "n": 1484
+      },
+      {
+        "analyte": "Fluoranthene",
+        "country": "DE",
+        "n": 1484
+      },
+      {
+        "analyte": "Carbendazim",
+        "country": "DE",
+        "n": 1470
+      },
+      {
+        "analyte": "Chlorfenvinphos",
+        "country": "DE",
+        "n": 1462
+      },
+      {
+        "analyte": "Selenium and its compounds",
+        "country": "DE",
+        "n": 1462
+      },
+      {
+        "analyte": "Anthracene",
+        "country": "DE",
+        "n": 1453
+      },
+      {
+        "analyte": "Simazine",
+        "country": "DE",
+        "n": 1438
+      },
+      {
+        "analyte": "4-nonylphenol, branched",
+        "country": "DE",
+        "n": 1436
+      },
+      {
+        "analyte": "Chlorpyrifos",
+        "country": "DE",
+        "n": 1432
+      },
+      {
+        "analyte": "Thallium",
+        "country": "DE",
+        "n": 1430
+      },
+      {
+        "analyte": "Diuron",
+        "country": "DE",
+        "n": 1429
+      },
+      {
+        "analyte": "Terbutryn",
+        "country": "DE",
+        "n": 1426
+      },
+      {
+        "analyte": "Mecoprop",
+        "country": "DE",
+        "n": 1418
+      },
+      {
+        "analyte": "MCPA",
+        "country": "DE",
+        "n": 1406
+      },
+      {
+        "analyte": "Naphthalene",
+        "country": "DE",
+        "n": 1404
+      },
+      {
+        "analyte": "Cybutryne",
+        "country": "DE",
+        "n": 1404
+      },
+      {
+        "analyte": "Silver",
+        "country": "DE",
+        "n": 1400
+      },
+      {
+        "analyte": "Trifluralin",
+        "country": "DE",
+        "n": 1385
+      },
+      {
+        "analyte": "Alachlor",
+        "country": "DE",
+        "n": 1370
+      },
+      {
+        "analyte": "Metazachlor",
+        "country": "DE",
+        "n": 1349
+      },
+      {
+        "analyte": "Dichlorvos",
+        "country": "DE",
+        "n": 1347
+      },
+      {
+        "analyte": "Quinoxyfen",
+        "country": "DE",
+        "n": 1337
+      },
+      {
+        "analyte": "Bifenox",
+        "country": "DE",
+        "n": 1286
+      },
+      {
+        "analyte": "Oxygen saturation",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Dissolved organic carbon (DOC)",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Total organic carbon (TOC)",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Total suspended solids",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Hardness",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Electrical conductivity",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Calcium",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Magnesium",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Sodium",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Potassium",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Ammonium",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Nitrite",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Nitrate",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Chloride",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Dissolved oxygen",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Sulphate",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Phosphate",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Total phosphorus",
+        "country": "AT",
+        "n": 1281
+      },
+      {
+        "analyte": "Water temperature",
+        "country": "AT",
+        "n": 1280
+      },
+      {
+        "analyte": "pH",
+        "country": "AT",
+        "n": 1280
+      },
+      {
+        "analyte": "Acid neutralizing capacity",
+        "country": "AT",
+        "n": 1279
+      },
+      {
+        "analyte": "Diflufenican",
+        "country": "DE",
+        "n": 1278
+      },
+      {
+        "analyte": "BOD5",
+        "country": "AT",
+        "n": 1276
+      },
+      {
+        "analyte": "Chlorobenzene",
+        "country": "DE",
+        "n": 1269
+      },
+      {
+        "analyte": "Flufenacet",
+        "country": "DE",
+        "n": 1261
+      },
+      {
+        "analyte": "Pirimicarb",
+        "country": "DE",
+        "n": 1251
+      },
+      {
+        "analyte": "Prometryn",
+        "country": "DE",
+        "n": 1250
+      },
+      {
+        "analyte": "Epoxiconazole",
+        "country": "DE",
+        "n": 1244
+      },
+      {
+        "analyte": "Aclonifen",
+        "country": "DE",
+        "n": 1243
+      },
+      {
+        "analyte": "Fenpropimorph",
+        "country": "DE",
+        "n": 1239
+      },
+      {
+        "analyte": "Dimethoate",
+        "country": "DE",
+        "n": 1239
+      },
+      {
+        "analyte": "Hexazinone",
+        "country": "DE",
+        "n": 1237
+      },
+      {
+        "analyte": "Propiconazole",
+        "country": "DE",
+        "n": 1228
+      },
+      {
+        "analyte": "Ametryn",
+        "country": "DE",
+        "n": 1218
+      },
+      {
+        "analyte": "Malathion",
+        "country": "DE",
+        "n": 1200
+      },
+      {
+        "analyte": "Chloridazon",
+        "country": "DE",
+        "n": 1194
+      }
+    ],
+    "country_2022_RW_total_phosphorus_analyte_code_counts": [
+      {
+        "code": "CAS_7723-14-0",
+        "country": "DE",
+        "n": 3690
+      },
+      {
+        "code": "CAS_7723-14-0",
+        "country": "AT",
+        "n": 1281
+      }
+    ],
+    "country_2022_RW_total_phosphorus_original_matrix_counts": [
+      {
+        "country": "DE",
+        "matrix": "W",
+        "n": 3690
+      },
+      {
+        "country": "AT",
+        "matrix": "W",
+        "n": 1281
+      }
+    ],
+    "country_2022_RW_total_phosphorus_original_water_sample_unit_counts": [
+      {
+        "country": "DE",
+        "n": 3690,
+        "unit": "mg{P}/L"
+      },
+      {
+        "country": "AT",
+        "n": 1281,
+        "unit": "mg{P}/L"
+      }
+    ],
+    "original_2022_RW_TP_site_count_any_water_samples": 345,
+    "original_2022_RW_TP_sites_ge4_distinct_sample_dates_and_ge3_months": 342,
+    "original_source_2026_WISE6_member_uncompressed_bytes": 36043700357
+  },
+  "original_2022_WorldCover43_SHA256": "752f4411c7999f3065be2f8c4afd52ab36f53d517a3c0e4c1f39c08587b93a34",
+  "original_2023_frozen_photo_source_SHA256": "e0456f9ba98bae5e3dc182c666cbbbb18afff08cf58f73b3fdae3e4c8540c0eb",
+  "original_42_country_1degree_photo_cells_and_WISE6_TP_stations": [
+    {
+      "1deg_lat_floor": 46,
+      "1deg_lon_floor": 13,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "483618d0f6dc2cd11f9b3d87540e45eba9f349e8b64673bc96c9ba2e63bb9ef4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "300dd54c7ae739d5b958fc075b86e55c0d94067220ae3c66710944ef1fcf940d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 46,
+      "1deg_lon_floor": 14,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_7",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 8,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "6fa579ac6d0ebd9c8d7ce2eb4d2b3d7f12d5eefca0205bab9b8c428c31ecea66",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "116ec2744df8266bcab785e760803947242004c3850edae14fc61769b5361fb8",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "337cd0a14709a5a9dac4dc64b2f05f17c75df3cbaeb0fa0ea3eaf68c8d818697",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "29ad627e74c5311b957fa977394108caf3cc79f853b05fa6025ba49fe488d995",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "5b6e7ce77d4459ba1b5f783cccffdf9638ea41a26a722e8d643ca9c81c66fb4f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "18f746f1591ed6262c9b2c15b39ffd928103b5a0daaf3c0ddf7894f2fe8f122f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "b1ea19fbc3bc2c0b5238a61ac7fb80aa8eababd7e5f8f4fec3a6e2516807adaa",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "9e2ce5a290c9f2587976a6532c352fa0cf74456ac53cee6ec788eb3dd0f81a9b",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 46,
+      "1deg_lon_floor": 15,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_7",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 5,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "b3aa44876967956db42714bc486d5595c96159349a4b4e027f9c1019724b1708",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "130e574509e5406ddf16a6165d2fe4919ac62c7f82911c6dbf2f8e7d504425fd",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "a822b04523c57f41eb6d6c897f213de42cf123ecb9f8e4d6781bf8691542825d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "65d194d49016c290d56441eac039852dd3346e5f1b019b37629a2f69a1137279",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "5060df47cd02dd8c4da61067ed169dd75ec5cc291e4b5a31b1c24f2121a757a2",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 9,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_4",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 7,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "be870483eb86237ddece45e21ce0a8443aa761e4e3b27b697f795212d743113a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "9b973f4e0120f1e5493406970051d284b664b56889479a8a5b233cc036417b79",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4279774759c899bff0043ca258ec08d31c87f04a11ef54cd85a68e8424207c72",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "706b35981d835862bd7bff15f8b458fc275d69d6cce4363aa4905b12716a872d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "84459dbf9f2bf066db5362382e9d2700a2add57b49dbbcee5f462be871228058",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "3a633284ba6e2f7b1d18a69e24acef9e0167279c68cfb07e30368ad9b5ccf517",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "3a244a25eccfd63fceaf4732bceb1cfdbd75a2376e3016fb78a9661b4d3de5b4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 3,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "7226ff471a15c443a344e8835a89845616a33efc0bd054cdc3dc78331c2a41e0",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "210a1714aadc65dcf1691d3d4b248159b5925c1ff46f9f14d5c53fd442582bfd",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d3465586c3dbdf9dc34dc852c56c49343680ae993a48ef0d11f5d5fb6a3590a3",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 11,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 3,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "56308d1387fa5674b87043bdd180f238a868c371a3eac3a12f455ff259df6bf8",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ea3d492f29f67862d77d328b8b6607515f3760fdf2f9b81d5535cc52c58fc917",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "7f7c3caec80cdda6176b5f7f7562ef0db5e2586f2824e7fcc161895f9e6d8f72",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 12,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 3,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d9af71bbbf76996e5a22e6d9cefd54402cd5eca3fa81c4cb2dbd311844c57f15",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4909970e6ff692febf5d41f4c667cbb7cb44778d793983ca3d47cb72879d2b54",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "6c88eb4574dc3b4dba84ca7953f327667da8314236f4cc2f138ef3d45b736899",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 13,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 7,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "9a3d92b1889a59535b2f91eb5e37fed03fcc87e562157b9949e2b1d62375ffb6",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "5fab0e560761f67850e8d2514dea6aeb7d27816498d5a7db0448595bb9a8cf3d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ac83054852e489539d151cc3f831f93e7d3616097cd239ddbcad1f8e84e7e55a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "55cc3f740c30f6917f74fc78eb799debe032f8070554e766eb972d212eb3f974",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "12f592d77f30f5da80dfc38c7cf136a259c15f229da74e377d3d59160c507f8c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d1bc2bb63c06c0dd23e458929d5153897c9aba5236a264cd6c5e82ccd8114a5c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "76ea836d703282a433bf6b245ce64dba1c47a758e5f2558185d81919441abf20",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 14,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_7",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 3,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "70628bca64fe38d25e876d9553ced2c2ee11af06d47e6d1d68af4090a15416d7",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4c5ea3cf80de20035e41e255393de4a8d271206344b463aa7c76fc50943206a0",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "33cab00f78c43c7241556594f997a586bee5b982062d6ff931c9c241f47b5976",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 15,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_7",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 8,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c6465d1bec83fc793a0e4e09212b7b20971b92211da4b315c3c5c5c6c74a6a42",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "17b764b6b99e085ef72b213646a688fbe7ea7a12458cb5c939587093f1d4c96f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e99f2fd61d42b9f867fee6cc6e9ec8235ec44ccd7c50908ade2ffc2e81d750a2",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "87ecddcf3ced0bd4365d5c38850b3505fe0a0fdc90ba86b7fb84ac9cbbc98438",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "74ba668783024304b57a3281aa73d5083817bd15bf99db669c5b425b5b288bdc",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "fdba32f7156a7a6de14474a9686f5b265872532024317801da33cd183eb65965",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "572c7527134a3640ffa3b5d8aa2d9409d69ce82291c96b8150ce252fa163c2f4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d45292ea31e162a9b50343c78c5b1ce3b28a3a1c661bb927ac705f24a53f95ac",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 16,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "23_8",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 5,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "87b446f7316f5258486c08e94564a357e9fa9416d7c04a99c7dbf979dadf8b0c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "0bcc4eb70765ab39c00fd5a30728cfb0452ff3f4641d3f88c7b57549cb724ecb",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ca3310e1ba4d8cfdbb93cdcc023a0c81cc146e3e73cc6a047f7df66278586ae0",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c5ab24e68d7b677f6577fff8d82adf3823302aae70dbf6d39d8ce2f041510d3e",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "8bb0b54c55ca1b4c3587b39c917add94149787dbaa018d679479412423043c1f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 13,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "24_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 5,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "2d50b51df1c1f0506a0161c85aab686a6e3f4af3bdd2865cb5b477307d79b523",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e7d05451746a26d6b8c73cecbef306e50c41a6d35b092e9430bca3531346997a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4c145c868494d4455a6eee5aa021aacc69068115f18139e2cdf22a9aed71090c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ab0d9d255f9f2ebeb0565da4113ba9baf3df13006b2786df91df093b94f2a6c5",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 8,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "5b89fc579aa54cfd98047622f736a5f0edd0b90e69ae0e418c14ae7c0b89ba21",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 14,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "24_7",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 8,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "9a27651c728e59cc3363bd23b982397e947d88d9e2db61fa65c58c38d867c70b",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1b2f2a487234b9957fe1198e4c8d2d3e5b736a5ba13bfb03e276aff73e532e8f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "273fa33f8388896d329d25e6fdf96e7f5e5fd253d97e160e86c9047bb89673d0",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "9091fc82df71ce65e2fb2fa51a819e3bb6a01a814ab3b4b84607dfcc1d66ce5a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "96549487c876b71795130f92ed2f6a9d5dd6a90b67330416b5109a6d2b034e9e",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "2901a9568c110272b65e05a1c6d0c9c3ca98a3ebeb5a109db98b9bc45d14be0a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "a33c53493d87775234eb346634913afd77eebe0ef36b732ee7569163bb126cb6",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "dac4a0903f86263e78575de2ac8ddb7cef5417381a1728efc23238819313a059",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 15,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "24_7",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 5,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "70f0318cce86711cd2e12d177632f2cd615ddc5320ef040f97e71ca055dc22d6",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4c4e8ad5cedb880d7fe592fe212772adae1104170dab0b60070689e536e72d87",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "2e7f403567b0a40eacaa4abfc23b587a43608b674c1eaf958e63e2444fff7a36",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1d47f3b014c0edd0efdaa6c0dfa82855524400b008c1a80f669b17b8dda7fe8a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "355332e56427d6041365ce96d521cc4aff34c3d278a99001e9503ec0f31a2c83",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 16,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "AT",
+      "original_2deg_spatial_validation_block": "24_8",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 11,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "affe38e1a6f25e5709363e620ca9e931e243abb70a7c88e5a13fe699d3e5623b",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "91e041a2348a14ac7d962f14ab761cf3106f9f8e8600976e3615b4785329f8da",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e477064a37f820c09bfbc8219ae5c86157c9113ecda169387c3fd59b4ddddeb1",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4e123038ce48d284fef079715288fb3ab9d8173c52edc23aab783c28bcb949b7",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "24b34255300bd14f7500017ab4e213ff3795c2d8de3756f1bd80febfddc6de2e",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "896c584427c5690ed932c522fb741b65a90dd71b083cb0c4327be6e17ca7fc76",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "df5975873ee0596c3d7b8f8abad0d75f44ff9e6fde9685be59506180ca23ec24",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "f535c7ed09db19ca6445178320b82812f3dce8dc27197e073c71536d78c7730c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "36c4d922119fb66cda9bd1e359ab419e86176a88c58abc33044e31b271b6f85c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "5dd1ce3f5502ec11ee8721e6293c9716e039d97555ad28f5fd68b41bba2d7f0e",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "63ecaded0e1379bbf366cf56c5caa37db32f05bc8432ebcf02a022b7cb175c49",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 9,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "23_4",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 3,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "53065a89b120682ed50c8d8ca89b19e0ac20ea3fed250c48c7713047310c543e",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 13,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 13,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "44cfbdc111bc74de05128ab0bb9a312287ef504a1b103ea654255f8c715d2dce",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "9e14db0790966f4942341e4ba47043f590ac29f89690c6f1dcee537bf5a45d5c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 13,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 13,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "23_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 1,
+      "original_ge2_TP_monitoring_sites_cell": false,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "a557aadee40844607a397009d9e5b8792cdbc082ba14ca6c5b45046233e0840b",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 11,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "23_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 3,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d3b13c8c5818890cbe9fd7585dd838227fd487cc2e1579c362ab100a92aa8a2d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "3dd7512d1c6b93c036bf1ccce5763a4fca19803cff0491e511e656c24861bf1c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "bcb0c7d3ee895d744379465c94262c70545926570a87e9538a44755330dc988d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 47,
+      "1deg_lon_floor": 12,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "23_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "2c2ae4beccf1df72096b307a8aa1b263772e22622279aba5cf92c542397b1812",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "200850f93bc212c7a9aad6d0db5eeb1e9aa0673b62693d8c2ac40070033241a2",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 8,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d6867743109190aa47493c1935a569c5fc5930fc10ec6948a2e9cafa81e5e437",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e9e457802081ebcb5b7e0a414a33832efa66579cc9161e2ebe0495ec91d03b41",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "bfc364c4d7e4451b823bf53726d8b6e1d6bba3d05dfda850736d14c97f5ed07b",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "6121b567ad8aa9c7a69b812136f99badf3c8f5bfb55e69cbe1c7297832afbbea",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1f034f616cfb39160faca25c64bbea49305a021c5a39824798243a23a17865ea",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "eb614b4fdb7aba0217800b30784892c38986f6e023eba70c0e3a01c40150405f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c5a627dfb7c6d38f71a5b62511b5e6bc31b134068dd5c3259e601efda21a5f16",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 13,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 13,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d499d05f3c085cc25a369ad9517e134cce397f41d162eb7da6c2ffc7af8707a8",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 11,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 5,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "43d3a9eda1d680708047a41b1d9c57a85f264fa051c8e57aaaffa513a0ba402a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "f8d66be775bba226f80f359554691376cff75874d2f993aa4b40462a82544568",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "864c2f6c684bd3c6a989c3d882f65d105283cb7cbd09bef5aeb5859cb8a5609f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1a8c89cfe67d018b5b7162b31b493c7425b00dcde7e50494b0a0ab8ae72f4a33",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "656a85e6aa2a1eda66bbb3c86c100c1462fd0641ebb072809720f329023585c3",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 12,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 4,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e656abff31dc06586b7e492ef12e380824e4ce854bfb8a6a532c82356ab513f2",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d60a1a9b51e5675cd10d95ef56446c6e44dbc31cf6a6beaec70368e520445df0",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1534701e02df23b7078748f1081a2116cd6d57985629b78cefbc5a900bbdd1c0",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "13dc0764efa7b329efe7594a1fdf80c6c555d5dc3a7e0adc26781b1d78b0b569",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 48,
+      "1deg_lon_floor": 13,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 6,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c0dd81b5c2544b551fc1d17bfc533115f4bd7be1100715fa783fcd76f8bd5da2",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c78ef380881c60de90db191ee6375d720e7f753caf500bdfdd5d1fac13e7cc0f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1101c6618dce4c2afbd8f390dce9249c82cc6955dca11aee32bcff7e33ada511",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "938b83422ac83f75327bcf89d7184910370299a12b8c48b1cdeedf5c514fdb36",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c4b20d192160347cf332a915e6a1eba13186f93328485b5d0a0c50d3fe7b4f30",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "2bdbf52bd87417ba43afe0cc0b4f99f967d5187c93600d1182da239b75f8bb39",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 49,
+      "1deg_lon_floor": 9,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_4",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 6,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "3422f7cb928e7f49e4e12be6bf927cd1570ce0d9fa823b877685e1366b958730",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "b59199abdf9684c923d738effc14fe1e55659de58174c0dd84f918f6c7d71de4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 26,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 26,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c256dbdaa0ef745976d93310711fc026bb88df12f3dce92386d24e78f6173b85",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 26,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 26,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "94c5043cececb045fedd09021bbbf48ee7ba182365581847f79b88ae2e2cf81f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 26,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 26,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "644119729c22561decbb7df7ef97d4bb440fca62796a79236e8faf2db3b8ecd7",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e0d406f5a6f1af4de1fcdaf51acba6cc8089f46090acfe4e0fdea790fb5192f3",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 25,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 25,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 49,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "a487e1539ff2c41344b4690688258fc0789e6e08be4ecf47ebf62df35d431f42",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e7657a0da584b48775457b0b3db2d5e105a400656a7e0ffc8154d96761915939",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 49,
+      "1deg_lon_floor": 11,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 3,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "14e060a2d1315182fa82af5f28fb0db7702b0592d9376388dc06009a212dff3b",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "8aec2f050c919c84a91b8ecb4acee1c41fe8ac3ced9bc4ef141ae6ecce629a0d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "bf30767d2515b346ff6b6429463ccfbd14a0bd49f7baa7073a5c2ca6ae84f6ba",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 49,
+      "1deg_lon_floor": 12,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "24_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 1,
+      "original_ge2_TP_monitoring_sites_cell": false,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "562cc2727dc1c39cd97be3024ea8bcf04790a578d4652e2f6c05dca6ee157b1d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 50,
+      "1deg_lon_floor": 9,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_4",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 1,
+      "original_ge2_TP_monitoring_sites_cell": false,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "3198cf00210e903490ea920898990ad1451513f450091f966e6b9714a514776a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 50,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "cf906a4f9031db945b71eb9dd46b3fc14e253250bafbf721e948ad1385241f35",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e886576dacbb8ddd961c0e16a2f536c44a424ccaca38c58493c55509dc4ab848",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 50,
+      "1deg_lon_floor": 11,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e3f3746b99437cb69c81ea517dd8c4fa8bb5f91f4318d56f9c6410bb65b8f1a0",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "71f5b352787d4d870061c37da7871db28bc23a01cf08c94d86d9e9adef38fc05",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 50,
+      "1deg_lon_floor": 12,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "38640162d9d9a13ba7b694332dee18f278a9094605bbd46da26130e8ad436b5c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "7863343eac0d101d32b9ea4cb253464af49450d8afe79ebe4d1713d8afbc0bc7",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 51,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 1,
+      "original_ge2_TP_monitoring_sites_cell": false,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "2c1566d05905a36f5432d425371914d9c6693581af5bebee1528c730e64f26c4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 51,
+      "1deg_lon_floor": 11,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 8,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c52f8f536ecbc3430cc65e9fdd6ff659f0b514c3aa4a9a5e375e8f516932c09d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "bd5d4d5d1e136c91cdd86c2f9b53ddd74255521a7fb7220da1e7bc636c673c33",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "3942f113a1898ea8982f233ce48417d401b830d5f973c7ec4c838e1f5d98872c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 10,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 10,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "e159bf65014e56357ffa3b71d5ba95f095aa91ab38eba3da821df75911df6851",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "0fb4be0eac27af4222c14605cc966b149a427921677c3f5e17671b22d5accf5d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "3cc248152443873c0352035ad328803c91d40113fa977c3c25cd54422a603453",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "7a0a347dec9715478ded435a60d0fb1e595fb990d18eedb57e5d57f8f884b77f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "f3c6d530516ee51b327187f422607ddb8f436f9c4784d9cec4ad985656961bfc",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 51,
+      "1deg_lon_floor": 12,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 8,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "430da97265c1e3cb3a9970bf76ad469ecbd79029880ddc86df8287b1c2f3d2ae",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "98270eb0d86d0d38b96018a43996b9352a5cc07080c84a492929d4b8e1e444af",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "cc019ec07e2b7f6d0fbf769a777218e9d814a899672b44152ea9b3ae4458bce7",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "71c846621f86845abf2f94629953fa1eeed9142ef6e114db3532f94ec2a7cd91",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 51,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 51,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "b582f33629afe60f8d3559ffb28618b575d0f2b5821b01f5829e774cfc6b6ec4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "330477e8a6ddfea0b771c8a46666755c055f74af4790f38d3c870e69c338d8de",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "a982b4f35805c3c3da156bc3a971bc84904449f7650a335a1ddbd6642437e5c1",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "9553ab8a8b2a30ce9e21ee0a13e62fa4d43c1626b740c3f2dee984ff6c6c21a7",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 51,
+      "1deg_lon_floor": 13,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "25_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "eefcf1661f5119dad5df653ab5badd68dafbbfdd7b3fe4085ae75fa04358391f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "efe9e81d823dd4737fb90810290f785da44a740bfdb753d7ddb6b5b95d275350",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 52,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "26_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 6,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ebcc48442f2ce2dd65cb9e76f487859f1a6879fb97f2e9d0e4f83b3ce0c97f1c",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 8,
+          "original_2022_TP_distinct_sample_months": 8,
+          "original_2022_TP_sample_metadata_rows": 8,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d0d6b78d641e51e16d766ed75c0a36a03d32d3eacc33336f3a7c426fd6f5e33a",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 16,
+          "original_2022_TP_distinct_sample_months": 11,
+          "original_2022_TP_sample_metadata_rows": 16,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "dbb0cba5211fbdc16c4aaa1d1d9e06ebaa7ef141610c89c72e6fd19fc76f2d8b",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ecce459dc881ad34b69ec6eca736034bd3c0f4ad9c5b2d703061da448f2b7871",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "f0630a6b0bf7e68efba365f8d5149be9ab49d230543990a6100a67137681ce69",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "a0c0b2c61c10cb60f83262ff6d72c7c266fdca8dbec70490cd8c3cdca948c01e",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 16,
+          "original_2022_TP_distinct_sample_months": 9,
+          "original_2022_TP_sample_metadata_rows": 16,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 52,
+      "1deg_lon_floor": 12,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "26_6",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "268ba876a04350deaab5a8b8430b86a379eef0ca7ae41ee70ff05b1d00f137cb",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "25b26e5905c8d71d9aacd70034e6c7711a791769770b057d9f1a67deaa4febe5",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 53,
+      "1deg_lon_floor": 8,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "26_4",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 7,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "30b00a1a2534f2cbe60a154bafbcbc94454c324fcf1aea2401576d3e2f79b9a5",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "8fb54bec9e1a93a7504a336dadb3ee76192318acd07bff4e78cb25790efe92aa",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "6a92da1a084aeb406e625ecc8801851a49a0f4698946277f25469e4067d3f120",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4be05e5c1b4cd95992078eec956fa07563b64b43da0b7bb7299a5d304bd80b55",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "a641cc62f445c6eeca479a1dd61060230f80edcdd27125ee479d5b60c32a8eeb",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1860d234dab573d93f5ada9a414fcaace3192a5ec74c4f1136ec23848933e7bf",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 25,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 25,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d7f409a2584158862cf3319c598988214bb4dcf0a146e75d2cd8d8eccc9d6ec6",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 53,
+      "1deg_lon_floor": 9,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "26_4",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 5,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "255ed0e77564d58e9630cbd5e21aacc3c7e54b783c68ac06cdba48611800cf97",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "fe5fda3c0abb6bc034d56421243e8a7ff21604a12f35fc03b38e02252ea90c11",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "d7585ddb1b4637f89a2fa3e5e90cf0016a8e079a13a69bd29e344c48bef41bd4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "81e9c9d16260a066e8cbec3d01ebd86a1befe3ce9ceba91e5471ca0bf490f477",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "984cbab2f2de7528ec0a4975bdbd7984a81bc52603947dafc464660428ea023d",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 53,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "26_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 8,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "fd465fb717641ef29e9d1fc5510a9799bb533be990ada33fc6d0039c49754571",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "854a5780cf327a024731a504885d41537f93152bb47535e4f8b278f7f8b43df1",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 11,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 11,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "f7dfdcaef757fd04585f2023a089525581c4a787784ca3543c106a5c6fc7b559",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 10,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "fd21156fbadc5744ae5ed7b2513f7c84e0484df1cccc406a0c8c76a7750afcfb",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ffddf7d439260bfeb082e8c08cd252fdc4056592f33c32ad69edcc197c480760",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "1c5481ed933a537f83b15aa94d963db38df22ddc721edac2f2a5a0fdec5671f5",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "bd916a010f38b6513e022c6a6e2f69399f38364f3e7a1bfcdb484dc00b1cbb91",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "6270319d2f18e89cf7b4ca37ab9b5ad8a585a50db0a08767c74caaf6ecd752d5",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 24,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 24,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 54,
+      "1deg_lon_floor": 9,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "27_4",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 4,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "873f25c8cf7c9a68c2761589ce910e1d62a79a277bc63bfbb7a2ed66860a28c4",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "ced534a0793a68d084f9871fc8d241e3171ee1f2261722898be18fde09ccf3b7",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "83d8483229c71f8ce46ea1a3b134fc9886cb85984f0fb70f624b61503523d595",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "90f93a690a64d1729045aec26cf0240428862634400b2b06ef2d14a114177808",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    },
+    {
+      "1deg_lat_floor": 54,
+      "1deg_lon_floor": 10,
+      "NUMERIC_TP_WATER_CONCENTRATION_NOT_READ": true,
+      "country": "DE",
+      "original_2deg_spatial_validation_block": "27_5",
+      "original_EEA2026_2022_RW_TP_individual_sample_stations_with_ge4dates_3months": 2,
+      "original_ge2_TP_monitoring_sites_cell": true,
+      "original_non_numeric_WISE6_2022_station_sampling_support": [
+        {
+          "monitoring_site_ID_with_scheme_sha256": "4bf772ab369ee39f048347d2ff426b36c271fe7c6c0b48d9eb376dbea84eb616",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        },
+        {
+          "monitoring_site_ID_with_scheme_sha256": "c7a609e74e5f010e60765fde4668c534b813ca75cd73f95c33db7a86edbd804f",
+          "no_original_numeric_TP_concentrations_accessed": true,
+          "original_2022_TP_distinct_sample_dates": 12,
+          "original_2022_TP_distinct_sample_months": 12,
+          "original_2022_TP_sample_metadata_rows": 12,
+          "original_2022_TP_unique_sample_ID_count": 1,
+          "original_source_TP_analyte_codes": [
+            "CAS_7723-14-0"
+          ],
+          "original_source_TP_units": [
+            "mg{P}/L"
+          ]
+        }
+      ]
+    }
+  ],
+  "original_EEA2026_WISE6_full_2GB_individual_zip_SHA256": "2a2ef2a43a16ec068b7974a80ae5fca49e44697660a46ce3b91fb1813abe62d2",
+  "original_EEA2026_WISE6_original_disagg_download_receipt": {
+    "archive_sha256": "2a2ef2a43a16ec068b7974a80ae5fca49e44697660a46ce3b91fb1813abe62d2",
+    "archive_size_bytes": 2024284753,
+    "original_source_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData"
+  },
+  "original_EEA2026_WISE6_spatial_source_receipt": {
+    "public_original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_S_WISE_SpatialObject_DerivedData",
+    "size_bytes": 3394632,
+    "zip_sha256": "afd64e1d5582492c09453f5a05aae0b1a9d9a38c8814778afdb5c07e43a1c974"
+  },
+  "original_WISE6_spatial_country_source_QC": {
+    "additional_duplicate_for_already_ambiguous_site_key": 11,
+    "different_positions_same_site_key": 2,
+    "spatial_country_AT_rows": 2923,
+    "spatial_country_DE_rows": 2170,
+    "spatial_invalid_latlon": 419,
+    "spatial_source_records": 104358
+  },
+  "original_strict_2021_2023_source_photo_cells": 42,
+  "schema": "gesui_official_EEA2026_WISE6_disaggregated_original_2022_RW_TP_sample_date_coverage_DE_AT_Lycaenidae_sourceonly_v01",
+  "source_metadata_requirements": "Original 2022, RW, exact Total phosphorus label, procedureAnalyzedMatrix W, >=4 distinct days >=3 months, exact country/source identifier scheme and original coordinate",
+  "source_preoutcome_geography_repeated_site_gate_20cells_DE10_AT6_blocks10": true,
+  "utc": "2026-11-09T06:28:04.014567+00:00"
+}
