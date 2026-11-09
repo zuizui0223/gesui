@@ -1,0 +1,67 @@
+{
+  "by_radius": {
+    "2km": {
+      "continue_to_2022_Lycaenidae_photo_response": false,
+      "effort_source_only_measured_station_n": 32,
+      "eligible_original_two_degree_blocks": 1,
+      "eligible_quartet_indices": [
+        4
+      ],
+      "eligible_quartets": 1,
+      "max": 616,
+      "median": 9.5,
+      "sites_fewer_than_5_plant_photos": 11,
+      "source_event_photo_count_min": 0,
+      "source_minus_registeredzero_log1p_plant_effort_equal_quartet": {
+        "exact_two_sided_signflip_reference_fraction": 0.3125,
+        "n_original_quartets": 8,
+        "n_positive": 6,
+        "not_a_randomized_source_effect_p_value": true,
+        "observed_equal_quartet_mean": 0.7048948397775483
+      },
+      "source_vs_registeredzero_updown_difference_in_log_plant_effort": {
+        "exact_two_sided_signflip_reference_fraction": 0.203125,
+        "n_original_quartets": 8,
+        "n_positive": 4,
+        "not_a_randomized_source_effect_p_value": true,
+        "observed_equal_quartet_mean": -1.5459065725513015
+      },
+      "these_2019_2021_plantae_records_are_photo_effort_not_control_for_all_nutrient_plant_response": true,
+      "zero_sites": 5
+    },
+    "5km": {
+      "continue_to_2022_Lycaenidae_photo_response": false,
+      "effort_source_only_measured_station_n": 32,
+      "eligible_original_two_degree_blocks": 1,
+      "eligible_quartet_indices": [
+        1
+      ],
+      "eligible_quartets": 1,
+      "max": 2038,
+      "median": 40.0,
+      "sites_fewer_than_5_plant_photos": 1,
+      "source_event_photo_count_min": 3,
+      "source_minus_registeredzero_log1p_plant_effort_equal_quartet": {
+        "exact_two_sided_signflip_reference_fraction": 0.6640625,
+        "n_original_quartets": 8,
+        "n_positive": 5,
+        "not_a_randomized_source_effect_p_value": true,
+        "observed_equal_quartet_mean": 0.2927053078227575
+      },
+      "source_vs_registeredzero_updown_difference_in_log_plant_effort": {
+        "exact_two_sided_signflip_reference_fraction": 0.1171875,
+        "n_original_quartets": 8,
+        "n_positive": 2,
+        "not_a_randomized_source_effect_p_value": true,
+        "observed_equal_quartet_mean": -1.2745417393049
+      },
+      "these_2019_2021_plantae_records_are_photo_effort_not_control_for_all_nutrient_plant_response": true,
+      "zero_sites": 0
+    }
+  },
+  "original_plant_gate_sha256": "703712a61e764e45e157c4bfbea2a5c9aa6f3b70fbf10f46d97ac3ec9fc2f684",
+  "original_quartets": 8,
+  "record_total": 32,
+  "replay_matches_original_prebutterfly_gate": true,
+  "year_2019_2021_plantae_not_2022_butterflies": true
+}

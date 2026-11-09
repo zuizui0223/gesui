@@ -1,0 +1,39 @@
+name: gesui verify 2022 DE WISE6 32station pre-butterfly source/plant effort decision
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109"]
+    paths:
+      - ".github/workflows/gesui-lycaenidae-2022-directed-sourcegate-independent-replay.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent-offline-source-only-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Replay both radii, 8 four-arm source quartets, frozen API receipts and decision
+        run: |
+          python -m py_compile scripts/audit_2022_DE_WISE6_quartet_prebutterfly_plant_effort_gate.py
+          python -u scripts/audit_2022_DE_WISE6_quartet_prebutterfly_plant_effort_gate.py \
+            --out results/lycaenidae_2022_wise6_directed_32_station_photo_sourceonly/INDEPENDENT_OFFLINE_REPLAY_GATES_AND_PLANT_EFFORT_ASYMMETRY.json
+      - name: Preserve audit without opening butterfly observation outcomes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_wise6_directed_32_station_photo_sourceonly/INDEPENDENT_OFFLINE_REPLAY_GATES_AND_PLANT_EFFORT_ASYMMETRY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Verify original WISE6 plant-only spatial support failure before any Lycaenidae observation"
+          git fetch origin analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109
+          git rebase origin/analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-WISE6-directed-quad-photo-support-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-DE-directed-quartets-independent-plant-effort-gate
+          path: results/lycaenidae_2022_wise6_directed_32_station_photo_sourceonly/INDEPENDENT_OFFLINE_REPLAY_GATES_AND_PLANT_EFFORT_ASYMMETRY.json
+          retention-days: 90
