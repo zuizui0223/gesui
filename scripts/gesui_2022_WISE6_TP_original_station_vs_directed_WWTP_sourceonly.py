@@ -13,7 +13,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 import numpy as np,pandas as pd,geopandas as gpd
 
-OLD_SHA="d849c43000000000000000000000000000000000"  # Replaced by workflow commit-locked digest
+OLD_SHA="9c07ce9de7f5104b47052c7598a943df405a4b83"
 RIVER_SHA="5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f"
 SPATIAL_SHA="afd64e1d5582492c09453f5a05aae0b1a9d9a38c8814778afdb5c07e43a1c974"
 BBOX=(-12,44,26,64)
