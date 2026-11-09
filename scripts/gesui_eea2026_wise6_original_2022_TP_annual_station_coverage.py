@@ -90,11 +90,15 @@ def spatial_source(zip_path):
                 key=make_key(c,q["monitoringSiteIdentifier"],q["monitoringSiteIdentifierScheme"])
                 if key in positions:
                     prev=positions[key]
-                    if abs(prev[0]-lat)>1e-6 or abs(prev[1]-lon)>1e-6:
+                    if prev is None:
+                        qc["additional_duplicate_for_already_ambiguous_site_key"]+=1
+                    elif abs(prev[0]-lat)>1e-6 or abs(prev[1]-lon)>1e-6:
                         qc["different_positions_same_site_key"]+=1
-                    else:qc["duplicate_key_same_location"]+=1
-                    # keep ambiguous key excluded later
-                    positions[key]=None
+                        # Drop site only when public spatial rows disagree.
+                        positions[key]=None
+                    else:
+                        qc["duplicate_key_same_location"]+=1
+                        # Identical site metadata rows are harmless, retain coordinate.
                     continue
                 positions[key]=(lat,lon)
     return positions,dict(qc)
