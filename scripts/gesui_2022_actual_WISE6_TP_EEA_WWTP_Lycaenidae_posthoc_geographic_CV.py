@@ -222,7 +222,7 @@ def main():
         row["2022_three_family_photo_total"]=r["2022_total_3family_photos"]
         row["2023_Lycaenidae_photo_n"]=f["2023_Lycaenidae_photo_n"]
         row["2023_three_family_photo_total"]=f["2023_three_family_photo_total"]
-        row["actual_2022_riverTP_qualified_stations_n"]=q["2022_WISE6_quantified_TP_site_years_n"]
+        row["actual_2022_riverTP_qualified_stations_n"]=q["2022_original_WISE6_quantified_TP_site_years_n"]
         row["actual_2022_riverTP_cell_median_mgP_per_L"]=q["2022_WISE6_measured_site_median_TP_cell_median_mg_P_per_L"]
         if not isinstance(row["actual_2022_riverTP_cell_median_mgP_per_L"],(float,int)):
             raise ValueError("Numerically invalid preselected TP region")
