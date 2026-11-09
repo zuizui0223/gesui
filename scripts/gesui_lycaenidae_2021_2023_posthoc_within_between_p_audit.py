@@ -181,6 +181,40 @@ def analysis(root, bootstrap=BOOT_N, shuffles=SHUFFLE_N):
                 "two_sided_abs_slope_fraction_addone": (1 + tail) / (1 + len(permutation_slopes)),
                 "not_confirmatory_p_due_to_unproved_urban_land_source_exchangeability": True,
             }
+    # Descriptive between-region robustness: resample whole country×2° groups
+    # WITHIN each country; do not confuse 22 spatial groups with treatment replicates.
+    out["betweenP_region_resample"] = {}
+    bycountry = {c: [a for a in groups if a[0]["country"] == c] for c in ("DE", "AT")}
+    for response in ("Lycaenidae2022", "LycaenidaeMean"):
+        region_draws = []
+        for _ in range(BOOT_N):
+            sample = []
+            for c in ("DE", "AT"):
+                original = bycountry[c]
+                for __ in original:
+                    state, u = lcg_uniform(state)
+                    sample.append(original[int(u * len(original))])
+            b = between(sample, "logP", response)
+            if b is not None:
+                region_draws.append(b["slope"])
+        loo_slopes = []
+        for g in groups:
+            b = between([a for a in groups if a is not g], "logP", response)
+            if b is not None:
+                loo_slopes.append(b["slope"])
+        out["betweenP_region_resample"][response] = {
+            "regions": len(groups), "bootstrap_target_draws": BOOT_N,
+            "valid_draws": len(region_draws), "seed": SEED,
+            "descriptive_country_stratified_2degree_boot95": [
+                pct(region_draws, .025), pct(region_draws, .975)
+            ],
+            "positive_fraction": sum(x > 0 for x in region_draws) / len(region_draws),
+            "leave_one_region_out_positive": sum(x > 0 for x in loo_slopes),
+            "leave_one_region_out_total": len(loo_slopes),
+            "leave_one_region_out_range": [min(loo_slopes), max(loo_slopes)],
+            "not_causal_or_independent_confirmatory_evidence": True,
+        }
+
     # Main within-area result numerics are a diagnostic not a causal threshold.
     assert abs(out["within"]["logP"]["Lycaenidae2022"]["P_plus_land"]["slope"] - (-0.043)) < 0.002
     assert abs(out["within"]["logP"]["LycaenidaeMean"]["P_plus_land"]["slope"] - (-0.107)) < 0.002
