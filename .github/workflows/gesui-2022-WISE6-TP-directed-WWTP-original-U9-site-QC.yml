@@ -1,0 +1,51 @@
+name: gesui 2022 original WISE6 TP 9 questionable metadata U station whole-site sensitivity for directed WWTP P
+on:
+  push:
+    branches: ["analysis/wise6-2022-TP-directed-WWTP-reaches-20261109"]
+    paths:
+      - "scripts/gesui_2022_WISE6_directedWWTP_TP_exclude_any_meta_U_site_sensitivity.py"
+      - ".github/workflows/gesui-2022-WISE6-TP-directed-WWTP-original-U9-site-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  exact-status-source-locked-2022-TP-metadata-U9-site-removal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy
+      - name: Verify original 187 stations, 2471 status samples, replay original 171-site model then remove exact 9 U sites and compare upstream source with downstream placebo
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_directedWWTP_TP_exclude_any_meta_U_site_sensitivity.py
+          python -u scripts/gesui_2022_WISE6_directedWWTP_TP_exclude_any_meta_U_site_sensitivity.py \
+            --original-status results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_TP_ORIGINAL_187_SITE_RESULT_AND_METADATA_STATUS_ONLY_QC.json \
+            --original-directed-source results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_TP_STATIONS_DIRECTED_ORIGINAL_EEA_WWTP_SOURCE_ONLY_QC.json \
+            --original-realTP-numeric results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_2022_MEASURED_TP_SITE_YEAR_MEDIANS_AND_42_LYCAENIDAE_CELLS_QC.json \
+            --original-WorldCover results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --original-171site-CV results/lycaenidae_2022_measured_river_P_bridge/2022_REAL_WISE6_TP_DIRECTED_UPSTREAM_WWTP_P_VS_DOWNSTREAM_PLACEBO_CV.json \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_DIRECTED_WWTP_TP_EXCLUDE_9_ORIGINAL_META_U_SITES_POSTHOC.json
+      - name: Preserve source-locked U status exclusion and upstream/downstream directional negative control regardless result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_DIRECTED_WWTP_TP_EXCLUDE_9_ORIGINAL_META_U_SITES_POSTHOC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Document posthoc stricter WISE6 meta U flag 9 whole-site removal for original 2022 strict upstream vs downstream WWTP P source-water TP test"
+          git fetch origin analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git rebase origin/analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-original-WISE6-TPhydrology-U9-metadata-stricter-flag-quality
+          path: results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_DIRECTED_WWTP_TP_EXCLUDE_9_ORIGINAL_META_U_SITES_POSTHOC.json
+          retention-days: 90

@@ -1,0 +1,47 @@
+name: gesui freeze numeric-QC 2022 WISE6 TP 170-station strictly directed WWTP source panel before regression
+on:
+  push:
+    branches:
+      - "analysis/wise6-2022-TP-directed-WWTP-reaches-20261109"
+    paths:
+      - "scripts/gesui_freeze_WISE6_2022_directed_source_170_station_QC_before_numeric.py"
+      - ".github/workflows/gesui-freeze-2022-directed-TP170-sourceonly-panel.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sourceonly-before-directed-realTP-outcome:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Freeze source exposure and water sampling qualification flags only (never TP concentration values)
+        run: |
+          python -m py_compile scripts/gesui_freeze_WISE6_2022_directed_source_170_station_QC_before_numeric.py
+          python -u scripts/gesui_freeze_WISE6_2022_directed_source_170_station_QC_before_numeric.py \
+            --directed-source results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_TP_STATIONS_DIRECTED_ORIGINAL_EEA_WWTP_SOURCE_ONLY_QC.json \
+            --numeric-site-qc results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_2022_MEASURED_TP_SITE_YEAR_MEDIANS_AND_42_LYCAENIDAE_CELLS_QC.json \
+            --worldcover-original results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --out results/wise6_2022_riverTP_directed_WWTP_source_only/2022_NUMERIC_ELIGIBLE_TP170_REGISTERED_UPSTREAM_WWTP_SOURCE_PANEL_FREEZE.json
+      - name: Commit 2022 170-site exposure-only freeze to prevent posthoc numeric-outcome selection
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_riverTP_directed_WWTP_source_only/2022_NUMERIC_ELIGIBLE_TP170_REGISTERED_UPSTREAM_WWTP_SOURCE_PANEL_FREEZE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 170 WISE6 TP eligible station source-only directed WWTP 2022 exposure/WorldCover panel before opening TP magnitude in directed test"
+          git fetch origin analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git rebase origin/analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-WISE6-170-station-strict-upstream-WWTP-source-only-panel
+          path: results/wise6_2022_riverTP_directed_WWTP_source_only/2022_NUMERIC_ELIGIBLE_TP170_REGISTERED_UPSTREAM_WWTP_SOURCE_PANEL_FREEZE.json
+          if-no-files-found: warn
+          retention-days: 90

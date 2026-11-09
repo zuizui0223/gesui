@@ -1,0 +1,73 @@
+name: gesui WISE6 2022 TP 187 stations to directed EEA UWWTD 2022 upstream / downstream source gate
+on:
+  push:
+    branches:
+      - "analysis/wise6-2022-TP-directed-WWTP-reaches-20261109"
+    paths:
+      - "scripts/gesui_2022_WISE6_TP_original_station_vs_directed_WWTP_sourceonly.py"
+      - ".github/workflows/gesui-2022-wise6-tp-directed-sourceonly.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  WISE6-original-TP-stations-upstream-source-geography:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install geospatial data source packages
+        run: python -m pip install --quiet geopandas pyarrow pandas numpy scipy shapely requests
+      - name: Restore original immutable EU HydroRIVERS third-party source, WISE6 spatial site source and original EEA 2022 flow-graph module
+        run: |
+          mkdir -p /tmp/gesui-wise6-original-2022-source
+          curl --fail --location --silent --show-error --retry 2 --max-time 320 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-wise6-original-2022-source/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-wise6-original-2022-source/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+          curl --fail --location --silent --show-error --retry 2 --max-time 110 \
+            https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_S_WISE_SpatialObject_DerivedData \
+            -o /tmp/gesui-wise6-original-2022-source/Waterbase_S_WISE_SpatialObject_DerivedData.zip
+          echo "afd64e1d5582492c09453f5a05aae0b1a9d9a38c8814778afdb5c07e43a1c974  /tmp/gesui-wise6-original-2022-source/Waterbase_S_WISE_SpatialObject_DerivedData.zip" | sha256sum -c -
+          curl --fail --location --silent --show-error --retry 2 --max-time 100 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/6f037f65e9b948d6f8e324ad4eec9d8c03424b35/scripts/gesui_eea_nutrient_load_river_crosswalk.py \
+            -o scripts/gesui_eea_nutrient_load_river_crosswalk.py
+          test "$(git hash-object scripts/gesui_eea_nutrient_load_river_crosswalk.py)" = "9c07ce9de7f5104b47052c7598a943df405a4b83"
+          curl --fail --location --silent --show-error --retry 2 --max-time 100 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/6f037f65e9b948d6f8e324ad4eec9d8c03424b35/results/eea2022_measured_nutrient_load_river_20261107/EEA_MEASURED_LOAD_SOURCE_QC.json \
+            -o /tmp/gesui-wise6-original-2022-source/EEA_MEASURED_LOAD_SOURCE_QC.json
+      - name: Original WISE6 187-station metadata-only directed HydroRIVERS/WWTP source QC before using real river TP magnitudes
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_TP_original_station_vs_directed_WWTP_sourceonly.py
+          python -u scripts/gesui_2022_WISE6_TP_original_station_vs_directed_WWTP_sourceonly.py \
+            --TP-sourceonly results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json \
+            --spatial-zip /tmp/gesui-wise6-original-2022-source/Waterbase_S_WISE_SpatialObject_DerivedData.zip \
+            --river-parquet /tmp/gesui-wise6-original-2022-source/HydroRIVERS_v10_eu.geoparquet \
+            --old-source-script scripts/gesui_eea_nutrient_load_river_crosswalk.py \
+            --original-2022-API-source-QC /tmp/gesui-wise6-original-2022-source/EEA_MEASURED_LOAD_SOURCE_QC.json \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_SITES_HYDRORIVERS_DIRECTED_EEAWWTP_SOURCE_ONLY_QC.json
+      - name: Commit source-only 2022 WWTP upstream/downstream exposure and objective stop criteria on analysis branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_SITES_HYDRORIVERS_DIRECTED_EEAWWTP_SOURCE_ONLY_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze actual 187 WISE6 TP station source-only 2022 directed WWTP exposure and downstream placebo before TP outcomes"
+          git fetch origin analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git rebase origin/analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-WISE6-TP-187-station-directed-WWTP-source-only
+          path: results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_SITES_HYDRORIVERS_DIRECTED_EEAWWTP_SOURCE_ONLY_QC.json
+          if-no-files-found: warn
+          retention-days: 90
