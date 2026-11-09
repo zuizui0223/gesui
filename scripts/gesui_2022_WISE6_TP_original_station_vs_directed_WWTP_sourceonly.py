@@ -182,6 +182,7 @@ def main():
     par.add_argument("--spatial-zip",type=Path,required=True)
     par.add_argument("--river-parquet",type=Path,required=True)
     par.add_argument("--old-source-script",type=Path,required=True)
+    par.add_argument("--original-2022-API-source-QC",type=Path,required=True)
     par.add_argument("--out",type=Path,required=True)
     a=par.parse_args()
     if sha_file(a.river_parquet)!=RIVER_SHA:raise ValueError("Different third party HydroRIVERS converted v1 Europe source")
@@ -198,6 +199,9 @@ def main():
     sites,sq=original_point_site_catalog(source_meta,srcpos)
     ww,prec=prior.download_layer(prior.PLANT,prior.BOTH_WHERE,prior.PLANT_FIELDS,EXPECTED_SOURCE_FACILITIES)
     dp,drec=prior.download_layer(prior.OUTFALL,"1=1",prior.OUT_FIELDS,EXPECTED_SOURCE_DCP)
+    original2022=json.loads(a.original_2022_API_source_QC.read_text())
+    if prec+drec!=original2022["source_ArcGIS_all_page_sha256"]:
+        raise ValueError("Original source-only EEA2022 WWTP API pages changed from original independently archived pre-butterfly PR9")
     WW=prior.normalize_key(ww);DP=prior.normalize_key(dp)
     WW=WW[WW.compound_join_key.notna()].copy()
     DP=DP[DP.compound_join_key.notna()].copy()
@@ -302,6 +306,8 @@ def main():
         "original_EEA_DCP_source_rows":EXPECTED_SOURCE_DCP,
         "original_direct_FW_unique_outfall_before_500m_snap":len(unique),
         "original_source_API_page_response_SHA_receipts":prec+drec,
+        "original_prewater_2022_EEA_API_source_QC_sha256":sha_file(a.original_2022_API_source_QC),
+        "original_2022_EEA_API_source_pages_match_prior_PR9_original":True,
         "hydro_river_source_segment_count_in_EU_extent":len(river),
         "original_source_direct_FW_snap_500m_QC":srcqc,
         "original_source_directed_network_accumulation_QC":graphqc,
