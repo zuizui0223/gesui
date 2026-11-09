@@ -1,0 +1,41 @@
+name: gesui Lycaenidae within versus between 2degree WWTP P photographic-reporting audit
+on:
+  push:
+    branches: ["analysis/lycaenidae-2023-photo-time-negativecontrol-20261108"]
+    paths:
+      - ".github/workflows/gesui-lycaenidae-posthoc-within-between-P-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  immutable-photo-source-within-between:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently check 2021-2023 family photo, original WorldCover and WWTP P fixed sources
+        run: |
+          python -m py_compile \
+            scripts/gesui_lycaenidae_2021_2023_posthoc_photo_composition_differencing.py \
+            scripts/gesui_lycaenidae_2021_2023_posthoc_within_between_p_audit.py
+          python -u scripts/gesui_lycaenidae_2021_2023_posthoc_within_between_p_audit.py \
+            --out results/lycaenidae_2023_photo_temporal_source/POSTHOC_2021_2023_LYCAENIDAE_SOURCE_P_WITHIN_BETWEEN_2DEG_AUDIT.json
+      - name: Preserve source-locked posthoc scale result without claim of sewage cause
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2023_photo_temporal_source/POSTHOC_2021_2023_LYCAENIDAE_SOURCE_P_WITHIN_BETWEEN_2DEG_AUDIT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze observed wastewater P within vs between geographic butterfly photo association"
+          git fetch origin analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+          git rebase origin/analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+          git push origin HEAD:analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-lycaenidae-posthoc-within-between-source-P-macro
+          path: results/lycaenidae_2023_photo_temporal_source/POSTHOC_2021_2023_LYCAENIDAE_SOURCE_P_WITHIN_BETWEEN_2DEG_AUDIT.json
+          retention-days: 90
