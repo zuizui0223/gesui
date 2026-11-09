@@ -89,7 +89,7 @@ def main():
                     "logTP_delta_down_minus_up":math.log(down+PSEUDO_MG_P_L)-math.log(up+PSEUDO_MG_P_L),
                     "registered_strict_source_between_P_t_year":float(arm["source_only_original_intervening_WWTP_P_t_year"]),
                     "source_route_path_km":float(arm["source_full_reach_path_km"]),
-                    "common_original_months":arm["common_original_quantified_months"],
+                    "common_original_months":arm["common_original_2022_quantified_months"],
                 }
             if x["source"]["registered_strict_source_between_P_t_year"]<=0:
                 raise ValueError("Original source quartet has no strictly intervening registered P source")
