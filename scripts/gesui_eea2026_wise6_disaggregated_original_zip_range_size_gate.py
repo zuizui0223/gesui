@@ -80,7 +80,12 @@ def main():
     a=p.parse_args()
     head,_=ask(method="HEAD")
     start,part0=ask({"Range":"bytes=0-1023"})
-    tail,part_end=ask({"Range":f"bytes=-{TAIL_BYTES}"})
+    # Original EEA endpoint supports explicit 206 start/end ranges but does
+    # not honor suffix range syntax (it returned 200 + full 2GB response).
+    # Read only the final 128 KiB using explicit offsets from verified HEAD.
+    size=int(head["content_length_header"]) if head.get("content_length_header") else 0
+    if size<=TAIL_BYTES:raise ValueError("Original official ZIP unexpectedly small")
+    tail,part_end=ask({"Range":f"bytes={size-TAIL_BYTES}-{size-1}"})
     midata=zipcentral(part_end) if tail.get("http")==206 else {
        "range_response_contains_ZIP_EOCD":False,
        "reason":"Server did not return 206 partial-content for tail probe"}
