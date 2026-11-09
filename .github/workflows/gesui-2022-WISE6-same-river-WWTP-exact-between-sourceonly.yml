@@ -1,0 +1,63 @@
+name: gesui 2022 WISE6 strict EEA WWTP outlet BETWEEN same-directed-river TP monitoring sites SOURCE-ONLY
+on:
+  push:
+    branches: ["analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109"]
+    paths:
+      - scripts/gesui_2022_WISE6_qualifying_EEA_WWTP_exact_between_stations_sourceonly.py
+      - .github/workflows/gesui-2022-WISE6-same-river-WWTP-exact-between-sourceonly.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-official-WWTP-on-intervening-reaches-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet geopandas pandas numpy requests pyarrow
+      - name: Restore immutable independent HydroRIVERS v1 Europe topology and exact Git-pinned public 2022 EEA source REST helper
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/gesui-same-river-WWTP
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-same-river-WWTP/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-same-river-WWTP/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+          curl --fail --location --silent --show-error --retry 2 --max-time 130 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/6f037f65e9b948d6f8e324ad4eec9d8c03424b35/scripts/gesui_eea_nutrient_load_river_crosswalk.py \
+            -o /tmp/gesui-same-river-WWTP/gesui_eea_nutrient_load_river_crosswalk.py
+          test "$(git hash-object /tmp/gesui-same-river-WWTP/gesui_eea_nutrient_load_river_crosswalk.py)" = "9c07ce9de7f5104b47052c7598a943df405a4b83"
+      - name: Validate all original WISE6 site-pair paths and EEA annual measured both-NP FW source original REST SHA receipts then tag strictly intervening WWTP reaches
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_qualifying_EEA_WWTP_exact_between_stations_sourceonly.py
+          python -u scripts/gesui_2022_WISE6_qualifying_EEA_WWTP_exact_between_stations_sourceonly.py \
+            --stageA-source-only-pairs results/wise6_2022_same_river_stationpair_sourceonly/2022_WISE6_TP_SAME_DIRECTED_RIVER_50KM_SOURCE_ONLY_PAIR_GATE.json \
+            --original-187-directed-source-only results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_TP_STATIONS_DIRECTED_ORIGINAL_EEA_WWTP_SOURCE_ONLY_QC.json \
+            --pinned-HydroRIVERS-eu-parquet /tmp/gesui-same-river-WWTP/HydroRIVERS_v10_eu.geoparquet \
+            --pinned-original-UWWTD-source-script /tmp/gesui-same-river-WWTP/gesui_eea_nutrient_load_river_crosswalk.py \
+            --out results/wise6_2022_same_river_stationpair_sourceonly/2022_ORIGINAL_WWTP_STRICTLY_INTERVENING_REACHES_SAME_RIVER_TP_MONITOR_SOURCE_GATE.json
+      - name: Preserve exact original qualifying WWTP source-to-two monitoring reaches support and stop-if-fail outcome contract
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_same_river_stationpair_sourceonly/2022_ORIGINAL_WWTP_STRICTLY_INTERVENING_REACHES_SAME_RIVER_TP_MONITOR_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze exact EEA2022 WWTP source within WISE6 same-river monitoring pair internal reaches and clean registered-source controls before TP outcomes"
+          git fetch origin analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109
+          git rebase origin/analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-2022-EEA-WWTP-strictly-between-2022-WISE6-TP-source-river-pairs
+          path: results/wise6_2022_same_river_stationpair_sourceonly/2022_ORIGINAL_WWTP_STRICTLY_INTERVENING_REACHES_SAME_RIVER_TP_MONITOR_SOURCE_GATE.json
+          retention-days: 90
+          if-no-files-found: warn
