@@ -1,0 +1,44 @@
+name: gesui EEA WISE6 original 2022 river TP 187-station original result/status metadata quality audit
+on:
+  push:
+    branches: ["analysis/wise6-2022-TP-directed-WWTP-reaches-20261109"]
+    paths:
+      - "scripts/gesui_2022_WISE6_TP_original_measurement_status_code_audit.py"
+      - ".github/workflows/gesui-2022-WISE6-TP-187-station-original-status-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-EEA2026-WISE6-187-river-TP-sample-status-no-numerical-values:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Read original full 2026 EEA public WISE6 but only 2022 river TP original status flags in immutable 187 sites, no TP numeric values
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_TP_original_measurement_status_code_audit.py
+          python -u scripts/gesui_2022_WISE6_TP_original_measurement_status_code_audit.py \
+            --original-2022-TP-sourceonly results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json \
+            --tmpdir /tmp/gesui-2022-WISE6-original-status \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_TP_ORIGINAL_187_SITE_RESULT_AND_METADATA_STATUS_ONLY_QC.json
+      - name: Commit every source-original quality flag value and station source hash for independent publication audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_TP_ORIGINAL_187_SITE_RESULT_AND_METADATA_STATUS_ONLY_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original WISE6 2022 TP status and metadata quality codes on exact preselected 187 monitoring sites without TP values"
+          git fetch origin analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git rebase origin/analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-directed-WWTP-reaches-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-2022-WISE6-187-riverTP-measurement-status-code-audit
+          path: results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_TP_ORIGINAL_187_SITE_RESULT_AND_METADATA_STATUS_ONLY_QC.json
+          retention-days: 90
