@@ -306,7 +306,17 @@ def main():
           "per_original_quartet":common,
           "not_actual_2022_vs_2023_wastewater_treatment_change":True}
     if dgate:
-        same_day_r=[{**q,"source_minus_registeredzero_four_arm_logTP_gradient_mean":float(np.mean([t["source_minus_reference_logTP_gradient"] for t in q["2023_sameday_numeric_source_vs_zero_logTP_gradients"]))} for q in gooddaily]
+        same_day_r=[
+          {
+            **q,
+            "source_minus_registeredzero_four_arm_logTP_gradient_mean":
+              float(np.mean([
+                t["source_minus_reference_logTP_gradient"]
+                for t in q["2023_sameday_numeric_source_vs_zero_logTP_gradients"]
+              ]))
+          }
+          for q in gooddaily
+        ]
         result["2023_sameday_realTP_source_vs_zero_summary"]=stats(same_day_r)
     else:
         result["2023_sameday_realTP_source_vs_zero_summary"]=None
