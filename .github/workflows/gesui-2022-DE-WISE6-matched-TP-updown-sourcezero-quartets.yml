@@ -1,0 +1,47 @@
+name: gesui 2022 Germany 7 source-interposed versus registered-sourcezero river TP monitoring matched quartets
+on:
+  push:
+    branches: ["analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109"]
+    paths:
+      - ".github/workflows/gesui-2022-DE-WISE6-matched-TP-updown-sourcezero-quartets.yml"
+      - "scripts/gesui_2022_Germany_same_river_8plus8_numericTP_matched_gradient.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-source-precommitted-2022-riverTP-matched-grads:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy
+      - name: Verify originally fixed 8 source versus 8 registered-sourcezero 2022 monitoring quartets, and subsequently committed 32 real TP site-year QC, then calculate 7-or-more matched gradients
+        run: |
+          python -m py_compile scripts/gesui_2022_Germany_same_river_8plus8_numericTP_matched_gradient.py
+          python -u scripts/gesui_2022_Germany_same_river_8plus8_numericTP_matched_gradient.py \
+            --original-source-only-quartets results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json \
+            --original-numeric-QC results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json \
+            --out results/wise6_2022_DE_8source8zero_quartet/2022_WISE6_REAL_TP_MATCHED_SOURCE_MINUS_SOURCEZERO_UPSTREAM_DOWNSTREAM_GRADIENT.json
+      - name: Persist valid and invalid matched quartets and exact source-only 2022 hydrologic and chemistry provenance
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_DE_8source8zero_quartet/2022_WISE6_REAL_TP_MATCHED_SOURCE_MINUS_SOURCEZERO_UPSTREAM_DOWNSTREAM_GRADIENT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record original 2022 real river TP matched 8source8control quartet upstream/downstream contrasts after frozen LOQ/month source gate"
+          git fetch origin analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109
+          git rebase origin/analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109
+          git push origin HEAD:analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-2022-real-riverTP-7matched-source-vs-sourcezero-quartet-comparison
+          path: results/wise6_2022_DE_8source8zero_quartet/2022_WISE6_REAL_TP_MATCHED_SOURCE_MINUS_SOURCEZERO_UPSTREAM_DOWNSTREAM_GRADIENT.json
+          retention-days: 90
