@@ -107,6 +107,7 @@ def strip(v):return str(v or "").strip().strip('"')
 
 def station_metadata(zip_path):
     qc=Counter();label_counts=Counter();tp_entries={}; tp_uom=Counter();tp_period=Counter(); tp_codes=Counter()
+    categories_2022=Counter();labels_2022_allcategories=Counter();matrices_2022=Counter()
     with zipfile.ZipFile(zip_path) as z:
         with io.TextIOWrapper(z.open(EXPECTED_EEA_WISE6_AGG_FILE),encoding="utf-8-sig",errors="replace",newline="") as f:
             header=f.readline().strip().split(";")
@@ -133,7 +134,13 @@ def station_metadata(zip_path):
                 if year!="2022":continue
                 qc["annual_country_"+c+"_2022_rows"]+=1
                 cat=strip(vals[ix["parameterWaterBodyCategory"]])
-                if cat!="RW":continue
+                categories_2022[(c,cat)]+=1
+                if cat!="RW":
+                    # Source metadata only, to distinguish original WISE country
+                    # category coding / missingness from true absence of data.
+                    labels_2022_allcategories[(c,cat,strip(vals[ix["observedPropertyDeterminandLabel"]]))]+=1
+                    continue
+                matrices_2022[(c,strip(vals[ix["procedureAnalysedMatrix"]]))]+=1
                 qc["annual_country_"+c+"_2022_RW_rows"]+=1
                 lab=strip(vals[ix["observedPropertyDeterminandLabel"]])
                 label_counts[(c,lab)]+=1
@@ -168,6 +175,11 @@ def station_metadata(zip_path):
             if qc["official_annual_data_records_checked"]<10:raise ValueError("No Waterbase annual records")
     return tp_entries,{
       "source_row_counts":dict(qc),
+      "2022_original_WISE6_country_waterbody_category_code_counts":{str(k[0])+"|"+str(k[1]):v for k,v in categories_2022.items()},
+      "2022_original_WISE6_country_RW_matrix_counts":{str(k[0])+"|"+str(k[1]):v for k,v in matrices_2022.items()},
+      "2022_original_WISE6_top_analyte_labels_OUTSIDE_original_RW_category":[
+          {"countryCode":k[0],"original_category":k[1],"label":k[2],"rows":v}
+          for k,v in labels_2022_allcategories.most_common(60)],
       "2022_RW_observed_analyte_labels_top35":[{"countryCode":k[0],"label":k[1],"rows":v} for k,v in label_counts.most_common(35)],
       "strict_total_phosphorus_analyte_code_counts":{k[0]+"|"+k[1]:v for k,v in tp_codes.items()},
       "strict_total_phosphorus_original_result_UOM_counts":{k[0]+"|"+k[1]:v for k,v in tp_uom.items()},
