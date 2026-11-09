@@ -44,8 +44,13 @@ def main():
     if national["source_original_national_date_eligible_2022_TP_site_total"]!=NATIONAL_ORIGINAL_N:
         raise ValueError("Original national 2022 TP source 342 counts shifted")
     records=national["nationwide_original_source_2022_station_registry"]
-    if len(records)!=NATIONAL_ORIGINAL_N or sha(a.pinned_HydroRIVERS_eu)!=GRAPH_SHA:
-        raise ValueError("Original national site registry or pinned river mirror changed")
+    # Original 342 sites pass the date/month gate, but only 301 have
+    # unambiguous published WISE coordinates. The original 41 without usable
+    # coordinates MUST NOT be forced onto a river or called source-zero.
+    if len(records)!=national["source_original_country_geocoded_valid_stations"] or len(records)<300:
+        raise ValueError("Original WISE6 geocoded national site population drift")
+    if sha(a.pinned_HydroRIVERS_eu)!=GRAPH_SHA:
+        raise ValueError("Pinned HydroRIVERS mirror SHA drift")
     river=gpd.read_parquet(a.pinned_HydroRIVERS_eu).to_crs("EPSG:4326")
     river=river.rename(columns={x:x.upper() for x in river.columns if x!=river.geometry.name})
     river=river.cx[-12:26,44:64].copy()
