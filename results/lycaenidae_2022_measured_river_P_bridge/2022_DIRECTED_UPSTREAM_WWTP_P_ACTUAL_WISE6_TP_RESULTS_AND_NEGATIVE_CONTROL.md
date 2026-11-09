@@ -71,3 +71,36 @@ Original user-related research positives remain separate: `chocho` **22/25 Lycae
 - [Original source-only reported WWTP river routing, gesui PR #9](https://github.com/zuizui0223/gesui/pull/9)
 - [New real 2022 WISE6 measured river TP and originally coarsened Lycaenidae photo trial, PR #28](https://github.com/zuizui0223/gesui/pull/28)
 - [Official HydroRIVERS site](https://www.hydrosheds.org/products/hydrorivers); river topology source used above is a source-pinned **third-party** converted mirror, not this official file.
+
+
+## Completed original 2022 TP sample status QA and worst-case U-flag sensitivity
+
+Additional source-only original 2026 WISE6 status audit read the **same complete 102,569,057 source lines** a second time, but only raw source status codes (not numeric TP values) at the pre-frozen **187** WISE6 real 2022 TP sites (**2,471 original river Total-P sample rows**):
+
+| Original reporting/quality status | Original sample rows |
+| --- | ---: |
+| Original metadata_statusCode = stable | **1,043** |
+| Original metadata_statusCode = valid | **1,428** |
+| Original metadata_observationStatus = A | **2,462** |
+| Original metadata_observationStatus = U | **9** |
+| Original resultObservationStatus = A | **1,043** |
+| Original resultObservationStatus blank | **1,428** |
+| Original below-LOQ resultQualityObservedValueBelowLOQ = 1 | **53** |
+
+All nine metadata **U** records occurred in **nine distinct original DE stations**, just one per station among otherwise normal reported observations. These are original code values, never silently reinterpreted as zeros/valid or propagated across countries. Source uses original station and unique source ZIP SHA; [original independent status audit SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42579391197), [full original per-site original code histogram](2022_WISE6_TP_ORIGINAL_187_SITE_RESULT_AND_METADATA_STATUS_ONLY_QC.json). The Eionet WISE data dictionary confirms below-LOQ observations must be flagged and values should not be used as observed concentration; our 53 censored rows were excluded with no half-LOQ substitution: https://dd.eionet.europa.eu/datasets/latest/WISE-SoE_WaterQualityICM/tables/DisaggregatedData . The **metadata U-code semantics remain to be confirmed specifically from the current official 2026 dictionary** before publication, rather than blindly assuming they are independently validated low-accuracy samples.
+
+A deliberately conservative, explicitly POSTHOC sensitivity removes **every station with even one original U row**, not just those nine individual measured dates. This yields **162** independently TP-qualified 2022 WISE6 stations and actual public directed reaches: **112** source-positive, **50** registered-source-zero; AT59 positive and DE53 positive, **110** positive distinct reaches, **20** positive original country×2° regional blocks. Same exact original 2° regional holdouts, country, true site locations, modeled discharge and catchment, and ESA WorldCover2021 built/crop/land controls:
+
+| Original directed 2022 WWTP source variable | Initial 171-site relative MSE gain | Strict no-any-U 162-site relative MSE gain |
+| --- | ---: | ---: |
+| **Strict upstream original EEA P reported load** | **−1.84%** | **−1.68%** |
+| Strict downstream original EEA P **directional placebo** | −2.23% | −2.62% |
+| Strict upstream P divided by modeled discharge | −0.83% | **+0.15%** |
+| Strict upstream original N reported load | −2.54% | −2.27% |
+| Strict upstream qualified outfall count | −3.69% | −3.38% |
+
+The original 171-site model was independently re-executed from all frozen sources before filtering, and every originally reported MSE gain matched exactly. On the stricter 162-site panel, **P total source does not improve prediction**, and the small +0.15% increase in P/modelQ source proxy lies within a highly uncertain descriptive block-bootstrap interval **[−9.31%, +5.21%]**. No evidence of a positive robust annual source-P transport effect is established.
+
+[Full status-exclusion audit Action SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42580204403) · [strict original nine-flag station exclusion and heldout results JSON](2022_WISE6_DIRECTED_WWTP_TP_EXCLUDE_9_ORIGINAL_META_U_SITES_POSTHOC.json).
+
+**Publication qualification:** this excludes original U-marked sites as a conservative stress test, not a formal proof all remaining original source rows pass every additional expert EEA QC criterion. Main original 171-site and strict 162-site analyses must be reported together; source-positive/negative labels remain nonrandom and do not identify causal effects.
