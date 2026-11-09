@@ -1,0 +1,48 @@
+name: gesui 2022 ACTUAL WISE6 riverTP vs EEA WWTP P + Lycaenidae photo geography 2deg CV
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-measured-river-P-source-20261109"]
+    paths:
+      - ".github/workflows/gesui-eea2026-2022-realTP-WWTP-Lycaenidae-2degCV.yml"
+      - "scripts/gesui_2022_actual_WISE6_TP_EEA_WWTP_Lycaenidae_posthoc_geographic_CV.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  three-layer-actual-TP-region-heldout-no-new-observations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet numpy scipy
+      - name: Check all original source / before-numeric TP site opportunity gate and regional real-TP numeric quality, fit honest 2degree holdout geography only
+        run: |
+          python -m py_compile scripts/gesui_2022_actual_WISE6_TP_EEA_WWTP_Lycaenidae_posthoc_geographic_CV.py
+          python -u scripts/gesui_2022_actual_WISE6_TP_EEA_WWTP_Lycaenidae_posthoc_geographic_CV.py \
+            --original-WISE6-numeric-TP results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_2022_MEASURED_TP_SITE_YEAR_MEDIANS_AND_42_LYCAENIDAE_CELLS_QC.json \
+            --original-WorldCover-2022-photo results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --original-2021-photo results/lycaenidae_2021_prior_butterfly_photo_source/2021_HISTORICAL_3FAMILY_PHOTO_COUNTS_ORIGINAL43_SOURCE_ONLY.json \
+            --original-2023-photo results/lycaenidae_2023_photo_temporal_source/2023_INDEPENDENT_YEAR_FAMILY_PHOTO_TOTALS_ORIGINAL43_SOURCE_QC.json \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ACTUAL_TP_2022_SOURCE_P_AND_LYCAENIDAE_PHOTO_REGION_BLOCK_CV.json
+      - name: Preserve actual separate WWTP P→riverTP geography vs riverTP→Lycaenidae photo heldout successes and failures, no mediation or causality
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ACTUAL_TP_2022_SOURCE_P_AND_LYCAENIDAE_PHOTO_REGION_BLOCK_CV.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit measured riverTP2022 versus EEA WWTP P source and Lycaenidae photo geography in 38 country cells, blocked CV and prior photo controls"
+          git fetch origin analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git rebase origin/analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-measured-river-P-source-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-observed-riverTP-EEA-source-Lycaenidae-photo-2deg-sourceCV
+          path: results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ACTUAL_TP_2022_SOURCE_P_AND_LYCAENIDAE_PHOTO_REGION_BLOCK_CV.json
+          retention-days: 90
