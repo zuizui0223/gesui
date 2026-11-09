@@ -1,0 +1,56 @@
+name: gesui original 2022 WISE6 TP monitoring SAME directed river station-pair source availability 50km
+on:
+  push:
+    branches: ["analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109"]
+    paths:
+      - scripts/gesui_2022_WISE6_TP_directed_same_river_stationpairs_sourceonly.py
+      - .github/workflows/gesui-2022-WISE6-TP-same-river-sourceonly-stationpair-gate.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-2022-TP-monitor-site-pairs-without-TP-numeric:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet geopandas pandas numpy pyarrow
+      - name: Restore exact original independently hosted HydroRIVERS EU v1-derived network immutable SHA
+        run: |
+          mkdir -p /tmp/gesui-WISE6-pairs
+          curl --fail --location --silent --show-error --retry 2 --max-time 250 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-WISE6-pairs/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-WISE6-pairs/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+      - name: Only 187 source-locked public TP station reach IDs and NEXT_DOWN, explicitly no TP concentration opened
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_TP_directed_same_river_stationpairs_sourceonly.py
+          python -u scripts/gesui_2022_WISE6_TP_directed_same_river_stationpairs_sourceonly.py \
+            --original-directed-sourceonly results/lycaenidae_2022_measured_river_P_bridge/2022_WISE6_187_TP_STATIONS_DIRECTED_ORIGINAL_EEA_WWTP_SOURCE_ONLY_QC.json \
+            --original-hydrorivers-parquet /tmp/gesui-WISE6-pairs/HydroRIVERS_v10_eu.geoparquet \
+            --out results/wise6_2022_same_river_stationpair_sourceonly/2022_WISE6_TP_SAME_DIRECTED_RIVER_50KM_SOURCE_ONLY_PAIR_GATE.json
+      - name: Preserve actual original river station source-pair support and any independent pair shortage, never TP values
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_same_river_stationpair_sourceonly/2022_WISE6_TP_SAME_DIRECTED_RIVER_50KM_SOURCE_ONLY_PAIR_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze source-only same-directed-river 2022 WISE6 TP station pairs with 50km original HydroRIVERS topology and independent reach sampling gate"
+          git fetch origin analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109
+          git rebase origin/analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109
+          git push origin HEAD:analysis/wise6-2022-TP-same-river-site-pair-feasibility-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-WISE6-TP-same-river-directed-monitor-site-pair-50km-sourceonly
+          path: results/wise6_2022_same_river_stationpair_sourceonly/2022_WISE6_TP_SAME_DIRECTED_RIVER_50KM_SOURCE_ONLY_PAIR_GATE.json
+          retention-days: 90
+          if-no-files-found: warn
