@@ -1,0 +1,1319 @@
+{
+  "NO_SAMEDAY_EFFECT_ESTIMATE_IF_BEFORE_OUTCOME_DAY_GATE_FAILED": true,
+  "POSTHOC_2022_month_temporal_stress_after_known_positive_7quarts_annual_gradient": true,
+  "all_original_8_quartet_source_month_numeric_QC": [
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": null,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": false,
+      "original_four_arm_numeric_quantified_months": [],
+      "original_four_arm_numeric_quantified_sameday_dates": [],
+      "original_quartet_index": 1,
+      "original_reported_interposed_P_tonnes_year": 13.573,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "d3e77a646a733518b2bc52c375269fb7b14d812f5787b7b5543192b81faf7c30",
+        "registered_zero_upstream": "d7f5b4ccf38e4afe37e203ef755f5ab5d9518fd45c573ca25dde2b57f5d1b55f",
+        "source_downstream": "6a92da1a084aeb406e625ecc8801851a49a0f4698946277f25469e4067d3f120",
+        "source_upstream": "8fb54bec9e1a93a7504a336dadb3ee76192318acd07bff4e78cb25790efe92aa"
+      },
+      "sameday_fourarm_valid_n": 0,
+      "samemonth_fourarm_valid_n": 0,
+      "source_country2degree_upstream_block": "26_4"
+    },
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": -0.13765499424412592,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [
+        {
+          "YYYY_MM": "2022-02",
+          "control_downstream_TP_mgP_L": 0.23,
+          "control_gradient_logTP": 0.9098182173685376,
+          "control_upstream_TP_mgP_L": 0.092,
+          "matched_gradient_source_minus_control": -0.10136019029759757,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.201,
+          "source_gradient_logTP": 0.80845802707094,
+          "source_upstream_TP_mgP_L": 0.089
+        },
+        {
+          "YYYY_MM": "2022-03",
+          "control_downstream_TP_mgP_L": 0.12,
+          "control_gradient_logTP": 0.14183019543921782,
+          "control_upstream_TP_mgP_L": 0.104,
+          "matched_gradient_source_minus_control": -0.18403054992959422,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.115,
+          "source_gradient_logTP": -0.0422003544903764,
+          "source_upstream_TP_mgP_L": 0.12
+        },
+        {
+          "YYYY_MM": "2022-04",
+          "control_downstream_TP_mgP_L": 0.094,
+          "control_gradient_logTP": 0.15942773692810208,
+          "control_upstream_TP_mgP_L": 0.08,
+          "matched_gradient_source_minus_control": 0.32436921444996947,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.145,
+          "source_gradient_logTP": 0.48379695137807155,
+          "source_upstream_TP_mgP_L": 0.089
+        },
+        {
+          "YYYY_MM": "2022-05",
+          "control_downstream_TP_mgP_L": 0.0965,
+          "control_gradient_logTP": 0.3603446728276949,
+          "control_upstream_TP_mgP_L": 0.067,
+          "matched_gradient_source_minus_control": -0.3162846830336643,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.115,
+          "source_gradient_logTP": 0.044059989794030585,
+          "source_upstream_TP_mgP_L": 0.11
+        },
+        {
+          "YYYY_MM": "2022-06",
+          "control_downstream_TP_mgP_L": 0.0795,
+          "control_gradient_logTP": 0.5596157879354227,
+          "control_upstream_TP_mgP_L": 0.045,
+          "matched_gradient_source_minus_control": -0.32290015907566905,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.203,
+          "source_gradient_logTP": 0.2367156288597536,
+          "source_upstream_TP_mgP_L": 0.16
+        },
+        {
+          "YYYY_MM": "2022-07",
+          "control_downstream_TP_mgP_L": 0.07150000000000001,
+          "control_gradient_logTP": 0.5223864461670664,
+          "control_upstream_TP_mgP_L": 0.042,
+          "matched_gradient_source_minus_control": -0.4978453372509486,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.164,
+          "source_gradient_logTP": 0.024541108916117826,
+          "source_upstream_TP_mgP_L": 0.16
+        },
+        {
+          "YYYY_MM": "2022-08",
+          "control_downstream_TP_mgP_L": 0.0745,
+          "control_gradient_logTP": -0.1756770140752857,
+          "control_upstream_TP_mgP_L": 0.089,
+          "matched_gradient_source_minus_control": 0.1344667454286228,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.1535,
+          "source_gradient_logTP": -0.041210268646662884,
+          "source_upstream_TP_mgP_L": 0.16
+        }
+      ],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": true,
+      "original_four_arm_numeric_quantified_months": [
+        "2022-02",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08"
+      ],
+      "original_four_arm_numeric_quantified_sameday_dates": [],
+      "original_quartet_index": 2,
+      "original_reported_interposed_P_tonnes_year": 0.72212,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "dbb0cba5211fbdc16c4aaa1d1d9e06ebaa7ef141610c89c72e6fd19fc76f2d8b",
+        "registered_zero_upstream": "ebcc48442f2ce2dd65cb9e76f487859f1a6879fb97f2e9d0e4f83b3ce0c97f1c",
+        "source_downstream": "fe5fda3c0abb6bc034d56421243e8a7ff21604a12f35fc03b38e02252ea90c11",
+        "source_upstream": "1c5481ed933a537f83b15aa94d963db38df22ddc721edac2f2a5a0fdec5671f5"
+      },
+      "sameday_fourarm_valid_n": 0,
+      "samemonth_fourarm_valid_n": 7,
+      "source_country2degree_upstream_block": "26_5"
+    },
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": -0.3010525968399398,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [
+        {
+          "YYYY_MM": "2022-01",
+          "control_downstream_TP_mgP_L": 0.112,
+          "control_gradient_logTP": 0.21652831219549062,
+          "control_upstream_TP_mgP_L": 0.09,
+          "matched_gradient_source_minus_control": -0.9055347000894045,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.12,
+          "source_gradient_logTP": -0.6890063878939139,
+          "source_upstream_TP_mgP_L": 0.24
+        },
+        {
+          "YYYY_MM": "2022-02",
+          "control_downstream_TP_mgP_L": 0.17,
+          "control_gradient_logTP": -0.1910552367627092,
+          "control_upstream_TP_mgP_L": 0.206,
+          "matched_gradient_source_minus_control": -0.09524466546212018,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.18,
+          "source_gradient_logTP": -0.2862999022248294,
+          "source_upstream_TP_mgP_L": 0.24
+        },
+        {
+          "YYYY_MM": "2022-03",
+          "control_downstream_TP_mgP_L": 0.089,
+          "control_gradient_logTP": 0.09309042306601167,
+          "control_upstream_TP_mgP_L": 0.081,
+          "matched_gradient_source_minus_control": -0.29176111786149583,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.09,
+          "source_gradient_logTP": -0.19867069479548416,
+          "source_upstream_TP_mgP_L": 0.11
+        },
+        {
+          "YYYY_MM": "2022-04",
+          "control_downstream_TP_mgP_L": 0.083,
+          "control_gradient_logTP": 0.12675170563914406,
+          "control_upstream_TP_mgP_L": 0.073,
+          "matched_gradient_source_minus_control": -0.12675170563914406,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.08,
+          "source_gradient_logTP": 0.0,
+          "source_upstream_TP_mgP_L": 0.08
+        },
+        {
+          "YYYY_MM": "2022-05",
+          "control_downstream_TP_mgP_L": 0.047,
+          "control_gradient_logTP": 0.13353139262452274,
+          "control_upstream_TP_mgP_L": 0.041,
+          "matched_gradient_source_minus_control": -1.1643210849538714,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.06,
+          "source_gradient_logTP": -1.0307896923293487,
+          "source_upstream_TP_mgP_L": 0.17
+        },
+        {
+          "YYYY_MM": "2022-06",
+          "control_downstream_TP_mgP_L": 0.119,
+          "control_gradient_logTP": 0.33314444652853803,
+          "control_upstream_TP_mgP_L": 0.085,
+          "matched_gradient_source_minus_control": -0.2690199183589994,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.16,
+          "source_gradient_logTP": 0.06412452816953862,
+          "source_upstream_TP_mgP_L": 0.15
+        },
+        {
+          "YYYY_MM": "2022-07",
+          "control_downstream_TP_mgP_L": 0.11,
+          "control_gradient_logTP": 0.3275035666384527,
+          "control_upstream_TP_mgP_L": 0.079,
+          "matched_gradient_source_minus_control": 0.049572538207025785,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.19,
+          "source_gradient_logTP": 0.3770761048454785,
+          "source_upstream_TP_mgP_L": 0.13
+        },
+        {
+          "YYYY_MM": "2022-08",
+          "control_downstream_TP_mgP_L": 0.109,
+          "control_gradient_logTP": -0.07864312731911305,
+          "control_upstream_TP_mgP_L": 0.118,
+          "matched_gradient_source_minus_control": 0.2030268470068486,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.17,
+          "source_gradient_logTP": 0.12438371968773554,
+          "source_upstream_TP_mgP_L": 0.15
+        },
+        {
+          "YYYY_MM": "2022-09",
+          "control_downstream_TP_mgP_L": 0.131,
+          "control_gradient_logTP": 0.007604599385219402,
+          "control_upstream_TP_mgP_L": 0.13,
+          "matched_gradient_source_minus_control": -0.18882179383612074,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.15,
+          "source_gradient_logTP": -0.18121719445090134,
+          "source_upstream_TP_mgP_L": 0.18
+        },
+        {
+          "YYYY_MM": "2022-10",
+          "control_downstream_TP_mgP_L": 0.098,
+          "control_gradient_logTP": 0.030771658666753687,
+          "control_upstream_TP_mgP_L": 0.095,
+          "matched_gradient_source_minus_control": -0.11017843627116397,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.12,
+          "source_gradient_logTP": -0.07940677760441028,
+          "source_upstream_TP_mgP_L": 0.13
+        },
+        {
+          "YYYY_MM": "2022-11",
+          "control_downstream_TP_mgP_L": 0.114,
+          "control_gradient_logTP": 0.19105523676270897,
+          "control_upstream_TP_mgP_L": 0.094,
+          "matched_gradient_source_minus_control": -0.41254452798089214,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.12,
+          "source_gradient_logTP": -0.22148929121818317,
+          "source_upstream_TP_mgP_L": 0.15
+        }
+      ],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": true,
+      "original_four_arm_numeric_quantified_months": [
+        "2022-01",
+        "2022-02",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11"
+      ],
+      "original_four_arm_numeric_quantified_sameday_dates": [],
+      "original_quartet_index": 3,
+      "original_reported_interposed_P_tonnes_year": 6.0430399999999995,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "0fb4be0eac27af4222c14605cc966b149a427921677c3f5e17671b22d5accf5d",
+        "registered_zero_upstream": "3cc248152443873c0352035ad328803c91d40113fa977c3c25cd54422a603453",
+        "source_downstream": "9553ab8a8b2a30ce9e21ee0a13e62fa4d43c1626b740c3f2dee984ff6c6c21a7",
+        "source_upstream": "bd5d4d5d1e136c91cdd86c2f9b53ddd74255521a7fb7220da1e7bc636c673c33"
+      },
+      "sameday_fourarm_valid_n": 0,
+      "samemonth_fourarm_valid_n": 11,
+      "source_country2degree_upstream_block": "25_5"
+    },
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": 0.2218961765320838,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [
+        {
+          "YYYY_MM": "2022-01",
+          "control_downstream_TP_mgP_L": 0.09,
+          "control_gradient_logTP": -0.5705448584676129,
+          "control_upstream_TP_mgP_L": 0.16,
+          "matched_gradient_source_minus_control": 0.2651632089164315,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.055,
+          "source_gradient_logTP": -0.3053816495511814,
+          "source_upstream_TP_mgP_L": 0.075
+        },
+        {
+          "YYYY_MM": "2022-02",
+          "control_downstream_TP_mgP_L": 0.08,
+          "control_gradient_logTP": -0.7760348403657129,
+          "control_upstream_TP_mgP_L": 0.175,
+          "matched_gradient_source_minus_control": 0.24540658930354264,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.044,
+          "source_gradient_logTP": -0.5306282510621703,
+          "source_upstream_TP_mgP_L": 0.0755
+        },
+        {
+          "YYYY_MM": "2022-03",
+          "control_downstream_TP_mgP_L": 0.035,
+          "control_gradient_logTP": -0.9756073090305746,
+          "control_upstream_TP_mgP_L": 0.0945,
+          "matched_gradient_source_minus_control": 0.21480147999681432,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.024,
+          "source_gradient_logTP": -0.7608058290337603,
+          "source_upstream_TP_mgP_L": 0.052500000000000005
+        },
+        {
+          "YYYY_MM": "2022-04",
+          "control_downstream_TP_mgP_L": 0.13,
+          "control_gradient_logTP": -0.07356256717701704,
+          "control_upstream_TP_mgP_L": 0.14,
+          "matched_gradient_source_minus_control": -0.2874507783603135,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.045,
+          "source_gradient_logTP": -0.36101334553733055,
+          "source_upstream_TP_mgP_L": 0.065
+        },
+        {
+          "YYYY_MM": "2022-05",
+          "control_downstream_TP_mgP_L": 0.05,
+          "control_gradient_logTP": -1.0169342576538425,
+          "control_upstream_TP_mgP_L": 0.14,
+          "matched_gradient_source_minus_control": 0.33326582104844094,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.052,
+          "source_gradient_logTP": -0.6836684366054016,
+          "source_upstream_TP_mgP_L": 0.104
+        },
+        {
+          "YYYY_MM": "2022-06",
+          "control_downstream_TP_mgP_L": 0.04,
+          "control_gradient_logTP": -1.456911928333844,
+          "control_upstream_TP_mgP_L": 0.175,
+          "matched_gradient_source_minus_control": 0.5564318024863313,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.05,
+          "source_gradient_logTP": -0.9004801258475128,
+          "source_upstream_TP_mgP_L": 0.1245
+        },
+        {
+          "YYYY_MM": "2022-07",
+          "control_downstream_TP_mgP_L": 0.060000000000000005,
+          "control_gradient_logTP": -1.1924310438857646,
+          "control_upstream_TP_mgP_L": 0.2,
+          "matched_gradient_source_minus_control": 0.20680561861054536,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.038,
+          "source_gradient_logTP": -0.9856254252752192,
+          "source_upstream_TP_mgP_L": 0.10350000000000001
+        },
+        {
+          "YYYY_MM": "2022-08",
+          "control_downstream_TP_mgP_L": 0.065,
+          "control_gradient_logTP": -0.759105148351743,
+          "control_upstream_TP_mgP_L": 0.14,
+          "matched_gradient_source_minus_control": 0.5098007709988612,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.082,
+          "source_gradient_logTP": -0.2493043773528818,
+          "source_upstream_TP_mgP_L": 0.10550000000000001
+        },
+        {
+          "YYYY_MM": "2022-09",
+          "control_downstream_TP_mgP_L": 0.060000000000000005,
+          "control_gradient_logTP": -1.11487280953989,
+          "control_upstream_TP_mgP_L": 0.185,
+          "matched_gradient_source_minus_control": 0.27984504174450087,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.04,
+          "source_gradient_logTP": -0.8350277677953892,
+          "source_upstream_TP_mgP_L": 0.0935
+        },
+        {
+          "YYYY_MM": "2022-11",
+          "control_downstream_TP_mgP_L": 0.085,
+          "control_gradient_logTP": -0.873528872536073,
+          "control_upstream_TP_mgP_L": 0.20500000000000002,
+          "matched_gradient_source_minus_control": -0.2614510603029112,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.035,
+          "source_gradient_logTP": -1.1349799328389842,
+          "source_upstream_TP_mgP_L": 0.111
+        },
+        {
+          "YYYY_MM": "2022-12",
+          "control_downstream_TP_mgP_L": 0.07500000000000001,
+          "control_gradient_logTP": -1.0211247931897354,
+          "control_upstream_TP_mgP_L": 0.21000000000000002,
+          "matched_gradient_source_minus_control": 0.3782394474106783,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.05,
+          "source_gradient_logTP": -0.6428853457790571,
+          "source_upstream_TP_mgP_L": 0.096
+        }
+      ],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": true,
+      "original_four_arm_numeric_quantified_months": [
+        "2022-01",
+        "2022-02",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-11",
+        "2022-12"
+      ],
+      "original_four_arm_numeric_quantified_sameday_dates": [],
+      "original_quartet_index": 4,
+      "original_reported_interposed_P_tonnes_year": 2.354,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "8b0199774c23a273d8c3b0fccf92260a2bfb290eb1288a790c8e7fb8364144ec",
+        "registered_zero_upstream": "cb98c844e643cccaf73ea9c869367a5067db2aaaceeec9a75c59fab669767923",
+        "source_downstream": "d6867743109190aa47493c1935a569c5fc5930fc10ec6948a2e9cafa81e5e437",
+        "source_upstream": "669aa6ad9da94a2fd313e139f986bc342362df3fecb5d77459de8d34c4658434"
+      },
+      "sameday_fourarm_valid_n": 0,
+      "samemonth_fourarm_valid_n": 11,
+      "source_country2degree_upstream_block": "24_4"
+    },
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": 0.09423920936112035,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [
+        {
+          "YYYY_MM": "2022-01",
+          "control_downstream_TP_mgP_L": 0.087,
+          "control_gradient_logTP": -0.28910151910600757,
+          "control_upstream_TP_mgP_L": 0.11649999999999999,
+          "matched_gradient_source_minus_control": 0.36850829671041785,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.13,
+          "source_gradient_logTP": 0.07940677760441028,
+          "source_upstream_TP_mgP_L": 0.12
+        },
+        {
+          "YYYY_MM": "2022-02",
+          "control_downstream_TP_mgP_L": 0.115,
+          "control_gradient_logTP": -0.7497067561282105,
+          "control_upstream_TP_mgP_L": 0.2445,
+          "matched_gradient_source_minus_control": 0.9026761009096378,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.14,
+          "source_gradient_logTP": 0.15296934478142732,
+          "source_upstream_TP_mgP_L": 0.12
+        },
+        {
+          "YYYY_MM": "2022-03",
+          "control_downstream_TP_mgP_L": 0.06,
+          "control_gradient_logTP": -0.11595988109486832,
+          "control_upstream_TP_mgP_L": 0.0675,
+          "matched_gradient_source_minus_control": 0.2202208914192778,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.1,
+          "source_gradient_logTP": 0.10426101032440949,
+          "source_upstream_TP_mgP_L": 0.09
+        },
+        {
+          "YYYY_MM": "2022-04",
+          "control_downstream_TP_mgP_L": 0.064,
+          "control_gradient_logTP": -0.2138699145288805,
+          "control_upstream_TP_mgP_L": 0.0795,
+          "matched_gradient_source_minus_control": -0.4730852957831435,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.08,
+          "source_gradient_logTP": -0.686955210312024,
+          "source_upstream_TP_mgP_L": 0.16
+        },
+        {
+          "YYYY_MM": "2022-05",
+          "control_downstream_TP_mgP_L": 0.108,
+          "control_gradient_logTP": 0.19710925694833392,
+          "control_upstream_TP_mgP_L": 0.0885,
+          "matched_gradient_source_minus_control": -0.9895546584905597,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.09,
+          "source_gradient_logTP": -0.7924454015422258,
+          "source_upstream_TP_mgP_L": 0.2
+        },
+        {
+          "YYYY_MM": "2022-06",
+          "control_downstream_TP_mgP_L": 0.125,
+          "control_gradient_logTP": -0.031252543504104224,
+          "control_upstream_TP_mgP_L": 0.129,
+          "matched_gradient_source_minus_control": 0.29771877680561265,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.17,
+          "source_gradient_logTP": 0.2664662333015084,
+          "source_upstream_TP_mgP_L": 0.13
+        },
+        {
+          "YYYY_MM": "2022-07",
+          "control_downstream_TP_mgP_L": 0.139,
+          "control_gradient_logTP": 0.07410797215372189,
+          "control_upstream_TP_mgP_L": 0.129,
+          "matched_gradient_source_minus_control": 0.14779257092089093,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.2,
+          "source_gradient_logTP": 0.22190054307461282,
+          "source_upstream_TP_mgP_L": 0.16
+        },
+        {
+          "YYYY_MM": "2022-08",
+          "control_downstream_TP_mgP_L": 0.136,
+          "control_gradient_logTP": 0.170710395866277,
+          "control_upstream_TP_mgP_L": 0.11449999999999999,
+          "matched_gradient_source_minus_control": -0.05361772958491429,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.18,
+          "source_gradient_logTP": 0.11709266628136272,
+          "source_upstream_TP_mgP_L": 0.16
+        },
+        {
+          "YYYY_MM": "2022-09",
+          "control_downstream_TP_mgP_L": 0.107,
+          "control_gradient_logTP": -0.04082199452025481,
+          "control_upstream_TP_mgP_L": 0.11149999999999999,
+          "matched_gradient_source_minus_control": 0.262311285738438,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.15,
+          "source_gradient_logTP": 0.22148929121818317,
+          "source_upstream_TP_mgP_L": 0.12
+        },
+        {
+          "YYYY_MM": "2022-10",
+          "control_downstream_TP_mgP_L": 0.091,
+          "control_gradient_logTP": -0.16034265007517945,
+          "control_upstream_TP_mgP_L": 0.107,
+          "matched_gradient_source_minus_control": 0.3818319412933626,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.15,
+          "source_gradient_logTP": 0.22148929121818317,
+          "source_upstream_TP_mgP_L": 0.12
+        },
+        {
+          "YYYY_MM": "2022-11",
+          "control_downstream_TP_mgP_L": 0.107,
+          "control_gradient_logTP": 0.0281708769666964,
+          "control_upstream_TP_mgP_L": 0.104,
+          "matched_gradient_source_minus_control": -0.0281708769666964,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.12,
+          "source_gradient_logTP": 0.0,
+          "source_upstream_TP_mgP_L": 0.12
+        }
+      ],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": true,
+      "original_four_arm_numeric_quantified_months": [
+        "2022-01",
+        "2022-02",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11"
+      ],
+      "original_four_arm_numeric_quantified_sameday_dates": [],
+      "original_quartet_index": 5,
+      "original_reported_interposed_P_tonnes_year": 5.03055,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "225d50ef02d949997c46c88c7d71d2357d977139cb5b6b5da7050b9460f31d75",
+        "registered_zero_upstream": "1b49f1b3bd9baae75bfaac9d8a5bd365e7b3efb4f3e048c441ea88b4f414bc46",
+        "source_downstream": "f3c6d530516ee51b327187f422607ddb8f436f9c4784d9cec4ad985656961bfc",
+        "source_upstream": "c52f8f536ecbc3430cc65e9fdd6ff659f0b514c3aa4a9a5e375e8f516932c09d"
+      },
+      "sameday_fourarm_valid_n": 0,
+      "samemonth_fourarm_valid_n": 11,
+      "source_country2degree_upstream_block": "25_5"
+    },
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": 0.8229315581096865,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [
+        {
+          "YYYY_MM": "2022-01",
+          "control_downstream_TP_mgP_L": 0.15,
+          "control_gradient_logTP": -0.09470795154161893,
+          "control_upstream_TP_mgP_L": 0.165,
+          "matched_gradient_source_minus_control": 0.873377305539726,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.06,
+          "source_gradient_logTP": 0.7786693539981071,
+          "source_upstream_TP_mgP_L": 0.027
+        },
+        {
+          "YYYY_MM": "2022-03",
+          "control_downstream_TP_mgP_L": 0.07,
+          "control_gradient_logTP": -0.2481796294755343,
+          "control_upstream_TP_mgP_L": 0.09,
+          "matched_gradient_source_minus_control": 0.4240702959391984,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.03,
+          "source_gradient_logTP": 0.17589066646366414,
+          "source_upstream_TP_mgP_L": 0.025
+        },
+        {
+          "YYYY_MM": "2022-04",
+          "control_downstream_TP_mgP_L": 0.08,
+          "control_gradient_logTP": -0.4013413909243022,
+          "control_upstream_TP_mgP_L": 0.12,
+          "matched_gradient_source_minus_control": 0.856816919607128,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.04,
+          "source_gradient_logTP": 0.4554755286828258,
+          "source_upstream_TP_mgP_L": 0.025
+        },
+        {
+          "YYYY_MM": "2022-05",
+          "control_downstream_TP_mgP_L": 0.14,
+          "control_gradient_logTP": -0.30351353766846145,
+          "control_upstream_TP_mgP_L": 0.19,
+          "matched_gradient_source_minus_control": 0.6799911089033737,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.05,
+          "source_gradient_logTP": 0.3764775712349122,
+          "source_upstream_TP_mgP_L": 0.034
+        },
+        {
+          "YYYY_MM": "2022-06",
+          "control_downstream_TP_mgP_L": 0.15,
+          "control_gradient_logTP": -0.2349935912317056,
+          "control_upstream_TP_mgP_L": 0.19,
+          "matched_gradient_source_minus_control": 0.5145784534508673,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.04,
+          "source_gradient_logTP": 0.2795848622191617,
+          "source_upstream_TP_mgP_L": 0.03
+        },
+        {
+          "YYYY_MM": "2022-07",
+          "control_downstream_TP_mgP_L": 0.16,
+          "control_gradient_logTP": -0.06025919151819692,
+          "control_upstream_TP_mgP_L": 0.17,
+          "matched_gradient_source_minus_control": 0.7293088204990814,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.04,
+          "source_gradient_logTP": 0.6690496289808845,
+          "source_upstream_TP_mgP_L": 0.02
+        },
+        {
+          "YYYY_MM": "2022-08",
+          "control_downstream_TP_mgP_L": 0.15,
+          "control_gradient_logTP": 0.0,
+          "control_upstream_TP_mgP_L": 0.15,
+          "matched_gradient_source_minus_control": 1.4999536795924122,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.12,
+          "source_gradient_logTP": 1.4999536795924122,
+          "source_upstream_TP_mgP_L": 0.026
+        },
+        {
+          "YYYY_MM": "2022-09",
+          "control_downstream_TP_mgP_L": 0.16,
+          "control_gradient_logTP": -0.22190054307461282,
+          "control_upstream_TP_mgP_L": 0.2,
+          "matched_gradient_source_minus_control": 1.4400579823925053,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.07,
+          "source_gradient_logTP": 1.2181574393178924,
+          "source_upstream_TP_mgP_L": 0.02
+        },
+        {
+          "YYYY_MM": "2022-10",
+          "control_downstream_TP_mgP_L": 0.09,
+          "control_gradient_logTP": -0.36433781668430143,
+          "control_upstream_TP_mgP_L": 0.13,
+          "matched_gradient_source_minus_control": 0.9288676194221535,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.05,
+          "source_gradient_logTP": 0.564529802737852,
+          "source_upstream_TP_mgP_L": 0.028
+        },
+        {
+          "YYYY_MM": "2022-11",
+          "control_downstream_TP_mgP_L": 0.18,
+          "control_gradient_logTP": 0.11709266628136272,
+          "control_upstream_TP_mgP_L": 0.16,
+          "matched_gradient_source_minus_control": 0.28229339575041945,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.04,
+          "source_gradient_logTP": 0.3993860620317822,
+          "source_upstream_TP_mgP_L": 0.0265
+        }
+      ],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": true,
+      "original_four_arm_numeric_quantified_months": [
+        "2022-01",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11"
+      ],
+      "original_four_arm_numeric_quantified_sameday_dates": [],
+      "original_quartet_index": 6,
+      "original_reported_interposed_P_tonnes_year": 3.11,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "0669621e8e259aec0e8253248185e8f4a408d9ffc1bc3c8558146de7f88cda6d",
+        "registered_zero_upstream": "653dbe44e74648595891a3056a6fa1c60db97ce77b7445be754cac7f6b617036",
+        "source_downstream": "43d3a9eda1d680708047a41b1d9c57a85f264fa051c8e57aaaffa513a0ba402a",
+        "source_upstream": "d499d05f3c085cc25a369ad9517e134cce397f41d162eb7da6c2ffc7af8707a8"
+      },
+      "sameday_fourarm_valid_n": 0,
+      "samemonth_fourarm_valid_n": 10,
+      "source_country2degree_upstream_block": "24_5"
+    },
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": 0.4650560617736581,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [
+        {
+          "YYYY_MM": "2022-01",
+          "control_downstream_TP_mgP_L": 0.0885,
+          "control_gradient_logTP": 0.2895460058898438,
+          "control_upstream_TP_mgP_L": 0.066,
+          "matched_gradient_source_minus_control": 0.4518679156399361,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.19,
+          "source_gradient_logTP": 0.7414139215297799,
+          "source_upstream_TP_mgP_L": 0.09
+        },
+        {
+          "YYYY_MM": "2022-02",
+          "control_downstream_TP_mgP_L": 0.10250000000000001,
+          "control_gradient_logTP": -0.04255961441879608,
+          "control_upstream_TP_mgP_L": 0.107,
+          "matched_gradient_source_minus_control": 0.102818805936993,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.17,
+          "source_gradient_logTP": 0.06025919151819692,
+          "source_upstream_TP_mgP_L": 0.16
+        },
+        {
+          "YYYY_MM": "2022-04",
+          "control_downstream_TP_mgP_L": 0.0635,
+          "control_gradient_logTP": 0.29546421289383584,
+          "control_upstream_TP_mgP_L": 0.047,
+          "matched_gradient_source_minus_control": 0.38541287507429534,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.08,
+          "source_gradient_logTP": 0.6808770879681312,
+          "source_upstream_TP_mgP_L": 0.04
+        },
+        {
+          "YYYY_MM": "2022-05",
+          "control_downstream_TP_mgP_L": 0.054,
+          "control_gradient_logTP": -0.38711596943996796,
+          "control_upstream_TP_mgP_L": 0.08,
+          "matched_gradient_source_minus_control": 0.503526321284379,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.09,
+          "source_gradient_logTP": 0.11641035184441106,
+          "source_upstream_TP_mgP_L": 0.08
+        },
+        {
+          "YYYY_MM": "2022-06",
+          "control_downstream_TP_mgP_L": 0.11599999999999999,
+          "control_gradient_logTP": 0.3677247801253172,
+          "control_upstream_TP_mgP_L": 0.08,
+          "matched_gradient_source_minus_control": -0.05997514462272702,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.15,
+          "source_gradient_logTP": 0.30774963550259016,
+          "source_upstream_TP_mgP_L": 0.11
+        },
+        {
+          "YYYY_MM": "2022-07",
+          "control_downstream_TP_mgP_L": 0.0475,
+          "control_gradient_logTP": 0.21800215181379112,
+          "control_upstream_TP_mgP_L": 0.038,
+          "matched_gradient_source_minus_control": 0.2895122106485435,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.2,
+          "source_gradient_logTP": 0.5075143624623346,
+          "source_upstream_TP_mgP_L": 0.12
+        },
+        {
+          "YYYY_MM": "2022-08",
+          "control_downstream_TP_mgP_L": 0.0725,
+          "control_gradient_logTP": 0.0925927868278249,
+          "control_upstream_TP_mgP_L": 0.066,
+          "matched_gradient_source_minus_control": -0.41589249489249913,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.13,
+          "source_gradient_logTP": -0.32329970806467423,
+          "source_upstream_TP_mgP_L": 0.18
+        },
+        {
+          "YYYY_MM": "2022-09",
+          "control_downstream_TP_mgP_L": 0.1105,
+          "control_gradient_logTP": 0.04119575643826767,
+          "control_upstream_TP_mgP_L": 0.106,
+          "matched_gradient_source_minus_control": 1.3266365418418875,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.16,
+          "source_gradient_logTP": 1.3678322982801552,
+          "source_upstream_TP_mgP_L": 0.04
+        },
+        {
+          "YYYY_MM": "2022-10",
+          "control_downstream_TP_mgP_L": 0.136,
+          "control_gradient_logTP": 0.1492963013624602,
+          "control_upstream_TP_mgP_L": 0.11699999999999999,
+          "matched_gradient_source_minus_control": 1.3654763845305622,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.14,
+          "source_gradient_logTP": 1.5147726858930224,
+          "source_upstream_TP_mgP_L": 0.03
+        },
+        {
+          "YYYY_MM": "2022-12",
+          "control_downstream_TP_mgP_L": 0.121,
+          "control_gradient_logTP": -0.016260520871780315,
+          "control_upstream_TP_mgP_L": 0.123,
+          "matched_gradient_source_minus_control": 0.7011772022952103,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.12,
+          "source_gradient_logTP": 0.68491668142343,
+          "source_upstream_TP_mgP_L": 0.06
+        }
+      ],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": true,
+      "original_four_arm_numeric_quantified_months": [
+        "2022-01",
+        "2022-02",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-12"
+      ],
+      "original_four_arm_numeric_quantified_sameday_dates": [],
+      "original_quartet_index": 7,
+      "original_reported_interposed_P_tonnes_year": 4.15379,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "137b8c438efcd41c5d57bc2d1729b5a0389541851d9f28eb99dfe6996646afaa",
+        "registered_zero_upstream": "426e6c1030ec114232d9996348f35db67361764810247051fb5b8880d8510659",
+        "source_downstream": "e159bf65014e56357ffa3b71d5ba95f095aa91ab38eba3da821df75911df6851",
+        "source_upstream": "3942f113a1898ea8982f233ce48417d401b830d5f973c7ec4c838e1f5d98872c"
+      },
+      "sameday_fourarm_valid_n": 0,
+      "samemonth_fourarm_valid_n": 10,
+      "source_country2degree_upstream_block": "25_5"
+    },
+    {
+      "day_specific_all4_TP_measurements_and_source_control_deltas": [],
+      "mean_matched_source_minus_control_daily_logTP_gradient": null,
+      "mean_matched_source_minus_control_monthly_logTP_gradient": 0.01472748368120417,
+      "month_specific_all4_TP_measurements_and_source_control_deltas": [
+        {
+          "YYYY_MM": "2022-07",
+          "control_downstream_TP_mgP_L": 0.082,
+          "control_gradient_logTP": 0.12838116664820687,
+          "control_upstream_TP_mgP_L": 0.072,
+          "matched_gradient_source_minus_control": 0.3952651455468452,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.156,
+          "source_gradient_logTP": 0.5236463121950521,
+          "source_upstream_TP_mgP_L": 0.092
+        },
+        {
+          "YYYY_MM": "2022-08",
+          "control_downstream_TP_mgP_L": 0.081,
+          "control_gradient_logTP": -0.35117202574150186,
+          "control_upstream_TP_mgP_L": 0.11549999999999999,
+          "matched_gradient_source_minus_control": 0.890695813594236,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.27,
+          "source_gradient_logTP": 0.5395237878527341,
+          "source_upstream_TP_mgP_L": 0.157
+        },
+        {
+          "YYYY_MM": "2022-09",
+          "control_downstream_TP_mgP_L": 0.14500000000000002,
+          "control_gradient_logTP": 0.056352936551131716,
+          "control_upstream_TP_mgP_L": 0.137,
+          "matched_gradient_source_minus_control": -0.2492566026756231,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.046,
+          "source_gradient_logTP": -0.1929036661244914,
+          "source_upstream_TP_mgP_L": 0.056
+        },
+        {
+          "YYYY_MM": "2022-10",
+          "control_downstream_TP_mgP_L": 0.152,
+          "control_gradient_logTP": 0.04683129968409916,
+          "control_upstream_TP_mgP_L": 0.145,
+          "matched_gradient_source_minus_control": -0.3244630362823788,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.024,
+          "source_gradient_logTP": -0.27763173659827967,
+          "source_upstream_TP_mgP_L": 0.032
+        },
+        {
+          "YYYY_MM": "2022-11",
+          "control_downstream_TP_mgP_L": 0.1475,
+          "control_gradient_logTP": 0.09531017980432477,
+          "control_upstream_TP_mgP_L": 0.134,
+          "matched_gradient_source_minus_control": -0.17535288747786115,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.023,
+          "source_gradient_logTP": -0.08004270767353638,
+          "source_upstream_TP_mgP_L": 0.025
+        },
+        {
+          "YYYY_MM": "2022-12",
+          "control_downstream_TP_mgP_L": 0.162,
+          "control_gradient_logTP": 0.25746829385528414,
+          "control_upstream_TP_mgP_L": 0.125,
+          "matched_gradient_source_minus_control": -0.4485235306179931,
+          "same_day_true": false,
+          "source_downstream_TP_mgP_L": 0.018,
+          "source_gradient_logTP": -0.19105523676270897,
+          "source_upstream_TP_mgP_L": 0.022
+        }
+      ],
+      "numeric_exact_day_gate_this_quartet": false,
+      "numeric_month_gate_this_quartet": true,
+      "original_four_arm_numeric_quantified_months": [
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11",
+        "2022-12"
+      ],
+      "original_four_arm_numeric_quantified_sameday_dates": [
+        "2022-08-22",
+        "2022-10-17"
+      ],
+      "original_quartet_index": 8,
+      "original_reported_interposed_P_tonnes_year": 0.5,
+      "original_source_only_four_site_hashes": {
+        "registered_zero_downstream": "70172cdf0d92f1c7e0120146faa3e932c8108a98bfd83084cc1943f32c8fe60b",
+        "registered_zero_upstream": "830594b025c3352a16e103a40cdff58b0900d2660af3d16c5811326a6336e2ed",
+        "source_downstream": "c4b20d192160347cf332a915e6a1eba13186f93328485b5d0a0c50d3fe7b4f30",
+        "source_upstream": "13dc0764efa7b329efe7594a1fdf80c6c555d5dc3a7e0adc26781b1d78b0b569"
+      },
+      "sameday_fourarm_valid_n": 2,
+      "samemonth_fourarm_valid_n": 6,
+      "source_country2degree_upstream_block": "24_6"
+    }
+  ],
+  "all_original_source_32monitoring_site_raw_LOQ_and_status_qc": {
+    "0669621e8e259aec0e8253248185e8f4a408d9ffc1bc3c8558146de7f88cda6d": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 13
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 13
+    },
+    "0fb4be0eac27af4222c14605cc966b149a427921677c3f5e17671b22d5accf5d": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "137b8c438efcd41c5d57bc2d1729b5a0389541851d9f28eb99dfe6996646afaa": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 26
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 26
+    },
+    "13dc0764efa7b329efe7594a1fdf80c6c555d5dc3a7e0adc26781b1d78b0b569": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "1b49f1b3bd9baae75bfaac9d8a5bd365e7b3efb4f3e048c441ea88b4f414bc46": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 23
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 23
+    },
+    "1c5481ed933a537f83b15aa94d963db38df22ddc721edac2f2a5a0fdec5671f5": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "225d50ef02d949997c46c88c7d71d2357d977139cb5b6b5da7050b9460f31d75": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "3942f113a1898ea8982f233ce48417d401b830d5f973c7ec4c838e1f5d98872c": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 10
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 10
+    },
+    "3cc248152443873c0352035ad328803c91d40113fa977c3c25cd54422a603453": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "426e6c1030ec114232d9996348f35db67361764810247051fb5b8880d8510659": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 13
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 13
+    },
+    "43d3a9eda1d680708047a41b1d9c57a85f264fa051c8e57aaaffa513a0ba402a": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "653dbe44e74648595891a3056a6fa1c60db97ce77b7445be754cac7f6b617036": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 13
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 13
+    },
+    "669aa6ad9da94a2fd313e139f986bc342362df3fecb5d77459de8d34c4658434": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 25
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 25
+    },
+    "6a92da1a084aeb406e625ecc8801851a49a0f4698946277f25469e4067d3f120": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "70172cdf0d92f1c7e0120146faa3e932c8108a98bfd83084cc1943f32c8fe60b": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 11
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 11
+    },
+    "830594b025c3352a16e103a40cdff58b0900d2660af3d16c5811326a6336e2ed": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 24
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 24
+    },
+    "8b0199774c23a273d8c3b0fccf92260a2bfb290eb1288a790c8e7fb8364144ec": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 21
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 21
+    },
+    "8fb54bec9e1a93a7504a336dadb3ee76192318acd07bff4e78cb25790efe92aa": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "9553ab8a8b2a30ce9e21ee0a13e62fa4d43c1626b740c3f2dee984ff6c6c21a7": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 11
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 11
+    },
+    "bd5d4d5d1e136c91cdd86c2f9b53ddd74255521a7fb7220da1e7bc636c673c33": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 11
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 11
+    },
+    "c4b20d192160347cf332a915e6a1eba13186f93328485b5d0a0c50d3fe7b4f30": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "c52f8f536ecbc3430cc65e9fdd6ff659f0b514c3aa4a9a5e375e8f516932c09d": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "cb98c844e643cccaf73ea9c869367a5067db2aaaceeec9a75c59fab669767923": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 52
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 52
+    },
+    "d3e77a646a733518b2bc52c375269fb7b14d812f5787b7b5543192b81faf7c30": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 4
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 4
+    },
+    "d499d05f3c085cc25a369ad9517e134cce397f41d162eb7da6c2ffc7af8707a8": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "d6867743109190aa47493c1935a569c5fc5930fc10ec6948a2e9cafa81e5e437": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "d7f5b4ccf38e4afe37e203ef755f5ab5d9518fd45c573ca25dde2b57f5d1b55f": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 4
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 4
+    },
+    "dbb0cba5211fbdc16c4aaa1d1d9e06ebaa7ef141610c89c72e6fd19fc76f2d8b": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 24
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 24
+    },
+    "e159bf65014e56357ffa3b71d5ba95f095aa91ab38eba3da821df75911df6851": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    },
+    "ebcc48442f2ce2dd65cb9e76f487859f1a6879fb97f2e9d0e4f83b3ce0c97f1c": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 8
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 8
+    },
+    "f3c6d530516ee51b327187f422607ddb8f436f9c4784d9cec4ad985656961bfc": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 11
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 11
+    },
+    "fe5fda3c0abb6bc034d56421243e8a7ff21604a12f35fc03b38e02252ea90c11": {
+      "original_annual_site_median_replayed": true,
+      "original_resultObservationStatus_source_codes": {
+        "": 12
+      },
+      "qualified_station": true,
+      "source_below_LOQ_rows": 0,
+      "total_source_rows": 12
+    }
+  },
+  "no_2022_WWTP_actual_daily_treatment_discharge_measured": true,
+  "no_Lycaenidae_species_photo_or_behavior_data": true,
+  "no_butterfly_ecological_nutrient_effect_claim": true,
+  "original_32site_numeric_QC_SHA256": "28b679184cbebf6376f1c65d7c160f7511f057ff22787e98ff3fa265b617b261",
+  "original_source_first_sample_date_gate_SHA256": "fca82e3e843433ff8d7bb71e3c878d190ee4ead18d8cf2e50e0bb2def312929d",
+  "schema": "gesui_2022_real_WISE6_German_4station_WWTPinterposed_vs_registeredzero_same_day_and_month_after_nonvalue_date_gate_v01",
+  "source_2022_original_whole_WISE6_TP_rows_checked": {
+    "2022_original_DE_RW_TP_rows": 3690,
+    "original_source_WISE6_rows": 102569057
+  },
+  "source_4site_numeric_same_day_geographic_gate_pass": false,
+  "source_4site_numeric_same_month_geographic_gate_pass": true,
+  "source_4site_numeric_valid_ge3_day_quartets_n": 0,
+  "source_4site_numeric_valid_ge3_month_quartets_n": 7,
+  "source_full_EEA2026_WISE6_zip_SHA_original_numeric_2022_TP": {
+    "original_source_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
+    "original_zip_bytes": 2024284753,
+    "source_sha256": "2a2ef2a43a16ec068b7974a80ae5fca49e44697660a46ce3b91fb1813abe62d2"
+  },
+  "source_original_HydroRIVERS_conversion_not_independently_official_verified": true,
+  "source_same_day_preoutcome_gate": false,
+  "source_same_day_valid_match_results": null,
+  "source_same_month_preoutcome_gate": true,
+  "source_same_month_valid_match_results": {
+    "TP_is_river_phosphorus_not_Lycaenidae_adult_puddling_or_density": true,
+    "annual_2022_reported_WWTP_P_load_not_monthly_wastewater_dose": true,
+    "descriptive_9999_quartet_resample95pct_interval": [
+      -0.0769872646652466,
+      0.44280576123444726
+    ],
+    "distinct_original_country2degree_source_blocks_n": 5,
+    "negative_contrast_quartets": 2,
+    "original_independent_matched_quartets_n": 7,
+    "original_quartet_leave_one_out_mean_range": [
+      0.05953522337733346,
+      0.24686591586893783
+    ],
+    "positive_contrast_quartets": 5,
+    "quartet_equal_weight_mean_matched_source_minus_sourcezero_logTP_gradient": 0.16859184262481247,
+    "quartet_equal_weight_median_matched_gradient": 0.09423920936112035,
+    "signflip_is_NOT_randomized_WWTP_treatment_p_value": true,
+    "source_only_equal_quartet_signflip_2sided_reference_fraction": 0.296875
+  },
+  "source_zero_intervening_source_is_NOT_no_other_pollution": true,
+  "stage": "POSTHOC_SAMEMONTH_MEASURED_TP_RESULT",
+  "timestamp": "2026-11-09T10:44:50.544785+00:00"
+}
