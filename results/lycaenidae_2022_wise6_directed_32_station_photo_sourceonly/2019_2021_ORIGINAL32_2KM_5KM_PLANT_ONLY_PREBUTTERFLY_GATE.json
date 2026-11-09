@@ -1,0 +1,1255 @@
+{
+  "UTC": "2026-11-09T13:20:27.108548+00:00",
+  "any_query_failed_not_biological_zero": false,
+  "date_max": "2021-12-31",
+  "date_min": "2019-01-01",
+  "independent_original_2degree_blocks_n": 6,
+  "interpretation": "Photo effort gate, not nutrient or butterfly benefit. WWTP reported 2022 source versus clean registered-zero river paths from original source-only selection; clean does not mean unpolluted. 2019-2021 plant photos are a rough independent observer opportunity proxy. Even a passed 2022 butterfly photo gate cannot establish adult substrate feeding or causal wastewater effects.",
+  "no_butterfly_species_or_photos_requested": true,
+  "original_frozen_sourceSHA256": {
+    "national_sites_sha256": "f383c4b4ad5c06ea3604b849e0e2a2d77de7e2c0e0e9897faec2d513e72def28",
+    "original_quartets_sha256": "746375f3b24b13b47648303df84e729cec9b42363826f72bb416c2acbebefc46"
+  },
+  "original_monitoring_sites_n": 32,
+  "original_quartets_n": 8,
+  "original_station_source_without_butterfly_outcomes": [
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 3,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.20312&lng=8.82025&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "dc3bbc7a88f477a59d255042ff070111b4b082f4820a3eb365f7a75d3deb0b92",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 31,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.20312&lng=8.82025&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "9f1367d7480bf5abdf8ac3ab4a7d5d43f8438aec6cc05b09319723dba8013125",
+          "status": 200
+        }
+      },
+      "latitude": 53.20312,
+      "longitude": 8.82025,
+      "min_distance_to_other_original_monitor_km": 20.058521049154123,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "8fb54bec9e1a93a7504a336dadb3ee76192318acd07bff4e78cb25790efe92aa",
+      "original_quartet_2deg_block": "26_4",
+      "original_quartet_number": 1,
+      "original_within_pair_reach_length_km": 21.16,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 13.573
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 23,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.19737&lng=8.51926&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "236bb27f5a12b37b052b620fbdaea70b97e1ab716a52a6c590749b1aeaaff69e",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 27,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.19737&lng=8.51926&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "3ff7f2d6f1314aa9b0cda8984dd9be538f01ffb3dd5ba9cfa9cd7b33b0206fa0",
+          "status": 200
+        }
+      },
+      "latitude": 53.19737,
+      "longitude": 8.51926,
+      "min_distance_to_other_original_monitor_km": 20.058521049154123,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "6a92da1a084aeb406e625ecc8801851a49a0f4698946277f25469e4067d3f120",
+      "original_quartet_2deg_block": "26_4",
+      "original_quartet_number": 1,
+      "original_within_pair_reach_length_km": 21.16,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 13.573
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 4,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.11958&lng=8.66942&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "6fed922ac5a090aa3d7198d3cbdd7f38b060232f6361a6d436afa2e9de5c1c58",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 23,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.11958&lng=8.66942&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "612809edf92f097e0b6fa56648d9dcf7885d4e26c568ae710c16657f08abe518",
+          "status": 200
+        }
+      },
+      "latitude": 52.11958,
+      "longitude": 8.66942,
+      "min_distance_to_other_original_monitor_km": 15.381164587597171,
+      "original_2022_TP_sampling_dates": 4,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "d7f5b4ccf38e4afe37e203ef755f5ab5d9518fd45c573ca25dde2b57f5d1b55f",
+      "original_quartet_2deg_block": "26_4",
+      "original_quartet_number": 1,
+      "original_within_pair_reach_length_km": 21.68,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 13.573
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 12,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.21949&lng=8.8254&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "920b10be3f449d70d9c160196ca546370b5290c41e91a0848e8906b1da04713c",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 21,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.21949&lng=8.8254&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "eda8a886add5cc3f4777c90858d7afbee96d21028b65fd0d1f4a34150a97e67c",
+          "status": 200
+        }
+      },
+      "latitude": 52.21949,
+      "longitude": 8.8254,
+      "min_distance_to_other_original_monitor_km": 15.381164587597171,
+      "original_2022_TP_sampling_dates": 4,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "d3e77a646a733518b2bc52c375269fb7b14d812f5787b7b5543192b81faf7c30",
+      "original_quartet_2deg_block": "26_4",
+      "original_quartet_number": 1,
+      "original_within_pair_reach_length_km": 21.68,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 13.573
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 22,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.50534&lng=10.24089&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "956102d0a6c32bc857993df4802bba0cd53edbed4560d7363af5eda27919379e",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 122,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.50534&lng=10.24089&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "d52de402e7fde908fa0e0965fbd5a8fa06be0b0b9b7a4dc97d69b12b791b6936",
+          "status": 200
+        }
+      },
+      "latitude": 53.50534,
+      "longitude": 10.24089,
+      "min_distance_to_other_original_monitor_km": 24.189581311705364,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "1c5481ed933a537f83b15aa94d963db38df22ddc721edac2f2a5a0fdec5671f5",
+      "original_quartet_2deg_block": "26_5",
+      "original_quartet_number": 2,
+      "original_within_pair_reach_length_km": 36.37,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 0.72212
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 27,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.54029&lng=9.87972&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "e03b4fe81a30bf517e228a25a5867ca49ced781f423563564205d8cc2326bfdb",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 208,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=53.54029&lng=9.87972&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "090b6e6b1fd41f022c429f1679963f8ad0817ea4b971cdf41917ecdfb1bdccd8",
+          "status": 200
+        }
+      },
+      "latitude": 53.54029,
+      "longitude": 9.87972,
+      "min_distance_to_other_original_monitor_km": 24.189581311705364,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "fe5fda3c0abb6bc034d56421243e8a7ff21604a12f35fc03b38e02252ea90c11",
+      "original_quartet_2deg_block": "26_5",
+      "original_quartet_number": 2,
+      "original_within_pair_reach_length_km": 36.37,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 0.72212
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 4,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.49439&lng=10.55795&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "aa7455697f6825c23825c955e8f557fb1f15d037a7651ce3934d7b49c3d93215",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 14,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.49439&lng=10.55795&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "99495f2e9d89af521b44ebe09d1510f614f040cc3dc4cc9bfc7128b922f0a5cf",
+          "status": 200
+        }
+      },
+      "latitude": 52.49439,
+      "longitude": 10.55795,
+      "min_distance_to_other_original_monitor_km": 19.24211277706988,
+      "original_2022_TP_sampling_dates": 8,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "ebcc48442f2ce2dd65cb9e76f487859f1a6879fb97f2e9d0e4f83b3ce0c97f1c",
+      "original_quartet_2deg_block": "26_5",
+      "original_quartet_number": 2,
+      "original_within_pair_reach_length_km": 32.22,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 0.72212
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 0,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.55969&lng=10.29454&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 7,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.55969&lng=10.29454&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "8bdfd9189369956a1f25e9131523dcc2e7c8f8c6c06df77b073a72bfe9e3dadc",
+          "status": 200
+        }
+      },
+      "latitude": 52.55969,
+      "longitude": 10.29454,
+      "min_distance_to_other_original_monitor_km": 19.24211277706988,
+      "original_2022_TP_sampling_dates": 24,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "dbb0cba5211fbdc16c4aaa1d1d9e06ebaa7ef141610c89c72e6fd19fc76f2d8b",
+      "original_quartet_2deg_block": "26_5",
+      "original_quartet_number": 2,
+      "original_within_pair_reach_length_km": 32.22,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 0.72212
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 141,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.20969&lng=11.76938&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "341fa2cf9b716c3a244684aa8dfdeb4d99857b3d3801e8f79e976b9c3e581177",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 365,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.20969&lng=11.76938&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "1e15c0eb361709e317aed87bc2d84e6988f592a13e51843f897ad85cf82cc139",
+          "status": 200
+        }
+      },
+      "latitude": 51.20969,
+      "longitude": 11.76938,
+      "min_distance_to_other_original_monitor_km": 22.20036050595708,
+      "original_2022_TP_sampling_dates": 11,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "bd5d4d5d1e136c91cdd86c2f9b53ddd74255521a7fb7220da1e7bc636c673c33",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 3,
+      "original_within_pair_reach_length_km": 29.53,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 6.0430399999999995
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 3,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.28938&lng=12.06184&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "084c409b59c66774bef2eedc2e7613883e4d318cde4342e7e6140cd4d92bf9e9",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 3,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.28938&lng=12.06184&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "084c409b59c66774bef2eedc2e7613883e4d318cde4342e7e6140cd4d92bf9e9",
+          "status": 200
+        }
+      },
+      "latitude": 51.28938,
+      "longitude": 12.06184,
+      "min_distance_to_other_original_monitor_km": 15.810579656242517,
+      "original_2022_TP_sampling_dates": 11,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "9553ab8a8b2a30ce9e21ee0a13e62fa4d43c1626b740c3f2dee984ff6c6c21a7",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 3,
+      "original_within_pair_reach_length_km": 29.53,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 6.0430399999999995
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 0,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.14863&lng=11.03669&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 11,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.14863&lng=11.03669&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "e89d96d5e07ab72fb214083d176a2ab84aa511e913968b0fc077d64064373e2d",
+          "status": 200
+        }
+      },
+      "latitude": 51.14863,
+      "longitude": 11.03669,
+      "min_distance_to_other_original_monitor_km": 20.245557191255056,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "3cc248152443873c0352035ad328803c91d40113fa977c3c25cd54422a603453",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 3,
+      "original_within_pair_reach_length_km": 23.72,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 6.0430399999999995
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 6,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.30614&lng=11.18253&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fa89965cb20f10410065bb07bf455d0c4ef747a920bd247192c5cd00a739e363",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 40,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.30614&lng=11.18253&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "b3f0ed4ee43ca412c323b908b5ebd775f04cdc00c82d0441952b8904922c605c",
+          "status": 200
+        }
+      },
+      "latitude": 51.30614,
+      "longitude": 11.18253,
+      "min_distance_to_other_original_monitor_km": 20.245557191255056,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "0fb4be0eac27af4222c14605cc966b149a427921677c3f5e17671b22d5accf5d",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 3,
+      "original_within_pair_reach_length_km": 23.72,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 6.0430399999999995
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 76,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.3739&lng=9.96426&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "f7c8bc3810ec1d28a9efcf5bb51c4559a6642a9dd11e31821e1c5ad5d57db5b7",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 374,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.3739&lng=9.96426&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "f9365e3cabf187d021a190ef4887f9f9db25083661f1f50d5cfb7b18b249ee69",
+          "status": 200
+        }
+      },
+      "latitude": 48.3739,
+      "longitude": 9.96426,
+      "min_distance_to_other_original_monitor_km": 7.244013846238136,
+      "original_2022_TP_sampling_dates": 25,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "669aa6ad9da94a2fd313e139f986bc342362df3fecb5d77459de8d34c4658434",
+      "original_quartet_2deg_block": "24_4",
+      "original_quartet_number": 4,
+      "original_within_pair_reach_length_km": 9.36,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 2.354
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 132,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.42405&lng=10.02689&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "5d8626178694df79a640050c35cbd0ccf604c042b7d3ab5275c739bb291e9aca",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 762,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.42405&lng=10.02689&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fe759342a9563bbdc8c3ac127171d61cb9f2502a9cb7170179e2fc34070f757e",
+          "status": 200
+        }
+      },
+      "latitude": 48.42405,
+      "longitude": 10.02689,
+      "min_distance_to_other_original_monitor_km": 7.244013846238136,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "d6867743109190aa47493c1935a569c5fc5930fc10ec6948a2e9cafa81e5e437",
+      "original_quartet_2deg_block": "24_4",
+      "original_quartet_number": 4,
+      "original_within_pair_reach_length_km": 9.36,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 2.354
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 24,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=49.9994&lng=8.3455&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "6adf13619a82c1af64eda625c689ed38ae18e30e3e20675bf44f79d8d28af00e",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 290,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=49.9994&lng=8.3455&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "701c94c770d5e37d277043d61ef0d32f76db8687d0785823c30e656828cba92b",
+          "status": 200
+        }
+      },
+      "latitude": 49.9994,
+      "longitude": 8.3455,
+      "min_distance_to_other_original_monitor_km": 4.961954251706453,
+      "original_2022_TP_sampling_dates": 52,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "cb98c844e643cccaf73ea9c869367a5067db2aaaceeec9a75c59fab669767923",
+      "original_quartet_2deg_block": "24_4",
+      "original_quartet_number": 4,
+      "original_within_pair_reach_length_km": 6.97,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 2.354
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 35,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=50.00686&lng=8.27705&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fd6c98f8013781c5e3eefd8138c22259e024ee32731b25c87c3821189c2667c8",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 269,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=50.00686&lng=8.27705&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "0629a4439c1a9002e9553c562876f669fdcc877d7e81b25c10e5e41a85cd73a9",
+          "status": 200
+        }
+      },
+      "latitude": 50.00686,
+      "longitude": 8.27705,
+      "min_distance_to_other_original_monitor_km": 4.961954251706453,
+      "original_2022_TP_sampling_dates": 21,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "8b0199774c23a273d8c3b0fccf92260a2bfb290eb1288a790c8e7fb8364144ec",
+      "original_quartet_2deg_block": "24_4",
+      "original_quartet_number": 4,
+      "original_within_pair_reach_length_km": 6.97,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 2.354
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 17,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.42296&lng=11.98382&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "397693e7972e5dfc5a2282e49cf67f74ad96bcc04630f8d4c4671d51ba5f367e",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 174,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.42296&lng=11.98382&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "a6bb49b1ad8ee1137fbecda0143e341f4d96b0728d63936cc64ed78ba9e49a40",
+          "status": 200
+        }
+      },
+      "latitude": 51.42296,
+      "longitude": 11.98382,
+      "min_distance_to_other_original_monitor_km": 9.952867042309789,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "c52f8f536ecbc3430cc65e9fdd6ff659f0b514c3aa4a9a5e375e8f516932c09d",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 5,
+      "original_within_pair_reach_length_km": 9.29,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 5.03055
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 501,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.51059&lng=11.95454&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "da65967206cf81a2f0128c489c01e2a6a41e327a163c0924bdf12232196deeed",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 1126,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.51059&lng=11.95454&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "a88a479750bc38299ad96c56f3778fd0cf4f5656c9b66099ea9f1d382857000e",
+          "status": 200
+        }
+      },
+      "latitude": 51.51059,
+      "longitude": 11.95454,
+      "min_distance_to_other_original_monitor_km": 9.952867042309789,
+      "original_2022_TP_sampling_dates": 11,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "f3c6d530516ee51b327187f422607ddb8f436f9c4784d9cec4ad985656961bfc",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 5,
+      "original_within_pair_reach_length_km": 9.29,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 5.03055
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 2,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.13589&lng=9.76159&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "6beb583a8fe8712c98b09da6afb87a1c67b757e22607105d08a879819b354a10",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 8,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.13589&lng=9.76159&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "c5a7d9a1c21324d427610dcf4f62fa20435b221a1571abd10d84cc5b08d5eade",
+          "status": 200
+        }
+      },
+      "latitude": 52.13589,
+      "longitude": 9.76159,
+      "min_distance_to_other_original_monitor_km": 13.248362433263686,
+      "original_2022_TP_sampling_dates": 23,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "1b49f1b3bd9baae75bfaac9d8a5bd365e7b3efb4f3e048c441ea88b4f414bc46",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 5,
+      "original_within_pair_reach_length_km": 9.31,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 5.03055
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 7,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.24773&lng=9.8286&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fa4c092d0a9aa9da21027d8666c05f4e983f938f31bea9dea1dcd0b918695063",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 80,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=52.24773&lng=9.8286&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "2479b7a0efe200f6c58434c1694b90c5d1693f3a4e162b802cbcc1a002d2a818",
+          "status": 200
+        }
+      },
+      "latitude": 52.24773,
+      "longitude": 9.8286,
+      "min_distance_to_other_original_monitor_km": 13.248362433263686,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "225d50ef02d949997c46c88c7d71d2357d977139cb5b6b5da7050b9460f31d75",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 5,
+      "original_within_pair_reach_length_km": 9.31,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 5.03055
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 6,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.72746&lng=10.92126&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "7479daaf067dccf9cffa9305eb0bc928dd3b9ad300bd41a51f98408cdd16ecc2",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 18,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.72746&lng=10.92126&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "23c8ab3159b51b8c124143dcc023d5db9510fba6ab02a2141a1662a2f21530c7",
+          "status": 200
+        }
+      },
+      "latitude": 48.72746,
+      "longitude": 10.92126,
+      "min_distance_to_other_original_monitor_km": 16.299289372227555,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "d499d05f3c085cc25a369ad9517e134cce397f41d162eb7da6c2ffc7af8707a8",
+      "original_quartet_2deg_block": "24_5",
+      "original_quartet_number": 6,
+      "original_within_pair_reach_length_km": 29.73,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 3.11
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 22,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.73485&lng=11.14321&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "e702d232ccf293f40312c8f50867e688c63118225debe2e21d950abd6727dcbc",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 169,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.73485&lng=11.14321&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "ee937df0bbc82626390d3efe8e9f2daecb169e9f03d0d66a4751515db5217f17",
+          "status": 200
+        }
+      },
+      "latitude": 48.73485,
+      "longitude": 11.14321,
+      "min_distance_to_other_original_monitor_km": 16.299289372227555,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "43d3a9eda1d680708047a41b1d9c57a85f264fa051c8e57aaaffa513a0ba402a",
+      "original_quartet_2deg_block": "24_5",
+      "original_quartet_number": 6,
+      "original_within_pair_reach_length_km": 29.73,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 3.11
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 5,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=49.1358&lng=7.18305&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "1be14da7f053615849084f68c8d237d2cfc45c3e7181f8a4ed487aa798623a29",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 40,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=49.1358&lng=7.18305&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "3621eea26719d6257414a6fbf82081ee992a58e1490a2dcfd12a69ce048d4b44",
+          "status": 200
+        }
+      },
+      "latitude": 49.1358,
+      "longitude": 7.18305,
+      "min_distance_to_other_original_monitor_km": 13.142945110939769,
+      "original_2022_TP_sampling_dates": 13,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "653dbe44e74648595891a3056a6fa1c60db97ce77b7445be754cac7f6b617036",
+      "original_quartet_2deg_block": "24_5",
+      "original_quartet_number": 6,
+      "original_within_pair_reach_length_km": 29.83,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 3.11
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 616,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=49.19701&lng=7.02841&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "9443e9985f967517cefcbed02aa47bcc1c1155d6428a7f8b46eb0af5e1e03902",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 2038,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=49.19701&lng=7.02841&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "49d0fdfaaab769ffd8f93032ecf894d6ab0fadbad04d287201cfe74471984e7d",
+          "status": 200
+        }
+      },
+      "latitude": 49.19701,
+      "longitude": 7.02841,
+      "min_distance_to_other_original_monitor_km": 13.142945110939769,
+      "original_2022_TP_sampling_dates": 13,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "0669621e8e259aec0e8253248185e8f4a408d9ffc1bc3c8558146de7f88cda6d",
+      "original_quartet_2deg_block": "24_5",
+      "original_quartet_number": 6,
+      "original_within_pair_reach_length_km": 29.83,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 3.11
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 10,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.84575&lng=11.70623&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "b4dd59a0799a46e10c3f6a94304c71ae6dc9c980910e2caaae8524c4c4995c6b",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 16,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.84575&lng=11.70623&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "af9ba7f4d45b0f88339ee3346bd67297ca93e33549454338b3a22624c0dcd213",
+          "status": 200
+        }
+      },
+      "latitude": 51.84575,
+      "longitude": 11.70623,
+      "min_distance_to_other_original_monitor_km": 13.975395496058235,
+      "original_2022_TP_sampling_dates": 10,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "3942f113a1898ea8982f233ce48417d401b830d5f973c7ec4c838e1f5d98872c",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 7,
+      "original_within_pair_reach_length_km": 30.93,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 4.15379
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 0,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.91651&lng=11.8745&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 12,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=51.91651&lng=11.8745&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "661ebbd37bfde7423a73d963af6f3b91e668f6de890b36f8b6eb373f4325121c",
+          "status": 200
+        }
+      },
+      "latitude": 51.91651,
+      "longitude": 11.8745,
+      "min_distance_to_other_original_monitor_km": 13.975395496058235,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "e159bf65014e56357ffa3b71d5ba95f095aa91ab38eba3da821df75911df6851",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 7,
+      "original_within_pair_reach_length_km": 30.93,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 4.15379
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 0,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.44444&lng=8.80014&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 9,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.44444&lng=8.80014&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "ae9c506160d1b9158c7bd9cc48273bb03c71611c635588555b45e5bf6237cdfd",
+          "status": 200
+        }
+      },
+      "latitude": 48.44444,
+      "longitude": 8.80014,
+      "min_distance_to_other_original_monitor_km": 26.540216447190456,
+      "original_2022_TP_sampling_dates": 13,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "426e6c1030ec114232d9996348f35db67361764810247051fb5b8880d8510659",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 7,
+      "original_within_pair_reach_length_km": 31.06,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 4.15379
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 3,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.53485&lng=9.13344&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "7047f3d8c18ec31480662b9b5c6879e1cc6f14d65e9dee27b1a014188b9719fc",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 68,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.53485&lng=9.13344&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "3688ab5bf9cc0511cecc17c676321855528d286e9a7b7d27e3f3266d9a736ff1",
+          "status": 200
+        }
+      },
+      "latitude": 48.53485,
+      "longitude": 9.13344,
+      "min_distance_to_other_original_monitor_km": 26.540216447190456,
+      "original_2022_TP_sampling_dates": 26,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "137b8c438efcd41c5d57bc2d1729b5a0389541851d9f28eb99dfe6996646afaa",
+      "original_quartet_2deg_block": "25_5",
+      "original_quartet_number": 7,
+      "original_within_pair_reach_length_km": 31.06,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 4.15379
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 10,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.2522&lng=12.69689&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "17b0819cafa8d9dbf0cc7db6cca71fcccea8ffc332e3eb294407fd1615322f71",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 14,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.2522&lng=12.69689&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fc9c089a34b90da3b8d60f5e3f48c0589a79056f59091f7a4c86486fc07c68ef",
+          "status": 200
+        }
+      },
+      "latitude": 48.2522,
+      "longitude": 12.69689,
+      "min_distance_to_other_original_monitor_km": 24.98299035580243,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "13dc0764efa7b329efe7594a1fdf80c6c555d5dc3a7e0adc26781b1d78b0b569",
+      "original_quartet_2deg_block": "24_6",
+      "original_quartet_number": 8,
+      "original_within_pair_reach_length_km": 35.86,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 0.5
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 0,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.26097&lng=13.03409&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "fe405348f0257c7541f676ccb25723d7126a4917ec661bd7eec5f3d841ffcdf8",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 10,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.26097&lng=13.03409&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "3aca8b302edab6a1235606ae477bb8f1f02e71d1d12c6e2fe5fc13091b09bd46",
+          "status": 200
+        }
+      },
+      "latitude": 48.26097,
+      "longitude": 13.03409,
+      "min_distance_to_other_original_monitor_km": 24.98299035580243,
+      "original_2022_TP_sampling_dates": 12,
+      "original_2022_source_class": "source",
+      "original_monitor_hash": "c4b20d192160347cf332a915e6a1eba13186f93328485b5d0a0c50d3fe7b4f30",
+      "original_quartet_2deg_block": "24_6",
+      "original_quartet_number": 8,
+      "original_within_pair_reach_length_km": 35.86,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 0.5
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 9,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.72105&lng=9.37875&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "c41876aca20a64326c34cb3f3728588c794e29868a8796875cde3a150d9ee797",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 57,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.72105&lng=9.37875&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "a8d8070889e34a3df5e39bc1f7cfbb070551e513b9800cdf5c5311ca8b63aecc",
+          "status": 200
+        }
+      },
+      "latitude": 48.72105,
+      "longitude": 9.37875,
+      "min_distance_to_other_original_monitor_km": 23.363246061643537,
+      "original_2022_TP_sampling_dates": 24,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "830594b025c3352a16e103a40cdff58b0900d2660af3d16c5811326a6336e2ed",
+      "original_quartet_2deg_block": "24_6",
+      "original_quartet_number": 8,
+      "original_within_pair_reach_length_km": 36.03,
+      "side_of_river_monitor_pair": "upstream",
+      "source_pair_original_2022_reported_P_t_y": 0.5
+    },
+    {
+      "countryCode": "DE",
+      "independent_previous_year_plantae_photo_counts": {
+        "2km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 109,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.9127&lng=9.24796&radius=2&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "4fd0d6bfcfb8f530500c7face903a9aac20ae5ca16571bda1aa25cc05a63d9e9",
+          "status": 200
+        },
+        "5km": {
+          "count_public_2019_2021_research_grade_georeferenced_plantae_photos": 346,
+          "no_butterfly_outcome_was_requested": true,
+          "original_API_url": "https://api.inaturalist.org/v1/observations?taxon_id=47126&place_id=7207&lat=48.9127&lng=9.24796&radius=5&d1=2019-01-01&d2=2021-12-31&photos=true&geo=true&geoprivacy=open&taxon_geoprivacy=open&quality_grade=research&captive=false&acc_below=500&per_page=1",
+          "original_JSON_response_SHA256": "19d2343128cb2515199b5c6ab26aa9e77b22b37d402495337fe3519860560618",
+          "status": 200
+        }
+      },
+      "latitude": 48.9127,
+      "longitude": 9.24796,
+      "min_distance_to_other_original_monitor_km": 23.363246061643537,
+      "original_2022_TP_sampling_dates": 11,
+      "original_2022_source_class": "registered_source_zero",
+      "original_monitor_hash": "70172cdf0d92f1c7e0120146faa3e932c8108a98bfd83084cc1943f32c8fe60b",
+      "original_quartet_2deg_block": "24_6",
+      "original_quartet_number": 8,
+      "original_within_pair_reach_length_km": 36.03,
+      "side_of_river_monitor_pair": "downstream",
+      "source_pair_original_2022_reported_P_t_y": 0.5
+    }
+  ],
+  "planned_queries": 64,
+  "plant_taxon_id": 47126,
+  "prebutterfly_effort_gate": {
+    "2km": {
+      "disjoint_source_only_quartet_details": [
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 12,
+            "registered_source_zero_upstream": 4,
+            "source_downstream": 23,
+            "source_upstream": 3
+          },
+          "geographic_source_2degree_block": "26_4",
+          "min_pairwise_km": 15.381164587597171,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.13043478260869565,
+          "original_quartet_number": 1
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 0,
+            "registered_source_zero_upstream": 4,
+            "source_downstream": 27,
+            "source_upstream": 22
+          },
+          "geographic_source_2degree_block": "26_5",
+          "min_pairwise_km": 19.24211277706988,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.0,
+          "original_quartet_number": 2
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 6,
+            "registered_source_zero_upstream": 0,
+            "source_downstream": 3,
+            "source_upstream": 141
+          },
+          "geographic_source_2degree_block": "25_5",
+          "min_pairwise_km": 20.245557191255056,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.0,
+          "original_quartet_number": 3
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": true,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 35,
+            "registered_source_zero_upstream": 24,
+            "source_downstream": 132,
+            "source_upstream": 76
+          },
+          "geographic_source_2degree_block": "24_4",
+          "min_pairwise_km": 4.961954251706453,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.18181818181818182,
+          "original_quartet_number": 4
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 7,
+            "registered_source_zero_upstream": 2,
+            "source_downstream": 501,
+            "source_upstream": 17
+          },
+          "geographic_source_2degree_block": "25_5",
+          "min_pairwise_km": 9.952867042309789,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.003992015968063872,
+          "original_quartet_number": 5
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 616,
+            "registered_source_zero_upstream": 5,
+            "source_downstream": 22,
+            "source_upstream": 6
+          },
+          "geographic_source_2degree_block": "24_5",
+          "min_pairwise_km": 13.142945110939769,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.008116883116883116,
+          "original_quartet_number": 6
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 3,
+            "registered_source_zero_upstream": 0,
+            "source_downstream": 0,
+            "source_upstream": 10
+          },
+          "geographic_source_2degree_block": "25_5",
+          "min_pairwise_km": 13.975395496058235,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.0,
+          "original_quartet_number": 7
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 109,
+            "registered_source_zero_upstream": 9,
+            "source_downstream": 0,
+            "source_upstream": 10
+          },
+          "geographic_source_2degree_block": "24_6",
+          "min_pairwise_km": 23.363246061643537,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.0,
+          "original_quartet_number": 8
+        }
+      ],
+      "eligible_geographic_blocks": 1,
+      "eligible_quartets": 1,
+      "original_quartets": 8,
+      "photo_outcome_query_allowed": false,
+      "predeclared_gate": {
+        "min_eligible_quartets": 5,
+        "min_four_arm_minmax_ratio": 0.15,
+        "min_geographic_2deg_blocks": 4,
+        "min_plant_photos_per_arm": 5
+      }
+    },
+    "5km": {
+      "disjoint_source_only_quartet_details": [
+        {
+          "all_4_sampling_arm_source_photo_sufficient": true,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 21,
+            "registered_source_zero_upstream": 23,
+            "source_downstream": 27,
+            "source_upstream": 31
+          },
+          "geographic_source_2degree_block": "26_4",
+          "min_pairwise_km": 15.381164587597171,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.6774193548387096,
+          "original_quartet_number": 1
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 7,
+            "registered_source_zero_upstream": 14,
+            "source_downstream": 208,
+            "source_upstream": 122
+          },
+          "geographic_source_2degree_block": "26_5",
+          "min_pairwise_km": 19.24211277706988,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.03365384615384615,
+          "original_quartet_number": 2
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 40,
+            "registered_source_zero_upstream": 11,
+            "source_downstream": 3,
+            "source_upstream": 365
+          },
+          "geographic_source_2degree_block": "25_5",
+          "min_pairwise_km": 20.245557191255056,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.00821917808219178,
+          "original_quartet_number": 3
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": false,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 269,
+            "registered_source_zero_upstream": 290,
+            "source_downstream": 762,
+            "source_upstream": 374
+          },
+          "geographic_source_2degree_block": "24_4",
+          "min_pairwise_km": 4.961954251706453,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.3530183727034121,
+          "original_quartet_number": 4
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": false,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 80,
+            "registered_source_zero_upstream": 8,
+            "source_downstream": 1126,
+            "source_upstream": 174
+          },
+          "geographic_source_2degree_block": "25_5",
+          "min_pairwise_km": 9.952867042309789,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.007104795737122558,
+          "original_quartet_number": 5
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 2038,
+            "registered_source_zero_upstream": 40,
+            "source_downstream": 169,
+            "source_upstream": 18
+          },
+          "geographic_source_2degree_block": "24_5",
+          "min_pairwise_km": 13.142945110939769,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.008832188420019628,
+          "original_quartet_number": 6
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 68,
+            "registered_source_zero_upstream": 9,
+            "source_downstream": 12,
+            "source_upstream": 16
+          },
+          "geographic_source_2degree_block": "25_5",
+          "min_pairwise_km": 13.975395496058235,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.1323529411764706,
+          "original_quartet_number": 7
+        },
+        {
+          "all_4_sampling_arm_source_photo_sufficient": false,
+          "all_queries_valid": true,
+          "four_circles_nonoverlap_within_quartet": true,
+          "four_site_plant_photo_counts_by_original_arm": {
+            "registered_source_zero_downstream": 346,
+            "registered_source_zero_upstream": 57,
+            "source_downstream": 10,
+            "source_upstream": 14
+          },
+          "geographic_source_2degree_block": "24_6",
+          "min_pairwise_km": 23.363246061643537,
+          "minimum_to_maximum_plant_photo_effort_ratio": 0.028901734104046242,
+          "original_quartet_number": 8
+        }
+      ],
+      "eligible_geographic_blocks": 1,
+      "eligible_quartets": 1,
+      "original_quartets": 8,
+      "photo_outcome_query_allowed": false,
+      "predeclared_gate": {
+        "min_eligible_quartets": 4,
+        "min_four_arm_minmax_ratio": 0.15,
+        "min_geographic_2deg_blocks": 3,
+        "min_plant_photos_per_arm": 5
+      }
+    }
+  },
+  "radii_km": [
+    2,
+    5
+  ],
+  "schema": "gesui_original32_WISE6_quartet_2019_2021_plant_photo_prebutterfly_outcome_gate_v01",
+  "successful_queries": 64
+}
