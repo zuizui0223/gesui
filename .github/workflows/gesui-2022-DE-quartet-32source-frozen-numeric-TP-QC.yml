@@ -1,0 +1,45 @@
+name: gesui Germany 2022 WISE6 numeric TP for frozen 8 WWTP-source versus 8 registered-sourcezero river monitoring quartets
+on:
+  push:
+    branches: ["analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109"]
+    paths:
+      - "scripts/gesui_2022_Germany_WISE6_8vs8_quartets_original32_numeric_TP_QC.py"
+      - ".github/workflows/gesui-2022-DE-quartet-32source-frozen-numeric-TP-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-2022-water-TP-at-frozen-Germany-32sites:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify original 32 station and 8source/8zero pre-numeric cohort then stream original 2026 WISE6 individual actual 2022 TP sample rows
+        run: |
+          python -m py_compile scripts/gesui_2022_Germany_WISE6_8vs8_quartets_original32_numeric_TP_QC.py
+          python -u scripts/gesui_2022_Germany_WISE6_8vs8_quartets_original32_numeric_TP_QC.py \
+            --source-frozen-quartets results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json \
+            --tmpdir /tmp/gesui-DE-2022-WISE6-original-32sites \
+            --out results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json
+      - name: Commit numeric site-year TP 2022 and source-selected 8quartet sample readiness BEFORE computing source-control upstream-downstream contrast
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze actual Germany 2022 WISE6 32 originally source-selected station TP values and 8quartet LOQ/month sample support before differences"
+          git fetch origin analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109
+          git rebase origin/analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109
+          git push origin HEAD:analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-2022-real-WISE6-32-site-8quartet-TP-numeric-LOQ-source-gate
+          path: results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json
+          retention-days: 90
+          if-no-files-found: warn
