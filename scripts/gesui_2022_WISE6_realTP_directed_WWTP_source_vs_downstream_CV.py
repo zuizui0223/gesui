@@ -288,8 +288,8 @@ def main():
     report["original_2022_river_2021_land_2022_EEA_site_source_model_results"]=models
     report["upstream_P_minus_downstream_placebo_incremental_CV_MSE_gain_pct"]=(models[SOURCE_UPSTREAM_PRIMARY]["relative_source_added_MSE_improvement_pct"]-
                      models[SOURCE_DOWNSTREAM_PLACEBO]["relative_source_added_MSE_improvement_pct"])
-    report["not_yet_a_randomized_WWTP_water_quality_treatment_effect":True
-    report["not_Lycaenidae_organicN_or_puddling_or_population_response":True
+    report["not_yet_a_randomized_WWTP_water_quality_treatment_effect"]=True
+    report["not_Lycaenidae_organicN_or_puddling_or_population_response"]=True
     # Original 500m station/receptor and strict directed 50km WWTP matching,
     # but only source-reported mass, not actual annual WWTP-to-station dose.
     a.out.write_text(json.dumps(report,indent=2,sort_keys=True,ensure_ascii=False)+"\n")
