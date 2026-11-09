@@ -26,24 +26,35 @@
   },
   "bounded_range_tail": {
     "accept_ranges_header": null,
-    "body_bytes_read": 140000,
-    "bounded_body_sha256": "07888353ea1fc15699e148ad20d913c1fef3f2ffb4b9fb16fe4d1393708c1b0e",
-    "content_length_header": "2024284753",
-    "content_range_header": null,
+    "body_bytes_read": 131072,
+    "bounded_body_sha256": "f31a0b26b7274d1c26055f9a656e939d390bf29f04cf55e473174180c1313cb5",
+    "content_length_header": "131072",
+    "content_range_header": "bytes 2024153681-2024284752/2024284753",
     "content_type": "application/x-zip-compressed",
-    "http": 200,
+    "http": 206,
     "method": "GET",
     "original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
-    "request_range": "bytes=-131072"
+    "request_range": "bytes=2024153681-2024284752"
   },
   "no_2022_TP_concentration_or_site_data_rows_read": true,
   "no_2022_butterfly_photo_or_abundance_record_accessed": true,
   "no_full_2GB_2026_individual_chemistry_ZIP_downloaded": true,
   "original_ZIP_directory_when_range_supported": {
-    "range_response_contains_ZIP_EOCD": false,
-    "reason": "Server did not return 206 partial-content for tail probe"
+    "ZIP64_or_unusually_large_classic_offsets_possible": false,
+    "ZIP_CD_size_bytes": 105,
+    "ZIP_CD_uncompressed_offset": 2024284626,
+    "ZIP_center_total_original_entries": 1,
+    "range_response_contains_ZIP_EOCD": true,
+    "zip_member_metadata": [
+      {
+        "compressed_bytes": 2024284537,
+        "from_original_range_response": true,
+        "name": "waterbase_t_wise6_disaggregateddata.csv",
+        "uncompressed_bytes": 36043700357
+      }
+    ]
   },
   "schema": "gesui_official_EEA2026_WISE6_original_2022_individual_TP_source_zip_range_and_size_gate_v01",
   "source_only_failure_not_absence_of_DE_AT_2022_River_TP": true,
-  "utc": "2026-11-09T03:18:49.275962+00:00"
+  "utc": "2026-11-09T03:19:39.937156+00:00"
 }
