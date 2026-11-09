@@ -1,0 +1,48 @@
+name: gesui EEA2026 2022 NATIONAL DE+AT original river TP 342 source-only monitor sites (not butterfly-selected)
+on:
+  push:
+    branches: ["analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109"]
+    paths:
+      - scripts/gesui_2022_WISE6_DE_AT_national_riverTP_sourceonly_site_registry.py
+      - .github/workflows/gesui-2022-WISE6-DEAT-national-TPriver-source-registry.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  nationwide-original-EEA2022-TP-SOURCE-metadata-not-numeric:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet shapely
+      - name: Re-read only original WISE6 2022 riverTP site ID, dates, schema, country polygon metadata from 2GB ZIP / 102M rows, not TP values
+        run: |
+          python -m py_compile scripts/gesui_2022_WISE6_DE_AT_national_riverTP_sourceonly_site_registry.py
+          python -u scripts/gesui_2022_WISE6_DE_AT_national_riverTP_sourceonly_site_registry.py \
+            --source-187-stations results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json \
+            --tmpdir /tmp/gesui-WISE6-national-DEAT-waterTP-source \
+            --out results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_DE_AT_2022_WISE6_RIVER_TP_PUBLIC_STATION_SOURCE_ONLY_QC.json
+      - name: Commit original WISE6 full-year national station source frame without water TP numerical values
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_DE_AT_2022_WISE6_RIVER_TP_PUBLIC_STATION_SOURCE_ONLY_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze entire original 2022 national 342 DE AT WISE6 real river TP monitoring sites by sample dates before numeric values"
+          git fetch origin analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git rebase origin/analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+          git push origin HEAD:analysis/wise6-2022-national-DEAT-river-TP-pairs-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2026-WISE6-original-2022-342-DEAT-national-TP-station-sourceonly
+          path: results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_DE_AT_2022_WISE6_RIVER_TP_PUBLIC_STATION_SOURCE_ONLY_QC.json
+          retention-days: 90
+          if-no-files-found: warn
