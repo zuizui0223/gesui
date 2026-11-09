@@ -1,5 +1,5 @@
 {
-  "UTC": "2026-11-09T03:14:01.611087+00:00",
+  "UTC": "2026-11-09T03:16:06.789820+00:00",
   "WWTP_reported_P_tonnes_not_at_station_P_mgL": true,
   "country_masked_geographic_quality": {},
   "new_riverTP_vs_lycaenidae_three_layer_geographic_source_gate": false,
@@ -17,6 +17,114 @@
   "source_2022_TP_supported_cells_by_country": {},
   "source_WQ2022_metadata_only_original": {
     "2022_RW_observed_analyte_labels_top35": [],
+    "2022_original_WISE6_country_RW_matrix_counts": {},
+    "2022_original_WISE6_country_waterbody_category_code_counts": {
+      "AT|GW": 29111
+    },
+    "2022_original_WISE6_top_analyte_labels_OUTSIDE_original_RW_category": [
+      {
+        "countryCode": "AT",
+        "label": "Atrazine",
+        "original_category": "GW",
+        "rows": 1899
+      },
+      {
+        "countryCode": "AT",
+        "label": "Desethylatrazine",
+        "original_category": "GW",
+        "rows": 1899
+      },
+      {
+        "countryCode": "AT",
+        "label": "Simazine",
+        "original_category": "GW",
+        "rows": 1899
+      },
+      {
+        "countryCode": "AT",
+        "label": "Alachlor",
+        "original_category": "GW",
+        "rows": 1899
+      },
+      {
+        "countryCode": "AT",
+        "label": "Cadmium and its compounds",
+        "original_category": "GW",
+        "rows": 1898
+      },
+      {
+        "countryCode": "AT",
+        "label": "Nickel and its compounds",
+        "original_category": "GW",
+        "rows": 1898
+      },
+      {
+        "countryCode": "AT",
+        "label": "Arsenic and its compounds",
+        "original_category": "GW",
+        "rows": 1898
+      },
+      {
+        "countryCode": "AT",
+        "label": "Copper and its compounds",
+        "original_category": "GW",
+        "rows": 1898
+      },
+      {
+        "countryCode": "AT",
+        "label": "Lead and its compounds",
+        "original_category": "GW",
+        "rows": 1898
+      },
+      {
+        "countryCode": "AT",
+        "label": "Mercury and its compounds",
+        "original_category": "GW",
+        "rows": 1898
+      },
+      {
+        "countryCode": "AT",
+        "label": "Zinc and its compounds",
+        "original_category": "GW",
+        "rows": 1898
+      },
+      {
+        "countryCode": "AT",
+        "label": "Dichloromethane",
+        "original_category": "GW",
+        "rows": 1894
+      },
+      {
+        "countryCode": "AT",
+        "label": "1,2-dichloroethane",
+        "original_category": "GW",
+        "rows": 1894
+      },
+      {
+        "countryCode": "AT",
+        "label": "Tetrachloroethylene",
+        "original_category": "GW",
+        "rows": 1894
+      },
+      {
+        "countryCode": "AT",
+        "label": "Trichloroethylene",
+        "original_category": "GW",
+        "rows": 1894
+      },
+      {
+        "countryCode": "AT",
+        "label": "Bentazone",
+        "original_category": "GW",
+        "rows": 450
+      },
+      {
+        "countryCode": "AT",
+        "label": "Diuron",
+        "original_category": "GW",
+        "rows": 203
+      }
+    ],
     "no_WQ_mean_or_median_TP_numeric_outcome_columns_parsed": true,
     "source_row_counts": {
       "annual_country_AT_2022_rows": 29111,
