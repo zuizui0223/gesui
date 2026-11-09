@@ -1,0 +1,48 @@
+name: gesui independent offline 2022 WISE6 7 original source-control same-month TP arithmetic/quality replay
+on:
+  push:
+    branches:
+      - "analysis/wise6-2022-DE-quartet-sameday-TP-20261109"
+    paths:
+      - ".github/workflows/gesui-2022-DE-quartet-samemonth-offline-replay.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  immutable-monthly-original-measuredTP-arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet numpy
+      - name: Independently recompute 7 original four-arm monthly TP contrast, exact signflip and fixed 9999-bootstrap, ensure no same-day inference
+        run: |
+          python -m py_compile scripts/gesui_verify_2022_DE_quartet_samemonth_derived_TP_offline.py
+          python -u scripts/gesui_verify_2022_DE_quartet_samemonth_derived_TP_offline.py \
+            --date-source results/wise6_2022_DE_quartets_exacttime/2022_DE_8WWTP_QUARTETS_EXACT_SAMEDAY_MONTH_SAMPLE_SOURCE_ONLY_GATE.json \
+            --monthly-derived results/wise6_2022_DE_quartets_exacttime/2022_DE_ORIGINAL_EEA_WISE6_SAMEMONTH_REAL_TP_WWTP_SOURCE_MINUS_SOURCEZERO.json \
+            --out results/wise6_2022_DE_quartets_exacttime/2022_DE_SAMEMONTH_FOUR_ARM_TP_INDEPENDENT_OFFLINE_REPRO_QC.json
+      - name: Preserve source-locked all-month four-arm TP independent arithmetic validation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_DE_quartets_exacttime/2022_DE_SAMEMONTH_FOUR_ARM_TP_INDEPENDENT_OFFLINE_REPRO_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Verify original 2022 Germany 7 matched source/zero four-arm monthly real TP differences and bootstrap directly from frozen raw derived month values"
+          git fetch origin analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+          git rebase origin/analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+          git push origin HEAD:analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Germany-2022-7quartets-samemonth-original-WISE6-TP-independent-replay
+          path: results/wise6_2022_DE_quartets_exacttime/2022_DE_SAMEMONTH_FOUR_ARM_TP_INDEPENDENT_OFFLINE_REPRO_QC.json
+          retention-days: 90

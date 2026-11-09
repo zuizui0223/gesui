@@ -1,0 +1,54 @@
+name: gesui Germany 2022 source and zero WWTP quartets original 4-arm SAME DAY and MONTH source-only gate
+on:
+  push:
+    branches:
+      - "analysis/wise6-2022-DE-quartet-sameday-TP-20261109"
+    paths:
+      - "scripts/gesui_2022_de_original_quartets_4arm_exactday_month_sourceonly.py"
+      - ".github/workflows/gesui-2022-DE-WISE6-quartets-sameday-month-sourceonly.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-32-German-river-TP-monitoring-sites-source-only-date-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify original no-TP-match-selection 8+8 quartet source-only and original 32-site numeric QA files immutable
+        run: |
+          test "$(git hash-object results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json)" = "8bd67be25968311ca16be4026888daa783fbe69f"
+          echo "28b679184cbebf6376f1c65d7c160f7511f057ff22787e98ff3fa265b617b261  results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json" | sha256sum -c -
+      - name: Download exact source 2GB public EEA WISE6 ZIP and read ONLY 2022 original TP sample dates at 32 source-only fixed station hashes
+        run: |
+          python -m py_compile scripts/gesui_2022_de_original_quartets_4arm_exactday_month_sourceonly.py
+          python -u scripts/gesui_2022_de_original_quartets_4arm_exactday_month_sourceonly.py \
+            --original-source-quartets results/wise6_2022_national_DEAT_TP_sourceonly/GERMANY_2022_WISE6_TP_8SOURCE_8ZERO_SAME_RIVER_MONITOR_QUARTETS_SOURCE_ONLY_LOCK.json \
+            --original-32site-numeric-QC results/wise6_2022_DE_8source8zero_quartet/2022_ORIGINAL_WISE6_32STATION_NUMERIC_QUALIFICATION_BEFORE_TP_DIFFERENCES.json \
+            --tempdir /tmp/gesui-2022-original-DE-source-only-sameday \
+            --out results/wise6_2022_DE_quartets_exacttime/2022_DE_8WWTP_QUARTETS_EXACT_SAMEDAY_MONTH_SAMPLE_SOURCE_ONLY_GATE.json
+      - name: Archive 8 original quartet temporal source-only support, including STOP criteria before opening exact-day numeric chemistry
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/wise6_2022_DE_quartets_exacttime/2022_DE_8WWTP_QUARTETS_EXACT_SAMEDAY_MONTH_SAMPLE_SOURCE_ONLY_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze exact-day and month co-sampled German original 2022 WWTP/control quartet source date eligibility before numeric TP timing comparison"
+          git fetch origin analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+          git rebase origin/analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+          git push origin HEAD:analysis/wise6-2022-DE-quartet-sameday-TP-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-DE-WISE6-8quarts-4site-same-day-month-source-only
+          path: results/wise6_2022_DE_quartets_exacttime/2022_DE_8WWTP_QUARTETS_EXACT_SAMEDAY_MONTH_SAMPLE_SOURCE_ONLY_GATE.json
+          if-no-files-found: warn
+          retention-days: 90
