@@ -4,6 +4,7 @@ on:
     branches: ["analysis/wise6-2022-DE-quartet-32-station-numericTP-20261109"]
     paths:
       - ".github/workflows/gesui-2022-DE-WISE6-matched-TP-updown-sourcezero-quartets.yml"
+      - "scripts/gesui_2022_Germany_same_river_8plus8_numericTP_matched_gradient.py"
   workflow_dispatch:
 permissions:
   contents: write
