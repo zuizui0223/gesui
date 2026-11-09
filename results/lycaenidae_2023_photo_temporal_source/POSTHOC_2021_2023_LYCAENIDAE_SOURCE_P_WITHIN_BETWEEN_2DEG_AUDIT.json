@@ -1,0 +1,416 @@
+{
+  "between": {
+    "logN": {
+      "Lycaenidae2021": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.00964256441776542
+      },
+      "Lycaenidae2022": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.16691501945822027
+      },
+      "Lycaenidae2023": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.07355081661522599
+      },
+      "LycaenidaeMean": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.08336946683040394
+      }
+    },
+    "logP": {
+      "Lycaenidae2021": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": -0.017575465686371715
+      },
+      "Lycaenidae2022": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.20361287523935612
+      },
+      "Lycaenidae2023": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.08280697866007979
+      },
+      "LycaenidaeMean": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.08961479607102171
+      }
+    },
+    "logSourceCount": {
+      "Lycaenidae2021": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": -0.004820646345174063
+      },
+      "Lycaenidae2022": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.17033284076428049
+      },
+      "Lycaenidae2023": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.005027077217374228
+      },
+      "LycaenidaeMean": {
+        "predictor_count": 9,
+        "regions": 22,
+        "slope": 0.05684642387882679
+      }
+    }
+  },
+  "data_provenance_sha256": {
+    "2021_family": "eb42bfb5f5ba82eccf077a6efa5f5843b3ff4de4bd0cb4edd6fe180249b604b9",
+    "2022_family": "36af83f445ecaf6ac6c75a8b1cab12567352a0c8097ac9c1d974adab3509d79d",
+    "2022_land": "752f4411c7999f3065be2f8c4afd52ab36f53d517a3c0e4c1f39c08587b93a34",
+    "2023_family": "e0456f9ba98bae5e3dc182c666cbbbb18afff08cf58f73b3fdae3e4c8540c0eb"
+  },
+  "posthoc_noncausal_geographical_diagnostic": true,
+  "response": "iNaturalist family-photo logit Lycaenidae / (Pieridae + Papilionidae), not butterfly abundance",
+  "sample": {
+    "country_1deg_cells": 42,
+    "country_2deg_groups": 22,
+    "country_cell_counts": {
+      "AT": 15,
+      "DE": 27
+    },
+    "groups_with_at_least_two_cells": 11,
+    "singleton_groups_not_estimating_within_slope": 11,
+    "three_family_photo_years": [
+      2021,
+      2022,
+      2023
+    ],
+    "within_region_identifying_cells": 31
+  },
+  "schema": "gesui_lycaenidae_posthoc_within_vs_between_2deg_P_source_photo_v01",
+  "sensitivity_bootstrap": {
+    "Lycaenidae2022": {
+      "P_only": {
+        "descriptive_cluster95": [
+          -0.15995342433098483,
+          0.19820452176618059
+        ],
+        "draws": 4000,
+        "effect_matches_original": true,
+        "positive_fraction": 0.62075,
+        "seed": 20261109,
+        "valid": 4000
+      },
+      "P_plus_land": {
+        "descriptive_cluster95": [
+          -0.2780295302380968,
+          0.37762355697753636
+        ],
+        "draws": 4000,
+        "effect_matches_original": true,
+        "positive_fraction": 0.36975,
+        "seed": 20261109,
+        "valid": 4000
+      },
+      "P_plus_land_and_cell_geo": {
+        "descriptive_cluster95": [
+          -0.28502602290168627,
+          0.47212738208864957
+        ],
+        "draws": 4000,
+        "effect_matches_original": true,
+        "positive_fraction": 0.5399449035812672,
+        "seed": 20261109,
+        "valid": 3993
+      }
+    },
+    "LycaenidaeMean": {
+      "P_only": {
+        "descriptive_cluster95": [
+          -0.08798905081607297,
+          0.17589417442064162
+        ],
+        "draws": 4000,
+        "effect_matches_original": true,
+        "positive_fraction": 0.5645,
+        "seed": 20261109,
+        "valid": 4000
+      },
+      "P_plus_land": {
+        "descriptive_cluster95": [
+          -0.28470128662360283,
+          0.09576379815997596
+        ],
+        "draws": 4000,
+        "effect_matches_original": true,
+        "positive_fraction": 0.105,
+        "seed": 20261109,
+        "valid": 4000
+      },
+      "P_plus_land_and_cell_geo": {
+        "descriptive_cluster95": [
+          -0.35315788260103353,
+          0.1839275749806466
+        ],
+        "draws": 4000,
+        "effect_matches_original": true,
+        "positive_fraction": 0.25898015573976385,
+        "seed": 20261109,
+        "valid": 3981
+      }
+    }
+  },
+  "source": "EEA 2022 registered annual reported WWTP P/N mass, not measured butterfly substrate or 2021/2023 exposure",
+  "within": {
+    "logN": {
+      "Lycaenidae2021": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": -0.03944836483283909
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.16231315990363968
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": -0.17570217212293932
+        }
+      },
+      "Lycaenidae2022": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": -0.0405140801631301
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.07985783585654635
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": -0.05643568621659975
+        }
+      },
+      "Lycaenidae2023": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": 0.01328729846161292
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": 0.0018349792605450027
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": 0.054868370697268035
+        }
+      },
+      "LycaenidaeMean": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": -0.02222504884478543
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.08011200549988036
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": -0.05908982921409039
+        }
+      }
+    },
+    "logP": {
+      "Lycaenidae2021": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": -0.0232276634034997
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.29894505957412765
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": -0.3353954120944671
+        }
+      },
+      "Lycaenidae2022": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": 0.021201674926328257
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.04300477103520639
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": 0.007974679279579316
+        }
+      },
+      "Lycaenidae2023": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": 0.04392450452916727
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": 0.01999698078372822
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": 0.11165837570906124
+        }
+      },
+      "LycaenidaeMean": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": 0.013966172017331932
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.10731761660853528
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": -0.07192078570194219
+        }
+      }
+    },
+    "logSourceCount": {
+      "Lycaenidae2021": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": -0.13069993129532276
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.1741958057585274
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": -0.15247900497597433
+        }
+      },
+      "Lycaenidae2022": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": -0.04437233071155783
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.0394414656868686
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": 0.0026472149424637548
+        }
+      },
+      "Lycaenidae2023": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": 0.014219715633779453
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": 0.039654652878185946
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": 0.0807719153221404
+        }
+      },
+      "LycaenidaeMean": {
+        "P_only": {
+          "n": 31,
+          "predictor_count": 1,
+          "slope": -0.053617515457700375
+        },
+        "P_plus_land": {
+          "n": 31,
+          "predictor_count": 5,
+          "slope": -0.05799420618907
+        },
+        "P_plus_land_and_cell_geo": {
+          "n": 31,
+          "predictor_count": 7,
+          "slope": -0.023019958237123418
+        }
+      }
+    }
+  },
+  "withinP_shuffle_diagnostic": {
+    "Lycaenidae2022": {
+      "P_only": {
+        "not_confirmatory_p_due_to_unproved_urban_land_source_exchangeability": true,
+        "permutations_valid": 3999,
+        "two_sided_abs_slope_fraction_addone": 0.827
+      },
+      "P_plus_land": {
+        "not_confirmatory_p_due_to_unproved_urban_land_source_exchangeability": true,
+        "permutations_valid": 3999,
+        "two_sided_abs_slope_fraction_addone": 0.702
+      },
+      "P_plus_land_and_cell_geo": {
+        "not_confirmatory_p_due_to_unproved_urban_land_source_exchangeability": true,
+        "permutations_valid": 3999,
+        "two_sided_abs_slope_fraction_addone": 0.94425
+      }
+    },
+    "LycaenidaeMean": {
+      "P_only": {
+        "not_confirmatory_p_due_to_unproved_urban_land_source_exchangeability": true,
+        "permutations_valid": 3999,
+        "two_sided_abs_slope_fraction_addone": 0.86025
+      },
+      "P_plus_land": {
+        "not_confirmatory_p_due_to_unproved_urban_land_source_exchangeability": true,
+        "permutations_valid": 3999,
+        "two_sided_abs_slope_fraction_addone": 0.19225
+      },
+      "P_plus_land_and_cell_geo": {
+        "not_confirmatory_p_due_to_unproved_urban_land_source_exchangeability": true,
+        "permutations_valid": 3999,
+        "two_sided_abs_slope_fraction_addone": 0.4275
+      }
+    }
+  }
+}
