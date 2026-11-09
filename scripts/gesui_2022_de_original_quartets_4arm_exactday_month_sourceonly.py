@@ -96,7 +96,7 @@ def scan_metadata(path,ids):
         info=z.infolist()[0]
         if info.file_size!=CSV_SIZE:raise ValueError("Original 2026 36GB source member size drift")
         with z.open(info) as f:
-            header=f.readline().decode("utf8-sig").strip().split(";")
+            header=f.readline().decode("utf-8-sig").strip().split(";")
             expected=["countryCode","monitoringSiteIdentifier","monitoringSiteIdentifierScheme",
              "parameterWaterBodyCategory","observedPropertyDeterminandCode",
              "observedPropertyDeterminandLabel","procedureAnalysedMatrix","resultUom",
