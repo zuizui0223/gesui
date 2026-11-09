@@ -1,0 +1,79 @@
+{
+  "2022_TP_country_station_counts": null,
+  "2026_release_published": "2026-07-07",
+  "EEA_official_Waterbase2026_landing": "https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1",
+  "data_access_failure_not_equal_to_no_2022_waterquality_sites": true,
+  "do_not_confuse_total_phosphorus_with_phosphate_or_source_reported_P_tonnes": true,
+  "no_butterfly_occurrences_or_observer_data_accessed": true,
+  "no_numeric_TP_or_other_chemistry_concentrations_accessed": true,
+  "official_wise_soE_note": "WISE6 Discodata tables may not be updated in current portal according to official freshwater WISE website",
+  "original_source_URL_and_response_SHA_receipts": {
+    "WISE6_aggregated_latest": {
+      "error": "HTTP 403",
+      "http": 403,
+      "method": "GET",
+      "original_url": "https://discodata.eea.europa.eu/sql?query=SELECT+TOP+1+countryCode%2C+monitoringSiteIdentifier%2C+monitoringSiteIdentifierScheme%2C+parameterWaterBodyCategory%2C+phenomenonTimeReferenceYear+FROM+%5BWISE_SOE%5D.%5Blatest%5D.%5BWaterbase_T_WISE6_AggregatedData%5D&p=1&nrOfHits=1",
+      "source_SQL_SELECT_only_monitoring_site_metadata": "SELECT TOP 1 countryCode, monitoringSiteIdentifier, monitoringSiteIdentifierScheme, parameterWaterBodyCategory, phenomenonTimeReferenceYear FROM [WISE_SOE].[latest].[Waterbase_T_WISE6_AggregatedData]"
+    },
+    "WISE6_disaggregated_latest": {
+      "error": "HTTP 403",
+      "http": 403,
+      "method": "GET",
+      "original_url": "https://discodata.eea.europa.eu/sql?query=SELECT+TOP+1+countryCode%2C+monitoringSiteIdentifier%2C+monitoringSiteIdentifierScheme%2C+parameterWaterBodyCategory%2C+phenomenonTimeSamplingDate+FROM+%5BWISE_SOE%5D.%5Blatest%5D.%5BWaterbase_T_WISE6_DisaggregatedData%5D&p=1&nrOfHits=1",
+      "source_SQL_SELECT_only_monitoring_site_metadata": "SELECT TOP 1 countryCode, monitoringSiteIdentifier, monitoringSiteIdentifierScheme, parameterWaterBodyCategory, phenomenonTimeSamplingDate FROM [WISE_SOE].[latest].[Waterbase_T_WISE6_DisaggregatedData]"
+    },
+    "WISE6_disaggregated_v2r1": {
+      "error": "HTTP 403",
+      "http": 403,
+      "method": "GET",
+      "original_url": "https://discodata.eea.europa.eu/sql?query=SELECT+TOP+1+countryCode%2C+monitoringSiteIdentifier%2C+monitoringSiteIdentifierScheme%2C+parameterWaterBodyCategory%2C+phenomenonTimeSamplingDate+FROM+%5BWISE_SOE%5D.%5Bv2r1%5D.%5BWaterbase_T_WISE6_DisaggregatedData%5D&p=1&nrOfHits=1",
+      "source_SQL_SELECT_only_monitoring_site_metadata": "SELECT TOP 1 countryCode, monitoringSiteIdentifier, monitoringSiteIdentifierScheme, parameterWaterBodyCategory, phenomenonTimeSamplingDate FROM [WISE_SOE].[v2r1].[Waterbase_T_WISE6_DisaggregatedData]"
+    },
+    "WISE6_spatial_latest": {
+      "error": "HTTP 403",
+      "http": 403,
+      "method": "GET",
+      "original_url": "https://discodata.eea.europa.eu/sql?query=SELECT+TOP+1+countryCode%2C+monitoringSiteIdentifier%2C+monitoringSiteIdentifierScheme%2C+lat%2C+lon+FROM+%5BWISE_SOE%5D.%5Blatest%5D.%5BWaterbase_S_WISE_SpatialObject_DerivedData%5D&p=1&nrOfHits=1",
+      "source_SQL_SELECT_only_monitoring_site_metadata": "SELECT TOP 1 countryCode, monitoringSiteIdentifier, monitoringSiteIdentifierScheme, lat, lon FROM [WISE_SOE].[latest].[Waterbase_S_WISE_SpatialObject_DerivedData]"
+    },
+    "original_WISE6_aggregated": {
+      "http": 200,
+      "method": "HEAD",
+      "original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_AggregatedData",
+      "response_bytes_read": 0,
+      "response_metadata": {
+        "ETag": "0x8DED8D55CED3A18",
+        "content_length_header": "199878007",
+        "content_type": "application/x-zip-compressed",
+        "last_modified": "Fri, 03 Jul 2026 07:33:23 GMT"
+      }
+    },
+    "original_WISE6_disaggregated": {
+      "http": 200,
+      "method": "HEAD",
+      "original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_DisaggregatedData",
+      "response_bytes_read": 0,
+      "response_metadata": {
+        "ETag": "0x8DED8A1EEEA7E98",
+        "content_length_header": "2024284753",
+        "content_type": "application/x-zip-compressed",
+        "last_modified": "Fri, 03 Jul 2026 01:25:14 GMT"
+      }
+    },
+    "original_WISE_soE_spatial": {
+      "http": 200,
+      "method": "HEAD",
+      "original_url": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_S_WISE_SpatialObject_DerivedData",
+      "response_bytes_read": 0,
+      "response_metadata": {
+        "ETag": "0x8DED8D2DB7D3044",
+        "content_length_header": "3394632",
+        "content_type": "application/x-zip-compressed",
+        "last_modified": "Fri, 03 Jul 2026 07:15:27 GMT"
+      }
+    }
+  },
+  "retrieved_UTC": "2026-11-09T03:02:44.041759+00:00",
+  "schema": "gesui_EEA_2026_WISE6_2022_TP_original_waterquality_source_access_QC_no_concentrations_v01",
+  "source_only_SQL_TOP1_no_values_queried": true
+}
