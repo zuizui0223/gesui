@@ -67,6 +67,44 @@
       }
     }
   },
+  "betweenP_region_resample": {
+    "Lycaenidae2022": {
+      "bootstrap_target_draws": 4000,
+      "descriptive_country_stratified_2degree_boot95": [
+        -0.06027489711443686,
+        0.45976871552388465
+      ],
+      "leave_one_region_out_positive": 22,
+      "leave_one_region_out_range": [
+        0.13684887286426206,
+        0.28124236220463505
+      ],
+      "leave_one_region_out_total": 22,
+      "not_causal_or_independent_confirmatory_evidence": true,
+      "positive_fraction": 0.9495,
+      "regions": 22,
+      "seed": 20261109,
+      "valid_draws": 4000
+    },
+    "LycaenidaeMean": {
+      "bootstrap_target_draws": 4000,
+      "descriptive_country_stratified_2degree_boot95": [
+        -0.15539389743988705,
+        0.3699480008265328
+      ],
+      "leave_one_region_out_positive": 22,
+      "leave_one_region_out_range": [
+        0.023266783226484792,
+        0.1562671966965116
+      ],
+      "leave_one_region_out_total": 22,
+      "not_causal_or_independent_confirmatory_evidence": true,
+      "positive_fraction": 0.84375,
+      "regions": 22,
+      "seed": 20261109,
+      "valid_draws": 4000
+    }
+  },
   "data_provenance_sha256": {
     "2021_family": "eb42bfb5f5ba82eccf077a6efa5f5843b3ff4de4bd0cb4edd6fe180249b604b9",
     "2022_family": "36af83f445ecaf6ac6c75a8b1cab12567352a0c8097ac9c1d974adab3509d79d",
