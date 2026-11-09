@@ -1,0 +1,40 @@
+name: gesui Lycaenidae 2021-2023 fixed-P photo temporal differencing audit (posthoc)
+on:
+  push:
+    branches: ["analysis/lycaenidae-2023-photo-time-negativecontrol-20261108"]
+    paths:
+      - ".github/workflows/gesui-lycaenidae-2021-2023-posthoc-sourceP-difference.yml"
+      - "scripts/gesui_lycaenidae_2021_2023_posthoc_photo_composition_differencing.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-frozen-three-year-photo-family-composition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Replay all original 2021-2023 public aggregates and fixed land/source controls
+        run: |
+          python -m py_compile scripts/gesui_lycaenidae_2021_2023_posthoc_photo_composition_differencing.py
+          python -u scripts/gesui_lycaenidae_2021_2023_posthoc_photo_composition_differencing.py \
+            --out results/lycaenidae_2023_photo_temporal_source/2021_2023_POSTHOC_FIXED_2022_WWTP_P_FAMILY_DIFFERENCING_AUDIT.json
+      - name: Retain machine-readable original-source replay on analysis branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2023_photo_temporal_source/2021_2023_POSTHOC_FIXED_2022_WWTP_P_FAMILY_DIFFERENCING_AUDIT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Replay SHA-backed 2021-2023 Lycaenidae photo P-source differencing and other-family comparators"
+          git fetch origin analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+          git rebase origin/analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+          git push origin HEAD:analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-lycaenidae-three-year-photo-composition-P-source-posthoc
+          path: results/lycaenidae_2023_photo_temporal_source/2021_2023_POSTHOC_FIXED_2022_WWTP_P_FAMILY_DIFFERENCING_AUDIT.json
+          retention-days: 90

@@ -1,0 +1,43 @@
+name: gesui 2023 independent-year butterfly-family public photo source 43-cell fixed cohort
+on:
+  push:
+    branches: ["analysis/lycaenidae-2023-photo-time-negativecontrol-20261108"]
+    paths:
+      - scripts/gesui_2023_lycaenidae_public_photo_source_original43.py
+      - .github/workflows/gesui-2023-photo-source-frozen43-deat.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  exact43-2023-source-photo-counts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Get 2023 official public family photo counts at exact prior 2022 source-only WorldCover 43 cells, no individual photos
+        run: |
+          python -m py_compile scripts/gesui_2023_lycaenidae_public_photo_source_original43.py
+          python -u scripts/gesui_2023_lycaenidae_public_photo_source_original43.py \
+            --original-2022-WorldCover-source results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --original-2022-family-source results/lycaenidae_de_at_2022_macro_source_photo/2022_DE_AT_LYCAENIDAE_PHOTO_SHARE_VS_WWTP_SOURCE_EXPLORATORY.json \
+            --out results/lycaenidae_2023_photo_temporal_source/2023_INDEPENDENT_YEAR_FAMILY_PHOTO_TOTALS_ORIGINAL43_SOURCE_QC.json
+      - name: Freeze entire 2023 photographic source before longitudinal prediction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2023_photo_temporal_source/2023_INDEPENDENT_YEAR_FAMILY_PHOTO_TOTALS_ORIGINAL43_SOURCE_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze official 2023 butterfly-family photo count records at preexisting 43 WorldCover/EEA source cells"
+          git fetch origin analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+          git rebase origin/analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+          git push origin HEAD:analysis/lycaenidae-2023-photo-time-negativecontrol-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-AT-2023-newyear-original43-source-frozen-photo-counts
+          path: results/lycaenidae_2023_photo_temporal_source/2023_INDEPENDENT_YEAR_FAMILY_PHOTO_TOTALS_ORIGINAL43_SOURCE_QC.json
+          retention-days: 90
+          if-no-files-found: warn

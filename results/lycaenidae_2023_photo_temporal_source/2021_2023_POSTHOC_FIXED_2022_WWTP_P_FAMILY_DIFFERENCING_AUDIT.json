@@ -1,0 +1,280 @@
+{
+  "N_country_1degree_cells": 42,
+  "N_country_2degree_geographic_blocks": 22,
+  "analysis_is_posthoc_after_positive_2022_source_photo": true,
+  "bootstrap_target_draws": 3000,
+  "bootstrap_valid_draws": 3000,
+  "family_results": {
+    "Lycaenidae": {
+      "2021": {
+        "cluster_bootstrap_fraction_positive": 0.6236666666666667,
+        "coefficient_per_within_country_1SD_logP": 0.06099162954115048,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.2324591887390814,
+          0.2084681094509312
+        ],
+        "leave_one_2degree_block_out_positive_count": 21,
+        "leave_one_2degree_block_out_range": [
+          -0.04627607669609589,
+          0.09070291517094836
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "2022": {
+        "cluster_bootstrap_fraction_positive": 0.964,
+        "coefficient_per_within_country_1SD_logP": 0.15407574448824474,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.022426252784269424,
+          0.2828419293014984
+        ],
+        "leave_one_2degree_block_out_positive_count": 22,
+        "leave_one_2degree_block_out_range": [
+          0.1050332646689413,
+          0.19185333215933992
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "2023": {
+        "cluster_bootstrap_fraction_positive": 0.8706666666666667,
+        "coefficient_per_within_country_1SD_logP": 0.1155439871081792,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.09683975631291013,
+          0.23117186488899635
+        ],
+        "leave_one_2degree_block_out_positive_count": 22,
+        "leave_one_2degree_block_out_range": [
+          0.051497425642808306,
+          0.15122444956625988
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "delta_2022_minus_2021": {
+        "cluster_bootstrap_fraction_positive": 0.8793333333333333,
+        "coefficient_per_within_country_1SD_logP": 0.09308411494709426,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.09191724361250958,
+          0.32415706100209035
+        ],
+        "leave_one_2degree_block_out_positive_count": 22,
+        "leave_one_2degree_block_out_range": [
+          0.04834884624704557,
+          0.1743365777528535
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "delta_2023_minus_2022": {
+        "cluster_bootstrap_fraction_positive": 0.281,
+        "coefficient_per_within_country_1SD_logP": -0.038531757380065534,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.2075618176681433,
+          0.11288506441354622
+        ],
+        "leave_one_2degree_block_out_positive_count": 0,
+        "leave_one_2degree_block_out_range": [
+          -0.10794003231626167,
+          -0.007024288136337958
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "year2022_minus_mean_2021_2023": {
+        "cluster_bootstrap_fraction_positive": 0.8396666666666667,
+        "coefficient_per_within_country_1SD_logP": 0.0658079361635799,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.08452114663579682,
+          0.24104367486290176
+        ],
+        "leave_one_2degree_block_out_positive_count": 22,
+        "leave_one_2degree_block_out_range": [
+          0.02768656719169177,
+          0.13306333563605113
+        ],
+        "leave_one_2degree_block_out_total": 22
+      }
+    },
+    "Papilionidae": {
+      "2021": {
+        "cluster_bootstrap_fraction_positive": 0.095,
+        "coefficient_per_within_country_1SD_logP": -0.22453783506587652,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.4436059205478802,
+          0.13294954796963554
+        ],
+        "leave_one_2degree_block_out_positive_count": 0,
+        "leave_one_2degree_block_out_range": [
+          -0.3152887805759357,
+          -0.1295001912605374
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "2022": {
+        "cluster_bootstrap_fraction_positive": 0.075,
+        "coefficient_per_within_country_1SD_logP": -0.2320055815319751,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.48577800583823977,
+          0.07655175006315763
+        ],
+        "leave_one_2degree_block_out_positive_count": 0,
+        "leave_one_2degree_block_out_range": [
+          -0.30156553891739646,
+          -0.08872809294716463
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "2023": {
+        "cluster_bootstrap_fraction_positive": 0.06633333333333333,
+        "coefficient_per_within_country_1SD_logP": -0.2696737085444901,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.4942724669695794,
+          0.09337689533190444
+        ],
+        "leave_one_2degree_block_out_positive_count": 0,
+        "leave_one_2degree_block_out_range": [
+          -0.3369890584845901,
+          -0.1446257879604237
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "delta_2022_minus_2021": {
+        "cluster_bootstrap_fraction_positive": 0.4716666666666667,
+        "coefficient_per_within_country_1SD_logP": -0.007467746466098574,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.38052943772602754,
+          0.3205052951730013
+        ],
+        "leave_one_2degree_block_out_positive_count": 7,
+        "leave_one_2degree_block_out_range": [
+          -0.12742031510190227,
+          0.1408110107387902
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "delta_2023_minus_2022": {
+        "cluster_bootstrap_fraction_positive": 0.4216666666666667,
+        "coefficient_per_within_country_1SD_logP": -0.037668127012514985,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.3549843671857225,
+          0.33180837127770735
+        ],
+        "leave_one_2degree_block_out_positive_count": 2,
+        "leave_one_2degree_block_out_range": [
+          -0.11475369905975141,
+          0.05879687867844888
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "year2022_minus_mean_2021_2023": {
+        "cluster_bootstrap_fraction_positive": 0.5166666666666667,
+        "coefficient_per_within_country_1SD_logP": 0.015100190273208192,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.3111532227723931,
+          0.3068042372010425
+        ],
+        "leave_one_2degree_block_out_positive_count": 15,
+        "leave_one_2degree_block_out_range": [
+          -0.06635967702839202,
+          0.1277823548992708
+        ],
+        "leave_one_2degree_block_out_total": 22
+      }
+    },
+    "Pieridae": {
+      "2021": {
+        "cluster_bootstrap_fraction_positive": 0.605,
+        "coefficient_per_within_country_1SD_logP": -0.002291590457873848,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.14100071239819373,
+          0.24983683407690577
+        ],
+        "leave_one_2degree_block_out_positive_count": 9,
+        "leave_one_2degree_block_out_range": [
+          -0.026604906594963427,
+          0.11031194223865967
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "2022": {
+        "cluster_bootstrap_fraction_positive": 0.20333333333333334,
+        "coefficient_per_within_country_1SD_logP": -0.0829414921054742,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.25474535593115477,
+          0.09941072612806134
+        ],
+        "leave_one_2degree_block_out_positive_count": 0,
+        "leave_one_2degree_block_out_range": [
+          -0.12716888637959103,
+          -0.007146910875546693
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "2023": {
+        "cluster_bootstrap_fraction_positive": 0.26866666666666666,
+        "coefficient_per_within_country_1SD_logP": -0.07147492330302756,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.18971076218895128,
+          0.15500835492868045
+        ],
+        "leave_one_2degree_block_out_positive_count": 0,
+        "leave_one_2degree_block_out_range": [
+          -0.10804051618663212,
+          -0.014891826837540287
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "delta_2022_minus_2021": {
+        "cluster_bootstrap_fraction_positive": 0.20933333333333334,
+        "coefficient_per_within_country_1SD_logP": -0.08064990164760036,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.34586143175063705,
+          0.14036886585471547
+        ],
+        "leave_one_2degree_block_out_positive_count": 1,
+        "leave_one_2degree_block_out_range": [
+          -0.22103652297378618,
+          0.001667430713422285
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "delta_2023_minus_2022": {
+        "cluster_bootstrap_fraction_positive": 0.5976666666666667,
+        "coefficient_per_within_country_1SD_logP": 0.011466568802446647,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.15160413288631655,
+          0.22056062807999566
+        ],
+        "leave_one_2degree_block_out_positive_count": 18,
+        "leave_one_2degree_block_out_range": [
+          -0.029854005724667582,
+          0.0958327538975862
+        ],
+        "leave_one_2degree_block_out_total": 22
+      },
+      "year2022_minus_mean_2021_2023": {
+        "cluster_bootstrap_fraction_positive": 0.276,
+        "coefficient_per_within_country_1SD_logP": -0.0460582352250235,
+        "descriptive_cluster_bootstrap_95pct": [
+          -0.25706303415245535,
+          0.1306969653274931
+        ],
+        "leave_one_2degree_block_out_positive_count": 1,
+        "leave_one_2degree_block_out_range": [
+          -0.15843463843568617,
+          0.01576071821904493
+        ],
+        "leave_one_2degree_block_out_total": 22
+      }
+    }
+  },
+  "model": "OLS cell photo-family logit; source is 2022 original reported WWTP P mass log1p scaled within DE/AT; intercept, country, latitude, longitude, 2021 Plantae photo count, WorldCover built, crop, terrestrial land area (all standardized). Two-degree cluster resampling. Outcomes are photographic reporting shares, not population counts.",
+  "no_direct_WWTP_to_butterfly_substrate_exposure_confirmed": true,
+  "not_a_difference_in_treatment_exposure": true,
+  "photo_observation_data_not_independent_random_census": true,
+  "schema": "gesui_2021_2023_lycaenid_sourceP_photo_composition_fixed_temporal_posthoc_v01",
+  "seed": 20261109,
+  "source_covariate_is_fixed_2022_reported_mass_in_every_photo_year": true,
+  "source_sha256": {
+    "2021_family": "eb42bfb5f5ba82eccf077a6efa5f5843b3ff4de4bd0cb4edd6fe180249b604b9",
+    "2022_family": "36af83f445ecaf6ac6c75a8b1cab12567352a0c8097ac9c1d974adab3509d79d",
+    "2022_land": "752f4411c7999f3065be2f8c4afd52ab36f53d517a3c0e4c1f39c08587b93a34",
+    "2023_family": "e0456f9ba98bae5e3dc182c666cbbbb18afff08cf58f73b3fdae3e4c8540c0eb"
+  }
+}
