@@ -69,8 +69,8 @@ def make_reach_panel(stations):
         row=dict(x)
         # Only site-level TP medians are collapsed, not individual samples.
         row["original_receptor_site_count_same_reach"]=len(arr)
-        row["measured_WISE6_2022_TP_reach_median_of_site_annual_medians_mgP_L"]=
-            float(np.median([r["measured_WISE6_2022_TP_site_annual_median_mgP_L"] for r in arr]))
+        row["measured_WISE6_2022_TP_reach_median_of_site_annual_medians_mgP_L"]=float(
+            np.median([r["measured_WISE6_2022_TP_site_annual_median_mgP_L"] for r in arr]))
         for k in ("lat","lon","country_ESAWC2021_built_fraction",
                   "country_ESAWC2021_crop_fraction","country_ESAWC2021_terrestrial_area_km2"):
             row[k]=mean([r[k] for r in arr])
