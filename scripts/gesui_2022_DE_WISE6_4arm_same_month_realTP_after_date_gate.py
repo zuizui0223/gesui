@@ -164,7 +164,7 @@ def quartet_evaluation(q,sites,level):
 
 def contrast_result(quartets,level):
     if not quartets:return None
-    v=np.asarray([q["mean_matched_source_minus_control_monthly_logTP"] if level=="month" else q["mean_matched_source_minus_control_daily_logTP"]
+    v=np.asarray([q["mean_matched_source_minus_control_monthly_logTP_gradient"] if level=="month" else q["mean_matched_source_minus_control_daily_logTP_gradient"]
         for q in quartets],float)
     rng=np.random.default_rng(SEED)
     samples=np.mean(rng.choice(v,size=(BOOT,len(v)),replace=True),axis=1)
