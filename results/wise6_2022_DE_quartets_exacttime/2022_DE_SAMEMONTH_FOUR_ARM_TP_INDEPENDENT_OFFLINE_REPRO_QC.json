@@ -1,0 +1,62 @@
+{
+  "all_original_32_public_water_data_resultObservationStatus_source_counts": {
+    "": 472
+  },
+  "exact_source_only_dates_sha256": "fca82e3e843433ff8d7bb71e3c878d190ee4ead18d8cf2e50e0bb2def312929d",
+  "leave_one_out_mean_range": [
+    0.05953522337733344,
+    0.24686591586893783
+  ],
+  "no_new_observations_or_2022_TP_measurements_downloaded": true,
+  "no_same_day_numeric_inference": true,
+  "official_measured_TP_derived_original_sha256": "b4c5afdbabebdf244c1124e826c7df074c913e6a17cf28dabf1e64e9dace8ff1",
+  "original_2022_all8_quartets_untouched": true,
+  "original_2022_monthly_summary_all_recomputed_from_four_station_TP": [
+    {
+      "n_4station_sampled_months": 7,
+      "original_quartet_index": 2,
+      "source_minus_control_monthly_logTP_mean_reproduced": -0.13765499424412592
+    },
+    {
+      "n_4station_sampled_months": 11,
+      "original_quartet_index": 3,
+      "source_minus_control_monthly_logTP_mean_reproduced": -0.3010525968399398
+    },
+    {
+      "n_4station_sampled_months": 11,
+      "original_quartet_index": 4,
+      "source_minus_control_monthly_logTP_mean_reproduced": 0.22189617653208374
+    },
+    {
+      "n_4station_sampled_months": 11,
+      "original_quartet_index": 5,
+      "source_minus_control_monthly_logTP_mean_reproduced": 0.09423920936112035
+    },
+    {
+      "n_4station_sampled_months": 10,
+      "original_quartet_index": 6,
+      "source_minus_control_monthly_logTP_mean_reproduced": 0.8229315581096867
+    },
+    {
+      "n_4station_sampled_months": 10,
+      "original_quartet_index": 7,
+      "source_minus_control_monthly_logTP_mean_reproduced": 0.46505606177365805
+    },
+    {
+      "n_4station_sampled_months": 6,
+      "original_quartet_index": 8,
+      "source_minus_control_monthly_logTP_mean_reproduced": 0.01472748368120417
+    }
+  ],
+  "original_2sided_signflip_reference_fraction": 0.296875,
+  "original_WISE6_numeric_TP_is_not_butterfly_exposure_or_causal_WWTP_effect": true,
+  "original_country2degree_blocks_permitted": 5,
+  "original_equal_quartet_mean": 0.16859184262481247,
+  "original_monthly_95pct_descriptive_bootstrap": [
+    -0.07698726466524662,
+    0.4428057612344473
+  ],
+  "original_source_quartets_permitted_monthly": 7,
+  "schema": "gesui_2022_DE_8source_vs_registeredzero_2022_WISE6_monthlyTP_offline_reproduction_v01",
+  "utc": "2026-11-09T10:49:45.502133+00:00"
+}
