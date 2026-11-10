@@ -1,0 +1,39 @@
+name: gesui Denmark EBMS15m parentEventID source-only independence gate before individualCount
+on:
+  push:
+    branches: ["analysis/dk-ebms-15min-wwtp-source-support-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms15m-parentEventID-sourceonly.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sourceonly-parentEventID-survey-independence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Audit original v1.3 44884 Event ID hierarchy and source-outfall parent level
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS15min_2023_25_original_Event_parent_hierarchy_no_counts.py
+          python -u scripts/gesui_DK_EBMS15min_2023_25_original_Event_parent_hierarchy_no_counts.py \
+            --out results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15MIN_EVENT_PARENT_SOURCE_SYSTEM_NOCOUNTS_QA.json
+      - name: Freeze parent-event source-independent counts before family count stage
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15MIN_EVENT_PARENT_SOURCE_SYSTEM_NOCOUNTS_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit Denmark 15min original parentEventID/source survey pseudoreplication without occurrence counts"
+          git fetch origin analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git rebase origin/analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git push origin HEAD:analysis/dk-ebms-15min-wwtp-source-support-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EBMS15m-original-parentEventID-no-butterfly-counts
+          path: results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15MIN_EVENT_PARENT_SOURCE_SYSTEM_NOCOUNTS_QA.json
+          retention-days: 90
