@@ -1,0 +1,45 @@
+name: gesui DK eBMS 2023-2024 standardized repeat EVENT-only vs EEA2022 WWTP source
+on:
+  push:
+    branches: ["analysis/ebms-denmark-wwtp-source-feasibility-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms2023-24-EEA2022-WWTP-sourceonly.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  Denmark-repeat-butterfly-survey-site-SOURCE-ONLY:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Source-only dependencies
+        run: python -m pip install --quiet pandas numpy requests
+      - name: Verify Denmark official v1.4 Event-only archive and official 2022 EEA DK FW measured-NP source
+        run: |
+          python -m py_compile scripts/gesui_2023_2024_DK_ebms_eventonly_vs_EEA2022_WWTP_source_gate.py
+          python -u scripts/gesui_2023_2024_DK_ebms_eventonly_vs_EEA2022_WWTP_source_gate.py \
+            --tmpdir /tmp/gesui-dk-ebms-2023-24-original-dwca \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS2023_2024_EEA2022_WWTP_SOURCEONLY_EVENT_QC.json
+      - name: Preserve source-only site/WWTP metadata and butterfly STOP/GO decisions on Draft branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS2023_2024_EEA2022_WWTP_SOURCEONLY_EVENT_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze Danish standardized repeated-visit site proximity to original EEA WWTP outfalls without butterfly counts"
+          git fetch origin analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git rebase origin/analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git push origin HEAD:analysis/ebms-denmark-wwtp-source-feasibility-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-eBMS-2023-24-event-only-EEA22-FW-source
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS2023_2024_EEA2022_WWTP_SOURCEONLY_EVENT_QC.json
+          retention-days: 90
