@@ -1,0 +1,59 @@
+name: gesui GLOBAL1055 2015 WWp x 2011-24 Plantae Animalia Fungi country recording comparator
+on:
+  push:
+    branches: ["analysis/global1055-crosskingdom-effort-controls-20261110"]
+    paths:
+      - "results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp2015_GBIF_ANIMALIA_FUNGI_COUNT_SOURCE_BEFORE_EFFECT.json"
+      - ".github/workflows/gesui-global1055-WWp-crosskingdom-recording-countryFE.yml"
+      - "scripts/gesui_global1055_WWp2015_Plantae_vs_Animalia_Fungi_recording_models.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original1055_cross_kingdom_countryFE_recording_models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install source-locked country comparison model dependencies
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+          python -m py_compile scripts/gesui_global1055_WWp2015_Plantae_vs_Animalia_Fungi_recording_models.py
+      - name: Verify pre-effect original 1055/42 source and 752/38 fixed original flora plus two kingdom API source gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp2015_GBIF_ANIMALIA_FUNGI_COUNT_SOURCE_BEFORE_EFFECT.json")
+          q=json.loads(p.read_text())
+          assert q["schema"]=="gesui_global1055_Animalia_Fungi_2011_24_recording_count_SOURCE_BEFORE_fitting_v01"
+          assert q["original_port_source_N"]==1055 and q["original_source_countries_N"]==42
+          assert q["original_previously_known_Plant_sample752_not_selected_with_animal_fungi"]
+          print("Original cross-kingdom raw count source gate",q["precommitted_SOURCE_QC_before_effect"])
+          PY
+      - name: Compare matched source-country 2015 wastewater co-geography across Plantae, Animalia, Fungi and plant-recording adjusted richness
+        run: |
+          python -u scripts/gesui_global1055_WWp2015_Plantae_vs_Animalia_Fungi_recording_models.py \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp_PLANTAE_ANIMALIA_FUNGI_RECORDING_COUNTRYFE_AND_PLANT_RICHNESS_QC.json
+      - name: Save exact source matched macro taxonomic record coefficients or original source gate STOP
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp_PLANTAE_ANIMALIA_FUNGI_RECORDING_COUNTRYFE_AND_PLANT_RICHNESS_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Report original global1055 cross-kingdom GBIF recording concentration vs WWp and source-matched all-Plantae richness"
+          git fetch origin analysis/global1055-crosskingdom-effort-controls-20261110
+          git rebase origin/analysis/global1055-crosskingdom-effort-controls-20261110
+          git push origin HEAD:analysis/global1055-crosskingdom-effort-controls-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global1055-wwp-plant-animal-fungi-country-recording-macro
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp_PLANTAE_ANIMALIA_FUNGI_RECORDING_COUNTRYFE_AND_PLANT_RICHNESS_QC.json
+          retention-days: 90

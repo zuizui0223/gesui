@@ -1,0 +1,583 @@
+{
+  "Animalia_Fungi_record_counts_are_NOT_biologically_unaffected_WWp_negative_controls": true,
+  "UTC": "2026-11-10T12:33:05.405094+00:00",
+  "all_macro_models_POSTHOC_after_plant_results": true,
+  "country_original_WWp_correlations_with_raw_Animalia_Fungi_record_counts": {
+    "Animalia": {
+      "country_source_spearman_negative_count": 5,
+      "country_source_spearman_positive_count": 17,
+      "individual_country_observational_ranks": [
+        {
+          "Spearman_WWp_recording": -0.14285714285714288,
+          "country": "AR",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.36233766233766235,
+          "country": "BR",
+          "sites": 21
+        },
+        {
+          "Spearman_WWp_recording": 0.7319393538825132,
+          "country": "CA",
+          "sites": 128
+        },
+        {
+          "Spearman_WWp_recording": 0.5205882352941177,
+          "country": "CL",
+          "sites": 16
+        },
+        {
+          "Spearman_WWp_recording": 0.30952380952380953,
+          "country": "CN",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.07352941176470588,
+          "country": "DE",
+          "sites": 16
+        },
+        {
+          "Spearman_WWp_recording": -0.016959511077158134,
+          "country": "DK",
+          "sites": 34
+        },
+        {
+          "Spearman_WWp_recording": -0.012583433636065214,
+          "country": "ES",
+          "sites": 38
+        },
+        {
+          "Spearman_WWp_recording": 0.11304347826086956,
+          "country": "FI",
+          "sites": 24
+        },
+        {
+          "Spearman_WWp_recording": 0.24,
+          "country": "FR",
+          "sites": 25
+        },
+        {
+          "Spearman_WWp_recording": 0.5953511674592885,
+          "country": "GB",
+          "sites": 66
+        },
+        {
+          "Spearman_WWp_recording": 0.2142857142857143,
+          "country": "IN",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.45494505494505494,
+          "country": "IT",
+          "sites": 14
+        },
+        {
+          "Spearman_WWp_recording": -0.023809523809523815,
+          "country": "MX",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": -0.2833333333333333,
+          "country": "PH",
+          "sites": 9
+        },
+        {
+          "Spearman_WWp_recording": 0.38095238095238104,
+          "country": "PL",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.3666666666666667,
+          "country": "PT",
+          "sites": 9
+        },
+        {
+          "Spearman_WWp_recording": 0.3125,
+          "country": "RU",
+          "sites": 31
+        },
+        {
+          "Spearman_WWp_recording": 0.04456654456654456,
+          "country": "SE",
+          "sites": 27
+        },
+        {
+          "Spearman_WWp_recording": 0.5105263157894736,
+          "country": "TR",
+          "sites": 19
+        },
+        {
+          "Spearman_WWp_recording": 0.43627450980392163,
+          "country": "UA",
+          "sites": 17
+        },
+        {
+          "Spearman_WWp_recording": 0.41901000761874574,
+          "country": "US",
+          "sites": 149
+        }
+      ],
+      "not_independent_randomized_country_treatment_effect": true,
+      "source_eligible_countries_with_at_least8_ports": 22
+    },
+    "Fungi": {
+      "country_source_spearman_negative_count": 4,
+      "country_source_spearman_positive_count": 17,
+      "individual_country_observational_ranks": [
+        {
+          "Spearman_WWp_recording": 0.7119914934033427,
+          "country": "AR",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.48834730289198414,
+          "country": "BR",
+          "sites": 21
+        },
+        {
+          "Spearman_WWp_recording": 0.37439156894168235,
+          "country": "CA",
+          "sites": 128
+        },
+        {
+          "Spearman_WWp_recording": 0.6656871889643049,
+          "country": "CL",
+          "sites": 16
+        },
+        {
+          "Spearman_WWp_recording": -0.07185757571479554,
+          "country": "CN",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": -0.4382352941176471,
+          "country": "DE",
+          "sites": 16
+        },
+        {
+          "Spearman_WWp_recording": 0.3729564553093964,
+          "country": "DK",
+          "sites": 34
+        },
+        {
+          "Spearman_WWp_recording": 0.3569786877531504,
+          "country": "ES",
+          "sites": 38
+        },
+        {
+          "Spearman_WWp_recording": 0.3171634349512925,
+          "country": "FI",
+          "sites": 24
+        },
+        {
+          "Spearman_WWp_recording": -0.43055760630349643,
+          "country": "FR",
+          "sites": 25
+        },
+        {
+          "Spearman_WWp_recording": 0.3038014321268189,
+          "country": "GB",
+          "sites": 66
+        },
+        {
+          "Spearman_WWp_recording": 0.5149792926227014,
+          "country": "IN",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.7116130707014607,
+          "country": "IT",
+          "sites": 14
+        },
+        {
+          "Spearman_WWp_recording": 0.203596464525254,
+          "country": "MX",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.4285714285714286,
+          "country": "PL",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.7333333333333334,
+          "country": "PT",
+          "sites": 9
+        },
+        {
+          "Spearman_WWp_recording": 0.44015542281704423,
+          "country": "RU",
+          "sites": 31
+        },
+        {
+          "Spearman_WWp_recording": -0.11233211233211234,
+          "country": "SE",
+          "sites": 27
+        },
+        {
+          "Spearman_WWp_recording": 0.4591644352463903,
+          "country": "TR",
+          "sites": 19
+        },
+        {
+          "Spearman_WWp_recording": 0.18789331313259988,
+          "country": "UA",
+          "sites": 17
+        },
+        {
+          "Spearman_WWp_recording": 0.19122829704222816,
+          "country": "US",
+          "sites": 149
+        }
+      ],
+      "not_independent_randomized_country_treatment_effect": true,
+      "source_eligible_countries_with_at_least8_ports": 21
+    },
+    "Plantae": {
+      "country_source_spearman_negative_count": 5,
+      "country_source_spearman_positive_count": 17,
+      "individual_country_observational_ranks": [
+        {
+          "Spearman_WWp_recording": 0.2380952380952381,
+          "country": "AR",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.5805194805194805,
+          "country": "BR",
+          "sites": 21
+        },
+        {
+          "Spearman_WWp_recording": 0.4773570356680488,
+          "country": "CA",
+          "sites": 128
+        },
+        {
+          "Spearman_WWp_recording": 0.6088235294117647,
+          "country": "CL",
+          "sites": 16
+        },
+        {
+          "Spearman_WWp_recording": -0.261904761904762,
+          "country": "CN",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": -0.047058823529411764,
+          "country": "DE",
+          "sites": 16
+        },
+        {
+          "Spearman_WWp_recording": 0.439572192513369,
+          "country": "DK",
+          "sites": 34
+        },
+        {
+          "Spearman_WWp_recording": 0.46055367107998685,
+          "country": "ES",
+          "sites": 38
+        },
+        {
+          "Spearman_WWp_recording": 0.3909545645801918,
+          "country": "FI",
+          "sites": 24
+        },
+        {
+          "Spearman_WWp_recording": -0.24846153846153846,
+          "country": "FR",
+          "sites": 25
+        },
+        {
+          "Spearman_WWp_recording": 0.20081620725660435,
+          "country": "GB",
+          "sites": 66
+        },
+        {
+          "Spearman_WWp_recording": -0.19047619047619052,
+          "country": "IN",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.37142857142857144,
+          "country": "IT",
+          "sites": 14
+        },
+        {
+          "Spearman_WWp_recording": 0.30952380952380953,
+          "country": "MX",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.7,
+          "country": "PH",
+          "sites": 9
+        },
+        {
+          "Spearman_WWp_recording": 0.28571428571428575,
+          "country": "PL",
+          "sites": 8
+        },
+        {
+          "Spearman_WWp_recording": 0.4666666666666666,
+          "country": "PT",
+          "sites": 9
+        },
+        {
+          "Spearman_WWp_recording": 0.328225806451613,
+          "country": "RU",
+          "sites": 31
+        },
+        {
+          "Spearman_WWp_recording": -0.06471306471306472,
+          "country": "SE",
+          "sites": 27
+        },
+        {
+          "Spearman_WWp_recording": 0.49934186465680114,
+          "country": "TR",
+          "sites": 19
+        },
+        {
+          "Spearman_WWp_recording": 0.03431372549019608,
+          "country": "UA",
+          "sites": 17
+        },
+        {
+          "Spearman_WWp_recording": 0.2195402134861412,
+          "country": "US",
+          "sites": 149
+        }
+      ],
+      "not_independent_randomized_country_treatment_effect": true,
+      "source_eligible_countries_with_at_least8_ports": 22
+    }
+  },
+  "crosskingdom_source_model_allowed": true,
+  "global_original_WWp2015_production_NOT_released_nitrogen_phosphorus": true,
+  "original_2011_24_GBIF_index_varies_with_taxonomic_indexing_and_recording": true,
+  "original_752_GBIF_allPlantae_quality_sites_frozen_before_new_Animalia_Fungi_counts": true,
+  "plant_rarefied50_richness_is_not_censused_plant_community_diversity": true,
+  "preoutcome_source_gate_original": {
+    "cross_kingdom_recording_control_statistical_models_PERMITTED": true,
+    "min_both_kingdom_success_in_1055": 1002,
+    "min_countries_with_2plus_source_WWp_and_both": 25,
+    "min_existing_plant_quality_and_two_kingdom_count": 700,
+    "min_original_countries_with_plant_and_both": 30
+  },
+  "previous_752_flora_source_model_exactly_reproduced_before_animal_fungi_effect": true,
+  "same_source_2015_WWp_countryFE_crosskingdom_recording_models": {
+    "Animalia_record_count": {
+      "R2": 0.6190718516440674,
+      "beta_2015_modelled_WWp": 0.371151361301975,
+      "country_cluster95": [
+        0.06924479568920128,
+        0.6730579269147487
+      ],
+      "formula": "log1p_Animalia_indexed_records~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.01597447855421479,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_Animalia_indexed_records",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Combined_Animalia_Fungi_record_count": {
+      "R2": 0.6185665766186186,
+      "beta_2015_modelled_WWp": 0.3699832200013755,
+      "country_cluster95": [
+        0.06981215645935573,
+        0.6701542835433953
+      ],
+      "formula": "log1p_animal_and_fungi_records~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.01570060643681164,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_animal_and_fungi_records",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Fungi_record_count": {
+      "R2": 0.5607055896760654,
+      "beta_2015_modelled_WWp": 0.3801247620230128,
+      "country_cluster95": [
+        0.13647502214874707,
+        0.6237745018972786
+      ],
+      "formula": "log1p_Fungi_indexed_records~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.0022297239955882753,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_Fungi_indexed_records",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_GBIF_record_count_plus_Animalia_Fungi_records": {
+      "R2": 0.7763477940139962,
+      "beta_2015_modelled_WWp": 0.051686247325081286,
+      "country_cluster95": [
+        -0.034455017316633446,
+        0.13782751196679602
+      ],
+      "formula": "log1p_plant_records~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+log1p_Animalia_indexed_records+log1p_Fungi_indexed_records+C(country)",
+      "nominal_p": 0.239589977205117,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_plant_records",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_rarefied_50record": {
+      "R2": 0.28909743390389764,
+      "beta_2015_modelled_WWp": 0.012556691365216532,
+      "country_cluster95": [
+        -0.0008784230004241448,
+        0.025991805730857208
+      ],
+      "formula": "log1p_50rarefied_Plantae~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.06697877891893685,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_50rarefied_Plantae",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_rarefied_50record_plus_Animalia_Fungi_records": {
+      "R2": 0.31606827434476203,
+      "beta_2015_modelled_WWp": 0.006261695550836277,
+      "country_cluster95": [
+        -0.004296142037942435,
+        0.01681953313961499
+      ],
+      "formula": "log1p_50rarefied_Plantae~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+log1p_Animalia_indexed_records+log1p_Fungi_indexed_records+C(country)",
+      "nominal_p": 0.2450627423532663,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_50rarefied_Plantae",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_raw_speciesKey": {
+      "R2": 0.5450166226659321,
+      "beta_2015_modelled_WWp": 0.1756718008344559,
+      "country_cluster95": [
+        0.06685392335431319,
+        0.28448967831459865
+      ],
+      "formula": "log1p_raw_Plantae_speciesKey~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.0015556453060781373,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_raw_Plantae_speciesKey",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_raw_speciesKey_plus_Animalia_Fungi_records": {
+      "R2": 0.7742446027821711,
+      "beta_2015_modelled_WWp": 0.04116678220179437,
+      "country_cluster95": [
+        -0.014000293883796727,
+        0.09633385828738547
+      ],
+      "formula": "log1p_raw_Plantae_speciesKey~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+log1p_Animalia_indexed_records+log1p_Fungi_indexed_records+C(country)",
+      "nominal_p": 0.14358656609943177,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_raw_Plantae_speciesKey",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_record_count": {
+      "R2": 0.5445001549835201,
+      "beta_2015_modelled_WWp": 0.2941113425612513,
+      "country_cluster95": [
+        0.12870674190274767,
+        0.459515943219755
+      ],
+      "formula": "log1p_plant_records~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.0004919968908371779,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_plant_records",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_vs_Animalia_log_record_ratio": {
+      "R2": 0.6081942467779949,
+      "beta_2015_modelled_WWp": -0.07704001874072369,
+      "country_cluster95": [
+        -0.26886283363401947,
+        0.11478279615257209
+      ],
+      "formula": "log1p_plants_minus_log1p_animals~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.4311869428521904,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_plants_minus_log1p_animals",
+      "source_country_count": 38,
+      "source_port_count": 752
+    },
+    "Plantae_vs_Fungi_log_record_ratio": {
+      "R2": 0.4579875199068022,
+      "beta_2015_modelled_WWp": -0.08601341946176161,
+      "country_cluster95": [
+        -0.24720039328257776,
+        0.07517355435905454
+      ],
+      "formula": "log1p_plants_minus_log1p_fungi~log_2015_WWTP_count+worldcover2021_built+worldcover2021_crop+abs_lat+sin_lon+cos_lon+log_2015_modelled_WWp+C(country)",
+      "nominal_p": 0.29561365442211707,
+      "posthoc_not_causal_sewage_ecology": true,
+      "response_definition": "log1p_plants_minus_log1p_fungi",
+      "source_country_count": 38,
+      "source_port_count": 752
+    }
+  },
+  "schema": "gesui_WWp2015_original_global1055_Plantae_Animalia_Fungi_recording_comparator_countryFE_v01",
+  "source_case_support": {
+    "country_source_site_sizes": {
+      "AR": 8,
+      "AU": 5,
+      "BR": 21,
+      "CA": 128,
+      "CL": 16,
+      "CN": 8,
+      "CR": 4,
+      "DE": 16,
+      "DK": 34,
+      "DZ": 6,
+      "EC": 5,
+      "ES": 38,
+      "FI": 24,
+      "FR": 25,
+      "GB": 66,
+      "GR": 5,
+      "ID": 4,
+      "IN": 8,
+      "IT": 14,
+      "JP": 5,
+      "KR": 6,
+      "MA": 4,
+      "MX": 8,
+      "MY": 3,
+      "NZ": 6,
+      "PH": 9,
+      "PL": 8,
+      "PT": 9,
+      "RO": 5,
+      "RU": 31,
+      "SE": 27,
+      "TH": 2,
+      "TN": 2,
+      "TR": 19,
+      "UA": 17,
+      "US": 149,
+      "VE": 4,
+      "VN": 3
+    },
+    "median_Animalia_GBIF_records": 17386.5,
+    "median_Fungi_GBIF_records": 39.0,
+    "median_Plant_GBIF_records": 1023.0,
+    "n_original_countries": 38,
+    "n_sites": 752,
+    "observed_zero_Animalia_record_sites": 0,
+    "observed_zero_Fungi_record_sites": 65,
+    "original_full_plant752_subset_n": 752
+  },
+  "source_files_SHA256": {
+    "WPI_1055_WWp_source": "cd42b13392af99ade0ce4815e7bc6be11a6c04e34551944bf086263c76ef9e18",
+    "earlier_full_752_plant_model": "85f2034fcbc04b1275795bc0589cd239ed3695b54e9a490f2667613c27bc5357",
+    "new_Animalia_Fungi_count_source": "9a20e0eeca893397a6ec47902059734a2e3e63767a1e0b74cdd0c96f38cb1ed8",
+    "original_GBIF_1055_Plantae": "53721fcecc41d9dd34f42fc3fa47b167d3aa0214a4ece19a210f946c0d152126"
+  },
+  "stop_reason": null
+}

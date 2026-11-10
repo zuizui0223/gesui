@@ -1,0 +1,77 @@
+name: gesui GLOBAL1055 2011-24 GBIF Animalia Fungi recording comparator SOURCE
+on:
+  push:
+    branches: ["analysis/global1055-crosskingdom-effort-controls-20261110"]
+    paths:
+      - ".github/workflows/gesui-global1055-GBIF-animalia-fungi-record-source.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  independent_original1055_record_count_shards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 27
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3]
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Source-locked fixed Animalia and Fungi count queries at original public all1055 WPI port locations
+        run: |
+          python -m py_compile scripts/gesui_global1055_GBIF_Animalia_Fungi_record_counts_source_shards.py
+          mkdir -p /tmp/gesui-crosskingdom-shards
+          python -u scripts/gesui_global1055_GBIF_Animalia_Fungi_record_counts_source_shards.py \
+            --shard ${{ matrix.shard }} \
+            --cache /tmp/gesui-crosskingdom-shards/GBIF_ANIMAL_FUNGI_shard${{ matrix.shard }}.jsonl \
+            --out /tmp/gesui-crosskingdom-shards/GBIF_ANIMAL_FUNGI_shard${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global1055-animal-fungi-source-${{ matrix.shard }}
+          path: /tmp/gesui-crosskingdom-shards/
+          if-no-files-found: warn
+          retention-days: 90
+  join_original_source_before_any_effect:
+    needs: independent_original1055_record_count_shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-global1055-animal-fungi-source-*
+          path: /tmp/gesui-crosskingdom-source-joined
+          merge-multiple: true
+      - name: Join 4x original WPI port source shards and strictly QC both taxonomy count responses without plant modeling
+        run: |
+          python -m py_compile scripts/gesui_global1055_join_Animalia_Fungi_GBIF_record_source.py
+          python -u scripts/gesui_global1055_join_Animalia_Fungi_GBIF_record_source.py \
+            --shard /tmp/gesui-crosskingdom-source-joined/GBIF_ANIMAL_FUNGI_shard0.json \
+            --shard /tmp/gesui-crosskingdom-source-joined/GBIF_ANIMAL_FUNGI_shard1.json \
+            --shard /tmp/gesui-crosskingdom-source-joined/GBIF_ANIMAL_FUNGI_shard2.json \
+            --shard /tmp/gesui-crosskingdom-source-joined/GBIF_ANIMAL_FUNGI_shard3.json \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp2015_GBIF_ANIMALIA_FUNGI_COUNT_SOURCE_BEFORE_EFFECT.json
+      - name: Preserve pre-effect source-only original GBIF record totals and all API failure metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp2015_GBIF_ANIMALIA_FUNGI_COUNT_SOURCE_BEFORE_EFFECT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze global1055 original 2011-24 Animalia/Fungi observed record counts before cross-kingdom WWp effect models"
+          git fetch origin analysis/global1055-crosskingdom-effort-controls-20261110
+          git rebase origin/analysis/global1055-crosskingdom-effort-controls-20261110
+          git push origin HEAD:analysis/global1055-crosskingdom-effort-controls-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global1055-animal-fungi-merged-original-count-source
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp2015_GBIF_ANIMALIA_FUNGI_COUNT_SOURCE_BEFORE_EFFECT.json
+          retention-days: 90
