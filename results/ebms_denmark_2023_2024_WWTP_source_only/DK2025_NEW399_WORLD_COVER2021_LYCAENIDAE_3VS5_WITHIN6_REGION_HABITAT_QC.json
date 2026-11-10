@@ -1,0 +1,546 @@
+{
+  "2021_source_pixel_habitat_distributions_on_all_original_286_sites": {
+    "intermediate": {
+      "built": {
+        "mean": 0.03709774401854234,
+        "median": 0.005158393008860299,
+        "n": 124,
+        "q25": 0.0,
+        "q75": 0.03042229550047867
+      },
+      "crop": {
+        "mean": 0.10683624542707328,
+        "median": 0.001718213058419244,
+        "n": 124,
+        "q25": 0.0,
+        "q75": 0.10413344781062185
+      },
+      "grass": {
+        "mean": 0.3479874644484224,
+        "median": 0.3398574619721306,
+        "n": 124,
+        "q25": 0.21562135981852737,
+        "q75": 0.4418886972078461
+      },
+      "grass_plus_tree_fraction_of_land": {
+        "mean": 0.8524129758078585,
+        "median": 0.9604765870219717,
+        "n": 124,
+        "q25": 0.7787995831034271,
+        "q75": 0.997393056049295
+      },
+      "tree": {
+        "mean": 0.5044255113594361,
+        "median": 0.5423522242535039,
+        "n": 124,
+        "q25": 0.30420320532204415,
+        "q75": 0.696210086541331
+      },
+      "water_fraction_of_all_circle_pixels": {
+        "mean": 0.03958629912982794,
+        "median": 0.0,
+        "n": 124,
+        "q25": 0.0,
+        "q75": 0.002207505518763797
+      }
+    },
+    "near5": {
+      "built": {
+        "mean": 0.09578438823384403,
+        "median": 0.044774273345701915,
+        "n": 70,
+        "q25": 0.00783777058969893,
+        "q75": 0.12129396599349335
+      },
+      "crop": {
+        "mean": 0.13502746783514555,
+        "median": 0.02765905482964953,
+        "n": 70,
+        "q25": 0.0010994380649890056,
+        "q75": 0.19017249757045676
+      },
+      "grass": {
+        "mean": 0.33952513026307835,
+        "median": 0.34384309831181725,
+        "n": 70,
+        "q25": 0.2563783447417548,
+        "q75": 0.4421045934597277
+      },
+      "grass_plus_tree_fraction_of_land": {
+        "mean": 0.7617798424724679,
+        "median": 0.8293146376621675,
+        "n": 70,
+        "q25": 0.6150686776191758,
+        "q75": 0.910854593074013
+      },
+      "tree": {
+        "mean": 0.4222547122093898,
+        "median": 0.4128389934033716,
+        "n": 70,
+        "q25": 0.26530989824236817,
+        "q75": 0.5539827404234184
+      },
+      "water_fraction_of_all_circle_pixels": {
+        "mean": 0.0735631581005547,
+        "median": 0.0047138047138047135,
+        "n": 70,
+        "q25": 0.0,
+        "q75": 0.09571358986848515
+      }
+    },
+    "remote10": {
+      "built": {
+        "mean": 0.03731656536378147,
+        "median": 0.013283315909230674,
+        "n": 92,
+        "q25": 0.0017930787161556392,
+        "q75": 0.055507745266781414
+      },
+      "crop": {
+        "mean": 0.3237567238064853,
+        "median": 0.2502922537377715,
+        "n": 92,
+        "q25": 0.03452593917710197,
+        "q75": 0.5769207110783048
+      },
+      "grass": {
+        "mean": 0.3234063826106048,
+        "median": 0.2523887773111801,
+        "n": 92,
+        "q25": 0.14008117082769647,
+        "q75": 0.42460781298062134
+      },
+      "grass_plus_tree_fraction_of_land": {
+        "mean": 0.6300381154528136,
+        "median": 0.6266215800799262,
+        "n": 92,
+        "q25": 0.38946643286573146,
+        "q75": 0.9359870898332436
+      },
+      "tree": {
+        "mean": 0.30663173284220874,
+        "median": 0.19118015534953645,
+        "n": 92,
+        "q25": 0.07373016849096052,
+        "q75": 0.5441425613352576
+      },
+      "water_fraction_of_all_circle_pixels": {
+        "mean": 0.07777087642682037,
+        "median": 0.0007905619070785697,
+        "n": 92,
+        "q25": 0.0,
+        "q75": 0.0673375065816416
+      }
+    }
+  },
+  "2025_original_286_eligible_documented_survey_sites_by_band": {
+    "intermediate": 124,
+    "near5": 70,
+    "remote10": 92
+  },
+  "analyses_explicitly_posthoc_after_3vs5_family_sign_inversion_known": true,
+  "between_original_1degree_region_habitat_class_balance": {
+    "55|10": {
+      "built": {
+        "near_mean": 0.014574933262604233,
+        "near_minus_remote_fraction": -0.0032549547124565755,
+        "near_n": 12,
+        "remote_mean": 0.01782988797506081,
+        "remote_n": 8
+      },
+      "crop": {
+        "near_mean": 0.3415872750265115,
+        "near_minus_remote_fraction": 0.2142771162222046,
+        "near_n": 12,
+        "remote_mean": 0.12731015880430688,
+        "remote_n": 8
+      },
+      "grass": {
+        "near_mean": 0.27859709201337235,
+        "near_minus_remote_fraction": 0.04514683043866785,
+        "near_n": 12,
+        "remote_mean": 0.2334502615747045,
+        "remote_n": 8
+      },
+      "tree": {
+        "near_mean": 0.365240699697512,
+        "near_minus_remote_fraction": -0.24896485168742472,
+        "near_n": 12,
+        "remote_mean": 0.6142055513849367,
+        "remote_n": 8
+      }
+    },
+    "55|11": {
+      "built": {
+        "near_mean": 0.2057106192361849,
+        "near_minus_remote_fraction": 0.15542868365984452,
+        "near_n": 5,
+        "remote_mean": 0.05028193557634038,
+        "remote_n": 21
+      },
+      "crop": {
+        "near_mean": 0.05435217748928669,
+        "near_minus_remote_fraction": -0.4791183141017562,
+        "near_n": 5,
+        "remote_mean": 0.5334704915910429,
+        "remote_n": 21
+      },
+      "grass": {
+        "near_mean": 0.28401010481245137,
+        "near_minus_remote_fraction": -0.021716998624020212,
+        "near_n": 5,
+        "remote_mean": 0.3057271034364716,
+        "remote_n": 21
+      },
+      "tree": {
+        "near_mean": 0.455927098462077,
+        "near_minus_remote_fraction": 0.3623615135467176,
+        "near_n": 5,
+        "remote_mean": 0.09356558491535945,
+        "remote_n": 21
+      }
+    },
+    "55|12": {
+      "built": {
+        "near_mean": 0.12678710405425636,
+        "near_minus_remote_fraction": 0.08029605027431742,
+        "near_n": 19,
+        "remote_mean": 0.04649105377993894,
+        "remote_n": 8
+      },
+      "crop": {
+        "near_mean": 0.03628165761210023,
+        "near_minus_remote_fraction": -0.34818611210238437,
+        "near_n": 19,
+        "remote_mean": 0.3844677697144846,
+        "remote_n": 8
+      },
+      "grass": {
+        "near_mean": 0.4563732186610732,
+        "near_minus_remote_fraction": 0.29861285363595047,
+        "near_n": 19,
+        "remote_mean": 0.15776036502512278,
+        "remote_n": 8
+      },
+      "tree": {
+        "near_mean": 0.3719685604901636,
+        "near_minus_remote_fraction": -0.039296555354942475,
+        "near_n": 19,
+        "remote_mean": 0.41126511584510606,
+        "remote_n": 8
+      }
+    },
+    "55|9": {
+      "built": {
+        "near_mean": 0.11872877946716788,
+        "near_minus_remote_fraction": 0.057607818762962726,
+        "near_n": 4,
+        "remote_mean": 0.061120960704205154,
+        "remote_n": 20
+      },
+      "crop": {
+        "near_mean": 0.27613891007318847,
+        "near_minus_remote_fraction": -0.14418970058451758,
+        "near_n": 4,
+        "remote_mean": 0.42032861065770605,
+        "remote_n": 20
+      },
+      "grass": {
+        "near_mean": 0.3590389443173702,
+        "near_minus_remote_fraction": 0.011768354271372294,
+        "near_n": 4,
+        "remote_mean": 0.3472705900459979,
+        "remote_n": 20
+      },
+      "tree": {
+        "near_mean": 0.24609336614227345,
+        "near_minus_remote_fraction": 0.07635394574601964,
+        "near_n": 4,
+        "remote_mean": 0.1697394203962538,
+        "remote_n": 20
+      }
+    },
+    "56|10": {
+      "built": {
+        "near_mean": 0.2166514744718661,
+        "near_minus_remote_fraction": 0.21651247099157644,
+        "near_n": 8,
+        "remote_mean": 0.00013900348028967832,
+        "remote_n": 4
+      },
+      "crop": {
+        "near_mean": 0.01252470955220727,
+        "near_minus_remote_fraction": -0.049465680239168384,
+        "near_n": 8,
+        "remote_mean": 0.06199038979137565,
+        "remote_n": 4
+      },
+      "grass": {
+        "near_mean": 0.2812783568493334,
+        "near_minus_remote_fraction": 0.11866977207878998,
+        "near_n": 8,
+        "remote_mean": 0.1626085847705434,
+        "remote_n": 4
+      },
+      "tree": {
+        "near_mean": 0.45913020270611615,
+        "near_minus_remote_fraction": -0.2857282985177757,
+        "near_n": 8,
+        "remote_mean": 0.7448585012238919,
+        "remote_n": 4
+      }
+    },
+    "56|9": {
+      "built": {
+        "near_mean": 0.04453640942028643,
+        "near_minus_remote_fraction": 0.034614484581065884,
+        "near_n": 13,
+        "remote_mean": 0.009921924839220544,
+        "remote_n": 17
+      },
+      "crop": {
+        "near_mean": 0.22576202253975763,
+        "near_minus_remote_fraction": 0.1006746883817225,
+        "near_n": 13,
+        "remote_mean": 0.12508733415803514,
+        "remote_n": 17
+      },
+      "grass": {
+        "near_mean": 0.26484528867253665,
+        "near_minus_remote_fraction": -0.07587929485553607,
+        "near_n": 13,
+        "remote_mean": 0.3407245835280727,
+        "remote_n": 17
+      },
+      "tree": {
+        "near_mean": 0.4647955407862726,
+        "near_minus_remote_fraction": -0.05926689840164667,
+        "near_n": 13,
+        "remote_mean": 0.5240624391879193,
+        "remote_n": 17
+      }
+    }
+  },
+  "bootstrap_2021_habitat_draws_target": 3500,
+  "bootstrap_cluster_source_regions": 6,
+  "bootstrap_seed": 20261110,
+  "estimate_family_source_geometry_is_static_2022_not_WWTP_nutrient_dose": true,
+  "model": "unweighted site-level OLS, response log((accepted Lycaenidae count +0.5)/(Pieridae+Papilionidae or plus Nymphalidae+Hesperiidae+0.5)) only if positive original family denominator, or log((family count+0.5)/original ANY-OCC linked survey date); fixed original country\u00d71\u00b0 region dummy, original log linked days and original 2021 500m fractions built, crop, grass, tree. Exponentiated slope on near5 vs remote10 is a descriptive transformed recording ratio, not true abundance, dose or population effect.",
+  "models": {
+    "logHesperiidaePerDate": {
+      "region_plus_logSurveyDays": {
+        "bootstrap_fraction_log_slope_positive": 0.942,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": 0.46402318886067173,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.9184957742943388,
+          2.5873585998447273
+        ],
+        "exponentiated_continuity_adjusted_ratio": 1.5904598509643169,
+        "regressors": 8,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "bootstrap_fraction_log_slope_positive": 0.9828571428571429,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": 0.5058766892422772,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          1.0730587399046316,
+          2.3874283760240766
+        ],
+        "exponentiated_continuity_adjusted_ratio": 1.6584388187936732,
+        "regressors": 12,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      }
+    },
+    "logLycaenidaePerDate": {
+      "region_plus_logSurveyDays": {
+        "bootstrap_fraction_log_slope_positive": 0.040285714285714286,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.5564750040495514,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.23857442461706757,
+          1.0884461405871313
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.57322612646592,
+        "regressors": 8,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "bootstrap_fraction_log_slope_positive": 0.018857142857142857,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.6498325591883056,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.22421463211197754,
+          0.987980315063713
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.5221331958481757,
+        "regressors": 12,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      }
+    },
+    "logNymphalidaePerDate": {
+      "region_plus_logSurveyDays": {
+        "bootstrap_fraction_log_slope_positive": 0.8114285714285714,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": 0.31619494441303575,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.6233995912685362,
+          2.369494027677956
+        ],
+        "exponentiated_continuity_adjusted_ratio": 1.3718976733460762,
+        "regressors": 8,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "bootstrap_fraction_log_slope_positive": 0.8297142857142857,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": 0.3844755658134815,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.6754377451477953,
+          2.358718120044236
+        ],
+        "exponentiated_continuity_adjusted_ratio": 1.4688438075095664,
+        "regressors": 12,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      }
+    },
+    "logPieridaePerDate": {
+      "region_plus_logSurveyDays": {
+        "bootstrap_fraction_log_slope_positive": 0.30057142857142854,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.17941191162944037,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.4421383289489357,
+          1.4621494718598744
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.8357615685754336,
+        "regressors": 8,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "bootstrap_fraction_log_slope_positive": 0.4848571428571429,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.0335692078870613,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.591917803033295,
+          1.5100237662041605
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.9669879857202377,
+        "regressors": 12,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      }
+    },
+    "logitFive": {
+      "region_plus_logSurveyDays": {
+        "bootstrap_fraction_log_slope_positive": 0.007714285714285714,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.8079059579961029,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.24573350015358927,
+          0.8267761350461186
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.4457905937345119,
+        "regressors": 8,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "bootstrap_fraction_log_slope_positive": 0.0,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.9762368202422778,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.28270801285046837,
+          0.49235442839864213
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.37672612280629014,
+        "regressors": 12,
+        "sample_site_n": 139,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      }
+    },
+    "logitThree": {
+      "region_plus_logSurveyDays": {
+        "bootstrap_fraction_log_slope_positive": 0.22914285714285715,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.4005121343642296,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.22921940061825974,
+          2.14056407855677
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.6699768399963373,
+        "regressors": 8,
+        "sample_site_n": 133,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "bootstrap_fraction_log_slope_positive": 0.024,
+        "bootstrap_n_valid": 3500,
+        "coefficient_log_near_minus_remote": -0.6704994211842443,
+        "confidence_interval_is_not_confirmatory_randomization": true,
+        "descriptive_1degree_region_cluster_bootstrap95_exp_ratio": [
+          0.22470173172439692,
+          0.9847131448999579
+        ],
+        "exponentiated_continuity_adjusted_ratio": 0.5114530834875795,
+        "regressors": 12,
+        "sample_site_n": 133,
+        "site_equal_not_individual_count_weighted": true,
+        "source_regions_with_both_classes": 6
+      }
+    }
+  },
+  "no_independent_source_instrument_or_randomized_WWTP_effect": true,
+  "original_shared_6_regions_total_site_n": 139,
+  "schema": "gesui_DK2025_NEW399_2021_WorldCover500m_habitat_6region_siteEqual_logit_rates_POSTHOC_v01",
+  "site_source_286_original_worldcover2021_samples_all_complete": true,
+  "source_original_SHA256": {
+    "original_family_source": "73bd2c0dd9358fbf2e4d85162cce483d40589c24f8f6d05022e4463e1d8dd480",
+    "original_sourceonly_before_outcome": "cd9fd32d88c34f59e471156e32a430a493f964f8a6f1a6758a57abfe08e884b1",
+    "worldcover2021": "3e480977d33628d7a32532c1fd72f981f419359587d233603789d34b3bdafb63"
+  },
+  "utc": "2026-11-10T07:27:42.685167+00:00",
+  "within_1degree_comparable_geographic_regions": [
+    "55|10",
+    "55|11",
+    "55|12",
+    "55|9",
+    "56|10",
+    "56|9"
+  ],
+  "within_shared_6_original_regions_site_counts": {
+    "near5": 61,
+    "remote10": 78
+  },
+  "year2021_worldcover_not_species_level_larval_host_measurement": true
+}
