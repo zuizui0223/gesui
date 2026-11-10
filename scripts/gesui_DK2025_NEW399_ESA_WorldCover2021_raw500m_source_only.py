@@ -30,7 +30,7 @@ def load_module(path):
     if spec is None or spec.loader is None:raise ValueError("Missing WorldCover v200 source helper")
     m=importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m)
-    if m.CLASSES!=KNOWN or m.RADIUS_M!=RADIUS:
+    if set(m.CLASSES)!=set(KNOWN) or m.RADIUS_M!=RADIUS or m.VERSION!="v200/2021/map":
         raise ValueError("WorldCover raw categorical codebook or source version differs")
     return m
 
