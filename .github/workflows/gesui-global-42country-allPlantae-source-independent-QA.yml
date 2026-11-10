@@ -1,0 +1,39 @@
+name: gesui 42country allPlantae original 247port GBIF source and model independent audit
+on:
+  push:
+    branches: ["analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110"]
+    paths:
+      - "results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_ALL_PLANTAE_50RECORD_RAREFIED_WWp2015_COUNTRYFE_RESULT.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit_new_global_allPlantae_2011_24_original_source_and_estimates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independent 247 port original 42country GBIF facet query URL and 50record rarity source arithmetic
+        run: |
+          python -m py_compile scripts/audit_gesui_global_247port_allPlantae_source_and_models.py
+          python -u scripts/audit_gesui_global_247port_allPlantae_source_and_models.py \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_GBIF_ALL_PLANTAE_247PORT_SOURCE_AND_WWp_MODEL_INDEPENDENT_QA.json
+      - name: Archive independent source-only all flora 2011-24 model validity and unmeasured causal boundary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_GBIF_ALL_PLANTAE_247PORT_SOURCE_AND_WWp_MODEL_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit all 247 original country-selected all-Plantae GBIF species/effort and WWp2015 countryFE source results"
+          git fetch origin analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git rebase origin/analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git push origin HEAD:analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-allflora-WWp2015-247port-source-model-independent-QA
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_GBIF_ALL_PLANTAE_247PORT_SOURCE_AND_WWp_MODEL_INDEPENDENT_QA.json
+          retention-days: 90
