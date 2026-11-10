@@ -1,0 +1,93 @@
+{
+  "2024_2025_both_parent_cluster_support_gate_pass": true,
+  "a_single_parent_group_is_counted_once_for_observer_effort_cluster_support": true,
+  "original_15min_2023_2025_Event_source_QA_SHA256": "9764e97e426335ce1c9b41011f45c6cd4ac7498c8bbe1b949dd29711632dd9c7",
+  "original_Event_only_hierarchy_qc": {
+    "child_Event_rows_in_strict_500m_source": 42041,
+    "original_total_Event_rows": 44884,
+    "root_Event_rows_in_strict_500m_source": 2677
+  },
+  "original_archive_sha256": "c32be29200134fd2ee06b7dd34d76e1420bd6a7810574fb8ffb345c1451169cb",
+  "original_fixed_2022_DK_EEA_source_SHA256": "bd0e33d269f6ab718d1b3089fb09da83b43fc3a19818fb3ea8eef3dbe6b91790",
+  "original_taxonomic_Occurrence_extension_never_opened_here": true,
+  "parentEventID_is_not_independent_butterfly_population_or_necessarily_one_15min_observation": true,
+  "schema": "gesui_DK_2023_25_EBMS15m_original_Event_parent_hierarchy_source_only_v01",
+  "source_year_parent_group_count_and_WWTP_system_eligibility": {
+    "2023": {
+      "middle": {
+        "distinct_immediate_parent_or_self_survey_groups": 76,
+        "original_strict_quality_Event_rows": 1355
+      },
+      "near2": {
+        "distinct_immediate_parent_or_self_survey_groups": 6,
+        "original_strict_quality_Event_rows": 58
+      },
+      "near5": {
+        "distinct_immediate_parent_or_self_survey_groups": 66,
+        "original_strict_quality_Event_rows": 1361
+      },
+      "near5cumulative": {
+        "distinct_immediate_parent_or_self_survey_groups": 72,
+        "original_strict_quality_Event_rows": 1419
+      },
+      "near_source_systems_any_parent_group": 20,
+      "near_source_systems_with_ge2_parent_groups": 10,
+      "parent_source_independence_gate_prespecified": false,
+      "remote10": {
+        "distinct_immediate_parent_or_self_survey_groups": 70,
+        "original_strict_quality_Event_rows": 1700
+      }
+    },
+    "2024": {
+      "middle": {
+        "distinct_immediate_parent_or_self_survey_groups": 368,
+        "original_strict_quality_Event_rows": 4659
+      },
+      "near2": {
+        "distinct_immediate_parent_or_self_survey_groups": 66,
+        "original_strict_quality_Event_rows": 645
+      },
+      "near5": {
+        "distinct_immediate_parent_or_self_survey_groups": 354,
+        "original_strict_quality_Event_rows": 5335
+      },
+      "near5cumulative": {
+        "distinct_immediate_parent_or_self_survey_groups": 415,
+        "original_strict_quality_Event_rows": 5980
+      },
+      "near_source_systems_any_parent_group": 55,
+      "near_source_systems_with_ge2_parent_groups": 35,
+      "parent_source_independence_gate_prespecified": true,
+      "remote10": {
+        "distinct_immediate_parent_or_self_survey_groups": 234,
+        "original_strict_quality_Event_rows": 2922
+      }
+    },
+    "2025": {
+      "middle": {
+        "distinct_immediate_parent_or_self_survey_groups": 487,
+        "original_strict_quality_Event_rows": 7327
+      },
+      "near2": {
+        "distinct_immediate_parent_or_self_survey_groups": 123,
+        "original_strict_quality_Event_rows": 2643
+      },
+      "near5": {
+        "distinct_immediate_parent_or_self_survey_groups": 546,
+        "original_strict_quality_Event_rows": 10888
+      },
+      "near5cumulative": {
+        "distinct_immediate_parent_or_self_survey_groups": 664,
+        "original_strict_quality_Event_rows": 13531
+      },
+      "near_source_systems_any_parent_group": 54,
+      "near_source_systems_with_ge2_parent_groups": 34,
+      "parent_source_independence_gate_prespecified": true,
+      "remote10": {
+        "distinct_immediate_parent_or_self_survey_groups": 355,
+        "original_strict_quality_Event_rows": 5825
+      }
+    }
+  },
+  "utc": "2026-11-10T06:08:49.193730+00:00"
+}
