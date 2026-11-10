@@ -1,0 +1,55 @@
+name: gesui original 2021 NWCA 240 sites registered POTW near10 27state independent design-weight leverage QA
+on:
+  push:
+    branches: ["analysis/us-nwca2021-npdes-potential-exposure-source-20261110"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-POTW-near10-weight-influence-QA.yml"
+      - "scripts/audit_gesui_NWCA2021_POTW_near10_HALL_designweights_independent.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_240_NWCA_original_plant_survey_area_weight_independent_QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install independently coded numeric original 2021 NWCA survey/vegetation source QA
+        run: |
+          python -m pip install --quiet "numpy<3" pandas
+          python -m py_compile scripts/audit_gesui_NWCA2021_POTW_near10_HALL_designweights_independent.py
+      - name: Redownload original four official 2021 NWCA CSVs and verify source byte SHA from earliest source-only gate
+        run: |
+          mkdir -p /tmp/gesui-NWCA21-POTW-independent
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-NWCA21-POTW-independent/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-NWCA21-POTW-independent/nwca21_$item-data.csv"
+          done
+      - name: Independently rederive 240 site matched original POTW near10/far20 geographic contrasts and 27-state cluster CIs; bound survey-weight outliers
+        run: |
+          python -u scripts/audit_gesui_NWCA2021_POTW_near10_HALL_designweights_independent.py \
+            --source-dir /tmp/gesui-NWCA21-POTW-independent \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_STRICT_NPDES_POTW_NEAR10_240SITE_WEIGHT_INDEPENDENT_QA.json
+      - name: Archive original 240 site/EPA data exact independent coefficient/CI and survey weight leverage — do not update source model
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_STRICT_NPDES_POTW_NEAR10_240SITE_WEIGHT_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit original 2021 wetland POTW near10 WLS vs site OLS source-cluster confidence and 27state survey-weight leverage"
+          git fetch origin analysis/us-nwca2021-npdes-potential-exposure-source-20261110
+          git rebase origin/analysis/us-nwca2021-npdes-potential-exposure-source-20261110
+          git push origin HEAD:analysis/us-nwca2021-npdes-potential-exposure-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-US-NWCA2021-POTW-near10-240wetland-independent-weight-sensitivity
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_STRICT_NPDES_POTW_NEAR10_240SITE_WEIGHT_INDEPENDENT_QA.json
+          retention-days: 90

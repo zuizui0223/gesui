@@ -1,0 +1,309 @@
+{
+  "UTC": "2026-11-10T15:14:41.132013+00:00",
+  "exact_source_240_site_27state_32state_ecoregion_HALL_matched": true,
+  "fixed_95_99_percentage_clipped_NWCA_area_weight_sensitivity": {
+    "clip_95pct": {
+      "posthoc_not_original_survey_2021_national_design_estimate": true,
+      "sites_originally_above_clip": 11,
+      "source_WWTP_near_minus_far_HALL_weighted_coefficient_and_state_cluster95": {
+        "design_matrix_columns": 38,
+        "design_rank": 37,
+        "independent_numpy_near10_minus_far20_coefficient": 0.1435760290962357,
+        "independent_state_cluster_sandwich95": [
+          -0.02981588223656792,
+          0.3169679404290393
+        ],
+        "n_original_source_sites": 240,
+        "original_US_state_clusters": 27,
+        "original_state_ecoregion_strata_n": 32
+      },
+      "source_raw_weight_clip": 370738.3786
+    },
+    "clip_99pct": {
+      "posthoc_not_original_survey_2021_national_design_estimate": true,
+      "sites_originally_above_clip": 1,
+      "source_WWTP_near_minus_far_HALL_weighted_coefficient_and_state_cluster95": {
+        "design_matrix_columns": 38,
+        "design_rank": 37,
+        "independent_numpy_near10_minus_far20_coefficient": 0.17943923730909092,
+        "independent_state_cluster_sandwich95": [
+          0.008807168139498278,
+          0.35007130647868356
+        ],
+        "n_original_source_sites": 240,
+        "original_US_state_clusters": 27,
+        "original_state_ecoregion_strata_n": 32
+      },
+      "source_raw_weight_clip": 576245.4956
+    }
+  },
+  "independent_main_original_240_US_site_equal_and_area_weighted_models": {
+    "FQAIALL_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.7484219602095512,
+      "independent_state_cluster_sandwich95": [
+        -2.5352837861936015,
+        1.0384398657744989
+      ],
+      "n_original_source_sites": 240,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "FQAINAT_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.8091752649186222,
+      "independent_state_cluster_sandwich95": [
+        -2.388208022891836,
+        0.7698574930545915
+      ],
+      "n_original_source_sites": 240,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HALIEN_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.061342124393562326,
+      "independent_state_cluster_sandwich95": [
+        -0.2107952412946385,
+        0.08811099250751386
+      ],
+      "n_original_source_sites": 240,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HALL_original_survey_area_weighted": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": 0.18062300867623854,
+      "independent_state_cluster_sandwich95": [
+        0.010378490906365029,
+        0.3508675264461121
+      ],
+      "n_original_source_sites": 240,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HALL_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.12043442865443639,
+      "independent_state_cluster_sandwich95": [
+        -0.25057748529854745,
+        0.009708627989674687
+      ],
+      "n_original_source_sites": 240,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HNAT_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.10958821920392307,
+      "independent_state_cluster_sandwich95": [
+        -0.22900206691768624,
+        0.00982562850984009
+      ],
+      "n_original_source_sites": 240,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    }
+  },
+  "original_2021_NWCA_568source_2021_plant_before_NP_SHA256": "c30e73798e251f78d0ca3d33b51d2854686ea0429d5d92c3508e49fee9f80fe7",
+  "original_27_state_same_source_site_weight_distribution": {
+    "all240": {
+      "effective_N_Kish": 61.32044081082581,
+      "maximum": 723064.0945,
+      "median": 25936.90633,
+      "min": 1212.841987,
+      "n": 240,
+      "p90": 205954.41759999993,
+      "p95": 370738.3786,
+      "p99": 576245.4956,
+      "top_1_site_fraction_of_total_weight": 0.04148622566579461,
+      "top_5_site_fraction_of_total_weight": 0.1719305250805229
+    },
+    "far137": {
+      "effective_N_Kish": 36.53757425750389,
+      "maximum": 576245.4956,
+      "median": 27238.88323,
+      "min": 1212.841987,
+      "n": 137,
+      "p90": 195904.8615000001,
+      "p95": 266910.92109999916,
+      "p99": 564917.6673799996,
+      "top_1_site_fraction_of_total_weight": 0.061922350632771135,
+      "top_5_site_fraction_of_total_weight": 0.2846944016915569
+    },
+    "near103": {
+      "effective_N_Kish": 25.539249180962635,
+      "maximum": 723064.0945,
+      "median": 24623.53726,
+      "min": 1371.501064,
+      "n": 103,
+      "p90": 239734.3694599998,
+      "p95": 465508.8825099991,
+      "p99": 575616.1718100002,
+      "top_1_site_fraction_of_total_weight": 0.08901354883614444,
+      "top_5_site_fraction_of_total_weight": 0.34422498574259197
+    }
+  },
+  "posthoc_sensitivity_after_seeing_source_weighted_beta_plus0p18_and_unweighted_minus0p12": true,
+  "schema": "gesui_EPA_NWCA2021_27state_240wetland_POTW_registered_2026_plant_Shannon_area_weight_influence_independent_numeric_QA_v01",
+  "source_original_240site_first_biology_models_sha256": "bf6550286927979eac7584f22df09364c9183b5ed8c19ca3225de10160de56ea",
+  "source_permit2021_2026location_NOT_actual_2021_wastewater_delivery": true,
+  "source_pre_original_568_SITE_ID_POTW_10km_geometry_sha256": "50eaf83fd3adf62e3affbbf072d3eb6d0dd457fc3dba09168231ea88abd45bc2",
+  "source_state_leave_one_out_OLS_and_WLS_HALL_influence": {
+    "area_weighted_beta_minmax": [
+      0.11828705698988327,
+      0.21569990085604582
+    ],
+    "area_weighted_beta_positive_n": 27,
+    "country_state_influence_not_outofstate_validation": true,
+    "number_US_states_deleted": 27,
+    "site_equal_beta_minmax": [
+      -0.14234594199612244,
+      -0.09174988705470465
+    ],
+    "site_equal_beta_positive_n": 0,
+    "whole_state_omission_original_source_results": {
+      "AL": {
+        "area_weighted_beta": 0.1844007022261961,
+        "site_equal_beta": -0.14234594199612244,
+        "source_original_site_rows": 228
+      },
+      "CA": {
+        "area_weighted_beta": 0.1842689849184578,
+        "site_equal_beta": -0.13313755173354969,
+        "source_original_site_rows": 211
+      },
+      "CO": {
+        "area_weighted_beta": 0.19084882536331338,
+        "site_equal_beta": -0.12534479916845856,
+        "source_original_site_rows": 211
+      },
+      "GA": {
+        "area_weighted_beta": 0.16416779764105863,
+        "site_equal_beta": -0.13373895867814778,
+        "source_original_site_rows": 231
+      },
+      "IA": {
+        "area_weighted_beta": 0.20411039776900441,
+        "site_equal_beta": -0.10302343694482105,
+        "source_original_site_rows": 237
+      },
+      "ID": {
+        "area_weighted_beta": 0.1863938100633979,
+        "site_equal_beta": -0.0997840634052688,
+        "source_original_site_rows": 238
+      },
+      "IL": {
+        "area_weighted_beta": 0.19205813968714475,
+        "site_equal_beta": -0.11922966999562437,
+        "source_original_site_rows": 233
+      },
+      "KS": {
+        "area_weighted_beta": 0.17503439090664483,
+        "site_equal_beta": -0.12987095826600137,
+        "source_original_site_rows": 238
+      },
+      "LA": {
+        "area_weighted_beta": 0.11828705698988327,
+        "site_equal_beta": -0.11126456629181561,
+        "source_original_site_rows": 216
+      },
+      "MA": {
+        "area_weighted_beta": 0.17982251781886155,
+        "site_equal_beta": -0.128511506471211,
+        "source_original_site_rows": 234
+      },
+      "MD": {
+        "area_weighted_beta": 0.18769821309868878,
+        "site_equal_beta": -0.11162051048788532,
+        "source_original_site_rows": 238
+      },
+      "ME": {
+        "area_weighted_beta": 0.15176393048447204,
+        "site_equal_beta": -0.10404455212090043,
+        "source_original_site_rows": 233
+      },
+      "MI": {
+        "area_weighted_beta": 0.17892821082173316,
+        "site_equal_beta": -0.1296323517962745,
+        "source_original_site_rows": 233
+      },
+      "MN": {
+        "area_weighted_beta": 0.1808232724420486,
+        "site_equal_beta": -0.12881287397048835,
+        "source_original_site_rows": 232
+      },
+      "MO": {
+        "area_weighted_beta": 0.17958159405630592,
+        "site_equal_beta": -0.1258007381998585,
+        "source_original_site_rows": 237
+      },
+      "MS": {
+        "area_weighted_beta": 0.1648457596679455,
+        "site_equal_beta": -0.12789422451085966,
+        "source_original_site_rows": 235
+      },
+      "NH": {
+        "area_weighted_beta": 0.18115227843260304,
+        "site_equal_beta": -0.1159042967318673,
+        "source_original_site_rows": 234
+      },
+      "OH": {
+        "area_weighted_beta": 0.19046557956238758,
+        "site_equal_beta": -0.1172935485448309,
+        "source_original_site_rows": 236
+      },
+      "PA": {
+        "area_weighted_beta": 0.18532506846026153,
+        "site_equal_beta": -0.11029900204743365,
+        "source_original_site_rows": 238
+      },
+      "RI": {
+        "area_weighted_beta": 0.1821767357933806,
+        "site_equal_beta": -0.11740732897797054,
+        "source_original_site_rows": 234
+      },
+      "SC": {
+        "area_weighted_beta": 0.18354576041342757,
+        "site_equal_beta": -0.11081555073339593,
+        "source_original_site_rows": 231
+      },
+      "TN": {
+        "area_weighted_beta": 0.17447693458535957,
+        "site_equal_beta": -0.13322221395931474,
+        "source_original_site_rows": 236
+      },
+      "TX": {
+        "area_weighted_beta": 0.21569990085604582,
+        "site_equal_beta": -0.09174988705470465,
+        "source_original_site_rows": 223
+      },
+      "VT": {
+        "area_weighted_beta": 0.1819239871413729,
+        "site_equal_beta": -0.12615995446415626,
+        "source_original_site_rows": 235
+      },
+      "WA": {
+        "area_weighted_beta": 0.17865653274884055,
+        "site_equal_beta": -0.1402224100163697,
+        "source_original_site_rows": 222
+      },
+      "WV": {
+        "area_weighted_beta": 0.18228697850089515,
+        "site_equal_beta": -0.1103956672432011,
+        "source_original_site_rows": 236
+      },
+      "WY": {
+        "area_weighted_beta": 0.19281730340045156,
+        "site_equal_beta": -0.11884343373867394,
+        "source_original_site_rows": 230
+      }
+    }
+  }
+}
