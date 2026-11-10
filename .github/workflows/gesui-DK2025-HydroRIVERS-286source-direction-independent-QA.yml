@@ -1,0 +1,40 @@
+name: gesui DK2025 286-source HydroRIVERS directed site-to-WWTP offline independent gate audit
+on:
+  push:
+    branches: ["analysis/dk-ebms2025-hydrorivers-outfall-exposure-gate-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK2025-HydroRIVERS-286source-direction-independent-QA.yml"
+      - "scripts/audit_gesui_DK2025_HydroRIVERS_source_only_directional_286site_offline.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_sourceonly_flow_relation_arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify 203 original EEA WWTP and 286 source-only EBMS IDs, all snaps and 5km pair direction counts without butterfly data
+        run: |
+          python -m py_compile scripts/audit_gesui_DK2025_HydroRIVERS_source_only_directional_286site_offline.py
+          python -u scripts/audit_gesui_DK2025_HydroRIVERS_source_only_directional_286site_offline.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_286SITE_203WWTP_HYDRORIVERS_SOURCE_DIRECTION_OFFLINE_AUDIT.json
+      - name: Archive independent source-only feasibility, route pseudoreplication QA on Draft analysis branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_286SITE_203WWTP_HYDRORIVERS_SOURCE_DIRECTION_OFFLINE_AUDIT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit DK2025 286-site 203-outfall source-only river directed sample stop and two true reach IDs"
+          git fetch origin analysis/dk-ebms2025-hydrorivers-outfall-exposure-gate-20261110
+          git rebase origin/analysis/dk-ebms2025-hydrorivers-outfall-exposure-gate-20261110
+          git push origin HEAD:analysis/dk-ebms2025-hydrorivers-outfall-exposure-gate-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK2025-hydrorivers-203WWTP-286-sourceonly-directed-independent-audit
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_286SITE_203WWTP_HYDRORIVERS_SOURCE_DIRECTION_OFFLINE_AUDIT.json
+          retention-days: 90
