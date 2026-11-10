@@ -1,0 +1,39 @@
+name: gesui DK 2025 out-of-time original 107 site-source gate BEFORE 2025 butterfly counts
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-outoftime-lycaenidae-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-outoftime-sourceONLY-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unchanged-2022-source-2025-event-opportunity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Replay 2025 site visit eligibility and four-source band without accessing 2025 butterfly individuals
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS_2025_original107_source_only_out_of_time_gate.py
+          python -u scripts/gesui_DK_EBMS_2025_original107_source_only_out_of_time_gate.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2025_107SITE_PREBUTTERFLY_HOLDOUT_SOURCE_GATE.json
+      - name: Preserve exact 2025 site/source/visit cohort before reading occurrence data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2025_107SITE_PREBUTTERFLY_HOLDOUT_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original 107 Danish EBMS sites and 2025 visits for out-of-time follow-up before species outcomes"
+          git fetch origin analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git rebase origin/analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-107site-original-no-butterfly-source-gate
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2025_107SITE_PREBUTTERFLY_HOLDOUT_SOURCE_GATE.json
+          retention-days: 90
