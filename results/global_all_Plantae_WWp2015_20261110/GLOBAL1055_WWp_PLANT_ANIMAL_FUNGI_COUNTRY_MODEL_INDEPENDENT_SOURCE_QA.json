@@ -1,0 +1,144 @@
+{
+  "GBIF_kingdom_count_source_query_URL_original_site_year_radius_verified": true,
+  "independent_numpy_countryFE_OLS_and_cluster_sandwich_replication": {
+    "Animalia_record_count": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": 0.3711513613019803,
+      "independent_country_cluster95": [
+        0.06924479568920033,
+        0.6730579269147603
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Combined_Animalia_Fungi_record_count": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": 0.3699832200013795,
+      "independent_country_cluster95": [
+        0.06981215645935368,
+        0.6701542835434053
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Fungi_record_count": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": 0.38012476202301554,
+      "independent_country_cluster95": [
+        0.13647502214874674,
+        0.6237745018972843
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_GBIF_record_count_plus_Animalia_Fungi_records": {
+      "independent_GBIF_source_regressors": 47,
+      "independent_beta_WWp": 0.05168624732507908,
+      "independent_country_cluster95": [
+        -0.034455017316633946,
+        0.1378275119667921
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_rarefied_50record": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": 0.012556691365215587,
+      "independent_country_cluster95": [
+        -0.0008784230004250729,
+        0.025991805730856247
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_rarefied_50record_plus_Animalia_Fungi_records": {
+      "independent_GBIF_source_regressors": 47,
+      "independent_beta_WWp": 0.006261695550836487,
+      "independent_country_cluster95": [
+        -0.004296142037942412,
+        0.016819533139615386
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_raw_speciesKey": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": 0.17567180083445652,
+      "independent_country_cluster95": [
+        0.06685392335431138,
+        0.28448967831460165
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_raw_speciesKey_plus_Animalia_Fungi_records": {
+      "independent_GBIF_source_regressors": 47,
+      "independent_beta_WWp": 0.04116678220179362,
+      "independent_country_cluster95": [
+        -0.01400029388379706,
+        0.0963338582873843
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_record_count": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": 0.2941113425612533,
+      "independent_country_cluster95": [
+        0.12870674190274806,
+        0.4595159432197586
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_vs_Animalia_log_record_ratio": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": -0.07704001874072668,
+      "independent_country_cluster95": [
+        -0.26886283363402513,
+        0.1147827961525718
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    },
+    "Plantae_vs_Fungi_log_record_ratio": {
+      "independent_GBIF_source_regressors": 45,
+      "independent_beta_WWp": -0.0860134194617615,
+      "independent_country_cluster95": [
+        -0.2472003932825803,
+        0.07517355435905732
+      ],
+      "n_original_countries": 38,
+      "n_original_sites": 752,
+      "same_country_cluster_sandwich_but_independent_linear_algebra": true
+    }
+  },
+  "no_actual_treatment_sewage_plant_vertebrate_or_fungi_causal_effect_claimed": true,
+  "no_species_richness_of_animalia_fungi_measured": true,
+  "number_of_independent_crosskingdom_models_verified": 11,
+  "schema": "gesui_global1055_original_WWp_Plantae_Animalia_Fungi_count_independent_statistical_QA_v01",
+  "source_and_API_completeness": {
+    "Animalia_API_complete": 1055,
+    "Fungi_API_complete": 1055,
+    "both_controls_complete_in_original_plant": 752,
+    "previous_Plant752": 752
+  },
+  "source_original_gbif_plant_752_support_verified": true,
+  "source_sha256": {
+    "WPI_WWp": "cd42b13392af99ade0ce4815e7bc6be11a6c04e34551944bf086263c76ef9e18",
+    "new_anim_fungi": "9a20e0eeca893397a6ec47902059734a2e3e63767a1e0b74cdd0c96f38cb1ed8",
+    "original_plant": "53721fcecc41d9dd34f42fc3fa47b167d3aa0214a4ece19a210f946c0d152126",
+    "primary_model": "e36f478c79bbef9c51937e8f267f7853c6a5ce2d4fd810e776f8647792025aef"
+  },
+  "source_site_population_1055_verified_without_posthoc_selection": true
+}
