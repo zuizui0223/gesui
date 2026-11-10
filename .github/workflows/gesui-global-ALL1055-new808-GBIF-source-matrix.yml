@@ -1,0 +1,90 @@
+name: gesui GLOBAL original ALL1055 42country 808 NEW 2011-24 all-Plantae GBIF source
+on:
+  push:
+    branches: ["analysis/global-1055port-allPlantae-full-20261110"]
+    paths:
+      - ".github/workflows/gesui-global-ALL1055-new808-GBIF-source-matrix.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  new808_GBIF_all_Plantae_original_source_four_shards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3]
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Validate exact original 1055 sites and new808 request split BEFORE any new Plantae data
+        run: |
+          python -m py_compile scripts/gesui_global_1055port_AllPlantae_new808_4shards_GBIF.py
+          python - <<'PY'
+          import json,pathlib
+          r=pathlib.Path('results/global_all_Plantae_WWp2015_20261110/ORIGINAL_ALL1055_42COUNTRY_WWp2015_BEFORE_NEW808_GBIF_SOURCE.json')
+          x=json.loads(r.read_text())
+          assert x['all_original_country_WWp_source_sites_n']==1055
+          assert x['original_country_count']==42
+          assert x['previous_247_fixed_pilot_site_n']==247
+          assert x['new_allPlantae_2011_24_GBIF_port_IDs_original_not_yet_queried_n']==808
+          assert x['GBIF_new808_species_records_NOT_OBSERVED_in_stage0'] is True
+          print('PASS: 1055 original country sites and new808 independent GBIF queries source-frozen before request')
+          PY
+      - name: Four bounded original GBIF all-Plantae speciesKey facet shards of 202 ports each with public URL/SHA and 50-record rarefaction
+        run: |
+          mkdir -p /tmp/gesui-all1055-GBIF-shards
+          python -u scripts/gesui_global_1055port_AllPlantae_new808_4shards_GBIF.py \
+            --shard ${{ matrix.shard }} \
+            --cache /tmp/gesui-all1055-GBIF-shards/GBIF_NEW808_shard${{ matrix.shard }}_FACET_COUNTS.jsonl \
+            --out /tmp/gesui-all1055-GBIF-shards/GBIF_NEW808_shard${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-ALL1055-new808-source-shard-${{ matrix.shard }}
+          path: /tmp/gesui-all1055-GBIF-shards/
+          if-no-files-found: warn
+          retention-days: 90
+  join_original247_and_new808_original_GBIF_source:
+    needs: new808_GBIF_all_Plantae_original_source_four_shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-global-ALL1055-new808-source-shard-*
+          path: /tmp/gesui-all1055-GBIF-joined
+          merge-multiple: true
+      - name: Verify full original 1055 WPI source population and all four new 202-port independently acquired GBIF facets before ALL Plantae effects
+        run: |
+          python -m py_compile scripts/gesui_global_1055port_AllPlantae_join247_plus4x202_GBIF.py
+          python -u scripts/gesui_global_1055port_AllPlantae_join247_plus4x202_GBIF.py \
+            --shard /tmp/gesui-all1055-GBIF-joined/GBIF_NEW808_shard0.json \
+            --shard /tmp/gesui-all1055-GBIF-joined/GBIF_NEW808_shard1.json \
+            --shard /tmp/gesui-all1055-GBIF-joined/GBIF_NEW808_shard2.json \
+            --shard /tmp/gesui-all1055-GBIF-joined/GBIF_NEW808_shard3.json \
+            --out results/global_all_Plantae_WWp2015_20261110/ORIGINAL_ALL1055_42COUNTRY_GBIF_PLANTAE_2011_24_50RECORD_RAREFACTION_SOURCE.json
+      - name: Commit original all1055 GBIF record/support sample source before fitting new worldwide ecological coefficients
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/ORIGINAL_ALL1055_42COUNTRY_GBIF_PLANTAE_2011_24_50RECORD_RAREFACTION_SOURCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze all 1055 WPI ports 42 countries actual 2011-24 ALL Plantae GBIF species and rarefied50 recording support"
+          git fetch origin analysis/global-1055port-allPlantae-full-20261110
+          git rebase origin/analysis/global-1055port-allPlantae-full-20261110
+          git push origin HEAD:analysis/global-1055port-allPlantae-full-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-ALL1055-original-2011-24-Gbif-Plantae-joined-source
+          path: results/global_all_Plantae_WWp2015_20261110/ORIGINAL_ALL1055_42COUNTRY_GBIF_PLANTAE_2011_24_50RECORD_RAREFACTION_SOURCE.json
+          retention-days: 90
