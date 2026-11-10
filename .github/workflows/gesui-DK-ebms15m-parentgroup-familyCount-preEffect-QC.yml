@@ -1,0 +1,39 @@
+name: gesui DK EBMS15m original accepted/synonym family count QC at parent/outfall level BEFORE effects
+on:
+  push:
+    branches: ["analysis/dk-ebms-15min-wwtp-source-support-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms15m-parentgroup-familyCount-preEffect-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  licensed-original-15m-parent-survey-source-effect-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Replay original 44884 Event and 39905 Occurrence rows under pre-frozen taxonomy and original >10 WWTP cluster support before spatial model
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS15m_original_familyCount_parentgroup_pre_effect_QC.py
+          python -u scripts/gesui_DK_EBMS15m_original_familyCount_parentgroup_pre_effect_QC.py \
+            --out results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15M_2024_25_ACCEPTED_FAMILY_PARENT_SURVEY_COUNT_SUPPORT_BEFORE_EFFECT.json
+      - name: Archive licensed aggregated QA not individual Occurrence or observer records
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15M_2024_25_ACCEPTED_FAMILY_PARENT_SURVEY_COUNT_SUPPORT_BEFORE_EFFECT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze Danish EBMS15min parent/outfall accepted-family count sample support before source spatial effect analysis"
+          git fetch origin analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git rebase origin/analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git push origin HEAD:analysis/dk-ebms-15min-wwtp-source-support-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-EBMS15minute-original-parentgroup-family-count-QC-pre-effect
+          path: results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15M_2024_25_ACCEPTED_FAMILY_PARENT_SURVEY_COUNT_SUPPORT_BEFORE_EFFECT.json
+          retention-days: 90
