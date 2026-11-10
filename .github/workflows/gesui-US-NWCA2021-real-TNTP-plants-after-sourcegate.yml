@@ -1,0 +1,67 @@
+name: gesui USA NWCA2021 real TN TP x standardized wetland plant Shannon after frozen site gate
+on:
+  push:
+    branches: ["analysis/us-nwca2021-wetland-plant-chemistry-source-20261110"]
+    paths:
+      - ".github/workflows/gesui-US-NWCA2021-real-TNTP-plants-after-sourcegate.yml"
+      - "scripts/gesui_us_NWCA2021_actual_site_plant_Shannon_FQAI_TP_TN_after_source_gate.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_probability_wetland_NP_diversity_after_fixed_siteIDs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install original nationally standardized plant and nutrient model dependencies
+        run: python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+      - name: Validate original SITE_ID-only source sample frozen without plant H_ALL or measured TNTP values
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_VEG_WATERCHEM_SITEONLY_GATE.json")
+          r=json.loads(p.read_text())
+          assert r["source_SITE_ID_and_VISIT_NO_matched_chemistry_vegmetrics_rows_n"]==568
+          assert r["all_original_2021_plant_H_ALL_FQAI_and_water_NTL_PTL_values_NOT_READ"]
+          assert r["precommitted_SOURCE_gate_before_measured_NTLP_and_plant_Shannon"]["may_open_2021_plant_diversity_and_measured_TNTP_results"]
+          print("SOURCE_GATE_SUCCESS: original 568 wetland plant-water chemistry matched source visits")
+          PY
+      - name: Retrieve EXACT original publicly released EPA NWCA 2021 four source CSVs from precommitted official URLs
+        run: |
+          mkdir -p /tmp/gesui-nwca2021
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+          done
+      - name: Independent real 2021 TN TP versus standardized wetland plant Shannon/native/alien floristic quality on fixed 568 survey visits
+        run: |
+          python -m py_compile scripts/gesui_us_NWCA2021_actual_site_plant_Shannon_FQAI_TP_TN_after_source_gate.py
+          python -u scripts/gesui_us_NWCA2021_actual_site_plant_Shannon_FQAI_TP_TN_after_source_gate.py \
+            --source-dir /tmp/gesui-nwca2021 \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_REAL_PLANT_SHANNON_TNTP_WETLANDS_STATE_ECOREGION_QA.json
+      - name: Archive only original source-verified US national wetland nutrient-plant association and uncertainty
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_REAL_PLANT_SHANNON_TNTP_WETLANDS_STATE_ECOREGION_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Report real US EPA wetland plot Shannon/nativeness/FQAI vs measured TN and TP, with original 568 source site gate"
+          git fetch origin analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git rebase origin/analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git push origin HEAD:analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-USA-NWCA2021-2021-actual-wetland-plant-TNTP-statistical-source-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_REAL_PLANT_SHANNON_TNTP_WETLANDS_STATE_ECOREGION_QA.json
+          retention-days: 90

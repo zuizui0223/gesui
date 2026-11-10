@@ -1,0 +1,55 @@
+name: gesui US EPA NWCA2021 independent original 499site TNTP plot Shannon statecluster audit
+on:
+  push:
+    branches: ["analysis/us-nwca2021-wetland-plant-chemistry-source-20261110"]
+    paths:
+      - ".github/workflows/gesui-US-NWCA2021-TNTP-Shannon-independent-sourceQA.yml"
+      - "scripts/audit_gesui_NWCA2021_real_wetland_TNTP_Shannon_statecluster_source_independent.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_2021_EPA_stochastic_499wetland_chemistry_biodiversity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install independent NumPy original record and source integrity monitor
+        run: python -m pip install --quiet "numpy<3" pandas scipy
+      - name: Redownload exactly same FOUR official original EPA 2021 NWCA source CSVs for independent byte-hash reproduction
+        run: |
+          mkdir -p /tmp/gesui-nwca2021
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+          done
+      - name: Independently source-match 568 original wetlands, reproduce 499 accepted measured-NP plots and regression state-cluster CI
+        run: |
+          python -m py_compile scripts/audit_gesui_NWCA2021_real_wetland_TNTP_Shannon_statecluster_source_independent.py
+          python -u scripts/audit_gesui_NWCA2021_real_wetland_TNTP_Shannon_statecluster_source_independent.py \
+            --source-dir /tmp/gesui-nwca2021 \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_TNTP_PLANT_SHANNON_499SITE_INDEPENDENT_SOURCE_COV_QA.json
+      - name: Archive only source integrity and independent original wetland diversity / nutrient model coefficients
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_TNTP_PLANT_SHANNON_499SITE_INDEPENDENT_SOURCE_COV_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Verify independently NWCA2021 499 US measured nutrient wetland plant Shannon original source, 48-state cluster CI"
+          git fetch origin analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git rebase origin/analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git push origin HEAD:analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-US-EPA-NWCA2021-TNTP-499state-source-independent-plant-Shannon
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_TNTP_PLANT_SHANNON_499SITE_INDEPENDENT_SOURCE_COV_QA.json
+          retention-days: 90
