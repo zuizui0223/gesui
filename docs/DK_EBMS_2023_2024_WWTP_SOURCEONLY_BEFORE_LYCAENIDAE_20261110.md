@@ -29,3 +29,10 @@ If all gates pass, an independent 2023-2024 standardized butterfly survey family
 Previous original SeBMS 2022 matched pilot found 14 eligible Swedish WWTP freshwater sites, no qualified standardized transect sites within 2km and two point-count sites within 5km; no 2022 butterfly outcome was read. Do not erase this failure.
 
 Store public source material with provenance and original CC-BY-NC 4.0 attribution. Keep new data on isolated Draft branch, no main or chocho changes.
+
+
+## SOURCE-ONLY CORRECTION 2026-11-10 (before any species outcomes; do not erase history)
+
+Initial automated source-only run [42757019282](https://github.com/zuizui0223/gesui/actions/runs/42757019282) stopped before producing an outcome or opening any eBMS Occurrence extension: it checked for **69** 2022 Denmark-reporter WWTP direct-FW outfalls, but the original EEA REST join and complete fixed Danish national envelope W7 E16 S54 N58 actually yielded **203**.
+
+The earlier 69 count was only the number of Danish DK2022-reporter outlets falling inside a **Sweden-oriented overlap bounding box** (reported in the prior SeBMS feasibility inventory), **NOT the national Danish number**. This was a mistaken translation of an existing source geographic crop, not a result-driven attempt to enlarge a radius or choose favorable butterfly observations. Original EEA filters, 2022 source reporter DK2022, one-unique-direct-FW-outfall rule, Danish full bounding box and all 2km/5km near/remote/visit support gates remain EXACTLY as declared above. Corrected expected source-only EEA total is 203. The original failed workflow and both values remain in the history. No original Danish species abundances have been inspected at this correction stage.
