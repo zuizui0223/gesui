@@ -1,0 +1,39 @@
+name: gesui DK EBMS15m 2024-25 source-independent parent-family 1degree region contrasts POSTHOC
+on:
+  push:
+    branches: ["analysis/dk-ebms-15min-wwtp-source-support-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms15m-2024-25-region-sourcecontrast-posthoc.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-parentgroup-source-geography-comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify source-only and family count quality gates and compare original 2024-25 1degree blocks
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS15m_2024_2025_frozen_parent_family_REGION_source_contrast_POSTHOC.py
+          python -u scripts/gesui_DK_EBMS15m_2024_2025_frozen_parent_family_REGION_source_contrast_POSTHOC.py \
+            --out results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/POSTHOC_DK_2024_25_EBMS15M_REGION_AND_WWTP_PARENTGROUP_FAMILY_CONTRAST.json
+      - name: Preserve noncausal source/group family comparison and fully auditable SHA
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/POSTHOC_DK_2024_25_EBMS15M_REGION_AND_WWTP_PARENTGROUP_FAMILY_CONTRAST.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record 2024-25 source-cluster and same-region EBMS15m family contrasts without WWTP causality"
+          git fetch origin analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git rebase origin/analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git push origin HEAD:analysis/dk-ebms-15min-wwtp-source-support-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2024-25-EBMS15minute-region-parent-EEA-source-noncausal
+          path: results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/POSTHOC_DK_2024_25_EBMS15M_REGION_AND_WWTP_PARENTGROUP_FAMILY_CONTRAST.json
+          retention-days: 90
