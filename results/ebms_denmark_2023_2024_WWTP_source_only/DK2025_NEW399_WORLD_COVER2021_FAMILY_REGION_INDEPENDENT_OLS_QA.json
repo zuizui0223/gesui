@@ -1,0 +1,248 @@
+{
+  "2021_WorldCover_classes_not_host_species_or_butterfly_dose": true,
+  "all_WWTP_proximity_inference_noncausal_POSTHOC": true,
+  "all_six_outcomes_and_both_regions_v_land_model_slopes_exactly_reproduced": true,
+  "independent_family_model_arithmetic": {
+    "logHesperiidaePerDate": {
+      "LOO_adjusted_positive_ratio_count": 6,
+      "LOO_adjusted_ratio_range": [
+        1.4601856286881316,
+        1.7495011612324949
+      ],
+      "LOO_valid_region_drops": 6,
+      "leave_one_1degree_area_out_adjusted_exponentiated_slopes": {
+        "55|10": 1.734407377926394,
+        "55|11": 1.4601856286881316,
+        "55|12": 1.6179672237272955,
+        "55|9": 1.7451572770063928,
+        "56|10": 1.7495011612324949,
+        "56|9": 1.652724438638602
+      },
+      "region_plus_logSurveyDays": {
+        "exp_slope": 1.5904598509643195,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": 0.4640231888606734
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "exp_slope": 1.6584388187936412,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": 0.5058766892422579
+      }
+    },
+    "logLycaenidaePerDate": {
+      "LOO_adjusted_positive_ratio_count": 0,
+      "LOO_adjusted_ratio_range": [
+        0.3550787449382971,
+        0.6428425708398992
+      ],
+      "LOO_valid_region_drops": 6,
+      "leave_one_1degree_area_out_adjusted_exponentiated_slopes": {
+        "55|10": 0.6428425708398992,
+        "55|11": 0.5376320374731924,
+        "55|12": 0.4629459528839957,
+        "55|9": 0.5362912392625663,
+        "56|10": 0.6051198078835022,
+        "56|9": 0.3550787449382971
+      },
+      "region_plus_logSurveyDays": {
+        "exp_slope": 0.5732261264659207,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": -0.5564750040495501
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "exp_slope": 0.522133195848179,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": -0.6498325591882994
+      }
+    },
+    "logNymphalidaePerDate": {
+      "LOO_adjusted_positive_ratio_count": 6,
+      "LOO_adjusted_ratio_range": [
+        1.0813933714338912,
+        1.7399986151096558
+      ],
+      "LOO_valid_region_drops": 6,
+      "leave_one_1degree_area_out_adjusted_exponentiated_slopes": {
+        "55|10": 1.7399986151096558,
+        "55|11": 1.5361867277119847,
+        "55|12": 1.2372138273183344,
+        "55|9": 1.5457354700306678,
+        "56|10": 1.5739409983612442,
+        "56|9": 1.0813933714338912
+      },
+      "region_plus_logSurveyDays": {
+        "exp_slope": 1.3718976733460775,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": 0.3161949444130367
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "exp_slope": 1.4688438075096004,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": 0.38447556581350467
+      }
+    },
+    "logPieridaePerDate": {
+      "LOO_adjusted_positive_ratio_count": 3,
+      "LOO_adjusted_ratio_range": [
+        0.8497918794975535,
+        1.0901512817434662
+      ],
+      "LOO_valid_region_drops": 6,
+      "leave_one_1degree_area_out_adjusted_exponentiated_slopes": {
+        "55|10": 0.9344463642429944,
+        "55|11": 0.8798619840141776,
+        "55|12": 1.0901512817434662,
+        "55|9": 1.021198735601685,
+        "56|10": 1.0621423030621968,
+        "56|9": 0.8497918794975535
+      },
+      "region_plus_logSurveyDays": {
+        "exp_slope": 0.8357615685754343,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": -0.1794119116294396
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "exp_slope": 0.9669879857202621,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": -0.03356920788703602
+      }
+    },
+    "logitFive": {
+      "LOO_adjusted_positive_ratio_count": 0,
+      "LOO_adjusted_ratio_range": [
+        0.33284769241589146,
+        0.4068615374195908
+      ],
+      "LOO_valid_region_drops": 6,
+      "leave_one_1degree_area_out_adjusted_exponentiated_slopes": {
+        "55|10": 0.4068615374195908,
+        "55|11": 0.37635736297777345,
+        "55|12": 0.37953571725434704,
+        "55|9": 0.36757636093839424,
+        "56|10": 0.4006041474598494,
+        "56|9": 0.33284769241589146
+      },
+      "region_plus_logSurveyDays": {
+        "exp_slope": 0.44579059373451224,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": -0.8079059579961022
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "exp_slope": 0.37672612280629214,
+        "n_regions": 6,
+        "n_sites": 139,
+        "original_slope_near_minus_remote": -0.9762368202422724
+      }
+    },
+    "logitThree": {
+      "LOO_adjusted_positive_ratio_count": 0,
+      "LOO_adjusted_ratio_range": [
+        0.3740137550972112,
+        0.6441151622751784
+      ],
+      "LOO_valid_region_drops": 6,
+      "leave_one_1degree_area_out_adjusted_exponentiated_slopes": {
+        "55|10": 0.6441151622751784,
+        "55|11": 0.5927335037630144,
+        "55|12": 0.40073045609654645,
+        "55|9": 0.5101017754400047,
+        "56|10": 0.5424631851234158,
+        "56|9": 0.3740137550972112
+      },
+      "region_plus_logSurveyDays": {
+        "exp_slope": 0.6699768399963368,
+        "n_regions": 6,
+        "n_sites": 133,
+        "original_slope_near_minus_remote": -0.40051213436423017
+      },
+      "region_plus_logSurveyDays_plus_WorldCover2021": {
+        "exp_slope": 0.5114530834875474,
+        "n_regions": 6,
+        "n_sites": 133,
+        "original_slope_near_minus_remote": -0.6704994211843072
+      }
+    }
+  },
+  "independent_standard_library_normal_equation_not_numpy_lstsq": true,
+  "near_source_5km_component_leave_one_out": {
+    "logHesperiidaePerDate": {
+      "leave_one_near_component_adjusted_valid_n": 14,
+      "near_5km_spatial_components_attempted": 15,
+      "source_component_adjusted_ratio_minmax": [
+        1.5030779474861102,
+        2.103719051808025
+      ],
+      "source_component_drops_pseudoreplication_not_hydrology_proof": true
+    },
+    "logLycaenidaePerDate": {
+      "leave_one_near_component_adjusted_valid_n": 14,
+      "near_5km_spatial_components_attempted": 15,
+      "source_component_adjusted_ratio_minmax": [
+        0.3988362620744888,
+        0.6048478465267787
+      ],
+      "source_component_drops_pseudoreplication_not_hydrology_proof": true
+    },
+    "logNymphalidaePerDate": {
+      "leave_one_near_component_adjusted_valid_n": 14,
+      "near_5km_spatial_components_attempted": 15,
+      "source_component_adjusted_ratio_minmax": [
+        1.3750164495874653,
+        1.758688134843492
+      ],
+      "source_component_drops_pseudoreplication_not_hydrology_proof": true
+    },
+    "logPieridaePerDate": {
+      "leave_one_near_component_adjusted_valid_n": 14,
+      "near_5km_spatial_components_attempted": 15,
+      "source_component_adjusted_ratio_minmax": [
+        0.8927956190514239,
+        1.0494624991097612
+      ],
+      "source_component_drops_pseudoreplication_not_hydrology_proof": true
+    },
+    "logitFive": {
+      "leave_one_near_component_adjusted_valid_n": 14,
+      "near_5km_spatial_components_attempted": 15,
+      "source_component_adjusted_ratio_minmax": [
+        0.28467004001286506,
+        0.4067046663415486
+      ],
+      "source_component_drops_pseudoreplication_not_hydrology_proof": true
+    },
+    "logitThree": {
+      "leave_one_near_component_adjusted_valid_n": 14,
+      "near_5km_spatial_components_attempted": 15,
+      "source_component_adjusted_ratio_minmax": [
+        0.39897362750195137,
+        0.5619483016679144
+      ],
+      "source_component_drops_pseudoreplication_not_hydrology_proof": true
+    }
+  },
+  "original_2025_worldcover2021_500m_quality_sample": 286,
+  "original_six_geographies": [
+    "55|10",
+    "55|11",
+    "55|12",
+    "55|9",
+    "56|10",
+    "56|9"
+  ],
+  "schema": "gesui_DK2025_NEW399_WorldCover2021_original_6area_adjusted_family_independent_OLS_QA_v01",
+  "source_SHA256": {
+    "family2025": "73bd2c0dd9358fbf2e4d85162cce483d40589c24f8f6d05022e4463e1d8dd480",
+    "land2021": "3e480977d33628d7a32532c1fd72f981f419359587d233603789d34b3bdafb63",
+    "original_model": "975327b46f1ffed90e9778bc759bfda65ddd01354b311a050dd49514d7c79a51"
+  },
+  "source_region_2025_original_public_site_n": 139
+}
