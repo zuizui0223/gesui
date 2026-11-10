@@ -70,3 +70,26 @@ The older 107-site panel, excluded from the new399 study, showed 2025 3-family L
 - [Independent 3-versus-5-family denominator sign and exact old107 benchmark](https://github.com/zuizui0223/gesui/blob/analysis/dk-ebms-2025-new399-source-coverage-20261110/results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_THREE_VS_FIVE_FAMILY_SIGN_REVERSAL_INDEPENDENT_QC.json) — [run SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42769550575).
 
 **Study stays Draft; no main or chocho merge; public licensed aggregate family records only.**
+## Added 2026-11-10: original calendar-month × 1° region joint support (POSTHOC)
+
+An independent original licensed eBMS v1.4 Event/Occurrence parser was used to rederive all original 2025 site-month individualCounts **only after** the frozen 399-site source and 286-site any-published-Occurrence eligibility gates. All 399 original five-family site-year counts, survey days, published-Occurrence-linked dates, original 15,606 Event rows / 21,617 Occurrence rows and original source SHA match exactly. This calendar-month analysis was conducted AFTER original 2025 source-proximity and three-vs-five-family outcomes were known. It is explicitly exploratory/posthoc, not an independent confirmatory study.
+
+**Date/region matching rule:** retain original 2025 country×1° area × calendar-month bins with at least TWO original dates containing ANY published Occurrence in each near (<=5km) and remote (>=10km) band. Each bin's family individualCount is divided by its band-specific documented dates. The direct standardized count rate for both bands uses identical bin weights equal to the smaller of near and remote number of published dates. This weights bins by documentary overlap; it **does not** equally weight the six regions or establish true butterfly counts or recipient-water exposure.
+
+| Matched 2025 calendar-month / 1° geography | All common months | May–August common months |
+|---|---:|---:|
+| Original source-matched geographic regions | 6 | 6 |
+| Matched region-month strata | **32** | **24** |
+| Near documented site-observation dates | 446 | 374 |
+| Remote documented site-observation dates | 521 | 440 |
+| Absolute Lycaenidae recorded/day ratio near/remote | **0.709** | **0.733** |
+| 3-family Lycaenidae-share odds ratio near/remote | **1.819** | **2.042** |
+| 5-family Lycaenidae-share odds ratio near/remote | **0.586** | **0.598** |
+
+The sign reversal persists **within the same matched date/location support**: including only Lycaenidae, Pieridae and Papilionidae makes the relative Lycaenidae proportion positive near, but adding Nymphalidae and Hesperiidae makes it negative; the absolute per-date Lycaenidae recording remains lower near. Seasonal/geographic matching does not remove denominator dependence.
+
+**Uncertainty and weighting:** 4,000 original 1° geographic-region-with-replacement descriptive resamples of the all-month sample produce 95% intervals for absolute rate ratio **[0.204, 1.250]**, 3-family odds ratio **[0.368, 6.234]**, five-family odds ratio **[0.263, 1.167]**. All intervals contain 1. Leave-one-original-1°-region-out results: 3-family odds ratio ranges **0.738–2.573** (changes sign), five-family **0.399–0.720**. A different original **equal-region-weight** estimate is **0.908 for 3-family**, opposite the new 1.819 overlap-day-weighted result. These are different observational estimands with six spatially heterogeneous regions, not contradictory data or significant wastewater responses. No treated-receptor chemistry, independently assigned downstream source, or causal P/N dose is measured.
+
+**New source receipts:** [Original licensed month × 1° area full results and 4000 resamples](https://github.com/zuizui0223/gesui/blob/analysis/dk-ebms-2025-new399-source-coverage-20261110/results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_1DEG_MONTH_MATCHED_LYCAENIDAE_3VS5_FAMILY_QC.json) — [original data replay SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42772627586). [Independent source-SHA-checked arithmetic and leave-one-region reproduction](https://github.com/zuizui0223/gesui/blob/analysis/dk-ebms-2025-new399-source-coverage-20261110/results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_REGIONMONTH_3VS5_INDEPENDENT_QA.json) — [independent QA SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/42772945381).
+
+**Conclusion unchanged:** source-relative positive/negative differences in original photos and standardized recorded individuals are sensitive to denominators, geography, survey timing, reporting inclusion and weighting. They do not identify WWTP nutrient benefits or harms. Keep Draft; no main or chocho merges.
