@@ -4,6 +4,7 @@ on:
     branches: ["analysis/dk-ebms-2025-worldcover-habitat-20261110"]
     paths:
       - ".github/workflows/gesui-DK2025-NEW399-worldcover2021-habitat-sourceONLY.yml"
+      - "scripts/gesui_DK2025_NEW399_ESA_WorldCover2021_raw500m_source_only.py"
   workflow_dispatch:
 permissions:
   contents: write
