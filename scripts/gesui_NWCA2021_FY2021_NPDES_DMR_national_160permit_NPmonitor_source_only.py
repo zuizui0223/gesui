@@ -16,7 +16,7 @@ from pathlib import Path
 
 GEOMETRY=Path("results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_SEWAGE_OUTFALL_568SITE_SOURCE_ONLY_GEOGRAPHY_GATE.json")
 DMR_URL="https://echo.epa.gov/files/echodownloads/npdes_dmrs_fy2021.zip"
-EXPECTED_CSV="npdes_dmr_fy2021.csv"
+EXPECTED_CSV="npdes_dmrs_fy2021.csv"
 PARAMS={"00600":"TOTAL_NITROGEN","00665":"TOTAL_PHOSPHORUS"}
 COLUMNS=(
     "EXTERNAL_PERMIT_NMBR","PERM_FEATURE_NMBR","PARAMETER_CODE",
@@ -56,7 +56,7 @@ def original_source_permits(root):
         raise ValueError("Source administrative distinct 160 NPDES IDs not intact")
     return x,near,permitted
 
-def load_national_dmr(path,allowed_sha):
+def load_national_dmr(path,allowed_sha,filtered_path=None,original_line_count_path=None):
     if path.stat().st_size<100_000_000:
         raise ValueError("Official EPA FY2021 DMR archive unexpectedly small")
     original={}
@@ -68,7 +68,11 @@ def load_national_dmr(path,allowed_sha):
         if len(target)!=1:
             raise ValueError("Original FY2021 ZIP has no unique NPDES_DMR_FY2021.csv")
         csv.field_size_limit(12*1024*1024)
-        with z.open(target[0]) as binary:
+        # External text filtering is EXACTLY the same original official ZIP,
+        # hashed whole and full-decompressed once via ripgrep+all national permit
+        # patterns. Filtered rows are still validated by original permit SHA.
+        datafile=filtered_path.open("rb") if filtered_path is not None else z.open(target[0])
+        with datafile as binary:
             source=csv.reader(io.TextIOWrapper(binary,encoding="utf-8-sig",errors="replace",newline=""))
             columns=[s.upper().strip() for s in next(source)]
             required=set(COLUMNS)-set(columns)
@@ -163,13 +167,23 @@ def load_national_dmr(path,allowed_sha):
             "actual_period_end_year_by_parameter":{p:dict(cnt) for p,cnt in r["actual_period_end_year_by_parameter"].items()},
             "FY2021_NPDES_same_PERMIT_other_outfall_may_have_been_monitored":True,
         }
+    if filtered_path is not None:
+        if original_line_count_path is None or not original_line_count_path.exists():
+            raise ValueError("Cannot claim original national DMR source count without full-decompressed line receipt")
+        original_physical_lines=int(original_line_count_path.read_text().strip())
+        if original_physical_lines<100_000:
+            raise ValueError("Full national 9GB original DMR source has implausibly few physical lines")
+        meta["original_160permit_ripgrep_candidate_lines_verified_by_parser"]=meta["original_national_DMR_csv_rows"]
+        meta["original_national_DMR_csv_rows"]=original_physical_lines-1
+        meta["national_source_count_is_full_9GB_CSV_physical_lines_not_independent_logical_csv_record_parse"]=True
+        meta["original_ripgrep_filter_was_broad_then_exact_permit_hash_matched"]=True
     if meta["original_national_DMR_csv_rows"]<100_000:
         raise ValueError("Original national FY2021 NPDES DMR archive has unexpectedly few rows")
     return compact,dict(meta),dict(param)
 
-def summary(root,dmr_path):
+def summary(root,dmr_path,filtered_path=None,original_line_count_path=None):
     source,near,permits=original_source_permits(root)
-    data,meta,parameters=load_national_dmr(dmr_path,permits)
+    data,meta,parameters=load_national_dmr(dmr_path,permits,filtered_path,original_line_count_path)
     rows={k:data.get(k,{}) for k in sorted(permits)}
     for k,r in rows.items():
         if not r:
@@ -230,10 +244,12 @@ def summary(root,dmr_path):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--dmr-fy2021-zip",type=Path,required=True)
+    parser.add_argument("--filtered-csv",type=Path)
+    parser.add_argument("--original-national-line-count",type=Path)
     parser.add_argument("--out",type=Path,required=True)
     args=parser.parse_args()
     root=Path(__file__).resolve().parents[1]
-    out=summary(root,args.dmr_fy2021_zip)
+    out=summary(root,args.dmr_fy2021_zip,args.filtered_csv,args.original_national_line_count)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(out,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     print(json.dumps({
