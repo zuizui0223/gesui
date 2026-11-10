@@ -1,0 +1,371 @@
+{
+  "US2021_measured_TNTP_are_NOT_proven_WWTP_sewage_water": true,
+  "UTC": "2026-11-10T14:26:26.466089+00:00",
+  "actual_standardized_wetland_plant_models": {
+    "FQAIALL_TP_TN": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.4825851176067901,
+      "coefficients": {
+        "log10_TN_mgL": {
+          "US_state_cluster95": [
+            -3.585247912115476,
+            0.2688414578516647
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -1.6582032271319056,
+          "nominal_p": 0.09169376863709142
+        },
+        "log10_TP_mgL": {
+          "US_state_cluster95": [
+            -3.069942002818437,
+            0.09919044253961662
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -1.4853757801394103,
+          "nominal_p": 0.06616938999925732
+        }
+      },
+      "formula": "FQAIALL~log10_TP_mgL+log10_TN_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "site_equal_OLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    },
+    "FQAINAT_TP_TN": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.4974663995217733,
+      "coefficients": {
+        "log10_TN_mgL": {
+          "US_state_cluster95": [
+            -3.5103627368172967,
+            0.3515484585367272
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -1.5794071391402846,
+          "nominal_p": 0.10890501140805665
+        },
+        "log10_TP_mgL": {
+          "US_state_cluster95": [
+            -2.994217734819005,
+            0.2413974555805538
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -1.3764101396192256,
+          "nominal_p": 0.09541255152457971
+        }
+      },
+      "formula": "FQAINAT~log10_TP_mgL+log10_TN_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "site_equal_OLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    },
+    "HALIEN_TP_TN": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.27218707974780654,
+      "coefficients": {
+        "log10_TN_mgL": {
+          "US_state_cluster95": [
+            -0.186492832325794,
+            0.1108243345483087
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.03783424888874265,
+          "nominal_p": 0.6179067150054963
+        },
+        "log10_TP_mgL": {
+          "US_state_cluster95": [
+            -0.08093201073674741,
+            0.16454416154910534
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": 0.04180607540617896,
+          "nominal_p": 0.5043969907482875
+        }
+      },
+      "formula": "HALIEN~log10_TP_mgL+log10_TN_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "site_equal_OLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    },
+    "HNAT_TP_TN": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.5587406693870334,
+      "coefficients": {
+        "log10_TN_mgL": {
+          "US_state_cluster95": [
+            -0.3535624416837467,
+            0.03683114123145853
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.15836565022614407,
+          "nominal_p": 0.11180239141786677
+        },
+        "log10_TP_mgL": {
+          "US_state_cluster95": [
+            -0.1840436034364102,
+            0.1369796148385599
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.02353199429892517,
+          "nominal_p": 0.7738498249481935
+        }
+      },
+      "formula": "HNAT~log10_TP_mgL+log10_TN_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "site_equal_OLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    },
+    "H_ALL_only_TN": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.5675072958418508,
+      "coefficients": {
+        "log10_TN_mgL": {
+          "US_state_cluster95": [
+            -0.33955326542947273,
+            -0.06545944193732131
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.20250635368339703,
+          "nominal_p": 0.0037780036281533577
+        }
+      },
+      "formula": "HALL~log10_TN_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "site_equal_OLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    },
+    "H_ALL_only_TP": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.5628076178332566,
+      "coefficients": {
+        "log10_TP_mgL": {
+          "US_state_cluster95": [
+            -0.246957342276466,
+            0.008616346440833172
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.11917049791781642,
+          "nominal_p": 0.0675782928292543
+        }
+      },
+      "formula": "HALL~log10_TP_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "site_equal_OLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    },
+    "H_ALL_primary_TP_TN": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.5675447592660399,
+      "coefficients": {
+        "log10_TN_mgL": {
+          "US_state_cluster95": [
+            -0.3935652381574105,
+            0.01253855315250138
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.19051334250245458,
+          "nominal_p": 0.06592470932268478
+        },
+        "log10_TP_mgL": {
+          "US_state_cluster95": [
+            -0.18340714471603875,
+            0.15680651399642237
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.013300315359808197,
+          "nominal_p": 0.8782045247477236
+        }
+      },
+      "formula": "HALL~log10_TP_mgL+log10_TN_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "site_equal_OLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    },
+    "H_ALL_primary_TP_TN_design_weighted": {
+      "N_NWCA_ecoregions": 9,
+      "N_US_states": 48,
+      "N_actual_site_visits": 499,
+      "R2": 0.34512724358323654,
+      "coefficients": {
+        "log10_TN_mgL": {
+          "US_state_cluster95": [
+            -0.633338034100102,
+            0.12045440781038202
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": -0.25644181314486003,
+          "nominal_p": 0.18234549497224217
+        },
+        "log10_TP_mgL": {
+          "US_state_cluster95": [
+            -0.1254379393059684,
+            0.16688608526582707
+          ],
+          "beta_per_10fold_concentration_in_original_NWCA_diversity_units": 0.020724072979929353,
+          "nominal_p": 0.7810890533151926
+        }
+      },
+      "formula": "HALL~log10_TP_mgL+log10_TN_mgL+C(AGECO9)+C(WETCLSGRP)+C(HYDCLS)+orig_LAT_ANALYS",
+      "model_kind": "NWCA_pop_area_weighted_WLS",
+      "source_original_state_clustered_not_WWTP_treatment_randomized": true
+    }
+  },
+  "never_impute_missing_plant_or_NP_measurement_as_zero": true,
+  "observed_original_source_columns_QC_nonmissing_flags": {
+    "FQAIALL": {
+      "nonmissing_numeric": 568
+    },
+    "FQAINAT": {
+      "nonmissing_numeric": 568
+    },
+    "HALIEN": {
+      "nonmissing_numeric": 568
+    },
+    "HALL": {
+      "nonmissing_numeric": 568
+    },
+    "HNAT": {
+      "nonmissing_numeric": 568
+    },
+    "NTLNARSFLAG": {
+      "NA": 499,
+      "Q": 1,
+      "S": 67,
+      "S;H": 1
+    },
+    "NTLRESULT": {
+      "nonmissing_numeric": 568
+    },
+    "PTLNARSFLAG": {
+      "L": 1,
+      "NA": 498,
+      "Q": 1,
+      "S": 68
+    },
+    "PTLRESULT": {
+      "nonmissing_numeric": 568
+    }
+  },
+  "original_2021_H_ALL_Shannon_is_standard_plant_community_diversity_not_GBIF_richness": true,
+  "original_2021_NWCA_probability_weight_not_random_wastewater_treatment": true,
+  "original_2021_probability_site_plant_water_568_sites_preserved_before_outcome": true,
+  "original_EPA_four_source_csv_sha256": {
+    "HYDROSOURCE": "92b56c5ee7599e84b0698e3b347af62512d040f0b64d89b8c6558a910d0f692e",
+    "SITEINFO": "258029deb1bb49d6ae7396af76cfa29f6813e8dd64b8cff21437cc1d24cbf569",
+    "VEGMETRICS": "e0f2f8c5962cd0f8ee3045862e5d4ba588c082e28a4d6bf9d965df3c4d6a7c73",
+    "WATERCHEM": "c912a966ebf66547ad6acab5cc72ded4faa7180c14b9a58bcd3c502e2cae6fb1"
+  },
+  "original_EPA_waterchem_lab_sample_codes": {
+    "REGULAR": 724
+  },
+  "original_qualified_waterchem_and_plant_metric_descriptive": {
+    "H_ALL_Shannon_quantiles": [
+      0.48038000000000003,
+      1.1987999999999999,
+      1.8866,
+      2.45785,
+      2.8223
+    ],
+    "NWCA_ecoregion_counts": {
+      "CPL": 157,
+      "NAP": 46,
+      "NPL": 10,
+      "SAP": 38,
+      "SPL": 28,
+      "TPL": 46,
+      "UMW": 20,
+      "WMT": 100,
+      "XER": 54
+    },
+    "NWCA_state_counts": {
+      "AL": 15,
+      "AR": 2,
+      "AZ": 4,
+      "CA": 42,
+      "CO": 27,
+      "CT": 6,
+      "DE": 5,
+      "FL": 34,
+      "GA": 12,
+      "IA": 6,
+      "ID": 9,
+      "IL": 6,
+      "IN": 6,
+      "KS": 7,
+      "KY": 5,
+      "LA": 36,
+      "MA": 7,
+      "MD": 5,
+      "ME": 7,
+      "MI": 9,
+      "MN": 14,
+      "MO": 8,
+      "MS": 8,
+      "MT": 12,
+      "NC": 7,
+      "ND": 8,
+      "NE": 6,
+      "NH": 8,
+      "NJ": 7,
+      "NM": 4,
+      "NV": 3,
+      "NY": 5,
+      "OH": 6,
+      "OK": 15,
+      "OR": 17,
+      "PA": 6,
+      "RI": 7,
+      "SC": 15,
+      "SD": 5,
+      "TN": 4,
+      "TX": 20,
+      "UT": 7,
+      "VA": 9,
+      "VT": 3,
+      "WA": 20,
+      "WI": 8,
+      "WV": 4,
+      "WY": 13
+    },
+    "TN_mgN_L_quintiles": [
+      0.2486000000000001,
+      0.5725,
+      1.24,
+      2.285,
+      4.88
+    ],
+    "TP_mgP_L_quintiles": [
+      0.021400000000000002,
+      0.047049999999999995,
+      0.129,
+      0.367,
+      0.8637999999999999
+    ],
+    "hydrologic_class_counts": {
+      "INLAND": 369,
+      "TIDAL": 130
+    },
+    "wetland_class_counts": {
+      "EH": 123,
+      "EW": 7,
+      "PRLH": 139,
+      "PRLW": 230
+    }
+  },
+  "original_source_only_nwcaSITEID_plant_waterchem_SHA256": "c30e73798e251f78d0ca3d33b51d2854686ea0429d5d92c3508e49fee9f80fe7",
+  "precommitted_stage1_actual_plant_chemistry_gate": {
+    "may_test_actual_NP_plant_standardized_community_correlations": true,
+    "minimum_clean_H_ALL_and_TNTP_sites": 200,
+    "minimum_distinct_NWCA_ecoregions": 3,
+    "minimum_distinct_US_states": 10
+  },
+  "schema": "gesui_US_EPA_NWCA2021_real_wetland_plot_diversity_TN_TP_same_site_post_source_gate_v01",
+  "source_568_veg_and_waterchem_joined_site_rows": 568,
+  "source_actual_NTL_mgN_L": true,
+  "source_actual_water_TP_ugP_L_converted_to_mgP_L_divide1000": true,
+  "source_joint_TNTP_and_Shannon_nonmissing_quality_sites": 499,
+  "source_joint_actual_ecoregions": 9,
+  "source_joint_actual_states": 48,
+  "source_site_visit_first_only": true,
+  "status": "EXPLORATORY_STANDARDIZED_WETLAND_PLANT_CHEMISTRY_ANALYZED",
+  "unadjusted_posthoc_spearman": {
+    "TN_vs_HALL": -0.30061560847444574,
+    "TP_vs_HALL": -0.29651348607341055,
+    "TP_vs_HALlEN": -0.0930861047587289,
+    "TP_vs_HNAT": -0.2814877345777717
+  },
+  "waterchem_observed_only_when_water_available_site_selection_risk": true
+}
