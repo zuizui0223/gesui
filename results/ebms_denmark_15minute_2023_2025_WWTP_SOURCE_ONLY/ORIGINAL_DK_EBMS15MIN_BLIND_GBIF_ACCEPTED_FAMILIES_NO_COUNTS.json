@@ -1,6 +1,6 @@
 {
   "GBIF_source_lookup_failures": 0,
-  "UTC": "2026-11-10T06:03:45.377204+00:00",
+  "UTC": "2026-11-10T06:07:34.537605+00:00",
   "no_original_event_coordinates_or_WWTP_proximity_or_species_count_effect_READ_in_this_stage": true,
   "no_original_individualCount_values_read": true,
   "original_15min_count_data_not_read_before_source_taxonomy_freeze": true,
@@ -15,6 +15,7 @@
     {
       "GBIF_original_response_SHA256": "521ebf1abe1912ce41c6e48c7e3eeb0929949cc2579a821ea61393678d92f0f1",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Aglais+io+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -28,6 +29,7 @@
     {
       "GBIF_original_response_SHA256": "abe1c1bf0168dec2d234ffd45131034d97797c81f32b35192257802e6770fb9d",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Aglais+urticae+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -41,6 +43,7 @@
     {
       "GBIF_original_response_SHA256": "eedb70c38860911af29436d69651d52d981648a2421f767dc1bdad0580297476",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Agriades+optilete+%28Knoch%2C+1781%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -54,6 +57,7 @@
     {
       "GBIF_original_response_SHA256": "189ba29539923eb510379e3640780f5df0b080bb77bf9217c19b1af44def066c",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Anthocharis+cardamines+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -67,6 +71,7 @@
     {
       "GBIF_original_response_SHA256": "e3f71b1e1138e8d2e6ac324b488b366475117bd6f7d0ebd86abf46591ab0719b",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Apatura+iris+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -80,6 +85,7 @@
     {
       "GBIF_original_response_SHA256": "5973df88c9febe4a40d4c8f91c8e1dbf8209581b19cdb7c9c5411a196b5e2d1b",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Aphantopus+hyperantus+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -93,6 +99,7 @@
     {
       "GBIF_original_response_SHA256": "a72f8544a34b276e6bdcb56be3dc8226eb0a24e1af60e6cd0f58304bc0a89505",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Aporia+crataegi+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -106,6 +113,7 @@
     {
       "GBIF_original_response_SHA256": "b7e9c38c58cb50d773eb9f8ce32cff2509356f5925dd54ae0ead6553a9d1f9de",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Araschnia+levana+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -119,6 +127,7 @@
     {
       "GBIF_original_response_SHA256": "8cb82f019a8207c06687cc72d27c99d1905a7211729d1d751489cad8b0fa31d9",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Argynnis+paphia+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -132,6 +141,7 @@
     {
       "GBIF_original_response_SHA256": "3c3a256369e808622b999f3db505192c9ba2f63955a24423f40535360c6c265c",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Aricia+agestis+%28%5BDenis+%26+Schifferm%C3%BCller%5D%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 99,
@@ -145,6 +155,7 @@
     {
       "GBIF_original_response_SHA256": "6a22fcb2662e6b9a498e7a36aeefb692a6a513440dee4923bc117c62f7f3b07d",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Aricia+artaxerxes+%28Fabricius%2C+1793%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -158,6 +169,7 @@
     {
       "GBIF_original_response_SHA256": "d1877ded35a19edc81ef1214269a49022d8c4a381189fb7806fbaf70d876485a",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Boloria+aquilonaris+%28Stichel%2C+1908%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -171,6 +183,7 @@
     {
       "GBIF_original_response_SHA256": "e432fd71dd0fe57fa42ea96afaacbd4f07852f994ef8e3261d2c2b006c5f7a5c",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Boloria+euphrosyne+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -184,6 +197,7 @@
     {
       "GBIF_original_response_SHA256": "63273a831380740cf31b7b560f8228ec304b3d7fb00fa78b0772d64c27ec35c9",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Boloria+selene+%28%5BDenis+%26+Schifferm%C3%BCller%5D%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 99,
@@ -197,6 +211,7 @@
     {
       "GBIF_original_response_SHA256": "57c5c98b39dd93a845374448483c229b943082733da1ac581423804f0ea16532",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Brenthis+ino+%28Rottemburg%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -210,6 +225,7 @@
     {
       "GBIF_original_response_SHA256": "d5c33b59a699015afa7e432c3c277c88f3896d2cbb86898e5da4186335f12669",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Callophrys+rubi+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -223,6 +239,7 @@
     {
       "GBIF_original_response_SHA256": "43ad0a17c613114585620ec11f850f8d05e046791093d23286acb413a7df493b",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Celastrina+argiolus+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -236,6 +253,7 @@
     {
       "GBIF_original_response_SHA256": "39e3373f38af9af72db7170c90fe4b9d02544567e878e97f89c78af9910319dc",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Coenagrion+pulchellum&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 99,
@@ -249,6 +267,7 @@
     {
       "GBIF_original_response_SHA256": "7e661a64dbc778f41349a7addedf88d0bdb1bf3489603be16c29762041fb7c5a",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Coenonympha+pamphilus+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -262,6 +281,7 @@
     {
       "GBIF_original_response_SHA256": "6c8222b6159ac61b9afc32d290012b6ca1f858d812de518053b211797943be2a",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Coenonympha+tullia+%28M%C3%BCller%2C+1764%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -275,6 +295,7 @@
     {
       "GBIF_original_response_SHA256": "8ba27b80cfb57936727ae91d5e79bd0c6e00e67d4d3ebf067f938b04c67a3bc8",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Colias+crocea+%28Geoffroy%2C+1785%29&strict=true",
       "match_status": "GBIF_FROZEN",
       "original_GBIF_confidence": 100,
@@ -288,6 +309,7 @@
     {
       "GBIF_original_response_SHA256": "c0edcfc0a1f230e59440b02b66712f1c1118866444a11a0770f3d554bce89b86",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Colias+hyale+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -301,6 +323,7 @@
     {
       "GBIF_original_response_SHA256": "64492428dfc37e39eb9d0d646f495729a8f450115dd3693a1deff03f9969188d",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Cordulia+aenea&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 99,
@@ -314,6 +337,7 @@
     {
       "GBIF_original_response_SHA256": "47832940d875e50bb6f73999e0d039689167b95734610e84ead96d8c25c91a4b",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Cupido+minimus+%28Fuessly%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -327,6 +351,7 @@
     {
       "GBIF_original_response_SHA256": "d7ff42d4c68fb2174019efdc599c5a026184c737e981bfb6fc0526f1e2fd10e5",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Cyaniris+semiargus+%28Rottemburg%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -340,6 +365,7 @@
     {
       "GBIF_original_response_SHA256": "fd726419a6daa88e536dcc3d9d5f294341d790f760b7e02aca035bbefe280fcd",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Erynnis+tages+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -353,6 +379,7 @@
     {
       "GBIF_original_response_SHA256": "a1ac555c2b5c5203ac1098ef728925e3bd2e78230b77ff32c5807d3a110eca1f",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Euphydryas+aurinia+%28Rottemburg%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -366,6 +393,7 @@
     {
       "GBIF_original_response_SHA256": "cc17ff3ed5e9c142d1e52a06084f90419dfd8697b73e426dec12484002a9b9f9",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Fabriciana&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 95,
@@ -379,6 +407,7 @@
     {
       "GBIF_original_response_SHA256": "ce311e16879fec0c78ffc0d9fae2a93eabbd6f5c8d1ad0ffc10600e6d07f906a",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Fabriciana+adippe+%28%5BDenis+%26amp%3B+Schifferm%C3%BCller%5D%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 98,
@@ -392,6 +421,7 @@
     {
       "GBIF_original_response_SHA256": "2e96f6ccc6ea7c201d93814276f04593bef96caf4a82904c6c2fec5ae537d6e7",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Fabriciana+niobe+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -405,6 +435,7 @@
     {
       "GBIF_original_response_SHA256": "9f8acf8fd19c322d871c3983a4a0305caad07e714b2f64f1fd885015b6b339c3",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Favonius+quercus+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -418,6 +449,7 @@
     {
       "GBIF_original_response_SHA256": "107932cc09432ef70d83384a6a10d67755d786bafbb367456b6697f96b8b72d4",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Gonepteryx+rhamni+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -431,6 +463,7 @@
     {
       "GBIF_original_response_SHA256": "2d47324866e61180a6b358dc817da873eeace2f0287942684b3ba4f4080a1352",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Heliconiinae&strict=true",
       "match_status": "GBIF_FROZEN",
       "original_GBIF_confidence": null,
@@ -444,6 +477,7 @@
     {
       "GBIF_original_response_SHA256": "007c7a882e2489a00a715446be531dd7de4a0d1d580aac71df64d915323b396e",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Hesperia+comma+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -457,6 +491,7 @@
     {
       "GBIF_original_response_SHA256": "a3a18c98ab0c8cf91a55c02386c276c51940f406b436d1a9bc388228cca487de",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Hesperiidae&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 95,
@@ -470,6 +505,7 @@
     {
       "GBIF_original_response_SHA256": "2d47324866e61180a6b358dc817da873eeace2f0287942684b3ba4f4080a1352",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Hesperiinae&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 0,
@@ -483,6 +519,7 @@
     {
       "GBIF_original_response_SHA256": "4977d255266ff32699870f80e717bd17d068355b5830775597c25ec6c06080fb",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Heteropterus+morpheus+%28Pallas%2C+1771%29&strict=true",
       "match_status": "GBIF_FROZEN",
       "original_GBIF_confidence": 100,
@@ -496,6 +533,7 @@
     {
       "GBIF_original_response_SHA256": "c755eed351f6d41b464ff3b47628b21e410f83465ba2890d0e19d6f6644854ad",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Hipparchia+semele+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -509,6 +547,7 @@
     {
       "GBIF_original_response_SHA256": "a40df75e0b35e1a49d573c9de90a4dd74906b755bbd3e20eb52349eb9d5c58c8",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Issoria+lathonia+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -522,6 +561,7 @@
     {
       "GBIF_original_response_SHA256": "f0260f86309891335df3ab0a7dca82932ce9cdb34314232d49030d4af42e4773",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Lasiommata+megera+%28Linnaeus%2C+1767%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -535,6 +575,7 @@
     {
       "GBIF_original_response_SHA256": "dd8289a0b2bbc45a5988470bd54052ca08931e5ec87952d38619122b1dc99e87",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Limenitis+camilla+%28Linnaeus%2C+1764%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -548,6 +589,7 @@
     {
       "GBIF_original_response_SHA256": "69bbba7a409d1551d093b5fc0a1c5b9e65541795b7cd98c89edac1469ad886c2",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Lycaena&strict=true",
       "match_status": "GBIF_FROZEN",
       "original_GBIF_confidence": 93,
@@ -561,6 +603,7 @@
     {
       "GBIF_original_response_SHA256": "9e04fa626cd764d584ce8bc96a3f366f738363fb203f3d599aeb3f2ee1018737",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Lycaena+hippothoe+%28Linnaeus%2C+1760%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -574,6 +617,7 @@
     {
       "GBIF_original_response_SHA256": "b3714be2abdd15f1c5ce4db75b2b8c4dc4b766515bada2982e3ba10ee4f9e54a",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Lycaena+phlaeas+%28Linnaeus%2C+1760%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -587,6 +631,7 @@
     {
       "GBIF_original_response_SHA256": "51ca313a98f028dbd7c2ca7bfb4e79511808e631f177e4ecf1f05033e6f783c2",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Lycaena+tityrus+%28Poda%2C+1761%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -600,6 +645,7 @@
     {
       "GBIF_original_response_SHA256": "a7bbed292f98c6e7155f2e6e7596c18b70fb4b5ce25c6dc302ff60fe5bb1b32f",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Lycaena+virgaureae+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -613,6 +659,7 @@
     {
       "GBIF_original_response_SHA256": "d8810c3d4336daee1aadd42fe3455d29ae973da1d3a9595827c2168d75351a80",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Lycaenidae&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 95,
@@ -626,6 +673,7 @@
     {
       "GBIF_original_response_SHA256": "8ea1996ede353bc21612e6b5845c52561763591f2231c1f9f135989ff007cd92",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Maniola+jurtina+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -639,6 +687,7 @@
     {
       "GBIF_original_response_SHA256": "f80a274009e58344af9fa43a2047f1c7b4648e68948c5bdb63719df383baf7b4",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Melitaea+athalia+%28Rottemburg%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -652,6 +701,7 @@
     {
       "GBIF_original_response_SHA256": "4ce6cc7517e610669088b74c575220e3ffffd58e71c6400c4efc13e233e55f4f",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Melitaea+cinxia+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -665,6 +715,7 @@
     {
       "GBIF_original_response_SHA256": "973b5bfd82a652150f5a8fd8f002dd78450504f7136221f53b4057851670d72f",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Nymphalis+antiopa+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -678,6 +729,7 @@
     {
       "GBIF_original_response_SHA256": "ae94374d86a6f5b2be0f8b20ea8c4435f8cd6d93cdd596d4f65e75d0ec6def1e",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Ochlodes+sylvanus+%28Esper%2C+1777%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -691,6 +743,7 @@
     {
       "GBIF_original_response_SHA256": "f73c582718e83ff7aba69ce43f237289d589740aa8f4cf5aef4cc626c048a483",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pararge+aegeria+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -704,6 +757,7 @@
     {
       "GBIF_original_response_SHA256": "71b54bcbe75796847c054080554c3c6745e95723cbf04f9e785348da41250ff1",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Phengaris+alcon+%28%5BDenis+%26+Schifferm%C3%BCller%5D%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 99,
@@ -717,6 +771,7 @@
     {
       "GBIF_original_response_SHA256": "6ea42e40066a1697bc7d66389bd1ded4d3a8358cbfeb5cc7cc7a24dcc643c1dc",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Phengaris+arion+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "GBIF_FROZEN",
       "original_GBIF_confidence": 100,
@@ -730,6 +785,7 @@
     {
       "GBIF_original_response_SHA256": "ab7f3690132bb65235f61fc758f77e93ad71825c8dcfa716492d2f95aaa7c5d3",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pieridae&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 95,
@@ -743,6 +799,7 @@
     {
       "GBIF_original_response_SHA256": "c6a8d10fbcbcc24454988247cb94bbe63063ddeebba6f055ef80e7c0c3c34d95",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pieris&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 0,
@@ -756,6 +813,7 @@
     {
       "GBIF_original_response_SHA256": "94b9394b213f33283ab03727d7ab49cb551557c1cb75d1bf5c1c5cd8c0491a2f",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pieris+brassicae+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -769,6 +827,7 @@
     {
       "GBIF_original_response_SHA256": "3ae4612f925fca720e41b1a724271feb538cfe0608be60c9a0414ec113f04a08",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pieris+napi+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -782,6 +841,7 @@
     {
       "GBIF_original_response_SHA256": "ccc2fc044d42c726e49296fe99ef9df0e53f913e10c83d5cb11b9bc1721c7a08",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pieris+rapae+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -795,6 +855,7 @@
     {
       "GBIF_original_response_SHA256": "35a43166a73505294e7d020427a3b3ca3fac370baf655a1be23b7dbc60ddd34c",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Plebejus&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 94,
@@ -808,6 +869,7 @@
     {
       "GBIF_original_response_SHA256": "ce8ffbf1feb68a00e85193c1dfb91cb51e40bf0e44fe97615d09350acb91dba6",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Plebejus+argus+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -821,6 +883,7 @@
     {
       "GBIF_original_response_SHA256": "b4039e9ee0336b92969a6610b9cf2593407bfc5bc3c1bf1fe88e16a26d29bb14",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Plebejus+idas+%28Linnaeus%2C+1760%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -834,6 +897,7 @@
     {
       "GBIF_original_response_SHA256": "8c26885099bd2023ac3b182fd0119191c0151c081fd384a7e7bcc8756bbca485",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Polygonia+c-album+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -847,6 +911,7 @@
     {
       "GBIF_original_response_SHA256": "2d47324866e61180a6b358dc817da873eeace2f0287942684b3ba4f4080a1352",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Polyommatinae&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 0,
@@ -860,6 +925,7 @@
     {
       "GBIF_original_response_SHA256": "49281c22a7ab71da9ac0e3a0597cb56cb3e8aa1ab38177020c18afbe6f661069",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Polyommatus&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 93,
@@ -873,6 +939,7 @@
     {
       "GBIF_original_response_SHA256": "ed90352f57f3abc0a49c37f6a1871d053057529f821a36e2e3f1954b111f6d21",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Polyommatus+amandus+%28Schneider%2C+1792%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -886,6 +953,7 @@
     {
       "GBIF_original_response_SHA256": "c2d91d8599fa89cd40ef063fc6fe9d4b5e28ebaa69c33a968f717c67664dd8ac",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Polyommatus+icarus+%28Rottemburg%2C+1775%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -899,6 +967,7 @@
     {
       "GBIF_original_response_SHA256": "9b45a8e6379c5acb7e6afe16209293baa727c2c0aa321490b9d52aa344af2ec6",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pyrgus+armoricanus+%28Oberth%C3%BCr%2C+1910%29&strict=true",
       "match_status": "GBIF_FROZEN",
       "original_GBIF_confidence": 100,
@@ -912,6 +981,7 @@
     {
       "GBIF_original_response_SHA256": "65aa60751faf9664032e4c3f337a1c3a609e898e3382188c4a7e592d10e4684b",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pyrgus+malvae+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -925,6 +995,7 @@
     {
       "GBIF_original_response_SHA256": "6e6d8c80a5522f287016eab098d7d10c46aee41b1b6446c89a4bca13f5e729e2",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Pyrrhosoma+nymphula&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 99,
@@ -938,6 +1009,7 @@
     {
       "GBIF_original_response_SHA256": "2d47324866e61180a6b358dc817da873eeace2f0287942684b3ba4f4080a1352",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Satyrinae&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 0,
@@ -951,6 +1023,7 @@
     {
       "GBIF_original_response_SHA256": "ca551bd2f8f45d151491ac59922971b2e368e21e5a94aa1ff9d901b4f3082555",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Satyrium+w-album+%28Knoch%2C+1782%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -964,6 +1037,7 @@
     {
       "GBIF_original_response_SHA256": "48f88b5526e4d6e287a643ac7af92cb1b4b91a915bb0277d7a994215e2d891f0",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Speyeria+aglaja+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -977,6 +1051,7 @@
     {
       "GBIF_original_response_SHA256": "3a6a2e07b9ce810509413c3317348ff6382a7f96b84435efac255396f9ed6641",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Thecla+betulae+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -990,6 +1065,7 @@
     {
       "GBIF_original_response_SHA256": "89865bb291db2e7823992f9ef56d29933850e1bb2e942f77a749fae11367aa15",
       "accepted_strict_target_butterfly_species": false,
+      "family_supported_exact_species_accepted_or_synonym": false,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Thymelicus&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 95,
@@ -1003,6 +1079,7 @@
     {
       "GBIF_original_response_SHA256": "3179876f6426fa21d9c75afbfd31c1328f1691509b0bc4ddbc61aed633ab797c",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Thymelicus+lineola+%28Ochsenheimer%2C+1808%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -1016,6 +1093,7 @@
     {
       "GBIF_original_response_SHA256": "496b90784899073f1c0d09f73383ee2cba1ad479b178be6e8bfbbfd29f541211",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Thymelicus+lineola%2Fsylvestris&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 99,
@@ -1029,6 +1107,7 @@
     {
       "GBIF_original_response_SHA256": "2a6e5212982d11a6a641127bc4d55d78c8f5ebdd62f08917b306a7d661c62248",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Thymelicus+sylvestris+%28Poda%2C+1761%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -1042,6 +1121,7 @@
     {
       "GBIF_original_response_SHA256": "c2ff0ffb1f6468ac99b2c59d0b03aff63a2dc58ed5adfc4297fdd52867a60acc",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Vanessa+atalanta+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -1055,6 +1135,7 @@
     {
       "GBIF_original_response_SHA256": "82b40ffc34ab2d1893860ad00abf8928c823a9062954f9d917beb32e944a2ecf",
       "accepted_strict_target_butterfly_species": true,
+      "family_supported_exact_species_accepted_or_synonym": true,
       "gbif_match_URL": "https://api.gbif.org/v1/species/match?name=Vanessa+cardui+%28Linnaeus%2C+1758%29&strict=true",
       "match_status": "REUSED_PRIOR_FROZEN_BLIND_GBIF",
       "original_GBIF_confidence": 100,
@@ -1067,11 +1148,18 @@
     }
   ],
   "original_source_archive_SHA256": "c32be29200134fd2ee06b7dd34d76e1420bd6a7810574fb8ffb345c1451169cb",
+  "primary_species_status_accepted_or_synonym_fixed_before_any_individualCount": true,
   "schema": "gesui_2026_DK_EBMS15m_original_species_blind_GBIF_family_taxonomy_before_individualCount_v01",
   "source_accepted_species_by_family": {
     "Hesperiidae": 8,
     "Lycaenidae": 12,
     "Nymphalidae": 24,
+    "Pieridae": 7
+  },
+  "source_exact_accepted_or_synonym_species_by_family_PRIMARY": {
+    "Hesperiidae": 9,
+    "Lycaenidae": 20,
+    "Nymphalidae": 27,
     "Pieridae": 7
   },
   "target_taxonomic_families_source_only": [
