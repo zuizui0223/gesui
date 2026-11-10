@@ -37,3 +37,5 @@ jobs:
           name: gesui-DK-EBMS15minute-GBIF-accepted-family-blind-to-counts
           path: results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15MIN_BLIND_GBIF_ACCEPTED_FAMILIES_NO_COUNTS.json
           retention-days: 90
+
+# Re-freeze exact accepted-or-synonym species family mapping BEFORE reading individualCount.
