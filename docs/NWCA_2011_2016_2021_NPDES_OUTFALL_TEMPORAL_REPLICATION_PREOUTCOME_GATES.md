@@ -1,0 +1,29 @@
+# Independent 2011 and 2016 NWCA wetland survey cycles: WWTP outfall proximity before plant outcomes
+
+**2026-11-11 | explicitly posthoc replication after the 2021 weighted-positive / equal-site-negative source-proximity result.** No new biological effect is counted until independent older-year plots have frozen sample opportunity, 2021-style source geometry and QC. EPA's national wetland surveys in 2011, 2016 and 2021 are **different probability samples**, not a guaranteed repeated panel. Earlier positive 2021 association was **area/design-weighted** β=+0.180623, 95% state-cluster CI [+0.010378,+0.350868], on matched **240 plots /27 states**, whereas **site-equal** coefficient was β=−0.120434, 95% CI [−0.250577,+0.009709]. This weighting sign change is **a priori known for this replication** and is not a sewage causal discovery.
+
+## Exact public source inputs selected BEFORE older-year plant values
+
+Use EPA NARS [national surveys data](https://www.epa.gov/national-aquatic-resource-surveys/data-national-aquatic-resource-surveys), exact CSVs (not a newly selected subset):
+- **2011** official SiteInfo https://www.epa.gov/system/files/other-files/2023-04/nwca11_siteinfo.csv ; original vegetation metrics https://www.epa.gov/sites/default/files/2016-10/nwca2011_vegmetrics.csv
+- **2016** revised SiteInfo https://www.epa.gov/system/files/other-files/2022-04/nwca-2016-site-information-data_0.csv ; vegetation metrics https://www.epa.gov/system/files/other-files/2023-03/nwca_2016_veg_metrics.csv
+- **2021 frozen reference** previous official EPA 568 source sites, 240 original same-state/ecoregion near10-far20 plant plots, original source report at `results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_WETLAND_HALL_FQAI_AND_ACTUAL_NP_STRICT_NEAR10_FAR20_RESULTS.json`; all audit coefficients already independently recomputed. No changes to that older response.
+- **Outfall exposure geometry**: exact original November 8, 2026 EPA ECHO NPDES registered national **PERMITTED FEATURE** source ZIP SHA256 `f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160`. Fixed selection original NAICS **221320** and SIC **4952**, original official 2026 `PERMIT_EFFECTIVE_DATE<=2021-12-31`, termination/expiration after 2021-01-01. **Use the exact 2021 source rule unchanged for 2011/2016**; it is explicitly an *administrative 2026-vintage geographic proxy*, not proof of actual 2011/2016 discharges (and using a 2021 permit gate can be misaligned with 2011 survey). No geo-distance tuning, no industrial NPDES sources, no treating facility centroids as outfall features.
+
+## Stage 0: NO H_ALL, H_NAT, FQAI, species values read yet
+
+Load official year-specific SiteInfo ID, site-type, first visit, year/lat/lon, state/ecoregion, positive probability weight. Load ONLY original site ID+visit columns and header schema of vegetation metrics CSV; never read value fields in Stage 0. If original siteinfo lacks required probability design or usable coords, stop. Do not invent a fixed 2021 variable name for historical files: audit **exact original headers**, resolve by declared normalized aliases, record mapping and explicitly STOP if mandatory fields are unavailable.
+
+Source sample precommitted minimum for **each year**: ≥500 probability first-visit wetland site IDs with matched vegetation metrics source rows, ≥25 states, ≥5 ecoregions, original weight valid and finite lat/long, unique source visit IDs. If below, STOP that historical year before touching ecological response metrics.
+
+After original year-only sampling, use source-only EPA 2026 registered sewage point coordinates and fixed 5/10/20km thresholds. Use original SiteInfo sample IDs; report NEAR<=10km, FAR>=20km; retain only source **state×ecoregion** strata containing both near and far. Source opportunity gate **per historical year** requires ≥50 near and ≥60 far, ≥10 states, ≥20 common state×ecoregion strata, ≥15 distinct registered permits in 10km. If any fail, STOP that cycle; **do not** expand old source criteria or tune to previous 2021 positive.
+
+## Stage 1: models only if independent historical source passes
+
+Open original year-specific vegetation metrics values only after Stage0 source-site and outfall model-support gate has been archived as successful. Primary response **NWCA original all-plant Shannon H_ALL or a source-documented strictly comparable H_ALL field**; if metric not present or not explicitly comparable across years, report schema barrier, do not substitute H_NAT to chase favorable sign.
+
+On same year, same state×ecoregion source support, fit both site-equal OLS and original survey-design-weighted WLS (weight normalized by median) with **identical formula** `H_ALL ~ NEAR10 + C(STATE_ECO) + C(WETCLS_GRP) + C(HYD_CLS) + LAT_ANALYS`, state-cluster robust 95% confidence intervals. Only include original categorical fields if field value semantics are valid/comparable; non-comparable source schema is a STOP or separately labeled nonidentical model. **Never call WLS simple regression a proper nationally representative acreage variance estimator** without full EPA stratification/weight design and nonresponse weighting.
+
+Compare 2011/2016/2021 full effect directions for BOTH weights; regard WWTP actual exposure as **UNMEASURED** in all years. No river routing, wastewater chemistry at wetland, or historical NPDES flow/source-specific N/P. No causal claim even if all weighted source coefficients positive. Always present all signs and confidence intervals. Source-only geo-points and potentially sensitive old plots not redistributed; commit counts/group-level summaries and SHA only. Keep Draft, do not merge main or unrelated chocho work.
+
+Source reference: [EPA national wetlands download](https://www.epa.gov/national-aquatic-resource-surveys/data-national-aquatic-resource-surveys).
