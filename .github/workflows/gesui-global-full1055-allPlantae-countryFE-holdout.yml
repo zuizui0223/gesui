@@ -1,0 +1,46 @@
+name: gesui global full1055 WWp2015 2011-24 all-Plantae rarefied50 country 2deg spatial and unseen-country tests
+on:
+  push:
+    branches: ["analysis/global-1055port-allPlantae-full-20261110"]
+    paths:
+      - "results/global_all_Plantae_WWp2015_20261110/ORIGINAL_ALL1055_42COUNTRY_GBIF_PLANTAE_2011_24_50RECORD_RAREFACTION_SOURCE.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  full_original1055_42country_all_Plantae_real_macro_validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install original all Plantae full macroscale source FE/country heldout estimator
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+          python -m py_compile scripts/gesui_global_full1055_AllPlantae_rarefied50_countryFE_and_outofcountry.py
+      - name: Refit original all1055 indexed Plantae after source/GBIF record opportunity gate and perform independent known-country/strict new-country prediction
+        run: |
+          python -u scripts/gesui_global_full1055_AllPlantae_rarefied50_countryFE_and_outofcountry.py \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL_ALL1055_WWp2015_ALL_PLANTAE_50RAREFIED_42COUNTRY_MACRO_AND_COUNTRY_HOLDOUT.json
+      - name: Archive original full1055 source-supported all-Plantae macro associations and leave-country-out uncertainty
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL_ALL1055_WWp2015_ALL_PLANTAE_50RAREFIED_42COUNTRY_MACRO_AND_COUNTRY_HOLDOUT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Report complete original1055 worldwide all-Plantae rarefied 50record richness vs wastewater record effort and unseen-country transfer"
+          git fetch origin analysis/global-1055port-allPlantae-full-20261110
+          git rebase origin/analysis/global-1055port-allPlantae-full-20261110
+          git push origin HEAD:analysis/global-1055port-allPlantae-full-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-full1055-allPlantae-WWp2015-country-heldout-macro
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL_ALL1055_WWp2015_ALL_PLANTAE_50RAREFIED_42COUNTRY_MACRO_AND_COUNTRY_HOLDOUT.json
+          retention-days: 90
