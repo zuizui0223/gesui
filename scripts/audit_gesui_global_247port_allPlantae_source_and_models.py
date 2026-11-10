@@ -171,7 +171,7 @@ def audit(root):
                 raise ValueError("Failed new GBIF source called an eligible all-plants port")
     total=positive["source_eligible_ports"]
     possible=(total>=120 and len(good)>=25 and
-              sum(len(a)>=2 and len(countries[k])>=2 for k,a in good.items())>=20)
+              sum(a>=2 and len(countries[k])>=2 for k,a in good.items())>=20)
     if possible!=gbif["original_source_coverage_gate"]["ALL_PLANTAE_WWp_statistical_comparison_ALLOWED"]:
         raise ValueError("Original global sample/GBIF source gate decisions are not reproducible")
     if total!=gbif["original_GBIF_result_completion_summary"]["source_qualifying_all_plantae_ports"]:
