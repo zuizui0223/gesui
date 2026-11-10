@@ -118,7 +118,7 @@ def read_exact_frozen_original(root):
     if len(set(near_ids.values()))!=4:
         raise ValueError("Exactly four source outfall IDs must be retained")
     for name,path in (
-        ("original_site_and_source",prior.SOURCE),
+        ("original_site_and_source",prior.first.SITE),
         ("frozen_taxonomy",prior.first.TAX),
         ("original_2023_24_siteyear_counts",str(ROOT/"DENMARK_EBMS_2023_2024_FAMILY_SITEYEAR_COUNTS_QC_BEFORE_WWTP_CONTRAST.json")),
         ("earlier_season_analysis",str(ROOT/"DENMARK_2023_2024_SAME_SITE_MONTH_LYCAENIDAE_POSTHOC_FAMILY_SOURCE_CLUSTER_QC.json"))
