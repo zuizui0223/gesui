@@ -30,7 +30,7 @@ def audit(root):
         raise ValueError("Model not aligned to new all-Plantae recording opportunity")
     src=source["all_pilot_port_georeferenced_original_sites"]
     observations=gbif["original_site_GBIF_facet_summary"]
-    if len(src)!=len(observations)!=247:raise ValueError("Original globally fixed 247 port count mismatch")
+    if len(src)!=247 or len(observations)!=247:raise ValueError("Original globally fixed 247 port count mismatch")
     a={x["original_port_id"]:x for x in src}
     b={x["original_port_id"]:x for x in observations}
     if len(a)!=247 or len(b)!=247 or set(a)!=set(b):
