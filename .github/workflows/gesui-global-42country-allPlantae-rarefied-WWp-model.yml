@@ -1,0 +1,46 @@
+name: gesui macro 42country independent ALL Plantae 2011-24 50record species-richness WWp2015
+on:
+  push:
+    branches: ["analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110"]
+    paths:
+      - "results/global_all_Plantae_WWp2015_20261110/ORIGINAL_247PORT_42COUNTRY_GBIF_ALL_PLANTAE_2011_24_RAREFACTION_SOURCE.json"
+      - ".github/workflows/gesui-global-42country-allPlantae-rarefied-WWp-model.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  global_42country_independent_all_Plantae_model_after_source_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install original all-Plantae source-locked macro statistical estimator
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+          python -m py_compile scripts/gesui_global_247port_all_Plantae_rarefied50_WWp_countryFE_after_GBIF.py
+      - name: Gate genuine 2011-24 ALL Plantae speciesKey records, then compute 2015 WWp vs record-rarefied country FE
+        run: |
+          python -u scripts/gesui_global_247port_all_Plantae_rarefied50_WWp_countryFE_after_GBIF.py \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_ALL_PLANTAE_50RECORD_RAREFIED_WWp2015_COUNTRYFE_RESULT.json
+      - name: Store model results OR explicit fixed source-quality gate stop, never tune source sites
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_ALL_PLANTAE_50RECORD_RAREFIED_WWp2015_COUNTRYFE_RESULT.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive original source-blind 247port 42country ALL Plantae rarefaction vs modeled wastewater WWp2015"
+          git fetch origin analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git rebase origin/analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git push origin HEAD:analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-allPlantae-42country-2011-24-50record-WWp2015-countryFE
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_ALL_PLANTAE_50RECORD_RAREFIED_WWp2015_COUNTRYFE_RESULT.json
+          retention-days: 90
