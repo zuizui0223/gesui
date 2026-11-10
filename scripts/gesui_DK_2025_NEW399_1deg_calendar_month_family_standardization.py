@@ -64,7 +64,7 @@ def standardize(strata):
     return {
         "matched_region_month_strata":len(strata),
         "matching_weight_sum_min_reporting_days":totalweight,
-        "documented_linked_dates_in_selected_strata":{g:sum(x[g]["linked_dates"] for x in strata) for g in GROUPS},
+        "documented_linked_dates_in_selected_strata":{g:sum(x["near" if g=="near5" else "remote"]["linked_dates"] for x in strata) for g in GROUPS},
         "standardized_each_family_recorded_per_linked_date":weighted,
         "Lycaenidae_per_linked_date_near_vs_remote_ratio":lrate,
         "Lycaenidae_three_family_share":lshare3,
