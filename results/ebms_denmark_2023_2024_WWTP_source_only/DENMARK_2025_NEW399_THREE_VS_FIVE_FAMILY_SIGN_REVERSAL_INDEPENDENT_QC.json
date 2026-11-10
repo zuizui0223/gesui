@@ -1,0 +1,487 @@
+{
+  "complete_five_family_rate_per_publicly_documented_2025_survey_day": {
+    "Hesperiidae": {
+      "original_near_individualCount_per_any_occ_linked_date": 0.6901669758812616,
+      "original_remote_individualCount_per_any_occ_linked_date": 0.2536327608982827,
+      "relative_near_vs_remote_recording_rate": 2.721127087198516
+    },
+    "Lycaenidae": {
+      "original_near_individualCount_per_any_occ_linked_date": 0.7087198515769945,
+      "original_remote_individualCount_per_any_occ_linked_date": 0.8507265521796565,
+      "relative_near_vs_remote_recording_rate": 0.8330759746021503
+    },
+    "Nymphalidae": {
+      "original_near_individualCount_per_any_occ_linked_date": 7.090909090909091,
+      "original_remote_individualCount_per_any_occ_linked_date": 4.681638044914135,
+      "relative_near_vs_remote_recording_rate": 1.514621383131541
+    },
+    "Papilionidae": {
+      "original_near_individualCount_per_any_occ_linked_date": 0.0,
+      "original_remote_individualCount_per_any_occ_linked_date": 0.0,
+      "relative_near_vs_remote_recording_rate": null
+    },
+    "Pieridae": {
+      "original_near_individualCount_per_any_occ_linked_date": 1.261595547309833,
+      "original_remote_individualCount_per_any_occ_linked_date": 3.4372523117569354,
+      "relative_near_vs_remote_recording_rate": 0.36703606045870235
+    }
+  },
+  "no_evidence_of_direct_WWTP_2025_butterfly_population_change": true,
+  "original_frozen_result_sha256": {
+    "family_source": "e4c42269ec62fe669af591ff1907653e8bc3239893bc079562246c7ebc104251",
+    "old107_benchmark": "7e9a9e0fdadddd1954dec274f97ffb60e1d4f2621c472023672502d8cf05dfc9",
+    "spatial_effect": "86e805efddc8cd8ea4af20c39123ab41a3f57cb5281312c72e229fb2f0caf19c"
+  },
+  "original_public_licensed_aggregates_only_CC_BY_NC_4_0": true,
+  "original_species_name_taxonomy_frozen_before_NEW399_family_count": true,
+  "posthoc_denominator_choice_interpretation_no_confirmatory_P_value": true,
+  "qualifying_new399_original_2025_source_near_sites": 70,
+  "qualifying_new399_original_2025_source_remote_sites": 92,
+  "registered_WWTP_outfall_2025_geodesic_source_connected_components": 17,
+  "schema": "gesui_DK_2025_NEW399_original_3vs5_family_denominator_sign_contrast_v01",
+  "source_2022_EEA_outfall_geography_is_not_actual_waterborne_butterfly_exposure": true,
+  "three_family_vs_five_family_denominator_response": {
+    "five_family": {
+      "6_region_leave_one_region_out": [
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.5532882506597218,
+          "removed_original_region": "55|10"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.34345121197828493,
+          "removed_original_region": "55|11"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.29742329264646716,
+          "removed_original_region": "55|12"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.4429364188110412,
+          "removed_original_region": "55|9"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.38414300494748566,
+          "removed_original_region": "56|10"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.4551965311816561,
+          "removed_original_region": "56|9"
+        }
+      ],
+      "actual_original_Lycaenidae_per_2025_ANY_published_date_ratio": 0.8330759746021503,
+      "defined_original_families": [
+        "Lycaenidae",
+        "Pieridae",
+        "Papilionidae",
+        "Nymphalidae",
+        "Hesperiidae"
+      ],
+      "equal_1degree_region_geometric_mean_OR": 0.40445554162327774,
+      "equal_1degree_region_mean_log_OR": -0.9052134579844544,
+      "new_2025_n399_event_supported_near": {
+        "Lycaenidae_recorded_individualCount": 382,
+        "logit": -2.545044160802736,
+        "original_published_survey_dates": 539,
+        "original_selected_family_individualCount_total": 5256,
+        "proportion": 0.07267884322678843,
+        "rate_per_published_survey_date": 0.7087198515769945,
+        "sites": 70
+      },
+      "new_2025_n399_event_supported_remote": {
+        "Lycaenidae_recorded_individualCount": 644,
+        "logit": -2.285922603999539,
+        "original_published_survey_dates": 757,
+        "original_selected_family_individualCount_total": 6982,
+        "proportion": 0.09223718132340304,
+        "rate_per_published_survey_date": 0.8507265521796565,
+        "sites": 92
+      },
+      "old107_original_2025_near": {
+        "Lycaenidae": 95,
+        "original_repeated_old_source_site_rows": 23,
+        "proportion": 0.07137490608564989,
+        "total_families": 1331
+      },
+      "old107_original_2025_remote": {
+        "Lycaenidae": 585,
+        "original_repeated_old_source_site_rows": 38,
+        "proportion": 0.14584891548242335,
+        "total_families": 4011
+      },
+      "original_matched_1degree_region_relative_directions": [
+        {
+          "country_1degree_region": "55|10",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 11,
+            "logit": -3.8008485199049,
+            "original_published_survey_dates": 108,
+            "original_selected_family_individualCount_total": 525,
+            "proportion": 0.02095238095238095,
+            "rate_per_published_survey_date": 0.10185185185185185,
+            "sites": 12
+          },
+          "original_near_minus_remote_fraction": -0.18760376878023938,
+          "original_near_minus_remote_logodds": -2.4718999262554826,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 78,
+            "logit": -1.3289485936494174,
+            "original_published_survey_dates": 62,
+            "original_selected_family_individualCount_total": 374,
+            "proportion": 0.20855614973262032,
+            "rate_per_published_survey_date": 1.2580645161290323,
+            "sites": 8
+          },
+          "source_near_family_fraction_is_higher": false
+        },
+        {
+          "country_1degree_region": "55|11",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 33,
+            "logit": -2.0662958124673336,
+            "original_published_survey_dates": 31,
+            "original_selected_family_individualCount_total": 297,
+            "proportion": 0.1111111111111111,
+            "rate_per_published_survey_date": 1.064516129032258,
+            "sites": 5
+          },
+          "original_near_minus_remote_fraction": -0.009978697163359126,
+          "original_near_minus_remote_logodds": -0.0877297004379678,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 120,
+            "logit": -1.9785661120293658,
+            "original_published_survey_dates": 116,
+            "original_selected_family_individualCount_total": 991,
+            "proportion": 0.12108980827447023,
+            "rate_per_published_survey_date": 1.0344827586206897,
+            "sites": 21
+          },
+          "source_near_family_fraction_is_higher": false
+        },
+        {
+          "country_1degree_region": "55|12",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 109,
+            "logit": -2.6529846802422528,
+            "original_published_survey_dates": 142,
+            "original_selected_family_individualCount_total": 1663,
+            "proportion": 0.06554419723391461,
+            "rate_per_published_survey_date": 0.7676056338028169,
+            "sites": 19
+          },
+          "original_near_minus_remote_fraction": 0.029757566578951747,
+          "original_near_minus_remote_logodds": 0.631713887526614,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 53,
+            "logit": -3.2846985677688667,
+            "original_published_survey_dates": 151,
+            "original_selected_family_individualCount_total": 1481,
+            "proportion": 0.03578663065496286,
+            "rate_per_published_survey_date": 0.3509933774834437,
+            "sites": 8
+          },
+          "source_near_family_fraction_is_higher": true
+        },
+        {
+          "country_1degree_region": "55|9",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 3,
+            "logit": -4.485420932878165,
+            "original_published_survey_dates": 39,
+            "original_selected_family_individualCount_total": 313,
+            "proportion": 0.009584664536741214,
+            "rate_per_published_survey_date": 0.07692307692307693,
+            "sites": 4
+          },
+          "original_near_minus_remote_fraction": -0.03208200212992545,
+          "original_near_minus_remote_logodds": -1.3596355310759765,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 49,
+            "logit": -3.125785401802189,
+            "original_published_survey_dates": 92,
+            "original_selected_family_individualCount_total": 1176,
+            "proportion": 0.041666666666666664,
+            "rate_per_published_survey_date": 0.532608695652174,
+            "sites": 20
+          },
+          "source_near_family_fraction_is_higher": false
+        },
+        {
+          "country_1degree_region": "56|10",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 9,
+            "logit": -2.728884288005052,
+            "original_published_survey_dates": 40,
+            "original_selected_family_individualCount_total": 154,
+            "proportion": 0.05844155844155844,
+            "rate_per_published_survey_date": 0.225,
+            "sites": 8
+          },
+          "original_near_minus_remote_fraction": -0.05119299305345817,
+          "original_near_minus_remote_logodds": -0.6475788128871534,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 33,
+            "logit": -2.0813054751178988,
+            "original_published_survey_dates": 19,
+            "original_selected_family_individualCount_total": 301,
+            "proportion": 0.10963455149501661,
+            "rate_per_published_survey_date": 1.736842105263158,
+            "sites": 4
+          },
+          "source_near_family_fraction_is_higher": false
+        },
+        {
+          "country_1degree_region": "56|9",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 101,
+            "logit": -2.451090027408731,
+            "original_published_survey_dates": 94,
+            "original_selected_family_individualCount_total": 1278,
+            "proportion": 0.07902973395931143,
+            "rate_per_published_survey_date": 1.074468085106383,
+            "sites": 13
+          },
+          "original_near_minus_remote_fraction": -0.19840297825600947,
+          "original_near_minus_remote_logodds": -1.49615066477676,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 134,
+            "logit": -0.9549393626319711,
+            "original_published_survey_dates": 106,
+            "original_selected_family_individualCount_total": 483,
+            "proportion": 0.2774327122153209,
+            "rate_per_published_survey_date": 1.2641509433962264,
+            "sites": 17
+          },
+          "source_near_family_fraction_is_higher": false
+        }
+      ],
+      "pooled_Lycaenidae_proportion_delta_near_minus_remote_pp": -1.9558338096614614,
+      "pooled_Lycaenidae_share_OR_near_divided_remote": 0.7717292084064078,
+      "posthoc_10000_region_bootstrap_descriptive95_log_OR": [
+        -1.7265359458428586,
+        -0.061130621185401766
+      ],
+      "regions_showing_positive_near_Lycaenidae_fraction": 1,
+      "selecting_three_vs_five_family_denominator_is_POSTHOC_after_new399_2025_counts": true
+    },
+    "three_family": {
+      "6_region_leave_one_region_out": [
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 1.4941091730095446,
+          "removed_original_region": "55|10"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.7132653050973359,
+          "removed_original_region": "55|11"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.519999421181302,
+          "removed_original_region": "55|12"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 1.0030828234547335,
+          "removed_original_region": "55|9"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 0.9820995987537915,
+          "removed_original_region": "56|10"
+        },
+        {
+          "geometric_mean_near_vs_remote_fractional_family_OR_remaining_five_regions": 1.0264607330121354,
+          "removed_original_region": "56|9"
+        }
+      ],
+      "actual_original_Lycaenidae_per_2025_ANY_published_date_ratio": 0.8330759746021503,
+      "defined_original_families": [
+        "Lycaenidae",
+        "Pieridae",
+        "Papilionidae"
+      ],
+      "equal_1degree_region_geometric_mean_OR": 0.9079846220349959,
+      "equal_1degree_region_mean_log_OR": -0.09652783660906714,
+      "new_2025_n399_event_supported_near": {
+        "Lycaenidae_recorded_individualCount": 382,
+        "logit": -0.5760991688249303,
+        "original_published_survey_dates": 539,
+        "original_selected_family_individualCount_total": 1062,
+        "proportion": 0.35969868173258,
+        "rate_per_published_survey_date": 0.7087198515769945,
+        "sites": 70
+      },
+      "new_2025_n399_event_supported_remote": {
+        "Lycaenidae_recorded_individualCount": 644,
+        "logit": -1.3957529781098819,
+        "original_published_survey_dates": 757,
+        "original_selected_family_individualCount_total": 3246,
+        "proportion": 0.19839802834257547,
+        "rate_per_published_survey_date": 0.8507265521796565,
+        "sites": 92
+      },
+      "old107_original_2025_near": {
+        "Lycaenidae": 95,
+        "original_repeated_old_source_site_rows": 23,
+        "proportion": 0.39094650205761317,
+        "total_families": 243
+      },
+      "old107_original_2025_remote": {
+        "Lycaenidae": 585,
+        "original_repeated_old_source_site_rows": 38,
+        "proportion": 0.6435643564356436,
+        "total_families": 909
+      },
+      "original_matched_1degree_region_relative_directions": [
+        {
+          "country_1degree_region": "55|10",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 11,
+            "logit": -2.4057693292292766,
+            "original_published_survey_dates": 108,
+            "original_selected_family_individualCount_total": 138,
+            "proportion": 0.07971014492753623,
+            "rate_per_published_survey_date": 0.10185185185185185,
+            "sites": 12
+          },
+          "original_near_minus_remote_fraction": -0.46574440052700916,
+          "original_near_minus_remote_logodds": -2.586817811376433,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 78,
+            "logit": 0.1810484821471566,
+            "original_published_survey_dates": 62,
+            "original_selected_family_individualCount_total": 143,
+            "proportion": 0.5454545454545454,
+            "rate_per_published_survey_date": 1.2580645161290323,
+            "sites": 8
+          },
+          "source_near_family_fraction_is_higher": false
+        },
+        {
+          "country_1degree_region": "55|11",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 33,
+            "logit": 0.3128723212803394,
+            "original_published_survey_dates": 31,
+            "original_selected_family_individualCount_total": 57,
+            "proportion": 0.5789473684210527,
+            "rate_per_published_survey_date": 1.064516129032258,
+            "sites": 5
+          },
+          "original_near_minus_remote_fraction": 0.2688698490412077,
+          "original_near_minus_remote_logodds": 1.110342134685691,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 120,
+            "logit": -0.7974698134053515,
+            "original_published_survey_dates": 116,
+            "original_selected_family_individualCount_total": 387,
+            "proportion": 0.31007751937984496,
+            "rate_per_published_survey_date": 1.0344827586206897,
+            "sites": 21
+          },
+          "source_near_family_fraction_is_higher": true
+        },
+        {
+          "country_1degree_region": "55|12",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 109,
+            "logit": 0.14732471475685852,
+            "original_published_survey_dates": 142,
+            "original_selected_family_individualCount_total": 203,
+            "proportion": 0.5369458128078818,
+            "rate_per_published_survey_date": 0.7676056338028169,
+            "sites": 19
+          },
+          "original_near_minus_remote_fraction": 0.4646402193563129,
+          "original_near_minus_remote_logodds": 2.6904708829464186,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 53,
+            "logit": -2.54314616818956,
+            "original_published_survey_dates": 151,
+            "original_selected_family_individualCount_total": 733,
+            "proportion": 0.0723055934515689,
+            "rate_per_published_survey_date": 0.3509933774834437,
+            "sites": 8
+          },
+          "source_near_family_fraction_is_higher": true
+        },
+        {
+          "country_1degree_region": "55|9",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 3,
+            "logit": -2.62880082944807,
+            "original_published_survey_dates": 39,
+            "original_selected_family_individualCount_total": 51,
+            "proportion": 0.058823529411764705,
+            "rate_per_published_survey_date": 0.07692307692307693,
+            "sites": 4
+          },
+          "original_near_minus_remote_fraction": -0.055930568948891035,
+          "original_near_minus_remote_logodds": -0.5945574261452111,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 49,
+            "logit": -2.0342434033028587,
+            "original_published_survey_dates": 92,
+            "original_selected_family_individualCount_total": 427,
+            "proportion": 0.11475409836065574,
+            "rate_per_published_survey_date": 0.532608695652174,
+            "sites": 20
+          },
+          "source_near_family_fraction_is_higher": false
+        },
+        {
+          "country_1degree_region": "56|10",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 9,
+            "logit": -0.8167611365271219,
+            "original_published_survey_dates": 40,
+            "original_selected_family_individualCount_total": 30,
+            "proportion": 0.3,
+            "rate_per_published_survey_date": 0.225,
+            "sites": 8
+          },
+          "original_near_minus_remote_fraction": -0.11772151898734179,
+          "original_near_minus_remote_logodds": -0.48885426276483207,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 33,
+            "logit": -0.32790687376228983,
+            "original_published_survey_dates": 19,
+            "original_selected_family_individualCount_total": 79,
+            "proportion": 0.4177215189873418,
+            "rate_per_published_survey_date": 1.736842105263158,
+            "sites": 4
+          },
+          "source_near_family_fraction_is_higher": false
+        },
+        {
+          "country_1degree_region": "56|9",
+          "near": {
+            "Lycaenidae_recorded_individualCount": 101,
+            "logit": -0.4949365109386564,
+            "original_published_survey_dates": 94,
+            "original_selected_family_individualCount_total": 267,
+            "proportion": 0.3782771535580524,
+            "rate_per_published_survey_date": 1.074468085106383,
+            "sites": 13
+          },
+          "original_near_minus_remote_fraction": -0.17544185470641044,
+          "original_near_minus_remote_logodds": -0.7097505370000361,
+          "remote": {
+            "Lycaenidae_recorded_individualCount": 134,
+            "logit": 0.21481402606137961,
+            "original_published_survey_dates": 106,
+            "original_selected_family_individualCount_total": 242,
+            "proportion": 0.5537190082644629,
+            "rate_per_published_survey_date": 1.2641509433962264,
+            "sites": 17
+          },
+          "source_near_family_fraction_is_higher": false
+        }
+      ],
+      "pooled_Lycaenidae_proportion_delta_near_minus_remote_pp": 16.130065339000453,
+      "pooled_Lycaenidae_share_OR_near_divided_remote": 2.2697139476118786,
+      "posthoc_10000_region_bootstrap_descriptive95_log_OR": [
+        -1.3081193498680794,
+        1.3129078033966166
+      ],
+      "regions_showing_positive_near_Lycaenidae_fraction": 2,
+      "selecting_three_vs_five_family_denominator_is_POSTHOC_after_new399_2025_counts": true
+    }
+  }
+}
