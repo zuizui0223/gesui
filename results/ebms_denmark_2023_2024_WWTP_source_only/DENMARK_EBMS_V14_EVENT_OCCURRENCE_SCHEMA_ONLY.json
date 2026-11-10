@@ -1,0 +1,65 @@
+{
+  "already_committed_5km_original_source_gate_expected": true,
+  "data_tables_event_core_and_occurrence_extension_schema_only": [
+    {
+      "coreid_field_index": null,
+      "field_terms_to_column_index": {
+        "coordinateUncertaintyInMeters": 8,
+        "decimalLatitude": 6,
+        "decimalLongitude": 7,
+        "eventDate": 3,
+        "eventID": 1,
+        "eventRemarks": 4,
+        "locality": 5,
+        "parentEventID": 2
+      },
+      "path": "event.txt",
+      "rowtype": "http://rs.tdwg.org/dwc/terms/Event"
+    },
+    {
+      "coreid_field_index": "0",
+      "field_terms_to_column_index": {
+        "basisOfRecord": 6,
+        "collectionCode": 4,
+        "coordinateUncertaintyInMeters": 21,
+        "datasetID": 3,
+        "datasetName": 5,
+        "decimalLatitude": 19,
+        "decimalLongitude": 20,
+        "eventDate": 16,
+        "eventID": 15,
+        "eventRemarks": 17,
+        "identificationVerificationStatus": 23,
+        "identifiedBy": 22,
+        "individualCount": 9,
+        "license": 1,
+        "lifeStage": 11,
+        "locality": 18,
+        "occurrenceID": 7,
+        "occurrenceRemarks": 14,
+        "occurrenceStatus": 12,
+        "otherCatalogNumbers": 13,
+        "recordedBy": 8,
+        "rightsHolder": 2,
+        "scientificName": 25,
+        "sex": 10,
+        "taxonID": 24,
+        "vernacularName": 26
+      },
+      "path": "occurrence.txt",
+      "rowtype": "http://rs.tdwg.org/dwc/terms/Occurrence"
+    }
+  ],
+  "meta_XML_SHA256": "bcaf1a25c1d7eeda3a36a01cea94cafeceaf19215d2006b588be6788ae466369",
+  "original_occurrence_row_count_READ": 0,
+  "original_species_taxon_or_abundance_values_READ": false,
+  "source_SHA256": "2cc64ec352754223db06a92eef5b01803968eac94bae34057c17f1abdb6da79b",
+  "source_archive_bytes": 1314210,
+  "source_file_names": [
+    "event.txt",
+    "occurrence.txt",
+    "eml.xml",
+    "meta.xml"
+  ],
+  "source_license": "CC-BY-NC 4.0"
+}

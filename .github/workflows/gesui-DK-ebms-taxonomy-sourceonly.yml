@@ -1,0 +1,39 @@
+name: gesui DK EBMS V14 scientificName source-only GBIF taxonomy (NO individualCount, NO WWTP response)
+on:
+  push:
+    branches: ["analysis/ebms-denmark-wwtp-source-feasibility-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms-taxonomy-sourceonly.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-species-names-GBIF-family-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Original source-version SHA locked; map scientificName to GBIF backbone family, no individualCount or EEA exposure
+        run: |
+          python -m py_compile scripts/gesui_DK_ebms_v14_taxonomy_only_original_scientificName_GBIF.py
+          python -u scripts/gesui_DK_ebms_v14_taxonomy_only_original_scientificName_GBIF.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_V14_ORIGINAL_SCIENTIFICNAME_GBIF_FAMILY_BLIND_TAXONOMY.json
+      - name: Commit taxonomy source before viewing sewage-near butterfly count contrasts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_V14_ORIGINAL_SCIENTIFICNAME_GBIF_FAMILY_BLIND_TAXONOMY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze GBIF verified Lycaenidae, Pieridae, Papilionidae family mapping independently of source association"
+          git fetch origin analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git rebase origin/analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git push origin HEAD:analysis/ebms-denmark-wwtp-source-feasibility-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-ebms-GBIF-taxonomy-blind-source
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_V14_ORIGINAL_SCIENTIFICNAME_GBIF_FAMILY_BLIND_TAXONOMY.json
+          retention-days: 90

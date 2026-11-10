@@ -1,0 +1,39 @@
+name: gesui Denmark EBMS2023-24 original licensed Event-Occurrence butterfly counts QC BEFORE P effect
+on:
+  push:
+    branches: ["analysis/ebms-denmark-wwtp-source-feasibility-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms-family-counts-join-and-data-quality.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source-frozen-original-denmark-butterfly-family-measurement-QC:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Join original licensed Event core+Occurrence extension, frozen GBIF species-to-family source and 107 repeated sites
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS_V14_2023_2024_licensed_family_count_panel_after_taxonomy.py
+          python -u scripts/gesui_DK_EBMS_V14_2023_2024_licensed_family_count_panel_after_taxonomy.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2023_2024_FAMILY_SITEYEAR_COUNTS_QC_BEFORE_WWTP_CONTRAST.json
+      - name: Preserve source outcome counts and stop/go decision before any near-vs-remote coefficient
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2023_2024_FAMILY_SITEYEAR_COUNTS_QC_BEFORE_WWTP_CONTRAST.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze first actual independent Denmark 2023-24 standardized butterfly family counts and QC gate without source effect"
+          git fetch origin analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git rebase origin/analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git push origin HEAD:analysis/ebms-denmark-wwtp-source-feasibility-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-eBMS-2023-24-family-siteyear-quality-pre-effect
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2023_2024_FAMILY_SITEYEAR_COUNTS_QC_BEFORE_WWTP_CONTRAST.json
+          retention-days: 90

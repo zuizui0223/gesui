@@ -1,0 +1,39 @@
+name: gesui DK 2023-24 EBMS independent source-distance Lycaenidae count replay
+on:
+  push:
+    branches: ["analysis/ebms-denmark-wwtp-source-feasibility-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms-source5km-independent-count-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent-first-real-family-counts-evidence-QC:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify original 2023/24 107-site family panel, source/remote annual counts and zero-observation handling
+        run: |
+          python -m py_compile scripts/audit_DK_EBMS_2023_2024_Lycaenidae_source5km_independent_count_replay.py
+          python -u scripts/audit_DK_EBMS_2023_2024_Lycaenidae_source5km_independent_count_replay.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_LYCAENIDAE_2023_2024_INDEPENDENT_COUNTS_SOURCE5KM_QA.json
+      - name: Preserve independent check of signed original family association
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_LYCAENIDAE_2023_2024_INDEPENDENT_COUNTS_SOURCE5KM_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independently reproduce Denmark eBMS Lycaenidae 2023/24 near-source count direction and low independent WWTP source n"
+          git fetch origin analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git rebase origin/analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git push origin HEAD:analysis/ebms-denmark-wwtp-source-feasibility-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-ebms-source5km-independent-Lycaenidae-count-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_LYCAENIDAE_2023_2024_INDEPENDENT_COUNTS_SOURCE5KM_QA.json
+          retention-days: 90
