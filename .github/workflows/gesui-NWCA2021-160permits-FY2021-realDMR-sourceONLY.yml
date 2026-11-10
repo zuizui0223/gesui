@@ -44,10 +44,50 @@ jobs:
           ls -lh /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip
           unzip -l /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip | head -15
           sha256sum /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip
-      - name: Stream original national FY2021 DMR records to report for exactly same160 original admin permits true TN00600/TP00665 numeric monitoring opportunity only
+      - name: Read exact original 2026 official discharge-point ZIP and resolve 160 frozen original admin permit SHA IDs into ephemeral 160-pattern list
+        run: |
+          curl --retry 4 --retry-all-errors --connect-timeout 30 --max-time 240 \
+            --fail --location --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-original-USDMR/npdes_outfalls_layer.zip
+          echo "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/gesui-original-USDMR/npdes_outfalls_layer.zip" | sha256sum -c -
+          python -m py_compile scripts/gesui_NWCA2021_ephemeral_ECHO_160permit_pattern_crosswalk.py
+          python -u scripts/gesui_NWCA2021_ephemeral_ECHO_160permit_pattern_crosswalk.py \
+            --echo-outfall-zip /tmp/gesui-original-USDMR/npdes_outfalls_layer.zip \
+            --output-patterns /tmp/gesui-original-USDMR/private_original_160_nearby_permit_patterns.txt
+          test "$(wc -l </tmp/gesui-original-USDMR/private_original_160_nearby_permit_patterns.txt)" -eq 160
+      - name: Extract relevant candidate permit rows from ALL 9.15GB original FY2021 DMR CSV by full-stream ripgrep and count source lines
+        run: |
+          command -v rg
+          python - <<'PY'
+          import zipfile
+          from pathlib import Path
+          p=Path('/tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip')
+          with zipfile.ZipFile(p) as z:
+              files=[n for n in z.namelist() if n.split('/')[-1].lower()=='npdes_dmrs_fy2021.csv']
+              assert len(files)==1
+              with z.open(files[0]) as src:
+                  first=src.readline()
+          Path('/tmp/gesui-original-USDMR/DMR_original160_candidates.csv').write_bytes(first)
+          print("Original source CSV header bytes",len(first))
+          PY
+          set -o pipefail
+          unzip -p /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip NPDES_DMRS_FY2021.csv \
+            | tee >(wc -l > /tmp/gesui-original-USDMR/original_national_DMR_FY2021_fullstream_line_count.txt) \
+            | rg -F --text -f /tmp/gesui-original-USDMR/private_original_160_nearby_permit_patterns.txt \
+            >> /tmp/gesui-original-USDMR/DMR_original160_candidates.csv
+          for i in 1 2 3 4 5; do
+            test -s /tmp/gesui-original-USDMR/original_national_DMR_FY2021_fullstream_line_count.txt && break
+            sleep 2
+          done
+          wc -l /tmp/gesui-original-USDMR/DMR_original160_candidates.csv
+          cat /tmp/gesui-original-USDMR/original_national_DMR_FY2021_fullstream_line_count.txt
+      - name: Parse original EPA FY2021 DMR numeric TN00600/TP00665 under exact matched original permit hash — never use plant response
         run: |
           python -u scripts/gesui_NWCA2021_FY2021_NPDES_DMR_national_160permit_NPmonitor_source_only.py \
             --dmr-fy2021-zip /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip \
+            --filtered-csv /tmp/gesui-original-USDMR/DMR_original160_candidates.csv \
+            --original-national-line-count /tmp/gesui-original-USDMR/original_national_DMR_FY2021_fullstream_line_count.txt \
             --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_NPDES_DMR_160MUNICIPAL_PERMIT_TNTP_MONITOR_SOURCE_GATE.json
       - name: Preserve exact original 2021 official reported nutrient-monitoring support and STOP rules without touching 240-site positive/negative plant results
         run: |
