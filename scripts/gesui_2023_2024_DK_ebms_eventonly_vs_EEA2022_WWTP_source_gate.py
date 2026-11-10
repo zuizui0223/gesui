@@ -173,11 +173,13 @@ def read_eea_sources():
                     "lat":float(item.dcpLatitude),"lon":float(item.dcpLongitude),
                     "original_2022_reported_N_t_year":float(item.uwwNDischargeMeasured),
                     "original_2022_reported_P_t_year":float(item.uwwPDischargeMeasured)})
-    if len(out)!=69:
-        raise ValueError(f"Unexpected original EEA DK2022 qualified 1-FW reporter outfalls ({len(out)} != 69)")
+    if len(out)!=203:
+        raise ValueError(f"Unexpected original EEA DK2022 qualified 1-FW reporter outfalls ({len(out)} != 203)")
     qc={"original_2022_EEA_measured_bothNP_plants_5492":True,
         "original_2022_EEA_discharge_points_24416":True,
         "strict_reporter_code":SOURCE_REP,
+        "DK2022_national_bbox_expected_203_confirmed_from_original_source_before_any_butterfly_records":True,
+        "prior_Sweden_clipped_DK69_count_not_DK_country_total":True,
         "one_full_reporter_plant_key_only":True,
         "one_direct_FreshWater_outfall_only":True,
         "unique_Danish_qualified_2022_FW_bothNP_outfalls_n":len(out),
