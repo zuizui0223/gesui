@@ -1,0 +1,38 @@
+name: gesui Denmark original v1.4 eBMS Occurrence SCHEMA only, zero butterfly count rows
+on:
+  push:
+    branches: ["analysis/ebms-denmark-wwtp-source-feasibility-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms-occurrence-schema-only.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  exact-DwCA-term-names-without-species-values:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Audit Event/Occurrence schema ONLY without reading any butterfly occurrences
+        run: |
+          python -u scripts/gesui_DK_ebms_original_occurrence_extension_SCHEMA_ONLY.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_V14_EVENT_OCCURRENCE_SCHEMA_ONLY.json
+      - name: Preserve version and species extension schema
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_V14_EVENT_OCCURRENCE_SCHEMA_ONLY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze eBMS Denmark occurrence term mapping before independent family response"
+          git fetch origin analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git rebase origin/analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git push origin HEAD:analysis/ebms-denmark-wwtp-source-feasibility-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-ebms-v1-4-original-species-schema-only
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_V14_EVENT_OCCURRENCE_SCHEMA_ONLY.json
+          retention-days: 90
