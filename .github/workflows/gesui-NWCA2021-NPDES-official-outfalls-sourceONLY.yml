@@ -1,0 +1,68 @@
+name: gesui EPA 2021 NWCA wetlands x NPDES official sewage outfall GEO source gate
+on:
+  push:
+    branches: ["analysis/us-nwca2021-npdes-potential-exposure-source-20261110"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-NPDES-official-outfalls-sourceONLY.yml"
+      - "scripts/gesui_NWCA2021_568source_EPA_NPDES_registered_sewage_outfall_geoONLY.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_568_NWCA_sites_with_independent_NPDES_sewage_permitted_feature_locations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install source-only geodesic index and EPA CSV readers
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy
+          python -m py_compile scripts/gesui_NWCA2021_568source_EPA_NPDES_registered_sewage_outfall_geoONLY.py
+      - name: Fetch exact original US EPA NWCA 2021 four files for previously frozen 568 probability sample JOIN KEY ONLY
+        run: |
+          mkdir -p /tmp/gesui-NWCA2021-outfall-source
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-NWCA2021-outfall-source/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-NWCA2021-outfall-source/nwca21_$item-data.csv"
+          done
+          sha256sum /tmp/gesui-NWCA2021-outfall-source/*.csv
+      - name: Fetch current weekly ICIS NPDES nationwide 50MB outfalls from official EPA ECHO, preserve original source bytes and SHA
+        run: |
+          mkdir -p /tmp/gesui-NPDES-national
+          curl --retry 4 --retry-all-errors --connect-timeout 30 --max-time 400 \
+            --fail --location --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-NPDES-national/npdes_outfalls_layer.zip
+          test -s /tmp/gesui-NPDES-national/npdes_outfalls_layer.zip
+          unzip -l /tmp/gesui-NPDES-national/npdes_outfalls_layer.zip | head -12
+          sha256sum /tmp/gesui-NPDES-national/npdes_outfalls_layer.zip
+      - name: BEFORE opening 2021 plant Shannon or TN TP, compare official permitted feature sewage NPDES vs original 568 wetland source points, 2021 plausible-permit dates and match-control gate
+        run: |
+          python -u scripts/gesui_NWCA2021_568source_EPA_NPDES_registered_sewage_outfall_geoONLY.py \
+            --nwca-source-dir /tmp/gesui-NWCA2021-outfall-source \
+            --npdes-zip /tmp/gesui-NPDES-national/npdes_outfalls_layer.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_SEWAGE_OUTFALL_568SITE_SOURCE_ONLY_GEOGRAPHY_GATE.json
+      - name: Archive only current official EPA outfall source metadata, source hashes and 568 site opportunity gate — never causal exposure or ecological coefficients
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_SEWAGE_OUTFALL_568SITE_SOURCE_ONLY_GEOGRAPHY_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze national NWCA2021 568 wetland source to official NPDES sewerage outfall permit feature proximity and stop gate"
+          git fetch origin analysis/us-nwca2021-npdes-potential-exposure-source-20261110
+          git rebase origin/analysis/us-nwca2021-npdes-potential-exposure-source-20261110
+          git push origin HEAD:analysis/us-nwca2021-npdes-potential-exposure-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2021-NWCA-568site-official-EPA-NPDES-outfall-source-geo
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_SEWAGE_OUTFALL_568SITE_SOURCE_ONLY_GEOGRAPHY_GATE.json
+          retention-days: 90
