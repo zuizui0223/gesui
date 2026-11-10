@@ -1,0 +1,39 @@
+name: gesui national DE 100-source-site original 2019-2021 Plantae PRE-butterfly observation gates
+on:
+  push:
+    branches: ["analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110"]
+    paths:
+      - ".github/workflows/gesui-national-DE-73pair-prebutterfly-plant-effort.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-frozen-national-DE-2019-2021-plantae:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Source SHA verify 73 directed WWTP pairs, reuse 32 prior sites, query 68 new only 2019-2021 Plantae
+        run: |
+          python -m py_compile scripts/gesui_DE_national_73_WISE6_2019_2021_Plantae_effort_before_butterfly.py
+          python -u scripts/gesui_DE_national_73_WISE6_2019_2021_Plantae_effort_before_butterfly.py \
+            --out results/lycaenidae_2022_DE_national_73pair_sourceonly/ORIGINAL_100STATION_2KM_5KM_2019_2021_PLANTAE_EFFORT_BEFORE_2022_BUTTERFLIES.json
+      - name: Preserve entire source photo effort and exact failed/passed original cohort before butterfly outcomes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_DE_national_73pair_sourceonly/ORIGINAL_100STATION_2KM_5KM_2019_2021_PLANTAE_EFFORT_BEFORE_2022_BUTTERFLIES.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive 100 WISE6 site independent 2019-2021 plant photo support gates, no 2022 Lycaenidae opened"
+          git fetch origin analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+          git rebase origin/analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+          git push origin HEAD:analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-national-DE-73river-pair-100site-prebutterfly-plantae-effort
+          path: results/lycaenidae_2022_DE_national_73pair_sourceonly/ORIGINAL_100STATION_2KM_5KM_2019_2021_PLANTAE_EFFORT_BEFORE_2022_BUTTERFLIES.json
+          retention-days: 90

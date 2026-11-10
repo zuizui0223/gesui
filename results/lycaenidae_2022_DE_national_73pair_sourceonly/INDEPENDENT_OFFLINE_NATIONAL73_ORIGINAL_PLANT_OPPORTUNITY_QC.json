@@ -1,0 +1,55 @@
+{
+  "all_predeclared_2km_and_5km_source_only_gates_fail": true,
+  "by_radius": {
+    "2km": {
+      "butterfly_outcome_pre_source_gate": "STOP",
+      "max": 616,
+      "median": 6.0,
+      "nationwide_both_class_3deg_regions": 1,
+      "original_3deg_quartet_blocks": 2,
+      "original_WISE6_independent_pair_geo_quartets": 2,
+      "original_countrywide_eligible_site_disjoint_pairs_by_class": {
+        "registered_qualifying_sourcezero": 8,
+        "registered_source_interposed": 4
+      },
+      "original_source_pairs_n": 73,
+      "photo_opportunity_eligible_pairs": 21,
+      "photo_opportunity_source_zero_counts": {
+        "registered_qualifying_sourcezero": 12,
+        "registered_source_interposed": 9
+      },
+      "plant_photo_station_min": 0,
+      "station_plant_photos_below5_n": 42,
+      "station_plant_photos_zero_n": 18
+    },
+    "5km": {
+      "butterfly_outcome_pre_source_gate": "STOP",
+      "max": 2622,
+      "median": 40.0,
+      "nationwide_both_class_3deg_regions": 3,
+      "original_3deg_quartet_blocks": 3,
+      "original_WISE6_independent_pair_geo_quartets": 5,
+      "original_countrywide_eligible_site_disjoint_pairs_by_class": {
+        "registered_qualifying_sourcezero": 15,
+        "registered_source_interposed": 8
+      },
+      "original_source_pairs_n": 73,
+      "photo_opportunity_eligible_pairs": 35,
+      "photo_opportunity_source_zero_counts": {
+        "registered_qualifying_sourcezero": 21,
+        "registered_source_interposed": 14
+      },
+      "plant_photo_station_min": 0,
+      "station_plant_photos_below5_n": 11,
+      "station_plant_photos_zero_n": 1
+    }
+  },
+  "new_2026_11_10_plant_requests_validated": 136,
+  "no_butterfly_photo_numbers_opened_or_modeled": true,
+  "no_test_of_lycaenidae_biological_negative_or_positive_effect": true,
+  "original_total_station_radius_requests": 200,
+  "plant_200total_receipts_SHA256": "0f5dadb58ed2955ac5a45430719fe42f9ebe8a1bc8a1388781b8cf707deb1ba7",
+  "reused_2026_11_09_prior32_station_radius_plant_requests_validated": 64,
+  "schema": "gesui_DE_national_73pair_2019_2021_plantae_prior_outcome_independent_offline_replay_v01",
+  "source_frame_SHA256": "fc9aa81b28aabb338a57c533eb81e5366cfc5432f7edfc5577838655b94678f2"
+}

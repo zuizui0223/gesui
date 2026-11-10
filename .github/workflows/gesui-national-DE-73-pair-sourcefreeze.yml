@@ -1,0 +1,39 @@
+name: gesui national DE source-frozen 73 WISE6 directed WWTP river pairs BEFORE plant effort
+on:
+  push:
+    branches: ["analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110"]
+    paths:
+      - ".github/workflows/gesui-national-DE-73-pair-sourcefreeze.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-national-73-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify national original EEA-HydroRIVERS WISE6 metadata and freeze without butterfly/photo outcomes
+        run: |
+          python -m py_compile scripts/gesui_2022_DE_national_73pair_sourceonly_freeze.py
+          python -u scripts/gesui_2022_DE_national_73pair_sourceonly_freeze.py \
+            --out results/lycaenidae_2022_DE_national_73pair_sourceonly/ORIGINAL_2022_73DE_WISE6_SOURCEZERO_PAIR_100SITE_PREPHOTO_FRAME.json
+      - name: Commit source-only immutable frame before observer opportunity query
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_DE_national_73pair_sourceonly/ORIGINAL_2022_73DE_WISE6_SOURCEZERO_PAIR_100SITE_PREPHOTO_FRAME.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze all 73 Germany original directed WISE6 WWTP-source/registeredzero pairs and 100 sites before iNat sampling"
+          git fetch origin analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+          git rebase origin/analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+          git push origin HEAD:analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-2022-national73-source-frame-before-plant-butterfly
+          path: results/lycaenidae_2022_DE_national_73pair_sourceonly/ORIGINAL_2022_73DE_WISE6_SOURCEZERO_PAIR_100SITE_PREPHOTO_FRAME.json
+          retention-days: 90

@@ -1,0 +1,58 @@
+name: gesui DE national WISE6 73pair independently audit plant support and STOP butterfly outcomes
+on:
+  push:
+    branches: ["analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110"]
+    paths:
+      - ".github/workflows/gesui-national-DE-73pair-plant-audit-and-butterfly-stop.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent-plant-source-and-stop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify 73 original pairs, 100 stations, all 200 original public plant receipts and observed source-only gates
+        run: |
+          python -m py_compile \
+            scripts/audit_gesui_national_73pair_prebutterfly_plant_effort_20261110.py \
+            scripts/gesui_DE_2022_Lycaenidae_after_national_plant_gate.py
+          python -u scripts/audit_gesui_national_73pair_prebutterfly_plant_effort_20261110.py \
+            --out results/lycaenidae_2022_DE_national_73pair_sourceonly/INDEPENDENT_OFFLINE_NATIONAL73_ORIGINAL_PLANT_OPPORTUNITY_QC.json
+      - name: Enforce precommitted butterfly-photo STOP conditions for both radii (zero 2022 family requests)
+        run: |
+          python -u scripts/gesui_DE_2022_Lycaenidae_after_national_plant_gate.py \
+            --out results/lycaenidae_2022_DE_national_73pair_sourceonly/2022_BUTTERFLY_OUTCOME_STOP_BECAUSE_PRIOR_EFFORT_SOURCE_GATES_FAILED.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('results/lycaenidae_2022_DE_national_73pair_sourceonly/2022_BUTTERFLY_OUTCOME_STOP_BECAUSE_PRIOR_EFFORT_SOURCE_GATES_FAILED.json')
+          d=json.loads(p.read_text())
+          assert d['actual_public_2022_butterfly_photo_API_queries']==0, 'Butterfly data MUST NOT be read when support fails'
+          assert set(d['by_radius'])=={'2km','5km'}
+          assert all(v['status']=='STOP_PREBUTTERFLY_GATES_FAILED' and v['query_count']==0 for v in d['by_radius'].values())
+          print('Confirmed: zero Lycaenidae/Pieridae/Papilionidae outcome API queries; 2km and 5km source-observer support gates failed.')
+          PY
+      - name: Save numeric independent QA and pre-outcome stop on analysis branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_DE_national_73pair_sourceonly/INDEPENDENT_OFFLINE_NATIONAL73_ORIGINAL_PLANT_OPPORTUNITY_QC.json
+          git add results/lycaenidae_2022_DE_national_73pair_sourceonly/2022_BUTTERFLY_OUTCOME_STOP_BECAUSE_PRIOR_EFFORT_SOURCE_GATES_FAILED.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independently validate national73 prior plant-source gates and freeze zero-butterfly-query decision"
+          git fetch origin analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+          git rebase origin/analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+          git push origin HEAD:analysis/lycaenidae-national-2022-source-pair-effort-preoutcome-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DE-national73-pair-prebutterfly-independent-support-and-stop
+          path: |
+            results/lycaenidae_2022_DE_national_73pair_sourceonly/INDEPENDENT_OFFLINE_NATIONAL73_ORIGINAL_PLANT_OPPORTUNITY_QC.json
+            results/lycaenidae_2022_DE_national_73pair_sourceonly/2022_BUTTERFLY_OUTCOME_STOP_BECAUSE_PRIOR_EFFORT_SOURCE_GATES_FAILED.json
+          retention-days: 90
