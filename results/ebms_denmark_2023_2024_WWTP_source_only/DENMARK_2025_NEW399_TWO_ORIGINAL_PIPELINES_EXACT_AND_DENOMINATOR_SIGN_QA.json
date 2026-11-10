@@ -1,0 +1,141 @@
+{
+  "archived_original_input_sha256": {
+    "new_independent_original_399_family": "703070946a48956ca681c5a59c799d25db05a720e00917195916bf9d3075e56e",
+    "previous_5family_change": "2fa0a983d43d9aa5e55801dbd35894b1474e0a1e86f296dff786d1e3535df886",
+    "previous_region_component_analysis": "86e805efddc8cd8ea4af20c39123ab41a3f57cb5281312c72e229fb2f0caf19c",
+    "prior_frozen_399_family": "e4c42269ec62fe669af591ff1907653e8bc3239893bc079562246c7ebc104251"
+  },
+  "do_not_infer_2025_sewage_positive_or_negative_population_effect": true,
+  "five_family_vs_three_family_is_an_exploratory_posthoc_denominator_stress_test": true,
+  "full_Denmark_original_eBMS_license": "CC-BY-NC 4.0",
+  "independent_NEW399_near_remote_denominator_effects": {
+    "Lycaenidae_recording_per_published_date_near_over_remote": 0.8330759746021503,
+    "original_new399_cohort_near": {
+      "Lycaenidae_per_ANY_Occurrence_linked_date": 0.7087198515769945,
+      "Lycaenidae_share_3family": 0.35969868173258,
+      "Lycaenidae_share_5family": 0.07267884322678843,
+      "any_occurrence_linked_dates": 539,
+      "family_counts": {
+        "Hesperiidae": 372,
+        "Lycaenidae": 382,
+        "Nymphalidae": 3822,
+        "Papilionidae": 0,
+        "Pieridae": 680,
+        "Riodinidae": 0
+      },
+      "logodds_3family": -0.5760991688249303,
+      "logodds_5family": -2.545044160802736,
+      "site_count": 70
+    },
+    "original_new399_cohort_remote": {
+      "Lycaenidae_per_ANY_Occurrence_linked_date": 0.8507265521796565,
+      "Lycaenidae_share_3family": 0.19839802834257547,
+      "Lycaenidae_share_5family": 0.09223718132340304,
+      "any_occurrence_linked_dates": 757,
+      "family_counts": {
+        "Hesperiidae": 192,
+        "Lycaenidae": 644,
+        "Nymphalidae": 3544,
+        "Papilionidae": 0,
+        "Pieridae": 2602,
+        "Riodinidae": 0
+      },
+      "logodds_3family": -1.3957529781098819,
+      "logodds_5family": -2.285922603999539,
+      "site_count": 92
+    },
+    "pooled_five_family_share_oddsratio_near_over_remote": 0.7717292084064078,
+    "pooled_three_family_share_oddsratio_near_over_remote": 2.2697139476118786
+  },
+  "original_new399_2025_raw_licensed_Event_Occurrence_tables_NOT_accessed_for_this_offline_audit": true,
+  "original_previous_107_outcome_sites_excluded": true,
+  "original_source_399_independently_reconstructed_site_keys": 399,
+  "preselected_original_reporting_2plus_any_occurrence_dates_n": 286,
+  "region_equal_weight_families_logodds": {
+    "3family_equal_region_mean_logOR": -0.09652783660906712,
+    "3family_equal_region_or": 0.907984622034996,
+    "5family_equal_region_mean_logOR": -0.9052134579844543,
+    "5family_equal_region_or": 0.4044555416232778,
+    "n_country_1degree_near_and_remote_regions": 6,
+    "original_six_regions": [
+      {
+        "Lycaenidae_3family_composition_logodds_near_minus_remote": -2.586817811376433,
+        "Lycaenidae_5family_composition_logodds_near_minus_remote": -2.4718999262554826,
+        "Lycaenidae_recording_rate_near_over_remote": 0.08095916429249762,
+        "near_3family_share": 0.07971014492753623,
+        "near_5family_share": 0.02095238095238095,
+        "region_1degree": "55|10",
+        "remote_3family_share": 0.5454545454545454,
+        "remote_5family_share": 0.20855614973262032,
+        "remote_site_n": 8,
+        "source_site_n": 12
+      },
+      {
+        "Lycaenidae_3family_composition_logodds_near_minus_remote": 1.110342134685691,
+        "Lycaenidae_5family_composition_logodds_near_minus_remote": -0.0877297004379678,
+        "Lycaenidae_recording_rate_near_over_remote": 1.029032258064516,
+        "near_3family_share": 0.5789473684210527,
+        "near_5family_share": 0.1111111111111111,
+        "region_1degree": "55|11",
+        "remote_3family_share": 0.31007751937984496,
+        "remote_5family_share": 0.12108980827447023,
+        "remote_site_n": 21,
+        "source_site_n": 5
+      },
+      {
+        "Lycaenidae_3family_composition_logodds_near_minus_remote": 2.6904708829464186,
+        "Lycaenidae_5family_composition_logodds_near_minus_remote": 0.631713887526614,
+        "Lycaenidae_recording_rate_near_over_remote": 2.1869519000797233,
+        "near_3family_share": 0.5369458128078818,
+        "near_5family_share": 0.06554419723391461,
+        "region_1degree": "55|12",
+        "remote_3family_share": 0.0723055934515689,
+        "remote_5family_share": 0.03578663065496286,
+        "remote_site_n": 8,
+        "source_site_n": 19
+      },
+      {
+        "Lycaenidae_3family_composition_logodds_near_minus_remote": -0.5945574261452111,
+        "Lycaenidae_5family_composition_logodds_near_minus_remote": -1.3596355310759765,
+        "Lycaenidae_recording_rate_near_over_remote": 0.14442700156985872,
+        "near_3family_share": 0.058823529411764705,
+        "near_5family_share": 0.009584664536741214,
+        "region_1degree": "55|9",
+        "remote_3family_share": 0.11475409836065574,
+        "remote_5family_share": 0.041666666666666664,
+        "remote_site_n": 20,
+        "source_site_n": 4
+      },
+      {
+        "Lycaenidae_3family_composition_logodds_near_minus_remote": -0.48885426276483207,
+        "Lycaenidae_5family_composition_logodds_near_minus_remote": -0.6475788128871534,
+        "Lycaenidae_recording_rate_near_over_remote": 0.12954545454545455,
+        "near_3family_share": 0.3,
+        "near_5family_share": 0.05844155844155844,
+        "region_1degree": "56|10",
+        "remote_3family_share": 0.4177215189873418,
+        "remote_5family_share": 0.10963455149501661,
+        "remote_site_n": 4,
+        "source_site_n": 8
+      },
+      {
+        "Lycaenidae_3family_composition_logodds_near_minus_remote": -0.7097505370000361,
+        "Lycaenidae_5family_composition_logodds_near_minus_remote": -1.49615066477676,
+        "Lycaenidae_recording_rate_near_over_remote": 0.8499523658304224,
+        "near_3family_share": 0.3782771535580524,
+        "near_5family_share": 0.07902973395931143,
+        "region_1degree": "56|9",
+        "remote_3family_share": 0.5537190082644629,
+        "remote_5family_share": 0.2774327122153209,
+        "remote_site_n": 17,
+        "source_site_n": 13
+      }
+    ],
+    "regions_positive_3family": 2,
+    "regions_positive_5family": 1
+  },
+  "registered_source_WWTP_5km_proximity_not_actual_hydrological_exposure": true,
+  "schema": "gesui_DK2025_NEW399_2independent_raw_source_aggregate_exact_replay_and_denominator_sign_v01",
+  "six_accepted_family_exact_site_count_and_source_QA_mismatches": 0,
+  "source_frozen_before_2025_family_counts": true
+}
