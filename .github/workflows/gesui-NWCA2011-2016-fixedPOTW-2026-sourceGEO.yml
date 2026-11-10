@@ -1,0 +1,77 @@
+name: gesui NWCA2011 2016 original vegetation plots x NPDES sewage outfall SOURCE gate
+on:
+  push:
+    branches: ["analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2011-2016-fixedPOTW-2026-sourceGEO.yml"
+      - "scripts/gesui_NWCA2011_2016_fixedPOTW2026_near10_far20_source_ONLY.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_2011_2016_POTW_near_far_source_only_no_HALL:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Use the same original official NPDES2016/2011 geometry source reader and require pre-outcome gate
+        run: |
+          python -m pip install --quiet numpy pandas scipy
+          python -m py_compile scripts/gesui_NWCA2011_2016_fixedPOTW2026_near10_far20_source_ONLY.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_ORIGINAL_SITE_VEG_SOURCE_BEFORE_PLANT_OUTCOMES.json").read_text())
+          assert all(x["source_years"][i]["source_gate_STATUS"]=="SOURCE_SITE_VEG_PASS" for i in ("2011","2016"))
+          print("Original 2011 and 2016 source site/vegetation and Survey sample PASS; H_ALL not read")
+          PY
+      - name: Reacquire original official EPA site/veg CSVs, verify against preoutcome SHA
+        run: |
+          mkdir -p /tmp/gesui-nwca-history
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2023-04/nwca11_siteinfo.csv" \
+            -o /tmp/gesui-nwca-history/2011_siteinfo.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/sites/default/files/2016-10/nwca2011_vegmetrics.csv" \
+            -o /tmp/gesui-nwca-history/2011_vegmetrics.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2022-04/nwca-2016-site-information-data_0.csv" \
+            -o /tmp/gesui-nwca-history/2016_siteinfo.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2023-03/nwca_2016_veg_metrics.csv" \
+            -o /tmp/gesui-nwca-history/2016_vegmetrics.csv
+      - name: Reacquire exact official 2026 EPA registered sewage outfall source snapshot with original SHA
+        run: |
+          mkdir -p /tmp/gesui-nwca-history
+          curl --fail --location --retry 3 --max-time 300 --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-nwca-history/npdes_outfalls_layer.zip
+          echo "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/gesui-nwca-history/npdes_outfalls_layer.zip" | sha256sum -c -
+      - name: Match 2011 and 2016 original site IDs to same historical permit-possible registered POTW geo categories, NO biodiversity values
+        run: |
+          python -u scripts/gesui_NWCA2011_2016_fixedPOTW2026_near10_far20_source_ONLY.py \
+            --source-dir /tmp/gesui-nwca-history \
+            --npdes-zip /tmp/gesui-nwca-history/npdes_outfalls_layer.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_POTW2026_SOURCE_ONLY_NEAR10_FAR20_2CYCLE.json
+      - name: Archive source-only independent year exposure candidate availability before H_ALL estimates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_POTW2026_SOURCE_ONLY_NEAR10_FAR20_2CYCLE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive original 2011/2016 NWCA site-only 2026 POTW proximity near10/far20 availability and historical permit constraints"
+          git fetch origin analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git rebase origin/analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git push origin HEAD:analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2011-2016-independentPOTW-sourceGEO
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_POTW2026_SOURCE_ONLY_NEAR10_FAR20_2CYCLE.json
+          retention-days: 90
