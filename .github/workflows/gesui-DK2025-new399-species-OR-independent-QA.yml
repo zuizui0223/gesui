@@ -1,0 +1,40 @@
+name: gesui DK2025 NEW399 independent species denominator 63 canonical arithmetic audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-species-composition-decomposition-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK2025-new399-species-OR-independent-QA.yml"
+      - "scripts/audit_gesui_DK2025_NEW399_species_63canonical_group_counts_and_OR.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_species_source_63_usage_keys:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Rebuild 399-source-site original five-family counts, 63 canonical species and all remove-one-species pooled family odds
+        run: |
+          python -m py_compile scripts/audit_gesui_DK2025_NEW399_species_63canonical_group_counts_and_OR.py
+          python -u scripts/audit_gesui_DK2025_NEW399_species_63canonical_group_counts_and_OR.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_SPECIES_ORIGINAL_63CANONICAL_INDEPENDENT_QA.json
+      - name: Archive source-traceable licensed five-family species aggregate arithmetic without site-level taxa
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_SPECIES_ORIGINAL_63CANONICAL_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit Danish 2025 source-group accepted-species taxon aliases and original 3vs5 pooled composition influence"
+          git fetch origin analysis/dk-ebms-2025-species-composition-decomposition-20261110
+          git rebase origin/analysis/dk-ebms-2025-species-composition-decomposition-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-species-composition-decomposition-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK2025-new399-original-63canonical-species-denominator-independent-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_SPECIES_ORIGINAL_63CANONICAL_INDEPENDENT_QA.json
+          retention-days: 90
