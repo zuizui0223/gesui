@@ -49,7 +49,12 @@ def run(root,jones,world):
                     "source_WWp_log1p","source_WWp2015_million_m3_per_year_within25km",
                     "source_WWTP_count_25km","source_ESA2021_built_fraction","source_ESA2021_crop_fraction")
             for k in fields:
-                if row[k]!=s[k]:
+                got,prior=s[k],row[k]
+                if isinstance(got,(int,float)) and isinstance(prior,(int,float)):
+                    consistent=math.isclose(float(got),float(prior),rel_tol=1e-12,abs_tol=1e-12)
+                else:
+                    consistent=(got==prior)
+                if not consistent:
                     raise ValueError("Original pilot source WPI2019 port/2015 WWp/2021 WorldCover changed "+k)
         rows.append(row)
     if len(rows)!=1055 or len({x["original_port_id"] for x in rows})!=1055 or len({x["original_source_country"] for x in rows})!=42:
