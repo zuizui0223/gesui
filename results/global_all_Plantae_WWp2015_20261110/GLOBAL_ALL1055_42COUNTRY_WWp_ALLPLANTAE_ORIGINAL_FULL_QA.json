@@ -1,0 +1,78 @@
+{
+  "allplantae_GBIF_species_record_not_local_floristic_abundance_or_non_native_status": true,
+  "independent_four_full_global_WWp_countryFE_beta_countrycluster95": {
+    "all_Plantae_GBIF_record_count": {
+      "beta": 0.2941113425612547,
+      "country_cluster95": [
+        0.12870674190275322,
+        0.4595159432197562
+      ],
+      "n_countries": 38,
+      "n_ports": 752,
+      "source_regressors": 45
+    },
+    "rarefied50_Plantae": {
+      "beta": 0.012556691365216425,
+      "country_cluster95": [
+        -0.0008784230004242125,
+        0.025991805730857062
+      ],
+      "n_countries": 38,
+      "n_ports": 752,
+      "source_regressors": 45
+    },
+    "rarefied50_plus_original_plant_record_effort": {
+      "beta": 0.008094549556621942,
+      "country_cluster95": [
+        -0.0029358118962019425,
+        0.019124911009445827
+      ],
+      "n_countries": 38,
+      "n_ports": 752,
+      "source_regressors": 46
+    },
+    "raw_Plantae_speciesKey": {
+      "beta": 0.17567180083445774,
+      "country_cluster95": [
+        0.06685392335431577,
+        0.2844896783145997
+      ],
+      "n_countries": 38,
+      "n_ports": 752,
+      "source_regressors": 45
+    }
+  },
+  "independent_source_support_gate": true,
+  "independent_spatial_country_holdout_MSE": {
+    "unseen_country": {
+      "countries": 38,
+      "country_equal_relative_mse_gain_percent": 0.8322299325790231,
+      "port_count": 752,
+      "port_equal_relative_mse_gain_percent": 0.6502285598654656
+    },
+    "within_country_2deg": {
+      "countries": 25,
+      "country_equal_relative_mse_gain_percent": 1.7942095407754863,
+      "port_count": 684,
+      "port_equal_relative_mse_gain_percent": 1.0023011848410917
+    }
+  },
+  "modeled2015_WWp_is_not_real_wastewater_nutrient_source_to_terrestrial_plants": true,
+  "new808_outcome_posthoc_after_pilot_known": true,
+  "old247_sources_also_in_full1055_exactly_unchanged": true,
+  "original_all1055_query_urls_years_taxon_radii_and_sha_checked": true,
+  "original_four_new808_GBIF_source_shards_202sites_each": true,
+  "original_full_GBIF_all_Plantae_record_and_speciesKey_QC": {
+    "api_success": 1055,
+    "source_invalid_plant_sampling_support": 303,
+    "source_valid": 752
+  },
+  "quality_supported_countries": 38,
+  "schema": "gesui_2026_11_global1055_WWp2015_allPlantae_countryFE_2degree_countryHoldout_independent_arithmetic_QA_v01",
+  "source_inputSHA256": {
+    "frozen1055": "cd42b13392af99ade0ce4815e7bc6be11a6c04e34551944bf086263c76ef9e18",
+    "macro_model": "85f2034fcbc04b1275795bc0589cd239ed3695b54e9a490f2667613c27bc5357",
+    "old247": "06fce2027873824355638e211cef763ef159e8decc3a11853f63dcbb9f621247",
+    "sourceGBIF1055": "53721fcecc41d9dd34f42fc3fa47b167d3aa0214a4ece19a210f946c0d152126"
+  }
+}
