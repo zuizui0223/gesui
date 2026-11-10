@@ -1,0 +1,44 @@
+{
+  "UTC": "2026-11-10T08:06:53.869934+00:00",
+  "explicit_limit_third_party_HydroRIVERS_source_not_validated_against_official": true,
+  "independent_near5_observer_points_that_snap_within_500m": 20,
+  "new_2025_Lycaenidae_outcomes_not_read_to_estimate_directed_WWTP_effect": true,
+  "original_203_registered_outfalls_reproduced": true,
+  "original_286_event_only_2025_monitor_site_keys_reproduced": true,
+  "original_direction_classification_counts": {
+    "BOTH_SNAPPED_NO_VERIFIED_DIRECTED_ROUTE_LE50KM": 3,
+    "DOWNSTREAM_CONNECTED_LE10KM": 10,
+    "SAME_REACH_ORDER_UNKNOWN": 4,
+    "SITE_REACH_NOT_SNAPPED": 69,
+    "SOURCE_REACH_NOT_SNAPPED": 2,
+    "UPSTREAM_CONNECTED_LE10KM": 4
+  },
+  "original_near5_source_monitor_site_count": 70,
+  "original_prespecified_downstream_and_upstream_site_source_support_PASS": false,
+  "original_river_source_digest_verified_by_original_action_not_reopened_in_this_offline_audit": true,
+  "original_site_source_pairs_le5km": 92,
+  "registered_2022_outfall_location_is_not_measured_2025_water_chemistry_or_puddling_site": true,
+  "schema": "gesui_DK_2025_286site_registeredWWTP203_HydroRIVERS_direction_source_only_offline_QA_v01",
+  "source_files_sha256": {
+    "directional": "35a6af59d243bddfe07431d76c261a12f84b9ef32ec6dbe2482a8698d663ca55",
+    "original399_source": "cd9fd32d88c34f59e471156e32a430a493f964f8a6f1a6758a57abfe08e884b1",
+    "originalEventEEA": "bd0e33d269f6ab718d1b3089fb09da83b43fc3a19818fb3ea8eef3dbe6b91790"
+  },
+  "strict_DOWNSTREAM_reach_path": {
+    "actual_distinct_2022_outfall_river_reach_ids": 2,
+    "actual_distinct_butterfly_monitor_river_reach_ids": 2,
+    "actual_distinct_registered_outfall_IDs": 2,
+    "note": "These are network-related 2025 eBMS site CENTROIDS only, not sampled wastewater-receiving butterfly habitat; ten sites collapse to two downstream reach IDs.",
+    "original_1degree_geography_units": 2,
+    "public_site_distinct_n": 10,
+    "site_count_per_original_registered_WWTP_ID": {
+      "d61132a0358a00ea26b50ff949b5ee69067fb2b61c969dfe904d5d207b3b2fbf": 7,
+      "e7177208ed919785079a5895f8cfe03875a2438fc720dd0da636a7c744ffcfcf": 3
+    }
+  },
+  "strict_UPSTREAM_reach_path": {
+    "distinct_eBMS_site_centroids": 4,
+    "distinct_original_1degree_regions": 2,
+    "distinct_registered_2022_EEA_outfalls": 2
+  }
+}
