@@ -1,0 +1,39 @@
+name: gesui 2025 Denmark original eBMS Event-to-Occurrence reporting missingness audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-outoftime-lycaenidae-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms-2025-original-event-occurrence-missingness.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-2023-2025-event-to-occurrence-source-publication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently quantify public original 2023-2025 Event rows missing any linked Occurrence records
+        run: |
+          python -m py_compile scripts/audit_DK_eBMS_2025_original_Event_without_Occurrence_missingness.py
+          python -u scripts/audit_DK_eBMS_2025_original_Event_without_Occurrence_missingness.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_ORIGINAL_EVENT_OCCURRENCE_PUBLICATION_MISSINGNESS_QA.json
+      - name: Preserve only aggregated license-compliant recording completeness QC
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_ORIGINAL_EVENT_OCCURRENCE_PUBLICATION_MISSINGNESS_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record original Danish EBMS 2023-2025 Event-without-Occurrence sampling ambiguity per source band"
+          git fetch origin analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git rebase origin/analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-eBMS-original-event-occurrence-publication-missingness-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_ORIGINAL_EVENT_OCCURRENCE_PUBLICATION_MISSINGNESS_QA.json
+          retention-days: 90

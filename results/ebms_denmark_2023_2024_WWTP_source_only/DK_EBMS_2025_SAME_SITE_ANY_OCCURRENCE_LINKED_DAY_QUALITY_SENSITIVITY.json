@@ -1,0 +1,990 @@
+{
+  "2025_original_source_outfall_count": 4,
+  "Event_without_Occurrence_is_NA_in_sensitivity_not_confirmed_biological_zero": true,
+  "analysis_POSTHOC_after_2025_source_proximity_family_result_seen": true,
+  "linked_Occurrence_rows_are_only_a_proxy_of_reported_survey_completeness": true,
+  "original_2025_sourcecluster_reporting_completeness": [
+    {
+      "original_near_site_rows": 4,
+      "outfall_id_SHA256": "1bb2f0aa2994835dc86ecd28be5545b8382722c8b9e76dc97463b98dc6d9d881",
+      "years": {
+        "2023": {
+          "Lycaenidae_individual_count_original_recorded": 0,
+          "original_event_site_count": 4,
+          "original_sites_with_2plus_published_Occurrence_dates": 0,
+          "total_original_Events": 20,
+          "total_original_Events_with_any_Occurrence": 3
+        },
+        "2024": {
+          "Lycaenidae_individual_count_original_recorded": 4,
+          "original_event_site_count": 4,
+          "original_sites_with_2plus_published_Occurrence_dates": 4,
+          "total_original_Events": 45,
+          "total_original_Events_with_any_Occurrence": 22
+        },
+        "2025": {
+          "Lycaenidae_individual_count_original_recorded": 3,
+          "original_event_site_count": 4,
+          "original_sites_with_2plus_published_Occurrence_dates": 3,
+          "total_original_Events": 30,
+          "total_original_Events_with_any_Occurrence": 14
+        }
+      }
+    },
+    {
+      "original_near_site_rows": 7,
+      "outfall_id_SHA256": "b56efff048d8c347b7ee805b9c2c622b57ab335fb2b6d33870a1172f7c41981d",
+      "years": {
+        "2023": {
+          "Lycaenidae_individual_count_original_recorded": 0,
+          "original_event_site_count": 7,
+          "original_sites_with_2plus_published_Occurrence_dates": 0,
+          "total_original_Events": 21,
+          "total_original_Events_with_any_Occurrence": 4
+        },
+        "2024": {
+          "Lycaenidae_individual_count_original_recorded": 0,
+          "original_event_site_count": 7,
+          "original_sites_with_2plus_published_Occurrence_dates": 0,
+          "total_original_Events": 49,
+          "total_original_Events_with_any_Occurrence": 6
+        },
+        "2025": {
+          "Lycaenidae_individual_count_original_recorded": 0,
+          "original_event_site_count": 7,
+          "original_sites_with_2plus_published_Occurrence_dates": 0,
+          "total_original_Events": 28,
+          "total_original_Events_with_any_Occurrence": 0
+        }
+      }
+    },
+    {
+      "original_near_site_rows": 5,
+      "outfall_id_SHA256": "d61132a0358a00ea26b50ff949b5ee69067fb2b61c969dfe904d5d207b3b2fbf",
+      "years": {
+        "2023": {
+          "Lycaenidae_individual_count_original_recorded": 44,
+          "original_event_site_count": 5,
+          "original_sites_with_2plus_published_Occurrence_dates": 5,
+          "total_original_Events": 36,
+          "total_original_Events_with_any_Occurrence": 29
+        },
+        "2024": {
+          "Lycaenidae_individual_count_original_recorded": 28,
+          "original_event_site_count": 5,
+          "original_sites_with_2plus_published_Occurrence_dates": 5,
+          "total_original_Events": 60,
+          "total_original_Events_with_any_Occurrence": 40
+        },
+        "2025": {
+          "Lycaenidae_individual_count_original_recorded": 78,
+          "original_event_site_count": 5,
+          "original_sites_with_2plus_published_Occurrence_dates": 5,
+          "total_original_Events": 66,
+          "total_original_Events_with_any_Occurrence": 43
+        }
+      }
+    },
+    {
+      "original_near_site_rows": 7,
+      "outfall_id_SHA256": "e4575a25d9b50ee0dc979de308ea80580fe1c0f1e36c3a082bfa21b4176a7e66",
+      "years": {
+        "2023": {
+          "Lycaenidae_individual_count_original_recorded": 30,
+          "original_event_site_count": 7,
+          "original_sites_with_2plus_published_Occurrence_dates": 5,
+          "total_original_Events": 42,
+          "total_original_Events_with_any_Occurrence": 30
+        },
+        "2024": {
+          "Lycaenidae_individual_count_original_recorded": 2,
+          "original_event_site_count": 7,
+          "original_sites_with_2plus_published_Occurrence_dates": 6,
+          "total_original_Events": 90,
+          "total_original_Events_with_any_Occurrence": 54
+        },
+        "2025": {
+          "Lycaenidae_individual_count_original_recorded": 14,
+          "original_event_site_count": 7,
+          "original_sites_with_2plus_published_Occurrence_dates": 6,
+          "total_original_Events": 91,
+          "total_original_Events_with_any_Occurrence": 56
+        }
+      }
+    }
+  ],
+  "original_full_siteyears": 321,
+  "original_source_SHA256": {
+    "2023_2024_family": "3a60f6dd9789f227807a650d329d964eab27a234aec920e8650d514ba9a8ebb6",
+    "2023_2025_Event_Occ_linkage_QA": "1d6efb0a781dc25167bf048b72a4003bca4c1239107126da0a59839b5092e969",
+    "2025_original_new_family": "7e9a9e0fdadddd1954dec274f97ffb60e1d4f2621c472023672502d8cf05dfc9",
+    "original_sites": "bd0e33d269f6ab718d1b3089fb09da83b43fc3a19818fb3ea8eef3dbe6b91790"
+  },
+  "quality_matched_2023_2024_2025_linked_2plus_same_sites": {
+    "eligible_same_source_site_n": {
+      "intermediate": 36,
+      "near5": 10,
+      "remote10": 26
+    },
+    "group_year": {
+      "intermediate": {
+        "2023": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.6180758017492711,
+          "Lycaenidae_share_of_target_three_families": 0.5362318840579711,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.3323615160349854,
+            "Lycaenidae": 1.6180758017492711,
+            "Nymphalidae": 6.641399416909621,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.3994169096209912
+          },
+          "n_source_linked_siteyears": 36,
+          "original_unfiltered_Event_distinct_days": 442,
+          "published_Occurrence_linked_distinct_survey_days": 343,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 114,
+            "Lycaenidae": 555,
+            "Nymphalidae": 2278,
+            "Papilionidae": 0,
+            "Pieridae": 480
+          },
+          "zero_target_family_count_siteyears": 0
+        },
+        "2024": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.128787878787879,
+          "Lycaenidae_share_of_target_three_families": 0.4265267175572519,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.4292929292929293,
+            "Lycaenidae": 1.128787878787879,
+            "Nymphalidae": 5.467171717171717,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.5176767676767677
+          },
+          "n_source_linked_siteyears": 36,
+          "original_unfiltered_Event_distinct_days": 540,
+          "published_Occurrence_linked_distinct_survey_days": 396,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 170,
+            "Lycaenidae": 447,
+            "Nymphalidae": 2165,
+            "Papilionidae": 0,
+            "Pieridae": 601
+          },
+          "zero_target_family_count_siteyears": 0
+        },
+        "2025": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.470737913486005,
+          "Lycaenidae_share_of_target_three_families": 0.48247078464106846,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.6921119592875318,
+            "Lycaenidae": 1.470737913486005,
+            "Nymphalidae": 5.862595419847328,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.5776081424936388
+          },
+          "n_source_linked_siteyears": 36,
+          "original_unfiltered_Event_distinct_days": 521,
+          "published_Occurrence_linked_distinct_survey_days": 393,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 272,
+            "Lycaenidae": 578,
+            "Nymphalidae": 2304,
+            "Papilionidae": 0,
+            "Pieridae": 620
+          },
+          "zero_target_family_count_siteyears": 0
+        }
+      },
+      "near5": {
+        "2023": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.2758620689655173,
+          "Lycaenidae_share_of_target_three_families": 0.37,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.9310344827586207,
+            "Lycaenidae": 1.2758620689655173,
+            "Nymphalidae": 6.172413793103448,
+            "Papilionidae": 0.0,
+            "Pieridae": 2.1724137931034484
+          },
+          "n_source_linked_siteyears": 10,
+          "original_unfiltered_Event_distinct_days": 60,
+          "published_Occurrence_linked_distinct_survey_days": 58,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 54,
+            "Lycaenidae": 74,
+            "Nymphalidae": 358,
+            "Papilionidae": 0,
+            "Pieridae": 126
+          },
+          "zero_target_family_count_siteyears": 0
+        },
+        "2024": {
+          "Lycaenidae_per_Occurrence_linked_date": 0.32967032967032966,
+          "Lycaenidae_share_of_target_three_families": 0.2,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.5714285714285714,
+            "Lycaenidae": 0.32967032967032966,
+            "Nymphalidae": 4.65934065934066,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.3186813186813187
+          },
+          "n_source_linked_siteyears": 10,
+          "original_unfiltered_Event_distinct_days": 110,
+          "published_Occurrence_linked_distinct_survey_days": 91,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 52,
+            "Lycaenidae": 30,
+            "Nymphalidae": 424,
+            "Papilionidae": 0,
+            "Pieridae": 120
+          },
+          "zero_target_family_count_siteyears": 0
+        },
+        "2025": {
+          "Lycaenidae_per_Occurrence_linked_date": 0.9787234042553191,
+          "Lycaenidae_share_of_target_three_families": 0.40350877192982454,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.7978723404255319,
+            "Lycaenidae": 0.9787234042553191,
+            "Nymphalidae": 10.23404255319149,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.446808510638298
+          },
+          "n_source_linked_siteyears": 10,
+          "original_unfiltered_Event_distinct_days": 120,
+          "published_Occurrence_linked_distinct_survey_days": 94,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 75,
+            "Lycaenidae": 92,
+            "Nymphalidae": 962,
+            "Papilionidae": 0,
+            "Pieridae": 136
+          },
+          "zero_target_family_count_siteyears": 0
+        }
+      },
+      "remote10": {
+        "2023": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.5587044534412955,
+          "Lycaenidae_share_of_target_three_families": 0.5252387448840382,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 1.1417004048582995,
+            "Lycaenidae": 1.5587044534412955,
+            "Nymphalidae": 7.319838056680162,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.408906882591093
+          },
+          "n_source_linked_siteyears": 26,
+          "original_unfiltered_Event_distinct_days": 289,
+          "published_Occurrence_linked_distinct_survey_days": 247,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 282,
+            "Lycaenidae": 385,
+            "Nymphalidae": 1808,
+            "Papilionidae": 0,
+            "Pieridae": 348
+          },
+          "zero_target_family_count_siteyears": 1
+        },
+        "2024": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.6745762711864407,
+          "Lycaenidae_share_of_target_three_families": 0.5151199165797706,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 1.6711864406779662,
+            "Lycaenidae": 1.6745762711864407,
+            "Nymphalidae": 5.827118644067797,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.576271186440678
+          },
+          "n_source_linked_siteyears": 26,
+          "original_unfiltered_Event_distinct_days": 464,
+          "published_Occurrence_linked_distinct_survey_days": 295,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 493,
+            "Lycaenidae": 494,
+            "Nymphalidae": 1719,
+            "Papilionidae": 0,
+            "Pieridae": 465
+          },
+          "zero_target_family_count_siteyears": 0
+        },
+        "2025": {
+          "Lycaenidae_per_Occurrence_linked_date": 2.049122807017544,
+          "Lycaenidae_share_of_target_three_families": 0.6517857142857143,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 2.7508771929824563,
+            "Lycaenidae": 2.049122807017544,
+            "Nymphalidae": 8.066666666666666,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.0947368421052632
+          },
+          "n_source_linked_siteyears": 26,
+          "original_unfiltered_Event_distinct_days": 436,
+          "published_Occurrence_linked_distinct_survey_days": 285,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 784,
+            "Lycaenidae": 584,
+            "Nymphalidae": 2299,
+            "Papilionidae": 0,
+            "Pieridae": 312
+          },
+          "zero_target_family_count_siteyears": 0
+        }
+      }
+    },
+    "quality_gate_at_least_2_separate_dates_with_any_original_Occurrence_record_per_year": true,
+    "relative_Lycaenidae_change_2024_to_2025": {
+      "Hesperiidae": {
+        "near_2025_over_2024": 1.396276595744681,
+        "rate_ratio_of_ratios": 0.8482525211220443,
+        "remote_2025_over_2024": 1.646062417707555
+      },
+      "Lycaenidae": {
+        "near_2025_over_2024": 2.968794326241135,
+        "rate_ratio_of_ratios": 2.4261466983485565,
+        "remote_2025_over_2024": 1.2236664535833512
+      },
+      "Nymphalidae": {
+        "near_2025_over_2024": 2.196457246085909,
+        "rate_ratio_of_ratios": 1.5866549962270673,
+        "remote_2025_over_2024": 1.3843319759550126
+      },
+      "Papilionidae": {
+        "near_2025_over_2024": null,
+        "rate_ratio_of_ratios": null,
+        "remote_2025_over_2024": null
+      },
+      "Pieridae": {
+        "near_2025_over_2024": 1.097163120567376,
+        "rate_ratio_of_ratios": 1.5797646952758744,
+        "remote_2025_over_2024": 0.6945104697226939
+      }
+    },
+    "same_original_geographic_site_required_all_source_years": true
+  },
+  "quality_matched_2024_2025_linked_2plus_same_sites": {
+    "eligible_same_source_site_n": {
+      "intermediate": 38,
+      "near5": 14,
+      "remote10": 27
+    },
+    "group_year": {
+      "intermediate": {
+        "2024": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.114713216957606,
+          "Lycaenidae_share_of_target_three_families": 0.4257142857142857,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.42643391521197005,
+            "Lycaenidae": 1.114713216957606,
+            "Nymphalidae": 5.41147132169576,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.5037406483790523
+          },
+          "n_source_linked_siteyears": 38,
+          "original_unfiltered_Event_distinct_days": 546,
+          "published_Occurrence_linked_distinct_survey_days": 401,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 171,
+            "Lycaenidae": 447,
+            "Nymphalidae": 2170,
+            "Papilionidae": 0,
+            "Pieridae": 603
+          },
+          "zero_target_family_count_siteyears": 1
+        },
+        "2025": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.456140350877193,
+          "Lycaenidae_share_of_target_three_families": 0.4821576763485477,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.681704260651629,
+            "Lycaenidae": 1.456140350877193,
+            "Nymphalidae": 5.7894736842105265,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.5639097744360901
+          },
+          "n_source_linked_siteyears": 38,
+          "original_unfiltered_Event_distinct_days": 527,
+          "published_Occurrence_linked_distinct_survey_days": 399,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 272,
+            "Lycaenidae": 581,
+            "Nymphalidae": 2310,
+            "Papilionidae": 0,
+            "Pieridae": 624
+          },
+          "zero_target_family_count_siteyears": 0
+        }
+      },
+      "near5": {
+        "2024": {
+          "Lycaenidae_per_Occurrence_linked_date": 0.30357142857142855,
+          "Lycaenidae_share_of_target_three_families": 0.19101123595505617,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.4642857142857143,
+            "Lycaenidae": 0.30357142857142855,
+            "Nymphalidae": 4.017857142857143,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.2857142857142858
+          },
+          "n_source_linked_siteyears": 14,
+          "original_unfiltered_Event_distinct_days": 149,
+          "published_Occurrence_linked_distinct_survey_days": 112,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 52,
+            "Lycaenidae": 34,
+            "Nymphalidae": 450,
+            "Papilionidae": 0,
+            "Pieridae": 144
+          },
+          "zero_target_family_count_siteyears": 0
+        },
+        "2025": {
+          "Lycaenidae_per_Occurrence_linked_date": 0.8482142857142857,
+          "Lycaenidae_share_of_target_three_families": 0.39094650205761317,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 0.6785714285714286,
+            "Lycaenidae": 0.8482142857142857,
+            "Nymphalidae": 9.026785714285714,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.3214285714285714
+          },
+          "n_source_linked_siteyears": 14,
+          "original_unfiltered_Event_distinct_days": 151,
+          "published_Occurrence_linked_distinct_survey_days": 112,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 76,
+            "Lycaenidae": 95,
+            "Nymphalidae": 1011,
+            "Papilionidae": 0,
+            "Pieridae": 148
+          },
+          "zero_target_family_count_siteyears": 0
+        }
+      },
+      "remote10": {
+        "2024": {
+          "Lycaenidae_per_Occurrence_linked_date": 1.6466666666666667,
+          "Lycaenidae_share_of_target_three_families": 0.5129802699896158,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 1.6433333333333333,
+            "Lycaenidae": 1.6466666666666667,
+            "Nymphalidae": 5.733333333333333,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.5633333333333332
+          },
+          "n_source_linked_siteyears": 27,
+          "original_unfiltered_Event_distinct_days": 479,
+          "published_Occurrence_linked_distinct_survey_days": 300,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 493,
+            "Lycaenidae": 494,
+            "Nymphalidae": 1720,
+            "Papilionidae": 0,
+            "Pieridae": 469
+          },
+          "zero_target_family_count_siteyears": 0
+        },
+        "2025": {
+          "Lycaenidae_per_Occurrence_linked_date": 2.0034246575342465,
+          "Lycaenidae_share_of_target_three_families": 0.6464088397790055,
+          "family_individualCount_per_Occurrence_linked_date": {
+            "Hesperiidae": 2.684931506849315,
+            "Lycaenidae": 2.0034246575342465,
+            "Nymphalidae": 7.907534246575342,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.095890410958904
+          },
+          "n_source_linked_siteyears": 27,
+          "original_unfiltered_Event_distinct_days": 450,
+          "published_Occurrence_linked_distinct_survey_days": 292,
+          "recorded_individualCount_family": {
+            "Hesperiidae": 784,
+            "Lycaenidae": 585,
+            "Nymphalidae": 2309,
+            "Papilionidae": 0,
+            "Pieridae": 320
+          },
+          "zero_target_family_count_siteyears": 0
+        }
+      }
+    },
+    "quality_gate_at_least_2_separate_dates_with_any_original_Occurrence_record_per_year": true,
+    "relative_Lycaenidae_change_2024_to_2025": {
+      "Hesperiidae": {
+        "near_2025_over_2024": 1.4615384615384615,
+        "rate_ratio_of_ratios": 0.8945460491889062,
+        "remote_2025_over_2024": 1.6338325599488734
+      },
+      "Lycaenidae": {
+        "near_2025_over_2024": 2.794117647058824,
+        "rate_ratio_of_ratios": 2.2965577342047934,
+        "remote_2025_over_2024": 1.216654650324441
+      },
+      "Nymphalidae": {
+        "near_2025_over_2024": 2.246666666666666,
+        "rate_ratio_of_ratios": 1.6289387421202055,
+        "remote_2025_over_2024": 1.3792210895189552
+      },
+      "Papilionidae": {
+        "near_2025_over_2024": null,
+        "rate_ratio_of_ratios": null,
+        "remote_2025_over_2024": null
+      },
+      "Pieridae": {
+        "near_2025_over_2024": 1.0277777777777777,
+        "rate_ratio_of_ratios": 1.4661678240740739,
+        "remote_2025_over_2024": 0.7009959984811753
+      }
+    },
+    "same_original_geographic_site_required_all_source_years": true
+  },
+  "report_limited_subsets_not_population_effect": true,
+  "schema": "gesui_DK_EBMS_2025_source_band_quality_corrected_LINKED_occurrence_survey_days_posthoc_v01",
+  "source_static_2022_WWTP_near_distance_not_treatment_or_biochemical_dose": true,
+  "warning_entire_WWTP_cluster_without_published_2025_occurrences": [
+    "b56efff048d8c347b7ee805b9c2c622b57ab335fb2b6d33870a1172f7c41981d"
+  ],
+  "yearbands_orig_All107_siteyears": {
+    "2023_intermediate": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.5988538681948423,
+        "Lycaenidae_share_of_target_three_families": 0.5289099526066351,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.332378223495702,
+          "Lycaenidae": 1.5988538681948423,
+          "Nymphalidae": 6.587392550143266,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.4240687679083095
+        },
+        "n_source_linked_siteyears": 46,
+        "original_unfiltered_Event_distinct_days": 512,
+        "published_Occurrence_linked_distinct_survey_days": 349,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 116,
+          "Lycaenidae": 558,
+          "Nymphalidae": 2299,
+          "Papilionidae": 0,
+          "Pieridae": 497
+        },
+        "zero_target_family_count_siteyears": 7
+      },
+      "original_total_site_years": 46,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.6127167630057804,
+        "Lycaenidae_share_of_target_three_families": 0.5344827586206896,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.3352601156069364,
+          "Lycaenidae": 1.6127167630057804,
+          "Nymphalidae": 6.635838150289017,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.4046242774566473
+        },
+        "n_source_linked_siteyears": 37,
+        "original_unfiltered_Event_distinct_days": 445,
+        "published_Occurrence_linked_distinct_survey_days": 346,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 116,
+          "Lycaenidae": 558,
+          "Nymphalidae": 2296,
+          "Papilionidae": 0,
+          "Pieridae": 486
+        },
+        "zero_target_family_count_siteyears": 0
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 37,
+      "unlinked_2plus_event_rows_not_false_zero": 9
+    },
+    "2023_near5": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.15625,
+        "Lycaenidae_share_of_target_three_families": 0.36633663366336633,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.84375,
+          "Lycaenidae": 1.15625,
+          "Nymphalidae": 6.046875,
+          "Papilionidae": 0.0,
+          "Pieridae": 2.0
+        },
+        "n_source_linked_siteyears": 23,
+        "original_unfiltered_Event_distinct_days": 102,
+        "published_Occurrence_linked_distinct_survey_days": 64,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 54,
+          "Lycaenidae": 74,
+          "Nymphalidae": 387,
+          "Papilionidae": 0,
+          "Pieridae": 128
+        },
+        "zero_target_family_count_siteyears": 12
+      },
+      "original_total_site_years": 23,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.2758620689655173,
+        "Lycaenidae_share_of_target_three_families": 0.37,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.9310344827586207,
+          "Lycaenidae": 1.2758620689655173,
+          "Nymphalidae": 6.172413793103448,
+          "Papilionidae": 0.0,
+          "Pieridae": 2.1724137931034484
+        },
+        "n_source_linked_siteyears": 10,
+        "original_unfiltered_Event_distinct_days": 60,
+        "published_Occurrence_linked_distinct_survey_days": 58,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 54,
+          "Lycaenidae": 74,
+          "Nymphalidae": 358,
+          "Papilionidae": 0,
+          "Pieridae": 126
+        },
+        "zero_target_family_count_siteyears": 0
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 10,
+      "unlinked_2plus_event_rows_not_false_zero": 13
+    },
+    "2023_remote10": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.5,
+        "Lycaenidae_share_of_target_three_families": 0.5215633423180593,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 1.0930232558139534,
+          "Lycaenidae": 1.5,
+          "Nymphalidae": 7.054263565891473,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.375968992248062
+        },
+        "n_source_linked_siteyears": 38,
+        "original_unfiltered_Event_distinct_days": 378,
+        "published_Occurrence_linked_distinct_survey_days": 258,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 282,
+          "Lycaenidae": 387,
+          "Nymphalidae": 1820,
+          "Papilionidae": 0,
+          "Pieridae": 355
+        },
+        "zero_target_family_count_siteyears": 10
+      },
+      "original_total_site_years": 38,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.5058365758754864,
+        "Lycaenidae_share_of_target_three_families": 0.5215633423180593,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 1.0972762645914398,
+          "Lycaenidae": 1.5058365758754864,
+          "Nymphalidae": 7.0778210116731515,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.3813229571984436
+        },
+        "n_source_linked_siteyears": 29,
+        "original_unfiltered_Event_distinct_days": 307,
+        "published_Occurrence_linked_distinct_survey_days": 257,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 282,
+          "Lycaenidae": 387,
+          "Nymphalidae": 1819,
+          "Papilionidae": 0,
+          "Pieridae": 355
+        },
+        "zero_target_family_count_siteyears": 1
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 29,
+      "unlinked_2plus_event_rows_not_false_zero": 9
+    },
+    "2024_intermediate": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.1009852216748768,
+        "Lycaenidae_share_of_target_three_families": 0.42369668246445497,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.42857142857142855,
+          "Lycaenidae": 1.1009852216748768,
+          "Nymphalidae": 5.364532019704433,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.4975369458128078
+        },
+        "n_source_linked_siteyears": 46,
+        "original_unfiltered_Event_distinct_days": 616,
+        "published_Occurrence_linked_distinct_survey_days": 406,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 174,
+          "Lycaenidae": 447,
+          "Nymphalidae": 2178,
+          "Papilionidae": 0,
+          "Pieridae": 608
+        },
+        "zero_target_family_count_siteyears": 7
+      },
+      "original_total_site_years": 46,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.1009852216748768,
+        "Lycaenidae_share_of_target_three_families": 0.42369668246445497,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.42857142857142855,
+          "Lycaenidae": 1.1009852216748768,
+          "Nymphalidae": 5.364532019704433,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.4975369458128078
+        },
+        "n_source_linked_siteyears": 40,
+        "original_unfiltered_Event_distinct_days": 552,
+        "published_Occurrence_linked_distinct_survey_days": 406,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 174,
+          "Lycaenidae": 447,
+          "Nymphalidae": 2178,
+          "Papilionidae": 0,
+          "Pieridae": 608
+        },
+        "zero_target_family_count_siteyears": 1
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 40,
+      "unlinked_2plus_event_rows_not_false_zero": 6
+    },
+    "2024_near5": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 0.2786885245901639,
+        "Lycaenidae_share_of_target_three_families": 0.1837837837837838,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.5245901639344263,
+          "Lycaenidae": 0.2786885245901639,
+          "Nymphalidae": 4.139344262295082,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.2377049180327868
+        },
+        "n_source_linked_siteyears": 23,
+        "original_unfiltered_Event_distinct_days": 219,
+        "published_Occurrence_linked_distinct_survey_days": 122,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 64,
+          "Lycaenidae": 34,
+          "Nymphalidae": 505,
+          "Papilionidae": 0,
+          "Pieridae": 151
+        },
+        "zero_target_family_count_siteyears": 5
+      },
+      "original_total_site_years": 23,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 0.29310344827586204,
+        "Lycaenidae_share_of_target_three_families": 0.18888888888888888,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.4482758620689655,
+          "Lycaenidae": 0.29310344827586204,
+          "Nymphalidae": 3.956896551724138,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.2586206896551724
+        },
+        "n_source_linked_siteyears": 15,
+        "original_unfiltered_Event_distinct_days": 158,
+        "published_Occurrence_linked_distinct_survey_days": 116,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 52,
+          "Lycaenidae": 34,
+          "Nymphalidae": 459,
+          "Papilionidae": 0,
+          "Pieridae": 146
+        },
+        "zero_target_family_count_siteyears": 0
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 15,
+      "unlinked_2plus_event_rows_not_false_zero": 8
+    },
+    "2024_remote10": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.598705501618123,
+        "Lycaenidae_share_of_target_three_families": 0.5066666666666667,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 1.5954692556634305,
+          "Lycaenidae": 1.598705501618123,
+          "Nymphalidae": 5.572815533980583,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.5566343042071198
+        },
+        "n_source_linked_siteyears": 38,
+        "original_unfiltered_Event_distinct_days": 617,
+        "published_Occurrence_linked_distinct_survey_days": 309,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 493,
+          "Lycaenidae": 494,
+          "Nymphalidae": 1722,
+          "Papilionidae": 0,
+          "Pieridae": 481
+        },
+        "zero_target_family_count_siteyears": 7
+      },
+      "original_total_site_years": 38,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.6091205211726385,
+        "Lycaenidae_share_of_target_three_families": 0.5087538619979403,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 1.6058631921824105,
+          "Lycaenidae": 1.6091205211726385,
+          "Nymphalidae": 5.605863192182411,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.5537459283387622
+        },
+        "n_source_linked_siteyears": 29,
+        "original_unfiltered_Event_distinct_days": 493,
+        "published_Occurrence_linked_distinct_survey_days": 307,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 493,
+          "Lycaenidae": 494,
+          "Nymphalidae": 1721,
+          "Papilionidae": 0,
+          "Pieridae": 477
+        },
+        "zero_target_family_count_siteyears": 0
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 29,
+      "unlinked_2plus_event_rows_not_false_zero": 9
+    },
+    "2025_intermediate": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.4525,
+        "Lycaenidae_share_of_target_three_families": 0.48175787728026537,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.68,
+          "Lycaenidae": 1.4525,
+          "Nymphalidae": 5.775,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.5625
+        },
+        "n_source_linked_siteyears": 46,
+        "original_unfiltered_Event_distinct_days": 589,
+        "published_Occurrence_linked_distinct_survey_days": 400,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 272,
+          "Lycaenidae": 581,
+          "Nymphalidae": 2310,
+          "Papilionidae": 0,
+          "Pieridae": 625
+        },
+        "zero_target_family_count_siteyears": 7
+      },
+      "original_total_site_years": 46,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.456140350877193,
+        "Lycaenidae_share_of_target_three_families": 0.4821576763485477,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.681704260651629,
+          "Lycaenidae": 1.456140350877193,
+          "Nymphalidae": 5.7894736842105265,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.5639097744360901
+        },
+        "n_source_linked_siteyears": 38,
+        "original_unfiltered_Event_distinct_days": 527,
+        "published_Occurrence_linked_distinct_survey_days": 399,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 272,
+          "Lycaenidae": 581,
+          "Nymphalidae": 2310,
+          "Papilionidae": 0,
+          "Pieridae": 624
+        },
+        "zero_target_family_count_siteyears": 0
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 38,
+      "unlinked_2plus_event_rows_not_false_zero": 8
+    },
+    "2025_near5": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 0.8407079646017699,
+        "Lycaenidae_share_of_target_three_families": 0.39094650205761317,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.672566371681416,
+          "Lycaenidae": 0.8407079646017699,
+          "Nymphalidae": 8.955752212389381,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.3097345132743363
+        },
+        "n_source_linked_siteyears": 23,
+        "original_unfiltered_Event_distinct_days": 198,
+        "published_Occurrence_linked_distinct_survey_days": 113,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 76,
+          "Lycaenidae": 95,
+          "Nymphalidae": 1012,
+          "Papilionidae": 0,
+          "Pieridae": 148
+        },
+        "zero_target_family_count_siteyears": 9
+      },
+      "original_total_site_years": 23,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 0.8482142857142857,
+        "Lycaenidae_share_of_target_three_families": 0.39094650205761317,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 0.6785714285714286,
+          "Lycaenidae": 0.8482142857142857,
+          "Nymphalidae": 9.026785714285714,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.3214285714285714
+        },
+        "n_source_linked_siteyears": 14,
+        "original_unfiltered_Event_distinct_days": 151,
+        "published_Occurrence_linked_distinct_survey_days": 112,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 76,
+          "Lycaenidae": 95,
+          "Nymphalidae": 1011,
+          "Papilionidae": 0,
+          "Pieridae": 148
+        },
+        "zero_target_family_count_siteyears": 0
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 14,
+      "unlinked_2plus_event_rows_not_false_zero": 9
+    },
+    "2025_remote10": {
+      "all_linked_day_denominator_descriptive": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.9630872483221478,
+        "Lycaenidae_share_of_target_three_families": 0.6435643564356436,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 2.6308724832214767,
+          "Lycaenidae": 1.9630872483221478,
+          "Nymphalidae": 7.778523489932886,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.087248322147651
+        },
+        "n_source_linked_siteyears": 38,
+        "original_unfiltered_Event_distinct_days": 577,
+        "published_Occurrence_linked_distinct_survey_days": 298,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 784,
+          "Lycaenidae": 585,
+          "Nymphalidae": 2318,
+          "Papilionidae": 0,
+          "Pieridae": 324
+        },
+        "zero_target_family_count_siteyears": 8
+      },
+      "original_total_site_years": 38,
+      "posthoc_2plus_linked_day_denominator_subset": {
+        "Lycaenidae_per_Occurrence_linked_date": 1.989795918367347,
+        "Lycaenidae_share_of_target_three_families": 0.6449834619625138,
+        "family_individualCount_per_Occurrence_linked_date": {
+          "Hesperiidae": 2.6666666666666665,
+          "Lycaenidae": 1.989795918367347,
+          "Nymphalidae": 7.874149659863946,
+          "Papilionidae": 0.0,
+          "Pieridae": 1.0952380952380953
+        },
+        "n_source_linked_siteyears": 28,
+        "original_unfiltered_Event_distinct_days": 454,
+        "published_Occurrence_linked_distinct_survey_days": 294,
+        "recorded_individualCount_family": {
+          "Hesperiidae": 784,
+          "Lycaenidae": 585,
+          "Nymphalidae": 2315,
+          "Papilionidae": 0,
+          "Pieridae": 322
+        },
+        "zero_target_family_count_siteyears": 0
+      },
+      "siteyears_2plus_any_occurrence_linked_days": 28,
+      "unlinked_2plus_event_rows_not_false_zero": 10
+    }
+  }
+}

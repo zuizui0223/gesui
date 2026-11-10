@@ -1,0 +1,39 @@
+name: gesui DK 2025 independent original three-year month/linked-date Lycaenidae arithmetic audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-outoftime-lycaenidae-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-original-archive-month-linked-independent-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent-2023-2025-month-linked-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently verify original source SHA, all family counts, linked-day denominator and three-WWTP-source sample size
+        run: |
+          python -m py_compile scripts/audit_gesui_DK_2025_same_month_occ_linked_final_QC.py
+          python -u scripts/audit_gesui_DK_2025_same_month_occ_linked_final_QC.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_OCC_LINKED_SAME_MONTH_INDEPENDENT_QC.json
+      - name: Archive independent privacy-safe aggregate numerical audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_OCC_LINKED_SAME_MONTH_INDEPENDENT_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Verify DK 2025 same-year/month linked-day butterfly counts and original 3-source limits independently"
+          git fetch origin analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git rebase origin/analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-source-locked-same-month-linked-family-independent-QC
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_OCC_LINKED_SAME_MONTH_INDEPENDENT_QC.json
+          retention-days: 90
