@@ -140,7 +140,7 @@ def test(root,dir):
                 raise ValueError("Independent EPA wetland logTP/TN Shannon slope does not match original")
             for a,b in zip(v["US_state_cluster95"],ref["US_state_cluster95"]):
                 if abs(a-b)>1e-5:
-                    raise ValueError("Independent US state-cluster 95%CI differs from original H_ALL")
+                    raise ValueError("Independent US state-cluster 95%CI differs from original H_ALL: calculated "+repr(v["US_state_cluster95"])+", original "+repr(ref["US_state_cluster95"])+", rank "+str(one["design_rank"])+", K "+str(one["matrix_columns"]))
         out[name]=one
     ranks={"TN_vs_HALL":float(spearmanr(joined.NTLRESULT,joined.HALL).statistic),
            "TP_vs_HALL":float(spearmanr(joined.PTLRESULT,joined.HALL).statistic)}
