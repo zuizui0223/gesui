@@ -1,0 +1,71 @@
+{
+  "2023_two_of_three_comparison_regions_no_near_target_family_and_ratio_undefined": true,
+  "2024_three_regions_mixed_sign_and_leave_region_out_includes_positive": true,
+  "all_reference_counts_and_composition_logodds_replayed_exactly": true,
+  "equal_region_shared_geographic_cells": [
+    "55|10",
+    "55|12",
+    "56|9"
+  ],
+  "independently_verified_join_and_target_record_n": 214,
+  "no_causal_butterfly_benefit_or_harm_inferred": true,
+  "original_sha256": {
+    "family_counts": "3a60f6dd9789f227807a650d329d964eab27a234aec920e8650d514ba9a8ebb6",
+    "regional_WWTP_contrast": "47cf5f8c0384bfce6cce4d22f15b59ac3d831565680f05927dcc52b685714568",
+    "source": "bd0e33d269f6ab718d1b3089fb09da83b43fc3a19818fb3ea8eef3dbe6b91790"
+  },
+  "original_source_outfall_independent_near_groups_n": 4,
+  "schema": "gesui_DK_EBMS_2023_2024_5km_source_original_count_contrast_independent_arithmetic_QA_v01",
+  "source_status_not_a_known_2023_or_2024_treatment": true,
+  "unadjusted_pooled_target_family_counts_are_not_effective_independent_populations": true,
+  "yearwise_source_vs_remote_descriptive_counts": {
+    "2023": {
+      "near": {
+        "Lycaenidae_count": 74,
+        "Lycaenidae_per_survey_day": 0.7254901960784313,
+        "Lycaenidae_share_given_three_target_families": 0.36633663366336633,
+        "Papilionidae_count": 0,
+        "Pieridae_count": 128,
+        "Pieridae_per_survey_day": 1.2549019607843137,
+        "original_survey_days": 102,
+        "site_rows": 23,
+        "site_with_any_target": 11
+      },
+      "remote": {
+        "Lycaenidae_count": 387,
+        "Lycaenidae_per_survey_day": 1.0238095238095237,
+        "Lycaenidae_share_given_three_target_families": 0.5215633423180593,
+        "Papilionidae_count": 0,
+        "Pieridae_count": 355,
+        "Pieridae_per_survey_day": 0.9391534391534392,
+        "original_survey_days": 378,
+        "site_rows": 38,
+        "site_with_any_target": 28
+      }
+    },
+    "2024": {
+      "near": {
+        "Lycaenidae_count": 34,
+        "Lycaenidae_per_survey_day": 0.1552511415525114,
+        "Lycaenidae_share_given_three_target_families": 0.1837837837837838,
+        "Papilionidae_count": 0,
+        "Pieridae_count": 151,
+        "Pieridae_per_survey_day": 0.6894977168949772,
+        "original_survey_days": 219,
+        "site_rows": 23,
+        "site_with_any_target": 18
+      },
+      "remote": {
+        "Lycaenidae_count": 494,
+        "Lycaenidae_per_survey_day": 0.8006482982171799,
+        "Lycaenidae_share_given_three_target_families": 0.5066666666666667,
+        "Papilionidae_count": 0,
+        "Pieridae_count": 481,
+        "Pieridae_per_survey_day": 0.779578606158833,
+        "original_survey_days": 617,
+        "site_rows": 38,
+        "site_with_any_target": 31
+      }
+    }
+  }
+}
