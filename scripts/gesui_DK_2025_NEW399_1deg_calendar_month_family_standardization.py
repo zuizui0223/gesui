@@ -44,8 +44,10 @@ def standardize(strata):
         w=min(dn,dr)
         totalweight+=w
         for g in GROUPS:
+            # Original region/month stratum uses "near"/"remote" display keys.
+            slot="near" if g=="near5" else "remote"
             for f in FAMS:
-                weighted[g][f]+=w*s[g]["counts"][f]/s[g]["linked_dates"]
+                weighted[g][f]+=w*s[slot]["counts"][f]/s[slot]["linked_dates"]
     if totalweight<=0:return None
     for g in GROUPS:
         for f in FAMS:weighted[g][f]/=totalweight
