@@ -1,0 +1,132 @@
+{
+  "all_mapped_family_214_siteyears_preserved": true,
+  "full_source_aggregate_sha256": "88d101b5d4d2b652b355a3ef36802bae2a459cf6029e4e923c7279c6e206df3f",
+  "no_original_individual_data_republished": true,
+  "observational_POSTHOC_not_registered_treatment_or_biochemical_dose": true,
+  "same_site_same_month_source_replay_4near_outfalls_2years": {
+    "same_calendar_months_May_Aug": {
+      "4outfall_source_loo_not_statistically_independent_conclusive_test": true,
+      "family_year_rate_ratio_comparator": {
+        "Hesperiidae": {
+          "near_2024_over_2023": 0.7220840243228304,
+          "relative_annual_rate_ratio_near_over_remote": 0.43586644374159156,
+          "remote_2024_over_2023": 1.6566634910553615
+        },
+        "Lycaenidae": {
+          "near_2024_over_2023": 0.19423430791249233,
+          "relative_annual_rate_ratio_near_over_remote": 0.15776828832102938,
+          "remote_2024_over_2023": 1.2311365609625005
+        },
+        "Nymphalidae": {
+          "near_2024_over_2023": 0.868612700572206,
+          "relative_annual_rate_ratio_near_over_remote": 1.0349093171559078,
+          "remote_2024_over_2023": 0.8393128616904224
+        },
+        "Pieridae": {
+          "near_2024_over_2023": 0.47074626865671637,
+          "relative_annual_rate_ratio_near_over_remote": 0.42934259237968225,
+          "remote_2024_over_2023": 1.0964350544574424
+        }
+      },
+      "four_independent_outfalls_behind_23_near_site_rows": 4,
+      "site_month_year_2023_2024": {
+        "2023": {
+          "near5": {
+            "L_count": 73,
+            "P_count": 125,
+            "matched_site_n": 23,
+            "original_visit_days": 95
+          },
+          "remote10": {
+            "L_count": 361,
+            "P_count": 296,
+            "matched_site_n": 38,
+            "original_visit_days": 277
+          }
+        },
+        "2024": {
+          "near5": {
+            "L_count": 20,
+            "P_count": 83,
+            "matched_site_n": 23,
+            "original_visit_days": 134
+          },
+          "remote10": {
+            "L_count": 430,
+            "P_count": 314,
+            "matched_site_n": 38,
+            "original_visit_days": 268
+          }
+        }
+      },
+      "source_outfall_leave_one_out_Lycaenidae_near_over_remote_rate_ratio_range": [
+        0.04790992967960651,
+        0.23455566395508223
+      ],
+      "source_status_never_known_randomized_or_changed_2023_2024": true
+    },
+    "same_calendar_months_all": {
+      "4outfall_source_loo_not_statistically_independent_conclusive_test": true,
+      "family_year_rate_ratio_comparator": {
+        "Hesperiidae": {
+          "near_2024_over_2023": 0.7220840243228304,
+          "relative_annual_rate_ratio_near_over_remote": 0.41901692847337524,
+          "remote_2024_over_2023": 1.7232812692165784
+        },
+        "Lycaenidae": {
+          "near_2024_over_2023": 0.19423430791249233,
+          "relative_annual_rate_ratio_near_over_remote": 0.15957504261436,
+          "remote_2024_over_2023": 1.217197280541496
+        },
+        "Nymphalidae": {
+          "near_2024_over_2023": 0.868612700572206,
+          "relative_annual_rate_ratio_near_over_remote": 0.9938795761190143,
+          "remote_2024_over_2023": 0.8739617167343743
+        },
+        "Pieridae": {
+          "near_2024_over_2023": 0.47074626865671637,
+          "relative_annual_rate_ratio_near_over_remote": 0.45780716966203394,
+          "remote_2024_over_2023": 1.0282632074203522
+        }
+      },
+      "four_independent_outfalls_behind_23_near_site_rows": 4,
+      "site_month_year_2023_2024": {
+        "2023": {
+          "near5": {
+            "L_count": 73,
+            "P_count": 125,
+            "matched_site_n": 23,
+            "original_visit_days": 95
+          },
+          "remote10": {
+            "L_count": 386,
+            "P_count": 344,
+            "matched_site_n": 38,
+            "original_visit_days": 372
+          }
+        },
+        "2024": {
+          "near5": {
+            "L_count": 20,
+            "P_count": 83,
+            "matched_site_n": 23,
+            "original_visit_days": 134
+          },
+          "remote10": {
+            "L_count": 437,
+            "P_count": 329,
+            "matched_site_n": 38,
+            "original_visit_days": 346
+          }
+        }
+      },
+      "source_outfall_leave_one_out_Lycaenidae_near_over_remote_rate_ratio_range": [
+        0.048458591721028045,
+        0.2372417833101553
+      ],
+      "source_status_never_known_randomized_or_changed_2023_2024": true
+    }
+  },
+  "schema": "gesui_DK_2023_2024_source_4outfall_monthmatched_independent_offline_replay_v01",
+  "source_siteyear_data_are_licensed_CC_BY_NC_4_0": true
+}
