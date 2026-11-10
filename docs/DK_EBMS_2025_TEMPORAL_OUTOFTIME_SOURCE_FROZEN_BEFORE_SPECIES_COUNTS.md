@@ -1,0 +1,25 @@
+# Danish eBMS 2025 out-of-time Lycaenidae check — pre-2025-outcome frozen protocol
+
+2026-11-10. A new temporal test on the already source-fixed 2023/24 Danish standardized butterfly monitoring cohort. All 2023/24 near-source negative photographic/individualCount results were known. Hence a 2025 response is a **temporal out-of-time stress test of those descriptive patterns**, not an independent preregistered intervention or ecological WWTP-causality experiment.
+
+## Eligibility fixed without viewing any 2025 species count
+
+Official licensed Denmark eBMS v1.4 archive: CC-BY-NC 4.0, original ZIP SHA256 `2cc64ec352754223db06a92eef5b01803968eac94bae34057c17f1abdb6da79b`, full 15,606 Event rows and 21,617 Occurrence rows. Original pre-outcome family taxonomy mapping of 112 scientificName entries is retained without fitting new taxa after viewing 2025 response.
+
+Retain **exact original 107 public site coordinate groups** from the 2023/24 panel (original position accuracy <=500m, at least two distinct survey days in each earlier year); no new 2025-only site recruitment. The existing source-only Event metadata reports that **all 107** of these have >=2 distinct survey days also in 2025. Source bands stay exactly 5km-near to an originally qualifying **2022 EEA registered WWTP freshwater outfall** (23 sites near FOUR independent outfall IDs); 10km-or-more remote (38); intermediate 5–10km (46). The original 2km source gate failed and remains ineligible. Actual 2025 effluent status, flow and water chemistry are **not measured**.
+
+Before accessing any 2025 Occurrence individualCount, archive the source-only 107-site/2025-visit gate, original source SHA, source band IDs, source-cluster IDs and original shared 1-degree blocks. Pre-outcome gate: >=18 near and >=30 remote with >=2 distinct 2025 survey days per original site, >=3 shared 1-degree near/remote cells, original FOUR outfall IDs. Failure means STOP without butterfly data.
+
+## Pre-fixed 2025 analyses
+
+**Primary out-of-time descriptive replication:** accepted species-level Lycaenidae individualCount per original distinct 2025 survey day and Lycaenidae / (Lycaenidae + Pieridae + Papilionidae) among original eBMS survey counts at exact 23 near and 38 remote sites. Compare direction to observed 2023 and 2024 near < remote in both survey-day count rate and family share. Never reselect sites by whether 2025 Lycaenidae is present. If three target families total zero in a site-year, the site-specific share is undefined; *do not* create artificial 0.5 logit in zero/zero family-free sites. Pooled count shares across all sites are descriptive and weighted by site recording levels.
+
+**Time-course characterization:** 2023/2024/2025 source-fixed site-year panels, annual total Lycaenidae and Pieridae/Nymphalidae/Hesperiidae original counts and survey days in near, remote and intermediate. For 2025-vs-2024 compute source-near vs remote rate ratio-of-ratios separately by family, acknowledging common background climate and site confounding. Holdout does not identify wastewater treatment onset since same 2022 WWTP proxy applies all years.
+
+**Phenology sensitivity fixed in advance:** use only calendar months with >=1 original survey day at the *same site* in both **2024 and 2025**; report May–August-only overlap as the separately declared seasonal subset, plus full 2023–2024–2025 common-month window where all three years have a survey date. Compare original individualCount per original site-date; do not use Event fragments as extra independent effort. No data-informed month-window optimization.
+
+**Independent WWTP unit caveat and family controls:** cluster all 23 near source site rows into the original FOUR exact nearest outfall hashes; report cluster sample, 2025 accepted counts and leave-one-outfall-out near-vs-remote descriptive ratio. Compare 2025 Pieridae, Nymphalidae and Hesperiidae independently as family-level geographic controls, not as proven unaffected biological negative controls. At most three 1-degree cells contain both near and remote sites. Suppress confirmatory p-values; report feasibility of regional contrast only if both near and far have >0 focal-family records in that cell/year.
+
+**Prediction falsification rule:** if 2025 near Lycaenidae rate and conditional family share are not both below remote in pooled data, the simple recurring negative-proximity directional pattern fails this external-year check. If both are below, say it persists descriptively (not 'confirmed WWTP effect'). If it reverses, do not change radius/threshold.
+
+Original licensed non-public/private observer IDs, raw rows and full licensed archive are not republished. Store only site-year accepted aggregate counts and hashed outfall IDs, preserve original license attribution and reproducibility. Keep Draft; no merge to `main` or `chocho`.
