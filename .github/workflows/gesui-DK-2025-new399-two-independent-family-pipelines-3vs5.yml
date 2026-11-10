@@ -1,0 +1,39 @@
+name: gesui DK new399 original two-family-pipeline exact match and 3vs5 denominator source-independent audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-new399-two-independent-family-pipelines-3vs5.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  two-original-2025-family-aggregates-independent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently reconcile all 399 original source-locked site/family count pipelines and 6-region 3vs5 denominator signs
+        run: |
+          python -m py_compile scripts/audit_DK_2025_NEW399_two_original_family_pipelines_and_3vs5_denominator.py
+          python -u scripts/audit_DK_2025_NEW399_two_original_family_pipelines_and_3vs5_denominator.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_TWO_ORIGINAL_PIPELINES_EXACT_AND_DENOMINATOR_SIGN_QA.json
+      - name: Preserve exact repeatable public licensed aggregate quality evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_TWO_ORIGINAL_PIPELINES_EXACT_AND_DENOMINATOR_SIGN_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze independent exact 399-site original family/source QA and opposite 3vs5 family geography"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-new399-2025-two-original-family-pipeline-denominator-QC
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_TWO_ORIGINAL_PIPELINES_EXACT_AND_DENOMINATOR_SIGN_QA.json
+          retention-days: 90
