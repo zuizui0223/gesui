@@ -1,0 +1,39 @@
+name: gesui DK eBMS 2023-2024 same-site same-month Lycaenidae posthoc audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2023-24-season-aligned-families-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-EBMS-2023-24-same-month-season-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  licensed-calendar-month-stratified-families:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Reconstruct original eBMS Event and Occurrence month pairs with immutable source and 214 source year controls
+        run: |
+          python -m py_compile scripts/gesui_DK_2023_2024_ebms_same_site_calendar_month_FAMILY_seasoncheck.py
+          python -u scripts/gesui_DK_2023_2024_ebms_same_site_calendar_month_FAMILY_seasoncheck.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2023_2024_SAME_SITE_MONTH_LYCAENIDAE_POSTHOC_FAMILY_SOURCE_CLUSTER_QC.json
+      - name: Archive aggregate same-calendar-month sensitivity, no raw source archive or personal data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2023_2024_SAME_SITE_MONTH_LYCAENIDAE_POSTHOC_FAMILY_SOURCE_CLUSTER_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Reconcile original 214 DK EBMS site years by calendar month and four WWTP source clusters"
+          git fetch origin analysis/dk-ebms-2023-24-season-aligned-families-20261110
+          git rebase origin/analysis/dk-ebms-2023-24-season-aligned-families-20261110
+          git push origin HEAD:analysis/dk-ebms-2023-24-season-aligned-families-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Denmark-2023-24-same-month-season-Lycaenidae
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2023_2024_SAME_SITE_MONTH_LYCAENIDAE_POSTHOC_FAMILY_SOURCE_CLUSTER_QC.json
+          retention-days: 90
