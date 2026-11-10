@@ -1,0 +1,39 @@
+name: gesui DK EBMS 2023-24 standardized Lycaenidae source-distance outcome after pre-frozen taxonomy
+on:
+  push:
+    branches: ["analysis/ebms-denmark-wwtp-source-feasibility-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms-2023-24-Lycaenidae-source5km-exploratory.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent-source-group-and-target-conditional-family-contrasts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Recompute 3 original within-region 5km versus 10km repeated annual Lycaenidae standardized counts
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS_2023_2024_Lycaenidae_family_by_source_5km_posthoc.py
+          python -u scripts/gesui_DK_EBMS_2023_2024_Lycaenidae_family_by_source_5km_posthoc.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2023_2024_LYCAENIDAE_SOURCE5KM_VS_REMOTE10KM_POSTHOC_REGION_RESULTS.json
+      - name: Preserve original regional estimates including any negative and unsupported yearly comparisons
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2023_2024_LYCAENIDAE_SOURCE5KM_VS_REMOTE10KM_POSTHOC_REGION_RESULTS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze Denmark 2023-24 standardized Lycaenidae P-source-distance observed direction without causal inflation"
+          git fetch origin analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git rebase origin/analysis/ebms-denmark-wwtp-source-feasibility-20261110
+          git push origin HEAD:analysis/ebms-denmark-wwtp-source-feasibility-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-eBMS-2023-2024-Lycaenidae-WWTP-source5km-posthoc
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2023_2024_LYCAENIDAE_SOURCE5KM_VS_REMOTE10KM_POSTHOC_REGION_RESULTS.json
+          retention-days: 90
