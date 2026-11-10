@@ -67,7 +67,7 @@ def prepare(root):
     orig={x["original_port_id"]:x for x in source["source_all_1055_public_country_port_site_metadata_no_new_GBIF_response"]}
     floral={x["original_port_id"]:x for x in plant["original_1055_port_all_Plantae_source_GBIF_facet_summaries"]}
     others={x["original_port_id"]:x for x in new["all_original_source_port_animal_and_fungi_indexed_counts"]}
-    if len(orig)!=len(floral)!=len(others)!=1055 or set(orig)!=set(floral) or set(orig)!=set(others):
+    if any(len(d)!=1055 for d in (orig,floral,others)) or set(orig)!=set(floral) or set(orig)!=set(others):
         raise ValueError("Original source full1055 IDs not identical across three taxa")
     rows=[]
     complete=Counter()
