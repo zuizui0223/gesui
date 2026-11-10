@@ -99,8 +99,8 @@ def original_nwca_source_sites(root,dir):
 def ndpes_outfall_source(path):
     if path.stat().st_size<100_000:raise ValueError("Original official EPA NPDES zip appears empty")
     with zipfile.ZipFile(path) as z:
-        names=[v for v in z.namelist() if v.split("/")[-1].upper()==SOURCE_TABLE]
-        if len(names)!=1:raise ValueError("Expected one official NPDES_OUTFALLS_LAYER.csv original source")
+        names=[v for v in z.namelist() if v.split("/")[-1].upper()==SOURCE_TABLE.upper()]
+        if len(names)!=1:raise ValueError("Expected one official NPDES_OUTFALLS_LAYER.csv original source (case-insensitive)")
         with z.open(names[0]) as f:
             header=pd.read_csv(f,nrows=0,low_memory=False).columns.tolist()
         missing=set(NPDES_FIELDS)-set(header)
