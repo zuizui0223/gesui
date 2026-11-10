@@ -1,0 +1,52 @@
+name: gesui DK 2025 NEW399 independent eBMS Lycaenidae family data AFTER frozen source gate
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-NEW399-after-sourcegate-family-counts.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-DK-2025-NEW399-accepted-families:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify immutable original source-only sample was committed BEFORE any family read
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_EVENT_ANY_OCC_WWTP20_SOURCE_GATE_BEFORE_FAMILY.json")
+          x=json.loads(p.read_text())
+          assert x["new_2025_year_sourced_station_n"]==399
+          assert x["original_previous_2023_2024_butterfly_outcome_examined_site_count_EXCLUDED"]==107
+          assert x["no_2025_butterfly_family_response_accessed_for_new_sites"] is True
+          assert x["frozen_before_2025_NEW399_butterfly_counts_gate"]["2025_NEW399_butterfly_family_count_outcome_permitted"] is True
+          assert x["source_eligible_new_sites_with_2plus_any_published_occurrence_dates_by_band"]=={"intermediate":124,"near5":70,"remote10":92}
+          print("PASS: Original independent new399 and source20/19-component support frozen before 2025 butterfly response.")
+          PY
+      - name: Download SHA-pinned CC-BY-NC eBMS original and open only accepted 2025 family individual counts
+        run: |
+          python -m py_compile scripts/gesui_DK_2025_new399_accepted_FAMILY_AFTER_sourcegate.py
+          python -u scripts/gesui_DK_2025_new399_accepted_FAMILY_AFTER_sourcegate.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_LYCAENIDAE_FAMILY_POST_SOURCE_GATE_COUNTS.json
+      - name: Preserve only source-site-hashed and source-cluster aggregate licensed results on draft
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_LYCAENIDAE_FAMILY_POST_SOURCE_GATE_COUNTS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze independent new399 Danish 2025 Lycaenidae, Pieridae, Nymphalidae survey count support after source gate"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-NEW399-after-original-WWTP-source-gate-licensed-family
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_LYCAENIDAE_FAMILY_POST_SOURCE_GATE_COUNTS.json
+          retention-days: 90
