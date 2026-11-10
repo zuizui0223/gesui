@@ -19,7 +19,7 @@ import gesui_DK_2023_2024_ebms_same_site_calendar_month_FAMILY_seasoncheck as mo
 
 SOURCE_ROOT="results/ebms_denmark_2023_2024_WWTP_source_only/"
 GATE=SOURCE_ROOT+"DENMARK_EBMS_2025_107SITE_PREBUTTERFLY_HOLDOUT_SOURCE_GATE.json"
-2025FAMILY=SOURCE_ROOT+"DENMARK_2025_ORIGINAL107_LYCAENIDAE_OUTOFTIME_FAMILY_AND_MONTH_RESULTS.json"
+FAMILY2025=SOURCE_ROOT+"DENMARK_2025_ORIGINAL107_LYCAENIDAE_OUTOFTIME_FAMILY_AND_MONTH_RESULTS.json"
 LINK_QC=SOURCE_ROOT+"DK_EBMS_2025_ORIGINAL_EVENT_OCCURRENCE_PUBLICATION_MISSINGNESS_QA.json"
 YEARS=(2023,2024,2025)
 FAMILIES=("Lycaenidae","Pieridae","Nymphalidae","Hesperiidae","Papilionidae")
@@ -118,7 +118,7 @@ def validate_join_from_prior(events,linked,sites,root):
 
 def run(root):
     gate=json.loads((root/GATE).read_text(encoding="utf-8"))
-    old=json.loads((root/2025FAMILY).read_text(encoding="utf-8"))
+    old=json.loads((root/FAMILY2025).read_text(encoding="utf-8"))
     if gate["2025_butterfly_occurrence_data_rows_opened"]!=0 or not gate["source_sample_gate_prespecified"]["2025_family_outcome_access_permitted"]:
         raise ValueError("Pre-outcome 2025 source-only gate not available")
     sites,families,previous,clusters,source_sha=monthly.yearsources(root)
@@ -143,7 +143,7 @@ def run(root):
         "posthoc_analysis_after_original_2025_outoftime_pattern_known":True,
         "exact_original_DWCA_zip_SHA256":monthly.first.ORIGINAL_SHA,
         "pre2025_species_original_source_gate_SHA256":sha((root/GATE).read_bytes()),
-        "previous_2025_individualCount_original_results_SHA256":sha((root/2025FAMILY).read_bytes()),
+        "previous_2025_individualCount_original_results_SHA256":sha((root/FAMILY2025).read_bytes()),
         "prior_independent_Event_Occ_link_QA_SHA256":sha((root/LINK_QC).read_bytes()),
         "original_107_sites_and_four_registered_source_units_verified":True,
         "original_2025_family_individualCount_reproduced_exactly":True,
@@ -218,7 +218,7 @@ def run(root):
                     "remaining_near_to_remote_2025_2024_Lycaenidae_rate_ratio_ratio":
                         ratio(rr,remote_rr) if rr is not None else None,
                     "not_an_independently_replicated_significance_test":True})
-            result["WWTP_near_cluster_count_with_reported_individuals"]=sum(x["2025_group"]["family_counts_individualCount_original"]["Lycaenidae"]>0 for x in result["outfall_specific_near_source_2025"]) if False else sum(x["2025_group"]["family_individualCount_original"]["Lycaenidae"]>0 for x in result["outfall_specific_near_source_2025"])
+            result["WWTP_near_cluster_count_with_reported_individuals"]=sum(x["2025_group"]["family_individualCount_original"]["Lycaenidae"]>0 for x in result["outfall_specific_near_source_2025"])
         out["configurations"][label]=result
     return out
 
