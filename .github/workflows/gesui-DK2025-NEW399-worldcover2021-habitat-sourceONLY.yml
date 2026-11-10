@@ -1,0 +1,47 @@
+name: gesui DK2025 NEW399 286site WorldCover2021 original10m habitat SOURCE ONLY
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-worldcover-habitat-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK2025-NEW399-worldcover2021-habitat-sourceONLY.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  landcover-before-family:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: "3"
+      GDAL_HTTP_CONNECTTIMEOUT: "30"
+      GDAL_HTTP_TIMEOUT: "90"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install georeferenced 10m categorical COG reader
+        run: python -m pip install --quiet numpy rasterio
+      - name: Source integrity test and true 10m ESA WorldCover 2021 500m circular pixel fractions, no butterfly data
+        run: |
+          python -m py_compile scripts/gesui_DK2025_NEW399_ESA_WorldCover2021_raw500m_source_only.py
+          python -u scripts/gesui_DK2025_NEW399_ESA_WorldCover2021_raw500m_source_only.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_286SITE_WORLD_COVER2021_500M_NO_FAMILY_SOURCE.json
+      - name: Freeze remote-sensing source and quality eligibility before landcover-adjusted family model
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_286SITE_WORLD_COVER2021_500M_NO_FAMILY_SOURCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze ESA WorldCover2021 original 500m 10m categorical land cover for DK 286 fixed butterfly source sites"
+          git fetch origin analysis/dk-ebms-2025-worldcover-habitat-20261110
+          git rebase origin/analysis/dk-ebms-2025-worldcover-habitat-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-worldcover-habitat-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK2025-WorldCover2021-286-source-500m-original-10m
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_286SITE_WORLD_COVER2021_500M_NO_FAMILY_SOURCE.json
+          retention-days: 90
