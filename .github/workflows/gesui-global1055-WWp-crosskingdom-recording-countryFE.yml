@@ -4,6 +4,8 @@ on:
     branches: ["analysis/global1055-crosskingdom-effort-controls-20261110"]
     paths:
       - "results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp2015_GBIF_ANIMALIA_FUNGI_COUNT_SOURCE_BEFORE_EFFECT.json"
+      - ".github/workflows/gesui-global1055-WWp-crosskingdom-recording-countryFE.yml"
+      - "scripts/gesui_global1055_WWp2015_Plantae_vs_Animalia_Fungi_recording_models.py"
   workflow_dispatch:
 permissions:
   contents: write
