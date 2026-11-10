@@ -1,0 +1,144 @@
+{
+  "distinct_nearest_WWTP_outfalls_with_ge5km_near_sites": 4,
+  "geo_region_compare_5km": {
+    "all_original_2023_2024_repeated_public_500m_eligible_sites": 107,
+    "butterfly_original_occurrence_extension_may_be_accessed_ONLY_if_true": true,
+    "country_1deg_cells_with_both_near_and_remote": 3,
+    "precommitted_min_1deg_cells_both_classes": 3,
+    "precommitted_source_gate_min_near_and_far_each": 12,
+    "sites_in_intermediate_gap_not_a_control": 46,
+    "sites_near_registered_2022_EEA_NP_FW_source": 23,
+    "sites_remote_ge10km_registered_qualifying_source": 38
+  },
+  "interpretation": "Source screening 5km gate passed but 23 public site-coordinate rows lie near only four distinct WWTP sources; site rows within a transect or close sites are correlated, not independent WWTP treatment replicates. Do not infer family benefit without source-level clustering and habitat chemistry.",
+  "near5_source_proximity_sites": 23,
+  "nearest_WWTP_outfall_near_site_cluster_n": {
+    "1bb2f0aa2994835dc86ecd28be5545b8382722c8b9e76dc97463b98dc6d9d881": 4,
+    "b56efff048d8c347b7ee805b9c2c622b57ab335fb2b6d33870a1172f7c41981d": 7,
+    "d61132a0358a00ea26b50ff949b5ee69067fb2b61c969dfe904d5d207b3b2fbf": 5,
+    "e4575a25d9b50ee0dc979de308ea80580fe1c0f1e36c3a082bfa21b4176a7e66": 7
+  },
+  "no_butterfly_outcomes_read": true,
+  "original_event_source_SHA256": "bd0e33d269f6ab718d1b3089fb09da83b43fc3a19818fb3ea8eef3dbe6b91790",
+  "original_year_repeated_event_eligible_sites": 107,
+  "public_DK_reported_2022_annual_P_source_n": 203,
+  "radius_cluster_analyses": {
+    "0.25km": {
+      "near": {
+        "component_size_desc": [
+          7,
+          7,
+          5,
+          4
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 23,
+        "spatial_connected_components_n": 4
+      },
+      "remote": {
+        "component_size_desc": [
+          10,
+          6,
+          4,
+          4,
+          4,
+          4,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 38,
+        "spatial_connected_components_n": 11
+      }
+    },
+    "0.50km": {
+      "near": {
+        "component_size_desc": [
+          7,
+          7,
+          5,
+          4
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 23,
+        "spatial_connected_components_n": 4
+      },
+      "remote": {
+        "component_size_desc": [
+          10,
+          6,
+          5,
+          4,
+          4,
+          4,
+          3,
+          2
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 38,
+        "spatial_connected_components_n": 8
+      }
+    },
+    "1.00km": {
+      "near": {
+        "component_size_desc": [
+          7,
+          7,
+          5,
+          4
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 23,
+        "spatial_connected_components_n": 4
+      },
+      "remote": {
+        "component_size_desc": [
+          10,
+          6,
+          5,
+          4,
+          4,
+          4,
+          3,
+          2
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 38,
+        "spatial_connected_components_n": 8
+      }
+    },
+    "2.00km": {
+      "near": {
+        "component_size_desc": [
+          7,
+          7,
+          5,
+          4
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 23,
+        "spatial_connected_components_n": 4
+      },
+      "remote": {
+        "component_size_desc": [
+          10,
+          6,
+          5,
+          4,
+          4,
+          4,
+          3,
+          2
+        ],
+        "independent_unit_warning": true,
+        "original_site_coordinate_rows": 38,
+        "spatial_connected_components_n": 8
+      }
+    }
+  },
+  "remote_ge10km_sites": 38,
+  "schema": "gesui_DK_ebms_2023_2024_5km_near_falldown_to_outfall_clusters_source_only_v01"
+}
