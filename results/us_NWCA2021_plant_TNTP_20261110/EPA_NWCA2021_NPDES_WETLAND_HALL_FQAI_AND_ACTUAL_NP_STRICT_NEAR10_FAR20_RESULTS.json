@@ -1,0 +1,400 @@
+{
+  "2026_original_feature_registered_with_2021_permit_date_NOT_verified_2021_plant_nutrient_or_wetland_hydrological_exposure": true,
+  "UTC": "2026-11-10T15:10:12.670388+00:00",
+  "geographic_NPDES_source_support_valid": true,
+  "not_randomized_facility_location_or_pollution_exposure": true,
+  "original_2021_NWCA_499_prior_quality_measured_NP_WWTP_source_proximity_posthoc": {
+    "HALL_with_TNTP_conditional_not_causal_mediation": {
+      "R2": 0.7110270718160467,
+      "independent_original_US_state_cluster_n": 27,
+      "log10_TN": {
+        "beta_on_log10_nutrient": -0.2297413508795788,
+        "state_cluster95": [
+          -0.5222445660052546,
+          0.06276186424609703
+        ]
+      },
+      "log10_TP": {
+        "beta_on_log10_nutrient": 0.1319798403431957,
+        "state_cluster95": [
+          -0.08075287569650647,
+          0.3447125563828979
+        ]
+      },
+      "model_formula": "HALL~NEAR+log10_TN+log10_TP+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 120,
+      "number_NWCA_plant_near10_sites": 84,
+      "original_same_state_ecoregion_matched_sites_n": 204,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": -0.15372789410282425,
+        "nominal_p_not_confirmatory": 0.07934044716769253,
+        "original_US_state_cluster95": [
+          -0.3254558504246542,
+          0.018000062219005658
+        ]
+      }
+    },
+    "actual_TN_mgN_L": {
+      "R2": 0.4224687753257198,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "log10_TN~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 120,
+      "number_NWCA_plant_near10_sites": 84,
+      "original_same_state_ecoregion_matched_sites_n": 204,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": 0.08621138428592298,
+        "nominal_p_not_confirmatory": 0.4774364398029154,
+        "original_US_state_cluster95": [
+          -0.1516316007988675,
+          0.32405436937071347
+        ]
+      }
+    },
+    "actual_TP_mgP_L": {
+      "R2": 0.47308504038881094,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "log10_TP~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 120,
+      "number_NWCA_plant_near10_sites": 84,
+      "original_same_state_ecoregion_matched_sites_n": 204,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": 0.22422048948875595,
+        "nominal_p_not_confirmatory": 0.08005492699951657,
+        "original_US_state_cluster95": [
+          -0.02684912518770549,
+          0.4752901041652174
+        ]
+      }
+    },
+    "measured_water_NP_not_identified_as_NPDES_effluent": true,
+    "n_original_499_quality_joint_source_far": 120,
+    "n_original_499_quality_joint_source_near": 84,
+    "n_original_499_quality_plant_and_actual_nutrients": 499,
+    "raw_measured_NP_by_candidate_source_proximity": {
+      "far20": {
+        "TN_mgN_L": {
+          "count": 120,
+          "mean": 4.460861666666665,
+          "median": 1.185,
+          "q25": 0.50475,
+          "q75": 2.2824999999999998
+        },
+        "TP_mgP_L": {
+          "count": 120,
+          "mean": 0.5752591666666667,
+          "median": 0.11549999999999999,
+          "q25": 0.042725,
+          "q75": 0.363
+        }
+      },
+      "near10": {
+        "TN_mgN_L": {
+          "count": 84,
+          "mean": 4.189795238095238,
+          "median": 1.2349999999999999,
+          "q25": 0.76375,
+          "q75": 2.23
+        },
+        "TP_mgP_L": {
+          "count": 84,
+          "mean": 0.7182404761904763,
+          "median": 0.221,
+          "q25": 0.08315,
+          "q75": 0.404
+        }
+      }
+    },
+    "states": 27
+  },
+  "original_2021_NWCA_Shannon_actual_TNTP_old_model_source_SHA256": "26ec610bb028dd72c16f294752744f2bb8567fc85c85ca30a24097d318f837f1",
+  "original_2021_municipal_sewage_source_only_geo_gate": {
+    "min_2021_wetland_original_study_sites_within_strict_sewage_outfall10km": 25,
+    "min_US_states_near_source": 8,
+    "min_distinct_NPDES_administrative_sewage_permits": 15,
+    "min_far_sites_same_original_state_ecoregion": 60,
+    "min_states_with_near_and_far_in_original_state_ecoregion": 6,
+    "permitted_2021_outfall_distance_association_source_support_PASS": true
+  },
+  "original_568_sites_ECHO_2026_source_only_geography_SHA256": "50eaf83fd3adf62e3affbbf072d3eb6d0dd457fc3dba09168231ea88abd45bc2",
+  "original_EPA_NPDES_outfall_2026_snapshot_SHA256": "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160",
+  "original_NPDES_near10_admin_proximity_never_direct_receiving_water_plant_nutrient_exposure": true,
+  "original_STATE_ECO_source_only_comparison_population": {
+    "all568_source_sites": 568,
+    "original_US_states_after_state_ecoregion_matching": 27,
+    "original_near5_subset_in_same_NWCA_region_source_rows": 39,
+    "original_state_ecoregion_names": [
+      "AL|CPL",
+      "AL|SAP",
+      "CA|XER",
+      "CO|WMT",
+      "GA|CPL",
+      "GA|SAP",
+      "IA|TPL",
+      "ID|XER",
+      "IL|TPL",
+      "KS|TPL",
+      "LA|CPL",
+      "MA|NAP",
+      "MD|CPL",
+      "ME|NAP",
+      "MI|TPL",
+      "MI|UMW",
+      "MN|UMW",
+      "MO|SAP",
+      "MS|CPL",
+      "NH|NAP",
+      "OH|NAP",
+      "OH|TPL",
+      "PA|SAP",
+      "RI|NAP",
+      "SC|CPL",
+      "TN|CPL",
+      "TX|CPL",
+      "TX|SPL",
+      "VT|NAP",
+      "WA|WMT",
+      "WV|SAP",
+      "WY|WMT"
+    ],
+    "source_geographic_far20": 311,
+    "source_geographic_near10": 128,
+    "source_matched_state_ecoregion_far": 137,
+    "source_matched_state_ecoregion_near": 103,
+    "source_original_2021_site_status_frozen_before_HALL_WWTP_outcome": true,
+    "source_original_state_ecoregion_strata_count": 32
+  },
+  "original_standardized_plants_2021_descriptive_wetland_by_WWTP_source_proximity": {
+    "FQAIALL": {
+      "far20": {
+        "count": 137,
+        "mean": 22.354744525547446,
+        "median": 20.0,
+        "q25": 14.47,
+        "q75": 30.17
+      },
+      "near10": {
+        "count": 103,
+        "mean": 22.125145631067966,
+        "median": 21.33,
+        "q25": 14.36,
+        "q75": 29.04
+      }
+    },
+    "FQAINAT": {
+      "far20": {
+        "count": 137,
+        "mean": 23.234087591240876,
+        "median": 21.25,
+        "q25": 15.87,
+        "q75": 30.86
+      },
+      "near10": {
+        "count": 103,
+        "mean": 23.009029126213594,
+        "median": 22.63,
+        "q25": 15.504999999999999,
+        "q75": 30.009999999999998
+      }
+    },
+    "HALIEN": {
+      "far20": {
+        "count": 137,
+        "mean": 0.3893919708029197,
+        "median": 0.0514,
+        "q25": 0.0,
+        "q75": 0.6924
+      },
+      "near10": {
+        "count": 103,
+        "mean": 0.3917223300970873,
+        "median": 0.0555,
+        "q25": 0.0,
+        "q75": 0.6931
+      }
+    },
+    "HALL": {
+      "far20": {
+        "count": 137,
+        "mean": 1.7640408759124087,
+        "median": 1.866,
+        "q25": 1.2769,
+        "q75": 2.4464
+      },
+      "near10": {
+        "count": 103,
+        "mean": 1.7108359223300968,
+        "median": 1.8702,
+        "q25": 1.135,
+        "q75": 2.441
+      }
+    },
+    "HNAT": {
+      "far20": {
+        "count": 137,
+        "mean": 1.6699861313868611,
+        "median": 1.7762,
+        "q25": 1.2062,
+        "q75": 2.288
+      },
+      "near10": {
+        "count": 103,
+        "mean": 1.6362252427184467,
+        "median": 1.754,
+        "q25": 0.9301999999999999,
+        "q75": 2.38675
+      }
+    }
+  },
+  "original_wetland_standardized_plant_WWTP_geodesic_near10_far20_country_model": {
+    "FQAIALL": {
+      "R2": 0.7221057858727453,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "FQAIALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 137,
+      "number_NWCA_plant_near10_sites": 103,
+      "original_same_state_ecoregion_matched_sites_n": 240,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": -0.7484219602097626,
+        "nominal_p_not_confirmatory": 0.4116888168915518,
+        "original_US_state_cluster95": [
+          -2.535283786193771,
+          1.0384398657742462
+        ]
+      }
+    },
+    "FQAINAT": {
+      "R2": 0.7332802829594234,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "FQAINAT~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 137,
+      "number_NWCA_plant_near10_sites": 103,
+      "original_same_state_ecoregion_matched_sites_n": 240,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": -0.8091752649188098,
+        "nominal_p_not_confirmatory": 0.31519382185299305,
+        "original_US_state_cluster95": [
+          -2.388208022891989,
+          0.7698574930543693
+        ]
+      }
+    },
+    "HALIEN": {
+      "R2": 0.3542751985805188,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "HALIEN~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 137,
+      "number_NWCA_plant_near10_sites": 103,
+      "original_same_state_ecoregion_matched_sites_n": 240,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": -0.061342124393561764,
+        "nominal_p_not_confirmatory": 0.42113406503937856,
+        "original_US_state_cluster95": [
+          -0.21079524129463229,
+          0.08811099250750876
+        ]
+      }
+    },
+    "HALL": {
+      "R2": 0.683224698887305,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "HALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 137,
+      "number_NWCA_plant_near10_sites": 103,
+      "original_same_state_ecoregion_matched_sites_n": 240,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": -0.12043442865445983,
+        "nominal_p_not_confirmatory": 0.06971601791443066,
+        "original_US_state_cluster95": [
+          -0.2505774852985684,
+          0.00970862798964875
+        ]
+      }
+    },
+    "HALL_design_weighted_sensitivity": {
+      "R2": 0.4708361355995204,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "HALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "original_NWCA_design_weighted_WLS",
+      "number_NWCA_plant_far20_sites": 137,
+      "number_NWCA_plant_near10_sites": 103,
+      "original_same_state_ecoregion_matched_sites_n": 240,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": 0.18062300867624317,
+        "nominal_p_not_confirmatory": 0.03757620886361953,
+        "original_US_state_cluster95": [
+          0.010378490906395199,
+          0.35086752644609115
+        ]
+      }
+    },
+    "HNAT": {
+      "R2": 0.6937969683040537,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "HNAT~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 137,
+      "number_NWCA_plant_near10_sites": 103,
+      "original_same_state_ecoregion_matched_sites_n": 240,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": -0.10958821920393699,
+        "nominal_p_not_confirmatory": 0.0720671099974023,
+        "original_US_state_cluster95": [
+          -0.22900206691769742,
+          0.009825628509823423
+        ]
+      }
+    }
+  },
+  "posthoc_after_original_NWCA_TN_Shannon_negative_result": true,
+  "schema": "gesui_US_NWCA2021_568_probability_plants_NPDES_strict_sewage2026_outfall_near10_far20_match_2021_v01",
+  "source_fixed_strict_5km_sensitivity": {
+    "HALL_original_sites": {
+      "R2": 0.6771409440536402,
+      "independent_original_US_state_cluster_n": 27,
+      "model_formula": "HALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+      "model_type": "site_equal_observational_OLS",
+      "number_NWCA_plant_far20_sites": 137,
+      "number_NWCA_plant_near10_sites": 39,
+      "original_same_state_ecoregion_matched_sites_n": 176,
+      "original_state_ecoregion_matching_strata_n": 32,
+      "posthoc_2026_permit_location_not_confirmed_2021_effluent_exposure": true,
+      "source_outfall_near10_beta_and_state_cluster95": {
+        "beta_near10_minus_far20_in_reported_response_units": -0.04595325093076377,
+        "nominal_p_not_confirmatory": 0.6775207085003796,
+        "original_US_state_cluster95": [
+          -0.26253854589783765,
+          0.1706320440363101
+        ]
+      }
+    },
+    "far": 137,
+    "near": 39,
+    "states_with_source_near5": 21
+  },
+  "stop_reason": null
+}
