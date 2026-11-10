@@ -4,6 +4,7 @@ on:
     branches: ["analysis/global-1055port-allPlantae-full-20261110"]
     paths:
       - ".github/workflows/gesui-global-1055-allplantae-source-freeze.yml"
+      - "scripts/gesui_global_original_1055port_allPlantae_808NEW_source_freeze.py"
   workflow_dispatch:
 permissions:
   contents: write
