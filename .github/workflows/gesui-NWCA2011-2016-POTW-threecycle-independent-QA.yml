@@ -1,0 +1,62 @@
+name: gesui NWCA2011 2016 2021 original 3year source POTW H_ALL independent statecluster QA
+on:
+  push:
+    branches: ["analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2011-2016-POTW-threecycle-independent-QA.yml"
+      - "scripts/audit_gesui_NWCA2011_2016_POTW_HALL_original_country_cluster_numpy.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_original_2011_2016_NWCA_area_weight_survey_QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install NumPy independent wetland H_ALL original cluster sandwich audit
+        run: |
+          python -m pip install --quiet numpy pandas scipy statsmodels
+          python -m py_compile scripts/audit_gesui_NWCA2011_2016_POTW_HALL_original_country_cluster_numpy.py
+      - name: Reacquire original official source documents before independent numeric verification
+        run: |
+          mkdir -p /tmp/gesui-nwca-history
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2023-04/nwca11_siteinfo.csv" \
+            -o /tmp/gesui-nwca-history/2011_siteinfo.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/sites/default/files/2016-10/nwca2011_vegmetrics.csv" \
+            -o /tmp/gesui-nwca-history/2011_vegmetrics.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2022-04/nwca-2016-site-information-data_0.csv" \
+            -o /tmp/gesui-nwca-history/2016_siteinfo.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2023-03/nwca_2016_veg_metrics.csv" \
+            -o /tmp/gesui-nwca-history/2016_vegmetrics.csv
+      - name: Independently verify 481 and 483 historical plots, source-sha, cluster CR1, equal-site vs area-weighted 3-year source sensitivity and all state deletions
+        run: |
+          python -u scripts/audit_gesui_NWCA2011_2016_POTW_HALL_original_country_cluster_numpy.py \
+            --source-dir /tmp/gesui-nwca-history \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_POTW_HALL_HISTORICAL_INDEPENDENT_NUMPY_QA.json
+      - name: Archive original standardized 2011/2016 H_ALL and WWTP location sensitivity independent evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_POTW_HALL_HISTORICAL_INDEPENDENT_NUMPY_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independent source-blind historic 2011/2016 wetland Shannon weighted/equal POTW source CI and full state influence QA"
+          git fetch origin analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git rebase origin/analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git push origin HEAD:analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2011-2016-2021-independent-POTW-HALL-source-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_POTW_HALL_HISTORICAL_INDEPENDENT_NUMPY_QA.json
+          retention-days: 90
