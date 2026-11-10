@@ -126,10 +126,19 @@ def main():
             and isinstance(entry["original_GBIF_confidence"],(int,float))
             and entry["original_GBIF_confidence"]>=95
         )
+        entry["family_supported_exact_species_accepted_or_synonym"] = bool(
+            entry["original_GBIF_family"] in FAMILIES
+            and entry["original_GBIF_rank"]=="SPECIES"
+            and entry["original_GBIF_status"] in ("ACCEPTED","SYNONYM")
+            and entry["original_GBIF_matchType"]=="EXACT"
+            and isinstance(entry["original_GBIF_confidence"],(int,float))
+            and entry["original_GBIF_confidence"]>=95
+        )
         result.append(entry)
     if len(result)!=meta["unique_original_species_or_higher_names"]:
         raise ValueError("Species name mapping not complete")
     byfamily=Counter(x["original_GBIF_family"] for x in result if x["accepted_strict_target_butterfly_species"])
+    byfamily2=Counter(x["original_GBIF_family"] for x in result if x["family_supported_exact_species_accepted_or_synonym"])
     out={
         "schema":"gesui_2026_DK_EBMS15m_original_species_blind_GBIF_family_taxonomy_before_individualCount_v01",
         "UTC":datetime.now(timezone.utc).isoformat(),
@@ -142,6 +151,8 @@ def main():
         "original_scientificName_GBIF_family_mapping_frozen":result,
         "target_taxonomic_families_source_only":list(FAMILIES),
         "source_accepted_species_by_family":dict(byfamily),
+        "source_exact_accepted_or_synonym_species_by_family_PRIMARY":dict(byfamily2),
+        "primary_species_status_accepted_or_synonym_fixed_before_any_individualCount":True,
         "unresolved_names":sum(not x["accepted_strict_target_butterfly_species"] for x in result),
         "GBIF_source_lookup_failures":sum(x["match_status"]=="GBIF_FAILED" for x in result),
         "original_15min_count_data_not_read_before_source_taxonomy_freeze":True
@@ -149,6 +160,7 @@ def main():
     a.out.parent.mkdir(parents=True,exist_ok=True)
     a.out.write_text(json.dumps(out,sort_keys=True,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"source":meta,"accepted_species_by_family":dict(byfamily),
+                      "accepted_or_synonym_species_by_family":dict(byfamily2),
                       "failed_GBIF":out["GBIF_source_lookup_failures"],
                       "original_Occurrence_individualCount_values_read":False},indent=2))
 
