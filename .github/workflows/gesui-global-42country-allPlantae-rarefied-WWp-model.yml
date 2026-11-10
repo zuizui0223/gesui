@@ -4,6 +4,7 @@ on:
     branches: ["analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110"]
     paths:
       - "results/global_all_Plantae_WWp2015_20261110/ORIGINAL_247PORT_42COUNTRY_GBIF_ALL_PLANTAE_2011_24_RAREFACTION_SOURCE.json"
+      - ".github/workflows/gesui-global-42country-allPlantae-rarefied-WWp-model.yml"
   workflow_dispatch:
 permissions:
   contents: write
