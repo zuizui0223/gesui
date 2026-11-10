@@ -1,0 +1,43 @@
+name: gesui global all1055 plant raw species and record WWp positive across GBIF source quality
+on:
+  push:
+    branches: ["analysis/global1055-crosskingdom-effort-controls-20261110"]
+    paths:
+      - ".github/workflows/gesui-global1055-Plantae-fullPort-recordQuality-sensitivity.yml"
+      - "scripts/gesui_global1055_fullPort_sourceQuality_unrarefied_Plantae_sensitivity.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_global_1055_WWp_allPlantae_raw_quality_selection_sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently retain raw original1055 Plantae species and record counts including pre-existing 303 sparse sites
+        run: |
+          python -m pip install --quiet "numpy<3" pandas statsmodels
+          python -m py_compile scripts/gesui_global1055_fullPort_sourceQuality_unrarefied_Plantae_sensitivity.py
+          python -u scripts/gesui_global1055_fullPort_sourceQuality_unrarefied_Plantae_sensitivity.py \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_ALL_PLANTAE_RAW_SPECIES_RECORDS_WWp_GBIF_QUALITY_SELECTION_QA.json
+      - name: Preserve source-locked no-new-GBIF global all1055 quality-selection sensitivity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_ALL_PLANTAE_RAW_SPECIES_RECORDS_WWp_GBIF_QUALITY_SELECTION_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Verify all1055 global WWp raw Plantae species/record positive across 752 GBIF-quality and 303 sparse port subsets"
+          git fetch origin analysis/global1055-crosskingdom-effort-controls-20261110
+          git rebase origin/analysis/global1055-crosskingdom-effort-controls-20261110
+          git push origin HEAD:analysis/global1055-crosskingdom-effort-controls-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global1055-wwp-Plantae-sourceQuality-fullPort-sensitivity
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_ALL_PLANTAE_RAW_SPECIES_RECORDS_WWp_GBIF_QUALITY_SELECTION_QA.json
+          retention-days: 90
