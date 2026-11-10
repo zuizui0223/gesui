@@ -1,0 +1,67 @@
+name: gesui US NWCA2021 128 wetlands 160 strict sewage permits x actual FY2021 EPA NPDES DMR SOURCE ONLY
+on:
+  push:
+    branches: ["analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-160permits-FY2021-realDMR-sourceONLY.yml"
+      - "scripts/gesui_NWCA2021_FY2021_NPDES_DMR_national_160permit_NPmonitor_source_only.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  national_EPA_ICIS_FY2021_NP_monitoring_for_original_160_WWTP_permits:
+    runs-on: ubuntu-latest
+    timeout-minutes: 27
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Pre-flight original 128 NWCA firstvisit sites / 160 same-admin NPDES permits fixed independently before FY2021 DMR data
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_FY2021_NPDES_DMR_national_160permit_NPmonitor_source_only.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_SEWAGE_OUTFALL_568SITE_SOURCE_ONLY_GEOGRAPHY_GATE.json")
+          x=json.loads(p.read_text())
+          y=x["predeclared_nearest_sewage_outfall_geodesic_source_controls"]["strict"]
+          assert x["no_original_NWCA_H_ALL_FQAI_or_TNTP_outcomes_accessed_in_source_stage"]
+          assert y["site_near10km_n"]==128 and y["nearest_10km_administrative_unique_NPDES_permits_n"]==160
+          assert x["source_precommitted_GEO_eligibility_gate"]["permitted_2021_outfall_distance_association_source_support_PASS"]
+          print("FY2021 DMR monitor universe: original 160 admin NPDES permits at <=10km of 128 standardized wetland monitoring points, not a hydrologic pathway")
+          PY
+      - name: Download original full US EPA ECHO official FY2021 DMR archive (576MB) and freeze full-archive SHA; DO NOT download individual observers or ecology
+        run: |
+          mkdir -p /tmp/gesui-original-USDMR
+          curl --retry 4 --retry-all-errors --connect-timeout 40 --max-time 900 \
+            --fail --location --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_dmrs_fy2021.zip" \
+            -o /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip
+          test -s /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip
+          ls -lh /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip
+          unzip -l /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip | head -15
+          sha256sum /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip
+      - name: Stream original national FY2021 DMR records to report for exactly same160 original admin permits true TN00600/TP00665 numeric monitoring opportunity only
+        run: |
+          python -u scripts/gesui_NWCA2021_FY2021_NPDES_DMR_national_160permit_NPmonitor_source_only.py \
+            --dmr-fy2021-zip /tmp/gesui-original-USDMR/npdes_dmrs_fy2021.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_NPDES_DMR_160MUNICIPAL_PERMIT_TNTP_MONITOR_SOURCE_GATE.json
+      - name: Preserve exact original 2021 official reported nutrient-monitoring support and STOP rules without touching 240-site positive/negative plant results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_NPDES_DMR_160MUNICIPAL_PERMIT_TNTP_MONITOR_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original FY2021 EPA national NPDES real TN TP reports for 160 administrative municipal permits near 128 wetland sites"
+          git fetch origin analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110
+          git rebase origin/analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110
+          git push origin HEAD:analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-US-NWCA2021-FY2021-official-DMR-POTW160-NPsource
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_NPDES_DMR_160MUNICIPAL_PERMIT_TNTP_MONITOR_SOURCE_GATE.json
+          retention-days: 90
