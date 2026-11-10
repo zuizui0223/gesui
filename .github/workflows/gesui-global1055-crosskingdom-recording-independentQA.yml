@@ -1,0 +1,42 @@
+name: gesui GLOBAL1055 cross-kingdom GBIF source 11-model independent country-cluster audit
+on:
+  push:
+    branches: ["analysis/global1055-crosskingdom-effort-controls-20261110"]
+    paths:
+      - "results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp_PLANTAE_ANIMALIA_FUNGI_RECORDING_COUNTRYFE_AND_PLANT_RICHNESS_QC.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_WWp_crosskingdom_1055_original_source_OLS_QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently verify 2,110 public GBIF Animalia/Fungi query URLs, prior original Plantae species and 11 WPI source regressions
+        run: |
+          python -m pip install --quiet "numpy<3"
+          python -m py_compile scripts/audit_gesui_global1055_crosskingdom_GBIF_count_11countryFE.py
+          python -u scripts/audit_gesui_global1055_crosskingdom_GBIF_count_11countryFE.py \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp_PLANT_ANIMAL_FUNGI_COUNTRY_MODEL_INDEPENDENT_SOURCE_QA.json
+      - name: Preserve source exact count and arithmetic audit (zero species and false biological causality not asserted)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp_PLANT_ANIMAL_FUNGI_COUNTRY_MODEL_INDEPENDENT_SOURCE_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit independently 11 original country-cluster GBIF crosskingdom recording models and source URLs"
+          git fetch origin analysis/global1055-crosskingdom-effort-controls-20261110
+          git rebase origin/analysis/global1055-crosskingdom-effort-controls-20261110
+          git push origin HEAD:analysis/global1055-crosskingdom-effort-controls-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global1055-plant-animal-fungi-WWp-independent-11model-QA
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL1055_WWp_PLANT_ANIMAL_FUNGI_COUNTRY_MODEL_INDEPENDENT_SOURCE_QA.json
+          retention-days: 90
