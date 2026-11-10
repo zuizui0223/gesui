@@ -178,6 +178,7 @@ def run(root):
                                       "near_outfall_group_ids":defaultdict(set),
                                       "country1deg_regions":set(),"groups_with_target_positive":0,"ambiguous":0})
     original_unassigned=Counter()
+    unit_rows=[]
     for (yr,groupid),g in parent.items():
         if len(g["band"])!=1 or len(g["region"])!=1 or len(g["near_outfall_sha256"])>1:
             original_unassigned[f"ambiguous_parent_group_{yr}"]+=1
@@ -193,8 +194,22 @@ def run(root):
         t["family_counts"].update(g["individual_counts_accepted_or_synonym"])
         t["family_counts_strict_accepted"].update(g["individual_counts_accepted_only"])
         t["groups_with_target_positive"]+=sum(g["individual_counts_accepted_or_synonym"][f] for f in ("Lycaenidae","Pieridae","Papilionidae"))>0
+        sourceID=next(iter(g["near_outfall_sha256"])) if band=="near5cumulative" else None
+        unit_rows.append({
+            "original_parent_survey_unit_SHA256":sha((str(yr)+"|"+groupid).encode()),
+            "source_only_year":yr,
+            "original_geographic_1degree_cell":region,
+            "original_qualifying_EEA2022_WWTP_distance_band":band,
+            "nearest_registered_EEA_WWTP_outfall_SHA256":sourceID,
+            "original_child_Event_core_rows":g["Event_child_n"],
+            "published_Original_Occurrence_rows":g["original_Occurrence_rows"],
+            "has_any_published_Original_Occurrence_record":g["has_any_original_Occurrence_link"],
+            "accepted_exact_GBIF_species_family_individualCount_including_synonyms":dict(g["individual_counts_accepted_or_synonym"]),
+            "strict_accepted_only_species_family_counts":dict(g["individual_counts_accepted_only"]),
+            "no_site_lat_lon_or_original_personal_event_id_republished":True
+        })
         if band=="near5cumulative":
-            sid=next(iter(g["near_outfall_sha256"]))
+            sid=sourceID
             if g["has_any_original_Occurrence_link"]:
                 t["near_outfall_group_ids"][sid].add(groupid)
     stats={}
@@ -244,6 +259,8 @@ def run(root):
         "original_row_and_taxonomic_quality":dict(totals),
         "original_parent_group_unstable_source_or_geography_excluded":dict(original_unassigned),
         "source_band_by_year_parent_group_observation_and_family_count_support":stats,
+        "original_anonymized_parent_group_family_counts_for_posthoc_region_and_outfall_audit":sorted(unit_rows,key=lambda x:(x["source_only_year"],x["original_qualifying_EEA2022_WWTP_distance_band"],x["original_parent_survey_unit_SHA256"])),
+        "this_parent_group_export_added_after_original_pooled_family_QC":True,
         "primary_2024_and_2025_after_original_parent_source_family_QC_gate":overall,
         "original_2023_descriptive_only_not_independent_parent_source_support":True,
         "full_original_DwCA_nonpublic_rows_not_republished":True,
