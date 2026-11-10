@@ -28,7 +28,7 @@ CANON_ALIASES={
   "ECO":["AG_ECO9","AG_ECO","ECO9","ECORE_GRP","AG_ECOREGION"],
   "SITETYPE":["SITETYPE","SITE_TYPE","SAMPLE_TYPE","PANEL_TYPE"],
   "WEIGHT":["WGT_TP_CORE","WGT_TP","WGT","WGT_CORE","WGT_TP_ALL"],
-  "YEAR":["YEAR","SAMPLE_YEAR","SAMP_YEAR","SURVEY_YEAR"],
+  "YEAR":["YEAR","SAMPLE_YEAR","SAMP_YEAR","SURVEY_YEAR","DATE_COL"],
   "STUDY":["STUDY"],
   "WETCLS":["WETCLS_GRP","WETCLS","NWCA_WETCLS_GRP"],
   "HYDCLS":["HYD_CLS","HYDCLS"]
@@ -95,7 +95,11 @@ def inspect(year,sitepath,metricpath):
     weight=pd.to_numeric(c["WEIGHT"],errors="coerce")
     lat=pd.to_numeric(c["LAT"],errors="coerce")
     lon=pd.to_numeric(c["LON"],errors="coerce")
-    year_num=pd.to_numeric(c["YEAR"],errors="coerce")
+    if norm(map_source["YEAR"]) in ("DATECOL","SAMPLEDATE","DATE"):
+        dates=pd.to_datetime(c["YEAR"],format="mixed",errors="coerce")
+        year_num=dates.dt.year
+    else:
+        year_num=pd.to_numeric(c["YEAR"],errors="coerce")
     original=pd.DataFrame({
         "id":ids,"visit":visit,"type":kind,"weight":weight,"lat":lat,"lon":lon,
         "year":year_num,"state":c["STATE"].astype("string").str.strip(),
