@@ -1,0 +1,40 @@
+name: gesui DK eBMS 15min 2023-25 original EVENT ONLY vs EEA2022 registered WWTP source feasibility
+on:
+  push:
+    branches: ["analysis/dk-ebms-15min-wwtp-source-support-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms15m-original-event-WWTP-sourceONLY.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-EBMS15min-2023-25-EVENT_ONLY-EEA-203sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Audit original 2022 EEA source SHA and official v1.3 eBMS 15-minute event-only 2023-25 original locations
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS15m_2023_2025_original_EVENToNLY_EEA_WWTP_source_gate.py
+          python -u scripts/gesui_DK_EBMS15m_2023_2025_original_EVENToNLY_EEA_WWTP_source_gate.py \
+            --tmpdir /tmp/gesui-DK-ebms15m-original-event-only \
+            --out results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15M_2023_25_EEA2022_203_OUTFALL_EVENT_ONLY_QA.json
+      - name: Preserve immutable source-only event bins and STOP/GO decisions before butterfly species records
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15M_2023_25_EEA2022_203_OUTFALL_EVENT_ONLY_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze Danish original EBMS15min 2023-25 event-only 203 WWTP geography/source cluster coverage before taxon outcomes"
+          git fetch origin analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git rebase origin/analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git push origin HEAD:analysis/dk-ebms-15min-wwtp-source-support-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-eBMS-15minute-original-Event-EEA2022-source-only
+          path: results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15M_2023_25_EEA2022_203_OUTFALL_EVENT_ONLY_QA.json
+          retention-days: 90
