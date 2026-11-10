@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 jobs:
-  2021-actual-habitat-vs-2025-original-family:
+  original2021_habitat_original2025_family:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
