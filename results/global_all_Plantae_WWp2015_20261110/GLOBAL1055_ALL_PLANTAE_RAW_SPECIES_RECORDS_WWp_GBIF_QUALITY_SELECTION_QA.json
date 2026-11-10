@@ -1,0 +1,460 @@
+{
+  "2015_WWp_is_production_model_not_plant_nutrient_dose": true,
+  "GBIF_record_quality_752_subset_and_303_unsupported_is_posthoc_outcome_based_selection": true,
+  "all_1055_WPI_ports_in_source_42_countries_included_for_raw_record_analysis": true,
+  "all_1055_original_GBIF_count_API_successful_without_requery": true,
+  "all_source_42country_leave_country_influence": {
+    "log_plant_records": {
+      "all_original_country_omission_results": [
+        {
+          "WWp_beta": 0.31249835772413476,
+          "country_omitted": "AR"
+        },
+        {
+          "WWp_beta": 0.3155293521658014,
+          "country_omitted": "AU"
+        },
+        {
+          "WWp_beta": 0.3120505114270235,
+          "country_omitted": "BR"
+        },
+        {
+          "WWp_beta": 0.29904270236612246,
+          "country_omitted": "CA"
+        },
+        {
+          "WWp_beta": 0.29687792054637546,
+          "country_omitted": "CL"
+        },
+        {
+          "WWp_beta": 0.31410514515055465,
+          "country_omitted": "CN"
+        },
+        {
+          "WWp_beta": 0.3160270115368551,
+          "country_omitted": "CR"
+        },
+        {
+          "WWp_beta": 0.3164768344148448,
+          "country_omitted": "DE"
+        },
+        {
+          "WWp_beta": 0.3101968840894351,
+          "country_omitted": "DK"
+        },
+        {
+          "WWp_beta": 0.31261478857795943,
+          "country_omitted": "DZ"
+        },
+        {
+          "WWp_beta": 0.31854494680736645,
+          "country_omitted": "EC"
+        },
+        {
+          "WWp_beta": 0.32258887450284557,
+          "country_omitted": "EG"
+        },
+        {
+          "WWp_beta": 0.3061993316772928,
+          "country_omitted": "ES"
+        },
+        {
+          "WWp_beta": 0.31400858687211386,
+          "country_omitted": "FI"
+        },
+        {
+          "WWp_beta": 0.312730105366801,
+          "country_omitted": "FR"
+        },
+        {
+          "WWp_beta": 0.3273067373304466,
+          "country_omitted": "GB"
+        },
+        {
+          "WWp_beta": 0.3147143085101636,
+          "country_omitted": "GR"
+        },
+        {
+          "WWp_beta": 0.2959635968351571,
+          "country_omitted": "ID"
+        },
+        {
+          "WWp_beta": 0.3061698132334151,
+          "country_omitted": "IN"
+        },
+        {
+          "WWp_beta": 0.3193311671485418,
+          "country_omitted": "IR"
+        },
+        {
+          "WWp_beta": 0.3165929244473271,
+          "country_omitted": "IT"
+        },
+        {
+          "WWp_beta": 0.3248853655677111,
+          "country_omitted": "JP"
+        },
+        {
+          "WWp_beta": 0.32284021890406156,
+          "country_omitted": "KR"
+        },
+        {
+          "WWp_beta": 0.31567377308200684,
+          "country_omitted": "LY"
+        },
+        {
+          "WWp_beta": 0.31984485623029363,
+          "country_omitted": "MA"
+        },
+        {
+          "WWp_beta": 0.3093866467446815,
+          "country_omitted": "MX"
+        },
+        {
+          "WWp_beta": 0.31278651665088786,
+          "country_omitted": "MY"
+        },
+        {
+          "WWp_beta": 0.3145202822426271,
+          "country_omitted": "NZ"
+        },
+        {
+          "WWp_beta": 0.29418312594247176,
+          "country_omitted": "PH"
+        },
+        {
+          "WWp_beta": 0.3176129293897546,
+          "country_omitted": "PL"
+        },
+        {
+          "WWp_beta": 0.31446511664292126,
+          "country_omitted": "PT"
+        },
+        {
+          "WWp_beta": 0.31511243256326466,
+          "country_omitted": "RO"
+        },
+        {
+          "WWp_beta": 0.33840841050971515,
+          "country_omitted": "RU"
+        },
+        {
+          "WWp_beta": 0.31882526518164406,
+          "country_omitted": "SA"
+        },
+        {
+          "WWp_beta": 0.31951789284223764,
+          "country_omitted": "SE"
+        },
+        {
+          "WWp_beta": 0.315941200892055,
+          "country_omitted": "TH"
+        },
+        {
+          "WWp_beta": 0.31542516121279984,
+          "country_omitted": "TN"
+        },
+        {
+          "WWp_beta": 0.30127307799806935,
+          "country_omitted": "TR"
+        },
+        {
+          "WWp_beta": 0.3265043950174564,
+          "country_omitted": "UA"
+        },
+        {
+          "WWp_beta": 0.3872741027937676,
+          "country_omitted": "US"
+        },
+        {
+          "WWp_beta": 0.3130594099218119,
+          "country_omitted": "VE"
+        },
+        {
+          "WWp_beta": 0.32077888731397275,
+          "country_omitted": "VN"
+        }
+      ],
+      "beta_range": [
+        0.29418312594247176,
+        0.3872741027937676
+      ],
+      "not_out_of_country_prediction": true,
+      "omitted_original_country_n": 42,
+      "positive_n": 42
+    },
+    "log_plant_speciesKeys": {
+      "all_original_country_omission_results": [
+        {
+          "WWp_beta": 0.22676758069167416,
+          "country_omitted": "AR"
+        },
+        {
+          "WWp_beta": 0.22894160699164945,
+          "country_omitted": "AU"
+        },
+        {
+          "WWp_beta": 0.22557592089463863,
+          "country_omitted": "BR"
+        },
+        {
+          "WWp_beta": 0.2235390186296644,
+          "country_omitted": "CA"
+        },
+        {
+          "WWp_beta": 0.21696214182949844,
+          "country_omitted": "CL"
+        },
+        {
+          "WWp_beta": 0.22481288639610383,
+          "country_omitted": "CN"
+        },
+        {
+          "WWp_beta": 0.22970927998177443,
+          "country_omitted": "CR"
+        },
+        {
+          "WWp_beta": 0.22968412409917818,
+          "country_omitted": "DE"
+        },
+        {
+          "WWp_beta": 0.2288433801848698,
+          "country_omitted": "DK"
+        },
+        {
+          "WWp_beta": 0.22621111965808394,
+          "country_omitted": "DZ"
+        },
+        {
+          "WWp_beta": 0.23159096290019415,
+          "country_omitted": "EC"
+        },
+        {
+          "WWp_beta": 0.23358736954950923,
+          "country_omitted": "EG"
+        },
+        {
+          "WWp_beta": 0.22408458270274847,
+          "country_omitted": "ES"
+        },
+        {
+          "WWp_beta": 0.2284322985448313,
+          "country_omitted": "FI"
+        },
+        {
+          "WWp_beta": 0.2277272833119693,
+          "country_omitted": "FR"
+        },
+        {
+          "WWp_beta": 0.2368408655850041,
+          "country_omitted": "GB"
+        },
+        {
+          "WWp_beta": 0.22832433325032045,
+          "country_omitted": "GR"
+        },
+        {
+          "WWp_beta": 0.19488701836862446,
+          "country_omitted": "ID"
+        },
+        {
+          "WWp_beta": 0.22040318168613018,
+          "country_omitted": "IN"
+        },
+        {
+          "WWp_beta": 0.23164297481408294,
+          "country_omitted": "IR"
+        },
+        {
+          "WWp_beta": 0.2293785070593105,
+          "country_omitted": "IT"
+        },
+        {
+          "WWp_beta": 0.2351718600126527,
+          "country_omitted": "JP"
+        },
+        {
+          "WWp_beta": 0.2343919473659301,
+          "country_omitted": "KR"
+        },
+        {
+          "WWp_beta": 0.22811525748830827,
+          "country_omitted": "LY"
+        },
+        {
+          "WWp_beta": 0.23206054950990945,
+          "country_omitted": "MA"
+        },
+        {
+          "WWp_beta": 0.22514430922671835,
+          "country_omitted": "MX"
+        },
+        {
+          "WWp_beta": 0.22782204220822366,
+          "country_omitted": "MY"
+        },
+        {
+          "WWp_beta": 0.22863797942375522,
+          "country_omitted": "NZ"
+        },
+        {
+          "WWp_beta": 0.2084343103393963,
+          "country_omitted": "PH"
+        },
+        {
+          "WWp_beta": 0.2296661620296983,
+          "country_omitted": "PL"
+        },
+        {
+          "WWp_beta": 0.22851261128774789,
+          "country_omitted": "PT"
+        },
+        {
+          "WWp_beta": 0.22845670685066458,
+          "country_omitted": "RO"
+        },
+        {
+          "WWp_beta": 0.24615738034455903,
+          "country_omitted": "RU"
+        },
+        {
+          "WWp_beta": 0.23283683057926546,
+          "country_omitted": "SA"
+        },
+        {
+          "WWp_beta": 0.22991389410653323,
+          "country_omitted": "SE"
+        },
+        {
+          "WWp_beta": 0.22904540251845285,
+          "country_omitted": "TH"
+        },
+        {
+          "WWp_beta": 0.22772346990845813,
+          "country_omitted": "TN"
+        },
+        {
+          "WWp_beta": 0.22038847774509257,
+          "country_omitted": "TR"
+        },
+        {
+          "WWp_beta": 0.236904968469322,
+          "country_omitted": "UA"
+        },
+        {
+          "WWp_beta": 0.2893505649957847,
+          "country_omitted": "US"
+        },
+        {
+          "WWp_beta": 0.22440551441873655,
+          "country_omitted": "VE"
+        },
+        {
+          "WWp_beta": 0.2344132817888367,
+          "country_omitted": "VN"
+        }
+      ],
+      "beta_range": [
+        0.19488701836862446,
+        0.2893505649957847
+      ],
+      "not_out_of_country_prediction": true,
+      "omitted_original_country_n": 42,
+      "positive_n": 42
+    }
+  },
+  "no_50record_rarefaction_on_303_low_recording_sites": true,
+  "no_zero_imputation_of_failed_GBIF_queries": true,
+  "original_GBIF_all1055_source_SHA256": "53721fcecc41d9dd34f42fc3fa47b167d3aa0214a4ece19a210f946c0d152126",
+  "original_previous_full752_macro_result_SHA256": "85f2034fcbc04b1275795bc0589cd239ed3695b54e9a490f2667613c27bc5357",
+  "quality_supported_752_old_beta_exactly_reproduced": true,
+  "schema": "gesui_global1055_42country_WWp_allPlantae_raw_GBIF_reporting_gate_fullsource_sensitivity_v01",
+  "source_original_all1055_sites_SHA256": "cd42b13392af99ade0ce4815e7bc6be11a6c04e34551944bf086263c76ef9e18",
+  "two_recorded_Plantae_endpoints_by_full_and_2_quality_strata": {
+    "below_original_GBIF50_quality_303": {
+      "log_plant_records": {
+        "R2": 0.5230259525602758,
+        "beta_WWp": 0.3130275819101471,
+        "country_cluster95": [
+          0.19995350755294666,
+          0.4261016562673476
+        ],
+        "formula": "log_plant_records~log_WWTP+WC_built+WC_crop+abs_lat+sinlon+coslon+log_WWp15+C(country)",
+        "n_original_countries": 29,
+        "n_source_ports": 303,
+        "nominal_p": 5.767989713747985e-08,
+        "not_true_plant_abundance_or_causal_sewage_effect": true
+      },
+      "log_plant_speciesKeys": {
+        "R2": 0.49839224039271,
+        "beta_WWp": 0.27572333308968655,
+        "country_cluster95": [
+          0.18690777601459352,
+          0.3645388901647796
+        ],
+        "formula": "log_plant_speciesKeys~log_WWTP+WC_built+WC_crop+abs_lat+sinlon+coslon+log_WWp15+C(country)",
+        "n_original_countries": 29,
+        "n_source_ports": 303,
+        "nominal_p": 1.1677704677167654e-09,
+        "not_true_plant_abundance_or_causal_sewage_effect": true
+      }
+    },
+    "prior_GBIF50_supported_752": {
+      "log_plant_records": {
+        "R2": 0.5445001549835201,
+        "beta_WWp": 0.2941113425612513,
+        "country_cluster95": [
+          0.12870674190274725,
+          0.4595159432197554
+        ],
+        "formula": "log_plant_records~log_WWTP+WC_built+WC_crop+abs_lat+sinlon+coslon+log_WWp15+C(country)",
+        "n_original_countries": 38,
+        "n_source_ports": 752,
+        "nominal_p": 0.0004919968908371929,
+        "not_true_plant_abundance_or_causal_sewage_effect": true
+      },
+      "log_plant_speciesKeys": {
+        "R2": 0.5450166226659321,
+        "beta_WWp": 0.1756718008344559,
+        "country_cluster95": [
+          0.06685392335431314,
+          0.2844896783145987
+        ],
+        "formula": "log_plant_speciesKeys~log_WWTP+WC_built+WC_crop+abs_lat+sinlon+coslon+log_WWp15+C(country)",
+        "n_original_countries": 38,
+        "n_source_ports": 752,
+        "nominal_p": 0.0015556453060781446,
+        "not_true_plant_abundance_or_causal_sewage_effect": true
+      }
+    },
+    "unfiltered_1055": {
+      "log_plant_records": {
+        "R2": 0.775228062665724,
+        "beta_WWp": 0.31555761630705187,
+        "country_cluster95": [
+          0.18160871957404598,
+          0.44950651304005773
+        ],
+        "formula": "log_plant_records~log_WWTP+WC_built+WC_crop+abs_lat+sinlon+coslon+log_WWp15+C(country)",
+        "n_original_countries": 42,
+        "n_source_ports": 1055,
+        "nominal_p": 3.887745350590359e-06,
+        "not_true_plant_abundance_or_causal_sewage_effect": true
+      },
+      "log_plant_speciesKeys": {
+        "R2": 0.779788014363471,
+        "beta_WWp": 0.22884255586127225,
+        "country_cluster95": [
+          0.10937946162571838,
+          0.3483056500968261
+        ],
+        "formula": "log_plant_speciesKeys~log_WWTP+WC_built+WC_crop+abs_lat+sinlon+coslon+log_WWp15+C(country)",
+        "n_original_countries": 42,
+        "n_source_ports": 1055,
+        "nominal_p": 0.00017369376363699947,
+        "not_true_plant_abundance_or_causal_sewage_effect": true
+      }
+    }
+  },
+  "utc": "2026-11-10T12:31:47.190325+00:00"
+}
