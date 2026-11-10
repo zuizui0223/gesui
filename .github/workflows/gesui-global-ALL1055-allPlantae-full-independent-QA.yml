@@ -1,0 +1,42 @@
+name: gesui ORIGINAL global ALL1055 Plantae WWp2015 countryFE + 2degree + unseen-country independent audit
+on:
+  push:
+    branches: ["analysis/global-1055port-allPlantae-full-20261110"]
+    paths:
+      - "results/global_all_Plantae_WWp2015_20261110/GLOBAL_ALL1055_WWp2015_ALL_PLANTAE_50RAREFIED_42COUNTRY_MACRO_AND_COUNTRY_HOLDOUT.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_global_original1055_allPlantae_country_source_QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Rebuild original full1055 allPlantae GBIF species/record source, 2015 WWp country-dummy OLS, independent country sandwich and prediction squares
+        run: |
+          python -m pip install --quiet "numpy<3"
+          python -m py_compile scripts/audit_gesui_global_ALL1055_allPlantae_source_WWp_countryFE_heldout.py
+          python -u scripts/audit_gesui_global_ALL1055_allPlantae_source_WWp_countryFE_heldout.py \
+            --out results/global_all_Plantae_WWp2015_20261110/GLOBAL_ALL1055_42COUNTRY_WWp_ALLPLANTAE_ORIGINAL_FULL_QA.json
+      - name: Archive exact source country, port and independent macro OLS/holdout evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/GLOBAL_ALL1055_42COUNTRY_WWp_ALLPLANTAE_ORIGINAL_FULL_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Reproduce full original1055 All Plantae 2015WWp source OLS/country CI/2degree/unseen-country metrics independently"
+          git fetch origin analysis/global-1055port-allPlantae-full-20261110
+          git rebase origin/analysis/global-1055port-allPlantae-full-20261110
+          git push origin HEAD:analysis/global-1055port-allPlantae-full-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-ALL1055-country-full-allPlantae-independent-source-QA
+          path: results/global_all_Plantae_WWp2015_20261110/GLOBAL_ALL1055_42COUNTRY_WWp_ALLPLANTAE_ORIGINAL_FULL_QA.json
+          retention-days: 90
