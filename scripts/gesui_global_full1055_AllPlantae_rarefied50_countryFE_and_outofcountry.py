@@ -43,7 +43,7 @@ def load(root):
         return source,data,None,"PRECOMMITTED_ALL1055_GBIF_PLANTAE_SAMPLE_QUALITY_GATE_FAIL"
     ports={r["original_port_id"]:r for r in source["source_all_1055_public_country_port_site_metadata_no_new_GBIF_response"]}
     result={r["original_port_id"]:r for r in data["original_1055_port_all_Plantae_source_GBIF_facet_summaries"]}
-    if len(ports)!=len(result)!=1055 or set(ports)!=set(result):
+    if len(ports)!=1055 or len(result)!=1055 or set(ports)!=set(result):
         raise ValueError("Original 1055 source-WWTP and all-Plantae site joins inconsistent")
     rows=[]
     for portid in sorted(ports):
