@@ -4,6 +4,7 @@ on:
     branches: ["analysis/global-1055port-allPlantae-full-20261110"]
     paths:
       - "results/global_all_Plantae_WWp2015_20261110/ORIGINAL_ALL1055_42COUNTRY_GBIF_PLANTAE_2011_24_50RECORD_RAREFACTION_SOURCE.json"
+      - ".github/workflows/gesui-global-full1055-allPlantae-countryFE-holdout.yml"
   workflow_dispatch:
 permissions:
   contents: write
