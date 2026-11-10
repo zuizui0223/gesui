@@ -1,0 +1,54 @@
+name: gesui NWCA2021 inland tidal and measured conductivity posthoc wetland nutrient Shannon sensitivity
+on:
+  push:
+    branches: ["analysis/us-nwca2021-wetland-plant-chemistry-source-20261110"]
+    paths:
+      - ".github/workflows/gesui-US-NWCA2021-inland-tidal-conductivity-sensitivity.yml"
+      - "scripts/gesui_NWCA2021_wetland_nutrient_Shannon_inland_tidal_conductivity_POSTHOC.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_locked_original_NWCA2021_inland_tidal_and_ions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install original 2021 US EPA national wetland ecological sensitivity dependencies
+        run: python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+      - name: Retrieve exactly source-frozen four official original NWCA2021 flat files for site-level hydrology and conductivity
+        run: |
+          mkdir -p /tmp/gesui-nwca2021
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+          done
+      - name: On exact 499 earlier water/plant qualifying probability sites, test inland tidal contrast and specific conductivity
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_wetland_nutrient_Shannon_inland_tidal_conductivity_POSTHOC.py
+          python -u scripts/gesui_NWCA2021_wetland_nutrient_Shannon_inland_tidal_conductivity_POSTHOC.py \
+            --source-dir /tmp/gesui-nwca2021 \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_INLAND_TIDAL_CONDUCTIVITY_TNTP_SHANNON_POSTHOC_QC.json
+      - name: Preserve original source-locked wetland class sensitivity separate from wastewater-specific causation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_INLAND_TIDAL_CONDUCTIVITY_TNTP_SHANNON_POSTHOC_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive source-locked US NWCA2021 inland/tidal wetland TN TP and conductivity ecological contrast"
+          git fetch origin analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git rebase origin/analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git push origin HEAD:analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-USA-NWCA2021-inland-tidal-conductivity-biodiversity
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_INLAND_TIDAL_CONDUCTIVITY_TNTP_SHANNON_POSTHOC_QC.json
+          retention-days: 90
