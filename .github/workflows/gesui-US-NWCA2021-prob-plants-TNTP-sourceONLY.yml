@@ -1,0 +1,57 @@
+name: gesui USA EPA NWCA2021 standardized wetland plant diversity TN TP SOURCE ONLY
+on:
+  push:
+    branches: ["analysis/us-nwca2021-wetland-plant-chemistry-source-20261110"]
+    paths:
+      - ".github/workflows/gesui-US-NWCA2021-prob-plants-TNTP-sourceONLY.yml"
+      - "scripts/gesui_us_NWCA2021_probability_source_site_vegmetrics_nutrient_join_gate.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_EPA_NWCA2021_source_probability_site_join_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install original EPA flat-file metadata readers only
+        run: python -m pip install --quiet "numpy<3" pandas
+      - name: Download four original publicly archived 2021 US EPA NWCA CSV tables and preserve their exact SHA
+        run: |
+          mkdir -p /tmp/gesui-nwca2021
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-nwca2021/nwca21_$item-data.csv"
+          done
+          sha256sum /tmp/gesui-nwca2021/*.csv
+      - name: Original probability site and vegetation/chemistry/hydrology SITE_ID source match ONLY, no species/chemistry values
+        run: |
+          python -m py_compile scripts/gesui_us_NWCA2021_probability_source_site_vegmetrics_nutrient_join_gate.py
+          python -u scripts/gesui_us_NWCA2021_probability_source_site_vegmetrics_nutrient_join_gate.py \
+            --source-dir /tmp/gesui-nwca2021 \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_VEG_WATERCHEM_SITEONLY_GATE.json
+      - name: Commit exact original EPA source/plot opportunity before opening plant or measured nutrient values
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_VEG_WATERCHEM_SITEONLY_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze official NWCA2021 wetland probability survey site, actual water chemistry and vegetation presence before ecology values"
+          git fetch origin analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git rebase origin/analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+          git push origin HEAD:analysis/us-nwca2021-wetland-plant-chemistry-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-official-EPA-NWCA2021-source-data-plant-waterchem-hydrology
+          path: |
+            /tmp/gesui-nwca2021/*.csv
+            results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_VEG_WATERCHEM_SITEONLY_GATE.json
+          retention-days: 90
