@@ -1,0 +1,39 @@
+name: gesui DK new399 original 2025 within-region WWTP component vs compositional photo/individual bias audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-new399-SIMPSOn-family-region-WWTP-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source-locked-original-new399-geography-and-nuisance-effects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Recalculate source-locked original 2025 family ratios across six same 1-degree cells and individual WWTP outfalls
+        run: |
+          python -m py_compile scripts/gesui_DK_2025_new399_composition_aggregation_region_and_WWTP_component_QC.py
+          python -u scripts/gesui_DK_2025_new399_composition_aggregation_region_and_WWTP_component_QC.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_LYCAENIDAE_2022_WWTP_AGGREGATE_REGION_COMPONENT_SENSITIVITY.json
+      - name: Freeze full source-locked 2025 Denmark spatial/family aggregation audit, no independent causal effect claim
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_LYCAENIDAE_2022_WWTP_AGGREGATE_REGION_COMPONENT_SENSITIVITY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve source-locked 2025 Danish new399 1degree Simpson-like source/photo composition and WWTP-unit sensitivity"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-new399-six-region-compositional-bias-outfall-unit-QC
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_LYCAENIDAE_2022_WWTP_AGGREGATE_REGION_COMPONENT_SENSITIVITY.json
+          retention-days: 90

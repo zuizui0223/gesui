@@ -1,0 +1,52 @@
+name: gesui Denmark eBMS 2025 NEW399 original family counts only AFTER source-locked recording QA
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-new399-family-count-BEFORE-effect.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-NEW399-licensed-species-family-aggregate-QC:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify independent NEW399 source gate was committed before new 2025 family outcomes
+        run: |
+          python - <<'PY'
+          import json
+          p='results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_EVENT_ANY_OCC_WWTP20_SOURCE_GATE_BEFORE_FAMILY.json'
+          o=json.load(open(p))
+          assert o['frozen_before_2025_NEW399_butterfly_counts_gate']['2025_NEW399_butterfly_family_count_outcome_permitted']
+          assert o['NEW2025_Lycaenidae_or_any_butterfly_family_individualCount_NOT_READ']
+          assert o['original_2025_family_taxon_or_scientificName_NOT_READ_in_this_stage']
+          assert o['new_2025_year_sourced_station_n']==399
+          assert o['original_previous_2023_2024_butterfly_outcome_examined_site_count_EXCLUDED']==107
+          print('Original 399 site source-only sampling opportunity and 107 exclusion FROZEN before butterfly family counts.')
+          PY
+      - name: Reconstruct original licensed Event-Occurrence accepted family counts, no WWTP effects
+        run: |
+          python -m py_compile scripts/gesui_DK_2025_new399_original_family_counts_BEFOREx_outfall_effect.py
+          python -u scripts/gesui_DK_2025_new399_original_family_counts_BEFOREx_outfall_effect.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_NEW399_ORIGINAL_FAMILY_COUNT_BEFORE_DISTANCE_CONTRAST.json
+      - name: Preserve full 399 original accepted-family site-year aggregates before spatial comparison
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_NEW399_ORIGINAL_FAMILY_COUNT_BEFORE_DISTANCE_CONTRAST.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record source-locked Denmark new399 2025 butterfly family counts and independent visit/reporting gates BEFORE association"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-new399-original-2025-family-aggregate-pre-source-contrast
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_NEW399_ORIGINAL_FAMILY_COUNT_BEFORE_DISTANCE_CONTRAST.json
+          retention-days: 90

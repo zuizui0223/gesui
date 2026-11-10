@@ -1,0 +1,150 @@
+{
+  "all_matches_exact_at_five_family_counts_32_regionmonth_strata_and_leave_one_region_out": true,
+  "independent_original_licensed_archive_NOT_re_read": true,
+  "licensed_source_2025_original_CCBYNC_4_0": true,
+  "not_chemistry_or_hydrological_WWTP_causal_effect": true,
+  "original_286_linked_two_date_sites": 286,
+  "original_source_selected_399_sites": 399,
+  "original_sources_SHA256": {
+    "frozen399_event_survey_source": "cd9fd32d88c34f59e471156e32a430a493f964f8a6f1a6758a57abfe08e884b1",
+    "month_x_region_licensed_original_replay": "8c6e048aa7e1ea11ba2a3d961f5c3b187b5dd0a285facfea5b0ec2b18bd4eccb",
+    "original399_fivefamily_previous_counts": "73bd2c0dd9358fbf2e4d85162cce483d40589c24f8f6d05022e4463e1d8dd480"
+  },
+  "region_month_season_results": {
+    "May_to_Aug_common_calendar_months": {
+      "all_six_1degree_regions": true,
+      "independently_recomputed": {
+        "L_recording_rate_near_over_remote": 0.7327745480428376,
+        "L_share3_oddsratio_near_over_remote": 2.0415855699684986,
+        "L_share5_oddsratio_near_over_remote": 0.5975410744455759,
+        "site_region_months": 24,
+        "standardized_families": {
+          "near": {
+            "Hesperiidae": 1.0623806780428124,
+            "Lycaenidae": 0.7625246553353422,
+            "Nymphalidae": 8.598085642801221,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.097073931673984
+          },
+          "remote": {
+            "Hesperiidae": 0.2805260175971409,
+            "Lycaenidae": 1.0405992639509163,
+            "Nymphalidae": 5.435149921166619,
+            "Papilionidae": 0.0,
+            "Pieridae": 3.0565612766933556
+          }
+        },
+        "weighted_recording_date_support": 305
+      },
+      "leave_one_region_ratios_exactly_match": {
+        "55|10": {
+          "OR_five": 0.7086878316754414,
+          "OR_three": 2.847446634063609,
+          "rate_ratio": 0.9116004020857504
+        },
+        "55|11": {
+          "OR_five": 0.5663325799434832,
+          "OR_three": 1.9380078235430385,
+          "rate_ratio": 0.7135129369854405
+        },
+        "55|12": {
+          "OR_five": 0.4082472904457399,
+          "OR_three": 0.7857816613957936,
+          "rate_ratio": 0.5173323094466985
+        },
+        "55|9": {
+          "OR_five": 0.5794011892617188,
+          "OR_three": 2.1135317366962934,
+          "rate_ratio": 0.7710205816579476
+        },
+        "56|10": {
+          "OR_five": 0.6044743352697325,
+          "OR_three": 2.2065451526451336,
+          "rate_ratio": 0.8037407310318517
+        },
+        "56|9": {
+          "OR_five": 0.741802218474932,
+          "OR_three": 2.8782413971545515,
+          "rate_ratio": 0.671971065467513
+        }
+      },
+      "matched_min_recorded_days_as_weights": true,
+      "metric_on_positive_side_of_one": {
+        "L_rate": false,
+        "five_family_or": false,
+        "three_family_or": true
+      },
+      "no_matching_on_butterfly_family_count_or_effect_sign": true,
+      "posthoc_not_independent_source_replication": true,
+      "source_strata_n": 24
+    },
+    "all_common_calendar_months": {
+      "all_six_1degree_regions": true,
+      "independently_recomputed": {
+        "L_recording_rate_near_over_remote": 0.7085898039047647,
+        "L_share3_oddsratio_near_over_remote": 1.8192148167238635,
+        "L_share5_oddsratio_near_over_remote": 0.5858797334600485,
+        "site_region_months": 32,
+        "standardized_families": {
+          "near": {
+            "Hesperiidae": 0.9127495966283319,
+            "Lycaenidae": 0.6685853455072033,
+            "Nymphalidae": 7.631062625818263,
+            "Papilionidae": 0.0,
+            "Pieridae": 1.1040588239264744
+          },
+          "remote": {
+            "Hesperiidae": 0.24101531089331826,
+            "Lycaenidae": 0.9435435590843783,
+            "Nymphalidae": 4.901553670488698,
+            "Papilionidae": 0.0,
+            "Pieridae": 2.8345315723618754
+          }
+        },
+        "weighted_recording_date_support": 355
+      },
+      "leave_one_region_ratios_exactly_match": {
+        "55|10": {
+          "OR_five": 0.7121107079197316,
+          "OR_three": 2.572523722355978,
+          "rate_ratio": 0.898347088768646
+        },
+        "55|11": {
+          "OR_five": 0.5547305134740586,
+          "OR_three": 1.7144153826012358,
+          "rate_ratio": 0.6874013407157459
+        },
+        "55|12": {
+          "OR_five": 0.3992459551787051,
+          "OR_three": 0.7378423998371346,
+          "rate_ratio": 0.5002643591912252
+        },
+        "55|9": {
+          "OR_five": 0.5630654241367485,
+          "OR_three": 1.8211180593056968,
+          "rate_ratio": 0.743872205595065
+        },
+        "56|10": {
+          "OR_five": 0.5922988875084507,
+          "OR_three": 1.9520325115285642,
+          "rate_ratio": 0.7727823931837189
+        },
+        "56|9": {
+          "OR_five": 0.7201072396529148,
+          "OR_three": 2.5581958560127487,
+          "rate_ratio": 0.6480749723470773
+        }
+      },
+      "matched_min_recorded_days_as_weights": true,
+      "metric_on_positive_side_of_one": {
+        "L_rate": false,
+        "five_family_or": false,
+        "three_family_or": true
+      },
+      "no_matching_on_butterfly_family_count_or_effect_sign": true,
+      "posthoc_not_independent_source_replication": true,
+      "source_strata_n": 32
+    }
+  },
+  "schema": "gesui_DK_2025_NEW399_family_3vs5_month_region_independent_aggregate_replay_v01"
+}

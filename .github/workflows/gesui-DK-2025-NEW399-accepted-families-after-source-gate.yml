@@ -1,0 +1,55 @@
+name: gesui DK 2025 NEW399 validated 17 WWTP source components licensed accepted butterfly family counts
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-NEW399-accepted-families-after-source-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-new399-family-count-only-after-source-freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Hard gate for NEW399 independent 2025 site-year accepted original source and record-linkage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_EVENT_ANY_OCC_WWTP20_SOURCE_GATE_BEFORE_FAMILY.json')
+          x=json.loads(p.read_text())
+          assert x['new_2025_year_sourced_station_n']==399
+          assert x['original_previous_2023_2024_butterfly_outcome_examined_site_count_EXCLUDED']==107
+          assert x['NEW2025_Lycaenidae_or_any_butterfly_family_individualCount_NOT_READ']
+          assert x['frozen_before_2025_NEW399_butterfly_counts_gate']['2025_NEW399_butterfly_family_count_outcome_permitted']
+          assert x['source_near_5km_spatial_components_with_eligible_sites']>=6
+          print('PASS original NEW399 Event and ANY Occurrence-only source gate; 2025 butterfly family outcome now allowed')
+          PY
+      - name: Source-locked original 2025 NEW399 accepted-butterfly-family individualCount read
+        run: |
+          python -m py_compile scripts/gesui_DK_2025_NEW399_accepted_family_count_after_source_gate.py
+          python -u scripts/gesui_DK_2025_NEW399_accepted_family_count_after_source_gate.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SOURCE_LOCKED_ACCEPTED_BUTTERFLY_FAMILY_COUNTS.json
+      - name: Save only aggregate licensed original family data, source/region group accounting, not DwCA raw
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SOURCE_LOCKED_ACCEPTED_BUTTERFLY_FAMILY_COUNTS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze independently recruited 399 DK 2025 eBMS site-year family counts with original source and publication effort checks"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-NEW399-sourceonly-gated-family-counts
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SOURCE_LOCKED_ACCEPTED_BUTTERFLY_FAMILY_COUNTS.json
+          retention-days: 90
+
+# Rerun after repairing original source-manifest 2plus documented-day flag mapping; site/source IDs and gates unchanged.

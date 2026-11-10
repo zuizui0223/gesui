@@ -1,0 +1,39 @@
+name: gesui DK new399 original 2025 independent six-region and source WWTP-family audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-NEW399-independent-composition-QA.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-new399-independent-sampling-and-region-QC:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independent source/old107 exclusion and original 6-region, WWTP-group, family composition audit
+        run: |
+          python -m py_compile scripts/audit_gesui_DK_2025_NEW399_Lycaenidae_6region_source_component_independent_QA.py
+          python -u scripts/audit_gesui_DK_2025_NEW399_Lycaenidae_6region_source_component_independent_QA.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SOURCE_BLIND_6REGION_INDEPENDENT_ARITHMETIC_QA.json
+      - name: Preserve independent aggregate only, not original licensed individual archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SOURCE_BLIND_6REGION_INDEPENDENT_ARITHMETIC_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit source-locked new399 2025 Denmark Lycaenidae 6-region aggregation, older107 cohort and actual WWTP component units"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-NEW399-6region-independent-compositional-WWTP-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SOURCE_BLIND_6REGION_INDEPENDENT_ARITHMETIC_QA.json
+          retention-days: 90

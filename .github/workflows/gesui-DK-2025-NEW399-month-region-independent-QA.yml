@@ -1,0 +1,40 @@
+name: gesui DK 2025 NEW399 independent month x 1degree 3vs5 family result QA
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-NEW399-month-region-independent-QA.yml"
+      - "scripts/audit_gesui_DK_2025_NEW399_month_region_3vs5_independent_arithmetic.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent-2025-DK-NEW399-month-region-QC:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Audit source and five-family arithmetic at each original month-region bin without opening individual observation data
+        run: |
+          python -m py_compile scripts/audit_gesui_DK_2025_NEW399_month_region_3vs5_independent_arithmetic.py
+          python -u scripts/audit_gesui_DK_2025_NEW399_month_region_3vs5_independent_arithmetic.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_REGIONMONTH_3VS5_INDEPENDENT_QA.json
+      - name: Retain only original licensed CC-BY-NC aggregate and source SHA-based independent QA
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_REGIONMONTH_3VS5_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive exact original 2025 NEW399 month×region 3vs5 family independent arithmetic verification"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-NEW399-month-region-independent-original-family-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_REGIONMONTH_3VS5_INDEPENDENT_QA.json
+          retention-days: 90

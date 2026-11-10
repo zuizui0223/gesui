@@ -1,0 +1,39 @@
+name: gesui DK eBMS 2025 NEW399 near20 source/remote original Event+Occurrence-coreid SOURCE ONLY
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-NEW399-source-only-event-occurrence-links.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  new399-EVENT-ONLY-source-locked:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Do not inspect 2025 butterfly taxon/count; original new399 source and any-occurrence EVENT linkage only
+        run: |
+          python -m py_compile scripts/gesui_DK_2025_new399_20WWTP_Event_occurrenceID_sourceONLY.py
+          python -u scripts/gesui_DK_2025_new399_20WWTP_Event_occurrenceID_sourceONLY.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_EVENT_ANY_OCC_WWTP20_SOURCE_GATE_BEFORE_FAMILY.json
+      - name: Freeze prospective new399/source outcome eligibility with exact original SHA receipts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_EVENT_ANY_OCC_WWTP20_SOURCE_GATE_BEFORE_FAMILY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze new399 Danish eBMS independent source systems and 2025 publication support before family counts"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-denmark-2025-new399-sourceonly-20outfalls-dwcEventCoreID
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SITE_EVENT_ANY_OCC_WWTP20_SOURCE_GATE_BEFORE_FAMILY.json
+          retention-days: 90

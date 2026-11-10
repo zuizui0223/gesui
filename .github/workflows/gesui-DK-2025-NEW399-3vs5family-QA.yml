@@ -1,0 +1,39 @@
+name: gesui Denmark 2025 new399 source-locked five butterfly families vs three denominator sign audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-NEW399-3vs5family-QA.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-3family-versus-5family-composition-response:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Recompute Denmark 2025 NEW399 three vs five butterfly family source recording sign independent of prior model
+        run: |
+          python -m py_compile scripts/audit_gesui_DK_2025_NEW399_3vs5_family_denominator_sign_comparison.py
+          python -u scripts/audit_gesui_DK_2025_NEW399_3vs5_family_denominator_sign_comparison.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_THREE_VS_FIVE_FAMILY_SIGN_REVERSAL_INDEPENDENT_QC.json
+      - name: Preserve licensed aggregate only on unmerged exploratory analysis branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_THREE_VS_FIVE_FAMILY_SIGN_REVERSAL_INDEPENDENT_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit fixed Danish 2025 new399 3 vs 5 family denominator and 6-region Simpson-like sign inversion"
+          git fetch origin analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git rebase origin/analysis/dk-ebms-2025-new399-source-coverage-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-new399-source-coverage-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-new399-5family-v-3family-denominator-source-geo-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_THREE_VS_FIVE_FAMILY_SIGN_REVERSAL_INDEPENDENT_QC.json
+          retention-days: 90
