@@ -5,6 +5,7 @@ on:
     paths:
       - "results/global_all_Plantae_WWp2015_20261110/GLOBAL_42COUNTRY_ALL_PLANTAE_50RECORD_RAREFIED_WWp2015_COUNTRYFE_RESULT.json"
       - ".github/workflows/gesui-global-42country-allPlantae-source-independent-QA.yml"
+      - "scripts/audit_gesui_global_247port_allPlantae_source_and_models.py"
   workflow_dispatch:
 permissions:
   contents: write
