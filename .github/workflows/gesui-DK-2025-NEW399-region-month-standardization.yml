@@ -4,6 +4,7 @@ on:
     branches: ["analysis/dk-ebms-2025-new399-source-coverage-20261110"]
     paths:
       - ".github/workflows/gesui-DK-2025-NEW399-region-month-standardization.yml"
+      - "scripts/gesui_DK_2025_NEW399_1deg_calendar_month_family_standardization.py"
   workflow_dispatch:
 permissions:
   contents: write
