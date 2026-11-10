@@ -1,0 +1,39 @@
+name: gesui DK 2025 eBMS quality-linked survey day posthoc original 3year family sensitivity
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-outoftime-lycaenidae-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-eBMS-linked-OCC-day-posthoc-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-2013-2025-siteyear-occurrence-linked-sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently replay 2024-2025 and 2023-2025 identical-site date linked quality and WWTP independence
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS_2025_linked_occurrence_day_POSTHOC_sensitivity.py
+          python -u scripts/gesui_DK_EBMS_2025_linked_occurrence_day_POSTHOC_sensitivity.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_SAME_SITE_ANY_OCCURRENCE_LINKED_DAY_QUALITY_SENSITIVITY.json
+      - name: Archive only privacy-safe source-licensed quality sensitivity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_SAME_SITE_ANY_OCCURRENCE_LINKED_DAY_QUALITY_SENSITIVITY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze Denmark 2025 posthoc Event-only zero ambiguity and same-site linked day source-level sensitivity"
+          git fetch origin analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git rebase origin/analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-2025-licensed-linked-event-source-QC-2023-2025
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK_EBMS_2025_SAME_SITE_ANY_OCCURRENCE_LINKED_DAY_QUALITY_SENSITIVITY.json
+          retention-days: 90
