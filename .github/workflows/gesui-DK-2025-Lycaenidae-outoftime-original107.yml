@@ -1,0 +1,53 @@
+name: gesui DK eBMS original 2025 out-of-time Lycaenidae 107-site annual and seasonal source-limited check
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-outoftime-lycaenidae-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-2025-Lycaenidae-outoftime-original107.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-2025-source-locked-holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify stage-0 source cohort was frozen before 2025 individualCount
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_EBMS_2025_107SITE_PREBUTTERFLY_HOLDOUT_SOURCE_GATE.json')
+          g=json.loads(p.read_text())
+          assert g['source_sample_gate_prespecified']['2025_family_outcome_access_permitted']
+          assert g['2025_butterfly_occurrence_data_rows_opened']==0
+          assert len(g['original_2025_repeated_site_year_metadata_fixed'])==107
+          assert g['original_near_registered_independent_outfall_systems']==4
+          assert len(g['shared_1degree_near_remote_cells'])>=3
+          print('PASS: Original 2025 site-year and 4-source exposure support frozen before occurrence counts.')
+          PY
+      - name: Open 2025 licensed original eBMS count rows under unchanged family taxonomy and compare 2023–2025 cohorts
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS_2025_out_of_time_original107_family_holdout.py
+          python -u scripts/gesui_DK_EBMS_2025_out_of_time_original107_family_holdout.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_ORIGINAL107_LYCAENIDAE_OUTOFTIME_FAMILY_AND_MONTH_RESULTS.json
+      - name: Preserve only aggregate licensed butterfly 2025 results on Draft branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_ORIGINAL107_LYCAENIDAE_OUTOFTIME_FAMILY_AND_MONTH_RESULTS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Retain true out-of-time 2025 Denmark eBMS family counts and 4-source near/remote season sensitivity after prior source gate"
+          git fetch origin analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git rebase origin/analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-outoftime-lycaenidae-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-eBMS-2025-107-original-sites-outoftime-Lycaenidae-family
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_ORIGINAL107_LYCAENIDAE_OUTOFTIME_FAMILY_AND_MONTH_RESULTS.json
+          retention-days: 90
