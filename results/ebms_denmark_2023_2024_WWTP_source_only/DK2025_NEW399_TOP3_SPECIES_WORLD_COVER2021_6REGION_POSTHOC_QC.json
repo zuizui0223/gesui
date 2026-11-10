@@ -1,0 +1,250 @@
+{
+  "UTC": "2026-11-10T09:02:45.418541+00:00",
+  "all_3_species_3000_whole_1degree_region_bootstraps_descriptive": true,
+  "habitat_fractions_original_2021_larval_foodplants_NOT_measured": true,
+  "no_individual_observation_rows_or_private_site_species_coordinates_exported": true,
+  "none_of_these_species_coefficient_estimates_are_randomized_WWTP_treatments": true,
+  "original_2025_286_linked_site_counts_by_source": {
+    "intermediate": 124,
+    "near5": 70,
+    "remote10": 92
+  },
+  "original_2025_all399_accepted_species_and_all_family_source_site_counts_reverified": true,
+  "original_six_region_near_remote_site_counts": {
+    "near5": 61,
+    "remote10": 78
+  },
+  "original_six_region_original_2025_site_n": 139,
+  "original_six_shared_1degree_region_ids": [
+    "55|10",
+    "55|11",
+    "55|12",
+    "55|9",
+    "56|10",
+    "56|9"
+  ],
+  "original_source_2021_WorldCover286_site_pixel_quality_and_names_reverified": true,
+  "posthoc_selected_3_top_species_after_family_and_species_reporting_composition_patterns_seen": true,
+  "schema": "gesui_DK2025_new399_top3_species_actual_2021_WorldCover_500m_source_geo_site_rate_POSTHOC_v01",
+  "source_EEA_2022_NP_annual_report_not_2025_local_stream_exposure": true,
+  "source_original_SHA256": {
+    "original_family_2025_SixRegion_model": "975327b46f1ffed90e9778bc759bfda65ddd01354b311a050dd49514d7c79a51",
+    "original_species_decomposition_63canonical": "e3649e726910513284fe961d8fe10fdf0a76211e651315d3675aadc8b89a7277",
+    "source_2021_WorldCover286_pixel_fracs": "3e480977d33628d7a32532c1fd72f981f419359587d233603789d34b3bdafb63"
+  },
+  "source_species_study_results": {
+    "Maniola_jurtina": {
+      "original_GBIF_canonical_usageKey": "5135513",
+      "original_family": "Nymphalidae",
+      "source_6region_Landcover_adjusted_leave_one_original_region_out": {
+        "55|10": 2.165137133752159,
+        "55|11": 1.8398142165007132,
+        "55|12": 1.8459352015912673,
+        "55|9": 2.065254841976536,
+        "56|10": 1.8375665681314104,
+        "56|9": 1.155968290964041
+      },
+      "source_near_and_remote_2025_original_all286_sites": {
+        "intermediate": {
+          "original_individualCount": 2959,
+          "original_source_linked_survey_dates": 1286,
+          "original_species_recorded_per_published_date": 2.3009331259720063,
+          "public_monitor_site_rows_with_species": 97
+        },
+        "near5": {
+          "original_individualCount": 1828,
+          "original_source_linked_survey_dates": 539,
+          "original_species_recorded_per_published_date": 3.391465677179963,
+          "public_monitor_site_rows_with_species": 61
+        },
+        "remote10": {
+          "original_individualCount": 870,
+          "original_source_linked_survey_dates": 757,
+          "original_species_recorded_per_published_date": 1.1492734478203435,
+          "public_monitor_site_rows_with_species": 59
+        }
+      },
+      "source_region_reporting_corrected_models": {
+        "six_region_survey_days": {
+          "built_fraction_plus10pct_recorded_rate_ratio": null,
+          "crop_fraction_plus10pct_recorded_rate_ratio": null,
+          "descriptive_95exp_ratio_from_six_geo_regions": [
+            0.9091103605257131,
+            3.9603211528483007
+          ],
+          "exponentiated_original_site_equal_near_vs_remote_recording_rate_ratio": 2.0987681100353344,
+          "grass_fraction_plus10pct_recorded_rate_ratio": null,
+          "log_rate_source_near_adjusted": 0.7413505583350213,
+          "n_original_public_site_rows": 139,
+          "n_valid_original_1degree_block_resamples": 3000,
+          "only_descriptive_bootstrap_not_WWTP_causal_pvalue": true,
+          "positive_near_logratio_fraction": 0.9636666666666667,
+          "reported_counts_plus_half_continuity_and_observation_source_year_only": true,
+          "source_shared_1degree_areas": 6,
+          "tree_fraction_plus10pct_recorded_rate_ratio": null
+        },
+        "six_region_survey_days_and_actual_2021_landcover": {
+          "built_fraction_plus10pct_recorded_rate_ratio": 0.8951530834995635,
+          "crop_fraction_plus10pct_recorded_rate_ratio": 0.8510462285988762,
+          "descriptive_95exp_ratio_from_six_geo_regions": [
+            0.793244203738161,
+            3.6407493133865527
+          ],
+          "exponentiated_original_site_equal_near_vs_remote_recording_rate_ratio": 1.8148829665166961,
+          "grass_fraction_plus10pct_recorded_rate_ratio": 1.1256020853682394,
+          "log_rate_source_near_adjusted": 0.5960209843797898,
+          "n_original_public_site_rows": 139,
+          "n_valid_original_1degree_block_resamples": 3000,
+          "only_descriptive_bootstrap_not_WWTP_causal_pvalue": true,
+          "positive_near_logratio_fraction": 0.913,
+          "reported_counts_plus_half_continuity_and_observation_source_year_only": true,
+          "source_shared_1degree_areas": 6,
+          "tree_fraction_plus10pct_recorded_rate_ratio": 0.9833438532736121
+        }
+      },
+      "species_scientificName": "Maniola jurtina (Linnaeus, 1758)"
+    },
+    "Pieris_brassicae": {
+      "original_GBIF_canonical_usageKey": "1920506",
+      "original_family": "Pieridae",
+      "source_6region_Landcover_adjusted_leave_one_original_region_out": {
+        "55|10": 0.36715962036734223,
+        "55|11": 0.3381845469232812,
+        "55|12": 0.5049739399175278,
+        "55|9": 0.496914460284363,
+        "56|10": 0.39101652381817104,
+        "56|9": 0.4024870522714628
+      },
+      "source_near_and_remote_2025_original_all286_sites": {
+        "intermediate": {
+          "original_individualCount": 1818,
+          "original_source_linked_survey_dates": 1286,
+          "original_species_recorded_per_published_date": 1.4136858475894245,
+          "public_monitor_site_rows_with_species": 66
+        },
+        "near5": {
+          "original_individualCount": 145,
+          "original_source_linked_survey_dates": 539,
+          "original_species_recorded_per_published_date": 0.2690166975881262,
+          "public_monitor_site_rows_with_species": 28
+        },
+        "remote10": {
+          "original_individualCount": 1439,
+          "original_source_linked_survey_dates": 757,
+          "original_species_recorded_per_published_date": 1.9009247027741083,
+          "public_monitor_site_rows_with_species": 54
+        }
+      },
+      "source_region_reporting_corrected_models": {
+        "six_region_survey_days": {
+          "built_fraction_plus10pct_recorded_rate_ratio": null,
+          "crop_fraction_plus10pct_recorded_rate_ratio": null,
+          "descriptive_95exp_ratio_from_six_geo_regions": [
+            0.191850975592624,
+            0.6854146530961913
+          ],
+          "exponentiated_original_site_equal_near_vs_remote_recording_rate_ratio": 0.38264577303144387,
+          "grass_fraction_plus10pct_recorded_rate_ratio": null,
+          "log_rate_source_near_adjusted": -0.96064559235342,
+          "n_original_public_site_rows": 139,
+          "n_valid_original_1degree_block_resamples": 3000,
+          "only_descriptive_bootstrap_not_WWTP_causal_pvalue": true,
+          "positive_near_logratio_fraction": 0.0,
+          "reported_counts_plus_half_continuity_and_observation_source_year_only": true,
+          "source_shared_1degree_areas": 6,
+          "tree_fraction_plus10pct_recorded_rate_ratio": null
+        },
+        "six_region_survey_days_and_actual_2021_landcover": {
+          "built_fraction_plus10pct_recorded_rate_ratio": 0.7908168500640225,
+          "crop_fraction_plus10pct_recorded_rate_ratio": 0.7652460782127768,
+          "descriptive_95exp_ratio_from_six_geo_regions": [
+            0.21638736650644053,
+            0.7600481306281137
+          ],
+          "exponentiated_original_site_equal_near_vs_remote_recording_rate_ratio": 0.4113163135617069,
+          "grass_fraction_plus10pct_recorded_rate_ratio": 0.6176617068048781,
+          "log_rate_source_near_adjusted": -0.888392741119477,
+          "n_original_public_site_rows": 139,
+          "n_valid_original_1degree_block_resamples": 3000,
+          "only_descriptive_bootstrap_not_WWTP_causal_pvalue": true,
+          "positive_near_logratio_fraction": 0.002,
+          "reported_counts_plus_half_continuity_and_observation_source_year_only": true,
+          "source_shared_1degree_areas": 6,
+          "tree_fraction_plus10pct_recorded_rate_ratio": 0.6995273859033806
+        }
+      },
+      "species_scientificName": "Pieris brassicae (Linnaeus, 1758)"
+    },
+    "Polyommatus_icarus": {
+      "original_GBIF_canonical_usageKey": "5140214",
+      "original_family": "Lycaenidae",
+      "source_6region_Landcover_adjusted_leave_one_original_region_out": {
+        "55|10": 0.7834966035362617,
+        "55|11": 0.6930239397809783,
+        "55|12": 0.6391950715826061,
+        "55|9": 0.6580196318394632,
+        "56|10": 0.6330417335075035,
+        "56|9": 0.5823575693395143
+      },
+      "source_near_and_remote_2025_original_all286_sites": {
+        "intermediate": {
+          "original_individualCount": 538,
+          "original_source_linked_survey_dates": 1286,
+          "original_species_recorded_per_published_date": 0.41835147744945567,
+          "public_monitor_site_rows_with_species": 43
+        },
+        "near5": {
+          "original_individualCount": 142,
+          "original_source_linked_survey_dates": 539,
+          "original_species_recorded_per_published_date": 0.2634508348794063,
+          "public_monitor_site_rows_with_species": 25
+        },
+        "remote10": {
+          "original_individualCount": 363,
+          "original_source_linked_survey_dates": 757,
+          "original_species_recorded_per_published_date": 0.4795244385733157,
+          "public_monitor_site_rows_with_species": 41
+        }
+      },
+      "source_region_reporting_corrected_models": {
+        "six_region_survey_days": {
+          "built_fraction_plus10pct_recorded_rate_ratio": null,
+          "crop_fraction_plus10pct_recorded_rate_ratio": null,
+          "descriptive_95exp_ratio_from_six_geo_regions": [
+            0.4843574013200787,
+            1.2709566735768463
+          ],
+          "exponentiated_original_site_equal_near_vs_remote_recording_rate_ratio": 0.788474902301548,
+          "grass_fraction_plus10pct_recorded_rate_ratio": null,
+          "log_rate_source_near_adjusted": -0.2376547027602567,
+          "n_original_public_site_rows": 139,
+          "n_valid_original_1degree_block_resamples": 3000,
+          "only_descriptive_bootstrap_not_WWTP_causal_pvalue": true,
+          "positive_near_logratio_fraction": 0.152,
+          "reported_counts_plus_half_continuity_and_observation_source_year_only": true,
+          "source_shared_1degree_areas": 6,
+          "tree_fraction_plus10pct_recorded_rate_ratio": null
+        },
+        "six_region_survey_days_and_actual_2021_landcover": {
+          "built_fraction_plus10pct_recorded_rate_ratio": 1.0964101822541172,
+          "crop_fraction_plus10pct_recorded_rate_ratio": 1.082692503186814,
+          "descriptive_95exp_ratio_from_six_geo_regions": [
+            0.47259939404296436,
+            0.979891655514397
+          ],
+          "exponentiated_original_site_equal_near_vs_remote_recording_rate_ratio": 0.6623475626145682,
+          "grass_fraction_plus10pct_recorded_rate_ratio": 1.4053711913036535,
+          "log_rate_source_near_adjusted": -0.4119648417641735,
+          "n_original_public_site_rows": 139,
+          "n_valid_original_1degree_block_resamples": 3000,
+          "only_descriptive_bootstrap_not_WWTP_causal_pvalue": true,
+          "positive_near_logratio_fraction": 0.022,
+          "reported_counts_plus_half_continuity_and_observation_source_year_only": true,
+          "source_shared_1degree_areas": 6,
+          "tree_fraction_plus10pct_recorded_rate_ratio": 1.0253927895326682
+        }
+      },
+      "species_scientificName": "Polyommatus icarus (von Rottemburg, 1775)"
+    }
+  }
+}

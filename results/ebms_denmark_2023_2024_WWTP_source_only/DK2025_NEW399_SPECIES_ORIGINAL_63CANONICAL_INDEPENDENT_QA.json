@@ -1,0 +1,73 @@
+{
+  "all_63_species_leave_one_out_pooled_OR_both_denominators_rebuilt_identically": true,
+  "canonical_species_accepted_family_diversity": {
+    "Hesperiidae": 7,
+    "Lycaenidae": 20,
+    "Nymphalidae": 28,
+    "Papilionidae": 1,
+    "Pieridae": 7
+  },
+  "original_2022_reported_EEA_WWTP_source_proximity_not_physical_larval_or_adult_exposure": true,
+  "original_399_site_family_reconciliation_confirmed": true,
+  "original_65_source_accepted_taxon_names_to_63_unique_GBIF_usage_ids": true,
+  "previous_source_family_results_SHA256": "73bd2c0dd9358fbf2e4d85162cce483d40589c24f8f6d05022e4463e1d8dd480",
+  "schema": "gesui_DK2025_new399_original_canonical_species_3_vs5_denominator_offline_independent_QA_v01",
+  "selected_species_removal_sensitivity_observational_accounting_only": {
+    "Maniola jurtina": {
+      "or3": 2.2697387650712457,
+      "or5": 1.0648197615852988,
+      "original_near_n": 1828,
+      "original_remote_n": 870,
+      "species_name": "Maniola jurtina (Linnaeus, 1758)"
+    },
+    "Pieris brassicae": {
+      "or3": 1.2894467986300575,
+      "or5": 0.6144911337341026,
+      "original_near_n": 145,
+      "original_remote_n": 1439,
+      "species_name": "Pieris brassicae (Linnaeus, 1758)"
+    },
+    "Plebejus argus": {
+      "or3": 1.895410120569967,
+      "or5": 0.6441270322690814,
+      "original_near_n": 63,
+      "original_remote_n": 0,
+      "species_name": "Plebejus argus (Linnaeus, 1758)"
+    },
+    "Polyommatus icarus": {
+      "or3": 3.2681599330123507,
+      "or5": 1.11063570664007,
+      "original_near_n": 142,
+      "original_remote_n": 363,
+      "species_name": "Polyommatus icarus (von Rottemburg, 1775)"
+    }
+  },
+  "source_2025_event_dates_are_NOT_measurements_of_wastewater_dose": true,
+  "source_class_five_family_totals_rebuilt": {
+    "intermediate": {
+      "Hesperiidae": 866,
+      "Lycaenidae": 2268,
+      "Nymphalidae": 9465,
+      "Papilionidae": 1,
+      "Pieridae": 3595
+    },
+    "near5": {
+      "Hesperiidae": 372,
+      "Lycaenidae": 382,
+      "Nymphalidae": 3822,
+      "Papilionidae": 0,
+      "Pieridae": 680
+    },
+    "remote10": {
+      "Hesperiidae": 192,
+      "Lycaenidae": 644,
+      "Nymphalidae": 3544,
+      "Papilionidae": 0,
+      "Pieridae": 2602
+    }
+  },
+  "source_groups_absolute_Lycaenidae_recording_rate_ratio_rebuilt": 0.8330759746021503,
+  "source_groups_pooled_five_family_OR_rebuilt": 0.7713370731247309,
+  "source_groups_pooled_three_family_OR_rebuilt": 2.2697387650712457,
+  "source_species_results_SHA256": "189079f7da5e039cad4653c99afbfefa580b4639a1c0f6fe3b69652d37472697"
+}

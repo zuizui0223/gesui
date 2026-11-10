@@ -1,0 +1,40 @@
+name: gesui DK2025 eBMS NEW399 original species decomposition of 3vs5 family pooled sign
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-species-composition-decomposition-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK2025-new399-species-source-denominator.yml"
+      - "scripts/gesui_DK2025_NEW399_original_taxa_pooled_3vs5_denominator_decomposition.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  frozen_source_2025_accepted_species_replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Re-read licensed original v1.4 SHA after locked 399 site and 112 taxon sources, verify all individualCount family totals
+        run: |
+          python -m py_compile scripts/gesui_DK2025_NEW399_original_taxa_pooled_3vs5_denominator_decomposition.py
+          python -u scripts/gesui_DK2025_NEW399_original_taxa_pooled_3vs5_denominator_decomposition.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_ORIGINAL_65SPECIES_3VS5_FAMILY_DECOMPOSITION.json
+      - name: Save species×WWTP-band aggregates and original source QA without raw licensed site-species rows
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_ORIGINAL_65SPECIES_3VS5_FAMILY_DECOMPOSITION.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original Danish 2025 species-level decomposition of Lycaenidae pooled 3vs5 WWTP reporting sign"
+          git fetch origin analysis/dk-ebms-2025-species-composition-decomposition-20261110
+          git rebase origin/analysis/dk-ebms-2025-species-composition-decomposition-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-species-composition-decomposition-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK2025-new399-2025-species-denominator-original-family-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_ORIGINAL_65SPECIES_3VS5_FAMILY_DECOMPOSITION.json
+          retention-days: 90

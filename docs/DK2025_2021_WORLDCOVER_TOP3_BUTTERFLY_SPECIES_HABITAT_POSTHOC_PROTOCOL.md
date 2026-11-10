@@ -1,0 +1,11 @@
+## Species × actual 2021 habitat spatial diagnostic, strictly posthoc
+
+This extension to the original species decomposition is **posthoc after identifying the three dominant taxa**. Exact fixed species GBIF usageKeys: `1920506` *Pieris brassicae* (Pieridae, Brassica-associated larvae), `5135513` *Maniola jurtina* (Nymphalidae, grass-feeding larvae), `5140214` *Polyommatus icarus* (Lycaenidae, Fabaceae-feeding larvae). No fishing across all species to select positive effects; the initial species-mass rankings motivated these three. Real larval host occurrences are UNMEASURED.
+
+Within the existing six geographically source-balanced original country×1° cells (139 original eBMS public sites, near61/remote78), read original accepted species individualCount per public site from exactly SHA-pinned official CC-BY-NC Denmark 2025 archive. Verify all original 399-site family individualCount, all 286 site accepted species source-band totals and 2021 WorldCover site IDs **before** comparing.
+
+Use original log((observed species individualCount+0.5)/(original survey dates with ANY published occurrence)) as a **reporting-rate transformation** (not zero-corrected full population abundance). Compare near vs remote in two fixed observational OLS models: area dummies + log original documented dates; and add genuine 2021 500m ESA WorldCover built, cropland, grass, tree fractions. Report source coefficient, 1-degree geographic cluster 3,000 resamples, leave-one original region-out, and 2021 10-percentage-point cropland and grass coefficient summaries, even if sign contradicts vegetation feeding hypotheses. These covariates do not measure 2025 Brassicaceae, Fabaceae, Poaceae host-plant abundance, mowing, ant biology, pesticide pressure, stream microchemistry, or true downstream exposure.
+
+Stop on taxonomy source mismatch, any site×family mismatch, 2021 WorldCover source site mismatch, or species source-band total mismatch. Do not choose an alternative spatial radius, different species list, year, family denominator or region group to improve a sign. Preserve 2025 original 17 source-proximity components vs hydrologically only TWO potentially downstream 2025 receivers as limitations.
+
+Leave species trends descriptive with no species-level confirmatory p-values and no false causal effects.
