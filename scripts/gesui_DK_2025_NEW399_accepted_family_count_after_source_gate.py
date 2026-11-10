@@ -61,7 +61,7 @@ def family_mapping(raw):
 
 
 def process_archive(raw,selected,tax):
-    eligible={x["site_id_SHA256"]:x for x in selected if x["source_gate_documented_2plus_any_occurrences"]}
+    eligible={x["site_id_SHA256"]:x for x in selected if x["pre_2025_family_any_occurrence_linked_site_source_gate_pass"]}
     all_candidates={x["site_id_SHA256"]:x for x in selected}
     bysite=defaultdict(Counter)
     seen_events=set()
@@ -146,7 +146,7 @@ def process_archive(raw,selected,tax):
             "original_WWTP_spatial_component_10km_SHA256":s.get("10km_original_WWTP_spatial_component_SHA256"),
             "original_all_Event_distinct_date_count":len(everdays[key]),
             "original_any_Occurrence_linked_distinct_date_count":len(linked[key]),
-            "source_gate_documented_2plus_any_occurrences":s["source_gate_documented_2plus_any_occurrences"],
+            "pre_2025_family_any_occurrence_linked_site_source_gate_pass":s["pre_2025_family_any_occurrence_linked_site_source_gate_pass"],
             "family_individual_count_original":values,
             "target_3family_positive_individuals":sum(values[f] for f in TARGET),
             "original_2025_monthly_ANY_Occurrence_date_counts":s["2025_occurrence_linked_date_counts_by_month"],
@@ -154,7 +154,7 @@ def process_archive(raw,selected,tax):
         })
     if len(original)!=399:
         raise ValueError("Some selected new original sites absent from source audit")
-    if sum(x["source_gate_documented_2plus_any_occurrences"] for x in original)!=len(eligible):
+    if sum(x["pre_2025_family_any_occurrence_linked_site_source_gate_pass"] for x in original)!=len(eligible):
         raise ValueError("Source-gate sample count changed")
     return original,dict(qc)
 
@@ -175,7 +175,7 @@ def run(root):
     raw=first.download()
     if sha(raw)!=first.ORIGINAL_SHA:raise ValueError("Licensed source ZIP mismatch")
     allsites,qc=process_archive(raw,sites,accepted)
-    supported=[x for x in allsites if x["source_gate_documented_2plus_any_occurrences"]]
+    supported=[x for x in allsites if x["pre_2025_family_any_occurrence_linked_site_source_gate_pass"]]
     cats=Counter(x["source_band"] for x in supported)
     if cats!=Counter(m["source_eligible_new_sites_with_2plus_any_published_occurrence_dates_by_band"]):
         raise ValueError("Pre-outcome support classes changed after opening family counts")
