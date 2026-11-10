@@ -1,0 +1,49 @@
+name: gesui FULL official EEA2026 WISE6 2022 DE AT individual RW Total-P SOURCE-METADATA stream
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-measured-river-P-source-20261109"]
+    paths:
+      - "scripts/gesui_2026_eea_WISE6_2022_individual_TP_fullstream_sourceonly.py"
+      - ".github/workflows/gesui-official-2026-wise6-individual-2022TP-stream-sourceonly.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original2GB-ZIPstream-2022TP-site-metadata-without-numeric-outcomes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install minimal country border geometry
+        run: python -m pip install --quiet shapely
+      - name: Stream exact official 2026 WISE6 original compressed 2GB / 36GB CSV sample-metadata only and 2022 RW TP source coverage in original 42 DE AT Lycaenidae cells
+        run: |
+          python -m py_compile scripts/gesui_2026_eea_WISE6_2022_individual_TP_fullstream_sourceonly.py
+          python -u scripts/gesui_2026_eea_WISE6_2022_individual_TP_fullstream_sourceonly.py \
+            --2022-original-worldcover results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --2023-photo-source results/lycaenidae_2023_photo_temporal_source/2023_INDEPENDENT_YEAR_FAMILY_PHOTO_TOTALS_ORIGINAL43_SOURCE_QC.json \
+            --tmpdir /tmp/gesui-WISE2026-original-full2022-sourceonly \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json
+      - name: Commit source-only TP station site/sample date coverage whether passed or failed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive official original 2026 WISE6 2022 individual river TP sample dates/station geography and support gate, no numeric chemistry"
+          git fetch origin analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git rebase origin/analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-measured-river-P-source-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2026-full-original-2022-DE-AT-riverTP-individual-sample-station-sourceonly
+          path: results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json
+          retention-days: 90
+          if-no-files-found: warn

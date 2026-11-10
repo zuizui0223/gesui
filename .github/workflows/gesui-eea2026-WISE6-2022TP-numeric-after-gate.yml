@@ -1,0 +1,43 @@
+name: gesui 2022 TRUE river TP numeric original EEA WISE6 after 187-station source gate
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-measured-river-P-source-20261109"]
+    paths:
+      - "scripts/gesui_2026_WISE6_2022_TP_numeric_after_original_site_source_gate.py"
+      - ".github/workflows/gesui-eea2026-WISE6-2022TP-numeric-after-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  quantified-2022-WISE6-riverTP-original-with-LOQ-QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify prior official site metadata sampling gate & original 36GB 2022 WISE6 numeric source checksum, summarize only TP
+        run: |
+          python -m py_compile scripts/gesui_2026_WISE6_2022_TP_numeric_after_original_site_source_gate.py
+          python -u scripts/gesui_2026_WISE6_2022_TP_numeric_after_original_site_source_gate.py \
+            --original-2022-tp-site-metadata results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_ORIGINAL_2022_DE_AT_RW_TP_INDIVIDUAL_SAMPLE_STATION_SOURCE_ONLY_QC.json \
+            --tmpdir /tmp/gesui-EEA-WISE6-2026-numeric-TP-only \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_2022_MEASURED_TP_SITE_YEAR_MEDIANS_AND_42_LYCAENIDAE_CELLS_QC.json
+      - name: Commit original only site-year & country1deg real TP medians and original LOQ quality before source-biota statistical modeling
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_2022_MEASURED_TP_SITE_YEAR_MEDIANS_AND_42_LYCAENIDAE_CELLS_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive actual 2022 official WISE6 river TP quantified sample/site medians and LOQ source QA independently of Lycaenidae outcomes"
+          git fetch origin analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git rebase origin/analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-measured-river-P-source-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-EEA2026-2022-river-TP-quantified-site-year-medians-sourcefirst
+          path: results/lycaenidae_2022_measured_river_P_bridge/2026_WISE6_2022_MEASURED_TP_SITE_YEAR_MEDIANS_AND_42_LYCAENIDAE_CELLS_QC.json
+          retention-days: 90
+          if-no-files-found: warn

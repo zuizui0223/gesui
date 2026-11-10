@@ -1,0 +1,45 @@
+name: gesui 2022 original Peters real river-TP station source coverage in 42 DE/AT butterfly cells
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-measured-river-P-source-20261109"]
+    paths:
+      - "scripts/gesui_sourceonly_peters2022_tp_station_overlap_with_lycaenid.py"
+      - ".github/workflows/gesui-peters2022-tp-lycaenidae-sourceonly-overlap.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sourceonly-original-river-station-exact-national-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install independent country polygon validator
+        run: python -m pip install --quiet shapely
+      - name: Audit full TP metadata station sample with original 2022 sample-month coverage and exact Germany/Austria Natural Earth country geometry
+        run: |
+          python -m py_compile scripts/gesui_sourceonly_peters2022_tp_station_overlap_with_lycaenid.py
+          python -u scripts/gesui_sourceonly_peters2022_tp_station_overlap_with_lycaenid.py \
+            --2022-frozen-worldcover-43cell results/lycaenidae_worldcover2021_source_only/2022_LYCAENIDAE_ESAWC2021_DE_AT_URBAN_CROP_LANDAREA_POSTHOC_BLOCKCV.json \
+            --2023-same43-photo-source results/lycaenidae_2023_photo_temporal_source/2023_INDEPENDENT_YEAR_FAMILY_PHOTO_TOTALS_ORIGINAL43_SOURCE_QC.json \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2022_PETERS_ORIGINAL_TP_MONITORING_STATION_GEOGRAPHIC_SOURCE_SUPPORT_QC.json
+      - name: Preserve preregistered nutrient station metadata and failed coverage gates even if insufficient
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2022_PETERS_ORIGINAL_TP_MONITORING_STATION_GEOGRAPHIC_SOURCE_SUPPORT_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive country-masked original 2022 TP measured-station support in fixed three-year Lycaenidae source cells without TP concentrations"
+          git fetch origin analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git rebase origin/analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-measured-river-P-source-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-Peters2022-TP-source-only-national-42cell-coverage
+          path: results/lycaenidae_2022_measured_river_P_bridge/2022_PETERS_ORIGINAL_TP_MONITORING_STATION_GEOGRAPHIC_SOURCE_SUPPORT_QC.json
+          retention-days: 90
+          if-no-files-found: warn

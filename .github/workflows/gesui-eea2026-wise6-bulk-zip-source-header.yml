@@ -1,0 +1,42 @@
+name: gesui 2026 EEA Waterbase WISE6 official 2022 TP & spatial archive SOURCE HEADER only
+on:
+  push:
+    branches: ["analysis/lycaenidae-2022-measured-river-P-source-20261109"]
+    paths:
+      - "scripts/gesui_eea2026_wise6_official_zip_metadata_only.py"
+      - ".github/workflows/gesui-eea2026-wise6-bulk-zip-source-header.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original-eea2026-waterquality-zip-headers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Source-only original official bulk 2026 EEA WISE6 200MB aggregated and 3MB spatial ZIP schema inspect
+        run: |
+          python -m py_compile scripts/gesui_eea2026_wise6_official_zip_metadata_only.py
+          python -u scripts/gesui_eea2026_wise6_official_zip_metadata_only.py \
+            --tmpdir /tmp/gesui-eea2026-source-ZIP \
+            --out results/lycaenidae_2022_measured_river_P_bridge/2026_EEA_WISE6_TP_ANNUAL_AND_SPATIAL_ORIGINAL_ZIP_SCHEMA_ONLY_QC.json
+      - name: Commit small original source ZIP SHA/schema only, no original water numeric outcomes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_measured_river_P_bridge/2026_EEA_WISE6_TP_ANNUAL_AND_SPATIAL_ORIGINAL_ZIP_SCHEMA_ONLY_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive EEA2026 original WISE6 bulk annual and spatial Waterbase ZIP headers/sha without concentration or butterfly data"
+          git fetch origin analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git rebase origin/analysis/lycaenidae-2022-measured-river-P-source-20261109
+          git push origin HEAD:analysis/lycaenidae-2022-measured-river-P-source-20261109
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2026-WISE6-original-Waterbase-2022-TP-annual-public-source-zip-SHA-schemas
+          path: results/lycaenidae_2022_measured_river_P_bridge/2026_EEA_WISE6_TP_ANNUAL_AND_SPATIAL_ORIGINAL_ZIP_SCHEMA_ONLY_QC.json
+          retention-days: 90
+          if-no-files-found: warn

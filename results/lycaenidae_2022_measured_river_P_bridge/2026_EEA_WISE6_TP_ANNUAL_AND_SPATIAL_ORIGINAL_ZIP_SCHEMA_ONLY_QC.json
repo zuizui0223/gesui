@@ -1,0 +1,56 @@
+{
+  "no_butterfly_photo_individual_count_or_EQR_outcomes_read": true,
+  "no_original_200MB_zip_stored_in_GitHub_repository": true,
+  "no_river_TP_numeric_outcomes_or_nutrient_concentrations_read": true,
+  "only_original_published_ZIP_archives_inspected": true,
+  "original_EEA_WISE6_SQL_403_not_absence_of_data": true,
+  "original_bulks": {
+    "2026_WISE6_aggregated_original": {
+      "contains_only_original_Waterbase2026": true,
+      "original_EEA_public_URL": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_T_WISE6_AggregatedData",
+      "original_ZIP_members_source_only": [
+        {
+          "one_original_header_line_only_no_data_rows_read": true,
+          "original_ZIP_compressed_bytes": 199877797,
+          "original_filename": "waterbase_t_wise6_aggregateddata.csv",
+          "original_uncompressed_bytes": 2702939173,
+          "original_zip_crc32": 2044518584,
+          "source_column_number": 1,
+          "source_first_header_names": [
+            "countryCode;monitoringSiteIdentifier;monitoringSiteIdentifierScheme;parameterWaterBodyCategory;observedPropertyDeterminandCode;observedPropertyDeterminandLabel;procedureAnalysedMatrix;resultUom;phenomenonTimeReferenceYear;parameterSamplingPeriod;procedureLOQValue;resultNumberOfSamples;resultQualityNumberOfSamplesBelowLOQ;resultQualityMinimumBelowLOQ;resultMinimumValue;resultQualityMeanBelowLOQ;resultMeanValue;resultQualityMaximumBelowLOQ;resultMaximumValue;resultQualityMedianBelowLOQ;resultMedianValue;resultStandardDeviationValue;procedureAnalyticalMethod;parameterSampleDepth;resultObservationStatus;remarks;metadata_versionId;metadata_beginLifeSpanVersion;metadata_statusCode;metadata_observationStatus;metadata_statements;UID"
+          ]
+        }
+      ],
+      "source_download": {
+        "download_bytes": 199878007,
+        "download_sha256": "8492c92702524ce23ac488cba62631f277b1e9bd4e5ea8ece3bea37569307b7c",
+        "original_content_type": "application/x-zip-compressed"
+      }
+    },
+    "2026_WISE_SOe_spatial_original": {
+      "contains_only_original_Waterbase2026": true,
+      "original_EEA_public_URL": "https://discodata.eea.europa.eu/download/WISE_SOE/latest/Waterbase_S_WISE_SpatialObject_DerivedData",
+      "original_ZIP_members_source_only": [
+        {
+          "one_original_header_line_only_no_data_rows_read": true,
+          "original_ZIP_compressed_bytes": 3394442,
+          "original_filename": "waterbase_s_wise_spatialobject_deriveddata.csv",
+          "original_uncompressed_bytes": 31954165,
+          "original_zip_crc32": 1864757925,
+          "source_column_number": 1,
+          "source_first_header_names": [
+            "countryCode;thematicIdIdentifier;thematicIdIdentifierScheme;monitoringSiteIdentifier;monitoringSiteIdentifierScheme;monitoringSiteName;waterBodyIdentifier;waterBodyIdentifierScheme;waterBodyName;specialisedZoneType;naturalAWBHMWB;reservoir;surfaceWaterBodyTypeCode;subUnitIdentifier;subUnitIdentifierScheme;subUnitName;rbdIdentifier;rbdIdentifierScheme;rbdName;confidentialityStatus;lon;lat;statusCode"
+          ]
+        }
+      ],
+      "source_download": {
+        "download_bytes": 3394632,
+        "download_sha256": "afd64e1d5582492c09453f5a05aae0b1a9d9a38c8814778afdb5c07e43a1c974",
+        "original_content_type": "application/x-zip-compressed"
+      }
+    }
+  },
+  "original_disaggregated_2026_2GB_not_downloaded": true,
+  "retrieved_utc": "2026-11-09T03:07:27.196669+00:00",
+  "schema": "gesui_EEA2026_WISE6_original_bulk_archives_2022_TP_metadata_header_only_v01"
+}
