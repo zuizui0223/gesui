@@ -51,3 +51,5 @@ jobs:
           name: gesui-DK-2025-NEW399-sourceonly-gated-family-counts
           path: results/ebms_denmark_2023_2024_WWTP_source_only/DENMARK_2025_NEW399_SOURCE_LOCKED_ACCEPTED_BUTTERFLY_FAMILY_COUNTS.json
           retention-days: 90
+
+# Rerun after repairing original source-manifest 2plus documented-day flag mapping; site/source IDs and gates unchanged.
