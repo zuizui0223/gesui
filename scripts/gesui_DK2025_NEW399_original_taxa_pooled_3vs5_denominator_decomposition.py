@@ -61,7 +61,7 @@ def effect(group_by_species,species):
         "hypothetical_species_removal_not_observed_or_treatment":True,
     }
 
-def calculate(root):
+def calculate(root, *, return_site_level_for_internal_validation=False):
     srcpath=root/SOURCE;fampath=root/FAMILY;eventpath=root/ORIGINAL;taxpath=root/TAXON
     src=json.loads(srcpath.read_text(encoding="utf-8"))
     original=json.loads(eventpath.read_text(encoding="utf-8"))
@@ -344,6 +344,10 @@ def calculate(root):
         "non_focal_EEA_source_year_2022_not_actual_butterfly_2025_wastewater_dose":True,
         "original_HydroRIVERS_2025_river_directed_source_support_gate_fails_only_two_outfall_reaches":True,
     }
+    if return_site_level_for_internal_validation:
+        # INTERNAL only, never committed: original site×accepted species counts
+        # were already reconciled against all 399 source-frozen family site totals.
+        return out,species_site,src_sites,taxid_index
     return out
 
 
