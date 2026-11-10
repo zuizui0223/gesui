@@ -105,7 +105,12 @@ def independent_state_OLS(d,include_P,include_N):
         v=mat[mask].T@residual[mask]
         meat+=np.outer(v,v)
     n=len(d);g=len(allstates);k=np.linalg.matrix_rank(mat)
-    clusterfactor=(g/(g-1))*((n-1)/(n-k))
+    # statsmodels cluster small-sample correction uses ORIGINAL design column
+    # count even when HYDCLS and wetland-class dummies are rank-redundant.
+    # The coefficients come from a rank-aware least-squares pseudoinverse.
+    # Using numerical matrix rank for this correction underestimates CI by ~0.1%.
+    correction_parameters=mat.shape[1]
+    clusterfactor=(g/(g-1))*((n-1)/(n-correction_parameters))
     covariance=B@meat@B*clusterfactor
     result={"n":n,"state_clusters":g,"matrix_columns":mat.shape[1],"design_rank":int(k),"modelled_parameters":{}}
     for name in ("logTP","logTN"):
