@@ -1,0 +1,430 @@
+{
+  "2011_2016_independent_source_years": {
+    "2011": {
+      "independent_NWCA_2011_2016_actual_HALL": {
+        "site_design_weighted_WLS": {
+          "beta_near_minus_far": 0.13427560424468404,
+          "historical_NWCA_weighted_WLS_not_population_acreage_claim": true,
+          "matrix_rank": 37,
+          "matrix_regressor_columns": 38,
+          "n_source_matched_plots": 481,
+          "site_equal": false,
+          "state_cluster95": [
+            -0.04659261107359691,
+            0.315143819562965
+          ],
+          "state_ecoregion_matched_strata": 32,
+          "states": 29
+        },
+        "site_equal_OLS": {
+          "beta_near_minus_far": 0.07825898134604928,
+          "historical_NWCA_weighted_WLS_not_population_acreage_claim": false,
+          "matrix_rank": 37,
+          "matrix_regressor_columns": 38,
+          "n_source_matched_plots": 481,
+          "site_equal": true,
+          "state_cluster95": [
+            -0.050643186981502136,
+            0.2071611496736007
+          ],
+          "state_ecoregion_matched_strata": 32,
+          "states": 29
+        }
+      },
+      "leave_one_US_state_out_influence": {
+        "US_states_left_out_n": 29,
+        "all_state_omissions": {
+          "AL": {
+            "site_equal": 0.056629678185654245,
+            "source_site_n": 462,
+            "survey_weighted": 0.13026622439978625
+          },
+          "CA": {
+            "site_equal": 0.05225380024662475,
+            "source_site_n": 442,
+            "survey_weighted": 0.1340187343868876
+          },
+          "CO": {
+            "site_equal": 0.0618605440309892,
+            "source_site_n": 472,
+            "survey_weighted": 0.13115278211415166
+          },
+          "CT": {
+            "site_equal": 0.07146902200986847,
+            "source_site_n": 472,
+            "survey_weighted": 0.13406480664294068
+          },
+          "DE": {
+            "site_equal": 0.06883206365007519,
+            "source_site_n": 471,
+            "survey_weighted": 0.13421823408331454
+          },
+          "FL": {
+            "site_equal": 0.0868529080960692,
+            "source_site_n": 418,
+            "survey_weighted": 0.15017480041773412
+          },
+          "GA": {
+            "site_equal": 0.11831710379751191,
+            "source_site_n": 454,
+            "survey_weighted": 0.1994527835861048
+          },
+          "IA": {
+            "site_equal": 0.07585266716023437,
+            "source_site_n": 477,
+            "survey_weighted": 0.13427320935760945
+          },
+          "IL": {
+            "site_equal": 0.0807086706878476,
+            "source_site_n": 474,
+            "survey_weighted": 0.13707041608424916
+          },
+          "IN": {
+            "site_equal": 0.08014309053500887,
+            "source_site_n": 477,
+            "survey_weighted": 0.13440782081078056
+          },
+          "LA": {
+            "site_equal": 0.07761376783449601,
+            "source_site_n": 429,
+            "survey_weighted": 0.07412552516787428
+          },
+          "MA": {
+            "site_equal": 0.08374427585556166,
+            "source_site_n": 476,
+            "survey_weighted": 0.13443150817421906
+          },
+          "ME": {
+            "site_equal": 0.07829608585075264,
+            "source_site_n": 470,
+            "survey_weighted": 0.13974263983542795
+          },
+          "MI": {
+            "site_equal": 0.06920853182430459,
+            "source_site_n": 471,
+            "survey_weighted": 0.06810761868959384
+          },
+          "MN": {
+            "site_equal": 0.08374753196152922,
+            "source_site_n": 463,
+            "survey_weighted": 0.1431881095292626
+          },
+          "MO": {
+            "site_equal": 0.07045958345349616,
+            "source_site_n": 473,
+            "survey_weighted": 0.1328314633648297
+          },
+          "MT": {
+            "site_equal": 0.07620954627849828,
+            "source_site_n": 469,
+            "survey_weighted": 0.13476171885969385
+          },
+          "NC": {
+            "site_equal": 0.06533187621319347,
+            "source_site_n": 439,
+            "survey_weighted": 0.11566408079982535
+          },
+          "NJ": {
+            "site_equal": 0.078059318870631,
+            "source_site_n": 466,
+            "survey_weighted": 0.1340633081859346
+          },
+          "OH": {
+            "site_equal": 0.0865057302718513,
+            "source_site_n": 479,
+            "survey_weighted": 0.13832506079669504
+          },
+          "PA": {
+            "site_equal": 0.0814807038136531,
+            "source_site_n": 475,
+            "survey_weighted": 0.13517047608862642
+          },
+          "RI": {
+            "site_equal": 0.08005619522954835,
+            "source_site_n": 479,
+            "survey_weighted": 0.1344074309283841
+          },
+          "SC": {
+            "site_equal": 0.07150617883272545,
+            "source_site_n": 456,
+            "survey_weighted": 0.14960406762552678
+          },
+          "TX": {
+            "site_equal": 0.08421658695073111,
+            "source_site_n": 457,
+            "survey_weighted": 0.1413326679953938
+          },
+          "VA": {
+            "site_equal": 0.06782712344631128,
+            "source_site_n": 458,
+            "survey_weighted": 0.13477755926359686
+          },
+          "VT": {
+            "site_equal": 0.10047026969131441,
+            "source_site_n": 475,
+            "survey_weighted": 0.14104139346502576
+          },
+          "WA": {
+            "site_equal": 0.0853110758253588,
+            "source_site_n": 469,
+            "survey_weighted": 0.13445898224673272
+          },
+          "WI": {
+            "site_equal": 0.07476571722342705,
+            "source_site_n": 472,
+            "survey_weighted": 0.11952841080099187
+          },
+          "WV": {
+            "site_equal": 0.09471606785114176,
+            "source_site_n": 473,
+            "survey_weighted": 0.13460898910547972
+          }
+        },
+        "site_equal_beta_minmax": [
+          0.05225380024662475,
+          0.11831710379751191
+        ],
+        "source_equal_beta_positive_omission_n": 29,
+        "source_survey_weighted_beta_positive_omission_n": 29,
+        "weighted_beta_minmax": [
+          0.06810761868959384,
+          0.1994527835861048
+        ]
+      }
+    },
+    "2016": {
+      "independent_NWCA_2011_2016_actual_HALL": {
+        "site_design_weighted_WLS": {
+          "beta_near_minus_far": 0.19182327749315806,
+          "historical_NWCA_weighted_WLS_not_population_acreage_claim": true,
+          "matrix_rank": 46,
+          "matrix_regressor_columns": 47,
+          "n_source_matched_plots": 483,
+          "site_equal": false,
+          "state_cluster95": [
+            -0.07020607200778825,
+            0.45385262699410434
+          ],
+          "state_ecoregion_matched_strata": 41,
+          "states": 32
+        },
+        "site_equal_OLS": {
+          "beta_near_minus_far": -0.018117543659883183,
+          "historical_NWCA_weighted_WLS_not_population_acreage_claim": false,
+          "matrix_rank": 46,
+          "matrix_regressor_columns": 47,
+          "n_source_matched_plots": 483,
+          "site_equal": true,
+          "state_cluster95": [
+            -0.19716901350328792,
+            0.16093392618352154
+          ],
+          "state_ecoregion_matched_strata": 41,
+          "states": 32
+        }
+      },
+      "leave_one_US_state_out_influence": {
+        "US_states_left_out_n": 32,
+        "all_state_omissions": {
+          "AL": {
+            "site_equal": -0.031971267164465376,
+            "source_site_n": 469,
+            "survey_weighted": 0.1896776113037742
+          },
+          "CA": {
+            "site_equal": -0.005479089697737624,
+            "source_site_n": 438,
+            "survey_weighted": 0.2260038417101133
+          },
+          "CO": {
+            "site_equal": 0.003987756396923642,
+            "source_site_n": 463,
+            "survey_weighted": 0.20732346529316953
+          },
+          "CT": {
+            "site_equal": -0.03267191879575792,
+            "source_site_n": 477,
+            "survey_weighted": 0.18966564795912383
+          },
+          "FL": {
+            "site_equal": -0.017373018848695743,
+            "source_site_n": 426,
+            "survey_weighted": 0.20519004746194136
+          },
+          "GA": {
+            "site_equal": -0.06317928768374848,
+            "source_site_n": 469,
+            "survey_weighted": 0.09996976115532306
+          },
+          "ID": {
+            "site_equal": 0.021698134551826852,
+            "source_site_n": 465,
+            "survey_weighted": 0.19548281554029667
+          },
+          "IL": {
+            "site_equal": -0.015029890242945362,
+            "source_site_n": 468,
+            "survey_weighted": 0.19845772227747824
+          },
+          "KY": {
+            "site_equal": -0.030555387382597065,
+            "source_site_n": 453,
+            "survey_weighted": 0.19495309999484634
+          },
+          "LA": {
+            "site_equal": -0.03008762896267003,
+            "source_site_n": 459,
+            "survey_weighted": 0.1937994262601226
+          },
+          "MA": {
+            "site_equal": -0.02623110111278638,
+            "source_site_n": 480,
+            "survey_weighted": 0.19122447805373113
+          },
+          "ME": {
+            "site_equal": -0.03229550283962508,
+            "source_site_n": 474,
+            "survey_weighted": 0.19569340153567646
+          },
+          "MI": {
+            "site_equal": -0.02406852504815104,
+            "source_site_n": 474,
+            "survey_weighted": 0.09012345586246935
+          },
+          "MN": {
+            "site_equal": -0.007561681325257433,
+            "source_site_n": 468,
+            "survey_weighted": 0.23125512557454042
+          },
+          "MO": {
+            "site_equal": -0.012596485718060695,
+            "source_site_n": 473,
+            "survey_weighted": 0.20134549389785383
+          },
+          "MT": {
+            "site_equal": -0.02224061389310504,
+            "source_site_n": 469,
+            "survey_weighted": 0.18688565191211265
+          },
+          "NC": {
+            "site_equal": -0.01313607602910868,
+            "source_site_n": 466,
+            "survey_weighted": 0.20804908705000585
+          },
+          "NH": {
+            "site_equal": -0.01601150207120991,
+            "source_site_n": 477,
+            "survey_weighted": 0.19172525269622512
+          },
+          "NJ": {
+            "site_equal": -0.0188945113533791,
+            "source_site_n": 477,
+            "survey_weighted": 0.19559874513400466
+          },
+          "NY": {
+            "site_equal": -0.02631898318830079,
+            "source_site_n": 480,
+            "survey_weighted": 0.1712448355262149
+          },
+          "OH": {
+            "site_equal": -0.015174449784153872,
+            "source_site_n": 481,
+            "survey_weighted": 0.1966278078174233
+          },
+          "OK": {
+            "site_equal": -0.018387428317382857,
+            "source_site_n": 479,
+            "survey_weighted": 0.19146588103050557
+          },
+          "RI": {
+            "site_equal": -0.0143237001922693,
+            "source_site_n": 480,
+            "survey_weighted": 0.19195885530014156
+          },
+          "SC": {
+            "site_equal": 0.017871960111049353,
+            "source_site_n": 470,
+            "survey_weighted": 0.19916307993192292
+          },
+          "TX": {
+            "site_equal": 0.0011913267113569936,
+            "source_site_n": 456,
+            "survey_weighted": 0.23344971645173868
+          },
+          "UT": {
+            "site_equal": -0.0016177025265061012,
+            "source_site_n": 467,
+            "survey_weighted": 0.19953963333708763
+          },
+          "VA": {
+            "site_equal": -0.03018015926514001,
+            "source_site_n": 471,
+            "survey_weighted": 0.19288772204234794
+          },
+          "VT": {
+            "site_equal": -0.02976129193008667,
+            "source_site_n": 477,
+            "survey_weighted": 0.1891164093688235
+          },
+          "WA": {
+            "site_equal": -0.01927399739966041,
+            "source_site_n": 448,
+            "survey_weighted": 0.19462286176783483
+          },
+          "WI": {
+            "site_equal": -0.034480724177933714,
+            "source_site_n": 475,
+            "survey_weighted": 0.1811951429592635
+          },
+          "WV": {
+            "site_equal": -0.016734355794753873,
+            "source_site_n": 478,
+            "survey_weighted": 0.19218798734695838
+          },
+          "WY": {
+            "site_equal": -0.02500570857583341,
+            "source_site_n": 466,
+            "survey_weighted": 0.1903268787475021
+          }
+        },
+        "site_equal_beta_minmax": [
+          -0.06317928768374848,
+          0.021698134551826852
+        ],
+        "source_equal_beta_positive_omission_n": 4,
+        "source_survey_weighted_beta_positive_omission_n": 32,
+        "weighted_beta_minmax": [
+          0.09012345586246935,
+          0.23344971645173868
+        ]
+      }
+    }
+  },
+  "2021_original_reference_reused_not_reestimated": {
+    "NWCA_survey_weighted95": [
+      0.010378490906395199,
+      0.35086752644609115
+    ],
+    "NWCA_survey_weighted_beta": 0.18062300867624317,
+    "far20": 137,
+    "near10": 103,
+    "original_year": 2021,
+    "site_equal95": [
+      -0.2505774852985684,
+      0.00970862798964875
+    ],
+    "site_equal_beta": -0.12043442865445983,
+    "site_n": 240,
+    "state_eco_strata": 32,
+    "states": 27
+  },
+  "both_independent_older_year_beta_and_state_cluster95_reproduced": true,
+  "even_3cycle_survey_area_weighted_positive_not_causal_effluent_or_true_temporal_trend": true,
+  "fixed2026_permit2021_plausible_not_verified_2011_or2016_WWTP_discharge": true,
+  "no_plant_taxa_selected_by_favorable_WWTP_association": true,
+  "original_2011_2016_2021_HALL_temporal_main_model_SHA256": "5bdd3640959beaeb98fb213d6feff39ebb55fc20c2e01ed4155f9fa4bc9a42e8",
+  "original_2011_2016_ECHO2026_outfall_source_only_SHA256": "3121ba2e87048a5b1aa883c4c7e26004df8a5f9cd5caadce7c32c824ba46807b",
+  "original_2011_2016_vegetation_SITE_only_SHA256": "18861b0e0f68ba8af7ff2a5079083d5ea7a60ad57a051573f64f2d6330de393d",
+  "original_EPA_2011_2016_SITE_values_precommitted_before_HALL": true,
+  "schema": "gesui_NWCA_2011_2016_2021_HALL_3cycle_weighted_positive_site_equal_nonrobust_independent_numpy_QA_v01"
+}
