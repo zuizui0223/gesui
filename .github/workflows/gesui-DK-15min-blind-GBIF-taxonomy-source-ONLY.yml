@@ -1,0 +1,39 @@
+name: gesui DK EBMS15m original scientificName GBIF blind taxonomy BEFORE individualCount
+on:
+  push:
+    branches: ["analysis/dk-ebms-15min-wwtp-source-support-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-15min-blind-GBIF-taxonomy-source-ONLY.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  taxonomy-mapping-before-new-counts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify fixed v1.3 EBMS Event-only source support before any original Occurrence-family lookup
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS15m_2023_2025_original_scientificName_blind_taxonomy.py
+          python -u scripts/gesui_DK_EBMS15m_2023_2025_original_scientificName_blind_taxonomy.py \
+            --out results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15MIN_BLIND_GBIF_ACCEPTED_FAMILIES_NO_COUNTS.json
+      - name: Freeze taxonomic source mappings with no original individualCount access
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15MIN_BLIND_GBIF_ACCEPTED_FAMILIES_NO_COUNTS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze official GBIF family taxonomy from EBMS15min scientificName only, before 2023-25 individualCount"
+          git fetch origin analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git rebase origin/analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git push origin HEAD:analysis/dk-ebms-15min-wwtp-source-support-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK-EBMS15minute-GBIF-accepted-family-blind-to-counts
+          path: results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/ORIGINAL_DK_EBMS15MIN_BLIND_GBIF_ACCEPTED_FAMILIES_NO_COUNTS.json
+          retention-days: 90
