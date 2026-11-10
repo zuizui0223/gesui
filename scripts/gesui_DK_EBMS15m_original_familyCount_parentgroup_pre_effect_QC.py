@@ -195,7 +195,8 @@ def run(root):
         t["groups_with_target_positive"]+=sum(g["individual_counts_accepted_or_synonym"][f] for f in ("Lycaenidae","Pieridae","Papilionidae"))>0
         if band=="near5cumulative":
             sid=next(iter(g["near_outfall_sha256"]))
-            t["near_outfall_group_ids"][sid].add(groupid)
+            if g["has_any_original_Occurrence_link"]:
+                t["near_outfall_group_ids"][sid].add(groupid)
     stats={}
     for yr in YEARS:
         y={}
