@@ -1,0 +1,75 @@
+{
+  "independently_recomputed_complete499_48states_9ecoregions": true,
+  "measured_chemistry_flag_QUALITATIVE_exclusions_S_shipping_Q_issues_no_NR_ND": true,
+  "measured_wetland_TNTP_not_proven_to_come_from_sewage": true,
+  "observed_standardized_wetland_Shannon_not_opportunistic_GBIF_indexing": true,
+  "schema": "gesui_US_NWCA2021_499samewetland_2021_measured_TNTP_Shannon_independent_numpy_statecluster_QA_v01",
+  "source_568_site_probability_firstvisit_joint_preoutcome_matched": true,
+  "source_frozen_568site_gate_SHA256": "c30e73798e251f78d0ca3d33b51d2854686ea0429d5d92c3508e49fee9f80fe7",
+  "source_original_csv_sha256": {
+    "HYDROSOURCE": "92b56c5ee7599e84b0698e3b347af62512d040f0b64d89b8c6558a910d0f692e",
+    "SITEINFO": "258029deb1bb49d6ae7396af76cfa29f6813e8dd64b8cff21437cc1d24cbf569",
+    "VEGMETRICS": "e0f2f8c5962cd0f8ee3045862e5d4ba588c082e28a4d6bf9d965df3c4d6a7c73",
+    "WATERCHEM": "c912a966ebf66547ad6acab5cc72ded4faa7180c14b9a58bcd3c502e2cae6fb1"
+  },
+  "source_original_first_results_SHA256": "26ec610bb028dd72c16f294752744f2bb8567fc85c85ca30a24097d318f837f1",
+  "study_is_US_wetlands_not_global_nonwetland_plants": true,
+  "three_primary_and_single_nutrient_beta_and_US_state_cluster95_exact": {
+    "H_ALL_only_TN": {
+      "design_rank": 14,
+      "matrix_columns": 15,
+      "modelled_parameters": {
+        "logTN": {
+          "US_state_cluster95": [
+            -0.33955326542946956,
+            -0.06545944193732528
+          ],
+          "beta_per_10fold_original_measured_nutrient": -0.20250635368339742
+        }
+      },
+      "n": 499,
+      "state_clusters": 48
+    },
+    "H_ALL_only_TP": {
+      "design_rank": 14,
+      "matrix_columns": 15,
+      "modelled_parameters": {
+        "logTP": {
+          "US_state_cluster95": [
+            -0.24695734227646368,
+            0.00861634644083234
+          ],
+          "beta_per_10fold_original_measured_nutrient": -0.11917049791781567
+        }
+      },
+      "n": 499,
+      "state_clusters": 48
+    },
+    "H_ALL_primary_TP_TN": {
+      "design_rank": 15,
+      "matrix_columns": 16,
+      "modelled_parameters": {
+        "logTN": {
+          "US_state_cluster95": [
+            -0.3935652381574053,
+            0.01253855315249755
+          ],
+          "beta_per_10fold_original_measured_nutrient": -0.1905133425024539
+        },
+        "logTP": {
+          "US_state_cluster95": [
+            -0.1834071447160316,
+            0.15680651399641604
+          ],
+          "beta_per_10fold_original_measured_nutrient": -0.013300315359807774
+        }
+      },
+      "n": 499,
+      "state_clusters": 48
+    }
+  },
+  "unadjusted_measured_TN_and_TP_Spearman_to_actual_H_ALL_reproduced": {
+    "TN_vs_HALL": -0.30061560847444574,
+    "TP_vs_HALL": -0.29651348607341055
+  }
+}
