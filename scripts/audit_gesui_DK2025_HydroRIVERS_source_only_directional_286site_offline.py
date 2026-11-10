@@ -39,7 +39,7 @@ def main():
     prev=files["original399_source"]
     e=files["originalEventEEA"]
     assert d["source_only_no_2025_butterfly_taxon_or_individualCount_read"] is True
-    assert not d["third_party_HydroRIVERS_not_official_verified"] is False
+    assert d["third_party_HydroRIVERS_not_official_verified"] is True
     assert d["original_source_sha256"]["original_2025_new399_source_only_site_cohort"]==sha(fp["original399_source"])
     assert d["original_source_sha256"]["original_eBMS_Event_only_EEA2022_outfalls"]==sha(fp["originalEventEEA"])
     assert d["original_source_sha256"]["third_party_Europe_HydroRIVERS_v1_geoparquet"]=="5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f"
