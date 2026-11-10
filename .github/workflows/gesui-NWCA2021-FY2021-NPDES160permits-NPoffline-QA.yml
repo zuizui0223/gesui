@@ -1,0 +1,39 @@
+name: gesui US original 128 NWCA wetland 160 municipal permit FY2021 N P DMR offline source-QA
+on:
+  push:
+    branches: ["analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110"]
+    paths:
+      - "results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_NPDES_DMR_160MUNICIPAL_PERMIT_TNTP_MONITOR_SOURCE_GATE.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_2021_EPA_DMR_NP_160permitted_sources_geo_QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify exact original 160 municipal permitted source IDs and 128 wetland site hashes under FY2021 DMR, no raw national download
+        run: |
+          python -m py_compile scripts/audit_NWCA2021_FY2021_DMR_160permit_source_overlap_offline.py
+          python -u scripts/audit_NWCA2021_FY2021_DMR_160permit_source_overlap_offline.py \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_DMR_160PERMIT_NUTRIENT_SOURCE_OFFLINE_QA.json
+      - name: Archive independent FY2021 EPA original DMR source arithmetic with no ecological responses
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_DMR_160PERMIT_NUTRIENT_SOURCE_OFFLINE_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Verify original FY2021 US NPDES DMR160 municipal permit N-P monitoring support/near128 wetland source overlap independently"
+          git fetch origin analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110
+          git rebase origin/analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110
+          git push origin HEAD:analysis/nwca2021-FY2021-official-NPDES-DMR-source-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-FY2021-NPDES-DMR160-permit-nutrient-independent-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_FY2021_REAL_DMR_160PERMIT_NUTRIENT_SOURCE_OFFLINE_QA.json
+          retention-days: 90
