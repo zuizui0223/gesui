@@ -1,0 +1,40 @@
+name: gesui DK2025 NEW399 ESA WorldCover2021 habitat independent source regression audit
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-worldcover-habitat-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK2025-NEW399-worldcover2021-independent-arithmetic-QA.yml"
+      - "scripts/audit_gesui_DK2025_WorldCover2021_6region_habitat_family_OLS_independent.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_habitat_family_normal_equations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Replay exact frozen 6region 2021 habitat 2025 butterfly recording coefficients without numpy or raw external data
+        run: |
+          python -m py_compile scripts/audit_gesui_DK2025_WorldCover2021_6region_habitat_family_OLS_independent.py
+          python -u scripts/audit_gesui_DK2025_WorldCover2021_6region_habitat_family_OLS_independent.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_WORLD_COVER2021_FAMILY_REGION_INDEPENDENT_OLS_QA.json
+      - name: Commit independent landcover and source-outfall leverage arithmetic without changing biological sample
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_WORLD_COVER2021_FAMILY_REGION_INDEPENDENT_OLS_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit independent 2021 landcover and 2025 family rate 6-region source-composition regressions"
+          git fetch origin analysis/dk-ebms-2025-worldcover-habitat-20261110
+          git rebase origin/analysis/dk-ebms-2025-worldcover-habitat-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-worldcover-habitat-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-DK2025-WorldCover2021-original-OLS-independent-source-QA
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_WORLD_COVER2021_FAMILY_REGION_INDEPENDENT_OLS_QA.json
+          retention-days: 90

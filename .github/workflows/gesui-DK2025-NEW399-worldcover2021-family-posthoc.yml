@@ -1,0 +1,42 @@
+name: gesui Denmark NEW399 source-locked WorldCover2021 habitat and 2025 Lycaenidae family composition
+on:
+  push:
+    branches: ["analysis/dk-ebms-2025-worldcover-habitat-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK2025-NEW399-worldcover2021-family-posthoc.yml"
+      - "scripts/gesui_DK2025_NEW399_2021_WorldCover_habitat_vs_Lycaenidae_SITE_REGION_posthoc.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original2021_habitat_original2025_family:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install linear algebra only; WorldCover source and butterfly counts are already SHA-locked
+        run: python -m pip install --quiet numpy
+      - name: Original new399 source QA and within-region 2021 measured landcover effects on 2025 butterfly recording
+        run: |
+          python -m py_compile scripts/gesui_DK2025_NEW399_2021_WorldCover_habitat_vs_Lycaenidae_SITE_REGION_posthoc.py
+          python -u scripts/gesui_DK2025_NEW399_2021_WorldCover_habitat_vs_Lycaenidae_SITE_REGION_posthoc.py \
+            --out results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_WORLD_COVER2021_LYCAENIDAE_3VS5_WITHIN6_REGION_HABITAT_QC.json
+      - name: Commit only source-locked aggregate habitat/composition diagnostic and six-region uncertainty
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_WORLD_COVER2021_LYCAENIDAE_3VS5_WITHIN6_REGION_HABITAT_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 2021 habitat-adjusted six-area DK 2025 Lycaenidae/3vs5 family descriptive sensitivity"
+          git fetch origin analysis/dk-ebms-2025-worldcover-habitat-20261110
+          git rebase origin/analysis/dk-ebms-2025-worldcover-habitat-20261110
+          git push origin HEAD:analysis/dk-ebms-2025-worldcover-habitat-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Denmark2025-WorldCover2021-sixregion-habitat-family-boot
+          path: results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_WORLD_COVER2021_LYCAENIDAE_3VS5_WITHIN6_REGION_HABITAT_QC.json
+          retention-days: 90
