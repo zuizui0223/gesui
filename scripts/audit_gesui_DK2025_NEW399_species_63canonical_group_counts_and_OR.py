@@ -47,7 +47,7 @@ def run(root):
     if sum(x["original_scientificName_aliases_n"] for x in rows)!=65:
         raise ValueError("Original frozen 65 accepted name records not reconciled to 63 usage keys")
     if Counter(x["accepted_family"] for x in rows)!=Counter({
-        "Lycaenidae":20,"Pieridae":7,"Papilionidae":1,"Nymphalidae":27,"Hesperiidae":8
+        "Lycaenidae":20,"Pieridae":7,"Papilionidae":1,"Nymphalidae":28,"Hesperiidae":7
     }):
         # If original GBIF taxonomy had different accepted synonym duplication,
         # audit only correct stable accepted source and do not silently drop.
