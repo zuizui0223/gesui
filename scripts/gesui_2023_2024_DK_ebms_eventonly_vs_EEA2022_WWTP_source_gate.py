@@ -132,6 +132,13 @@ def read_events_only(archive):
         visits={y:int(x["eventrows_by_year"].get(str(y),0)) for y in (*YEARS,2025)}
         repeated=all(days[y]>=MIN_DISTINCT_DAYS for y in YEARS)
         precision=not x["missing_uncertainty"] and x["max_uncertainty"] is not None and x["max_uncertainty"]<=MAX_UNCERTAINTY_M
+        # Same public site = 5-decimal centroid per PRE-OUTCOME protocol; raw sub-metre
+        # coordinate precision differences inside that rounded site are not different sites.
+        scatter=0.0
+        if len(x["exact_latlon"])>1:
+            px=list(x["exact_latlon"])
+            scatter=haversine(min(a for a,b in px),min(b for a,b in px),
+                              max(a for a,b in px),max(b for a,b in px))*1000.
         sites.append({"site_id_SHA256":sha(k.encode()),"lat":lat,"lon":lon,
                       "repeat_2023_2024_dates_gate":repeated,
                       "precise_500m_explicit_uncertainty_gate":precision,
@@ -143,10 +150,17 @@ def read_events_only(archive):
                       "any_missing_coordinate_uncertainty":x["missing_uncertainty"],
                       "distinct_published_locality_strings":len(x["localities"]),
                       "distinct_original_parentEventIDs":len(x["parents"]),
-                      "source_original_coords_consistent_after_5decimal_round":len(x["exact_latlon"])==1})
+                      "source_original_coords_consistent_after_5decimal_round":len(x["exact_latlon"])==1,
+                      "source_coordinate_variants_before_5decimal_round":len(x["exact_latlon"]),
+                      "source_max_original_coordinate_scatter_m":scatter,
+                      "rounded5_site_coord_scatter_le2m":scatter<=2.0})
+    qc["round5_site_coordinate_grouping_as_predeclared_not_raw_binary_equality"]=True
+    qc["site_coordinate_sub2m_scatter_valid_n"]=sum(x["rounded5_site_coord_scatter_le2m"] for x in sites)
+    qc["site_coordinate_scatter_max_m"]=max((x["source_max_original_coordinate_scatter_m"] for x in sites),default=0)
+    qc["raw_coordinate_multiversion_site_n"]=sum(x["source_coordinate_variants_before_5decimal_round"]>1 for x in sites)
     qc["source_event_site_with_2days_each_year"]=sum(x["repeat_2023_2024_dates_gate"] for x in sites)
     qc["source_event_site_with_explicit_uncertainty_le500"]=sum(x["precise_500m_explicit_uncertainty_gate"] for x in sites)
-    qc["source_event_site_with_both_visit_and_accuracy_gates"]=sum(x["repeat_2023_2024_dates_gate"] and x["precise_500m_explicit_uncertainty_gate"] and x["source_original_coords_consistent_after_5decimal_round"] for x in sites)
+    qc["source_event_site_with_both_visit_and_accuracy_gates"]=sum(x["repeat_2023_2024_dates_gate"] and x["precise_500m_explicit_uncertainty_gate"] and x["rounded5_site_coord_scatter_le2m"] for x in sites)
     return sites,qc
 
 def read_eea_sources():
@@ -193,7 +207,7 @@ def test_source_gate(sites,sources):
         distances=sorted((haversine(x["lat"],x["lon"],y["lat"],y["lon"]) for y in sources))
         x["nearest_qualified_EEA2022_DK_FW_outfall_km"]=distances[0] if distances else None
         x["country_1deg_lat_lon_cell"]=f"{math.floor(x['lat'])}|{math.floor(x['lon'])}"
-    qualified=[x for x in sites if x["repeat_2023_2024_dates_gate"] and x["precise_500m_explicit_uncertainty_gate"] and x["source_original_coords_consistent_after_5decimal_round"]]
+    qualified=[x for x in sites if x["repeat_2023_2024_dates_gate"] and x["precise_500m_explicit_uncertainty_gate"] and x["rounded5_site_coord_scatter_le2m"]]
     report={}
     for rad,minimum in ((PRIMARY_KM,8),(SECONDARY_KM,12)):
         near=[x for x in qualified if x["nearest_qualified_EEA2022_DK_FW_outfall_km"] is not None and x["nearest_qualified_EEA2022_DK_FW_outfall_km"]<=rad]
