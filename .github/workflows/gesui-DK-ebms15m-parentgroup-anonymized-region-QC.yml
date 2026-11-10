@@ -1,0 +1,39 @@
+name: gesui DK EBMS15m original 2024-25 anonymized parent-survey accepted family spatial groups for posthoc regional QA
+on:
+  push:
+    branches: ["analysis/dk-ebms-15min-wwtp-source-support-20261110"]
+    paths:
+      - ".github/workflows/gesui-DK-ebms15m-parentgroup-anonymized-region-QC.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  published-licensed-parent-source-QC:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Recompute source-locked original accepted family counts and output parent-level hashed 1degree/source aggregates
+        run: |
+          python -m py_compile scripts/gesui_DK_EBMS15m_original_familyCount_parentgroup_pre_effect_QC.py
+          python -u scripts/gesui_DK_EBMS15m_original_familyCount_parentgroup_pre_effect_QC.py \
+            --out results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/POSTHOC_ORIGINAL_PARENTGROUP_ANON_FAMILY_COUNT_REGION_AND_WWTP_QC.json
+      - name: Preserve original licensed non-personal parent-group/year/family aggregates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/POSTHOC_ORIGINAL_PARENTGROUP_ANON_FAMILY_COUNT_REGION_AND_WWTP_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive exact anonymous Denmark 2024-25 EBMS15min original parent/outfall family counts for geography audit"
+          git fetch origin analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git rebase origin/analysis/dk-ebms-15min-wwtp-source-support-20261110
+          git push origin HEAD:analysis/dk-ebms-15min-wwtp-source-support-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EBMS15m-DK-2024-25-parentfamily-anon-spatial-group-QC
+          path: results/ebms_denmark_15minute_2023_2025_WWTP_SOURCE_ONLY/POSTHOC_ORIGINAL_PARENTGROUP_ANON_FAMILY_COUNT_REGION_AND_WWTP_QC.json
+          retention-days: 90
