@@ -63,7 +63,8 @@ chem_units=collections.Counter()
 for uid in sorted(benthic_positive_mass):
     a=site_idx[uid][0];b=water_idx[uid][0]
     if not numpos(s(b,'NTL_RESULT')) or not numpos(s(b,'PTL_RESULT')):continue
-    if not s(a,'STATE_SF') or not s(a,'AG_ECO9'):continue
+    if not s(a,'PSTL_CODE') or not s(a,'AG_ECO9'):continue
+    if s(a,'PSTL_CODE') != s(b,'STATE'):continue
     try:
         lat=float(s(a,'LAT_DD83'));lon=float(s(a,'LON_DD83'))
         if not math.isfinite(lat) or not math.isfinite(lon) or not 24<=lat<=50 or not -125<=lon<=-66:continue
@@ -74,7 +75,7 @@ for uid in sorted(benthic_positive_mass):
     manifest.append({
        'uid':uid,'site_id':s(a,'SITE_ID'),'site_unique_id':s(a,'UNIQUE_ID'),
        'visit_no':s(a,'VISIT_NO'),'year':s(a,'YEAR'),'date_col':s(a,'DATE_COL'),
-       'state':s(a,'STATE_SF'),'eco9':s(a,'AG_ECO9'),
+       'state':s(a,'PSTL_CODE'),'eco9':s(a,'AG_ECO9'),
        'huc8':s(a,'HUC8'),'lat':lat,'lon':lon,
        'berw_taxon_positive_rows':benthic_rows[uid],
        # source support coverage, not response composition.
