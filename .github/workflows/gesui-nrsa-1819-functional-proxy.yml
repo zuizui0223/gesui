@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "scripts/gesui_aquatic_terrestrial_NRSA1819_functional_proxy_after_UID_freeze.py"
+      - "scripts/audit_NRSA1819_EPT_flags_subsample_site_posthoc.py"
       - ".github/workflows/gesui-nrsa-1819-functional-proxy.yml"
   pull_request:
     paths:
       - "scripts/gesui_aquatic_terrestrial_NRSA1819_functional_proxy_after_UID_freeze.py"
+      - "scripts/audit_NRSA1819_EPT_flags_subsample_site_posthoc.py"
       - ".github/workflows/gesui-nrsa-1819-functional-proxy.yml"
   workflow_dispatch:
 
@@ -40,11 +42,19 @@ jobs:
         run: |
           python -m py_compile scripts/gesui_aquatic_terrestrial_NRSA1819_functional_proxy_after_UID_freeze.py
           python scripts/gesui_aquatic_terrestrial_NRSA1819_functional_proxy_after_UID_freeze.py
+      - name: Independent EPT river-subsample, nutrient QA flag and duplicate-site posthoc sensitivity
+        env:
+          NRSA_FROZEN_MANIFEST: ${{ runner.temp }}/nrsa1819_pinned/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+        run: |
+          python -m py_compile scripts/audit_NRSA1819_EPT_flags_subsample_site_posthoc.py
+          python scripts/audit_NRSA1819_EPT_flags_subsample_site_posthoc.py
       - name: Preserve reproducible aggregate source-verification and result
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nrsa1819-river-functional-proxy-source-frozen-posthoc
-          path: ${{ runner.temp }}/nrsa1819_functional/NRSA1819_RIVER_FUNCTIONAL_PROXY_EXPLORATORY_REPORT.json
+          path: |
+            ${{ runner.temp }}/nrsa1819_functional/NRSA1819_RIVER_FUNCTIONAL_PROXY_EXPLORATORY_REPORT.json
+            ${{ runner.temp }}/nrsa1819_functional/NRSA1819_EPT_FLAGS_SUBSAMPLE_NATIVE_SITE_POSTHOC_INDEPENDENT_QA.json
           if-no-files-found: warn
           retention-days: 30
