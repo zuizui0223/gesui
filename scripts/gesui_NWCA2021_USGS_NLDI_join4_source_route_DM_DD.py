@@ -194,12 +194,15 @@ def run(root,files):
            "flowlines_SHA256":hashraw(json.dumps(v["downstream_flowline_comids"],sort_keys=True).encode())}
           for comid,d in source_calls.items() for mode,v in d.items()],
         "USGS_strict200m_directed_outfall_to_wetland_potential_matches":navigation,
+        "USGS_downstream_DM_navigation_performed":bool(summary["pre_navigation_direct_candidate_SUPPORT_GATE_pass"]),
         "USGS_downstream_DM_50km_outcome_source":{
-          "potential_directed_source_pairs":len(confirmed),
-          "potential_directed_unique_NWCA_wetlands":len(recsite),
-          "potential_directed_unique_2021_measured_POTW_features":len(feature),
-          "potential_directed_unique_NPDES_administrative_permits":len(permit),
-          "potential_directed_original_US_states":len(state),
+          "status":"EXECUTED_NLDI_DM" if summary["pre_navigation_direct_candidate_SUPPORT_GATE_pass"] else "NOT_RUN_ORIGINAL_200M_SOURCE_SUPPORT_GATE_FAILED",
+          "potential_directed_source_pairs":len(confirmed) if summary["pre_navigation_direct_candidate_SUPPORT_GATE_pass"] else None,
+          "potential_directed_unique_NWCA_wetlands":len(recsite) if summary["pre_navigation_direct_candidate_SUPPORT_GATE_pass"] else None,
+          "potential_directed_unique_2021_measured_POTW_features":len(feature) if summary["pre_navigation_direct_candidate_SUPPORT_GATE_pass"] else None,
+          "potential_directed_unique_NPDES_administrative_permits":len(permit) if summary["pre_navigation_direct_candidate_SUPPORT_GATE_pass"] else None,
+          "potential_directed_original_US_states":len(state) if summary["pre_navigation_direct_candidate_SUPPORT_GATE_pass"] else None,
+          "NOT_run_is_not_a_zero_downstream_match":True,
         },
         "precommitted_original_actual_DM_FLOW_SOURCE_STUDY_GATE":{
           **SOURCE_MIN,
