@@ -1,0 +1,40 @@
+name: gesui 2016 EEA official UWWTD measured NP third-year source discovery no biology
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-public-UWWTD-source-access.yml"
+      - "scripts/gesui_probe_2016_official_eea_UWWTD_real_NP_sources.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  official_2016_UWWTD_source_NO_EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Probe original historical EEA 2015-2016 public wastewater N-P sources without biological scores
+        run: |
+          python -m py_compile scripts/gesui_probe_2016_official_eea_UWWTD_real_NP_sources.py
+          python -u scripts/gesui_probe_2016_official_eea_UWWTD_real_NP_sources.py \
+            --out results/eea2016_thirdyear_source_20261111/2016_EEA_ORIGINAL_UWWTD_PUBLIC_ACCESS_SOURCE_ONLY.json
+      - name: Freeze all 2016 official source access outcomes independent of any biological EQR results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/2016_EEA_ORIGINAL_UWWTD_PUBLIC_ACCESS_SOURCE_ONLY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 2016 EEA historical measured UWWTD N-P source access before aquatic biological score inspection"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-eea2016-original-annual-wastewater-N-P-access-source
+          path: results/eea2016_thirdyear_source_20261111/2016_EEA_ORIGINAL_UWWTD_PUBLIC_ACCESS_SOURCE_ONLY.json
+          retention-days: 90
