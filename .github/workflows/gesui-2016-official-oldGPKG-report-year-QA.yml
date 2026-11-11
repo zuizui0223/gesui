@@ -1,0 +1,54 @@
+name: gesui 2016 EEA UWWTD original 2019-20 GPKG 2016 source reporter audit NO EQR
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-official-oldGPKG-report-year-QA.yml"
+      - "scripts/gesui_2016_2019to20_EEA_reporter2016_WWTP_original_residue_QA.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independently_test_official_2016_reporter_residues_2020GPKG:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Download unchanged known original official historical EEA 2019-20 public N P and outfall GPKG bytes
+        run: |
+          mkdir -p /tmp/gesui2016-historical-official
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0,"scripts")
+          from gesui_2020_public_gpkg_source_qc import download
+          a=Path("/tmp/gesui2016-historical-official")
+          for kind,filename in [("WWTP","UWWTD_TreatmentPlants.gpkg"),("DCP","UWWTD_DischargePoints.gpkg")]:
+              print("REUSING_SOURCE",kind,download(kind,a/filename),flush=True)
+          PY
+      - name: Examine actual 2016 year-specific reporter records and N/P outfalls in original 2020 GPKG, no EQR values loaded
+        run: |
+          python -m py_compile scripts/gesui_2016_2019to20_EEA_reporter2016_WWTP_original_residue_QA.py
+          python -u scripts/gesui_2016_2019to20_EEA_reporter2016_WWTP_original_residue_QA.py \
+            --wwtp /tmp/gesui2016-historical-official/UWWTD_TreatmentPlants.gpkg \
+            --outfall /tmp/gesui2016-historical-official/UWWTD_DischargePoints.gpkg \
+            --out results/eea2016_thirdyear_source_20261111/2016_EEA_2020_ORIGINAL_GPKG_NP_REPORTER_RESIDUE_GATE.json
+      - name: Preserve actual 2016 reporter eligibility, source SHA and stop/go counts before any numeric biology
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/2016_EEA_2020_ORIGINAL_GPKG_NP_REPORTER_RESIDUE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 2016 WWTP N/P original reporter residue support in independently verified official 2020 GPKG"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2016-officialEEA-historical-2020Reporter-NP-source-GPKG
+          path: results/eea2016_thirdyear_source_20261111/2016_EEA_2020_ORIGINAL_GPKG_NP_REPORTER_RESIDUE_GATE.json
+          retention-days: 90
