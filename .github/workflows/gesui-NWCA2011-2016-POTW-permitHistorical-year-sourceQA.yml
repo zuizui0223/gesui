@@ -1,0 +1,66 @@
+name: gesui NWCA2011 2016 retrospective POTW permit DATE validity vs 2021 proxy SOURCE audit
+on:
+  push:
+    branches: ["analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2011-2016-POTW-permitHistorical-year-sourceQA.yml"
+      - "scripts/audit_gesui_NWCA2011_2016_POTW_2026_registered_PERMIT_year_validity.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit_original_2011_2016_historical_permit_date_opportunity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install independent original EPA 2011/16 site and NPDES source date readers
+        run: |
+          python -m pip install --quiet numpy pandas scipy
+          python -m py_compile scripts/audit_gesui_NWCA2011_2016_POTW_2026_registered_PERMIT_year_validity.py
+      - name: Reacquire 2011 and 2016 original EPA probability wetland source files
+        run: |
+          mkdir -p /tmp/gesui-nwca-history
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2023-04/nwca11_siteinfo.csv" \
+            -o /tmp/gesui-nwca-history/2011_siteinfo.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/sites/default/files/2016-10/nwca2011_vegmetrics.csv" \
+            -o /tmp/gesui-nwca-history/2011_vegmetrics.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2022-04/nwca-2016-site-information-data_0.csv" \
+            -o /tmp/gesui-nwca-history/2016_siteinfo.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2023-03/nwca_2016_veg_metrics.csv" \
+            -o /tmp/gesui-nwca-history/2016_vegmetrics.csv
+      - name: Obtain original official 2026 NPDES source unchanged and independently audit historical permit dates
+        run: |
+          curl --fail -L --retry 3 --max-time 300 -sS \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-nwca-history/npdes_outfalls_layer.zip
+          echo "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/gesui-nwca-history/npdes_outfalls_layer.zip" | sha256sum -c -
+          python -u scripts/audit_gesui_NWCA2011_2016_POTW_2026_registered_PERMIT_year_validity.py \
+            --source-dir /tmp/gesui-nwca-history \
+            --npdes-zip /tmp/gesui-nwca-history/npdes_outfalls_layer.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_EPA_ECHO2026_POTW_ACTUAL_SURVEY_YEAR_PERMIT_SOURCE_QA.json
+      - name: Retain source-date audit as caution about any three-year positive vegetation inference, no H_ALL values opened here
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_EPA_ECHO2026_POTW_ACTUAL_SURVEY_YEAR_PERMIT_SOURCE_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit source-only historical 2011/16 NPDES permit timestamp compatibility after 3year NWCA Shannon comparison"
+          git fetch origin analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git rebase origin/analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git push origin HEAD:analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2011-2016-historical-NPDES-permit-2026-year-source-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2011_2016_EPA_ECHO2026_POTW_ACTUAL_SURVEY_YEAR_PERMIT_SOURCE_QA.json
+          retention-days: 90

@@ -1,0 +1,367 @@
+{
+  "2021_reference_only_not_reestimated": {
+    "NWCA_survey_weighted95": [
+      0.010378490906395199,
+      0.35086752644609115
+    ],
+    "NWCA_survey_weighted_beta": 0.18062300867624317,
+    "far20": 137,
+    "near10": 103,
+    "original_year": 2021,
+    "site_equal95": [
+      -0.2505774852985684,
+      0.00970862798964875
+    ],
+    "site_equal_beta": -0.12043442865445983,
+    "site_n": 240,
+    "state_eco_strata": 32,
+    "states": 27
+  },
+  "2026_outfall_is_not_verified_2011_2016_wastewater_delivery": true,
+  "old_2021_result_already_known_before_2011_2016_source_requested": true,
+  "original_ECHO2026_sewage_source_snapshot_SHA256": "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160",
+  "original_pre_HALL_2011_2016_POTW_geo_source_SHA256": "3121ba2e87048a5b1aa883c4c7e26004df8a5f9cd5caadce7c32c824ba46807b",
+  "original_pre_HALL_EPA_2011_2016_veg_site_source_SHA256": "18861b0e0f68ba8af7ff2a5079083d5ea7a60ad57a051573f64f2d6330de393d",
+  "schema": "gesui_NWCA_2011_2016_vs2021_registered_POTW_2026_NEAR10_FAR20_HALL_temporal_comparison_POSTHOC_v01",
+  "utc": "2026-11-10T23:55:51.787361+00:00",
+  "years": {
+    "2011": {
+      "actual_original_plants_HALL_reported_sites_n": 481,
+      "matched_original_HALL_raw_descriptive": {
+        "far20": {
+          "mean": 1.521918152866242,
+          "median": 1.5314999999999999,
+          "n": 314,
+          "q25": 0.828325,
+          "q75": 2.1817
+        },
+        "near10": {
+          "mean": 1.5987730538922154,
+          "median": 1.747,
+          "n": 167,
+          "q25": 0.8869499999999999,
+          "q75": 2.3085500000000003
+        }
+      },
+      "outcomes": {
+        "FQAIALL": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 105.54029811205848,
+            "R2": 0.5964692586410646,
+            "far20_plant_source_sites": 314,
+            "n_source_reporting_plant_Hall_sites": 481,
+            "near10_plant_source_sites": 167,
+            "near_minus_far_beta": 0.23416767663154345,
+            "nominal_posthoc_p": 0.8031920536866449,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "FQAIALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 29,
+            "original_matched_STATE_ECO_strata": 32,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -1.6074327192230697,
+              2.0757680724861567
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "FQAINAT": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 105.54029811205848,
+            "R2": 0.5987659108543582,
+            "far20_plant_source_sites": 314,
+            "n_source_reporting_plant_Hall_sites": 481,
+            "near10_plant_source_sites": 167,
+            "near_minus_far_beta": 0.10552717990888183,
+            "nominal_posthoc_p": 0.9055090608673545,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "FQAINAT~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 29,
+            "original_matched_STATE_ECO_strata": 32,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -1.6368546964935096,
+              1.847909056311273
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "HALIEN": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 105.54029811205848,
+            "R2": 0.35386364798127,
+            "far20_plant_source_sites": 314,
+            "n_source_reporting_plant_Hall_sites": 481,
+            "near10_plant_source_sites": 167,
+            "near_minus_far_beta": -0.027773288492633882,
+            "nominal_posthoc_p": 0.550382602148893,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HALIEN~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 29,
+            "original_matched_STATE_ECO_strata": 32,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -0.11892506170653691,
+              0.06337848472126914
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "HALL": {
+          "site_design_weighted_WLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 105.54029811205848,
+            "R2": 0.5606027355498977,
+            "far20_plant_source_sites": 314,
+            "n_source_reporting_plant_Hall_sites": 481,
+            "near10_plant_source_sites": 167,
+            "near_minus_far_beta": 0.13427560424470011,
+            "nominal_posthoc_p": 0.1456507493154979,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 29,
+            "original_matched_STATE_ECO_strata": 32,
+            "site_equal_vs_design_weighted": "design_weighted_WLS",
+            "state_clustered_descriptive95": [
+              -0.04659261107356161,
+              0.31514381956296184
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          },
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 105.54029811205848,
+            "R2": 0.5892743977386117,
+            "far20_plant_source_sites": 314,
+            "n_source_reporting_plant_Hall_sites": 481,
+            "near10_plant_source_sites": 167,
+            "near_minus_far_beta": 0.07825898134604373,
+            "nominal_posthoc_p": 0.23407321157152827,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 29,
+            "original_matched_STATE_ECO_strata": 32,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -0.050643186981420424,
+              0.20716114967350788
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "HNAT": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 105.54029811205848,
+            "R2": 0.5746447482384776,
+            "far20_plant_source_sites": 314,
+            "n_source_reporting_plant_Hall_sites": 481,
+            "near10_plant_source_sites": 167,
+            "near_minus_far_beta": 0.06898470947784807,
+            "nominal_posthoc_p": 0.3567881301838626,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HNAT~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 29,
+            "original_matched_STATE_ECO_strata": 32,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -0.07774038812629921,
+              0.21570980708199536
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        }
+      },
+      "source_far": 314,
+      "source_far_HALL_nonmissing": 314,
+      "source_fixed_n": 481,
+      "source_near": 167,
+      "source_near_HALL_nonmissing": 167,
+      "source_state_eco_strata": 32,
+      "source_states": 29,
+      "source_year_original_plant_group_na": {
+        "FQAIALL": 0,
+        "FQAINAT": 0,
+        "HALIEN": 0,
+        "HALL": 0,
+        "HNAT": 0
+      }
+    },
+    "2016": {
+      "actual_original_plants_HALL_reported_sites_n": 483,
+      "matched_original_HALL_raw_descriptive": {
+        "far20": {
+          "mean": 1.8644029585798816,
+          "median": 1.9595,
+          "n": 338,
+          "q25": 1.445275,
+          "q75": 2.429075
+        },
+        "near10": {
+          "mean": 1.8812917241379314,
+          "median": 2.071,
+          "n": 145,
+          "q25": 1.2699,
+          "q75": 2.5857
+        }
+      },
+      "outcomes": {
+        "FQAIALL": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 55.92372807169844,
+            "R2": 0.6007119573667157,
+            "far20_plant_source_sites": 338,
+            "n_source_reporting_plant_Hall_sites": 483,
+            "near10_plant_source_sites": 145,
+            "near_minus_far_beta": -0.5129524317676197,
+            "nominal_posthoc_p": 0.6080535740522752,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "FQAIALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 32,
+            "original_matched_STATE_ECO_strata": 41,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -2.4732932529741367,
+              1.447388389438897
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "FQAINAT": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 55.92372807169844,
+            "R2": 0.5988597563499848,
+            "far20_plant_source_sites": 338,
+            "n_source_reporting_plant_Hall_sites": 483,
+            "near10_plant_source_sites": 145,
+            "near_minus_far_beta": -0.5094241393459165,
+            "nominal_posthoc_p": 0.6126524855752237,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "FQAINAT~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 32,
+            "original_matched_STATE_ECO_strata": 41,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -2.4815177814987406,
+              1.4626695028069074
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "HALIEN": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 55.92372807169844,
+            "R2": 0.3699518630377182,
+            "far20_plant_source_sites": 338,
+            "n_source_reporting_plant_Hall_sites": 483,
+            "near10_plant_source_sites": 145,
+            "near_minus_far_beta": -0.02325386701802589,
+            "nominal_posthoc_p": 0.708829503011903,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HALIEN~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 32,
+            "original_matched_STATE_ECO_strata": 41,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -0.1453032926961147,
+              0.09879555866006293
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "HALL": {
+          "site_design_weighted_WLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 55.92372807169844,
+            "R2": 0.48009768820823606,
+            "far20_plant_source_sites": 338,
+            "n_source_reporting_plant_Hall_sites": 483,
+            "near10_plant_source_sites": 145,
+            "near_minus_far_beta": 0.19182327749313,
+            "nominal_posthoc_p": 0.1513364782592694,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 32,
+            "original_matched_STATE_ECO_strata": 41,
+            "site_equal_vs_design_weighted": "design_weighted_WLS",
+            "state_clustered_descriptive95": [
+              -0.0702060720077447,
+              0.4538526269940047
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          },
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 55.92372807169844,
+            "R2": 0.5531186316555772,
+            "far20_plant_source_sites": 338,
+            "n_source_reporting_plant_Hall_sites": 483,
+            "near10_plant_source_sites": 145,
+            "near_minus_far_beta": -0.018117543659883998,
+            "nominal_posthoc_p": 0.8427936317563333,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HALL~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 32,
+            "original_matched_STATE_ECO_strata": 41,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -0.19716901350328817,
+              0.16093392618352018
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        },
+        "HNAT": {
+          "site_design_weighted_WLS": null,
+          "site_equal_OLS": {
+            "H_ALL_nonmissing_response_area_drops_n": 0,
+            "NWCA_survey_weight_effective_sample_size_Kish": 55.92372807169844,
+            "R2": 0.5756032241331047,
+            "far20_plant_source_sites": 338,
+            "n_source_reporting_plant_Hall_sites": 483,
+            "near10_plant_source_sites": 145,
+            "near_minus_far_beta": -0.018084331993271856,
+            "nominal_posthoc_p": 0.841408050265518,
+            "original_2021_compatible_NWCA_country_state_ecoregion_model": "HNAT~NEAR+C(STATE_ECO)+C(WETCLSGRP)+C(HYDCLS)+LATANALYS",
+            "original_US_state_clusters": 32,
+            "original_matched_STATE_ECO_strata": 41,
+            "site_equal_vs_design_weighted": "site_equal_OLS",
+            "state_clustered_descriptive95": [
+              -0.19522538758878147,
+              0.15905672360223774
+            ],
+            "status": "ESTIMATED_NONCAUSAL_SOURCE_PROXIMITY",
+            "survey_weight_is_not_randomized_2021_sewage_treatment": true
+          }
+        }
+      },
+      "source_far": 338,
+      "source_far_HALL_nonmissing": 338,
+      "source_fixed_n": 483,
+      "source_near": 145,
+      "source_near_HALL_nonmissing": 145,
+      "source_state_eco_strata": 41,
+      "source_states": 32,
+      "source_year_original_plant_group_na": {
+        "FQAIALL": 0,
+        "FQAINAT": 0,
+        "HALIEN": 0,
+        "HALL": 0,
+        "HNAT": 0
+      }
+    }
+  }
+}
