@@ -1,0 +1,40 @@
+name: gesui 2023 river EQR third independent year EEA 2026 WISE1 emissions 1977-2025 REAL source metadata
+on:
+  push:
+    branches: ["analysis/eea2023-thirdyear-benthic-macro-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2023-EEA2026-WISE1-pointsource-meta.yml"
+      - "scripts/gesui_2023_official_WISE1_Emissions2026_longterm_source_probe.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_WISE1_2023_municipal_2026Emissions_catalogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Source only WISE1 2026 official 1977-2025 emissions vs calendar2023 point N P availability, no biological scores
+        run: |
+          python -m py_compile scripts/gesui_2023_official_WISE1_Emissions2026_longterm_source_probe.py
+          python -u scripts/gesui_2023_official_WISE1_Emissions2026_longterm_source_probe.py \
+            --out results/eea2023_thirdyear_source_20261111/2023_EEA_WISE1_2026_WATERBASE_EMISSIONS1977to2025_SOURCE_ACCESS.json
+      - name: Archive official source URLs and SHA receipts before using real 2023 point-source emissions in a new third-year BQE test
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2023_thirdyear_source_20261111/2023_EEA_WISE1_2026_WATERBASE_EMISSIONS1977to2025_SOURCE_ACCESS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze official 2026 EEA long-term WISE1 emission source public access, 2023 actual annual availability untested"
+          git fetch origin analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git rebase origin/analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git push origin HEAD:analysis/eea2023-thirdyear-benthic-macro-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2023-EEA-WISE1-2026-longterm-emission-source-metadata
+          path: results/eea2023_thirdyear_source_20261111/2023_EEA_WISE1_2026_WATERBASE_EMISSIONS1977to2025_SOURCE_ACCESS.json
+          retention-days: 90
