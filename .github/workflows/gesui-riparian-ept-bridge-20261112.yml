@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "scripts/gesui_NRSA1819_EPT_TNTP_riparian_same_UID_models_20261112.py"
+      - "scripts/audit_NRSA1819_XGVEG_range_and_interaction_20261112.py"
       - ".github/workflows/gesui-riparian-ept-bridge-20261112.yml"
       - "docs/NRSA1819_RIPARIAN_EPT_NP_SAME_SITE_ANALYSIS_FREEZE_20261112.md"
   pull_request:
@@ -51,11 +52,20 @@ jobs:
           NRSA_FROZEN_MANIFEST: ${{ runner.temp }}/original_frozen_epa/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
           NRSA_RIPARIAN_MANIFEST: ${{ runner.temp }}/original_frozen_riparian/NRSA1819_RIPARIAN_UID_SOURCE_ONLY_MANIFEST.json
         run: python scripts/gesui_NRSA1819_EPT_TNTP_riparian_same_UID_models_20261112.py
+      - name: Independent source-value range and interaction sensitivity audit
+        env:
+          NRSA_FROZEN_MANIFEST: ${{ runner.temp }}/original_frozen_epa/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          NRSA_RIPARIAN_MANIFEST: ${{ runner.temp }}/original_frozen_riparian/NRSA1819_RIPARIAN_UID_SOURCE_ONLY_MANIFEST.json
+        run: |
+          python -m py_compile scripts/audit_NRSA1819_XGVEG_range_and_interaction_20261112.py
+          python scripts/audit_NRSA1819_XGVEG_range_and_interaction_20261112.py
       - name: Preserve aggregate original-source reproducible result
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nrsa1819-ept-riparian-tntp-samesite-huc8-model
-          path: ${{ runner.temp }}/gesui_nrsa_riparian_ept/NRSA1819_EPT_TNTP_RIPARIAN_SAME_UID_HUC8_OUTCOME_REPORT_20261112.json
+          path: |
+            ${{ runner.temp }}/gesui_nrsa_riparian_ept/NRSA1819_EPT_TNTP_RIPARIAN_SAME_UID_HUC8_OUTCOME_REPORT_20261112.json
+            ${{ runner.temp }}/gesui_nrsa_riparian_ept/NRSA1819_RIPARIAN_XGVEG_RANGE_INDEPENDENT_SENSITIVITY_20261112.json
           if-no-files-found: warn
           retention-days: 30
