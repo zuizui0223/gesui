@@ -1,0 +1,146 @@
+{
+  "2016_current_ECHO_registered_permit_date_not_actual_2016_wastewater_release": true,
+  "2016_original_HALL_50near162far_source_first_SHA256": "64e2054278e399977819785b130d7fe6d1ad845469fe40b21456e1f50dbd7918",
+  "2016_original_HALL_reporting_model_SHA256": "57133505a0731f4c66378e413c85c9ee09b872c9275e9da82df3a4b3b9135ec8",
+  "all_state_deletion_count_site_equal_negative": 18,
+  "all_state_deletion_count_weighted_negative": 18,
+  "entire_state_omission_results": {
+    "AL": {
+      "equal": -0.06221734916507686,
+      "n_source_sites_remaining": 198,
+      "weighted": -0.3337485210874408
+    },
+    "CO": {
+      "equal": -0.04844394547580509,
+      "n_source_sites_remaining": 198,
+      "weighted": -0.21762791568274584
+    },
+    "CT": {
+      "equal": -0.10706404157200244,
+      "n_source_sites_remaining": 205,
+      "weighted": -0.2537354411882662
+    },
+    "IA": {
+      "equal": -0.040861150741242414,
+      "n_source_sites_remaining": 206,
+      "weighted": -0.25303916509206226
+    },
+    "ID": {
+      "equal": 0.046130598788302106,
+      "n_source_sites_remaining": 194,
+      "weighted": -0.22795548391723428
+    },
+    "ME": {
+      "equal": -0.052649258043779595,
+      "n_source_sites_remaining": 204,
+      "weighted": -0.23245903412833704
+    },
+    "MI": {
+      "equal": -0.007758635363873029,
+      "n_source_sites_remaining": 204,
+      "weighted": 0.02165118177126739
+    },
+    "MT": {
+      "equal": -0.04540848415637392,
+      "n_source_sites_remaining": 201,
+      "weighted": -0.26750816398610483
+    },
+    "NH": {
+      "equal": -0.03690018956512028,
+      "n_source_sites_remaining": 205,
+      "weighted": -0.23660343820666624
+    },
+    "NJ": {
+      "equal": -0.03305470684356751,
+      "n_source_sites_remaining": 199,
+      "weighted": -0.21866094341758655
+    },
+    "NV": {
+      "equal": -0.03913000787699955,
+      "n_source_sites_remaining": 196,
+      "weighted": -0.24283982520231684
+    },
+    "NY": {
+      "equal": -0.02647842032711747,
+      "n_source_sites_remaining": 202,
+      "weighted": -0.2363071290052624
+    },
+    "PA": {
+      "equal": -0.059160934638632506,
+      "n_source_sites_remaining": 209,
+      "weighted": -0.2573084704565851
+    },
+    "RI": {
+      "equal": -0.04666347436740534,
+      "n_source_sites_remaining": 205,
+      "weighted": -0.24308360994930173
+    },
+    "TX": {
+      "equal": -0.01702354115013886,
+      "n_source_sites_remaining": 191,
+      "weighted": -0.2831392792042072
+    },
+    "VT": {
+      "equal": -0.02695615430779203,
+      "n_source_sites_remaining": 207,
+      "weighted": -0.23754281639934582
+    },
+    "WA": {
+      "equal": -0.08199304335512399,
+      "n_source_sites_remaining": 180,
+      "weighted": -0.294670133335573
+    },
+    "WI": {
+      "equal": -0.06761327199237728,
+      "n_source_sites_remaining": 206,
+      "weighted": -0.2824927611099544
+    },
+    "WV": {
+      "equal": -0.03790846435486335,
+      "n_source_sites_remaining": 206,
+      "weighted": -0.2396561663383831
+    }
+  },
+  "independent_2016_cluster_beta_and_95CI_vs_original_statsmodels": {
+    "site_equal": {
+      "beta_near_minus_far": -0.04102310716255655,
+      "historical_NWCA_weighted_WLS_not_population_acreage_claim": false,
+      "matrix_rank": 28,
+      "matrix_regressor_columns": 29,
+      "n_source_matched_plots": 212,
+      "site_equal": true,
+      "state_cluster95": [
+        -0.2966110018128007,
+        0.21456478748768762
+      ],
+      "state_ecoregion_matched_strata": 23,
+      "states": 19
+    },
+    "survey_weighted": {
+      "beta_near_minus_far": -0.24085222371993892,
+      "historical_NWCA_weighted_WLS_not_population_acreage_claim": true,
+      "matrix_rank": 28,
+      "matrix_regressor_columns": 29,
+      "n_source_matched_plots": 212,
+      "site_equal": false,
+      "state_cluster95": [
+        -0.6784577313298544,
+        0.1967532838899766
+      ],
+      "state_ecoregion_matched_strata": 23,
+      "states": 19
+    }
+  },
+  "n_original_US_states_dropped": 19,
+  "no_causal_sewage_benefit_or_harm_inferred": true,
+  "original_212_original_full_HALL_source_siteIDs_and_permit_dates_unchanged": true,
+  "schema": "gesui_NWCA2016_ECHO_asof2016_POTW_actual_212site_numpy_OLS_WLS_cluster95_independent_QA_v01",
+  "site_equal_delete_state_beta_minmax": [
+    -0.10706404157200244,
+    0.046130598788302106
+  ],
+  "weighted_delete_state_beta_minmax": [
+    -0.3337485210874408,
+    0.02165118177126739
+  ]
+}
