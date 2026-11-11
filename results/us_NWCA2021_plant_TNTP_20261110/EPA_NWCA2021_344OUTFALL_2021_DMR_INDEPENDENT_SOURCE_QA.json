@@ -1,0 +1,67 @@
+{
+  "independent_original_2021_reported_numeric_nutrient_and_flow_exact_outfall_counts": {
+    "FLOW": {
+      "matched_exact_source_features": 124,
+      "original_103matched_near_wetland_site_count": 78,
+      "original_128near_wetland_site_count": 97,
+      "original_2021_reported_periods": 12,
+      "original_states_with_feature_measurements": 26,
+      "unique_NPDES_permits_with_genuine_feature_measurement": 115
+    },
+    "N": {
+      "matched_exact_source_features": 34,
+      "original_103matched_near_wetland_site_count": 26,
+      "original_128near_wetland_site_count": 31,
+      "original_2021_reported_periods": 12,
+      "original_states_with_feature_measurements": 17,
+      "unique_NPDES_permits_with_genuine_feature_measurement": 33
+    },
+    "NandP_same_report_period": {
+      "matched_exact_source_features": 31,
+      "original_103matched_near_wetland_site_count": 21,
+      "original_128near_wetland_site_count": 26,
+      "original_2021_reported_periods": 12,
+      "original_states_with_feature_measurements": 16,
+      "unique_NPDES_permits_with_genuine_feature_measurement": 30
+    },
+    "P": {
+      "matched_exact_source_features": 83,
+      "original_103matched_near_wetland_site_count": 46,
+      "original_128near_wetland_site_count": 66,
+      "original_2021_reported_periods": 12,
+      "original_states_with_feature_measurements": 25,
+      "unique_NPDES_permits_with_genuine_feature_measurement": 78
+    },
+    "bothNandP": {
+      "matched_exact_source_features": 31,
+      "original_103matched_near_wetland_site_count": 21,
+      "original_128near_wetland_site_count": 26,
+      "original_2021_reported_periods": 12,
+      "original_states_with_feature_measurements": 16,
+      "unique_NPDES_permits_with_genuine_feature_measurement": 30
+    },
+    "eitherN_orP": {
+      "matched_exact_source_features": 86,
+      "original_103matched_near_wetland_site_count": 51,
+      "original_128near_wetland_site_count": 71,
+      "original_2021_reported_periods": 12,
+      "original_states_with_feature_measurements": 26,
+      "unique_NPDES_permits_with_genuine_feature_measurement": 81
+    }
+  },
+  "no_2021_plant_biodiversity_sewage_effect_computed": true,
+  "no_actual_2021_NWCA_Shannon_or_2021_wetland_water_chemistry_read": true,
+  "no_verified_downstream_NHDPlus_hydrologic_route": true,
+  "number_same_outfall_feature_with_original_2021_NP_and_flow": 76,
+  "original_strict_feature_report_SOURCE_availability_passed": true,
+  "schema": "gesui_NWCA2021_128registered_near_wetland_344POTW_features_CY2021_DMR_TNTP_original_independent_arithmetic_QA_v01",
+  "source_file_SHA256": {
+    "FY2021_FY2022_nutrient_DMR": "68984d50c29779c696d832c96a5a57715482a63cfeb3f9d6cc4cafd7abf7ef68",
+    "original_344_feature_geo": "c103428b5f77883f4461830901a79641a7e578ab1681a8542490ce332dd2e6d5",
+    "original_568_source_near_far": "50eaf83fd3adf62e3affbbf072d3eb6d0dd457fc3dba09168231ea88abd45bc2",
+    "original_exact_feature_feasibility": "907082d955303014d0585c0ab70aa75e266d6211457326103ec6dbef05bedd24",
+    "original_preDMR_160permit_source": "5a16d5a17123fbd93e0f0209b83995d9983982a82706ecc9a304e7f4c1a93655"
+  },
+  "source_frozen_original_128near_344feature_392pair_reconfirmed": true,
+  "source_matched_state_ecoregion_103original_near_reconfirmed": true
+}
