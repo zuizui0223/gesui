@@ -1,0 +1,2047 @@
+{
+  "UTC": "2026-11-11T06:27:34.668121+00:00",
+  "fish_min5country_gate_failed": true,
+  "fixed_NUTS2_leakage_exclusion": true,
+  "fixed_alpha_future_Ridge": 10,
+  "modelled_wastewater_and_industrial_POINT_NP_not_WWTP_actually_reported2016_mass": true,
+  "no_causal_pollution_effect_or_species_diversity_promoted": true,
+  "numeric_EQR_future_quality_gate": {
+    "min_primary_2016_valid_numeric_EQR_monitoring_sites": 800,
+    "min_primary_2016_with_valid_EQR_countries": 8,
+    "min_primary_3degree_geographic_blocks": 15,
+    "min_primary_independent_NUTS2_regions": 60,
+    "min_secondary_independent_NUTS2": 40,
+    "min_secondary_numeric_country_count": 8,
+    "min_secondary_valid_numeric_sites": 600
+  },
+  "original_2016_EEA_numeric_EQR_outcome_VALUES_not_read": true,
+  "original_GISCO2016_JRC2014to18_official_source_full_site_manifest_SHA256": "ccebcb00dc935c27c8ead04690eaaf104eeda1d7c10a25bbdf5e4a67360b3c11",
+  "primary_BQE": "benthic_invertebrates",
+  "schema": "gesui_2016_EEA_BQE_benthic_phytobenthos_GISCO2016_NUTS2_disjoint_fivefold_YEAR2016_POSTHOC_noEQR_v01",
+  "secondary_BQE": "phytobenthos",
+  "source_biological_classes": {
+    "benthic_invertebrates": {
+      "fixed_region_to_fivefold_source_only": {
+        "AT11": 3,
+        "AT12": 2,
+        "AT13": 2,
+        "AT21": 4,
+        "AT22": 2,
+        "AT31": 1,
+        "AT32": 1,
+        "AT33": 2,
+        "AT34": 5,
+        "BE21": 3,
+        "BE22": 4,
+        "BE23": 3,
+        "BE24": 1,
+        "BE25": 2,
+        "BE32": 5,
+        "BE33": 2,
+        "BE34": 5,
+        "BE35": 5,
+        "DK01": 2,
+        "DK02": 1,
+        "DK03": 5,
+        "DK04": 3,
+        "DK05": 2,
+        "FRB0": 5,
+        "FRC1": 2,
+        "FRC2": 4,
+        "FRD1": 3,
+        "FRF1": 4,
+        "FRF2": 2,
+        "FRF3": 2,
+        "FRG0": 2,
+        "FRH0": 3,
+        "FRI1": 1,
+        "FRI2": 5,
+        "FRI3": 3,
+        "FRJ1": 2,
+        "FRJ2": 1,
+        "FRK1": 4,
+        "FRK2": 1,
+        "FRL0": 5,
+        "HR03": 3,
+        "HR04": 3,
+        "HU21": 5,
+        "HU22": 3,
+        "HU23": 5,
+        "HU31": 1,
+        "HU32": 2,
+        "HU33": 5,
+        "ITC1": 3,
+        "ITC2": 5,
+        "ITC3": 4,
+        "ITC4": 5,
+        "ITH1": 3,
+        "ITH2": 4,
+        "ITH3": 3,
+        "ITI1": 1,
+        "LT01": 4,
+        "LT02": 4,
+        "LU00": 1,
+        "LV00": 1,
+        "NL13": 5,
+        "NL21": 1,
+        "NL22": 4,
+        "NL31": 2,
+        "NL41": 1,
+        "NL42": 4,
+        "NO01": 4,
+        "NO02": 5,
+        "NO03": 3,
+        "NO04": 3,
+        "NO05": 4,
+        "NO06": 4,
+        "SE12": 4,
+        "SE21": 1,
+        "SE22": 2,
+        "SE23": 5,
+        "SE31": 3,
+        "SE32": 1,
+        "SE33": 4
+      },
+      "n_original_independent_NUTS2": 79,
+      "n_sites_source_fixed_before_EQR": 2469,
+      "original_5fold_test_site_counts": {
+        "1": 494,
+        "2": 494,
+        "3": 494,
+        "4": 494,
+        "5": 493
+      },
+      "original_NUTS2_region_source_inventory": [
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT11",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 724.4142,
+          "source_NUTS2_GREEN_pointP_t": 53.6072,
+          "source_NUTS2_area_km2": 3965.7582524253594,
+          "source_original_num_2016_EEA_sites": 5
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT12",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 3899.7006,
+          "source_NUTS2_GREEN_pointP_t": 253.1706,
+          "source_NUTS2_area_km2": 19196.989638033567,
+          "source_original_num_2016_EEA_sites": 21
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT13",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 3698.1066,
+          "source_NUTS2_GREEN_pointP_t": 253.054,
+          "source_NUTS2_area_km2": 413.4861544028409,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT21",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1239.3782,
+          "source_NUTS2_GREEN_pointP_t": 79.3208,
+          "source_NUTS2_area_km2": 9543.854516340496,
+          "source_original_num_2016_EEA_sites": 5
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT22",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 2060.0094,
+          "source_NUTS2_GREEN_pointP_t": 162.107,
+          "source_NUTS2_area_km2": 16413.637724075918,
+          "source_original_num_2016_EEA_sites": 14
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT31",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 3872.2508,
+          "source_NUTS2_GREEN_pointP_t": 213.9086,
+          "source_NUTS2_area_km2": 11984.845857298411,
+          "source_original_num_2016_EEA_sites": 13
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT32",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1410.9926,
+          "source_NUTS2_GREEN_pointP_t": 117.5614,
+          "source_NUTS2_area_km2": 7157.478016057297,
+          "source_original_num_2016_EEA_sites": 8
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT33",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1946.9076,
+          "source_NUTS2_GREEN_pointP_t": 130.4102,
+          "source_NUTS2_area_km2": 12648.210802988662,
+          "source_original_num_2016_EEA_sites": 11
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT34",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1284.8662,
+          "source_NUTS2_GREEN_pointP_t": 85.547,
+          "source_NUTS2_area_km2": 2620.6558883917705,
+          "source_original_num_2016_EEA_sites": 8
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE21",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1950.3532,
+          "source_NUTS2_GREEN_pointP_t": 187.9866,
+          "source_NUTS2_area_km2": 2874.9845908372467,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE22",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 722.4458,
+          "source_NUTS2_GREEN_pointP_t": 68.3418,
+          "source_NUTS2_area_km2": 2426.8477891987695,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE23",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1510.4884,
+          "source_NUTS2_GREEN_pointP_t": 250.6456,
+          "source_NUTS2_area_km2": 3008.577773646956,
+          "source_original_num_2016_EEA_sites": 7
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE24",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 707.7606,
+          "source_NUTS2_GREEN_pointP_t": 72.4986,
+          "source_NUTS2_area_km2": 2118.528708200753,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE25",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1255.8474,
+          "source_NUTS2_GREEN_pointP_t": 170.413,
+          "source_NUTS2_area_km2": 3169.4828177068302,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE32",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1968.8662,
+          "source_NUTS2_GREEN_pointP_t": 234.564,
+          "source_NUTS2_area_km2": 3813.6640680536907,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE33",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1412.7778,
+          "source_NUTS2_GREEN_pointP_t": 282.2592,
+          "source_NUTS2_area_km2": 3856.3348469330217,
+          "source_original_num_2016_EEA_sites": 25
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE34",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 450.397,
+          "source_NUTS2_GREEN_pointP_t": 72.5176,
+          "source_NUTS2_area_km2": 4460.695399480744,
+          "source_original_num_2016_EEA_sites": 13
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE35",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 560.0056,
+          "source_NUTS2_GREEN_pointP_t": 69.9242,
+          "source_NUTS2_area_km2": 3676.871641042102,
+          "source_original_num_2016_EEA_sites": 40
+        },
+        {
+          "country": "DK",
+          "original_GISCO_NUTS2": "DK01",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 2473.613,
+          "source_NUTS2_GREEN_pointP_t": 165.654,
+          "source_NUTS2_area_km2": 2579.0530139909583,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "DK",
+          "original_GISCO_NUTS2": "DK02",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1710.1806,
+          "source_NUTS2_GREEN_pointP_t": 112.4734,
+          "source_NUTS2_area_km2": 7319.075767463167,
+          "source_original_num_2016_EEA_sites": 5
+        },
+        {
+          "country": "DK",
+          "original_GISCO_NUTS2": "DK03",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 3124.7294,
+          "source_NUTS2_GREEN_pointP_t": 189.9874,
+          "source_NUTS2_area_km2": 12156.815045311165,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "DK",
+          "original_GISCO_NUTS2": "DK04",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 2577.866,
+          "source_NUTS2_GREEN_pointP_t": 163.4082,
+          "source_NUTS2_area_km2": 13172.928093657123,
+          "source_original_num_2016_EEA_sites": 9
+        },
+        {
+          "country": "DK",
+          "original_GISCO_NUTS2": "DK05",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1598.556,
+          "source_NUTS2_GREEN_pointP_t": 104.0468,
+          "source_NUTS2_area_km2": 7943.579740717361,
+          "source_original_num_2016_EEA_sites": 4
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRB0",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2602.463,
+          "source_NUTS2_GREEN_pointP_t": 233.5704,
+          "source_NUTS2_area_km2": 39530.97433958345,
+          "source_original_num_2016_EEA_sites": 101
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRC1",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1847.0372,
+          "source_NUTS2_GREEN_pointP_t": 172.3446,
+          "source_NUTS2_area_km2": 31753.330768840988,
+          "source_original_num_2016_EEA_sites": 76
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRC2",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1717.171,
+          "source_NUTS2_GREEN_pointP_t": 254.5052,
+          "source_NUTS2_area_km2": 16304.822899243116,
+          "source_original_num_2016_EEA_sites": 108
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRD1",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1978.1962,
+          "source_NUTS2_GREEN_pointP_t": 225.8724,
+          "source_NUTS2_area_km2": 17749.86614680814,
+          "source_original_num_2016_EEA_sites": 14
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF1",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 4325.4782,
+          "source_NUTS2_GREEN_pointP_t": 283.974,
+          "source_NUTS2_area_km2": 8329.967317262464,
+          "source_original_num_2016_EEA_sites": 60
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF2",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1195.9022,
+          "source_NUTS2_GREEN_pointP_t": 140.3044,
+          "source_NUTS2_area_km2": 25726.4450583972,
+          "source_original_num_2016_EEA_sites": 16
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF3",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 3559.3812,
+          "source_NUTS2_GREEN_pointP_t": 314.1676,
+          "source_NUTS2_area_km2": 23668.55594236455,
+          "source_original_num_2016_EEA_sites": 88
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRG0",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 4766.2868,
+          "source_NUTS2_GREEN_pointP_t": 380.5354,
+          "source_NUTS2_area_km2": 32343.15112718208,
+          "source_original_num_2016_EEA_sites": 154
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRH0",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4181.8014,
+          "source_NUTS2_GREEN_pointP_t": 394.0006,
+          "source_NUTS2_area_km2": 27420.47444964635,
+          "source_original_num_2016_EEA_sites": 137
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI1",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 6053.1758,
+          "source_NUTS2_GREEN_pointP_t": 744.892,
+          "source_NUTS2_area_km2": 41725.220623075555,
+          "source_original_num_2016_EEA_sites": 84
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI2",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1180.8408,
+          "source_NUTS2_GREEN_pointP_t": 139.2174,
+          "source_NUTS2_area_km2": 17057.718871876998,
+          "source_original_num_2016_EEA_sites": 84
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI3",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 2623.9524,
+          "source_NUTS2_GREEN_pointP_t": 211.7132,
+          "source_NUTS2_area_km2": 25929.762728219324,
+          "source_original_num_2016_EEA_sites": 93
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRJ1",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 5199.0986,
+          "source_NUTS2_GREEN_pointP_t": 655.9454,
+          "source_NUTS2_area_km2": 27766.277528546547,
+          "source_original_num_2016_EEA_sites": 38
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRJ2",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 4201.7248,
+          "source_NUTS2_GREEN_pointP_t": 473.179,
+          "source_NUTS2_area_km2": 45601.49181111308,
+          "source_original_num_2016_EEA_sites": 67
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRK1",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1308.0224,
+          "source_NUTS2_GREEN_pointP_t": 155.6262,
+          "source_NUTS2_area_km2": 26171.030525937877,
+          "source_original_num_2016_EEA_sites": 103
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRK2",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 14370.5032,
+          "source_NUTS2_GREEN_pointP_t": 1988.809,
+          "source_NUTS2_area_km2": 44963.62888872429,
+          "source_original_num_2016_EEA_sites": 209
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRL0",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 11383.148,
+          "source_NUTS2_GREEN_pointP_t": 1378.4876,
+          "source_NUTS2_area_km2": 31843.780050046687,
+          "source_original_num_2016_EEA_sites": 29
+        },
+        {
+          "country": "HR",
+          "original_GISCO_NUTS2": "HR03",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 3152.5502,
+          "source_NUTS2_GREEN_pointP_t": 418.9786,
+          "source_NUTS2_area_km2": 24644.91341507539,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "HR",
+          "original_GISCO_NUTS2": "HR04",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 2990.9966,
+          "source_NUTS2_GREEN_pointP_t": 398.7948,
+          "source_NUTS2_area_km2": 31871.368931923287,
+          "source_original_num_2016_EEA_sites": 16
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU21",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2018.0414,
+          "source_NUTS2_GREEN_pointP_t": 198.1914,
+          "source_NUTS2_area_km2": 11085.573482758322,
+          "source_original_num_2016_EEA_sites": 18
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU22",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1178.4742,
+          "source_NUTS2_GREEN_pointP_t": 123.8602,
+          "source_NUTS2_area_km2": 11328.388800864612,
+          "source_original_num_2016_EEA_sites": 28
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU23",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1078.592,
+          "source_NUTS2_GREEN_pointP_t": 124.926,
+          "source_NUTS2_area_km2": 14196.995330135891,
+          "source_original_num_2016_EEA_sites": 23
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU31",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 2132.3996,
+          "source_NUTS2_GREEN_pointP_t": 273.192,
+          "source_NUTS2_area_km2": 13426.04098052637,
+          "source_original_num_2016_EEA_sites": 20
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU32",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1612.7198,
+          "source_NUTS2_GREEN_pointP_t": 225.9136,
+          "source_NUTS2_area_km2": 17722.932487566588,
+          "source_original_num_2016_EEA_sites": 32
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU33",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2032.622,
+          "source_NUTS2_GREEN_pointP_t": 280.4758,
+          "source_NUTS2_area_km2": 18334.211179409638,
+          "source_original_num_2016_EEA_sites": 37
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC1",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4819.254,
+          "source_NUTS2_GREEN_pointP_t": 635.7554,
+          "source_NUTS2_area_km2": 25399.179677480603,
+          "source_original_num_2016_EEA_sites": 36
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC2",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 600.1562,
+          "source_NUTS2_GREEN_pointP_t": 66.1734,
+          "source_NUTS2_area_km2": 3261.244261883777,
+          "source_original_num_2016_EEA_sites": 15
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC3",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 4075.1758,
+          "source_NUTS2_GREEN_pointP_t": 510.9368,
+          "source_NUTS2_area_km2": 5420.5557203287035,
+          "source_original_num_2016_EEA_sites": 27
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC4",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 13467.0098,
+          "source_NUTS2_GREEN_pointP_t": 1180.5334,
+          "source_NUTS2_area_km2": 23879.667003143208,
+          "source_original_num_2016_EEA_sites": 108
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITH1",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1452.6776,
+          "source_NUTS2_GREEN_pointP_t": 99.694,
+          "source_NUTS2_area_km2": 7398.136272102641,
+          "source_original_num_2016_EEA_sites": 20
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITH2",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 988.2324,
+          "source_NUTS2_GREEN_pointP_t": 71.28,
+          "source_NUTS2_area_km2": 6207.183567234498,
+          "source_original_num_2016_EEA_sites": 33
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITH3",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 6278.274,
+          "source_NUTS2_GREEN_pointP_t": 650.978,
+          "source_NUTS2_area_km2": 17756.34376291417,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITI1",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 6466.1528,
+          "source_NUTS2_GREEN_pointP_t": 834.9322,
+          "source_NUTS2_area_km2": 22991.89515714152,
+          "source_original_num_2016_EEA_sites": 8
+        },
+        {
+          "country": "LT",
+          "original_GISCO_NUTS2": "LT01",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 989.251,
+          "source_NUTS2_GREEN_pointP_t": 75.1796,
+          "source_NUTS2_area_km2": 9731.573499150267,
+          "source_original_num_2016_EEA_sites": 16
+        },
+        {
+          "country": "LT",
+          "original_GISCO_NUTS2": "LT02",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 2311.3112,
+          "source_NUTS2_GREEN_pointP_t": 199.4376,
+          "source_NUTS2_area_km2": 55165.281778653,
+          "source_original_num_2016_EEA_sites": 82
+        },
+        {
+          "country": "LU",
+          "original_GISCO_NUTS2": "LU00",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 816.4104,
+          "source_NUTS2_GREEN_pointP_t": 67.8724,
+          "source_NUTS2_area_km2": 2595.9821017026334,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "LV",
+          "original_GISCO_NUTS2": "LV00",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1920.92,
+          "source_NUTS2_GREEN_pointP_t": 185.3434,
+          "source_NUTS2_area_km2": 64586.881185286264,
+          "source_original_num_2016_EEA_sites": 30
+        },
+        {
+          "country": "NL",
+          "original_GISCO_NUTS2": "NL13",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 505.9958,
+          "source_NUTS2_GREEN_pointP_t": 40.195,
+          "source_NUTS2_area_km2": 2679.9218821443146,
+          "source_original_num_2016_EEA_sites": 4
+        },
+        {
+          "country": "NL",
+          "original_GISCO_NUTS2": "NL21",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1331.0564,
+          "source_NUTS2_GREEN_pointP_t": 97.079,
+          "source_NUTS2_area_km2": 3421.6867768550674,
+          "source_original_num_2016_EEA_sites": 24
+        },
+        {
+          "country": "NL",
+          "original_GISCO_NUTS2": "NL22",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1743.3656,
+          "source_NUTS2_GREEN_pointP_t": 123.2064,
+          "source_NUTS2_area_km2": 5136.215727787866,
+          "source_original_num_2016_EEA_sites": 7
+        },
+        {
+          "country": "NL",
+          "original_GISCO_NUTS2": "NL31",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1469.413,
+          "source_NUTS2_GREEN_pointP_t": 103.5324,
+          "source_NUTS2_area_km2": 1449.8178391772112,
+          "source_original_num_2016_EEA_sites": 7
+        },
+        {
+          "country": "NL",
+          "original_GISCO_NUTS2": "NL41",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 3253.5484,
+          "source_NUTS2_GREEN_pointP_t": 209.6748,
+          "source_NUTS2_area_km2": 5082.99301684141,
+          "source_original_num_2016_EEA_sites": 18
+        },
+        {
+          "country": "NL",
+          "original_GISCO_NUTS2": "NL42",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1764.1222,
+          "source_NUTS2_GREEN_pointP_t": 93.987,
+          "source_NUTS2_area_km2": 2209.6827186834334,
+          "source_original_num_2016_EEA_sites": 14
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO01",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1773.9908,
+          "source_NUTS2_GREEN_pointP_t": 317.7228,
+          "source_NUTS2_area_km2": 5370.515725479107,
+          "source_original_num_2016_EEA_sites": 21
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO02",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1304.977,
+          "source_NUTS2_GREEN_pointP_t": 144.383,
+          "source_NUTS2_area_km2": 52585.78038509582,
+          "source_original_num_2016_EEA_sites": 6
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO03",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 5103.6714,
+          "source_NUTS2_GREEN_pointP_t": 403.9308,
+          "source_NUTS2_area_km2": 36591.01288231129,
+          "source_original_num_2016_EEA_sites": 80
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO04",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 3670.0146,
+          "source_NUTS2_GREEN_pointP_t": 840.0214,
+          "source_NUTS2_area_km2": 25780.153423657517,
+          "source_original_num_2016_EEA_sites": 40
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO05",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 2942.0512,
+          "source_NUTS2_GREEN_pointP_t": 564.2984,
+          "source_NUTS2_area_km2": 49082.521684413245,
+          "source_original_num_2016_EEA_sites": 9
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO06",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 2292.8864,
+          "source_NUTS2_GREEN_pointP_t": 468.9518,
+          "source_NUTS2_area_km2": 41179.275964926754,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE12",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 3127.0366,
+          "source_NUTS2_GREEN_pointP_t": 293.321,
+          "source_NUTS2_area_km2": 43297.939989818275,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE21",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1368.601,
+          "source_NUTS2_GREEN_pointP_t": 84.4754,
+          "source_NUTS2_area_km2": 35985.865529796974,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE22",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 2249.7998,
+          "source_NUTS2_GREEN_pointP_t": 162.0476,
+          "source_NUTS2_area_km2": 14398.708072614887,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE23",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2722.0916,
+          "source_NUTS2_GREEN_pointP_t": 177.0098,
+          "source_NUTS2_area_km2": 34572.7464974536,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE31",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 2891.0192,
+          "source_NUTS2_GREEN_pointP_t": 114.4866,
+          "source_NUTS2_area_km2": 72023.20923055668,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE32",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1625.8254,
+          "source_NUTS2_GREEN_pointP_t": 121.534,
+          "source_NUTS2_area_km2": 77158.9260875526,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE33",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1957.131,
+          "source_NUTS2_GREEN_pointP_t": 111.11,
+          "source_NUTS2_area_km2": 165146.84648879053,
+          "source_original_num_2016_EEA_sites": 1
+        }
+      ],
+      "original_fivefold_test_regions": {
+        "1": [
+          "FRK2",
+          "FRI1",
+          "FRJ2",
+          "LV00",
+          "NL21",
+          "HU31",
+          "NL41",
+          "AT31",
+          "AT32",
+          "ITI1",
+          "DK02",
+          "BE24",
+          "SE32",
+          "LU00",
+          "SE21"
+        ],
+        "2": [
+          "FRG0",
+          "FRF3",
+          "FRC1",
+          "FRJ1",
+          "HU32",
+          "BE33",
+          "AT12",
+          "FRF2",
+          "AT22",
+          "AT33",
+          "NL31",
+          "DK05",
+          "BE25",
+          "AT13",
+          "DK01",
+          "SE22"
+        ],
+        "3": [
+          "FRH0",
+          "FRI3",
+          "NO03",
+          "NO04",
+          "ITC1",
+          "HU22",
+          "ITH1",
+          "HR04",
+          "FRD1",
+          "DK04",
+          "BE23",
+          "AT11",
+          "BE21",
+          "ITH3",
+          "HR03",
+          "SE31"
+        ],
+        "4": [
+          "FRC2",
+          "FRK1",
+          "LT02",
+          "FRF1",
+          "ITH2",
+          "ITC3",
+          "NO01",
+          "LT01",
+          "NL42",
+          "NO05",
+          "NL22",
+          "AT21",
+          "BE22",
+          "NO06",
+          "SE12",
+          "SE33"
+        ],
+        "5": [
+          "ITC4",
+          "FRB0",
+          "FRI2",
+          "BE35",
+          "HU33",
+          "FRL0",
+          "HU23",
+          "HU21",
+          "ITC2",
+          "BE34",
+          "AT34",
+          "NO02",
+          "NL13",
+          "DK03",
+          "BE32",
+          "SE23"
+        ]
+      },
+      "original_reported_country_count": 13,
+      "source_BQE_EQR_2016_value_not_accessed": true
+    },
+    "fish": {
+      "fixed_region_to_fivefold_source_only": {
+        "AT11": 5,
+        "AT12": 1,
+        "AT13": 2,
+        "AT22": 5,
+        "AT31": 4,
+        "AT32": 4,
+        "AT33": 2,
+        "AT34": 4,
+        "BE33": 5,
+        "BE34": 2,
+        "BE35": 4,
+        "FR10": 1,
+        "FRB0": 1,
+        "FRC1": 4,
+        "FRC2": 5,
+        "FRD1": 5,
+        "FRD2": 3,
+        "FRE2": 1,
+        "FRF1": 2,
+        "FRF2": 1,
+        "FRF3": 2,
+        "FRG0": 2,
+        "FRH0": 4,
+        "FRI1": 4,
+        "FRI2": 3,
+        "FRI3": 5,
+        "FRJ1": 2,
+        "FRJ2": 3,
+        "FRK1": 5,
+        "FRK2": 3,
+        "FRL0": 3
+      },
+      "n_original_independent_NUTS2": 31,
+      "n_sites_source_fixed_before_EQR": 1047,
+      "original_5fold_test_site_counts": {
+        "1": 209,
+        "2": 209,
+        "3": 211,
+        "4": 209,
+        "5": 209
+      },
+      "original_NUTS2_region_source_inventory": [
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT11",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 724.4142,
+          "source_NUTS2_GREEN_pointP_t": 53.6072,
+          "source_NUTS2_area_km2": 3965.7582524253594,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT12",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 3899.7006,
+          "source_NUTS2_GREEN_pointP_t": 253.1706,
+          "source_NUTS2_area_km2": 19196.989638033567,
+          "source_original_num_2016_EEA_sites": 4
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT13",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 3698.1066,
+          "source_NUTS2_GREEN_pointP_t": 253.054,
+          "source_NUTS2_area_km2": 413.4861544028409,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT22",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2060.0094,
+          "source_NUTS2_GREEN_pointP_t": 162.107,
+          "source_NUTS2_area_km2": 16413.637724075918,
+          "source_original_num_2016_EEA_sites": 8
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT31",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 3872.2508,
+          "source_NUTS2_GREEN_pointP_t": 213.9086,
+          "source_NUTS2_area_km2": 11984.845857298411,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT32",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1410.9926,
+          "source_NUTS2_GREEN_pointP_t": 117.5614,
+          "source_NUTS2_area_km2": 7157.478016057297,
+          "source_original_num_2016_EEA_sites": 4
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT33",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1946.9076,
+          "source_NUTS2_GREEN_pointP_t": 130.4102,
+          "source_NUTS2_area_km2": 12648.210802988662,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT34",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1284.8662,
+          "source_NUTS2_GREEN_pointP_t": 85.547,
+          "source_NUTS2_area_km2": 2620.6558883917705,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE33",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1412.7778,
+          "source_NUTS2_GREEN_pointP_t": 282.2592,
+          "source_NUTS2_area_km2": 3856.3348469330217,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE34",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 450.397,
+          "source_NUTS2_GREEN_pointP_t": 72.5176,
+          "source_NUTS2_area_km2": 4460.695399480744,
+          "source_original_num_2016_EEA_sites": 5
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE35",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 560.0056,
+          "source_NUTS2_GREEN_pointP_t": 69.9242,
+          "source_NUTS2_area_km2": 3676.871641042102,
+          "source_original_num_2016_EEA_sites": 14
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FR10",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 40549.8832,
+          "source_NUTS2_GREEN_pointP_t": 2318.1686,
+          "source_NUTS2_area_km2": 12068.470055355781,
+          "source_original_num_2016_EEA_sites": 4
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRB0",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 2602.463,
+          "source_NUTS2_GREEN_pointP_t": 233.5704,
+          "source_NUTS2_area_km2": 39530.97433958345,
+          "source_original_num_2016_EEA_sites": 138
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRC1",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1847.0372,
+          "source_NUTS2_GREEN_pointP_t": 172.3446,
+          "source_NUTS2_area_km2": 31753.330768840988,
+          "source_original_num_2016_EEA_sites": 60
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRC2",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1717.171,
+          "source_NUTS2_GREEN_pointP_t": 254.5052,
+          "source_NUTS2_area_km2": 16304.822899243116,
+          "source_original_num_2016_EEA_sites": 20
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRD1",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1978.1962,
+          "source_NUTS2_GREEN_pointP_t": 225.8724,
+          "source_NUTS2_area_km2": 17749.86614680814,
+          "source_original_num_2016_EEA_sites": 35
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRD2",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 3786.646,
+          "source_NUTS2_GREEN_pointP_t": 321.5652,
+          "source_NUTS2_area_km2": 12326.015103178062,
+          "source_original_num_2016_EEA_sites": 13
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRE2",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 2483.608,
+          "source_NUTS2_GREEN_pointP_t": 257.7344,
+          "source_NUTS2_area_km2": 19494.552510997753,
+          "source_original_num_2016_EEA_sites": 20
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF1",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 4325.4782,
+          "source_NUTS2_GREEN_pointP_t": 283.974,
+          "source_NUTS2_area_km2": 8329.967317262464,
+          "source_original_num_2016_EEA_sites": 25
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF2",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1195.9022,
+          "source_NUTS2_GREEN_pointP_t": 140.3044,
+          "source_NUTS2_area_km2": 25726.4450583972,
+          "source_original_num_2016_EEA_sites": 43
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF3",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 3559.3812,
+          "source_NUTS2_GREEN_pointP_t": 314.1676,
+          "source_NUTS2_area_km2": 23668.55594236455,
+          "source_original_num_2016_EEA_sites": 46
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRG0",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 4766.2868,
+          "source_NUTS2_GREEN_pointP_t": 380.5354,
+          "source_NUTS2_area_km2": 32343.15112718208,
+          "source_original_num_2016_EEA_sites": 108
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRH0",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 4181.8014,
+          "source_NUTS2_GREEN_pointP_t": 394.0006,
+          "source_NUTS2_area_km2": 27420.47444964635,
+          "source_original_num_2016_EEA_sites": 84
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI1",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 6053.1758,
+          "source_NUTS2_GREEN_pointP_t": 744.892,
+          "source_NUTS2_area_km2": 41725.220623075555,
+          "source_original_num_2016_EEA_sites": 43
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI2",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1180.8408,
+          "source_NUTS2_GREEN_pointP_t": 139.2174,
+          "source_NUTS2_area_km2": 17057.718871876998,
+          "source_original_num_2016_EEA_sites": 56
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI3",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2623.9524,
+          "source_NUTS2_GREEN_pointP_t": 211.7132,
+          "source_NUTS2_area_km2": 25929.762728219324,
+          "source_original_num_2016_EEA_sites": 67
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRJ1",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 5199.0986,
+          "source_NUTS2_GREEN_pointP_t": 655.9454,
+          "source_NUTS2_area_km2": 27766.277528546547,
+          "source_original_num_2016_EEA_sites": 21
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRJ2",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4201.7248,
+          "source_NUTS2_GREEN_pointP_t": 473.179,
+          "source_NUTS2_area_km2": 45601.49181111308,
+          "source_original_num_2016_EEA_sites": 30
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRK1",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1308.0224,
+          "source_NUTS2_GREEN_pointP_t": 155.6262,
+          "source_NUTS2_area_km2": 26171.030525937877,
+          "source_original_num_2016_EEA_sites": 77
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRK2",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 14370.5032,
+          "source_NUTS2_GREEN_pointP_t": 1988.809,
+          "source_NUTS2_area_km2": 44963.62888872429,
+          "source_original_num_2016_EEA_sites": 97
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRL0",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 11383.148,
+          "source_NUTS2_GREEN_pointP_t": 1378.4876,
+          "source_NUTS2_area_km2": 31843.780050046687,
+          "source_original_num_2016_EEA_sites": 15
+        }
+      ],
+      "original_fivefold_test_regions": {
+        "1": [
+          "FRB0",
+          "FRF2",
+          "FRE2",
+          "AT12",
+          "FR10"
+        ],
+        "2": [
+          "FRG0",
+          "FRF3",
+          "FRF1",
+          "FRJ1",
+          "BE34",
+          "AT33",
+          "AT13"
+        ],
+        "3": [
+          "FRK2",
+          "FRI2",
+          "FRJ2",
+          "FRL0",
+          "FRD2"
+        ],
+        "4": [
+          "FRH0",
+          "FRC1",
+          "FRI1",
+          "BE35",
+          "AT32",
+          "AT31",
+          "AT34"
+        ],
+        "5": [
+          "FRK1",
+          "FRI3",
+          "FRD1",
+          "FRC2",
+          "AT22",
+          "AT11",
+          "BE33"
+        ]
+      },
+      "original_reported_country_count": 3,
+      "source_BQE_EQR_2016_value_not_accessed": true
+    },
+    "phytobenthos": {
+      "fixed_region_to_fivefold_source_only": {
+        "AT11": 2,
+        "AT12": 5,
+        "AT13": 3,
+        "AT21": 5,
+        "AT22": 2,
+        "AT31": 2,
+        "AT32": 5,
+        "AT33": 1,
+        "AT34": 1,
+        "BE24": 2,
+        "BE31": 2,
+        "BE32": 3,
+        "BE33": 4,
+        "BE34": 4,
+        "BE35": 4,
+        "EE00": 3,
+        "FRB0": 3,
+        "FRC1": 2,
+        "FRC2": 5,
+        "FRD1": 1,
+        "FRF1": 3,
+        "FRF2": 2,
+        "FRF3": 1,
+        "FRG0": 2,
+        "FRH0": 3,
+        "FRI1": 4,
+        "FRI2": 2,
+        "FRI3": 4,
+        "FRJ1": 3,
+        "FRJ2": 3,
+        "FRK1": 5,
+        "FRK2": 1,
+        "FRL0": 2,
+        "HR03": 4,
+        "HR04": 3,
+        "HU21": 5,
+        "HU22": 4,
+        "HU23": 1,
+        "HU31": 3,
+        "HU32": 1,
+        "HU33": 5,
+        "ITC1": 3,
+        "ITC2": 5,
+        "ITC3": 3,
+        "ITC4": 4,
+        "ITH1": 1,
+        "ITH2": 2,
+        "ITH3": 5,
+        "ITI1": 2,
+        "LT01": 5,
+        "LT02": 5,
+        "LV00": 4,
+        "NO01": 4,
+        "NO02": 4,
+        "NO03": 4,
+        "NO04": 2,
+        "NO06": 1,
+        "SE12": 3,
+        "SE21": 3,
+        "SE22": 4,
+        "SE23": 5,
+        "SE31": 1,
+        "SE32": 2,
+        "SE33": 4,
+        "SI03": 5,
+        "SI04": 1
+      },
+      "n_original_independent_NUTS2": 66,
+      "n_sites_source_fixed_before_EQR": 2249,
+      "original_5fold_test_site_counts": {
+        "1": 450,
+        "2": 450,
+        "3": 450,
+        "4": 450,
+        "5": 449
+      },
+      "original_NUTS2_region_source_inventory": [
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT11",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 724.4142,
+          "source_NUTS2_GREEN_pointP_t": 53.6072,
+          "source_NUTS2_area_km2": 3965.7582524253594,
+          "source_original_num_2016_EEA_sites": 5
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT12",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 3899.7006,
+          "source_NUTS2_GREEN_pointP_t": 253.1706,
+          "source_NUTS2_area_km2": 19196.989638033567,
+          "source_original_num_2016_EEA_sites": 21
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT13",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 3698.1066,
+          "source_NUTS2_GREEN_pointP_t": 253.054,
+          "source_NUTS2_area_km2": 413.4861544028409,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT21",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1239.3782,
+          "source_NUTS2_GREEN_pointP_t": 79.3208,
+          "source_NUTS2_area_km2": 9543.854516340496,
+          "source_original_num_2016_EEA_sites": 9
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT22",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 2060.0094,
+          "source_NUTS2_GREEN_pointP_t": 162.107,
+          "source_NUTS2_area_km2": 16413.637724075918,
+          "source_original_num_2016_EEA_sites": 14
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT31",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 3872.2508,
+          "source_NUTS2_GREEN_pointP_t": 213.9086,
+          "source_NUTS2_area_km2": 11984.845857298411,
+          "source_original_num_2016_EEA_sites": 13
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT32",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1410.9926,
+          "source_NUTS2_GREEN_pointP_t": 117.5614,
+          "source_NUTS2_area_km2": 7157.478016057297,
+          "source_original_num_2016_EEA_sites": 9
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT33",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1946.9076,
+          "source_NUTS2_GREEN_pointP_t": 130.4102,
+          "source_NUTS2_area_km2": 12648.210802988662,
+          "source_original_num_2016_EEA_sites": 11
+        },
+        {
+          "country": "AT",
+          "original_GISCO_NUTS2": "AT34",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1284.8662,
+          "source_NUTS2_GREEN_pointP_t": 85.547,
+          "source_NUTS2_area_km2": 2620.6558883917705,
+          "source_original_num_2016_EEA_sites": 8
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE24",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 707.7606,
+          "source_NUTS2_GREEN_pointP_t": 72.4986,
+          "source_NUTS2_area_km2": 2118.528708200753,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE31",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 667.8622,
+          "source_NUTS2_GREEN_pointP_t": 33.1362,
+          "source_NUTS2_area_km2": 1097.8604923731891,
+          "source_original_num_2016_EEA_sites": 5
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE32",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1968.8662,
+          "source_NUTS2_GREEN_pointP_t": 234.564,
+          "source_NUTS2_area_km2": 3813.6640680536907,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE33",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1412.7778,
+          "source_NUTS2_GREEN_pointP_t": 282.2592,
+          "source_NUTS2_area_km2": 3856.3348469330217,
+          "source_original_num_2016_EEA_sites": 22
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE34",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 450.397,
+          "source_NUTS2_GREEN_pointP_t": 72.5176,
+          "source_NUTS2_area_km2": 4460.695399480744,
+          "source_original_num_2016_EEA_sites": 12
+        },
+        {
+          "country": "BE",
+          "original_GISCO_NUTS2": "BE35",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 560.0056,
+          "source_NUTS2_GREEN_pointP_t": 69.9242,
+          "source_NUTS2_area_km2": 3676.871641042102,
+          "source_original_num_2016_EEA_sites": 30
+        },
+        {
+          "country": "EE",
+          "original_GISCO_NUTS2": "EE00",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1426.458,
+          "source_NUTS2_GREEN_pointP_t": 123.2556,
+          "source_NUTS2_area_km2": 45344.868857957255,
+          "source_original_num_2016_EEA_sites": 10
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRB0",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 2602.463,
+          "source_NUTS2_GREEN_pointP_t": 233.5704,
+          "source_NUTS2_area_km2": 39530.97433958345,
+          "source_original_num_2016_EEA_sites": 89
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRC1",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1847.0372,
+          "source_NUTS2_GREEN_pointP_t": 172.3446,
+          "source_NUTS2_area_km2": 31753.330768840988,
+          "source_original_num_2016_EEA_sites": 87
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRC2",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1717.171,
+          "source_NUTS2_GREEN_pointP_t": 254.5052,
+          "source_NUTS2_area_km2": 16304.822899243116,
+          "source_original_num_2016_EEA_sites": 111
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRD1",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1978.1962,
+          "source_NUTS2_GREEN_pointP_t": 225.8724,
+          "source_NUTS2_area_km2": 17749.86614680814,
+          "source_original_num_2016_EEA_sites": 14
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF1",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4325.4782,
+          "source_NUTS2_GREEN_pointP_t": 283.974,
+          "source_NUTS2_area_km2": 8329.967317262464,
+          "source_original_num_2016_EEA_sites": 8
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF2",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1195.9022,
+          "source_NUTS2_GREEN_pointP_t": 140.3044,
+          "source_NUTS2_area_km2": 25726.4450583972,
+          "source_original_num_2016_EEA_sites": 20
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRF3",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 3559.3812,
+          "source_NUTS2_GREEN_pointP_t": 314.1676,
+          "source_NUTS2_area_km2": 23668.55594236455,
+          "source_original_num_2016_EEA_sites": 29
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRG0",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 4766.2868,
+          "source_NUTS2_GREEN_pointP_t": 380.5354,
+          "source_NUTS2_area_km2": 32343.15112718208,
+          "source_original_num_2016_EEA_sites": 141
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRH0",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4181.8014,
+          "source_NUTS2_GREEN_pointP_t": 394.0006,
+          "source_NUTS2_area_km2": 27420.47444964635,
+          "source_original_num_2016_EEA_sites": 133
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI1",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 6053.1758,
+          "source_NUTS2_GREEN_pointP_t": 744.892,
+          "source_NUTS2_area_km2": 41725.220623075555,
+          "source_original_num_2016_EEA_sites": 114
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI2",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1180.8408,
+          "source_NUTS2_GREEN_pointP_t": 139.2174,
+          "source_NUTS2_area_km2": 17057.718871876998,
+          "source_original_num_2016_EEA_sites": 65
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRI3",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 2623.9524,
+          "source_NUTS2_GREEN_pointP_t": 211.7132,
+          "source_NUTS2_area_km2": 25929.762728219324,
+          "source_original_num_2016_EEA_sites": 97
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRJ1",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 5199.0986,
+          "source_NUTS2_GREEN_pointP_t": 655.9454,
+          "source_NUTS2_area_km2": 27766.277528546547,
+          "source_original_num_2016_EEA_sites": 37
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRJ2",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4201.7248,
+          "source_NUTS2_GREEN_pointP_t": 473.179,
+          "source_NUTS2_area_km2": 45601.49181111308,
+          "source_original_num_2016_EEA_sites": 76
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRK1",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1308.0224,
+          "source_NUTS2_GREEN_pointP_t": 155.6262,
+          "source_NUTS2_area_km2": 26171.030525937877,
+          "source_original_num_2016_EEA_sites": 105
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRK2",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 14370.5032,
+          "source_NUTS2_GREEN_pointP_t": 1988.809,
+          "source_NUTS2_area_km2": 44963.62888872429,
+          "source_original_num_2016_EEA_sites": 271
+        },
+        {
+          "country": "FR",
+          "original_GISCO_NUTS2": "FRL0",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 11383.148,
+          "source_NUTS2_GREEN_pointP_t": 1378.4876,
+          "source_NUTS2_area_km2": 31843.780050046687,
+          "source_original_num_2016_EEA_sites": 49
+        },
+        {
+          "country": "HR",
+          "original_GISCO_NUTS2": "HR03",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 3152.5502,
+          "source_NUTS2_GREEN_pointP_t": 418.9786,
+          "source_NUTS2_area_km2": 24644.91341507539,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "HR",
+          "original_GISCO_NUTS2": "HR04",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 2990.9966,
+          "source_NUTS2_GREEN_pointP_t": 398.7948,
+          "source_NUTS2_area_km2": 31871.368931923287,
+          "source_original_num_2016_EEA_sites": 13
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU21",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2018.0414,
+          "source_NUTS2_GREEN_pointP_t": 198.1914,
+          "source_NUTS2_area_km2": 11085.573482758322,
+          "source_original_num_2016_EEA_sites": 43
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU22",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1178.4742,
+          "source_NUTS2_GREEN_pointP_t": 123.8602,
+          "source_NUTS2_area_km2": 11328.388800864612,
+          "source_original_num_2016_EEA_sites": 46
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU23",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1078.592,
+          "source_NUTS2_GREEN_pointP_t": 124.926,
+          "source_NUTS2_area_km2": 14196.995330135891,
+          "source_original_num_2016_EEA_sites": 53
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU31",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 2132.3996,
+          "source_NUTS2_GREEN_pointP_t": 273.192,
+          "source_NUTS2_area_km2": 13426.04098052637,
+          "source_original_num_2016_EEA_sites": 38
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU32",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1612.7198,
+          "source_NUTS2_GREEN_pointP_t": 225.9136,
+          "source_NUTS2_area_km2": 17722.932487566588,
+          "source_original_num_2016_EEA_sites": 38
+        },
+        {
+          "country": "HU",
+          "original_GISCO_NUTS2": "HU33",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2032.622,
+          "source_NUTS2_GREEN_pointP_t": 280.4758,
+          "source_NUTS2_area_km2": 18334.211179409638,
+          "source_original_num_2016_EEA_sites": 36
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC1",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4819.254,
+          "source_NUTS2_GREEN_pointP_t": 635.7554,
+          "source_NUTS2_area_km2": 25399.179677480603,
+          "source_original_num_2016_EEA_sites": 16
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC2",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 600.1562,
+          "source_NUTS2_GREEN_pointP_t": 66.1734,
+          "source_NUTS2_area_km2": 3261.244261883777,
+          "source_original_num_2016_EEA_sites": 13
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC3",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 4075.1758,
+          "source_NUTS2_GREEN_pointP_t": 510.9368,
+          "source_NUTS2_area_km2": 5420.5557203287035,
+          "source_original_num_2016_EEA_sites": 22
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITC4",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 13467.0098,
+          "source_NUTS2_GREEN_pointP_t": 1180.5334,
+          "source_NUTS2_area_km2": 23879.667003143208,
+          "source_original_num_2016_EEA_sites": 85
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITH1",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1452.6776,
+          "source_NUTS2_GREEN_pointP_t": 99.694,
+          "source_NUTS2_area_km2": 7398.136272102641,
+          "source_original_num_2016_EEA_sites": 18
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITH2",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 988.2324,
+          "source_NUTS2_GREEN_pointP_t": 71.28,
+          "source_NUTS2_area_km2": 6207.183567234498,
+          "source_original_num_2016_EEA_sites": 35
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITH3",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 6278.274,
+          "source_NUTS2_GREEN_pointP_t": 650.978,
+          "source_NUTS2_area_km2": 17756.34376291417,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "IT",
+          "original_GISCO_NUTS2": "ITI1",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 6466.1528,
+          "source_NUTS2_GREEN_pointP_t": 834.9322,
+          "source_NUTS2_area_km2": 22991.89515714152,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "LT",
+          "original_GISCO_NUTS2": "LT01",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 989.251,
+          "source_NUTS2_GREEN_pointP_t": 75.1796,
+          "source_NUTS2_area_km2": 9731.573499150267,
+          "source_original_num_2016_EEA_sites": 15
+        },
+        {
+          "country": "LT",
+          "original_GISCO_NUTS2": "LT02",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2311.3112,
+          "source_NUTS2_GREEN_pointP_t": 199.4376,
+          "source_NUTS2_area_km2": 55165.281778653,
+          "source_original_num_2016_EEA_sites": 80
+        },
+        {
+          "country": "LV",
+          "original_GISCO_NUTS2": "LV00",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1920.92,
+          "source_NUTS2_GREEN_pointP_t": 185.3434,
+          "source_NUTS2_area_km2": 64586.881185286264,
+          "source_original_num_2016_EEA_sites": 18
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO01",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1773.9908,
+          "source_NUTS2_GREEN_pointP_t": 317.7228,
+          "source_NUTS2_area_km2": 5370.515725479107,
+          "source_original_num_2016_EEA_sites": 4
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO02",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1304.977,
+          "source_NUTS2_GREEN_pointP_t": 144.383,
+          "source_NUTS2_area_km2": 52585.78038509582,
+          "source_original_num_2016_EEA_sites": 7
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO03",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 5103.6714,
+          "source_NUTS2_GREEN_pointP_t": 403.9308,
+          "source_NUTS2_area_km2": 36591.01288231129,
+          "source_original_num_2016_EEA_sites": 10
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO04",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 3670.0146,
+          "source_NUTS2_GREEN_pointP_t": 840.0214,
+          "source_NUTS2_area_km2": 25780.153423657517,
+          "source_original_num_2016_EEA_sites": 11
+        },
+        {
+          "country": "NO",
+          "original_GISCO_NUTS2": "NO06",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 2292.8864,
+          "source_NUTS2_GREEN_pointP_t": 468.9518,
+          "source_NUTS2_area_km2": 41179.275964926754,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE12",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 3127.0366,
+          "source_NUTS2_GREEN_pointP_t": 293.321,
+          "source_NUTS2_area_km2": 43297.939989818275,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE21",
+          "original_fixed_NUTS2_disjoint_fold": 3,
+          "source_NUTS2_GREEN_pointN_t": 1368.601,
+          "source_NUTS2_GREEN_pointP_t": 84.4754,
+          "source_NUTS2_area_km2": 35985.865529796974,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE22",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 2249.7998,
+          "source_NUTS2_GREEN_pointP_t": 162.0476,
+          "source_NUTS2_area_km2": 14398.708072614887,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE23",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 2722.0916,
+          "source_NUTS2_GREEN_pointP_t": 177.0098,
+          "source_NUTS2_area_km2": 34572.7464974536,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE31",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 2891.0192,
+          "source_NUTS2_GREEN_pointP_t": 114.4866,
+          "source_NUTS2_area_km2": 72023.20923055668,
+          "source_original_num_2016_EEA_sites": 4
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE32",
+          "original_fixed_NUTS2_disjoint_fold": 2,
+          "source_NUTS2_GREEN_pointN_t": 1625.8254,
+          "source_NUTS2_GREEN_pointP_t": 121.534,
+          "source_NUTS2_area_km2": 77158.9260875526,
+          "source_original_num_2016_EEA_sites": 3
+        },
+        {
+          "country": "SE",
+          "original_GISCO_NUTS2": "SE33",
+          "original_fixed_NUTS2_disjoint_fold": 4,
+          "source_NUTS2_GREEN_pointN_t": 1957.131,
+          "source_NUTS2_GREEN_pointP_t": 111.11,
+          "source_NUTS2_area_km2": 165146.84648879053,
+          "source_original_num_2016_EEA_sites": 1
+        },
+        {
+          "country": "SI",
+          "original_GISCO_NUTS2": "SI03",
+          "original_fixed_NUTS2_disjoint_fold": 5,
+          "source_NUTS2_GREEN_pointN_t": 1130.2736,
+          "source_NUTS2_GREEN_pointP_t": 157.1164,
+          "source_NUTS2_area_km2": 12431.530810486138,
+          "source_original_num_2016_EEA_sites": 2
+        },
+        {
+          "country": "SI",
+          "original_GISCO_NUTS2": "SI04",
+          "original_fixed_NUTS2_disjoint_fold": 1,
+          "source_NUTS2_GREEN_pointN_t": 1583.826,
+          "source_NUTS2_GREEN_pointP_t": 186.349,
+          "source_NUTS2_area_km2": 7840.185012121939,
+          "source_original_num_2016_EEA_sites": 2
+        }
+      ],
+      "original_fivefold_test_regions": {
+        "1": [
+          "FRK2",
+          "HU23",
+          "HU32",
+          "FRF3",
+          "ITH1",
+          "FRD1",
+          "AT33",
+          "AT34",
+          "SE31",
+          "NO06",
+          "SI04"
+        ],
+        "2": [
+          "FRG0",
+          "FRC1",
+          "FRI2",
+          "FRL0",
+          "ITH2",
+          "FRF2",
+          "AT22",
+          "AT31",
+          "NO04",
+          "AT11",
+          "BE31",
+          "SE32",
+          "BE24",
+          "ITI1"
+        ],
+        "3": [
+          "FRH0",
+          "FRB0",
+          "FRJ2",
+          "HU31",
+          "FRJ1",
+          "ITC3",
+          "ITC1",
+          "HR04",
+          "EE00",
+          "FRF1",
+          "BE32",
+          "AT13",
+          "SE12",
+          "SE21"
+        ],
+        "4": [
+          "FRI1",
+          "FRI3",
+          "ITC4",
+          "HU22",
+          "BE35",
+          "BE33",
+          "LV00",
+          "BE34",
+          "NO03",
+          "NO02",
+          "NO01",
+          "HR03",
+          "SE22",
+          "SE33"
+        ],
+        "5": [
+          "FRC2",
+          "FRK1",
+          "LT02",
+          "HU21",
+          "HU33",
+          "AT12",
+          "LT01",
+          "ITC2",
+          "AT21",
+          "AT32",
+          "SE23",
+          "ITH3",
+          "SI03"
+        ]
+      },
+      "original_reported_country_count": 12,
+      "source_BQE_EQR_2016_value_not_accessed": true
+    }
+  }
+}

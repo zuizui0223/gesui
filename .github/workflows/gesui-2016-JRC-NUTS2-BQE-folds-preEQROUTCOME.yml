@@ -1,0 +1,40 @@
+name: gesui 2016 EEA BQE NUTS2016 region-disjoint fixed fivefold NO EQR
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-NUTS2-BQE-folds-preEQROUTCOME.yml"
+      - "scripts/gesui_2016_benthic_JRC_GREEN_NUTS2_region_folds_before_EQR.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  freeze_2016_benthic_source_79NUTS2_folds_independent_of_EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Freeze NUTS2-disjoint source-only 5fold prior to ANY 2016 normalized EQR values
+        run: |
+          python -m py_compile scripts/gesui_2016_benthic_JRC_GREEN_NUTS2_region_folds_before_EQR.py
+          python -u scripts/gesui_2016_benthic_JRC_GREEN_NUTS2_region_folds_before_EQR.py \
+            --out results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_NUTS2_FROZEN_5FOLDS_NO_EQR.json
+      - name: Commit 2016 original outcome-blind source region validation cohort and strict numerical EQR gate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_NUTS2_FROZEN_5FOLDS_NO_EQR.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original 2016 EEA benthic NUTS2-disjoint 5fold and numeric EQR source QC before outcome"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2016-JRC-modelNP-original79NUTS2-5fold-before-outcomes
+          path: results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_NUTS2_FROZEN_5FOLDS_NO_EQR.json
+          retention-days: 90

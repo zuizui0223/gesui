@@ -1,0 +1,3368 @@
+{
+  "2016_benthic_EEA_numeric_EQR_values_NOT_READ": true,
+  "UTC": "2026-11-11T06:19:17.162610+00:00",
+  "official_ArcGIS_original_JRC_source": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer",
+  "original_JRC_GREEN_2014_2018_source_data": {
+    "NUTS2": {
+      "N_source_quality": {
+        "all_original_features_n": 337,
+        "distinct_nonmissing_source_geographic_ids": 337,
+        "duplicate_country_region_key_count": 0,
+        "source_Ps_missing_numeric_count": 0,
+        "source_Ps_positive_count": 336,
+        "source_data_status": "FULL_SOURCE_COMPLETE"
+      },
+      "P_source_quality": {
+        "all_original_features_n": 337,
+        "distinct_nonmissing_source_geographic_ids": 337,
+        "duplicate_country_region_key_count": 0,
+        "source_Ps_missing_numeric_count": 0,
+        "source_Ps_positive_count": 336,
+        "source_data_status": "FULL_SOURCE_COMPLETE"
+      },
+      "basin_source_values_not_sampled_when_original_dataset_exceeds_6000": false,
+      "no_biological_2016_EQR_read": true,
+      "official_N_and_P_layer_indices": {
+        "N": 4,
+        "P": 33
+      },
+      "original_2016_EEA_benthic_country_overlap_codes": [
+        "AT",
+        "BE",
+        "DK",
+        "FR",
+        "HR",
+        "HU",
+        "IT",
+        "LT",
+        "LU",
+        "LV",
+        "NL",
+        "NO",
+        "SE"
+      ],
+      "original_2016_EEA_benthic_country_overlap_n": 13,
+      "original_complete_both_np_geographic_source_acquisition": true,
+      "original_modelled_NP_both_nonmissing_regions_n": 337,
+      "original_modelled_NP_joint_geographic_records_n": 337,
+      "original_region_id_field_names": [
+        "cntrCode",
+        "Nuts2"
+      ],
+      "source_all_original_2014to2018_JRC_modelled_point_NP_t_region_aggregates": [
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 148.7512,
+          "original_GREEN2014_18_pointP_modelled_t": 17.833,
+          "original_geography_ID": "AD|AD00",
+          "original_original_layerN_objectID": 18,
+          "original_original_layerP_objectID": 161
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1875.6068,
+          "original_GREEN2014_18_pointP_modelled_t": 278.7562,
+          "original_geography_ID": "AL|AL01",
+          "original_original_layerN_objectID": 54,
+          "original_original_layerP_objectID": 257
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2564.4728,
+          "original_GREEN2014_18_pointP_modelled_t": 363.203,
+          "original_geography_ID": "AL|AL02",
+          "original_original_layerN_objectID": 55,
+          "original_original_layerP_objectID": 258
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2151.916,
+          "original_GREEN2014_18_pointP_modelled_t": 317.834,
+          "original_geography_ID": "AL|AL03",
+          "original_original_layerN_objectID": 56,
+          "original_original_layerP_objectID": 256
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 724.4142,
+          "original_GREEN2014_18_pointP_modelled_t": 53.6072,
+          "original_geography_ID": "AT|AT11",
+          "original_original_layerN_objectID": 81,
+          "original_original_layerP_objectID": 3
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3899.7006,
+          "original_GREEN2014_18_pointP_modelled_t": 253.1706,
+          "original_geography_ID": "AT|AT12",
+          "original_original_layerN_objectID": 82,
+          "original_original_layerP_objectID": 1
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3698.1066,
+          "original_GREEN2014_18_pointP_modelled_t": 253.054,
+          "original_geography_ID": "AT|AT13",
+          "original_original_layerN_objectID": 84,
+          "original_original_layerP_objectID": 4
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1239.3782,
+          "original_GREEN2014_18_pointP_modelled_t": 79.3208,
+          "original_geography_ID": "AT|AT21",
+          "original_original_layerN_objectID": 79,
+          "original_original_layerP_objectID": 7
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2060.0094,
+          "original_GREEN2014_18_pointP_modelled_t": 162.107,
+          "original_geography_ID": "AT|AT22",
+          "original_original_layerN_objectID": 86,
+          "original_original_layerP_objectID": 9
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3872.2508,
+          "original_GREEN2014_18_pointP_modelled_t": 213.9086,
+          "original_geography_ID": "AT|AT31",
+          "original_original_layerN_objectID": 80,
+          "original_original_layerP_objectID": 8
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1410.9926,
+          "original_GREEN2014_18_pointP_modelled_t": 117.5614,
+          "original_geography_ID": "AT|AT32",
+          "original_original_layerN_objectID": 87,
+          "original_original_layerP_objectID": 6
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1946.9076,
+          "original_GREEN2014_18_pointP_modelled_t": 130.4102,
+          "original_geography_ID": "AT|AT33",
+          "original_original_layerN_objectID": 83,
+          "original_original_layerP_objectID": 2
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1284.8662,
+          "original_GREEN2014_18_pointP_modelled_t": 85.547,
+          "original_geography_ID": "AT|AT34",
+          "original_original_layerN_objectID": 85,
+          "original_original_layerP_objectID": 5
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2344.5596,
+          "original_GREEN2014_18_pointP_modelled_t": 379.7254,
+          "original_geography_ID": "BA|BA01",
+          "original_original_layerN_objectID": 20,
+          "original_original_layerP_objectID": 164
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1295.7002,
+          "original_GREEN2014_18_pointP_modelled_t": 209.4116,
+          "original_geography_ID": "BA|BA02",
+          "original_original_layerN_objectID": 21,
+          "original_original_layerP_objectID": 163
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 73.0574,
+          "original_GREEN2014_18_pointP_modelled_t": 12.0444,
+          "original_geography_ID": "BA|BA03",
+          "original_original_layerN_objectID": 19,
+          "original_original_layerP_objectID": 162
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1413.4188,
+          "original_GREEN2014_18_pointP_modelled_t": 80.6836,
+          "original_geography_ID": "BE|BE10",
+          "original_original_layerN_objectID": 1,
+          "original_original_layerP_objectID": 39
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1950.3532,
+          "original_GREEN2014_18_pointP_modelled_t": 187.9866,
+          "original_geography_ID": "BE|BE21",
+          "original_original_layerN_objectID": 7,
+          "original_original_layerP_objectID": 46
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 722.4458,
+          "original_GREEN2014_18_pointP_modelled_t": 68.3418,
+          "original_geography_ID": "BE|BE22",
+          "original_original_layerN_objectID": 2,
+          "original_original_layerP_objectID": 40
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1510.4884,
+          "original_GREEN2014_18_pointP_modelled_t": 250.6456,
+          "original_geography_ID": "BE|BE23",
+          "original_original_layerN_objectID": 11,
+          "original_original_layerP_objectID": 43
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 707.7606,
+          "original_GREEN2014_18_pointP_modelled_t": 72.4986,
+          "original_geography_ID": "BE|BE24",
+          "original_original_layerN_objectID": 10,
+          "original_original_layerP_objectID": 47
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1255.8474,
+          "original_GREEN2014_18_pointP_modelled_t": 170.413,
+          "original_geography_ID": "BE|BE25",
+          "original_original_layerN_objectID": 8,
+          "original_original_layerP_objectID": 44
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 667.8622,
+          "original_GREEN2014_18_pointP_modelled_t": 33.1362,
+          "original_geography_ID": "BE|BE31",
+          "original_original_layerN_objectID": 3,
+          "original_original_layerP_objectID": 41
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1968.8662,
+          "original_GREEN2014_18_pointP_modelled_t": 234.564,
+          "original_geography_ID": "BE|BE32",
+          "original_original_layerN_objectID": 5,
+          "original_original_layerP_objectID": 38
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1412.7778,
+          "original_GREEN2014_18_pointP_modelled_t": 282.2592,
+          "original_geography_ID": "BE|BE33",
+          "original_original_layerN_objectID": 9,
+          "original_original_layerP_objectID": 45
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 450.397,
+          "original_GREEN2014_18_pointP_modelled_t": 72.5176,
+          "original_geography_ID": "BE|BE34",
+          "original_original_layerN_objectID": 4,
+          "original_original_layerP_objectID": 42
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 560.0056,
+          "original_GREEN2014_18_pointP_modelled_t": 69.9242,
+          "original_geography_ID": "BE|BE35",
+          "original_original_layerN_objectID": 6,
+          "original_original_layerP_objectID": 37
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 803.2058,
+          "original_GREEN2014_18_pointP_modelled_t": 107.3008,
+          "original_geography_ID": "BG|BG31",
+          "original_original_layerN_objectID": 43,
+          "original_original_layerP_objectID": 184
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 984.4004,
+          "original_GREEN2014_18_pointP_modelled_t": 164.4482,
+          "original_geography_ID": "BG|BG32",
+          "original_original_layerN_objectID": 45,
+          "original_original_layerP_objectID": 186
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1477.8274,
+          "original_GREEN2014_18_pointP_modelled_t": 242.29,
+          "original_geography_ID": "BG|BG33",
+          "original_original_layerN_objectID": 40,
+          "original_original_layerP_objectID": 183
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1452.6016,
+          "original_GREEN2014_18_pointP_modelled_t": 174.951,
+          "original_geography_ID": "BG|BG34",
+          "original_original_layerN_objectID": 44,
+          "original_original_layerP_objectID": 187
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2546.0208,
+          "original_GREEN2014_18_pointP_modelled_t": 279.0816,
+          "original_geography_ID": "BG|BG41",
+          "original_original_layerN_objectID": 42,
+          "original_original_layerP_objectID": 182
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2135.9606,
+          "original_GREEN2014_18_pointP_modelled_t": 252.0548,
+          "original_geography_ID": "BG|BG42",
+          "original_original_layerN_objectID": 41,
+          "original_original_layerP_objectID": 185
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1033.196,
+          "original_GREEN2014_18_pointP_modelled_t": 154.3846,
+          "original_geography_ID": "BY|BY01",
+          "original_original_layerN_objectID": 310,
+          "original_original_layerP_objectID": 197
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4357.2004,
+          "original_GREEN2014_18_pointP_modelled_t": 644.2826,
+          "original_geography_ID": "BY|BY02",
+          "original_original_layerN_objectID": 309,
+          "original_original_layerP_objectID": 196
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1992.992,
+          "original_GREEN2014_18_pointP_modelled_t": 292.7266,
+          "original_geography_ID": "BY|BY03",
+          "original_original_layerN_objectID": 311,
+          "original_original_layerP_objectID": 198
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4607.035,
+          "original_GREEN2014_18_pointP_modelled_t": 215.154,
+          "original_geography_ID": "CH|CH01",
+          "original_original_layerN_objectID": 57,
+          "original_original_layerP_objectID": 261
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3513.7346,
+          "original_GREEN2014_18_pointP_modelled_t": 244.4638,
+          "original_geography_ID": "CH|CH02",
+          "original_original_layerN_objectID": 58,
+          "original_original_layerP_objectID": 262
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2096.1506,
+          "original_GREEN2014_18_pointP_modelled_t": 124.2502,
+          "original_geography_ID": "CH|CH03",
+          "original_original_layerN_objectID": 61,
+          "original_original_layerP_objectID": 265
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1849.586,
+          "original_GREEN2014_18_pointP_modelled_t": 119.8698,
+          "original_geography_ID": "CH|CH04",
+          "original_original_layerN_objectID": 62,
+          "original_original_layerP_objectID": 260
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2947.4414,
+          "original_GREEN2014_18_pointP_modelled_t": 187.2348,
+          "original_geography_ID": "CH|CH05",
+          "original_original_layerN_objectID": 63,
+          "original_original_layerP_objectID": 264
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1150.4308,
+          "original_GREEN2014_18_pointP_modelled_t": 78.5348,
+          "original_geography_ID": "CH|CH06",
+          "original_original_layerN_objectID": 59,
+          "original_original_layerP_objectID": 259
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 781.8878,
+          "original_GREEN2014_18_pointP_modelled_t": 77.6796,
+          "original_geography_ID": "CH|CH07",
+          "original_original_layerN_objectID": 60,
+          "original_original_layerP_objectID": 263
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 667.231,
+          "original_GREEN2014_18_pointP_modelled_t": 61.5444,
+          "original_geography_ID": "CY|CY00",
+          "original_original_layerN_objectID": 88,
+          "original_original_layerP_objectID": 10
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1278.5748,
+          "original_GREEN2014_18_pointP_modelled_t": 119.716,
+          "original_geography_ID": "CZ|CZ01",
+          "original_original_layerN_objectID": 68,
+          "original_original_layerP_objectID": 54
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1332.2432,
+          "original_GREEN2014_18_pointP_modelled_t": 132.8694,
+          "original_geography_ID": "CZ|CZ02",
+          "original_original_layerN_objectID": 66,
+          "original_original_layerP_objectID": 59
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1006.354,
+          "original_GREEN2014_18_pointP_modelled_t": 118.9792,
+          "original_geography_ID": "CZ|CZ03",
+          "original_original_layerN_objectID": 67,
+          "original_original_layerP_objectID": 60
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1677.8386,
+          "original_GREEN2014_18_pointP_modelled_t": 125.9092,
+          "original_geography_ID": "CZ|CZ04",
+          "original_original_layerN_objectID": 70,
+          "original_original_layerP_objectID": 56
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1566.8498,
+          "original_GREEN2014_18_pointP_modelled_t": 170.1262,
+          "original_geography_ID": "CZ|CZ05",
+          "original_original_layerN_objectID": 72,
+          "original_original_layerP_objectID": 58
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1486.2284,
+          "original_GREEN2014_18_pointP_modelled_t": 160.9246,
+          "original_geography_ID": "CZ|CZ06",
+          "original_original_layerN_objectID": 69,
+          "original_original_layerP_objectID": 55
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1192.3748,
+          "original_GREEN2014_18_pointP_modelled_t": 125.478,
+          "original_geography_ID": "CZ|CZ07",
+          "original_original_layerN_objectID": 71,
+          "original_original_layerP_objectID": 61
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1422.1488,
+          "original_GREEN2014_18_pointP_modelled_t": 410.2594,
+          "original_geography_ID": "CZ|CZ08",
+          "original_original_layerN_objectID": 73,
+          "original_original_layerP_objectID": 57
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5136.5194,
+          "original_GREEN2014_18_pointP_modelled_t": 385.1256,
+          "original_geography_ID": "DE|DE11",
+          "original_original_layerN_objectID": 189,
+          "original_original_layerP_objectID": 96
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5629.5238,
+          "original_GREEN2014_18_pointP_modelled_t": 403.0848,
+          "original_geography_ID": "DE|DE12",
+          "original_original_layerN_objectID": 90,
+          "original_original_layerP_objectID": 97
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3657.9004,
+          "original_GREEN2014_18_pointP_modelled_t": 244.9638,
+          "original_geography_ID": "DE|DE13",
+          "original_original_layerN_objectID": 142,
+          "original_original_layerP_objectID": 102
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2415.9146,
+          "original_GREEN2014_18_pointP_modelled_t": 176.4882,
+          "original_geography_ID": "DE|DE14",
+          "original_original_layerN_objectID": 143,
+          "original_original_layerP_objectID": 103
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4750.5446,
+          "original_GREEN2014_18_pointP_modelled_t": 347.3294,
+          "original_geography_ID": "DE|DE21",
+          "original_original_layerN_objectID": 89,
+          "original_original_layerP_objectID": 100
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1482.379,
+          "original_GREEN2014_18_pointP_modelled_t": 133.2006,
+          "original_geography_ID": "DE|DE22",
+          "original_original_layerN_objectID": 139,
+          "original_original_layerP_objectID": 101
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1249.8898,
+          "original_GREEN2014_18_pointP_modelled_t": 106.4854,
+          "original_geography_ID": "DE|DE23",
+          "original_original_layerN_objectID": 145,
+          "original_original_layerP_objectID": 105
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1525.6284,
+          "original_GREEN2014_18_pointP_modelled_t": 127.3918,
+          "original_geography_ID": "DE|DE24",
+          "original_original_layerN_objectID": 141,
+          "original_original_layerP_objectID": 104
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2302.8272,
+          "original_GREEN2014_18_pointP_modelled_t": 169.397,
+          "original_geography_ID": "DE|DE25",
+          "original_original_layerN_objectID": 140,
+          "original_original_layerP_objectID": 99
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1574.3882,
+          "original_GREEN2014_18_pointP_modelled_t": 135.2552,
+          "original_geography_ID": "DE|DE26",
+          "original_original_layerN_objectID": 214,
+          "original_original_layerP_objectID": 209
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2372.1294,
+          "original_GREEN2014_18_pointP_modelled_t": 181.5292,
+          "original_geography_ID": "DE|DE27",
+          "original_original_layerN_objectID": 195,
+          "original_original_layerP_objectID": 94
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4086.318,
+          "original_GREEN2014_18_pointP_modelled_t": 245.8266,
+          "original_geography_ID": "DE|DE30",
+          "original_original_layerN_objectID": 192,
+          "original_original_layerP_objectID": 86
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2483.5504,
+          "original_GREEN2014_18_pointP_modelled_t": 165.4246,
+          "original_geography_ID": "DE|DE40",
+          "original_original_layerN_objectID": 219,
+          "original_original_layerP_objectID": 219
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 560.8698,
+          "original_GREEN2014_18_pointP_modelled_t": 34.138,
+          "original_geography_ID": "DE|DE50",
+          "original_original_layerN_objectID": 215,
+          "original_original_layerP_objectID": 210
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2185.286,
+          "original_GREEN2014_18_pointP_modelled_t": 155.6822,
+          "original_geography_ID": "DE|DE60",
+          "original_original_layerN_objectID": 148,
+          "original_original_layerP_objectID": 216
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6362.4566,
+          "original_GREEN2014_18_pointP_modelled_t": 390.6748,
+          "original_geography_ID": "DE|DE71",
+          "original_original_layerN_objectID": 193,
+          "original_original_layerP_objectID": 87
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1472.3676,
+          "original_GREEN2014_18_pointP_modelled_t": 99.528,
+          "original_geography_ID": "DE|DE72",
+          "original_original_layerN_objectID": 209,
+          "original_original_layerP_objectID": 11
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1525.5212,
+          "original_GREEN2014_18_pointP_modelled_t": 111.9334,
+          "original_geography_ID": "DE|DE73",
+          "original_original_layerN_objectID": 232,
+          "original_original_layerP_objectID": 220
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1749.3846,
+          "original_GREEN2014_18_pointP_modelled_t": 137.7852,
+          "original_geography_ID": "DE|DE80",
+          "original_original_layerN_objectID": 233,
+          "original_original_layerP_objectID": 221
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1803.6748,
+          "original_GREEN2014_18_pointP_modelled_t": 133.5414,
+          "original_geography_ID": "DE|DE91",
+          "original_original_layerN_objectID": 216,
+          "original_original_layerP_objectID": 211
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2806.06,
+          "original_GREEN2014_18_pointP_modelled_t": 190.5634,
+          "original_geography_ID": "DE|DE92",
+          "original_original_layerN_objectID": 190,
+          "original_original_layerP_objectID": 223
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3274.2882,
+          "original_GREEN2014_18_pointP_modelled_t": 290.163,
+          "original_geography_ID": "DE|DE93",
+          "original_original_layerN_objectID": 208,
+          "original_original_layerP_objectID": 95
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3493.2826,
+          "original_GREEN2014_18_pointP_modelled_t": 257.4932,
+          "original_geography_ID": "DE|DE94",
+          "original_original_layerN_objectID": 217,
+          "original_original_layerP_objectID": 89
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 9545.6282,
+          "original_GREEN2014_18_pointP_modelled_t": 614.097,
+          "original_geography_ID": "DE|DEA1",
+          "original_original_layerN_objectID": 234,
+          "original_original_layerP_objectID": 222
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 12675.0628,
+          "original_GREEN2014_18_pointP_modelled_t": 536.8234,
+          "original_geography_ID": "DE|DEA2",
+          "original_original_layerN_objectID": 194,
+          "original_original_layerP_objectID": 88
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3765.6504,
+          "original_GREEN2014_18_pointP_modelled_t": 240.3734,
+          "original_geography_ID": "DE|DEA3",
+          "original_original_layerN_objectID": 146,
+          "original_original_layerP_objectID": 91
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2553.7328,
+          "original_GREEN2014_18_pointP_modelled_t": 174.5326,
+          "original_geography_ID": "DE|DEA4",
+          "original_original_layerN_objectID": 147,
+          "original_original_layerP_objectID": 92
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3604.3446,
+          "original_GREEN2014_18_pointP_modelled_t": 296.0502,
+          "original_geography_ID": "DE|DEA5",
+          "original_original_layerN_objectID": 191,
+          "original_original_layerP_objectID": 85
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1656.1074,
+          "original_GREEN2014_18_pointP_modelled_t": 131.0202,
+          "original_geography_ID": "DE|DEB1",
+          "original_original_layerN_objectID": 211,
+          "original_original_layerP_objectID": 213
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 584.945,
+          "original_GREEN2014_18_pointP_modelled_t": 50.2616,
+          "original_geography_ID": "DE|DEB2",
+          "original_original_layerN_objectID": 218,
+          "original_original_layerP_objectID": 90
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3653.177,
+          "original_GREEN2014_18_pointP_modelled_t": 217.8404,
+          "original_geography_ID": "DE|DEB3",
+          "original_original_layerN_objectID": 149,
+          "original_original_layerP_objectID": 217
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1190.5884,
+          "original_GREEN2014_18_pointP_modelled_t": 95.9356,
+          "original_geography_ID": "DE|DEC0",
+          "original_original_layerN_objectID": 212,
+          "original_original_layerP_objectID": 214
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1321.5248,
+          "original_GREEN2014_18_pointP_modelled_t": 95.2112,
+          "original_geography_ID": "DE|DED2",
+          "original_original_layerN_objectID": 210,
+          "original_original_layerP_objectID": 12
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1257.901,
+          "original_GREEN2014_18_pointP_modelled_t": 101.3818,
+          "original_geography_ID": "DE|DED4",
+          "original_original_layerN_objectID": 188,
+          "original_original_layerP_objectID": 93
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 847.3682,
+          "original_GREEN2014_18_pointP_modelled_t": 60.9654,
+          "original_geography_ID": "DE|DED5",
+          "original_original_layerN_objectID": 150,
+          "original_original_layerP_objectID": 218
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4159.7618,
+          "original_GREEN2014_18_pointP_modelled_t": 252.1144,
+          "original_geography_ID": "DE|DEE0",
+          "original_original_layerN_objectID": 187,
+          "original_original_layerP_objectID": 212
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3090.4034,
+          "original_GREEN2014_18_pointP_modelled_t": 217.8024,
+          "original_geography_ID": "DE|DEF0",
+          "original_original_layerN_objectID": 144,
+          "original_original_layerP_objectID": 98
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1963.4914,
+          "original_GREEN2014_18_pointP_modelled_t": 149.0688,
+          "original_geography_ID": "DE|DEG0",
+          "original_original_layerN_objectID": 213,
+          "original_original_layerP_objectID": 215
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2473.613,
+          "original_GREEN2014_18_pointP_modelled_t": 165.654,
+          "original_geography_ID": "DK|DK01",
+          "original_original_layerN_objectID": 92,
+          "original_original_layerP_objectID": 14
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1710.1806,
+          "original_GREEN2014_18_pointP_modelled_t": 112.4734,
+          "original_geography_ID": "DK|DK02",
+          "original_original_layerN_objectID": 93,
+          "original_original_layerP_objectID": 15
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3124.7294,
+          "original_GREEN2014_18_pointP_modelled_t": 189.9874,
+          "original_geography_ID": "DK|DK03",
+          "original_original_layerN_objectID": 95,
+          "original_original_layerP_objectID": 17
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2577.866,
+          "original_GREEN2014_18_pointP_modelled_t": 163.4082,
+          "original_geography_ID": "DK|DK04",
+          "original_original_layerN_objectID": 94,
+          "original_original_layerP_objectID": 16
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1598.556,
+          "original_GREEN2014_18_pointP_modelled_t": 104.0468,
+          "original_geography_ID": "DK|DK05",
+          "original_original_layerN_objectID": 91,
+          "original_original_layerP_objectID": 13
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1426.458,
+          "original_GREEN2014_18_pointP_modelled_t": 123.2556,
+          "original_geography_ID": "EE|EE00",
+          "original_original_layerN_objectID": 64,
+          "original_original_layerP_objectID": 266
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5513.5718,
+          "original_GREEN2014_18_pointP_modelled_t": 1249.1296,
+          "original_geography_ID": "EL|EL30",
+          "original_original_layerN_objectID": 103,
+          "original_original_layerP_objectID": 27
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 102.211,
+          "original_GREEN2014_18_pointP_modelled_t": 17.9046,
+          "original_geography_ID": "EL|EL41",
+          "original_original_layerN_objectID": 97,
+          "original_original_layerP_objectID": 19
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 343.4486,
+          "original_GREEN2014_18_pointP_modelled_t": 43.9808,
+          "original_geography_ID": "EL|EL42",
+          "original_original_layerN_objectID": 99,
+          "original_original_layerP_objectID": 24
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 514.9578,
+          "original_GREEN2014_18_pointP_modelled_t": 104.0828,
+          "original_geography_ID": "EL|EL43",
+          "original_original_layerN_objectID": 104,
+          "original_original_layerP_objectID": 28
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 939.733,
+          "original_GREEN2014_18_pointP_modelled_t": 170.7928,
+          "original_geography_ID": "EL|EL51",
+          "original_original_layerN_objectID": 107,
+          "original_original_layerP_objectID": 22
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1815.1986,
+          "original_GREEN2014_18_pointP_modelled_t": 355.3676,
+          "original_geography_ID": "EL|EL52",
+          "original_original_layerN_objectID": 96,
+          "original_original_layerP_objectID": 18
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 158.9226,
+          "original_GREEN2014_18_pointP_modelled_t": 13.9112,
+          "original_geography_ID": "EL|EL53",
+          "original_original_layerN_objectID": 105,
+          "original_original_layerP_objectID": 29
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 220.3744,
+          "original_GREEN2014_18_pointP_modelled_t": 23.6418,
+          "original_geography_ID": "EL|EL54",
+          "original_original_layerN_objectID": 108,
+          "original_original_layerP_objectID": 23
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 630.3002,
+          "original_GREEN2014_18_pointP_modelled_t": 77.5008,
+          "original_geography_ID": "EL|EL61",
+          "original_original_layerN_objectID": 102,
+          "original_original_layerP_objectID": 21
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 187.4862,
+          "original_GREEN2014_18_pointP_modelled_t": 31.05,
+          "original_geography_ID": "EL|EL62",
+          "original_original_layerN_objectID": 106,
+          "original_original_layerP_objectID": 30
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 408.7426,
+          "original_GREEN2014_18_pointP_modelled_t": 41.5474,
+          "original_geography_ID": "EL|EL63",
+          "original_original_layerN_objectID": 100,
+          "original_original_layerP_objectID": 25
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 321.014,
+          "original_GREEN2014_18_pointP_modelled_t": 44.7044,
+          "original_geography_ID": "EL|EL64",
+          "original_original_layerN_objectID": 101,
+          "original_original_layerP_objectID": 26
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 454.743,
+          "original_GREEN2014_18_pointP_modelled_t": 68.6608,
+          "original_geography_ID": "EL|EL65",
+          "original_original_layerN_objectID": 98,
+          "original_original_layerP_objectID": 20
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6156.688,
+          "original_GREEN2014_18_pointP_modelled_t": 865.523,
+          "original_geography_ID": "ES|ES11",
+          "original_original_layerN_objectID": 170,
+          "original_original_layerP_objectID": 271
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2894.0476,
+          "original_GREEN2014_18_pointP_modelled_t": 336.317,
+          "original_geography_ID": "ES|ES12",
+          "original_original_layerN_objectID": 168,
+          "original_original_layerP_objectID": 272
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1357.2768,
+          "original_GREEN2014_18_pointP_modelled_t": 162.2706,
+          "original_geography_ID": "ES|ES13",
+          "original_original_layerN_objectID": 119,
+          "original_original_layerP_objectID": 281
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6122.2394,
+          "original_GREEN2014_18_pointP_modelled_t": 962.1254,
+          "original_geography_ID": "ES|ES21",
+          "original_original_layerN_objectID": 124,
+          "original_original_layerP_objectID": 280
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2350.2792,
+          "original_GREEN2014_18_pointP_modelled_t": 277.75,
+          "original_geography_ID": "ES|ES22",
+          "original_original_layerN_objectID": 115,
+          "original_original_layerP_objectID": 278
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 591.472,
+          "original_GREEN2014_18_pointP_modelled_t": 76.2842,
+          "original_geography_ID": "ES|ES23",
+          "original_original_layerN_objectID": 120,
+          "original_original_layerP_objectID": 274
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4386.8898,
+          "original_GREEN2014_18_pointP_modelled_t": 406.1124,
+          "original_geography_ID": "ES|ES24",
+          "original_original_layerN_objectID": 65,
+          "original_original_layerP_objectID": 267
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 10888.6504,
+          "original_GREEN2014_18_pointP_modelled_t": 563.1724,
+          "original_geography_ID": "ES|ES30",
+          "original_original_layerN_objectID": 116,
+          "original_original_layerP_objectID": 273
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 7059.9216,
+          "original_GREEN2014_18_pointP_modelled_t": 737.1632,
+          "original_geography_ID": "ES|ES41",
+          "original_original_layerN_objectID": 121,
+          "original_original_layerP_objectID": 275
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4478.4158,
+          "original_GREEN2014_18_pointP_modelled_t": 475.3406,
+          "original_geography_ID": "ES|ES42",
+          "original_original_layerN_objectID": 118,
+          "original_original_layerP_objectID": 270
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2187.4594,
+          "original_GREEN2014_18_pointP_modelled_t": 300.099,
+          "original_geography_ID": "ES|ES43",
+          "original_original_layerN_objectID": 122,
+          "original_original_layerP_objectID": 276
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 13874.73,
+          "original_GREEN2014_18_pointP_modelled_t": 1500.9648,
+          "original_geography_ID": "ES|ES51",
+          "original_original_layerN_objectID": 123,
+          "original_original_layerP_objectID": 279
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 8165.011,
+          "original_GREEN2014_18_pointP_modelled_t": 907.7742,
+          "original_geography_ID": "ES|ES52",
+          "original_original_layerN_objectID": 167,
+          "original_original_layerP_objectID": 277
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3116.299,
+          "original_GREEN2014_18_pointP_modelled_t": 408.8584,
+          "original_geography_ID": "ES|ES53",
+          "original_original_layerN_objectID": 169,
+          "original_original_layerP_objectID": 268
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 23864.7494,
+          "original_GREEN2014_18_pointP_modelled_t": 2894.9812,
+          "original_geography_ID": "ES|ES61",
+          "original_original_layerN_objectID": 117,
+          "original_original_layerP_objectID": 269
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2301.1464,
+          "original_GREEN2014_18_pointP_modelled_t": 352.9608,
+          "original_geography_ID": "ES|ES62",
+          "original_original_layerN_objectID": 114,
+          "original_original_layerP_objectID": 282
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4028.3132,
+          "original_GREEN2014_18_pointP_modelled_t": 180.9654,
+          "original_geography_ID": "FI|FI19",
+          "original_original_layerN_objectID": 173,
+          "original_original_layerP_objectID": 285
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1299.5538,
+          "original_GREEN2014_18_pointP_modelled_t": 93.6412,
+          "original_geography_ID": "FI|FI1B",
+          "original_original_layerN_objectID": 174,
+          "original_original_layerP_objectID": 283
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2954.8868,
+          "original_GREEN2014_18_pointP_modelled_t": 212.6578,
+          "original_geography_ID": "FI|FI1C",
+          "original_original_layerN_objectID": 175,
+          "original_original_layerP_objectID": 286
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4435.047,
+          "original_GREEN2014_18_pointP_modelled_t": 286.1694,
+          "original_geography_ID": "FI|FI1D",
+          "original_original_layerN_objectID": 172,
+          "original_original_layerP_objectID": 287
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 14.18,
+          "original_GREEN2014_18_pointP_modelled_t": 0.9918,
+          "original_geography_ID": "FI|FI20",
+          "original_original_layerN_objectID": 171,
+          "original_original_layerP_objectID": 284
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 40549.8832,
+          "original_GREEN2014_18_pointP_modelled_t": 2318.1686,
+          "original_geography_ID": "FR|FR10",
+          "original_original_layerN_objectID": 32,
+          "original_original_layerP_objectID": 165
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2602.463,
+          "original_GREEN2014_18_pointP_modelled_t": 233.5704,
+          "original_geography_ID": "FR|FRB0",
+          "original_original_layerN_objectID": 38,
+          "original_original_layerP_objectID": 180
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1847.0372,
+          "original_GREEN2014_18_pointP_modelled_t": 172.3446,
+          "original_geography_ID": "FR|FRC1",
+          "original_original_layerN_objectID": 33,
+          "original_original_layerP_objectID": 166
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1717.171,
+          "original_GREEN2014_18_pointP_modelled_t": 254.5052,
+          "original_geography_ID": "FR|FRC2",
+          "original_original_layerN_objectID": 25,
+          "original_original_layerP_objectID": 177
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1978.1962,
+          "original_GREEN2014_18_pointP_modelled_t": 225.8724,
+          "original_geography_ID": "FR|FRD1",
+          "original_original_layerN_objectID": 22,
+          "original_original_layerP_objectID": 176
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3786.646,
+          "original_GREEN2014_18_pointP_modelled_t": 321.5652,
+          "original_geography_ID": "FR|FRD2",
+          "original_original_layerN_objectID": 39,
+          "original_original_layerP_objectID": 181
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6819.139,
+          "original_GREEN2014_18_pointP_modelled_t": 814.8334,
+          "original_geography_ID": "FR|FRE1",
+          "original_original_layerN_objectID": 323,
+          "original_original_layerP_objectID": 68
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2483.608,
+          "original_GREEN2014_18_pointP_modelled_t": 257.7344,
+          "original_geography_ID": "FR|FRE2",
+          "original_original_layerN_objectID": 324,
+          "original_original_layerP_objectID": 69
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4325.4782,
+          "original_GREEN2014_18_pointP_modelled_t": 283.974,
+          "original_geography_ID": "FR|FRF1",
+          "original_original_layerN_objectID": 26,
+          "original_original_layerP_objectID": 178
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1195.9022,
+          "original_GREEN2014_18_pointP_modelled_t": 140.3044,
+          "original_geography_ID": "FR|FRF2",
+          "original_original_layerN_objectID": 29,
+          "original_original_layerP_objectID": 70
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3559.3812,
+          "original_GREEN2014_18_pointP_modelled_t": 314.1676,
+          "original_geography_ID": "FR|FRF3",
+          "original_original_layerN_objectID": 325,
+          "original_original_layerP_objectID": 179
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4766.2868,
+          "original_GREEN2014_18_pointP_modelled_t": 380.5354,
+          "original_geography_ID": "FR|FRG0",
+          "original_original_layerN_objectID": 34,
+          "original_original_layerP_objectID": 167
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4181.8014,
+          "original_GREEN2014_18_pointP_modelled_t": 394.0006,
+          "original_geography_ID": "FR|FRH0",
+          "original_original_layerN_objectID": 23,
+          "original_original_layerP_objectID": 71
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6053.1758,
+          "original_GREEN2014_18_pointP_modelled_t": 744.892,
+          "original_geography_ID": "FR|FRI1",
+          "original_original_layerN_objectID": 326,
+          "original_original_layerP_objectID": 170
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1180.8408,
+          "original_GREEN2014_18_pointP_modelled_t": 139.2174,
+          "original_geography_ID": "FR|FRI2",
+          "original_original_layerN_objectID": 31,
+          "original_original_layerP_objectID": 173
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2623.9524,
+          "original_GREEN2014_18_pointP_modelled_t": 211.7132,
+          "original_geography_ID": "FR|FRI3",
+          "original_original_layerN_objectID": 35,
+          "original_original_layerP_objectID": 168
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5199.0986,
+          "original_GREEN2014_18_pointP_modelled_t": 655.9454,
+          "original_geography_ID": "FR|FRJ1",
+          "original_original_layerN_objectID": 24,
+          "original_original_layerP_objectID": 72
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4201.7248,
+          "original_GREEN2014_18_pointP_modelled_t": 473.179,
+          "original_geography_ID": "FR|FRJ2",
+          "original_original_layerN_objectID": 30,
+          "original_original_layerP_objectID": 171
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1308.0224,
+          "original_GREEN2014_18_pointP_modelled_t": 155.6262,
+          "original_geography_ID": "FR|FRK1",
+          "original_original_layerN_objectID": 37,
+          "original_original_layerP_objectID": 172
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 14370.5032,
+          "original_GREEN2014_18_pointP_modelled_t": 1988.809,
+          "original_geography_ID": "FR|FRK2",
+          "original_original_layerN_objectID": 36,
+          "original_original_layerP_objectID": 169
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 11383.148,
+          "original_GREEN2014_18_pointP_modelled_t": 1378.4876,
+          "original_geography_ID": "FR|FRL0",
+          "original_original_layerN_objectID": 27,
+          "original_original_layerP_objectID": 174
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 947.1294,
+          "original_GREEN2014_18_pointP_modelled_t": 115.4858,
+          "original_geography_ID": "FR|FRM0",
+          "original_original_layerN_objectID": 28,
+          "original_original_layerP_objectID": 175
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3152.5502,
+          "original_GREEN2014_18_pointP_modelled_t": 418.9786,
+          "original_geography_ID": "HR|HR03",
+          "original_original_layerN_objectID": 176,
+          "original_original_layerP_objectID": 288
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2990.9966,
+          "original_GREEN2014_18_pointP_modelled_t": 398.7948,
+          "original_geography_ID": "HR|HR04",
+          "original_original_layerN_objectID": 177,
+          "original_original_layerP_objectID": 289
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2214.5404,
+          "original_GREEN2014_18_pointP_modelled_t": 163.0938,
+          "original_geography_ID": "HU|HU11",
+          "original_original_layerN_objectID": 110,
+          "original_original_layerP_objectID": 33
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1801.6822,
+          "original_GREEN2014_18_pointP_modelled_t": 186.033,
+          "original_geography_ID": "HU|HU12",
+          "original_original_layerN_objectID": 152,
+          "original_original_layerP_objectID": 224
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2018.0414,
+          "original_GREEN2014_18_pointP_modelled_t": 198.1914,
+          "original_geography_ID": "HU|HU21",
+          "original_original_layerN_objectID": 109,
+          "original_original_layerP_objectID": 31
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1178.4742,
+          "original_GREEN2014_18_pointP_modelled_t": 123.8602,
+          "original_geography_ID": "HU|HU22",
+          "original_original_layerN_objectID": 111,
+          "original_original_layerP_objectID": 34
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1078.592,
+          "original_GREEN2014_18_pointP_modelled_t": 124.926,
+          "original_geography_ID": "HU|HU23",
+          "original_original_layerN_objectID": 151,
+          "original_original_layerP_objectID": 32
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2132.3996,
+          "original_GREEN2014_18_pointP_modelled_t": 273.192,
+          "original_geography_ID": "HU|HU31",
+          "original_original_layerN_objectID": 112,
+          "original_original_layerP_objectID": 35
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1612.7198,
+          "original_GREEN2014_18_pointP_modelled_t": 225.9136,
+          "original_geography_ID": "HU|HU32",
+          "original_original_layerN_objectID": 153,
+          "original_original_layerP_objectID": 225
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2032.622,
+          "original_GREEN2014_18_pointP_modelled_t": 280.4758,
+          "original_geography_ID": "HU|HU33",
+          "original_original_layerN_objectID": 113,
+          "original_original_layerP_objectID": 36
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1228.713,
+          "original_GREEN2014_18_pointP_modelled_t": 124.8818,
+          "original_geography_ID": "IE|IE04",
+          "original_original_layerN_objectID": 75,
+          "original_original_layerP_objectID": 63
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2880.737,
+          "original_GREEN2014_18_pointP_modelled_t": 343.4368,
+          "original_geography_ID": "IE|IE05",
+          "original_original_layerN_objectID": 76,
+          "original_original_layerP_objectID": 62
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6515.5482,
+          "original_GREEN2014_18_pointP_modelled_t": 735.5262,
+          "original_geography_ID": "IE|IE06",
+          "original_original_layerN_objectID": 74,
+          "original_original_layerP_objectID": 64
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4819.254,
+          "original_GREEN2014_18_pointP_modelled_t": 635.7554,
+          "original_geography_ID": "IT|ITC1",
+          "original_original_layerN_objectID": 200,
+          "original_original_layerP_objectID": 306
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 600.1562,
+          "original_GREEN2014_18_pointP_modelled_t": 66.1734,
+          "original_geography_ID": "IT|ITC2",
+          "original_original_layerN_objectID": 196,
+          "original_original_layerP_objectID": 302
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4075.1758,
+          "original_GREEN2014_18_pointP_modelled_t": 510.9368,
+          "original_geography_ID": "IT|ITC3",
+          "original_original_layerN_objectID": 204,
+          "original_original_layerP_objectID": 299
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 13467.0098,
+          "original_GREEN2014_18_pointP_modelled_t": 1180.5334,
+          "original_geography_ID": "IT|ITC4",
+          "original_original_layerN_objectID": 181,
+          "original_original_layerP_objectID": 292
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2818.9812,
+          "original_GREEN2014_18_pointP_modelled_t": 436.2666,
+          "original_geography_ID": "IT|ITF1",
+          "original_original_layerN_objectID": 201,
+          "original_original_layerP_objectID": 307
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 529.163,
+          "original_GREEN2014_18_pointP_modelled_t": 57.9366,
+          "original_geography_ID": "IT|ITF2",
+          "original_original_layerN_objectID": 197,
+          "original_original_layerP_objectID": 303
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 10318.2704,
+          "original_GREEN2014_18_pointP_modelled_t": 1187.1414,
+          "original_geography_ID": "IT|ITF3",
+          "original_original_layerN_objectID": 182,
+          "original_original_layerP_objectID": 293
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6033.4324,
+          "original_GREEN2014_18_pointP_modelled_t": 1056.5502,
+          "original_geography_ID": "IT|ITF4",
+          "original_original_layerN_objectID": 183,
+          "original_original_layerP_objectID": 296
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 858.5446,
+          "original_GREEN2014_18_pointP_modelled_t": 146.0622,
+          "original_geography_ID": "IT|ITF5",
+          "original_original_layerN_objectID": 178,
+          "original_original_layerP_objectID": 290
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6504.2262,
+          "original_GREEN2014_18_pointP_modelled_t": 734.5922,
+          "original_geography_ID": "IT|ITF6",
+          "original_original_layerN_objectID": 179,
+          "original_original_layerP_objectID": 291
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 13300.2398,
+          "original_GREEN2014_18_pointP_modelled_t": 1639.7448,
+          "original_geography_ID": "IT|ITG1",
+          "original_original_layerN_objectID": 198,
+          "original_original_layerP_objectID": 304
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3790.3156,
+          "original_GREEN2014_18_pointP_modelled_t": 360.9548,
+          "original_geography_ID": "IT|ITG2",
+          "original_original_layerN_objectID": 202,
+          "original_original_layerP_objectID": 300
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1452.6776,
+          "original_GREEN2014_18_pointP_modelled_t": 99.694,
+          "original_geography_ID": "IT|ITH1",
+          "original_original_layerN_objectID": 199,
+          "original_original_layerP_objectID": 305
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 988.2324,
+          "original_GREEN2014_18_pointP_modelled_t": 71.28,
+          "original_geography_ID": "IT|ITH2",
+          "original_original_layerN_objectID": 203,
+          "original_original_layerP_objectID": 301
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6278.274,
+          "original_GREEN2014_18_pointP_modelled_t": 650.978,
+          "original_geography_ID": "IT|ITH3",
+          "original_original_layerN_objectID": 185,
+          "original_original_layerP_objectID": 297
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2141.144,
+          "original_GREEN2014_18_pointP_modelled_t": 172.5472,
+          "original_geography_ID": "IT|ITH4",
+          "original_original_layerN_objectID": 184,
+          "original_original_layerP_objectID": 294
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5728.3792,
+          "original_GREEN2014_18_pointP_modelled_t": 508.7196,
+          "original_geography_ID": "IT|ITH5",
+          "original_original_layerN_objectID": 180,
+          "original_original_layerP_objectID": 295
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6466.1528,
+          "original_GREEN2014_18_pointP_modelled_t": 834.9322,
+          "original_geography_ID": "IT|ITI1",
+          "original_original_layerN_objectID": 186,
+          "original_original_layerP_objectID": 298
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 739.7772,
+          "original_GREEN2014_18_pointP_modelled_t": 123.9262,
+          "original_geography_ID": "IT|ITI2",
+          "original_original_layerN_objectID": 207,
+          "original_original_layerP_objectID": 308
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1460.9756,
+          "original_GREEN2014_18_pointP_modelled_t": 208.3748,
+          "original_geography_ID": "IT|ITI3",
+          "original_original_layerN_objectID": 205,
+          "original_original_layerP_objectID": 310
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 9774.6634,
+          "original_GREEN2014_18_pointP_modelled_t": 1162.1156,
+          "original_geography_ID": "IT|ITI4",
+          "original_original_layerN_objectID": 206,
+          "original_original_layerP_objectID": 309
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 51.92,
+          "original_GREEN2014_18_pointP_modelled_t": 2.4856,
+          "original_geography_ID": "LI|LI00",
+          "original_original_layerN_objectID": 77,
+          "original_original_layerP_objectID": 65
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 989.251,
+          "original_GREEN2014_18_pointP_modelled_t": 75.1796,
+          "original_geography_ID": "LT|LT01",
+          "original_original_layerN_objectID": 235,
+          "original_original_layerP_objectID": 106
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2311.3112,
+          "original_GREEN2014_18_pointP_modelled_t": 199.4376,
+          "original_geography_ID": "LT|LT02",
+          "original_original_layerN_objectID": 236,
+          "original_original_layerP_objectID": 107
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 816.4104,
+          "original_GREEN2014_18_pointP_modelled_t": 67.8724,
+          "original_geography_ID": "LU|LU00",
+          "original_original_layerN_objectID": 12,
+          "original_original_layerP_objectID": 48
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1920.92,
+          "original_GREEN2014_18_pointP_modelled_t": 185.3434,
+          "original_geography_ID": "LV|LV00",
+          "original_original_layerN_objectID": 312,
+          "original_original_layerP_objectID": 199
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 592.9824,
+          "original_GREEN2014_18_pointP_modelled_t": 90.1468,
+          "original_geography_ID": "MD|MD00",
+          "original_original_layerN_objectID": 327,
+          "original_original_layerP_objectID": 73
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1094.3026,
+          "original_GREEN2014_18_pointP_modelled_t": 163.5368,
+          "original_geography_ID": "ME|ME00",
+          "original_original_layerN_objectID": 237,
+          "original_original_layerP_objectID": 108
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4114.1542,
+          "original_GREEN2014_18_pointP_modelled_t": 709.4888,
+          "original_geography_ID": "MK|MK00",
+          "original_original_layerN_objectID": 154,
+          "original_original_layerP_objectID": 226
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3942.1682,
+          "original_GREEN2014_18_pointP_modelled_t": 250.2842,
+          "original_geography_ID": "MT|MT00",
+          "original_original_layerN_objectID": 328,
+          "original_original_layerP_objectID": 74
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 713.6024,
+          "original_GREEN2014_18_pointP_modelled_t": 53.0566,
+          "original_geography_ID": "NL|NL11",
+          "original_original_layerN_objectID": 162,
+          "original_original_layerP_objectID": 232
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 727.0358,
+          "original_GREEN2014_18_pointP_modelled_t": 53.3392,
+          "original_geography_ID": "NL|NL12",
+          "original_original_layerN_objectID": 165,
+          "original_original_layerP_objectID": 237
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 505.9958,
+          "original_GREEN2014_18_pointP_modelled_t": 40.195,
+          "original_geography_ID": "NL|NL13",
+          "original_original_layerN_objectID": 157,
+          "original_original_layerP_objectID": 235
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1331.0564,
+          "original_GREEN2014_18_pointP_modelled_t": 97.079,
+          "original_geography_ID": "NL|NL21",
+          "original_original_layerN_objectID": 155,
+          "original_original_layerP_objectID": 227
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1743.3656,
+          "original_GREEN2014_18_pointP_modelled_t": 123.2064,
+          "original_geography_ID": "NL|NL22",
+          "original_original_layerN_objectID": 161,
+          "original_original_layerP_objectID": 233
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 477.6138,
+          "original_GREEN2014_18_pointP_modelled_t": 26.0542,
+          "original_geography_ID": "NL|NL23",
+          "original_original_layerN_objectID": 164,
+          "original_original_layerP_objectID": 234
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1469.413,
+          "original_GREEN2014_18_pointP_modelled_t": 103.5324,
+          "original_geography_ID": "NL|NL31",
+          "original_original_layerN_objectID": 159,
+          "original_original_layerP_objectID": 230
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4114.3952,
+          "original_GREEN2014_18_pointP_modelled_t": 258.116,
+          "original_geography_ID": "NL|NL32",
+          "original_original_layerN_objectID": 158,
+          "original_original_layerP_objectID": 236
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4327.895,
+          "original_GREEN2014_18_pointP_modelled_t": 372.902,
+          "original_geography_ID": "NL|NL33",
+          "original_original_layerN_objectID": 156,
+          "original_original_layerP_objectID": 228
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 818.2146,
+          "original_GREEN2014_18_pointP_modelled_t": 92.561,
+          "original_geography_ID": "NL|NL34",
+          "original_original_layerN_objectID": 163,
+          "original_original_layerP_objectID": 229
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3253.5484,
+          "original_GREEN2014_18_pointP_modelled_t": 209.6748,
+          "original_geography_ID": "NL|NL41",
+          "original_original_layerN_objectID": 166,
+          "original_original_layerP_objectID": 238
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1764.1222,
+          "original_GREEN2014_18_pointP_modelled_t": 93.987,
+          "original_geography_ID": "NL|NL42",
+          "original_original_layerN_objectID": 160,
+          "original_original_layerP_objectID": 231
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1773.9908,
+          "original_GREEN2014_18_pointP_modelled_t": 317.7228,
+          "original_geography_ID": "NO|NO01",
+          "original_original_layerN_objectID": 129,
+          "original_original_layerP_objectID": 243
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1304.977,
+          "original_GREEN2014_18_pointP_modelled_t": 144.383,
+          "original_geography_ID": "NO|NO02",
+          "original_original_layerN_objectID": 127,
+          "original_original_layerP_objectID": 245
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5103.6714,
+          "original_GREEN2014_18_pointP_modelled_t": 403.9308,
+          "original_geography_ID": "NO|NO03",
+          "original_original_layerN_objectID": 78,
+          "original_original_layerP_objectID": 66
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3670.0146,
+          "original_GREEN2014_18_pointP_modelled_t": 840.0214,
+          "original_geography_ID": "NO|NO04",
+          "original_original_layerN_objectID": 125,
+          "original_original_layerP_objectID": 67
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2942.0512,
+          "original_GREEN2014_18_pointP_modelled_t": 564.2984,
+          "original_geography_ID": "NO|NO05",
+          "original_original_layerN_objectID": 128,
+          "original_original_layerP_objectID": 246
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2292.8864,
+          "original_GREEN2014_18_pointP_modelled_t": 468.9518,
+          "original_geography_ID": "NO|NO06",
+          "original_original_layerN_objectID": 130,
+          "original_original_layerP_objectID": 244
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2270.5516,
+          "original_GREEN2014_18_pointP_modelled_t": 392.7526,
+          "original_geography_ID": "NO|NO07",
+          "original_original_layerN_objectID": 126,
+          "original_original_layerP_objectID": 247
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3960.5474,
+          "original_GREEN2014_18_pointP_modelled_t": 422.2348,
+          "original_geography_ID": "PL|PL21",
+          "original_original_layerN_objectID": 317,
+          "original_original_layerP_objectID": 82
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 7323.887,
+          "original_GREEN2014_18_pointP_modelled_t": 648.8366,
+          "original_geography_ID": "PL|PL22",
+          "original_original_layerN_objectID": 334,
+          "original_original_layerP_objectID": 202
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4339.7028,
+          "original_GREEN2014_18_pointP_modelled_t": 439.1432,
+          "original_geography_ID": "PL|PL41",
+          "original_original_layerN_objectID": 318,
+          "original_original_layerP_objectID": 83
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2422.0672,
+          "original_GREEN2014_18_pointP_modelled_t": 199.442,
+          "original_geography_ID": "PL|PL42",
+          "original_original_layerN_objectID": 335,
+          "original_original_layerP_objectID": 203
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1056.2082,
+          "original_GREEN2014_18_pointP_modelled_t": 101.578,
+          "original_geography_ID": "PL|PL43",
+          "original_original_layerN_objectID": 319,
+          "original_original_layerP_objectID": 84
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3714.6418,
+          "original_GREEN2014_18_pointP_modelled_t": 322.0892,
+          "original_geography_ID": "PL|PL51",
+          "original_original_layerN_objectID": 332,
+          "original_original_layerP_objectID": 204
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1573.3276,
+          "original_GREEN2014_18_pointP_modelled_t": 90.299,
+          "original_geography_ID": "PL|PL52",
+          "original_original_layerN_objectID": 321,
+          "original_original_layerP_objectID": 207
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4621.4682,
+          "original_GREEN2014_18_pointP_modelled_t": 256.0688,
+          "original_geography_ID": "PL|PL61",
+          "original_original_layerN_objectID": 313,
+          "original_original_layerP_objectID": 200
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1525.999,
+          "original_GREEN2014_18_pointP_modelled_t": 166.7452,
+          "original_geography_ID": "PL|PL62",
+          "original_original_layerN_objectID": 316,
+          "original_original_layerP_objectID": 77
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2995.0894,
+          "original_GREEN2014_18_pointP_modelled_t": 260.6564,
+          "original_geography_ID": "PL|PL63",
+          "original_original_layerN_objectID": 331,
+          "original_original_layerP_objectID": 201
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2866.6968,
+          "original_GREEN2014_18_pointP_modelled_t": 244.3068,
+          "original_geography_ID": "PL|PL71",
+          "original_original_layerN_objectID": 314,
+          "original_original_layerP_objectID": 80
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1203.1818,
+          "original_GREEN2014_18_pointP_modelled_t": 155.8002,
+          "original_geography_ID": "PL|PL72",
+          "original_original_layerN_objectID": 337,
+          "original_original_layerP_objectID": 206
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4346.9138,
+          "original_GREEN2014_18_pointP_modelled_t": 171.2838,
+          "original_geography_ID": "PL|PL81",
+          "original_original_layerN_objectID": 333,
+          "original_original_layerP_objectID": 205
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2567.148,
+          "original_GREEN2014_18_pointP_modelled_t": 285.7422,
+          "original_geography_ID": "PL|PL82",
+          "original_original_layerN_objectID": 315,
+          "original_original_layerP_objectID": 81
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1237.5976,
+          "original_GREEN2014_18_pointP_modelled_t": 148.0504,
+          "original_geography_ID": "PL|PL84",
+          "original_original_layerN_objectID": 320,
+          "original_original_layerP_objectID": 79
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3128.0522,
+          "original_GREEN2014_18_pointP_modelled_t": 254.5266,
+          "original_geography_ID": "PL|PL91",
+          "original_original_layerN_objectID": 336,
+          "original_original_layerP_objectID": 78
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2431.9278,
+          "original_GREEN2014_18_pointP_modelled_t": 247.677,
+          "original_geography_ID": "PL|PL92",
+          "original_original_layerN_objectID": 322,
+          "original_original_layerP_objectID": 208
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 7987.0484,
+          "original_GREEN2014_18_pointP_modelled_t": 1003.2188,
+          "original_geography_ID": "PT|PT11",
+          "original_original_layerN_objectID": 221,
+          "original_original_layerP_objectID": 313
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1864.52,
+          "original_GREEN2014_18_pointP_modelled_t": 220.5246,
+          "original_geography_ID": "PT|PT15",
+          "original_original_layerN_objectID": 223,
+          "original_original_layerP_objectID": 311
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 14769.32,
+          "original_GREEN2014_18_pointP_modelled_t": 1032.579,
+          "original_geography_ID": "PT|PT16",
+          "original_original_layerN_objectID": 224,
+          "original_original_layerP_objectID": 312
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 8746.3272,
+          "original_GREEN2014_18_pointP_modelled_t": 1085.363,
+          "original_geography_ID": "PT|PT17",
+          "original_original_layerN_objectID": 222,
+          "original_original_layerP_objectID": 314
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1483.9988,
+          "original_GREEN2014_18_pointP_modelled_t": 228.642,
+          "original_geography_ID": "PT|PT18",
+          "original_original_layerN_objectID": 220,
+          "original_original_layerP_objectID": 315
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3397.7844,
+          "original_GREEN2014_18_pointP_modelled_t": 424.0602,
+          "original_geography_ID": "RO|RO11",
+          "original_original_layerN_objectID": 138,
+          "original_original_layerP_objectID": 253
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5161.4234,
+          "original_GREEN2014_18_pointP_modelled_t": 541.8092,
+          "original_geography_ID": "RO|RO12",
+          "original_original_layerN_objectID": 133,
+          "original_original_layerP_objectID": 255
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4379.4116,
+          "original_GREEN2014_18_pointP_modelled_t": 554.5602,
+          "original_geography_ID": "RO|RO21",
+          "original_original_layerN_objectID": 136,
+          "original_original_layerP_objectID": 250
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4332.0206,
+          "original_GREEN2014_18_pointP_modelled_t": 495.199,
+          "original_geography_ID": "RO|RO22",
+          "original_original_layerN_objectID": 135,
+          "original_original_layerP_objectID": 254
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4531.6782,
+          "original_GREEN2014_18_pointP_modelled_t": 575.1608,
+          "original_geography_ID": "RO|RO31",
+          "original_original_layerN_objectID": 132,
+          "original_original_layerP_objectID": 249
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5740.0586,
+          "original_GREEN2014_18_pointP_modelled_t": 757.119,
+          "original_geography_ID": "RO|RO32",
+          "original_original_layerN_objectID": 131,
+          "original_original_layerP_objectID": 252
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2954.1524,
+          "original_GREEN2014_18_pointP_modelled_t": 373.5184,
+          "original_geography_ID": "RO|RO41",
+          "original_original_layerN_objectID": 137,
+          "original_original_layerP_objectID": 251
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2253.769,
+          "original_GREEN2014_18_pointP_modelled_t": 331.1594,
+          "original_geography_ID": "RO|RO42",
+          "original_original_layerN_objectID": 134,
+          "original_original_layerP_objectID": 248
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 7775.027,
+          "original_GREEN2014_18_pointP_modelled_t": 688.342,
+          "original_geography_ID": "RS|RS11",
+          "original_original_layerN_objectID": 16,
+          "original_original_layerP_objectID": 52
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 18285.7702,
+          "original_GREEN2014_18_pointP_modelled_t": 1094.5628,
+          "original_geography_ID": "RS|RS12",
+          "original_original_layerN_objectID": 15,
+          "original_original_layerP_objectID": 50
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3622.8924,
+          "original_GREEN2014_18_pointP_modelled_t": 621.404,
+          "original_geography_ID": "RS|RS21",
+          "original_original_layerN_objectID": 13,
+          "original_original_layerP_objectID": 49
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2937.7548,
+          "original_GREEN2014_18_pointP_modelled_t": 591.3028,
+          "original_geography_ID": "RS|RS22",
+          "original_original_layerN_objectID": 14,
+          "original_original_layerP_objectID": 51
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 29.5118,
+          "original_GREEN2014_18_pointP_modelled_t": 5.1628,
+          "original_geography_ID": "RU|RU1A",
+          "original_original_layerN_objectID": 238,
+          "original_original_layerP_objectID": 111
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 362.0362,
+          "original_GREEN2014_18_pointP_modelled_t": 62.9288,
+          "original_geography_ID": "RU|RU1D",
+          "original_original_layerN_objectID": 247,
+          "original_original_layerP_objectID": 112
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 39.2652,
+          "original_GREEN2014_18_pointP_modelled_t": 7.025,
+          "original_geography_ID": "RU|RU22",
+          "original_original_layerN_objectID": 239,
+          "original_original_layerP_objectID": 115
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1967.2508,
+          "original_GREEN2014_18_pointP_modelled_t": 328.961,
+          "original_geography_ID": "RU|RU23",
+          "original_original_layerN_objectID": 245,
+          "original_original_layerP_objectID": 109
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1496.749,
+          "original_GREEN2014_18_pointP_modelled_t": 251.7234,
+          "original_geography_ID": "RU|RU24",
+          "original_original_layerN_objectID": 243,
+          "original_original_layerP_objectID": 113
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1037.358,
+          "original_GREEN2014_18_pointP_modelled_t": 177.3072,
+          "original_geography_ID": "RU|RU25",
+          "original_original_layerN_objectID": 242,
+          "original_original_layerP_objectID": 118
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1323.7154,
+          "original_GREEN2014_18_pointP_modelled_t": 223.9668,
+          "original_geography_ID": "RU|RU26",
+          "original_original_layerN_objectID": 240,
+          "original_original_layerP_objectID": 116
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1167.2412,
+          "original_GREEN2014_18_pointP_modelled_t": 197.0876,
+          "original_geography_ID": "RU|RU27",
+          "original_original_layerN_objectID": 244,
+          "original_original_layerP_objectID": 114
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 14027.2612,
+          "original_GREEN2014_18_pointP_modelled_t": 2292.1266,
+          "original_geography_ID": "RU|RU2A",
+          "original_original_layerN_objectID": 241,
+          "original_original_layerP_objectID": 117
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1000.5092,
+          "original_GREEN2014_18_pointP_modelled_t": 168.3778,
+          "original_geography_ID": "RU|RU2B",
+          "original_original_layerN_objectID": 246,
+          "original_original_layerP_objectID": 110
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2626.8272,
+          "original_GREEN2014_18_pointP_modelled_t": 180.95,
+          "original_geography_ID": "SE|SE11",
+          "original_original_layerN_objectID": 50,
+          "original_original_layerP_objectID": 194
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3127.0366,
+          "original_GREEN2014_18_pointP_modelled_t": 293.321,
+          "original_geography_ID": "SE|SE12",
+          "original_original_layerN_objectID": 53,
+          "original_original_layerP_objectID": 192
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1368.601,
+          "original_GREEN2014_18_pointP_modelled_t": 84.4754,
+          "original_geography_ID": "SE|SE21",
+          "original_original_layerN_objectID": 46,
+          "original_original_layerP_objectID": 188
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2249.7998,
+          "original_GREEN2014_18_pointP_modelled_t": 162.0476,
+          "original_geography_ID": "SE|SE22",
+          "original_original_layerN_objectID": 47,
+          "original_original_layerP_objectID": 195
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2722.0916,
+          "original_GREEN2014_18_pointP_modelled_t": 177.0098,
+          "original_geography_ID": "SE|SE23",
+          "original_original_layerN_objectID": 51,
+          "original_original_layerP_objectID": 189
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2891.0192,
+          "original_GREEN2014_18_pointP_modelled_t": 114.4866,
+          "original_geography_ID": "SE|SE31",
+          "original_original_layerN_objectID": 52,
+          "original_original_layerP_objectID": 190
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1625.8254,
+          "original_GREEN2014_18_pointP_modelled_t": 121.534,
+          "original_geography_ID": "SE|SE32",
+          "original_original_layerN_objectID": 49,
+          "original_original_layerP_objectID": 191
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1957.131,
+          "original_GREEN2014_18_pointP_modelled_t": 111.11,
+          "original_geography_ID": "SE|SE33",
+          "original_original_layerN_objectID": 48,
+          "original_original_layerP_objectID": 193
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1130.2736,
+          "original_GREEN2014_18_pointP_modelled_t": 157.1164,
+          "original_geography_ID": "SI|SI03",
+          "original_original_layerN_objectID": 330,
+          "original_original_layerP_objectID": 75
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1583.826,
+          "original_GREEN2014_18_pointP_modelled_t": 186.349,
+          "original_geography_ID": "SI|SI04",
+          "original_original_layerN_objectID": 329,
+          "original_original_layerP_objectID": 76
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 607.881,
+          "original_GREEN2014_18_pointP_modelled_t": 65.4228,
+          "original_geography_ID": "SK|SK01",
+          "original_original_layerN_objectID": 305,
+          "original_original_layerP_objectID": 239
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1295.5048,
+          "original_GREEN2014_18_pointP_modelled_t": 126.9846,
+          "original_geography_ID": "SK|SK02",
+          "original_original_layerN_objectID": 306,
+          "original_original_layerP_objectID": 241
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 938.2396,
+          "original_GREEN2014_18_pointP_modelled_t": 132.8706,
+          "original_geography_ID": "SK|SK03",
+          "original_original_layerN_objectID": 17,
+          "original_original_layerP_objectID": 53
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 953.6094,
+          "original_GREEN2014_18_pointP_modelled_t": 101.8334,
+          "original_geography_ID": "SK|SK04",
+          "original_original_layerN_objectID": 307,
+          "original_original_layerP_objectID": 240
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 24.2792,
+          "original_GREEN2014_18_pointP_modelled_t": 3.0614,
+          "original_geography_ID": "SM|SM00",
+          "original_original_layerN_objectID": 308,
+          "original_original_layerP_objectID": 242
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 27599.7152,
+          "original_GREEN2014_18_pointP_modelled_t": 4102.0338,
+          "original_geography_ID": "TR|TR10",
+          "original_original_layerN_objectID": 264,
+          "original_original_layerP_objectID": 319
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4886.4854,
+          "original_GREEN2014_18_pointP_modelled_t": 913.1196,
+          "original_geography_ID": "TR|TR21",
+          "original_original_layerN_objectID": 269,
+          "original_original_layerP_objectID": 316
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4596.4342,
+          "original_GREEN2014_18_pointP_modelled_t": 863.0322,
+          "original_geography_ID": "TR|TR22",
+          "original_original_layerN_objectID": 266,
+          "original_original_layerP_objectID": 321
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 9986.0142,
+          "original_GREEN2014_18_pointP_modelled_t": 1694.111,
+          "original_geography_ID": "TR|TR31",
+          "original_original_layerN_objectID": 270,
+          "original_original_layerP_objectID": 320
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 8551.1436,
+          "original_GREEN2014_18_pointP_modelled_t": 1576.0012,
+          "original_geography_ID": "TR|TR32",
+          "original_original_layerN_objectID": 267,
+          "original_original_layerP_objectID": 332
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 9226.2494,
+          "original_GREEN2014_18_pointP_modelled_t": 1717.2568,
+          "original_geography_ID": "TR|TR33",
+          "original_original_layerN_objectID": 228,
+          "original_original_layerP_objectID": 334
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 10491.4584,
+          "original_GREEN2014_18_pointP_modelled_t": 1820.648,
+          "original_geography_ID": "TR|TR41",
+          "original_original_layerN_objectID": 230,
+          "original_original_layerP_objectID": 329
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 9931.6062,
+          "original_GREEN2014_18_pointP_modelled_t": 1839.3092,
+          "original_geography_ID": "TR|TR42",
+          "original_original_layerN_objectID": 288,
+          "original_original_layerP_objectID": 318
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 12719.651,
+          "original_GREEN2014_18_pointP_modelled_t": 2092.6044,
+          "original_geography_ID": "TR|TR51",
+          "original_original_layerN_objectID": 265,
+          "original_original_layerP_objectID": 323
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 7380.2124,
+          "original_GREEN2014_18_pointP_modelled_t": 1366.5092,
+          "original_geography_ID": "TR|TR52",
+          "original_original_layerN_objectID": 231,
+          "original_original_layerP_objectID": 330
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 8393.9764,
+          "original_GREEN2014_18_pointP_modelled_t": 1545.007,
+          "original_geography_ID": "TR|TR61",
+          "original_original_layerN_objectID": 259,
+          "original_original_layerP_objectID": 331
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 9809.1234,
+          "original_GREEN2014_18_pointP_modelled_t": 1720.2792,
+          "original_geography_ID": "TR|TR62",
+          "original_original_layerN_objectID": 225,
+          "original_original_layerP_objectID": 324
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3095.9808,
+          "original_GREEN2014_18_pointP_modelled_t": 553.2908,
+          "original_geography_ID": "TR|TR63",
+          "original_original_layerN_objectID": 227,
+          "original_original_layerP_objectID": 317
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4499.9242,
+          "original_GREEN2014_18_pointP_modelled_t": 830.7922,
+          "original_geography_ID": "TR|TR71",
+          "original_original_layerN_objectID": 260,
+          "original_original_layerP_objectID": 326
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6485.6464,
+          "original_GREEN2014_18_pointP_modelled_t": 1166.0722,
+          "original_geography_ID": "TR|TR72",
+          "original_original_layerN_objectID": 262,
+          "original_original_layerP_objectID": 327
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2895.9892,
+          "original_GREEN2014_18_pointP_modelled_t": 540.949,
+          "original_geography_ID": "TR|TR81",
+          "original_original_layerN_objectID": 229,
+          "original_original_layerP_objectID": 335
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1705.1648,
+          "original_GREEN2014_18_pointP_modelled_t": 318.097,
+          "original_geography_ID": "TR|TR82",
+          "original_original_layerN_objectID": 287,
+          "original_original_layerP_objectID": 322
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 7065.0626,
+          "original_GREEN2014_18_pointP_modelled_t": 1269.402,
+          "original_geography_ID": "TR|TR83",
+          "original_original_layerN_objectID": 263,
+          "original_original_layerP_objectID": 328
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4291.0394,
+          "original_GREEN2014_18_pointP_modelled_t": 765.5254,
+          "original_geography_ID": "TR|TR90",
+          "original_original_layerN_objectID": 261,
+          "original_original_layerP_objectID": 336
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 26.1668,
+          "original_GREEN2014_18_pointP_modelled_t": 4.8782,
+          "original_geography_ID": "TR|TRA1",
+          "original_original_layerN_objectID": 268,
+          "original_original_layerP_objectID": 333
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 0.0,
+          "original_GREEN2014_18_pointP_modelled_t": 0.0,
+          "original_geography_ID": "TR|TRC1",
+          "original_original_layerN_objectID": 226,
+          "original_original_layerP_objectID": 325
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4821.5356,
+          "original_GREEN2014_18_pointP_modelled_t": 733.003,
+          "original_geography_ID": "UA|UA02",
+          "original_original_layerN_objectID": 249,
+          "original_original_layerP_objectID": 119
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 266.0158,
+          "original_GREEN2014_18_pointP_modelled_t": 41.9176,
+          "original_geography_ID": "UA|UA04",
+          "original_original_layerN_objectID": 248,
+          "original_original_layerP_objectID": 120
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6129.7796,
+          "original_GREEN2014_18_pointP_modelled_t": 471.2904,
+          "original_geography_ID": "UK|UKC1",
+          "original_original_layerN_objectID": 250,
+          "original_original_layerP_objectID": 129
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3173.5592,
+          "original_GREEN2014_18_pointP_modelled_t": 397.3266,
+          "original_geography_ID": "UK|UKC2",
+          "original_original_layerN_objectID": 296,
+          "original_original_layerP_objectID": 137
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2165.7778,
+          "original_GREEN2014_18_pointP_modelled_t": 141.9396,
+          "original_geography_ID": "UK|UKD1",
+          "original_original_layerN_objectID": 300,
+          "original_original_layerP_objectID": 148
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6596.5516,
+          "original_GREEN2014_18_pointP_modelled_t": 548.7784,
+          "original_geography_ID": "UK|UKD3",
+          "original_original_layerN_objectID": 291,
+          "original_original_layerP_objectID": 139
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4275.9604,
+          "original_GREEN2014_18_pointP_modelled_t": 446.2738,
+          "original_geography_ID": "UK|UKD4",
+          "original_original_layerN_objectID": 275,
+          "original_original_layerP_objectID": 121
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3135.5866,
+          "original_GREEN2014_18_pointP_modelled_t": 261.794,
+          "original_geography_ID": "UK|UKD6",
+          "original_original_layerN_objectID": 251,
+          "original_original_layerP_objectID": 130
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3194.3884,
+          "original_GREEN2014_18_pointP_modelled_t": 373.255,
+          "original_geography_ID": "UK|UKD7",
+          "original_original_layerN_objectID": 284,
+          "original_original_layerP_objectID": 144
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2649.145,
+          "original_GREEN2014_18_pointP_modelled_t": 357.746,
+          "original_geography_ID": "UK|UKE1",
+          "original_original_layerN_objectID": 292,
+          "original_original_layerP_objectID": 125
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1730.5058,
+          "original_GREEN2014_18_pointP_modelled_t": 200.1468,
+          "original_geography_ID": "UK|UKE2",
+          "original_original_layerN_objectID": 271,
+          "original_original_layerP_objectID": 149
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2979.9598,
+          "original_GREEN2014_18_pointP_modelled_t": 360.791,
+          "original_geography_ID": "UK|UKE3",
+          "original_original_layerN_objectID": 252,
+          "original_original_layerP_objectID": 131
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5232.0212,
+          "original_GREEN2014_18_pointP_modelled_t": 665.983,
+          "original_geography_ID": "UK|UKE4",
+          "original_original_layerN_objectID": 276,
+          "original_original_layerP_objectID": 122
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5203.1966,
+          "original_GREEN2014_18_pointP_modelled_t": 321.1392,
+          "original_geography_ID": "UK|UKF1",
+          "original_original_layerN_objectID": 253,
+          "original_original_layerP_objectID": 132
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3666.8268,
+          "original_GREEN2014_18_pointP_modelled_t": 183.6944,
+          "original_geography_ID": "UK|UKF2",
+          "original_original_layerN_objectID": 297,
+          "original_original_layerP_objectID": 138
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1830.1956,
+          "original_GREEN2014_18_pointP_modelled_t": 214.0944,
+          "original_geography_ID": "UK|UKF3",
+          "original_original_layerN_objectID": 278,
+          "original_original_layerP_objectID": 123
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3230.4906,
+          "original_GREEN2014_18_pointP_modelled_t": 183.114,
+          "original_geography_ID": "UK|UKG1",
+          "original_original_layerN_objectID": 298,
+          "original_original_layerP_objectID": 135
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3647.7966,
+          "original_GREEN2014_18_pointP_modelled_t": 291.4708,
+          "original_geography_ID": "UK|UKG2",
+          "original_original_layerN_objectID": 279,
+          "original_original_layerP_objectID": 124
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5290.8614,
+          "original_GREEN2014_18_pointP_modelled_t": 317.6252,
+          "original_geography_ID": "UK|UKG3",
+          "original_original_layerN_objectID": 272,
+          "original_original_layerP_objectID": 150
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6397.9252,
+          "original_GREEN2014_18_pointP_modelled_t": 707.999,
+          "original_geography_ID": "UK|UKH1",
+          "original_original_layerN_objectID": 299,
+          "original_original_layerP_objectID": 136
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3654.901,
+          "original_GREEN2014_18_pointP_modelled_t": 179.4004,
+          "original_geography_ID": "UK|UKH2",
+          "original_original_layerN_objectID": 285,
+          "original_original_layerP_objectID": 145
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3292.9396,
+          "original_GREEN2014_18_pointP_modelled_t": 389.828,
+          "original_geography_ID": "UK|UKH3",
+          "original_original_layerN_objectID": 280,
+          "original_original_layerP_objectID": 128
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 521.8362,
+          "original_GREEN2014_18_pointP_modelled_t": 53.7258,
+          "original_geography_ID": "UK|UKI4",
+          "original_original_layerN_objectID": 257,
+          "original_original_layerP_objectID": 154
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 11030.9576,
+          "original_GREEN2014_18_pointP_modelled_t": 1247.1644,
+          "original_geography_ID": "UK|UKI5",
+          "original_original_layerN_objectID": 273,
+          "original_original_layerP_objectID": 151
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2367.3344,
+          "original_GREEN2014_18_pointP_modelled_t": 165.1634,
+          "original_geography_ID": "UK|UKI6",
+          "original_original_layerN_objectID": 302,
+          "original_original_layerP_objectID": 159
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3870.946,
+          "original_GREEN2014_18_pointP_modelled_t": 479.533,
+          "original_geography_ID": "UK|UKI7",
+          "original_original_layerN_objectID": 293,
+          "original_original_layerP_objectID": 126
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3920.254,
+          "original_GREEN2014_18_pointP_modelled_t": 219.0284,
+          "original_geography_ID": "UK|UKJ1",
+          "original_original_layerN_objectID": 286,
+          "original_original_layerP_objectID": 146
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4925.9514,
+          "original_GREEN2014_18_pointP_modelled_t": 428.2592,
+          "original_geography_ID": "UK|UKJ2",
+          "original_original_layerN_objectID": 282,
+          "original_original_layerP_objectID": 157
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3089.834,
+          "original_GREEN2014_18_pointP_modelled_t": 415.4052,
+          "original_geography_ID": "UK|UKJ3",
+          "original_original_layerN_objectID": 281,
+          "original_original_layerP_objectID": 143
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4479.1048,
+          "original_GREEN2014_18_pointP_modelled_t": 525.5924,
+          "original_geography_ID": "UK|UKJ4",
+          "original_original_layerN_objectID": 254,
+          "original_original_layerP_objectID": 133
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4989.4826,
+          "original_GREEN2014_18_pointP_modelled_t": 491.7296,
+          "original_geography_ID": "UK|UKK1",
+          "original_original_layerN_objectID": 301,
+          "original_original_layerP_objectID": 134
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2735.7442,
+          "original_GREEN2014_18_pointP_modelled_t": 325.4598,
+          "original_geography_ID": "UK|UKK2",
+          "original_original_layerN_objectID": 258,
+          "original_original_layerP_objectID": 155
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 921.353,
+          "original_GREEN2014_18_pointP_modelled_t": 127.634,
+          "original_geography_ID": "UK|UKK3",
+          "original_original_layerN_objectID": 290,
+          "original_original_layerP_objectID": 147
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2189.466,
+          "original_GREEN2014_18_pointP_modelled_t": 289.1428,
+          "original_geography_ID": "UK|UKK4",
+          "original_original_layerN_objectID": 294,
+          "original_original_layerP_objectID": 127
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3031.925,
+          "original_GREEN2014_18_pointP_modelled_t": 318.691,
+          "original_geography_ID": "UK|UKL1",
+          "original_original_layerN_objectID": 283,
+          "original_original_layerP_objectID": 158
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3947.6992,
+          "original_GREEN2014_18_pointP_modelled_t": 508.0934,
+          "original_geography_ID": "UK|UKL2",
+          "original_original_layerN_objectID": 277,
+          "original_original_layerP_objectID": 153
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 937.474,
+          "original_GREEN2014_18_pointP_modelled_t": 106.3876,
+          "original_geography_ID": "UK|UKM5",
+          "original_original_layerN_objectID": 295,
+          "original_original_layerP_objectID": 140
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5459.0636,
+          "original_GREEN2014_18_pointP_modelled_t": 674.7832,
+          "original_geography_ID": "UK|UKM6",
+          "original_original_layerN_objectID": 255,
+          "original_original_layerP_objectID": 141
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5214.102,
+          "original_GREEN2014_18_pointP_modelled_t": 1116.1934,
+          "original_geography_ID": "UK|UKM7",
+          "original_original_layerN_objectID": 274,
+          "original_original_layerP_objectID": 152
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3839.0832,
+          "original_GREEN2014_18_pointP_modelled_t": 483.0088,
+          "original_geography_ID": "UK|UKM8",
+          "original_original_layerN_objectID": 256,
+          "original_original_layerP_objectID": 142
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5982.4606,
+          "original_GREEN2014_18_pointP_modelled_t": 680.594,
+          "original_geography_ID": "UK|UKM9",
+          "original_original_layerN_objectID": 304,
+          "original_original_layerP_objectID": 156
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3281.865,
+          "original_GREEN2014_18_pointP_modelled_t": 626.9008,
+          "original_geography_ID": "UK|UKN0",
+          "original_original_layerN_objectID": 303,
+          "original_original_layerP_objectID": 160
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4777.2842,
+          "original_GREEN2014_18_pointP_modelled_t": 807.0302,
+          "original_geography_ID": "XK|XK00",
+          "original_original_layerN_objectID": 289,
+          "original_original_layerP_objectID": 337
+        }
+      ],
+      "source_official_API_pages_original_SHA256_and_urls": {
+        "N": [
+          {
+            "SHA256": "65f9014be0d48c1aff276ba26b7a2a3fa21066ef5f27b7f87965a65df090e230",
+            "n": 337,
+            "stage": "count",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/4/query?f=json&where=1%3D1&returnCountOnly=true"
+          },
+          {
+            "SHA256": "ecd2dd8a54a784f05b174ff946eb0a7f4c0b0c3bb2910a4d9034f0b7f51d93e1",
+            "n": 337,
+            "stage": "ids",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/4/query?f=json&where=1%3D1&returnIdsOnly=true"
+          },
+          {
+            "first_original_objectID": 1,
+            "last_original_objectID": 80,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/4/query?f=json&objectIds=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C44%2C45%2C46%2C47%2C48%2C49%2C50%2C51%2C52%2C53%2C54%2C55%2C56%2C57%2C58%2C59%2C60%2C61%2C62%2C63%2C64%2C65%2C66%2C67%2C68%2C69%2C70%2C71%2C72%2C73%2C74%2C75%2C76%2C77%2C78%2C79%2C80&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsN&returnGeometry=false",
+            "sha256": "aab5c79227cf5fca488b3133f5e8a6a8a6616ecdc81cddb5a383485570b6fa2e",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 81,
+            "last_original_objectID": 160,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/4/query?f=json&objectIds=81%2C82%2C83%2C84%2C85%2C86%2C87%2C88%2C89%2C90%2C91%2C92%2C93%2C94%2C95%2C96%2C97%2C98%2C99%2C100%2C101%2C102%2C103%2C104%2C105%2C106%2C107%2C108%2C109%2C110%2C111%2C112%2C113%2C114%2C115%2C116%2C117%2C118%2C119%2C120%2C121%2C122%2C123%2C124%2C125%2C126%2C127%2C128%2C129%2C130%2C131%2C132%2C133%2C134%2C135%2C136%2C137%2C138%2C139%2C140%2C141%2C142%2C143%2C144%2C145%2C146%2C147%2C148%2C149%2C150%2C151%2C152%2C153%2C154%2C155%2C156%2C157%2C158%2C159%2C160&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsN&returnGeometry=false",
+            "sha256": "a57db6cc3a61c7c82b54779571df4b91cfadad5dc8d431047c2e5192bf07fb30",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 161,
+            "last_original_objectID": 240,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/4/query?f=json&objectIds=161%2C162%2C163%2C164%2C165%2C166%2C167%2C168%2C169%2C170%2C171%2C172%2C173%2C174%2C175%2C176%2C177%2C178%2C179%2C180%2C181%2C182%2C183%2C184%2C185%2C186%2C187%2C188%2C189%2C190%2C191%2C192%2C193%2C194%2C195%2C196%2C197%2C198%2C199%2C200%2C201%2C202%2C203%2C204%2C205%2C206%2C207%2C208%2C209%2C210%2C211%2C212%2C213%2C214%2C215%2C216%2C217%2C218%2C219%2C220%2C221%2C222%2C223%2C224%2C225%2C226%2C227%2C228%2C229%2C230%2C231%2C232%2C233%2C234%2C235%2C236%2C237%2C238%2C239%2C240&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsN&returnGeometry=false",
+            "sha256": "ed1ada85381d40e3d6d2af814b86acd97e8f4f5f83e948e271f0f397b40616ed",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 241,
+            "last_original_objectID": 320,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/4/query?f=json&objectIds=241%2C242%2C243%2C244%2C245%2C246%2C247%2C248%2C249%2C250%2C251%2C252%2C253%2C254%2C255%2C256%2C257%2C258%2C259%2C260%2C261%2C262%2C263%2C264%2C265%2C266%2C267%2C268%2C269%2C270%2C271%2C272%2C273%2C274%2C275%2C276%2C277%2C278%2C279%2C280%2C281%2C282%2C283%2C284%2C285%2C286%2C287%2C288%2C289%2C290%2C291%2C292%2C293%2C294%2C295%2C296%2C297%2C298%2C299%2C300%2C301%2C302%2C303%2C304%2C305%2C306%2C307%2C308%2C309%2C310%2C311%2C312%2C313%2C314%2C315%2C316%2C317%2C318%2C319%2C320&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsN&returnGeometry=false",
+            "sha256": "0afcb8af0e242ec6d71024ed6887540ffa5f8302383a51178edbcf7c5d5c4bd5",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 321,
+            "last_original_objectID": 337,
+            "n": 17,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/4/query?f=json&objectIds=321%2C322%2C323%2C324%2C325%2C326%2C327%2C328%2C329%2C330%2C331%2C332%2C333%2C334%2C335%2C336%2C337&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsN&returnGeometry=false",
+            "sha256": "9e805e8d1930735df025497d1ab208de3374b3e54b652bf9a1c11d8eb28145ff",
+            "stage": "paged_original_attributes"
+          }
+        ],
+        "P": [
+          {
+            "SHA256": "65f9014be0d48c1aff276ba26b7a2a3fa21066ef5f27b7f87965a65df090e230",
+            "n": 337,
+            "stage": "count",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/33/query?f=json&where=1%3D1&returnCountOnly=true"
+          },
+          {
+            "SHA256": "ecd2dd8a54a784f05b174ff946eb0a7f4c0b0c3bb2910a4d9034f0b7f51d93e1",
+            "n": 337,
+            "stage": "ids",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/33/query?f=json&where=1%3D1&returnIdsOnly=true"
+          },
+          {
+            "first_original_objectID": 1,
+            "last_original_objectID": 80,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/33/query?f=json&objectIds=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C44%2C45%2C46%2C47%2C48%2C49%2C50%2C51%2C52%2C53%2C54%2C55%2C56%2C57%2C58%2C59%2C60%2C61%2C62%2C63%2C64%2C65%2C66%2C67%2C68%2C69%2C70%2C71%2C72%2C73%2C74%2C75%2C76%2C77%2C78%2C79%2C80&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsP&returnGeometry=false",
+            "sha256": "83ba427364410f9ac07a80142735ba562c285f9c7705fabe8143815b0cc12a3b",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 81,
+            "last_original_objectID": 160,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/33/query?f=json&objectIds=81%2C82%2C83%2C84%2C85%2C86%2C87%2C88%2C89%2C90%2C91%2C92%2C93%2C94%2C95%2C96%2C97%2C98%2C99%2C100%2C101%2C102%2C103%2C104%2C105%2C106%2C107%2C108%2C109%2C110%2C111%2C112%2C113%2C114%2C115%2C116%2C117%2C118%2C119%2C120%2C121%2C122%2C123%2C124%2C125%2C126%2C127%2C128%2C129%2C130%2C131%2C132%2C133%2C134%2C135%2C136%2C137%2C138%2C139%2C140%2C141%2C142%2C143%2C144%2C145%2C146%2C147%2C148%2C149%2C150%2C151%2C152%2C153%2C154%2C155%2C156%2C157%2C158%2C159%2C160&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsP&returnGeometry=false",
+            "sha256": "9395c4f18792a8d4711cd5ae1583da1aba37f23fb277dd1acc83dd61f00b337c",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 161,
+            "last_original_objectID": 240,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/33/query?f=json&objectIds=161%2C162%2C163%2C164%2C165%2C166%2C167%2C168%2C169%2C170%2C171%2C172%2C173%2C174%2C175%2C176%2C177%2C178%2C179%2C180%2C181%2C182%2C183%2C184%2C185%2C186%2C187%2C188%2C189%2C190%2C191%2C192%2C193%2C194%2C195%2C196%2C197%2C198%2C199%2C200%2C201%2C202%2C203%2C204%2C205%2C206%2C207%2C208%2C209%2C210%2C211%2C212%2C213%2C214%2C215%2C216%2C217%2C218%2C219%2C220%2C221%2C222%2C223%2C224%2C225%2C226%2C227%2C228%2C229%2C230%2C231%2C232%2C233%2C234%2C235%2C236%2C237%2C238%2C239%2C240&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsP&returnGeometry=false",
+            "sha256": "e36c3572ba0d4610c454920020315936e684b1946a9c44da932b0d55eb96972f",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 241,
+            "last_original_objectID": 320,
+            "n": 80,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/33/query?f=json&objectIds=241%2C242%2C243%2C244%2C245%2C246%2C247%2C248%2C249%2C250%2C251%2C252%2C253%2C254%2C255%2C256%2C257%2C258%2C259%2C260%2C261%2C262%2C263%2C264%2C265%2C266%2C267%2C268%2C269%2C270%2C271%2C272%2C273%2C274%2C275%2C276%2C277%2C278%2C279%2C280%2C281%2C282%2C283%2C284%2C285%2C286%2C287%2C288%2C289%2C290%2C291%2C292%2C293%2C294%2C295%2C296%2C297%2C298%2C299%2C300%2C301%2C302%2C303%2C304%2C305%2C306%2C307%2C308%2C309%2C310%2C311%2C312%2C313%2C314%2C315%2C316%2C317%2C318%2C319%2C320&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsP&returnGeometry=false",
+            "sha256": "c3426127469e1b080b6bf9f1b4c46d8bfb0bf1a6ebf08925c00c93a71a8b5c6a",
+            "stage": "paged_original_attributes"
+          },
+          {
+            "first_original_objectID": 321,
+            "last_original_objectID": 337,
+            "n": 17,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/33/query?f=json&objectIds=321%2C322%2C323%2C324%2C325%2C326%2C327%2C328%2C329%2C330%2C331%2C332%2C333%2C334%2C335%2C336%2C337&outFields=OBJECTID%2CcntrCode%2CNuts2%2CPsP&returnGeometry=false",
+            "sha256": "561eb699384924eb69747db4d76c39196890b24ebb15fe0a6fed5ff1956074a9",
+            "stage": "paged_original_attributes"
+          }
+        ]
+      }
+    },
+    "country": {
+      "N_source_quality": {
+        "all_original_features_n": 44,
+        "distinct_nonmissing_source_geographic_ids": 44,
+        "duplicate_country_region_key_count": 0,
+        "source_Ps_missing_numeric_count": 0,
+        "source_Ps_positive_count": 44,
+        "source_data_status": "FULL_SOURCE_COMPLETE"
+      },
+      "P_source_quality": {
+        "all_original_features_n": 44,
+        "distinct_nonmissing_source_geographic_ids": 44,
+        "duplicate_country_region_key_count": 0,
+        "source_Ps_missing_numeric_count": 0,
+        "source_Ps_positive_count": 44,
+        "source_data_status": "FULL_SOURCE_COMPLETE"
+      },
+      "basin_source_values_not_sampled_when_original_dataset_exceeds_6000": false,
+      "no_biological_2016_EQR_read": true,
+      "official_N_and_P_layer_indices": {
+        "N": 3,
+        "P": 32
+      },
+      "original_2016_EEA_benthic_country_overlap_codes": [
+        "AT",
+        "BE",
+        "DK",
+        "FR",
+        "HR",
+        "HU",
+        "IT",
+        "LT",
+        "LU",
+        "LV",
+        "NL",
+        "NO",
+        "SE"
+      ],
+      "original_2016_EEA_benthic_country_overlap_n": 13,
+      "original_complete_both_np_geographic_source_acquisition": true,
+      "original_modelled_NP_both_nonmissing_regions_n": 44,
+      "original_modelled_NP_joint_geographic_records_n": 44,
+      "original_region_id_field_names": [
+        "cntrCode"
+      ],
+      "source_all_original_2014to2018_JRC_modelled_point_NP_t_region_aggregates": [
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 148.7512,
+          "original_GREEN2014_18_pointP_modelled_t": 17.833,
+          "original_geography_ID": "AD",
+          "original_original_layerN_objectID": 37,
+          "original_original_layerP_objectID": 1
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6591.9956,
+          "original_GREEN2014_18_pointP_modelled_t": 959.7932,
+          "original_geography_ID": "AL",
+          "original_original_layerN_objectID": 38,
+          "original_original_layerP_objectID": 2
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 20136.6262,
+          "original_GREEN2014_18_pointP_modelled_t": 1348.6868,
+          "original_geography_ID": "AT",
+          "original_original_layerN_objectID": 39,
+          "original_original_layerP_objectID": 3
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3713.3172,
+          "original_GREEN2014_18_pointP_modelled_t": 601.1814,
+          "original_geography_ID": "BA",
+          "original_original_layerN_objectID": 40,
+          "original_original_layerP_objectID": 4
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 12620.223,
+          "original_GREEN2014_18_pointP_modelled_t": 1522.9704,
+          "original_geography_ID": "BE",
+          "original_original_layerN_objectID": 41,
+          "original_original_layerP_objectID": 5
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 9400.0166,
+          "original_GREEN2014_18_pointP_modelled_t": 1220.1264,
+          "original_geography_ID": "BG",
+          "original_original_layerN_objectID": 42,
+          "original_original_layerP_objectID": 6
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 7383.3884,
+          "original_GREEN2014_18_pointP_modelled_t": 1091.3938,
+          "original_geography_ID": "BY",
+          "original_original_layerN_objectID": 43,
+          "original_original_layerP_objectID": 7
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 16946.2662,
+          "original_GREEN2014_18_pointP_modelled_t": 1047.187,
+          "original_geography_ID": "CH",
+          "original_original_layerN_objectID": 44,
+          "original_original_layerP_objectID": 8
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 667.231,
+          "original_GREEN2014_18_pointP_modelled_t": 61.5444,
+          "original_geography_ID": "CY",
+          "original_original_layerN_objectID": 1,
+          "original_original_layerP_objectID": 9
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 10962.6124,
+          "original_GREEN2014_18_pointP_modelled_t": 1364.262,
+          "original_geography_ID": "CZ",
+          "original_original_layerN_objectID": 2,
+          "original_original_layerP_objectID": 10
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 115770.3918,
+          "original_GREEN2014_18_pointP_modelled_t": 7856.4832,
+          "original_geography_ID": "DE",
+          "original_original_layerN_objectID": 3,
+          "original_original_layerP_objectID": 11
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 11484.945,
+          "original_GREEN2014_18_pointP_modelled_t": 735.5698,
+          "original_geography_ID": "DK",
+          "original_original_layerN_objectID": 4,
+          "original_original_layerP_objectID": 12
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1426.458,
+          "original_GREEN2014_18_pointP_modelled_t": 123.2556,
+          "original_geography_ID": "EE",
+          "original_original_layerN_objectID": 5,
+          "original_original_layerP_objectID": 13
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 11610.7038,
+          "original_GREEN2014_18_pointP_modelled_t": 2242.2746,
+          "original_geography_ID": "EL",
+          "original_original_layerN_objectID": 6,
+          "original_original_layerP_objectID": 14
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 99795.2758,
+          "original_GREEN2014_18_pointP_modelled_t": 11227.6972,
+          "original_geography_ID": "ES",
+          "original_original_layerN_objectID": 7,
+          "original_original_layerP_objectID": 15
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 12731.9808,
+          "original_GREEN2014_18_pointP_modelled_t": 774.4256,
+          "original_geography_ID": "FI",
+          "original_original_layerN_objectID": 8,
+          "original_original_layerP_objectID": 16
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 127080.5888,
+          "original_GREEN2014_18_pointP_modelled_t": 11974.9318,
+          "original_geography_ID": "FR",
+          "original_original_layerN_objectID": 9,
+          "original_original_layerP_objectID": 17
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 6143.5468,
+          "original_GREEN2014_18_pointP_modelled_t": 817.7734,
+          "original_geography_ID": "HR",
+          "original_original_layerN_objectID": 10,
+          "original_original_layerP_objectID": 18
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 14069.0716,
+          "original_GREEN2014_18_pointP_modelled_t": 1575.6858,
+          "original_geography_ID": "HU",
+          "original_original_layerN_objectID": 11,
+          "original_original_layerP_objectID": 19
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 10624.9982,
+          "original_GREEN2014_18_pointP_modelled_t": 1203.8448,
+          "original_geography_ID": "IE",
+          "original_original_layerN_objectID": 12,
+          "original_original_layerP_objectID": 20
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 102145.0452,
+          "original_GREEN2014_18_pointP_modelled_t": 11845.2154,
+          "original_geography_ID": "IT",
+          "original_original_layerN_objectID": 13,
+          "original_original_layerP_objectID": 21
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 51.92,
+          "original_GREEN2014_18_pointP_modelled_t": 2.4856,
+          "original_geography_ID": "LI",
+          "original_original_layerN_objectID": 14,
+          "original_original_layerP_objectID": 22
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3300.5622,
+          "original_GREEN2014_18_pointP_modelled_t": 274.6172,
+          "original_geography_ID": "LT",
+          "original_original_layerN_objectID": 15,
+          "original_original_layerP_objectID": 23
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 816.4104,
+          "original_GREEN2014_18_pointP_modelled_t": 67.8724,
+          "original_geography_ID": "LU",
+          "original_original_layerN_objectID": 16,
+          "original_original_layerP_objectID": 24
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1920.92,
+          "original_GREEN2014_18_pointP_modelled_t": 185.3434,
+          "original_geography_ID": "LV",
+          "original_original_layerN_objectID": 17,
+          "original_original_layerP_objectID": 25
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 592.9824,
+          "original_GREEN2014_18_pointP_modelled_t": 90.1468,
+          "original_geography_ID": "MD",
+          "original_original_layerN_objectID": 18,
+          "original_original_layerP_objectID": 26
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 1094.3026,
+          "original_GREEN2014_18_pointP_modelled_t": 163.5368,
+          "original_geography_ID": "ME",
+          "original_original_layerN_objectID": 19,
+          "original_original_layerP_objectID": 27
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4114.1542,
+          "original_GREEN2014_18_pointP_modelled_t": 709.4888,
+          "original_geography_ID": "MK",
+          "original_original_layerN_objectID": 20,
+          "original_original_layerP_objectID": 28
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3942.1682,
+          "original_GREEN2014_18_pointP_modelled_t": 250.2842,
+          "original_geography_ID": "MT",
+          "original_original_layerN_objectID": 21,
+          "original_original_layerP_objectID": 29
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 21246.2582,
+          "original_GREEN2014_18_pointP_modelled_t": 1523.7036,
+          "original_geography_ID": "NL",
+          "original_original_layerN_objectID": 22,
+          "original_original_layerP_objectID": 30
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 19358.143,
+          "original_GREEN2014_18_pointP_modelled_t": 3132.0608,
+          "original_geography_ID": "NO",
+          "original_original_layerN_objectID": 23,
+          "original_original_layerP_objectID": 31
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 51314.4566,
+          "original_GREEN2014_18_pointP_modelled_t": 4414.4802,
+          "original_geography_ID": "PL",
+          "original_original_layerN_objectID": 24,
+          "original_original_layerP_objectID": 32
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 34851.2144,
+          "original_GREEN2014_18_pointP_modelled_t": 3570.3274,
+          "original_geography_ID": "PT",
+          "original_original_layerN_objectID": 25,
+          "original_original_layerP_objectID": 33
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 32750.2982,
+          "original_GREEN2014_18_pointP_modelled_t": 4052.5862,
+          "original_geography_ID": "RO",
+          "original_original_layerN_objectID": 26,
+          "original_original_layerP_objectID": 34
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 32621.4444,
+          "original_GREEN2014_18_pointP_modelled_t": 2995.6116,
+          "original_geography_ID": "RS",
+          "original_original_layerN_objectID": 27,
+          "original_original_layerP_objectID": 35
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 22450.898,
+          "original_GREEN2014_18_pointP_modelled_t": 3714.667,
+          "original_geography_ID": "RU",
+          "original_original_layerN_objectID": 28,
+          "original_original_layerP_objectID": 36
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 18568.3318,
+          "original_GREEN2014_18_pointP_modelled_t": 1244.9344,
+          "original_geography_ID": "SE",
+          "original_original_layerN_objectID": 29,
+          "original_original_layerP_objectID": 37
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 2714.0996,
+          "original_GREEN2014_18_pointP_modelled_t": 343.4654,
+          "original_geography_ID": "SI",
+          "original_original_layerN_objectID": 30,
+          "original_original_layerP_objectID": 38
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 3795.2348,
+          "original_GREEN2014_18_pointP_modelled_t": 427.1114,
+          "original_geography_ID": "SK",
+          "original_original_layerN_objectID": 31,
+          "original_original_layerP_objectID": 39
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 24.2792,
+          "original_GREEN2014_18_pointP_modelled_t": 3.0614,
+          "original_geography_ID": "SM",
+          "original_original_layerN_objectID": 32,
+          "original_original_layerP_objectID": 40
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 153637.044,
+          "original_GREEN2014_18_pointP_modelled_t": 26698.9184,
+          "original_geography_ID": "TR",
+          "original_original_layerN_objectID": 33,
+          "original_original_layerP_objectID": 41
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 5087.5514,
+          "original_GREEN2014_18_pointP_modelled_t": 774.9206,
+          "original_geography_ID": "UA",
+          "original_original_layerN_objectID": 34,
+          "original_original_layerP_objectID": 42
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 154214.3056,
+          "original_GREEN2014_18_pointP_modelled_t": 16296.1802,
+          "original_geography_ID": "UK",
+          "original_original_layerN_objectID": 35,
+          "original_original_layerP_objectID": 43
+        },
+        {
+          "N_and_P_original_both_coverage": true,
+          "original_GREEN2014_18_pointN_modelled_t": 4777.2842,
+          "original_GREEN2014_18_pointP_modelled_t": 807.0302,
+          "original_geography_ID": "XK",
+          "original_original_layerN_objectID": 36,
+          "original_original_layerP_objectID": 44
+        }
+      ],
+      "source_official_API_pages_original_SHA256_and_urls": {
+        "N": [
+          {
+            "SHA256": "134ab86f7005ea86c19469b34f9c7f0b3adf0091d611727605db27aa48bfc3d9",
+            "n": 44,
+            "stage": "count",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/3/query?f=json&where=1%3D1&returnCountOnly=true"
+          },
+          {
+            "SHA256": "993dc2be80bacc90c08b4bb50e1d64f0164cf9e9c276b494f827829c8df1d407",
+            "n": 44,
+            "stage": "ids",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/3/query?f=json&where=1%3D1&returnIdsOnly=true"
+          },
+          {
+            "first_original_objectID": 1,
+            "last_original_objectID": 44,
+            "n": 44,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/3/query?f=json&objectIds=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C44&outFields=OBJECTID%2CcntrCode%2CPsN&returnGeometry=false",
+            "sha256": "07b1faec660e7f4710f4587a63237f893489046f48aeb0324bc85846887eca43",
+            "stage": "paged_original_attributes"
+          }
+        ],
+        "P": [
+          {
+            "SHA256": "134ab86f7005ea86c19469b34f9c7f0b3adf0091d611727605db27aa48bfc3d9",
+            "n": 44,
+            "stage": "count",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/32/query?f=json&where=1%3D1&returnCountOnly=true"
+          },
+          {
+            "SHA256": "993dc2be80bacc90c08b4bb50e1d64f0164cf9e9c276b494f827829c8df1d407",
+            "n": 44,
+            "stage": "ids",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/32/query?f=json&where=1%3D1&returnIdsOnly=true"
+          },
+          {
+            "first_original_objectID": 1,
+            "last_original_objectID": 44,
+            "n": 44,
+            "original_layer_query_url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/32/query?f=json&objectIds=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C44&outFields=OBJECTID%2CcntrCode%2CPsP&returnGeometry=false",
+            "sha256": "08b18a6f34dee1f74e8d6f1943992afd615301534cfbaa51408b80cd63b21ae7",
+            "stage": "paged_original_attributes"
+          }
+        ]
+      }
+    },
+    "river_basin": {
+      "N_source_quality": {
+        "all_original_features_n": 71779,
+        "distinct_nonmissing_source_geographic_ids": null,
+        "duplicate_country_region_key_count": null,
+        "source_Ps_missing_numeric_count": null,
+        "source_Ps_positive_count": null,
+        "source_data_status": "COUNT_ONLY_TOO_LARGE_NO_NUTRIENT_VALUES"
+      },
+      "P_source_quality": {
+        "all_original_features_n": 71779,
+        "distinct_nonmissing_source_geographic_ids": null,
+        "duplicate_country_region_key_count": null,
+        "source_Ps_missing_numeric_count": null,
+        "source_Ps_positive_count": null,
+        "source_data_status": "COUNT_ONLY_TOO_LARGE_NO_NUTRIENT_VALUES"
+      },
+      "basin_source_values_not_sampled_when_original_dataset_exceeds_6000": true,
+      "no_biological_2016_EQR_read": true,
+      "official_N_and_P_layer_indices": {
+        "N": 5,
+        "P": 34
+      },
+      "original_2016_EEA_benthic_country_overlap_codes": [],
+      "original_2016_EEA_benthic_country_overlap_n": null,
+      "original_complete_both_np_geographic_source_acquisition": false,
+      "original_modelled_NP_both_nonmissing_regions_n": null,
+      "original_modelled_NP_joint_geographic_records_n": null,
+      "original_region_id_field_names": [
+        "BasinID"
+      ],
+      "source_all_original_2014to2018_JRC_modelled_point_NP_t_region_aggregates": [],
+      "source_official_API_pages_original_SHA256_and_urls": {
+        "N": [
+          {
+            "SHA256": "35d33a331a9a7430dde11f1e677e82d1ac918aeea07af44a233ddda09a6d7cc5",
+            "n": 71779,
+            "stage": "source_original_count_ONLY_no_values",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/5/query?f=json&where=1%3D1&returnCountOnly=true"
+          }
+        ],
+        "P": [
+          {
+            "SHA256": "35d33a331a9a7430dde11f1e677e82d1ac918aeea07af44a233ddda09a6d7cc5",
+            "n": 71779,
+            "stage": "source_original_count_ONLY_no_values",
+            "url": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer/34/query?f=json&where=1%3D1&returnCountOnly=true"
+          }
+        ]
+      }
+    }
+  },
+  "original_SOURCE_nutrients_are_modelled_GREEN_point_sources_DOMESTIC_AND_INDUSTRIAL": true,
+  "original_SOURCE_time_fiveyear_average_2014_2018_NOT_single2016": true,
+  "original_geographic_scale_is_country_NUTS2_RIVER_BASIN_NOT_individual_WWTP_reach": true,
+  "original_source_UNITS_tons_over_aggregated_area_without_2016_WWTP_specific_mass": true,
+  "schema": "gesui_OFFICIAL_JRC_GREEN_MAPSERVER_original_2014to2018_POINT_SOURCE_NP_3GEO_SCALES_SOURCE_v01",
+  "source_2016_EEA_BQE_site_metadata_only_SHA256": "5fdd43c9d63326519ef0069946eb5856add70744c9750f70c7bf2cc4edf200e6",
+  "source_do_not_equate_GREEN_aggregated_NP_with_2018_2022_reported_WWTP_actual_upstream_loads": true,
+  "source_gate_to_consider_EEA2016_NUTS2_spatial_join": true,
+  "source_original_46layer_GIS_schema_SHA256": "1d0771a79a7cacfe2ee28ac40be9b572f507fbccc5bfd768987555d92dff7517"
+}

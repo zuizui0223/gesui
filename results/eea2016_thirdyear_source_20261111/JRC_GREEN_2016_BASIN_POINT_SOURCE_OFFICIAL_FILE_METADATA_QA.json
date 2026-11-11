@@ -1,0 +1,75 @@
+{
+  "JRC_historical_2016_is_modelled_nutrient_apportionment_at_sea_basin_outlets": true,
+  "JRC_modelled_point_sources_combine_domestic_and_industrial_not_POTW_effluent_only": true,
+  "JRC_official_catalogue": "https://data.jrc.ec.europa.eu/dataset/fc72adb8-e70e-4ad9-b1f5-1a6c712394a6",
+  "JRC_official_original_research_data_DOI": "10.2905/JRC.GG4HJK8",
+  "NO_2016_real_WWTP_NP_tonnes_per_yr_inferred": true,
+  "UTC": "2026-11-11T05:54:28.570395+00:00",
+  "cannot_interpret_basin_outlet_modeled_point_share_as_nutrient_delivered_to_each_upstream_BQE_station": true,
+  "official_file_GDB_ARCGIS_sharing_source_URL": "https://arcgis-maps.jrc.ec.europa.eu/portal/sharing/rest/content/items/8b105c72109243798913853ad9d05072/data",
+  "original_2016_EEA_BQE_values_read": false,
+  "schema": "gesui_2016_independentJRC_GREEN1990to2021_pointsource_basinOutflow_SOURCE_METADATA_ONLY_v01",
+  "source_access_schema_first": {
+    "original_gdb_data_HEAD": {
+      "content_disposition": "attachment; filename=\"greenBasinLoad_vrsApr2024.gdb.zip\"; size=47068808",
+      "content_length": "47068808",
+      "content_type": "application/zip",
+      "final_url": "https://arcgis-maps.jrc.ec.europa.eu/portal/sharing/rest/content/items/8b105c72109243798913853ad9d05072/data",
+      "http_status": 200,
+      "preview_first_bytes": "",
+      "preview_is_ZIP": false,
+      "preview_json": null,
+      "preview_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "original_gdb_data_first_128KB": {
+      "content_disposition": "attachment; filename=\"greenBasinLoad_vrsApr2024.gdb.zip\"; size=47068808",
+      "content_length": "47068808",
+      "content_type": "application/zip",
+      "final_url": "https://arcgis-maps.jrc.ec.europa.eu/portal/sharing/rest/content/items/8b105c72109243798913853ad9d05072/data",
+      "http_status": 200,
+      "preview_first_bytes": "504b0304140000000000dd598c5b0000000000000000000000001e000000677265656e426173696e4c6f61645f767273417072323032342e6764622f",
+      "preview_is_ZIP": true,
+      "preview_json": null,
+      "preview_raw_sha256": "c2c44c88f9657aef55525195f02e697c2f80d94bb9f01ba22317aa56190f520a"
+    },
+    "original_item_json": {
+      "content_disposition": null,
+      "content_length": null,
+      "content_type": "application/json; charset=utf-8",
+      "final_url": "https://arcgis-maps.jrc.ec.europa.eu/portal/sharing/rest/content/items/8b105c72109243798913853ad9d05072?f=json",
+      "http_status": 200,
+      "preview_first_bytes": "7b226964223a223862313035633732313039323433373938393133383533616439643035303732222c226f776e6572223a2277617465725f6a6f625f",
+      "preview_is_ZIP": false,
+      "preview_json": {
+        "access": "public",
+        "created": 1765291998398,
+        "id": "8b105c72109243798913853ad9d05072",
+        "licenseInfo": null,
+        "modified": 1771251852692,
+        "name": "greenBasinLoad_vrsApr2024.gdb.zip",
+        "numViews": 236,
+        "size": 47068808,
+        "spatialReference": null,
+        "title": "greenBasinLoad_vrsApr2024_gdb",
+        "type": "File Geodatabase",
+        "typeKeywords": [
+          "File Geodatabase",
+          "zip"
+        ],
+        "url": null
+      },
+      "preview_raw_sha256": "e9ba85e52921d38b4933e8ee8a683458152bd5f3eb1e2a73bdcf5d745d3245b6"
+    },
+    "original_item_metadata": {
+      "content_disposition": null,
+      "content_length": null,
+      "content_type": "text/xml",
+      "final_url": "https://arcgis-maps.jrc.ec.europa.eu/portal/sharing/rest/content/items/8b105c72109243798913853ad9d05072/info/metadata/metadata.xml",
+      "http_status": 200,
+      "preview_first_bytes": "",
+      "preview_is_ZIP": false,
+      "preview_json": null,
+      "preview_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

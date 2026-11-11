@@ -1,0 +1,56 @@
+name: gesui actual official JRC GREEN Europe 2016 modeled point source GDB layer/source schema
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-GREEN-real-basin-GDB-source.yml"
+      - "scripts/gesui_JRC_GREEN_2016_basin_GDB_actual_source_layers.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_2016_JRC_GREEN_real_GDB_fields_NO_EEA_EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install source metadata only official GDB driver and QC dependencies
+        run: |
+          python -m pip install --quiet "numpy<3" pandas pyogrio
+          python -m py_compile scripts/gesui_JRC_GREEN_2016_basin_GDB_actual_source_layers.py
+      - name: Download exact original public JRC GREEN 1990–2021 47MB river basin outlet model data with source SHA
+        run: |
+          mkdir -p /tmp/gesuiJRC2016
+          curl --fail --location --retry 5 --retry-all-errors --connect-timeout 40 --max-time 800 \
+            --silent --show-error \
+            "https://arcgis-maps.jrc.ec.europa.eu/portal/sharing/rest/content/items/8b105c72109243798913853ad9d05072/data" \
+            -o /tmp/gesuiJRC2016/greenBasinLoad_vrsApr2024.gdb.zip
+          test "$(wc -c < /tmp/gesuiJRC2016/greenBasinLoad_vrsApr2024.gdb.zip)" -eq 47068808
+          sha256sum /tmp/gesuiJRC2016/greenBasinLoad_vrsApr2024.gdb.zip
+      - name: Inspect JRC actual modelled N/P point-source 2016 basin outlet fields and source geometry; no EEA BQE outcomes loaded
+        run: |
+          python -u scripts/gesui_JRC_GREEN_2016_basin_GDB_actual_source_layers.py \
+            --sourcezip /tmp/gesuiJRC2016/greenBasinLoad_vrsApr2024.gdb.zip \
+            --tmp /tmp/gesuiJRC2016/extracted \
+            --out results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_ACTUAL_OFFICIAL_GDB_LAYER_SOURCE_GATE.json
+      - name: Save JRC original source only, not mistaken for observed WWTP effluent 2016
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_ACTUAL_OFFICIAL_GDB_LAYER_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze official 2016 JRC GREEN European modeled basin outlet GDB nutrients, year-2016 and point-source schema separate from UWWTD measured source"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2016-JRC-GREEN1990-2021-European-basin-modelled-NP-source
+          path: results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_ACTUAL_OFFICIAL_GDB_LAYER_SOURCE_GATE.json
+          retention-days: 90

@@ -1,0 +1,68 @@
+name: gesui 2016 real EEA river benthic EQR vs JRC GREEN 2014-18 model point N P NUTS2 holdout
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-EEA-EQR-real-JRCNUTS2-POINTNP-OOS.yml"
+      - "scripts/gesui_2016_EEA_BQE_actual_EQR_vs_JRC_modelled_POINTNP_NUTS2CV.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_EEA_Biology2016_EQR_after_2016_GISCO_NUTS2_2014to18_JRC_sourceFREEZE:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Validate source-only 2016 EEA 2469 benthic,79 NUTS2 and original disjoint fold quality STOP before numeric ecology
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy scikit-learn statsmodels
+          python -m py_compile scripts/gesui_2016_EEA_BQE_actual_EQR_vs_JRC_modelled_POINTNP_NUTS2CV.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_NUTS2_FROZEN_5FOLDS_NO_EQR.json")
+          f=json.loads(p.read_text())
+          b=f["source_biological_classes"]["benthic_invertebrates"]
+          assert f["original_2016_EEA_numeric_EQR_outcome_VALUES_not_read"]
+          assert b["n_sites_source_fixed_before_EQR"]==2469
+          assert b["n_original_independent_NUTS2"]==79
+          assert b["original_reported_country_count"]==13
+          print("Original EEA 2016 region-disjoint SOURCE GATE SUCCESS",flush=True)
+          PY
+      - name: Fetch original official EEA Waterbase Biology 2026 2016 river EQR data and verify uncompressed fixed member SHA before outcome access
+        run: |
+          mkdir -p /tmp/gesui2016-original-EQR
+          curl --fail --location --retry 4 --retry-all-errors --connect-timeout 35 --max-time 630 \
+            --silent --show-error \
+            https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download \
+            -o /tmp/gesui2016-original-EQR/EEA_Waterbase_Biology2026.zip
+          test -s /tmp/gesui2016-original-EQR/EEA_Waterbase_Biology2026.zip
+      - name: Source-selected 2016 actual benthic EQR and phytobenthos EQR versus modeled 2014-18 regional JRC point N/P intensity, NUTS2-disjoint CV and country/method sensitivity
+        run: |
+          python -u scripts/gesui_2016_EEA_BQE_actual_EQR_vs_JRC_modelled_POINTNP_NUTS2CV.py \
+            --EEA-biology-zip /tmp/gesui2016-original-EQR/EEA_Waterbase_Biology2026.zip \
+            --out results/eea2016_thirdyear_source_20261111/2016_EEA_RIVER_BENTHIC_EQR_JRC_GREEN_MODEL_POINTNP_NUTS2_HELDOUT_RESULTS.json
+      - name: Archive original modelled EU regional point N/P 2014-18 to real 2016 standardized benthic EQR source checks, no 2016 measured UWWTD claims
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/2016_EEA_RIVER_BENTHIC_EQR_JRC_GREEN_MODEL_POINTNP_NUTS2_HELDOUT_RESULTS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Report actual 2016 EEA benthic/phytobenthos EQR response versus 2014-18 modelled JRC GREEN domestic+industrial N/P point loads via frozen 79 NUTS2 OOS"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2016-original-EEA-benthic-EQR-JRC-GREEN-pointNP-NUTS2-OOS
+          path: results/eea2016_thirdyear_source_20261111/2016_EEA_RIVER_BENTHIC_EQR_JRC_GREEN_MODEL_POINTNP_NUTS2_HELDOUT_RESULTS.json
+          retention-days: 90

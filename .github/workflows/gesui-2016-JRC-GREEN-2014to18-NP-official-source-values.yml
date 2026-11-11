@@ -1,0 +1,45 @@
+name: gesui official JRC 2014-18 GREEN point-source model N and P values country NUTS2 basin source
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-GREEN-2014to18-NP-official-source-values.yml"
+      - "scripts/gesui_JRC_GREEN2014to18_3scales_official_NP_source_download.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  real_JRC_OFFICIAL_GREEN_2014to2018_model_NP_sources_SOURCEONLY:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Check prior frozen JRC source 46 layer table metadata and EEA 2016 numeric-EQR-blind site geography
+        run: |
+          python -m pip install --quiet "numpy<3" pandas
+          python -m py_compile scripts/gesui_JRC_GREEN2014to18_3scales_official_NP_source_download.py
+      - name: Obtain original JRC GREEN officially published FIVE-year-average N and P source tonnes with exact area IDs at country, NUTS2 and basin scales
+        run: |
+          python -u scripts/gesui_JRC_GREEN2014to18_3scales_official_NP_source_download.py \
+            --out results/eea2016_thirdyear_source_20261111/JRC_GREEN_OFFICIAL_2014_18_MODELLED_POINT_NP_COUNTRY_NUTS2_BASIN_SOURCE.json
+      - name: Archive original public aggregate sources, complete API URL and responses SHA, not 2016 observed WWTP discharge or EQR ecological effect
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/JRC_GREEN_OFFICIAL_2014_18_MODELLED_POINT_NP_COUNTRY_NUTS2_BASIN_SOURCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze official 2014-18 GREEN modelled N/P domestic+industrial source values by Europe country NUTS2 basin before 2016 biology"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-JRC-GREEN-2014-18-real-NP-country-NUTS2-basin-source-values
+          path: results/eea2016_thirdyear_source_20261111/JRC_GREEN_OFFICIAL_2014_18_MODELLED_POINT_NP_COUNTRY_NUTS2_BASIN_SOURCE.json
+          retention-days: 90

@@ -1,0 +1,57 @@
+name: gesui 2016 official EEA real EQR independent RAW biological source and NumPy NUTS2 Ridge10 CV audit
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-NUTS2-EEA-RAW-EQR-independent-NumPy-QA.yml"
+      - "scripts/audit_gesui_EEA2016_JRC_green_NUTS2_rawEQR_manualNumPyCV.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independently_reconstruct_2016_EEA_original_EQR_and_region_predictive_MSE:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install NumPy-only separate Ridge normal-equations quality checker
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy
+          python -m py_compile scripts/audit_gesui_EEA2016_JRC_green_NUTS2_rawEQR_manualNumPyCV.py
+      - name: Retrieve original official EEA 2026 Biology archive and independently SHA-check 2016 original scientific member
+        run: |
+          mkdir -p /tmp/gesui2016-EQR-original-independent
+          curl --fail --location --retry 4 --retry-all-errors --connect-timeout 35 --max-time 630 \
+            --silent --show-error \
+            "https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download" \
+            -o /tmp/gesui2016-EQR-original-independent/EEA_Waterbase_Biology2026.zip
+          test -s /tmp/gesui2016-EQR-original-independent/EEA_Waterbase_Biology2026.zip
+          sha256sum /tmp/gesui2016-EQR-original-independent/EEA_Waterbase_Biology2026.zip
+      - name: Independently read raw original 2016 benthic and phytobenthos EQR and reproduce frozen NUTS2 fivefold forecast using manual NumPy Ridge10
+        run: |
+          python -u scripts/audit_gesui_EEA2016_JRC_green_NUTS2_rawEQR_manualNumPyCV.py \
+            --EEA-zip /tmp/gesui2016-EQR-original-independent/EEA_Waterbase_Biology2026.zip \
+            --out results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_POINTNP_RAW_SOURCE_INDEPENDENT_NUMPY5FOLD_QA.json
+      - name: Save exact distinct-source original 2016 EEA ecological model replay independent of sklearn/statsmodels
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_POINTNP_RAW_SOURCE_INDEPENDENT_NUMPY5FOLD_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independently rederive official 2016 EEA raw EQR numerical NUTS2 CV from JRC model point-NP frozen sources using NumPy"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2016-EQR-2014to2018-GREEN-PointNP-independent-original-NumPy
+          path: results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_POINTNP_RAW_SOURCE_INDEPENDENT_NUMPY5FOLD_QA.json
+          retention-days: 90
