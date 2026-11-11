@@ -1,0 +1,55 @@
+name: gesui NWCA2021 2021 DMR exact-source 75+177 wetland H_ALL/FQAI independent state-cluster QA
+on:
+  push:
+    branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-DMR2021-realNP-source-HALL-independentQA.yml"
+      - "scripts/audit_gesui_NWCA2021_2021_DMR_source_HALL_FQAI_original_statecluster_numpy.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_2021_DMR_real_source_wetland_plants_numpy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently original EPA 2021 plant H_ALL, native/alien and FQAI validation without statsmodels
+        run: |
+          python -m pip install --quiet "numpy<3" pandas
+          python -m py_compile scripts/audit_gesui_NWCA2021_2021_DMR_source_HALL_FQAI_original_statecluster_numpy.py
+      - name: Get exactly original four EPA NWCA2021 data files, no alteration to frozen DMR source
+        run: |
+          mkdir -p /tmp/gesui-2021dmr-wetland-audit
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 30 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-2021dmr-wetland-audit/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-2021dmr-wetland-audit/nwca21_$item-data.csv"
+          done
+      - name: Refit source-stable 75/177 original 2021 NPDES EXO DMR wetland groups via independent numpy state-cluster OLS and WLS
+        run: |
+          python -u scripts/audit_gesui_NWCA2021_2021_DMR_source_HALL_FQAI_original_statecluster_numpy.py \
+            --source-dir /tmp/gesui-2021dmr-wetland-audit \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_2021_DMR_EXACT_EXO_PLANT_75SITE_177SITE_NUMPY_INDEPENDENT_CI_QA.json
+      - name: Archive independent 2021 DMR historical same-feature wetland Shannon and plant quality source QA
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_2021_DMR_EXACT_EXO_PLANT_75SITE_177SITE_NUMPY_INDEPENDENT_CI_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit independent numeric 75/177 NWCA wetland plant Shannon and FQAI vs actual 2021 DMR N/P monitored EXO source"
+          git fetch origin analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git rebase origin/analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git push origin HEAD:analysis/us-nwca2021-2021dmr-feature-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2021DMR-75and177-original-wetland-Shannon-numpy-independent
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_2021_DMR_EXACT_EXO_PLANT_75SITE_177SITE_NUMPY_INDEPENDENT_CI_QA.json
+          retention-days: 90

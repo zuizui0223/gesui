@@ -1,0 +1,40 @@
+name: gesui USA NWCA2021 2021 measured DMR TNTP exact-source NEAR vs matched FAR opportunity
+on:
+  push:
+    branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-cal2021-DMR-sameEco-overlap-source.yml"
+      - "scripts/gesui_NWCA2021_DMR_monitoring_near_far_source_overlap_before_biology.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_2021_DMR_EXO_same_ecoregion_wetland_availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify original EPA 2021 DMR exact monitored 00600TN+00665TP source flags versus original 568 NWCA source site 2026 POTW exposure without HALL
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_DMR_monitoring_near_far_source_overlap_before_biology.py
+          python -u scripts/gesui_NWCA2021_DMR_monitoring_near_far_source_overlap_before_biology.py \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_CAL2021_ACTUAL_DMR_TNTP_NEARFAR_STATEECO_SOURCE_ONLY_GATE.json
+      - name: Preserve source-only original 2021 measured nutrients near wetland availability and fixed matching criteria
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_CAL2021_ACTUAL_DMR_TNTP_NEARFAR_STATEECO_SOURCE_ONLY_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze source-only same NWCA region near reported 2021 TNTP and matched far wetland plot coverage"
+          git fetch origin analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git rebase origin/analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git push origin HEAD:analysis/us-nwca2021-2021dmr-feature-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2021-NWCA-monitored-TNTP-POTW-sameStateEco-far-source
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_CAL2021_ACTUAL_DMR_TNTP_NEARFAR_STATEECO_SOURCE_ONLY_GATE.json
+          retention-days: 90

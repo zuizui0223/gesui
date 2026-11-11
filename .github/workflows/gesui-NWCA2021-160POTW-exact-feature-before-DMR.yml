@@ -1,0 +1,59 @@
+name: gesui US 2021 NWCA 568-site exact NPDES outfall-feature 2021 DMR PREOUTCOME SOURCE
+on:
+  push:
+    branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-160POTW-exact-feature-before-DMR.yml"
+      - "scripts/gesui_NWCA2021_568site_160POTWpermit_outfallFeature_pre_DMR_crosswalk.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_568_NWCA_160_registered_POTW_source_feature_IDs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install original source geometry parser only; no plant/chemistry outcomes
+        run: python -m pip install --quiet "numpy<3" pandas scipy
+      - name: Re-fetch source-SHA-pinned original ECHO November 2026 permitted features and four original NWCA2021 SITE_ID sources
+        run: |
+          mkdir -p /tmp/nwca2021-orig /tmp/echo-source
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --fail --retry 4 --connect-timeout 30 --max-time 240 -L --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/nwca2021-orig/nwca21_$item-data.csv"
+            test -s "/tmp/nwca2021-orig/nwca21_$item-data.csv"
+          done
+          curl --fail --retry 4 --connect-timeout 30 --max-time 400 -L --silent --show-error \
+            https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip \
+            -o /tmp/echo-source/npdes_outfalls_layer.zip
+          echo 'f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/echo-source/npdes_outfalls_layer.zip' | sha256sum -c -
+      - name: Re-identify exact administrative 2026 permit and permitted feature IDs within10km without opening wetland vegetation/real water nutrient outcomes
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_568site_160POTWpermit_outfallFeature_pre_DMR_crosswalk.py
+          python -u scripts/gesui_NWCA2021_568site_160POTWpermit_outfallFeature_pre_DMR_crosswalk.py \
+            --nwca-dir /tmp/nwca2021-orig \
+            --npdes-zip /tmp/echo-source/npdes_outfalls_layer.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_568WETLAND_160POTW_EXACT_PERMIT_FEATURE_SOURCE_BEFORE_2021DMR.json
+      - name: Freeze original 2026 historical-registration source-feature crosswalk for independently retrieved FY2021/22 discharge reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_568WETLAND_160POTW_EXACT_PERMIT_FEATURE_SOURCE_BEFORE_2021DMR.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original 568 wetlands and exact 2021-candidate NPDES permit-feature numbers before FY2021 DMR source"
+          git fetch origin analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git rebase origin/analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git push origin HEAD:analysis/us-nwca2021-2021dmr-feature-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-568site-original160permit-feature-preDMR
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_568WETLAND_160POTW_EXACT_PERMIT_FEATURE_SOURCE_BEFORE_2021DMR.json
+          retention-days: 90

@@ -1,0 +1,189 @@
+{
+  "historical_reported_outfall_NP_source_is_NOT_actual_wetland_water_hydrology_or_treatment": true,
+  "independent_75_and_177_source_plant_HALL_HNAT_HALlEN_FQAI_and_weighted_HALL_numpy_OLS_state_cluster": {
+    "DMR_actual2021_BOTH_TN_TP_same_EXO": {
+      "FQAIALL": {
+        "independent_beta_near10_minus_far20": 1.5343546075544325,
+        "independent_state_cluster95": [
+          -2.1223507964413706,
+          5.191060011550236
+        ],
+        "n": 75,
+        "n_far": 54,
+        "n_near": 21,
+        "source_design_rank": 16,
+        "source_matrix_columns": 17,
+        "states": 12,
+        "weighted_survey_area": false
+      },
+      "FQAINAT": {
+        "independent_beta_near10_minus_far20": 1.3652607547293554,
+        "independent_state_cluster95": [
+          -2.0160138106511036,
+          4.746535320109815
+        ],
+        "n": 75,
+        "n_far": 54,
+        "n_near": 21,
+        "source_design_rank": 16,
+        "source_matrix_columns": 17,
+        "states": 12,
+        "weighted_survey_area": false
+      },
+      "HALIEN": {
+        "independent_beta_near10_minus_far20": -0.12749022243199656,
+        "independent_state_cluster95": [
+          -0.41263380565371377,
+          0.15765336078972067
+        ],
+        "n": 75,
+        "n_far": 54,
+        "n_near": 21,
+        "source_design_rank": 16,
+        "source_matrix_columns": 17,
+        "states": 12,
+        "weighted_survey_area": false
+      },
+      "HALL": {
+        "independent_beta_near10_minus_far20": 0.005299844060671327,
+        "independent_state_cluster95": [
+          -0.22680536629050657,
+          0.23740505441184923
+        ],
+        "n": 75,
+        "n_far": 54,
+        "n_near": 21,
+        "source_design_rank": 16,
+        "source_matrix_columns": 17,
+        "states": 12,
+        "weighted_survey_area": false
+      },
+      "HALL_NWCA_designWeighted": {
+        "independent_beta_near10_minus_far20": 0.03057423078024568,
+        "independent_state_cluster95": [
+          -0.1462161011482631,
+          0.20736456270875447
+        ],
+        "n": 75,
+        "n_far": 54,
+        "n_near": 21,
+        "source_design_rank": 16,
+        "source_matrix_columns": 17,
+        "states": 12,
+        "weighted_survey_area": true
+      },
+      "HNAT": {
+        "independent_beta_near10_minus_far20": 0.01186767685503795,
+        "independent_state_cluster95": [
+          -0.21402273417714654,
+          0.23775808788722244
+        ],
+        "n": 75,
+        "n_far": 54,
+        "n_near": 21,
+        "source_design_rank": 16,
+        "source_matrix_columns": 17,
+        "states": 12,
+        "weighted_survey_area": false
+      }
+    },
+    "DMR_actual2021_TN_or_TP": {
+      "FQAIALL": {
+        "independent_beta_near10_minus_far20": -0.2088086212271763,
+        "independent_state_cluster95": [
+          -2.696241985296977,
+          2.2786247428426245
+        ],
+        "n": 177,
+        "n_far": 120,
+        "n_near": 57,
+        "source_design_rank": 31,
+        "source_matrix_columns": 32,
+        "states": 24,
+        "weighted_survey_area": false
+      },
+      "FQAINAT": {
+        "independent_beta_near10_minus_far20": -0.2389318877814636,
+        "independent_state_cluster95": [
+          -2.515764485980612,
+          2.037900710417685
+        ],
+        "n": 177,
+        "n_far": 120,
+        "n_near": 57,
+        "source_design_rank": 31,
+        "source_matrix_columns": 32,
+        "states": 24,
+        "weighted_survey_area": false
+      },
+      "HALIEN": {
+        "independent_beta_near10_minus_far20": -0.026665237269489522,
+        "independent_state_cluster95": [
+          -0.20039851877333936,
+          0.14706804423436032
+        ],
+        "n": 177,
+        "n_far": 120,
+        "n_near": 57,
+        "source_design_rank": 31,
+        "source_matrix_columns": 32,
+        "states": 24,
+        "weighted_survey_area": false
+      },
+      "HALL": {
+        "independent_beta_near10_minus_far20": -0.06555169766757779,
+        "independent_state_cluster95": [
+          -0.2108071813100795,
+          0.07970378597492392
+        ],
+        "n": 177,
+        "n_far": 120,
+        "n_near": 57,
+        "source_design_rank": 31,
+        "source_matrix_columns": 32,
+        "states": 24,
+        "weighted_survey_area": false
+      },
+      "HALL_NWCA_designWeighted": {
+        "independent_beta_near10_minus_far20": 0.05413612834036371,
+        "independent_state_cluster95": [
+          -0.07060601709968997,
+          0.17887827378041737
+        ],
+        "n": 177,
+        "n_far": 120,
+        "n_near": 57,
+        "source_design_rank": 31,
+        "source_matrix_columns": 32,
+        "states": 24,
+        "weighted_survey_area": true
+      },
+      "HNAT": {
+        "independent_beta_near10_minus_far20": -0.07023109331835367,
+        "independent_state_cluster95": [
+          -0.20557650556386434,
+          0.065114318927157
+        ],
+        "n": 177,
+        "n_far": 120,
+        "n_near": 57,
+        "source_design_rank": 31,
+        "source_matrix_columns": 32,
+        "states": 24,
+        "weighted_survey_area": false
+      }
+    }
+  },
+  "original_568_US_EPA_NWCA_source_only_SHA256": "c30e73798e251f78d0ca3d33b51d2854686ea0429d5d92c3508e49fee9f80fe7",
+  "original_568_source_site_SHA256s_verified_against_preoutcome_sample": true,
+  "original_EPA2021_raw_site_vegetation_water_source_SHA256": {
+    "hydrology_sources_wide": "92b56c5ee7599e84b0698e3b347af62512d040f0b64d89b8c6558a910d0f692e",
+    "siteinfo": "258029deb1bb49d6ae7396af76cfa29f6813e8dd64b8cff21437cc1d24cbf569",
+    "vegmetrics": "e0f2f8c5962cd0f8ee3045862e5d4ba588c082e28a4d6bf9d965df3c4d6a7c73",
+    "waterchem_wide": "c912a966ebf66547ad6acab5cc72ded4faa7180c14b9a58bcd3c502e2cae6fb1"
+  },
+  "original_EPA_2021_DMR_source_monitored_nearfar_gate_SHA256": "594b6c0e3c6bb700ee1b758ffd7b8b9e61335af380349b95190f5ecec6acb47e",
+  "original_primary_2021_NWCA_DMR_wetland_models_SHA256": "bc667b768b18de53e9c96dfdb8e69061cfacfa71cb4648396b2ed4a4d20cd5e4",
+  "schema": "gesui_EPA_NWCA2021_160POTW_2021DMR_2021_source75_177wetland_12_24state_independent_numpy_sourceQA_v01",
+  "site_subset_analysis_POSTHOC_and_small_12USstate_clusters_in_strict_both_group": true
+}
