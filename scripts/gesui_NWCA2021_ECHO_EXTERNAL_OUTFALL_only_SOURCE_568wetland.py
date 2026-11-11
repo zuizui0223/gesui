@@ -103,7 +103,7 @@ def geometry_only(root,nwca_dir,npdes_zip):
         raise ValueError("Original fixed NWCA site population changed")
     oldids={x["NWCA2021_source_site_visit_SHA256"]:x for x in base_src}
     newids={x["NWCA2021_source_site_visit_SHA256"]:x for x in new_sites}
-    if len(oldids)!=len(newids)!=568 or set(oldids)!=set(newids):
+    if len(oldids)!=568 or len(newids)!=568 or set(oldids)!=set(newids):
         raise ValueError("Original source NWCA site hashes mismatched after type restriction")
     old_near={i for i,x in oldids.items() if x["outfall_rows_within_10km"]>0}
     new_near={i for i,x in newids.items() if x["outfall_rows_within_10km"]>0}
