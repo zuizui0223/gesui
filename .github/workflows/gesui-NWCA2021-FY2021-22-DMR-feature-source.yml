@@ -4,6 +4,7 @@ on:
     branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
     paths:
       - ".github/workflows/gesui-NWCA2021-FY2021-22-DMR-feature-source.yml"
+      - "scripts/gesui_NWCA2021_ECHO_FY2021_FY2022_DMR_exact_NP_source_chuncks.py"
   workflow_dispatch:
 permissions:
   contents: write
