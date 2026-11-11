@@ -1,0 +1,39 @@
+name: gesui aquatic-terrestrial NRSA 1819 official source-only gate
+
+on:
+  push:
+    paths:
+      - "docs/AQUATIC_TERRESTRIAL_FUNCTIONAL_COUPLING_SOURCE_CONTRACT_20261111.md"
+      - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py"
+      - ".github/workflows/gesui-nrsa-1819-source-gate.yml"
+  pull_request:
+    paths:
+      - "docs/AQUATIC_TERRESTRIAL_FUNCTIONAL_COUPLING_SOURCE_CONTRACT_20261111.md"
+      - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py"
+      - ".github/workflows/gesui-nrsa-1819-source-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check syntax
+        run: python -m py_compile scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py
+      - name: Audit authentic 2018-19 EPA source same-visit coverage (no ecological effects)
+        run: python scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py
+      - name: Preserve metadata, counts, exact source URL and hashes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          path: ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA_1819_SOURCE_ONLY_QA.json
+          if-no-files-found: warn
+          retention-days: 30
