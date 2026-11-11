@@ -1,0 +1,1405 @@
+{
+  "2026_weekly_permit_date_plausible_is_NOT_proof_2021_actual_discharge": true,
+  "DMR_calendar2021_parameters": {
+    "00600": "total nitrogen as N",
+    "00665": "total phosphorus as P",
+    "50050": "effluent flow, separate optional"
+  },
+  "NO_FY2021_FY2022_DMR_measurements_accessed_in_this_source_stage": true,
+  "NO_butterfly_or_wetland_plant_HALL_or_measured_2021_wetland_TNTP_accessed": true,
+  "UTC": "2026-11-11T04:41:15.159986+00:00",
+  "exact_source_frozen_near10_registered_municipal_permit_ID_SHA256": [
+    "01fc05e6b6f3124d2dd781683477fdf1034ad4e9c33f29e680ca4622b7a16aee",
+    "01ffef8d4faa7de2e0fc2d9b46736e148e966fd0fc837f85d8aa292e49236688",
+    "05cd239a5df3e7b7d5234d86b4c05b17ece8e30d1d6c64eea80db785bd424848",
+    "06192f794ad6495ce8e11ff0b874c6baffde8166b25a1eaa2b9e00f7ac7f6b2b",
+    "08ab3755aea84f6a6f47e83e2b9c2395d6d514c52966a46caf1963f38d633d3a",
+    "0a608ae63016fd192212cc5743da7c3cee9e73f0cd82b6617495156b179a3820",
+    "0f6b8f50875b817d34d109a43fcc0d14a35960d6b47db408b2c28eb809e89432",
+    "10875ab48962533a5341847984ab0f062837f056d44315ef49fadaf670017cab",
+    "115bc683eb8232486004cd7e762791b56764e7427c332eec7ed6ce9d3fedde9e",
+    "116777f3a208d867e0bacdb4d470289368109ddd46bbaff637cb121e39e9f64e",
+    "11c7400b69ec1478310069ada68703779360180c063ca479d5f4c59c15cc9e07",
+    "13d6b1934a5b2dc643eadacd734147ad145f79073db023fd88310c8880d5e9f4",
+    "1920bd6ddc52710e618ed848f11cd7332147891bfdae73a842dfda3f2ee2c197",
+    "1e9b4bf5126093094583a54f0f1aed344bb0f148d57046d044a527e66a960050",
+    "2023c26f162bdb426e59ac0f0d87f666fcc45867d38ec4005d52b46b6cd518cd",
+    "20462bb567e5f0246e576c9d67234f33e40256e4b7830a1d3c293290d54e417d",
+    "24fc87541f9ebe82fc0d5a9660e0d110634a13c3e5153abd168b7043e713da42",
+    "25c6077dbbf00779b4903f39ace797ec494eb968b905be134ed6e5fe9f279214",
+    "2c6460a55039325e634f3b02087adc340c5fbbd18062885dc2be02cd456ab3f4",
+    "2c7e6c561b12bbbdade4e6e1c21f529585479b21d1fc2b4d6caa0310f8660a43",
+    "2e127fb8cc68d71eccb5a079e91c8d96f1c4d3721b39aa3d78ed6b2b6c06a914",
+    "2e199b1f161fe662b67ad2fba2944bd3073744a475e428f179a8ae5bb2a298f7",
+    "2fc559952c25ca62356c140823bc29ce6fd289dbfbd360236c729e56f516f9c6",
+    "30e08c71954f417e4c6cf3d491a0d33652c83c24bb4087229e88421e49e82bc6",
+    "35203b8fb4bd56f1b53137a303400cc15f3a9e2d57e0fc327e9d8bacab82ae8b",
+    "35542bfce3d9aad9d11d8838477f6bdb8640601327323e98b7e8ce2c4c255c95",
+    "359d7998c9b23ff18a73b50e91c458533f265e43b89ead10427b36ad5fa0fd92",
+    "390f582eb1ce5e470e67fa5a1e0d70d5de8b690cfb04c7a2e57b8fa75b191077",
+    "395cb89a909d7ce7d84b78c620be54c7e0b23af83e35a40ca128f9072b5575ca",
+    "3abde584e5c66c22d71cbbf1e4a4359f82926cc578bd105b385def931dc276f8",
+    "3b052eedf4a1ae944ac41064a454127353eeec86a30ba882e210590ba0c1fcca",
+    "3c1b06c0c8adfa97286d2d87dc048767cbd12ff8f5f27735e7dc0e794776e173",
+    "3c6e2ef1054974e2e459584d33818aa4708f8125f2efd5b2b4ae9b470700b1a5",
+    "3d91c2a44f1e39fc755519e7001b4ab754c3a46ea940321b302a05c074d6e12e",
+    "41e6dfe83b643ca078ef5d47cd88d8a4c6d70e98f298449d4b539f44ec1b4290",
+    "42c9ff22b34b1b53124b8606fc21f3387043ec532e72f66378c00ac850c1ecdc",
+    "44106fd454480caffc6b29746c971288661540f2c439ce68872147810ca0dd78",
+    "4681144937f10e8079aaf623d70065ab755bcf6e0768084ce1101258ffa19e53",
+    "4812572bb34198718f4d0e2514529ae47d53797aacd74f993d46f90e0205c333",
+    "4bcc21ed0fd879c254afc340c9b2438e6f8b4468d70bff0b656ebf6b1bdb112d",
+    "4cb0252d8e46d894a5470a413b14866e130eb4f5db14917f8cc259ba9b3a306c",
+    "4f0f86c99eb3461c59e1550273a636b10c6ed34323c75af9fc06e99360a17b19",
+    "510408c1dbc9d81e8d9010e5ee780e16ffc73d2f1141295fc88a12e8f02d3c69",
+    "514bd84fad8b0652fd9a154873ebea582f573e11228997f1c9cf0d09d469b9ef",
+    "55882d3a88d03c8625c83843f9922faf07f103659b8b00916bde79f4f45cb4e7",
+    "55a4faffb1c52cd106b1fa42a05dcc99cfb1a85a2976eb2bda78622cd98db4b3",
+    "56d47c7902efd7e8da3534c77dc92d8a9d0620fc4bfef29eee6f442b04c39c51",
+    "578af852ec028f3f618608bde3b894594a4c245774f9287c24f96d69a646c88e",
+    "59df44cf6d7236a22b0e38257862259ed1e9f09481080f885202b048544e8629",
+    "59e1d8e1cc031f34dee4c2f319dabbbbf0efad7fda5efb05865d6c28864ce8ce",
+    "59e907a555cf3fcdff7cdebc52a5ebb2681161fc8c6e8cae957f0bbe9e711516",
+    "5b729f3f3cd7764f58685d9c022373e3a041832044a9ae67f3730e6035689364",
+    "5dd6666a341d8ec42560a9aaa223dbe119a59492bda588dec33f5d9670c9abd6",
+    "5e7e915511cb7c9057036d363b84739cae4e58b73088f2735769f56b5da3a8ca",
+    "5f40296901545dda4fcb8f9f88098514c31df390810cd7e7176bf5b4def69267",
+    "5f4fe903f524c96711205214b4285eacf7899e4e205a1ef705d49a8ae0e0b5f5",
+    "600aaabb2ad7919369f95952219359c9d137e90b9c9485b34deaf645b34e1bda",
+    "6621b03648a2a528b42a7ad29b72a333b0305b453543ffa307c1e7be5bd82f72",
+    "67896d0a3c53fb2d6a10bd692c8ac4b46148f66843e6f72e2abb74c2dc6dccc7",
+    "69b4742aefc3680878776702930f61dfb000773cd090643774212b940429ad79",
+    "6cbb49ea18b2f772a8023fd4606f14bf29c87d3bdb8f118543ed685421aee603",
+    "6d14c4d2b01c3c303b44593799ce996ac59317a2f5efc9c18aaf82f330496675",
+    "6dc6aefe6aa55c5400f2668830bbe8c2c3eb4c171063d3c2d3d4addcec0d004d",
+    "6f9e5154e69d4603029248f4bd8338ccd283d2509c3576e57c6f61e65a49dcbe",
+    "710a64b486e2e9db79757110be5083a2aeb1e29078c13e869b9b55379b066529",
+    "711278e656c00728167d7b3719c9d6a179d4b292e2eb23355e769e1cf6146032",
+    "71658fdc398d8d5530c5c0a77981dbe826ffd9338e35382192fd6d0c5da87a2a",
+    "7457ca062333ac0b1321e68fe535214f3a2ff4120b00672aa41f3933540dcaf3",
+    "7512f95fe8da9b10d7d13effb5cf76b9b3247fd7205a3cdd26d9a09a8ceef25a",
+    "751c5eebacb82a34f800080c4971e7eb36abdefba39b5574d008669aeb9b9458",
+    "765765c37a1196664a4a76c2f065208879b101cbeb1314ff3299a1e72bb91b72",
+    "7bcfced188306c6eb9e06701a237e204c2500e1256fa899fd3c36f570b9a98f2",
+    "7d2b974c2d6b009a20ad3dca586cab82c1e4b42d9e5a9f6e898aadc0e4345705",
+    "7edea6b9d32408095e9890a7133a246d89065c679f0b91e5cc15093d15f736ce",
+    "82f116fe39faf115a228217ab6dca482da7ffadf27a5db431800a20eeed09b12",
+    "82fd065c13d4d2db51aab24c37f69b00d833ce341ef7956ca719ff256de15a43",
+    "843e8070b3d569358aa57ec78d0d4885df46bf972d5861dead7f3d03749b1c9c",
+    "8521eec028be8e6ef9715051c749d49b5e7e11ce8fde4c9ea73331c95a095999",
+    "8999cad72aae686ad26afb53ffd893a945a04cf8fe08a4511c0ef7f4e885afc4",
+    "89f9c20a71a8f20189c0eb7ed881fe95fd3a24243b25ea96d4e800b705a2a2e1",
+    "8aa370d63abc002fc5a4531b86f26b264303a8116d13cf24a76ef4a2bdc00f1d",
+    "8aaf8355a080043d3c4569ff6ce62318e50cd7ae72d098c3930909619030e2ce",
+    "8d3a3002c69466548f08ad7f9a52e36cdb568037a7ca8e27eb76eadbd5cfc700",
+    "8f02eb421512d6037c60cb9e386a716da225fcfd3ba6735010bce7f2ba1a667a",
+    "90f081cfc58dfcb047b1e977dce83572f7f93057b0e39ffbabbd2ec2fe098ec3",
+    "920c7dce254b868fc29514b9e79622d2fb63bef03bb38a46a09d066493eb2484",
+    "98c540770ac0b596481ab8787aefd3c552e5bac418069b7826196b04fe8861d6",
+    "992b3a107f7d69236919e9f92d0605792f70265e8aaf05ef0c36f6b2d126f82a",
+    "9b13c8ae81a173c6cc6f954d93b2e60a35ba0ab67db2436624f16cbb4266cad5",
+    "9b8c1142cc81f881cf71d7c9f0d76e4fd9c14dfc0d625a049076f85e008ef248",
+    "9bd2ff367beae97537b24fbfad51e909170fa2ce0e2bbcb4f81011cee4284791",
+    "9c17517d5270bcd3971cf0049c7a5634bf27b0c5c1b2449f489ad9529dc4dffd",
+    "9c248897fe31dbce6e94948fb2a3902736af6c2884d65584eaafa5da2b4cc190",
+    "9dd5e88c4edb6848986ac6c641ef6ec97d52bc19e1fec9ba0cc2ddcba6b65ed7",
+    "9e4cd1aa51ab0115a108c6a2a28386c33de3e8e864ecdc078154aa2a554b4240",
+    "9edd8bf490f9e37b0473f3a8aa060257f57606eae7b6971393b8c357489fd3f6",
+    "9fa7648def398318c0692ef7fc73758c1045a123f05d85d2c19541889ccd93ab",
+    "a07d654761d32a22dba4a1a01228388adad0ad3a75ccdf4d5313fbfe1c9a581d",
+    "a1c1331a4edc16f7e815ccaf8b91d01a6a0247923663f488725698d0b3b72eac",
+    "a2bbd09c14b45223cbc4117a66c27b0ace000479955a64ed70d0ea605ab144f3",
+    "a2e2969b67ac5eeda17fe21efc905492d1aae245bdb11ab61fa52403ad7db77d",
+    "a4cb5a86aa45e0586d6e122240b990a87c778cbdfa08b92a493c28c51cb5cde8",
+    "a6a3d73adf360eb26037cbf20c12573565b9418a66e3c5a26095d29ee98b104e",
+    "a758d3bf9740bbbb3eb6a12b086e4ab33b52b38c3a4abee866888b16e5ed5b5f",
+    "a8d7f5d93be274e05503d401a8d4158b54864b8dcf6e325aec0d6feae8b828ea",
+    "af73b8d26dee5e0215e2e0eceaee43a014cbfca48b378bbad8e828e5e316800c",
+    "b15da90aa6d9833475720a3df72ecc07ae6ae5b85d435db8183ec95655fd3bd3",
+    "b3176d6641523957f439aee80c3a1b3463f32cb31c27c5e193a777433c41b1dd",
+    "b4127ab40a479813213fe0b7d90daf9cb07a6d3761917427908412eaa64e8870",
+    "b66794b0b6be01dec3e840550796da1fd0b7f78d53790a3eb416ac50db71ffd0",
+    "b8447b15baabe1b63bd93214634ca68b9b4487ef50ebaeb668d3c6a4b4fcb9b9",
+    "b90a672883832d53682bd5b256795b581f0082eea7c7d956b63e191002b8a2e5",
+    "bbfb4fd668433712b4d438b3d3b35322aaf77aa5c90170405b6f2d90c9fb129a",
+    "c04a0a122564b517fe555bee5db4e2fcc88c2590ce8c64b6cef397c5e8903706",
+    "c3d4c9523863341856921fd105905fb74b7035f96fce34f04b4a1306a9cece4f",
+    "c457679eac0a938967b230be35da75b2d77ccd52ea87eabf53b8f927f5f7a68a",
+    "c60c0325b4b6ee418ed16f337630aa0cc78d617eeb90724a9d2727b25b95badd",
+    "c69602987ebbe9910d50e674d54ce915d57a3693eb727a1840628b2a9d99294b",
+    "c718f2e7a74bedc955fde597882714e6bfe4a94e89a6235da2a2f88ff91d73f3",
+    "c7e0428cc882206ffb18760b3dfe9aa6e8557975b52c6f4efabfa6c212dbfe30",
+    "ca4a6c5eed55c652dd36771bbe2ceee3722ae42c826049a0da9a5daa9fa52b68",
+    "cc100381c9cb7805817f1f2e13d35c95005306e9ecf0c76ebc27b5e8f174db86",
+    "cc7998ec56cdf6c2b24167af302f84f7c0f9391cc649b39703965ff6ced8b5a1",
+    "cca8aaadd444550ad641e54a7f23f11d97a60cf0413ae532f6ec88a421f585cd",
+    "ccd01fd97b827537284e6cb73413a31088011aa84d0b45aab59b6e5a1d71c666",
+    "ce407a974f3f550758c7e267096a2da8f1a4d7d678c5ff9553cbebc0ad68add4",
+    "ce898170e6c7593f6f6481c95dea1a65b957a4e6b4f78995a786e6154496550b",
+    "ce97b3490d6d5dbffa843aeacb870ff79221c617a0dd0c4eadcc41292d3beeee",
+    "cec2c7372622958fb15b039077e93d5697da1b978f7d5db33200326d2ab491d1",
+    "cfb286caf73607142746061a1fa74fde6fb888544c40dc936f44430a90337860",
+    "d33f5ada613c8ec80b251104fc14f2d11181e08fb66a4cb5b4ba9219ec5bfbe3",
+    "d5c84c46d02217a9264d294a829e757f59c3366a3c789bdc7fbeabd72f9603a4",
+    "d79152cea25ac7918f514d354ca46e987ccfbcf52c516e55b972db15d1b4db30",
+    "db2bc3f9ccc1e7878cf9c2ceff26ba2a444ca5b5f218bdd514d89cdd1638e790",
+    "dba37515525152305c5b2c5b7452b50a60b48499099e7e53bb425f9989c4271a",
+    "dd32c5c6cb0570e56c24cacf0a79b22fc33766093245cc9fef9fecaae3cf0c80",
+    "dded703a8b335eba67da342456089df5feeb0da07ef0ded700b91668a62a117c",
+    "df1923c198fd7a338d84096d6d1b158451b523cd626bdb1f8a4272efff787870",
+    "dfcfd66db28c8cb9b0b389684869b07b8e61a6d65a5088ab9ef6e3767b933a3c",
+    "e0671df6838cc76b5c9880187ce63a9349e1baf70534de34bd5241938353b36e",
+    "e188bdbaecaa18045369d203f550ef5f17b24851dc4585926248116a95dde48b",
+    "e200e17f73afce584f0b633c89d93644d939c32dc69fb06578ee0d740d5f9984",
+    "e3a99baf56f32561bf2197e7117e8fa88c2d104b619a71a1504049d58be15cc1",
+    "e4aa95d8a637916f393298ece61dc94852cb502b78f10a0699b9155948276b2d",
+    "e5b70a9b62ec1a006990f5e5d447368f7301be5c20102841e9dfc5b1cbf77303",
+    "e7f59817142f5a525793032b510799d42a8bffea48d4aa4112d01938ac09a202",
+    "e93c75e47f65ee052627c7473aea3d43dbd3dee8da68a0b33754c2481a00f85e",
+    "e9ab983960a01b039a1d99739f321b81bde080d1ed00c7592ef0c7358db4b61a",
+    "eaf038d101e6b82c529f0fdd87b0032c1796c122d92a498a796ae621f18e6843",
+    "ec7ff6de528a42ad784d7958c47b62eae21ad277957d7721e595ba1c3e9ca9cc",
+    "ec96a106bd9bacf14c4b797dad146ea3521216ce8990f0ed15201be8509d322b",
+    "eee33f0ca0f20d822e8966754da986beb7783fea1511b413db5828ef09d6733f",
+    "ef5ece625f25a840a024a9defb2ad28445ddecd2fb4ae8715ed145946aa46a77",
+    "f101fb97ae0872d05a317a304d34e05c125c69058e52e336d095f85719c852be",
+    "f28a6a5fa4d2aa9efbb393ad8270bd0c1d904738de3204b6b9f0ef0779f8e0a8",
+    "f2d83d691203acb39d2565ab507c55719ec8137dd78084b47917df4acf46b3a3",
+    "f397d7dd65dccc89465db8f9dc5d16199cb5079ba1be93f31d2e5ef0ea4e66a6",
+    "f530ab2b27c0202614bc1f83aed39f91ccfc601ba94585670bc9a23fcc75b285",
+    "f8707856880d99d6d0abd103d406d9cb3d5e33815e813b50ede95c37c9d969cf",
+    "f9f44eec1cb7b0f93f3534f64d86305e09e44481b9b89f8b64e8dc0c7b3d3903"
+  ],
+  "future_FY2021_AND_FY2022_source_DMR_fiscal_year_required_for_calendar2021": true,
+  "original_2021_study_potential_near10_sites": 128,
+  "original_2021_study_potential_near10_states": 32,
+  "original_2026_ECHO_NPDES_source_zip_SHA256": "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160",
+  "original_568_wetland_survey_firstvisit_source_sites": 568,
+  "original_EPA_NWCA2021_568source_2026_NPDES_geo_SHA256": "50eaf83fd3adf62e3affbbf072d3eb6d0dd457fc3dba09168231ea88abd45bc2",
+  "original_registered_municipal_NPDES_permit_ids_SHA256_COUNT": 160,
+  "original_site_near10_permits_2021outfallPlausible_from_2026_registry": [
+    {
+      "NWCA_site_visit_SHA256": "9bb62db7037d799ac705b4f03c67e6f9222b58961d28c8dd5a42c321be7151a4",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "ce97b3490d6d5dbffa843aeacb870ff79221c617a0dd0c4eadcc41292d3beeee"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "AL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "b41642d3bb971586925649ea2bd6d71ce706924a8b878adaa8632487084ff054",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2e199b1f161fe662b67ad2fba2944bd3073744a475e428f179a8ae5bb2a298f7",
+        "4bcc21ed0fd879c254afc340c9b2438e6f8b4468d70bff0b656ebf6b1bdb112d"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "AL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "92bed6f89f0831059e4fcf929455e9fea703485dbbf2f75355ecedc9be1b95dd",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2e199b1f161fe662b67ad2fba2944bd3073744a475e428f179a8ae5bb2a298f7",
+        "4bcc21ed0fd879c254afc340c9b2438e6f8b4468d70bff0b656ebf6b1bdb112d"
+      ],
+      "registered_potential_outfall_rows_10km": 5,
+      "state": "AL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "8dd425ada7fb26c0cf51ab0ff3e2207c3512ac01c5d5634762a070590d82e2e8",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2023c26f162bdb426e59ac0f0d87f666fcc45867d38ec4005d52b46b6cd518cd",
+        "ce97b3490d6d5dbffa843aeacb870ff79221c617a0dd0c4eadcc41292d3beeee"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "AL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3dbc13ce4354e5439e5453f729464f4ddccf6847021574ff9ff40b7091f91bb6",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "c457679eac0a938967b230be35da75b2d77ccd52ea87eabf53b8f927f5f7a68a"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "AL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "6e4eb30512f0f2300c4146f71e473347159cb4cea16fa97135d3c76d3659c2b2",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "08ab3755aea84f6a6f47e83e2b9c2395d6d514c52966a46caf1963f38d633d3a"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "15935ad418399e87b9218a2a5cc2794e627f8690cf5390e9c66b007adfbc2d34",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cca8aaadd444550ad641e54a7f23f11d97a60cf0413ae532f6ec88a421f585cd"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "11012aa2437626685f574527be1d2b729d480f56de794cc882d389c72e29e03a",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "41e6dfe83b643ca078ef5d47cd88d8a4c6d70e98f298449d4b539f44ec1b4290"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "6e5aad5fdc238a8d61320149226754ebfddfb1c5a0e933419e85babf15141a44",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "20462bb567e5f0246e576c9d67234f33e40256e4b7830a1d3c293290d54e417d"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "df1d1eaaf861a3ab12c86bc38e1422924b59453a42d6a7e0d0e2e3d57f888779",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "08ab3755aea84f6a6f47e83e2b9c2395d6d514c52966a46caf1963f38d633d3a"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "7189bbc2d1a56ed1b0198acabdc7a4a6588f25dad75653632f26ae82ab727833",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a2bbd09c14b45223cbc4117a66c27b0ace000479955a64ed70d0ea605ab144f3"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d5b06ed1a6f1a3921c3bc58dca1ca584d30ff848042840a98535adecee830ea6",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cca8aaadd444550ad641e54a7f23f11d97a60cf0413ae532f6ec88a421f585cd"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "88e13308dbe3ba9a6823781c328ecba8548ca4cb706867540fb63a59568f1231",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cca8aaadd444550ad641e54a7f23f11d97a60cf0413ae532f6ec88a421f585cd"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "166dc95c3372f44f615cef75d01bd18b666e254a9c304e2f2900c2d2fc320948",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "992b3a107f7d69236919e9f92d0605792f70265e8aaf05ef0c36f6b2d126f82a"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "a9d1b211b5eb2441342f3ab554b5960cf43c473977699a6af05bdd1df4a1a74a",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "08ab3755aea84f6a6f47e83e2b9c2395d6d514c52966a46caf1963f38d633d3a"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "cbd11d7d2060da6c4cee0ca91fac6839bba4f829dcc27935f1939b85ffb49f2a",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "08ab3755aea84f6a6f47e83e2b9c2395d6d514c52966a46caf1963f38d633d3a"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "6ab52b32286aefbf029b1ddf5c68e3d6fc478fc1006c970b31704f800564a904",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a2bbd09c14b45223cbc4117a66c27b0ace000479955a64ed70d0ea605ab144f3"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0d375ca3b0e153a82086a3c613d581d05022581805bd7da9e473df60d97fe254",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "41e6dfe83b643ca078ef5d47cd88d8a4c6d70e98f298449d4b539f44ec1b4290"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "5e159df6f169d59fa1adf0c60b6c1660d64662611e58f1e550ac3f937872863d",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cca8aaadd444550ad641e54a7f23f11d97a60cf0413ae532f6ec88a421f585cd"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3a34b9028aea65cda25299bc67f2b841ac886c3b3ecfd4a07e9d7ad782f23f53",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cca8aaadd444550ad641e54a7f23f11d97a60cf0413ae532f6ec88a421f585cd"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "be53d78ec8a14a15aba9b08bf543cea782a800cccbc16ba502597c3cb1bf5d93",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "06192f794ad6495ce8e11ff0b874c6baffde8166b25a1eaa2b9e00f7ac7f6b2b",
+        "3abde584e5c66c22d71cbbf1e4a4359f82926cc578bd105b385def931dc276f8",
+        "5b729f3f3cd7764f58685d9c022373e3a041832044a9ae67f3730e6035689364"
+      ],
+      "registered_potential_outfall_rows_10km": 12,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "db458ed5a273b4b7bda2b9f9b96f5175ecc769d0936ce520c55226d1e72246e3",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "4812572bb34198718f4d0e2514529ae47d53797aacd74f993d46f90e0205c333",
+        "59df44cf6d7236a22b0e38257862259ed1e9f09481080f885202b048544e8629",
+        "c60c0325b4b6ee418ed16f337630aa0cc78d617eeb90724a9d2727b25b95badd"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "6250c48cdc3d5da247ecf40309e28f8a5146d5eaaa5bc7c90d23f46398a63312",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "f530ab2b27c0202614bc1f83aed39f91ccfc601ba94585670bc9a23fcc75b285"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "29debc20d5b215c8cef24166b04aa05c9bd91a43d9829602578ced2189271430",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "c3d4c9523863341856921fd105905fb74b7035f96fce34f04b4a1306a9cece4f"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "182f3c5ba702cacf6415dc77a3a8a750c8b6a43447fa2e15eb92ba8dbd6114f3",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "59e907a555cf3fcdff7cdebc52a5ebb2681161fc8c6e8cae957f0bbe9e711516"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "e407c5557037b41f604efa4032d03a43ba7bf12dc86e0ef22bba79a932916875",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "dfcfd66db28c8cb9b0b389684869b07b8e61a6d65a5088ab9ef6e3767b933a3c"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d9866e40c601fd90aae92a5d63b4b3803276f999010ce6f70ba295a9be39f658",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "6621b03648a2a528b42a7ad29b72a333b0305b453543ffa307c1e7be5bd82f72"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "874e4774a85a60371e3deb0892840d41488d32fb00948ed9515d9c2b107b0164",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "06192f794ad6495ce8e11ff0b874c6baffde8166b25a1eaa2b9e00f7ac7f6b2b",
+        "3abde584e5c66c22d71cbbf1e4a4359f82926cc578bd105b385def931dc276f8"
+      ],
+      "registered_potential_outfall_rows_10km": 6,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "cf33557b3426686b386bb459c9e74f4be19840e8a0b9d8653ef43180ec0212d5",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "f2d83d691203acb39d2565ab507c55719ec8137dd78084b47917df4acf46b3a3"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "84c44824f6e6f55f48344cadbf4b0741ee871d3f169379ccf5bf8cc17caadab5",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "b8447b15baabe1b63bd93214634ca68b9b4487ef50ebaeb668d3c6a4b4fcb9b9"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3b411513c2999a4294ec28ca6195e7467522efa6f8eef5c779b3900b0026ae7c",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "0a608ae63016fd192212cc5743da7c3cee9e73f0cd82b6617495156b179a3820",
+        "af73b8d26dee5e0215e2e0eceaee43a014cbfca48b378bbad8e828e5e316800c"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "a25c04c01f2c94920c0d5d3895aac59c892ba0a1590c88f9aaeecdbe599ff54c",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "35203b8fb4bd56f1b53137a303400cc15f3a9e2d57e0fc327e9d8bacab82ae8b",
+        "765765c37a1196664a4a76c2f065208879b101cbeb1314ff3299a1e72bb91b72"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "e97222b6cc5cd2d81ce289548f6a961f473261dce3d06e6dbc489d0c2d47cba9",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "05cd239a5df3e7b7d5234d86b4c05b17ece8e30d1d6c64eea80db785bd424848"
+      ],
+      "registered_potential_outfall_rows_10km": 5,
+      "state": "CO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "f5db5b54b3a4810bef08bf286af9a779b6f3613fa5004d1565cd296952b16f9b",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a1c1331a4edc16f7e815ccaf8b91d01a6a0247923663f488725698d0b3b72eac",
+        "ce898170e6c7593f6f6481c95dea1a65b957a4e6b4f78995a786e6154496550b",
+        "e9ab983960a01b039a1d99739f321b81bde080d1ed00c7592ef0c7358db4b61a"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "CT"
+    },
+    {
+      "NWCA_site_visit_SHA256": "f5af60863a9551c04b29a6dfbd4e3381da161b2aea5ce9b74f317d0514b09568",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "55882d3a88d03c8625c83843f9922faf07f103659b8b00916bde79f4f45cb4e7"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CT"
+    },
+    {
+      "NWCA_site_visit_SHA256": "99e262157b9ac97b156c9110097317ebde83dfbf77d6fe1780d3f17fdf6e961a",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a1c1331a4edc16f7e815ccaf8b91d01a6a0247923663f488725698d0b3b72eac",
+        "ce898170e6c7593f6f6481c95dea1a65b957a4e6b4f78995a786e6154496550b",
+        "e9ab983960a01b039a1d99739f321b81bde080d1ed00c7592ef0c7358db4b61a"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "CT"
+    },
+    {
+      "NWCA_site_visit_SHA256": "67101c95acd0f00ea880a3f6ee076e6a37c607fd0db898e3e99d223c7a36c16f",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "6f9e5154e69d4603029248f4bd8338ccd283d2509c3576e57c6f61e65a49dcbe"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "CT"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3be96b7d65a56cf76a176231ac1b6a64ff952f332ec62c8ef9ef4281f2e13929",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "578af852ec028f3f618608bde3b894594a4c245774f9287c24f96d69a646c88e",
+        "59e1d8e1cc031f34dee4c2f319dabbbbf0efad7fda5efb05865d6c28864ce8ce",
+        "9b13c8ae81a173c6cc6f954d93b2e60a35ba0ab67db2436624f16cbb4266cad5",
+        "c04a0a122564b517fe555bee5db4e2fcc88c2590ce8c64b6cef397c5e8903706",
+        "dba37515525152305c5b2c5b7452b50a60b48499099e7e53bb425f9989c4271a"
+      ],
+      "registered_potential_outfall_rows_10km": 14,
+      "state": "GA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "87e9563546b5a31c1e29c6ec70d4670b7e76d176c4cad1be1afaddbb73299de5",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "3c1b06c0c8adfa97286d2d87dc048767cbd12ff8f5f27735e7dc0e794776e173"
+      ],
+      "registered_potential_outfall_rows_10km": 12,
+      "state": "GA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "4159f324f53831f2e8f173708b10ed788bd53ef14a3be0f3c3019c1fd62fec5c",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "116777f3a208d867e0bacdb4d470289368109ddd46bbaff637cb121e39e9f64e",
+        "69b4742aefc3680878776702930f61dfb000773cd090643774212b940429ad79"
+      ],
+      "registered_potential_outfall_rows_10km": 5,
+      "state": "GA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "2b98957b99168fe846361d012e9e37cd806d4ca0bea9dbf8a3b6d50f410343e8",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "395cb89a909d7ce7d84b78c620be54c7e0b23af83e35a40ca128f9072b5575ca"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "GA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3366fa8ca8e168d424fa2d9ab8dfc51547f035890b4823e28f3fb037b155cc42",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "44106fd454480caffc6b29746c971288661540f2c439ce68872147810ca0dd78"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "GA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "cdb222af949976ddb2410438ce0e5809692370571f098d8986bceb9a9052100e",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "e93c75e47f65ee052627c7473aea3d43dbd3dee8da68a0b33754c2481a00f85e"
+      ],
+      "registered_potential_outfall_rows_10km": 12,
+      "state": "GA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "6b19bc370d2a3956f62b359f047ea283d6b2cd1fbb266b0f2908eba08aaa477f",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "b66794b0b6be01dec3e840550796da1fd0b7f78d53790a3eb416ac50db71ffd0"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "IA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "e4c2f25d9de4f7ea70b8cd6ebb5dea8859d8186e00dce2360472e2fc2b1f2ae9",
+      "ecoregion": "XER",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cfb286caf73607142746061a1fa74fde6fb888544c40dc936f44430a90337860"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "ID"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0845bf55c5e7a619da556ca7d05924cc846180d22ec7e3e9af980fdf85ccd7a9",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cec2c7372622958fb15b039077e93d5697da1b978f7d5db33200326d2ab491d1"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "IL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "191a4b7bf896cfdb4b7196ec1f563ac1e6e1abdc18916c1ec040caf17692a7a2",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "359d7998c9b23ff18a73b50e91c458533f265e43b89ead10427b36ad5fa0fd92",
+        "600aaabb2ad7919369f95952219359c9d137e90b9c9485b34deaf645b34e1bda",
+        "8999cad72aae686ad26afb53ffd893a945a04cf8fe08a4511c0ef7f4e885afc4",
+        "ec96a106bd9bacf14c4b797dad146ea3521216ce8990f0ed15201be8509d322b",
+        "f101fb97ae0872d05a317a304d34e05c125c69058e52e336d095f85719c852be"
+      ],
+      "registered_potential_outfall_rows_10km": 17,
+      "state": "IL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "50b3fadde440fe8e193794e524e0052ba15a629f8c1e83e5e0f7115077464118",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "cec2c7372622958fb15b039077e93d5697da1b978f7d5db33200326d2ab491d1"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "IL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "19e1b76d7fa997ab4cf2664a52f7663e3116c2000cebe22680f6378088939021",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2fc559952c25ca62356c140823bc29ce6fd289dbfbd360236c729e56f516f9c6"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "IL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "ecb771aa7d1e8c6cb45e91deca1b1fd5d7228574267f58844f4e56096986d8ae",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "c69602987ebbe9910d50e674d54ce915d57a3693eb727a1840628b2a9d99294b"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "IL"
+    },
+    {
+      "NWCA_site_visit_SHA256": "2a511396a812f689727a63f8a104a176b9fd1b6c117dd0ace00c8919cfe33eac",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "3c6e2ef1054974e2e459584d33818aa4708f8125f2efd5b2b4ae9b470700b1a5"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "KS"
+    },
+    {
+      "NWCA_site_visit_SHA256": "ee9c07f3bec8fd04e5f340ffd3569db2ab67768b0b060276c7dc56a713f88c48",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a2e2969b67ac5eeda17fe21efc905492d1aae245bdb11ab61fa52403ad7db77d"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "KY"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3ba46dc8acdf83c041ac3a6e2cc9299b51da53135633c34c4031fe39b51e5666",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "c718f2e7a74bedc955fde597882714e6bfe4a94e89a6235da2a2f88ff91d73f3"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "LA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "bca36a87a109d1903ce8d0d09c975c74e34752a5377fe7a4133f1172a9746290",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "dd32c5c6cb0570e56c24cacf0a79b22fc33766093245cc9fef9fecaae3cf0c80"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "LA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "adaf29484f2b5b3d370470b1fabb0b67e175231c40c456036980adc230e20580",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "6d14c4d2b01c3c303b44593799ce996ac59317a2f5efc9c18aaf82f330496675",
+        "f397d7dd65dccc89465db8f9dc5d16199cb5079ba1be93f31d2e5ef0ea4e66a6"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "LA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3a74f08e1fee4fafb0425b353d03e693bf9ccf800d764027b013e0bee9ea6f8b",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "b90a672883832d53682bd5b256795b581f0082eea7c7d956b63e191002b8a2e5"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "LA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "29ae5e8b467fb02011323abb3c9035de091d7c03d3538c518b2d9edf07536c24",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "25c6077dbbf00779b4903f39ace797ec494eb968b905be134ed6e5fe9f279214"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "LA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "b244dea4eec15edf2df3bfdbf60c19cb05b0c6bc19638ceae6e0d9341ceb7ede",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a8d7f5d93be274e05503d401a8d4158b54864b8dcf6e325aec0d6feae8b828ea",
+        "b15da90aa6d9833475720a3df72ecc07ae6ae5b85d435db8183ec95655fd3bd3"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "LA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "073395f629c3fe2490c9c18110761a5ed1cf4379e1b48d19025919fee873aea4",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "1920bd6ddc52710e618ed848f11cd7332147891bfdae73a842dfda3f2ee2c197",
+        "98c540770ac0b596481ab8787aefd3c552e5bac418069b7826196b04fe8861d6",
+        "a6a3d73adf360eb26037cbf20c12573565b9418a66e3c5a26095d29ee98b104e"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "LA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "54493e612303136ab3d7ac59bf38819aac0d39058651b70f9d10498b3401436f",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "f28a6a5fa4d2aa9efbb393ad8270bd0c1d904738de3204b6b9f0ef0779f8e0a8"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d91631d1e8ca9e2f1ff8b8628d258b3b2ea1fa85c2f1fbc0b46e6113a8b7027a",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2c7e6c561b12bbbdade4e6e1c21f529585479b21d1fc2b4d6caa0310f8660a43"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "8fd5ecbb4af7921b89bdc0208ab7982231778a844530637d926beed85129b096",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2c7e6c561b12bbbdade4e6e1c21f529585479b21d1fc2b4d6caa0310f8660a43"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "9bf070b884badcf1c6328acdbdc56864eff2eae47feb3f40891b0c2b16e26a35",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "dded703a8b335eba67da342456089df5feeb0da07ef0ded700b91668a62a117c"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MD"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d1e1809c180c83e0eb06003293adcf5aaba8f92022e6661e81a04107a4a4696d",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "8aaf8355a080043d3c4569ff6ce62318e50cd7ae72d098c3930909619030e2ce"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MD"
+    },
+    {
+      "NWCA_site_visit_SHA256": "185a0485328ce81a974b218f58cf1944fbf3f06adc31a8f1a4e22184b172030e",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "90f081cfc58dfcb047b1e977dce83572f7f93057b0e39ffbabbd2ec2fe098ec3"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MD"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0bfecf8bb3ff333cd8771b048728fdbd17b65380ecabc2a358714eea6dc130b0",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "01fc05e6b6f3124d2dd781683477fdf1034ad4e9c33f29e680ca4622b7a16aee",
+        "7d2b974c2d6b009a20ad3dca586cab82c1e4b42d9e5a9f6e898aadc0e4345705"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "ME"
+    },
+    {
+      "NWCA_site_visit_SHA256": "2ac0e5fab1b95efd9406deb9225fd57642df3c626431ff5a2d716807947b9832",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "e7f59817142f5a525793032b510799d42a8bffea48d4aa4112d01938ac09a202"
+      ],
+      "registered_potential_outfall_rows_10km": 6,
+      "state": "ME"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3ebd33420ba35c15cfa1b95c1564419b72719fa944912001106c872c6e908354",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "7edea6b9d32408095e9890a7133a246d89065c679f0b91e5cc15093d15f736ce",
+        "bbfb4fd668433712b4d438b3d3b35322aaf77aa5c90170405b6f2d90c9fb129a",
+        "e0671df6838cc76b5c9880187ce63a9349e1baf70534de34bd5241938353b36e"
+      ],
+      "registered_potential_outfall_rows_10km": 16,
+      "state": "ME"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d3b45de03ca4a0f9f0996fda926e4f94791accc90f6a5dda8f92371c591f54ea",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "0f6b8f50875b817d34d109a43fcc0d14a35960d6b47db408b2c28eb809e89432"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "ME"
+    },
+    {
+      "NWCA_site_visit_SHA256": "a3dd544617e10f51963a8dd1b2006b473c884a79b71cde2cd7debea80bb1072a",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "42c9ff22b34b1b53124b8606fc21f3387043ec532e72f66378c00ac850c1ecdc"
+      ],
+      "registered_potential_outfall_rows_10km": 14,
+      "state": "MI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3fe413a8b1b926c37a1c599183c4da0457b5fb0d43ddbcaaada938685786880d",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "5f4fe903f524c96711205214b4285eacf7899e4e205a1ef705d49a8ae0e0b5f5",
+        "8f02eb421512d6037c60cb9e386a716da225fcfd3ba6735010bce7f2ba1a667a"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "MI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "2cba40a4d49519a8aced2ac0af63f8c2d97a3c31031526a6ee1666533c05cc65",
+      "ecoregion": "UMW",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "6dc6aefe6aa55c5400f2668830bbe8c2c3eb4c171063d3c2d3d4addcec0d004d"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "MI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "2874caf73b53bbdee23799de4f03acc4e27470736a332f4c224c45784f430ab1",
+      "ecoregion": "UMW",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "4cb0252d8e46d894a5470a413b14866e130eb4f5db14917f8cc259ba9b3a306c"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MN"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0dae1b32956bdf2a23257bc12a7ec3997db9571fdc835208ab3f1b3586fc623c",
+      "ecoregion": "UMW",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "9b8c1142cc81f881cf71d7c9f0d76e4fd9c14dfc0d625a049076f85e008ef248"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "MN"
+    },
+    {
+      "NWCA_site_visit_SHA256": "7bca5fcc4e7f9370f0830f0a132e41663124681a118b3e57288ff501bf112f14",
+      "ecoregion": "UMW",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "b4127ab40a479813213fe0b7d90daf9cb07a6d3761917427908412eaa64e8870"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MN"
+    },
+    {
+      "NWCA_site_visit_SHA256": "bfb3716be38f32c60489bde629dac846c2e6be28bcd35c2c446e804254f703f6",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "35542bfce3d9aad9d11d8838477f6bdb8640601327323e98b7e8ce2c4c255c95",
+        "7457ca062333ac0b1321e68fe535214f3a2ff4120b00672aa41f3933540dcaf3"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "MO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "ba5dab38a6cdb1a4083a19302b57ddd716bf1e5bd470072a10813208704cf702",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "4f0f86c99eb3461c59e1550273a636b10c6ed34323c75af9fc06e99360a17b19",
+        "5e7e915511cb7c9057036d363b84739cae4e58b73088f2735769f56b5da3a8ca",
+        "751c5eebacb82a34f800080c4971e7eb36abdefba39b5574d008669aeb9b9458",
+        "9edd8bf490f9e37b0473f3a8aa060257f57606eae7b6971393b8c357489fd3f6",
+        "e200e17f73afce584f0b633c89d93644d939c32dc69fb06578ee0d740d5f9984",
+        "f9f44eec1cb7b0f93f3534f64d86305e09e44481b9b89f8b64e8dc0c7b3d3903"
+      ],
+      "registered_potential_outfall_rows_10km": 14,
+      "state": "MO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "aac02c024ddf60074d79c035b3dea082d1dc714f5e4d94aa34038d1a95bf19f2",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "920c7dce254b868fc29514b9e79622d2fb63bef03bb38a46a09d066493eb2484"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "MO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "941c426e76750d881d2f6a88b3ab7b7a8d7509cca22986cf7d294cc2d52b43f4",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "ef5ece625f25a840a024a9defb2ad28445ddecd2fb4ae8715ed145946aa46a77"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "MO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "f702baa98fc37617b4e5380694473edfa1a384670ef427346b72eb9248b0997c",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "c7e0428cc882206ffb18760b3dfe9aa6e8557975b52c6f4efabfa6c212dbfe30"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "MO"
+    },
+    {
+      "NWCA_site_visit_SHA256": "dbc2c2ed0c97a40e207f9d26c731f9df9ddfc4204c809a9c4e33df26c0d6f564",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "ca4a6c5eed55c652dd36771bbe2ceee3722ae42c826049a0da9a5daa9fa52b68"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "MS"
+    },
+    {
+      "NWCA_site_visit_SHA256": "00869cd395a9526aaf862184267f408f1744ed3cdf006a5492b5440be9ad5a9a",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a758d3bf9740bbbb3eb6a12b086e4ab33b52b38c3a4abee866888b16e5ed5b5f"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "NH"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0b2c76970a64b9ffece440af815d3d1b237485360363ece7b5147a05902e4cca",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a758d3bf9740bbbb3eb6a12b086e4ab33b52b38c3a4abee866888b16e5ed5b5f"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "NH"
+    },
+    {
+      "NWCA_site_visit_SHA256": "ca68251152852658848810f212cc344dd39baf939c308a41f15ab079eda84d3e",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "01ffef8d4faa7de2e0fc2d9b46736e148e966fd0fc837f85d8aa292e49236688"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "NJ"
+    },
+    {
+      "NWCA_site_visit_SHA256": "98a7fb60f15bad1d5e73587284366547834b424cc9a86c02fdb991cc907cf05f",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "11c7400b69ec1478310069ada68703779360180c063ca479d5f4c59c15cc9e07"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "NJ"
+    },
+    {
+      "NWCA_site_visit_SHA256": "8d80cb67992c6075436a464b4cceb29f118489224a1116ba982d1e2b6897a6d6",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "01ffef8d4faa7de2e0fc2d9b46736e148e966fd0fc837f85d8aa292e49236688"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "NJ"
+    },
+    {
+      "NWCA_site_visit_SHA256": "49c9536231c34ff37d0d8ae089d9b4f9dd523ce691993cd7bccbfefa1d8518ef",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "5dd6666a341d8ec42560a9aaa223dbe119a59492bda588dec33f5d9670c9abd6",
+        "9e4cd1aa51ab0115a108c6a2a28386c33de3e8e864ecdc078154aa2a554b4240",
+        "cc100381c9cb7805817f1f2e13d35c95005306e9ecf0c76ebc27b5e8f174db86",
+        "ec7ff6de528a42ad784d7958c47b62eae21ad277957d7721e595ba1c3e9ca9cc"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "NJ"
+    },
+    {
+      "NWCA_site_visit_SHA256": "295c381693b653c0c654a92eb86c76280948810bb89038cd567522431edc2887",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "56d47c7902efd7e8da3534c77dc92d8a9d0620fc4bfef29eee6f442b04c39c51"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "NJ"
+    },
+    {
+      "NWCA_site_visit_SHA256": "8e844e270daead6d89a60ba4d8644d29214077a85ff689deb27cb946db36608e",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "8521eec028be8e6ef9715051c749d49b5e7e11ce8fde4c9ea73331c95a095999",
+        "a07d654761d32a22dba4a1a01228388adad0ad3a75ccdf4d5313fbfe1c9a581d",
+        "cc7998ec56cdf6c2b24167af302f84f7c0f9391cc649b39703965ff6ced8b5a1"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "NJ"
+    },
+    {
+      "NWCA_site_visit_SHA256": "ca36daa32be47f6fccae536756d1f87abe8089296f536e7fd51f0219a4b9c217",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "9c248897fe31dbce6e94948fb2a3902736af6c2884d65584eaafa5da2b4cc190"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "NJ"
+    },
+    {
+      "NWCA_site_visit_SHA256": "690d376ccbd9a69612350f15f5738898f883f0795713579de1866720e9f6749b",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "9fa7648def398318c0692ef7fc73758c1045a123f05d85d2c19541889ccd93ab"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "NY"
+    },
+    {
+      "NWCA_site_visit_SHA256": "a43ac544f3b4745aec6331328e8a209ed5e074b55456aa44deb0012a0ebda64c",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "82f116fe39faf115a228217ab6dca482da7ffadf27a5db431800a20eeed09b12",
+        "8aa370d63abc002fc5a4531b86f26b264303a8116d13cf24a76ef4a2bdc00f1d"
+      ],
+      "registered_potential_outfall_rows_10km": 6,
+      "state": "OH"
+    },
+    {
+      "NWCA_site_visit_SHA256": "899eb812804bf1c13b2545a0a694d3dcd0f00d7b20d5f277fffb314920c9b42a",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "e188bdbaecaa18045369d203f550ef5f17b24851dc4585926248116a95dde48b"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "OH"
+    },
+    {
+      "NWCA_site_visit_SHA256": "813a7ae6599e0a1b4b0a45ccfd546d2759c8e4c18bf5e4feea81523edbe02cf1",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "df1923c198fd7a338d84096d6d1b158451b523cd626bdb1f8a4272efff787870"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "PA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "836933dca87037e2a98664007cc4cd8afef9b82169be1c45e20681c64b4ed646",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "9bd2ff367beae97537b24fbfad51e909170fa2ce0e2bbcb4f81011cee4284791"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "RI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "c7307608fdeb1bf974f3e3479565488467b43cbdbe9d0e0056485d49e90aa3c9",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "514bd84fad8b0652fd9a154873ebea582f573e11228997f1c9cf0d09d469b9ef"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "RI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "b46854df9e451fad9a47dfbecb973f14f19203e5a7a83a326650e50229cb4888",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "578af852ec028f3f618608bde3b894594a4c245774f9287c24f96d69a646c88e",
+        "59e1d8e1cc031f34dee4c2f319dabbbbf0efad7fda5efb05865d6c28864ce8ce",
+        "c04a0a122564b517fe555bee5db4e2fcc88c2590ce8c64b6cef397c5e8903706"
+      ],
+      "registered_potential_outfall_rows_10km": 8,
+      "state": "SC"
+    },
+    {
+      "NWCA_site_visit_SHA256": "661627061dfa72ac5fc37ce897a20d1b9608279c05e634eb1b3cb1e8ec0966a6",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "71658fdc398d8d5530c5c0a77981dbe826ffd9338e35382192fd6d0c5da87a2a"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "SC"
+    },
+    {
+      "NWCA_site_visit_SHA256": "6df92eb9e494d994cdcdc305be71b1cd90a405e4ec900150723f6582514f8e5b",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "e4aa95d8a637916f393298ece61dc94852cb502b78f10a0699b9155948276b2d"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "SC"
+    },
+    {
+      "NWCA_site_visit_SHA256": "a82203604ed6e44e06bd0e6a94670f37e288e254e450d33b95f2046d1119c720",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "d5c84c46d02217a9264d294a829e757f59c3366a3c789bdc7fbeabd72f9603a4"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "SC"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0686184a5bbed101d10b9715bf82ff157c9267d21ea30f7e84bd3215d35d21c1",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "390f582eb1ce5e470e67fa5a1e0d70d5de8b690cfb04c7a2e57b8fa75b191077",
+        "6cbb49ea18b2f772a8023fd4606f14bf29c87d3bdb8f118543ed685421aee603",
+        "9c17517d5270bcd3971cf0049c7a5634bf27b0c5c1b2449f489ad9529dc4dffd"
+      ],
+      "registered_potential_outfall_rows_10km": 6,
+      "state": "TN"
+    },
+    {
+      "NWCA_site_visit_SHA256": "f335d1943fc0d93ba6e142d38ba9c4d7d333f9a61de2d464149fd85695e6a04b",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "7512f95fe8da9b10d7d13effb5cf76b9b3247fd7205a3cdd26d9a09a8ceef25a",
+        "b3176d6641523957f439aee80c3a1b3463f32cb31c27c5e193a777433c41b1dd"
+      ],
+      "registered_potential_outfall_rows_10km": 7,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3fc2a3b9d12acad6c7c4cd6e63866c3afcf50060cfd513cb298dcb57b3cff884",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "3b052eedf4a1ae944ac41064a454127353eeec86a30ba882e210590ba0c1fcca"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d689eb8e7bec312fcdcfc854d86469929fb00b4b7c1f2e8a14df5cf1a9fcd1ca",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "10875ab48962533a5341847984ab0f062837f056d44315ef49fadaf670017cab",
+        "3d91c2a44f1e39fc755519e7001b4ab754c3a46ea940321b302a05c074d6e12e"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d62b584be8337af5ef8afd890ee0307151b1591c884185ca576058219b01114b",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "db2bc3f9ccc1e7878cf9c2ceff26ba2a444ca5b5f218bdd514d89cdd1638e790"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "b040469afbaaee986b678a06c3e68dbb1c662a26855a8c97406632a619968b85",
+      "ecoregion": "SPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "ce407a974f3f550758c7e267096a2da8f1a4d7d678c5ff9553cbebc0ad68add4"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "9c87c23dcf29a03f1bfdad607944e56b9c88bb901cab36a9a53cfbe7d12e3387",
+      "ecoregion": "SPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "5f40296901545dda4fcb8f9f88098514c31df390810cd7e7176bf5b4def69267"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "3f88af1df548372c3a2df051fbadd5d4ee0d035992bcbab50edfaa07a41caec2",
+      "ecoregion": "SPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2c6460a55039325e634f3b02087adc340c5fbbd18062885dc2be02cd456ab3f4"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "69bbbab20434c357c82362988e3504e0d752e66966f3b4be711e3379afff4032",
+      "ecoregion": "CPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "510408c1dbc9d81e8d9010e5ee780e16ffc73d2f1141295fc88a12e8f02d3c69",
+        "eaf038d101e6b82c529f0fdd87b0032c1796c122d92a498a796ae621f18e6843"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "TX"
+    },
+    {
+      "NWCA_site_visit_SHA256": "5c0a8023bfaf23923dc63f072de02e066b9849e5748d8e3ce1c662168ed8de2a",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "115bc683eb8232486004cd7e762791b56764e7427c332eec7ed6ce9d3fedde9e"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "VT"
+    },
+    {
+      "NWCA_site_visit_SHA256": "62bdfa090dc6e96c4cd03e5effc0c62b4ab16da862357bbda691c46c734849e6",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "d79152cea25ac7918f514d354ca46e987ccfbcf52c516e55b972db15d1b4db30"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "VT"
+    },
+    {
+      "NWCA_site_visit_SHA256": "d7248e48b40fb7990a0542fc48a41ec10d7e5dfd6b9a37d4300718385483fa1b",
+      "ecoregion": "NAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "2e127fb8cc68d71eccb5a079e91c8d96f1c4d3721b39aa3d78ed6b2b6c06a914",
+        "67896d0a3c53fb2d6a10bd692c8ac4b46148f66843e6f72e2abb74c2dc6dccc7"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "VT"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0d22d83a8b67b0b5a17cb6bbaec594bc6d6ca1321598ed57ee2a8f1c8e65cad6",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "1e9b4bf5126093094583a54f0f1aed344bb0f148d57046d044a527e66a960050",
+        "30e08c71954f417e4c6cf3d491a0d33652c83c24bb4087229e88421e49e82bc6"
+      ],
+      "registered_potential_outfall_rows_10km": 6,
+      "state": "WA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "f970256824a668c5bb25f67173f27211441451687eac6d82f9514ba5a6bf8f2f",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "710a64b486e2e9db79757110be5083a2aeb1e29078c13e869b9b55379b066529"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "WA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "76d063a1916dbfa9d1d919880c3a5ac5acaf84b5ce5fb7f90a962b573d9d9ea3",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "89f9c20a71a8f20189c0eb7ed881fe95fd3a24243b25ea96d4e800b705a2a2e1"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "WA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "e06d10b0d71c532b842ba6a9c4b1785b3023adb786a52ddcd2861380ef02e6ec",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "24fc87541f9ebe82fc0d5a9660e0d110634a13c3e5153abd168b7043e713da42",
+        "9dd5e88c4edb6848986ac6c641ef6ec97d52bc19e1fec9ba0cc2ddcba6b65ed7"
+      ],
+      "registered_potential_outfall_rows_10km": 7,
+      "state": "WA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "7f75631cb920f511961ef342822ca57c447a5866a14e47228d7c47ac691bc227",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "24fc87541f9ebe82fc0d5a9660e0d110634a13c3e5153abd168b7043e713da42",
+        "9dd5e88c4edb6848986ac6c641ef6ec97d52bc19e1fec9ba0cc2ddcba6b65ed7"
+      ],
+      "registered_potential_outfall_rows_10km": 7,
+      "state": "WA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "752a49bf104c4e2d2206ea97f8c2fff7fea6aebcdf2eaefd063cc3f37e32afab",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "89f9c20a71a8f20189c0eb7ed881fe95fd3a24243b25ea96d4e800b705a2a2e1"
+      ],
+      "registered_potential_outfall_rows_10km": 4,
+      "state": "WA"
+    },
+    {
+      "NWCA_site_visit_SHA256": "8bf71c355cb07eca16f19cb4ea61621225036894f46d5badb37533b428577213",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "7bcfced188306c6eb9e06701a237e204c2500e1256fa899fd3c36f570b9a98f2"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "WI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "1348ca9a6f45d281afa075ebacd6cb178c87a73a2f108316de5affb3edf3a9c5",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "82fd065c13d4d2db51aab24c37f69b00d833ce341ef7956ca719ff256de15a43"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "WI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "e28477e183fe3e1e88f4e70fe30d73c1bb5eecdef437cc28d99c85641db0dff4",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "13d6b1934a5b2dc643eadacd734147ad145f79073db023fd88310c8880d5e9f4"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "WI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "0de7356b26e7382e77f0467890ab2fa9178a9bb19ec3aa8cfcd30bca420352ac",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "a4cb5a86aa45e0586d6e122240b990a87c778cbdfa08b92a493c28c51cb5cde8",
+        "e5b70a9b62ec1a006990f5e5d447368f7301be5c20102841e9dfc5b1cbf77303"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "WI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "fb65a3967096d86994e8bca0e7637cb26aafda075819fa0fec7c75f97a11b2c5",
+      "ecoregion": "UMW",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "e3a99baf56f32561bf2197e7117e8fa88c2d104b619a71a1504049d58be15cc1"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "WI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "1531323f38d62f47c639d1c0e0f2b5438ff87a7652910d048582b93bc46392da",
+      "ecoregion": "TPL",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "4681144937f10e8079aaf623d70065ab755bcf6e0768084ce1101258ffa19e53"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "WI"
+    },
+    {
+      "NWCA_site_visit_SHA256": "df861a0365f853ede43dc1365f8c36e880e2ed77a27187ba8ae7fcc070084908",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "55a4faffb1c52cd106b1fa42a05dcc99cfb1a85a2976eb2bda78622cd98db4b3",
+        "843e8070b3d569358aa57ec78d0d4885df46bf972d5861dead7f3d03749b1c9c"
+      ],
+      "registered_potential_outfall_rows_10km": 2,
+      "state": "WV"
+    },
+    {
+      "NWCA_site_visit_SHA256": "f92448e18d80dbd3ea16601551b960a6323a1bf317afe0b462afa01ae900c765",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "711278e656c00728167d7b3719c9d6a179d4b292e2eb23355e769e1cf6146032",
+        "eee33f0ca0f20d822e8966754da986beb7783fea1511b413db5828ef09d6733f"
+      ],
+      "registered_potential_outfall_rows_10km": 15,
+      "state": "WV"
+    },
+    {
+      "NWCA_site_visit_SHA256": "1e508cf76f34516a38b5c771dced415b722332e3d36596d0c389609f821f5919",
+      "ecoregion": "SAP",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "8d3a3002c69466548f08ad7f9a52e36cdb568037a7ca8e27eb76eadbd5cfc700",
+        "d33f5ada613c8ec80b251104fc14f2d11181e08fb66a4cb5b4ba9219ec5bfbe3",
+        "f8707856880d99d6d0abd103d406d9cb3d5e33815e813b50ede95c37c9d969cf"
+      ],
+      "registered_potential_outfall_rows_10km": 3,
+      "state": "WV"
+    },
+    {
+      "NWCA_site_visit_SHA256": "68d7a09e127da9ea5031344f6510d7a0484e894cfe33954550c4091dc90b2b23",
+      "ecoregion": "WMT",
+      "permitted_sewage_NPDES_ID_SHA256": [
+        "ccd01fd97b827537284e6cb73413a31088011aa84d0b45aab59b6e5a1d71c666"
+      ],
+      "registered_potential_outfall_rows_10km": 1,
+      "state": "WY"
+    }
+  ],
+  "original_source_study_2026_registered_permitted_feature_number_not_preserved_in_previous_geo_json": true,
+  "precommitted_DMR_external_outfall_type": "EXO",
+  "precommitted_DMR_monitored_locations": [
+    "1",
+    "2",
+    "EG"
+  ],
+  "precommitted_year_window": [
+    "2021-01-01",
+    "2021-12-31"
+  ],
+  "schema": "gesui_US_NWCA2021_original128near_160municipalNPDESpermitted_2021DMR_PREOUTCOME_source_v01"
+}
