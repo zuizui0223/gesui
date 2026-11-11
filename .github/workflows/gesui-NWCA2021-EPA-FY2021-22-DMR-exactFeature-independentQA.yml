@@ -1,0 +1,39 @@
+name: gesui EPA calendar2021 FY2021-22 160POTW/344 EXO DMR source independent offline audit
+on:
+  push:
+    branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
+    paths:
+      - "results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_160POTW_ORIGINAL_CAL2021_DMR_TN_TP_EXO_FEATURE_SOURCE_GATE.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independently_audit_original_2021_DMR_source_not_biology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independently verify exact 344 permits/features, 2021 monitoring dates, 568 NWCA sites, 32 original matched regions and predeclared DMR source PASS or STOP
+        run: |
+          python -m py_compile scripts/audit_gesui_NWCA2021_DMR_160POTW_344EXO_source_only.py
+          python -u scripts/audit_gesui_NWCA2021_DMR_160POTW_344EXO_source_only.py \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_EPA_2021DMR_160POTW_344EXO_SOURCE_OFFLINE_INDEPENDENT_QA.json
+      - name: Commit original-source only independently audited DMR availability, no wetland biodiversity refit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_EPA_2021DMR_160POTW_344EXO_SOURCE_OFFLINE_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independent 2021 actual DMR N/P source presence vs 160 registered POTW 344 features at NWCA568 wetlands"
+          git fetch origin analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git rebase origin/analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git push origin HEAD:analysis/us-nwca2021-2021dmr-feature-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-EPA-DMR-FY2021-22-exact-feature-offline-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_EPA_2021DMR_160POTW_344EXO_SOURCE_OFFLINE_INDEPENDENT_QA.json
+          retention-days: 90
