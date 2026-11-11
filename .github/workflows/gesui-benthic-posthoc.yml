@@ -1,0 +1,56 @@
+name: gesui benthic three-year posthoc source-locked audit
+
+on:
+  push:
+    paths:
+      - "scripts/audit_benthic_three_year_posthoc_20261111.mjs"
+      - "docs/RESULTS_BENTHIC_REGIONAL_TEMPORAL_POSTHOC_20261111.md"
+      - ".github/workflows/gesui-benthic-posthoc.yml"
+  pull_request:
+    paths:
+      - "scripts/audit_benthic_three_year_posthoc_20261111.mjs"
+      - "docs/RESULTS_BENTHIC_REGIONAL_TEMPORAL_POSTHOC_20261111.md"
+      - ".github/workflows/gesui-benthic-posthoc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Syntax
+        run: node --check scripts/audit_benthic_three_year_posthoc_20261111.mjs
+      - name: Verify 3 original SHA-pinned sources and 2016 and 2018-2022 numbers
+        run: node scripts/audit_benthic_three_year_posthoc_20261111.mjs > "$RUNNER_TEMP/posthoc.json"
+      - name: Independent fixed expected-group diagnostics
+        shell: bash
+        run: |
+          node - <<'JS'
+          const fs=require('fs'),assert=require('assert');
+          const a=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+'/posthoc.json','utf8'));
+          const r=a.year2016.region_mean_EQR_vs_JRC2014_2018_modelled_point_NP;
+          const t=a.matched2018_2022;
+          const close=(x,y)=>assert.ok(Math.abs(x-y)<1e-8, x+' != '+y);
+          assert.equal(a.year2016.regions,73);
+          assert.equal(a.year2016.countries,12);
+          close(r.N.regional_country_centered_pearson,-0.3410527361818145);
+          close(r.P.regional_country_centered_pearson,-0.3563078309475757);
+          assert.equal(r.N.n_negative_countries,7);
+          assert.equal(r.P.n_negative_countries,7);
+          assert.equal(t.shared_sites,1167);
+          assert.equal(t.method_stable_count,1148);
+          for (const [k,n] of Object.entries({'00':1139,'01':7,'10':4,'11':17}))
+            assert.equal(t.full[k].sites,n);
+          close(t.full['00'].mean_EQR_change,-0.03398488536304113);
+          close(t.full['01'].mean_EQR_change,-0.03443033788957141);
+          close(t.full['10'].mean_EQR_change,0.010495000000000004);
+          close(t.full['11'].mean_EQR_change,0.03156949085158825);
+          console.log('Pinned input and new posthoc cross-year / region checks passed');
+          JS
