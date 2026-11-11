@@ -49,7 +49,7 @@ def scan(root,source_file,fy):
     permitset=set(source["exact_source_frozen_near10_registered_municipal_permit_ID_SHA256"])
     if len(permitset)!=160 or len(source["original_site_near10_permits_2021outfallPlausible_from_2026_registry"])!=128:
         raise ValueError("Original near160 and 128 source sites changed")
-    expected_member=f"npdes_dmr_fy{fy}.csv"
+    expected_member=f"npdes_dmrs_fy{fy}.csv"
     if fy not in EXPECTED_FY:raise ValueError("Only fixed FY2021 and FY2022 source permitted")
     if source_file.stat().st_size<50_000_000:
         raise ValueError("EPA original national FY DMR ZIP unexpectedly small")
