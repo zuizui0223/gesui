@@ -55,22 +55,18 @@ def run(root):
     original240_near={r["NWCA2021_source_site_visit_SHA256"] for r in nearrow if r["original_state"]+"|"+r["original_ecoregion"] in region}
     if len(original240_near)!=103 or sites!=near:
         raise ValueError("Original near/far prebiology state×ecoregion study population changed")
-    # DMR calendar/fiscal joined JSON currently stores per permit monthly
-    # count but NOT every feature; read source original fiscal artifacts via
-    # original combined if detailed source member available.
-    if "source_original_2021_DMR_selected_values_no_raw_biology" in d:
-        records=d["source_original_2021_DMR_selected_values_no_raw_biology"]
-    elif "source_original_2021_full_source_selected_DMR_rows_no_raw_reported_values" in d:
-        records=d["source_original_2021_full_source_selected_DMR_rows_no_raw_reported_values"]
-    else:
-        raise ValueError("Combined 160-permit FY2021+FY2022 JSON missing exact original feature-level DMR receipts; no inference from permit-level aggregates")
+    # Use only the original 2021 exact-feature REPORTING opportunities,
+    # no raw DMR concentration/quantity values and no wetland biology.
+    if "source_original_2021_exact_permit_feature_DMR_reporting_summary" not in d:
+        raise ValueError("Combined FY2021/FY2022 original DMR lacks exact feature ID timing source; cannot infer from permit-level data")
+    records=d["source_original_2021_exact_permit_feature_DMR_reporting_summary"]
     feature=defaultdict(lambda:{"N":set(),"P":set(),"FLOW":set()})
     for r in records:
-        if not r["strict_external_outfall_effluent_numeric_uncensored"]:continue
-        key=r["source_permit_feature_ID_SHA256"]
+        key=r["NPDES_exact_permit_feature_SHA256"]
         if key not in ids:continue
-        var={"00600":"N","00665":"P","50050":"FLOW"}[r["original_parameter_code"]]
-        feature[key][var].add(r["original_monitoring_period_end_date"])
+        feature[key]["N"].update(r["reported_original_numeric_2021_TN00600_period_end_dates"])
+        feature[key]["P"].update(r["reported_original_numeric_2021_TP00665_period_end_dates"])
+        feature[key]["FLOW"].update(r["reported_original_numeric_2021_flow50050_period_end_dates"])
     keys={
         "eitherN_orP":{k for k,v in feature.items() if v["N"] or v["P"]},
         "bothNandP":{k for k,v in feature.items() if v["N"] and v["P"]},
@@ -92,8 +88,6 @@ def run(root):
         }
         assignments[name]=dat
     q=assignments["eitherN_orP"]
-    flowN=q["matched_source_NEAR_wetlands_128"] and sum(
-       1 for r in fixed if r["NPDES_exact_permit_feature_SHA256"] in keys["eitherN_orP"] & keys["FLOW"])
     # Use distinct measured exact features, not repeated site-feature pairs.
     coflow=len(keys["eitherN_orP"]&keys["FLOW"])
     pass_measurement=(
