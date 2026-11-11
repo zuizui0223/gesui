@@ -1,0 +1,40 @@
+name: gesui 2021 POTW NWCA128 exact344 DMR original source independent QA
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-DMR-2021-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-2021DMR-exact344-independent-QA.yml"
+      - "scripts/audit_gesui_NWCA2021_exact2021_DMR_344source_features.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independent_128wetland_344actual_outfall_CY2021_TNTP_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Recompute all exact near outfall feature, source site, permit and reported 2021 N P flow counts only from frozen source artifacts
+        run: |
+          python -m py_compile scripts/audit_gesui_NWCA2021_exact2021_DMR_344source_features.py
+          python -u scripts/audit_gesui_NWCA2021_exact2021_DMR_344source_features.py \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_344OUTFALL_2021_DMR_INDEPENDENT_SOURCE_QA.json
+      - name: Archive independently checked source feasibility and explicit absence of measured wetland effluent path
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_344OUTFALL_2021_DMR_INDEPENDENT_SOURCE_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independently verify 2021 exact POTW feature source TN TP and flow reporting near original NWCA wetlands"
+          git fetch origin analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-DMR-2021-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-128near-344feature-POTW2021-DMR-independent-source-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_344OUTFALL_2021_DMR_INDEPENDENT_SOURCE_QA.json
+          retention-days: 90
