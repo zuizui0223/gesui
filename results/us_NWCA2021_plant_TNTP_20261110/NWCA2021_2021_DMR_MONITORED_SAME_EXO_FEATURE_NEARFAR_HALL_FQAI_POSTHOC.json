@@ -1,0 +1,355 @@
+{
+  "DMR_actual2021_BOTH_TN_TP_same_EXO": {
+    "area_weight_is_not_full_EPA_national_complex_stratified_survey_effect_estimator": true,
+    "far": 54,
+    "near": 21,
+    "original_2021_actual_wetland_water_TNTP_quality_supported_sites": {
+      "2021_wetland_nutrient_concentration_NOT_established_as_2021_source_outfall_discharge": true,
+      "far": 49,
+      "median_wetland_TN_mg_N_L_FAR": 1.8,
+      "median_wetland_TN_mg_N_L_NEAR": 1.835,
+      "median_wetland_TP_mg_P_L_FAR": 0.264,
+      "median_wetland_TP_mg_P_L_NEAR": 0.274,
+      "n_source_only_wetlands_with_measured_TNTP_and_HALL": 65,
+      "near": 16
+    },
+    "original_2021_all_plant_Shannon_NWCA_area_weighted_sensitivity": {
+      "adjusted_R2": 0.34257323674181694,
+      "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": 0.03057423078024739,
+      "fit_kind": "original_NWCA_2021_survey_area_weighted_WLS",
+      "formula": "HALL ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+      "n_control_far20km": 54,
+      "n_firstvisit_study_wetlands": 75,
+      "n_near_2021_DMR_monitored_same_external_feature": 21,
+      "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+      "nominal_p_exploratory_not_preregistered": 0.7346418225582846,
+      "original_wetland_response": "HALL",
+      "state_cluster95": [
+        -0.14621610114819655,
+        0.2073645627086913
+      ],
+      "state_ecoregion_original_source_comparison_cells": 12,
+      "states_with_both_original_source_groups": 12
+    },
+    "original_2021_standardized_plants_vs_2021_reported_near_POTW_feature_models": {
+      "FQAIALL": {
+        "adjusted_R2": 0.6950031806919267,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": 1.5343546075544572,
+        "fit_kind": "site_equal_OLS",
+        "formula": "FQAIALL ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 54,
+        "n_firstvisit_study_wetlands": 75,
+        "n_near_2021_DMR_monitored_same_external_feature": 21,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.41084846312234835,
+        "original_wetland_response": "FQAIALL",
+        "state_cluster95": [
+          -2.1223507964419754,
+          5.19106001155089
+        ],
+        "state_ecoregion_original_source_comparison_cells": 12,
+        "states_with_both_original_source_groups": 12
+      },
+      "FQAINAT": {
+        "adjusted_R2": 0.6754859119834935,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": 1.3652607547293876,
+        "fit_kind": "site_equal_OLS",
+        "formula": "FQAINAT ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 54,
+        "n_firstvisit_study_wetlands": 75,
+        "n_near_2021_DMR_monitored_same_external_feature": 21,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.42872420218337615,
+        "original_wetland_response": "FQAINAT",
+        "state_cluster95": [
+          -2.0160138106517214,
+          4.746535320110496
+        ],
+        "state_ecoregion_original_source_comparison_cells": 12,
+        "states_with_both_original_source_groups": 12
+      },
+      "HALIEN": {
+        "adjusted_R2": 0.2392011325407044,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": -0.1274902224319969,
+        "fit_kind": "site_equal_OLS",
+        "formula": "HALIEN ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 54,
+        "n_firstvisit_study_wetlands": 75,
+        "n_near_2021_DMR_monitored_same_external_feature": 21,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.3808575829638705,
+        "original_wetland_response": "HALIEN",
+        "state_cluster95": [
+          -0.4126338056536636,
+          0.15765336078966977
+        ],
+        "state_ecoregion_original_source_comparison_cells": 12,
+        "states_with_both_original_source_groups": 12
+      },
+      "HALL": {
+        "adjusted_R2": 0.5734722679145781,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": 0.0052998440606737,
+        "fit_kind": "site_equal_OLS",
+        "formula": "HALL ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 54,
+        "n_firstvisit_study_wetlands": 75,
+        "n_near_2021_DMR_monitored_same_external_feature": 21,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.9643038480999024,
+        "original_wetland_response": "HALL",
+        "state_cluster95": [
+          -0.22680536629050646,
+          0.23740505441185383
+        ],
+        "state_ecoregion_original_source_comparison_cells": 12,
+        "states_with_both_original_source_groups": 12
+      },
+      "HNAT": {
+        "adjusted_R2": 0.6449775463516021,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": 0.011867676855041073,
+        "fit_kind": "site_equal_OLS",
+        "formula": "HNAT ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 54,
+        "n_firstvisit_study_wetlands": 75,
+        "n_near_2021_DMR_monitored_same_external_feature": 21,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.9179857844923489,
+        "original_wetland_response": "HNAT",
+        "state_cluster95": [
+          -0.21402273417713524,
+          0.23775808788721736
+        ],
+        "state_ecoregion_original_source_comparison_cells": 12,
+        "states_with_both_original_source_groups": 12
+      }
+    },
+    "original_actual_2021_standardized_vegetation_raw_group_summary": {
+      "FQAIALL": {
+        "near_minus_far_raw_unadjusted": 5.9365873015872985,
+        "original_far_raw_mean": 19.037222222222223,
+        "original_far_records": 54,
+        "original_near_raw_mean": 24.97380952380952,
+        "original_near_records": 21
+      },
+      "FQAINAT": {
+        "near_minus_far_raw_unadjusted": 5.661005291005292,
+        "original_far_raw_mean": 20.22851851851852,
+        "original_far_records": 54,
+        "original_near_raw_mean": 25.889523809523812,
+        "original_near_records": 21
+      },
+      "HALIEN": {
+        "near_minus_far_raw_unadjusted": 0.09590423280423277,
+        "original_far_raw_mean": 0.4250481481481482,
+        "original_far_records": 54,
+        "original_near_raw_mean": 0.520952380952381,
+        "original_near_records": 21
+      },
+      "HALL": {
+        "near_minus_far_raw_unadjusted": 0.6025626984126986,
+        "original_far_raw_mean": 1.410161111111111,
+        "original_far_records": 54,
+        "original_near_raw_mean": 2.0127238095238096,
+        "original_near_records": 21
+      },
+      "HNAT": {
+        "near_minus_far_raw_unadjusted": 0.6104902116402124,
+        "original_far_raw_mean": 1.3569574074074071,
+        "original_far_records": 54,
+        "original_near_raw_mean": 1.9674476190476196,
+        "original_near_records": 21
+      }
+    },
+    "posthoc_DMR_presence_does_not_verify_receiving_wetland_or_sewage_nutrient_dose": true,
+    "source_NWCA_2021_survey_weights_dispersion": {
+      "Kish_effective_n": 22.356217316454604,
+      "five_largest_fraction_of_total": 0.4003608105584645,
+      "max_weight_fraction_of_total": 0.10570254095477963,
+      "median_area_weight": 42195.42926
+    },
+    "source_original_plots": 75,
+    "state_ecoregion": 12,
+    "states": 12
+  },
+  "DMR_actual2021_TN_or_TP": {
+    "area_weight_is_not_full_EPA_national_complex_stratified_survey_effect_estimator": true,
+    "far": 120,
+    "near": 57,
+    "original_2021_actual_wetland_water_TNTP_quality_supported_sites": {
+      "2021_wetland_nutrient_concentration_NOT_established_as_2021_source_outfall_discharge": true,
+      "far": 103,
+      "median_wetland_TN_mg_N_L_FAR": 1.28,
+      "median_wetland_TN_mg_N_L_NEAR": 1.5150000000000001,
+      "median_wetland_TP_mg_P_L_FAR": 0.118,
+      "median_wetland_TP_mg_P_L_NEAR": 0.249,
+      "n_source_only_wetlands_with_measured_TNTP_and_HALL": 153,
+      "near": 50
+    },
+    "original_2021_all_plant_Shannon_NWCA_area_weighted_sensitivity": {
+      "adjusted_R2": 0.4221658360356104,
+      "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": 0.05413612834032988,
+      "fit_kind": "original_NWCA_2021_survey_area_weighted_WLS",
+      "formula": "HALL ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+      "n_control_far20km": 120,
+      "n_firstvisit_study_wetlands": 177,
+      "n_near_2021_DMR_monitored_same_external_feature": 57,
+      "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+      "nominal_p_exploratory_not_preregistered": 0.3949951848404508,
+      "original_wetland_response": "HALL",
+      "state_cluster95": [
+        -0.0706060170997654,
+        0.17887827378042515
+      ],
+      "state_ecoregion_original_source_comparison_cells": 26,
+      "states_with_both_original_source_groups": 24
+    },
+    "original_2021_standardized_plants_vs_2021_reported_near_POTW_feature_models": {
+      "FQAIALL": {
+        "adjusted_R2": 0.6736731335326918,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": -0.20880862122729363,
+        "fit_kind": "site_equal_OLS",
+        "formula": "FQAIALL ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 120,
+        "n_firstvisit_study_wetlands": 177,
+        "n_near_2021_DMR_monitored_same_external_feature": 57,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.8693139427508176,
+        "original_wetland_response": "FQAIALL",
+        "state_cluster95": [
+          -2.6962419852990878,
+          2.278624742844501
+        ],
+        "state_ecoregion_original_source_comparison_cells": 26,
+        "states_with_both_original_source_groups": 24
+      },
+      "FQAINAT": {
+        "adjusted_R2": 0.6818149693807083,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": -0.23893188778161092,
+        "fit_kind": "site_equal_OLS",
+        "formula": "FQAINAT ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 120,
+        "n_firstvisit_study_wetlands": 177,
+        "n_near_2021_DMR_monitored_same_external_feature": 57,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.8370412369868829,
+        "original_wetland_response": "FQAINAT",
+        "state_cluster95": [
+          -2.515764485982627,
+          2.037900710419405
+        ],
+        "state_ecoregion_original_source_comparison_cells": 26,
+        "states_with_both_original_source_groups": 24
+      },
+      "HALIEN": {
+        "adjusted_R2": 0.22588976201872024,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": -0.02666523726951313,
+        "fit_kind": "site_equal_OLS",
+        "formula": "HALIEN ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 120,
+        "n_firstvisit_study_wetlands": 177,
+        "n_near_2021_DMR_monitored_same_external_feature": 57,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.7635497420997519,
+        "original_wetland_response": "HALIEN",
+        "state_cluster95": [
+          -0.20039851877319487,
+          0.14706804423416858
+        ],
+        "state_ecoregion_original_source_comparison_cells": 26,
+        "states_with_both_original_source_groups": 24
+      },
+      "HALL": {
+        "adjusted_R2": 0.6480168864344372,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": -0.06555169766762857,
+        "fit_kind": "site_equal_OLS",
+        "formula": "HALL ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 120,
+        "n_firstvisit_study_wetlands": 177,
+        "n_near_2021_DMR_monitored_same_external_feature": 57,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.37642453751161764,
+        "original_wetland_response": "HALL",
+        "state_cluster95": [
+          -0.21080718131004966,
+          0.07970378597479254
+        ],
+        "state_ecoregion_original_source_comparison_cells": 26,
+        "states_with_both_original_source_groups": 24
+      },
+      "HNAT": {
+        "adjusted_R2": 0.6655234571613369,
+        "beta_near_DMR_reported_POTW_minus_far_in_original_response_units": -0.0702310933183954,
+        "fit_kind": "site_equal_OLS",
+        "formula": "HNAT ~ NEAR + C(STATE_ECO) + C(WETCLSGRP) + C(HYDCLS) + LATANALYS",
+        "n_control_far20km": 120,
+        "n_firstvisit_study_wetlands": 177,
+        "n_near_2021_DMR_monitored_same_external_feature": 57,
+        "no_causal_NP_or_real_wetland_discharge_interpretation": true,
+        "nominal_p_exploratory_not_preregistered": 0.30913891606885313,
+        "original_wetland_response": "HNAT",
+        "state_cluster95": [
+          -0.20557650556388368,
+          0.06511431892709287
+        ],
+        "state_ecoregion_original_source_comparison_cells": 26,
+        "states_with_both_original_source_groups": 24
+      }
+    },
+    "original_actual_2021_standardized_vegetation_raw_group_summary": {
+      "FQAIALL": {
+        "near_minus_far_raw_unadjusted": -0.5196008771929854,
+        "original_far_raw_mean": 22.452583333333333,
+        "original_far_records": 120,
+        "original_near_raw_mean": 21.932982456140348,
+        "original_near_records": 57
+      },
+      "FQAINAT": {
+        "near_minus_far_raw_unadjusted": -0.5893991228070199,
+        "original_far_raw_mean": 23.36641666666667,
+        "original_far_records": 120,
+        "original_near_raw_mean": 22.77701754385965,
+        "original_near_records": 57
+      },
+      "HALIEN": {
+        "near_minus_far_raw_unadjusted": 0.021586491228070215,
+        "original_far_raw_mean": 0.39887666666666666,
+        "original_far_records": 120,
+        "original_near_raw_mean": 0.42046315789473687,
+        "original_near_records": 57
+      },
+      "HALL": {
+        "near_minus_far_raw_unadjusted": 0.019507280701754448,
+        "original_far_raw_mean": 1.7217716666666665,
+        "original_far_records": 120,
+        "original_near_raw_mean": 1.741278947368421,
+        "original_near_records": 57
+      },
+      "HNAT": {
+        "near_minus_far_raw_unadjusted": 0.03795328947368426,
+        "original_far_raw_mean": 1.6340291666666669,
+        "original_far_records": 120,
+        "original_near_raw_mean": 1.6719824561403511,
+        "original_near_records": 57
+      }
+    },
+    "posthoc_DMR_presence_does_not_verify_receiving_wetland_or_sewage_nutrient_dose": true,
+    "source_NWCA_2021_survey_weights_dispersion": {
+      "Kish_effective_n": 48.02832332133733,
+      "five_largest_fraction_of_total": 0.23360852416874225,
+      "max_weight_fraction_of_total": 0.050548648287024975,
+      "median_area_weight": 25936.90633
+    },
+    "source_original_plots": 177,
+    "state_ecoregion": 26,
+    "states": 24
+  },
+  "UTC": "2026-11-11T04:32:30.933792+00:00",
+  "all_2026_NPDES_registered_outfalls_historical_2021_date_plausible_only": true,
+  "all_new_HALL_vs_DMR_hypothesis_explicitly_POSTHOC_AFTER_old_weighted_positive_and_equal_negative": true,
+  "all_source_2021_DMR_reports_not_direct_wetland_effluent_receiving_site": true,
+  "measured_2021_wetland_TNTP_not_used_to_select_sources_or_favorable_outcomes": true,
+  "original_27state_240plant_NPDES2026_broad_registered_outfall_source_result_SHA256": "bf6550286927979eac7584f22df09364c9183b5ed8c19ca3225de10160de56ea",
+  "schema": "gesui_US_NWCA2021_2021calendar_ECHO_NP_EXO_DMR_reported_veg_Shannon_12state_21near54far_posthoc_v01",
+  "source_2021_DMR_exact_feature_NP_monitoring_sites_pre_response_SHA256": "594b6c0e3c6bb700ee1b758ffd7b8b9e61335af380349b95190f5ecec6acb47e",
+  "source_568_wetland_probability_2021_firstvisits_verifed": true
+}
