@@ -65,6 +65,10 @@ def samples(root,dir):
     if "SAMPLETYPE" in veg and veg.SAMPLETYPE.astype(str).str.upper().eq("PLANT").any():
         veg=veg.loc[veg.SAMPLETYPE.astype(str).str.upper().eq("PLANT")].copy()
     if veg.duplicated(key).any():raise ValueError("Duplicate species plot survey sample for NWCA site")
+    # Siteinfo owns the original source country, region, latitude and weight.
+    # The independent vegetation table must supply ONLY plant outcomes and IDs;
+    # otherwise pandas suffixes overlapping source fields (_x/_y).
+    veg=veg[key+list(RESPONSES)].copy()
     plots=site.merge(water,on=key,how="inner",validate="one_to_one").merge(veg,on=key,how="inner",validate="one_to_one")
     if len(plots)!=568:raise ValueError("Original EPA 568 site plant-water joint source mismatch")
     plots["source_sha"]=[
