@@ -108,6 +108,13 @@ def run(root,first,second):
           "anyNP_permit_only":sitecount(hasN|hasP),
           "any_reported_Flow_permit_only":sitecount(hasFlow)
        },
+       "source_original_2021_exact_permit_feature_DMR_reporting_summary":[
+           {"NPDES_permit_SHA256":permitid,
+            "NPDES_exact_permit_feature_SHA256":featureid,
+            "reported_original_numeric_2021_TN00600_period_end_dates":sorted(v["N"]),
+            "reported_original_numeric_2021_TP00665_period_end_dates":sorted(v["P"]),
+            "reported_original_numeric_2021_flow50050_period_end_dates":sorted(v["flow"])}
+           for (permitid,featureid),v in sorted(both_feature.items())],
        "source_feature_specific_DMR_reported_permits_and_months_no_numeric_values":[
           {"NPDES_permit_SHA256":k,
            "numeric_TN_2021_feature_date_n":len(v["N"]),
