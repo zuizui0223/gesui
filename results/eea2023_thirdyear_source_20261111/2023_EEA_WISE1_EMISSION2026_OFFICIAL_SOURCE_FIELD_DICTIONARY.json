@@ -1,0 +1,347 @@
+{
+  "EEA_2026_original_WISE1_field_definitions": {
+    "Emissions": {
+      "all_field_definition_source_records": [
+        {
+          "Element definition": "Abbreviation of EEA Member or Collaborating Country.",
+          "Element name": "countryCode",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique international identifier of the spatial unit for which the data is being reported.",
+          "Element name": "spatialUnitIdentifier",
+          "Value definitions": "http://dd.eionet.europa.eu/vocabulary/wise/SpatialUnit/"
+        },
+        {
+          "Element definition": "Specification of whether the spatial unit is a country ('countryCode'), a Water Framework Directive river basin district ('euRBDCode') or a Water Framework Directive sub-unit ('euSubUnitCode'). For data providers that do not report under the WFD, spatial units equivalent to river basin districts ('eionetRBDCode') or sub-units ('eionetSubUnitCode') should be used.",
+          "Element name": "spatialUnitIdentifierScheme",
+          "Value definitions": "http://dd.eionet.europa.eu/vocabulary/wise/IdentifierScheme/"
+        },
+        {
+          "Element definition": "The year or range of years to which the data applies.",
+          "Element name": "phenomenonTimeReferencePeriod",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique code of the determinand monitored, as defined in the codelist.",
+          "Element name": "observedPropertyDeterminandCode",
+          "Value definitions": "http://dd.eionet.europa.eu/vocabulary/wise/ObservedProperty/"
+        },
+        {
+          "Element definition": "Name of the determinand.",
+          "Element name": "observedPropertyDeterminandLabel",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "See the code list values for a definition of each category. ",
+          "Element name": "parameterEmissionsSourceCategory",
+          "Value definitions": "http://dd.eionet.europa.eu/vocabulary/wise/EmissionsSourceCategory/"
+        },
+        {
+          "Element definition": "Information if the Emission value is aggregated from E-PRTR Facilities or from non-E-PRTR Facilities or from both together. See codelist for details.",
+          "Element name": "parameterEPRTRfacilities",
+          "Value definitions": "both: Emission value includes emissions from both E-PRTR and non-E-PRTR Facilities;\nno: Emission value includes emissions from non-E-PRTR Facilities only;\nyes: Emission value includes emissions from E-PRTR Facilities only"
+        },
+        {
+          "Element definition": "Annual emission of nutrients (tonne/year), organic matter (tonne/year) or hazardous substances (kg/year) from a specific source of emissions, aggregated by spatial unit.",
+          "Element name": "resultEmissionsValue",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unit of measure for the reported emission value.",
+          "Element name": "resultEmissionsUom",
+          "Value definitions": "http://dd.eionet.europa.eu/vocabulary/aq/UomEmissions/"
+        },
+        {
+          "Element definition": "Method used in the quantification of the emissions value.",
+          "Element name": "procedureEmissionsMethod",
+          "Value definitions": "calculated: Point sources only - Values of emissions are based on calculations;\nestimated: Point and diffuse sources - Values of emissions are based on non-standardised estimations;\nmeasured: Point sources only - Values of emissions are based on measurements;\nmodelled: Diffuse sources only - Values of emissions are based on model results"
+        },
+        {
+          "Element definition": "Status of the observed value in terms of its availability, relevancy, correctness or specifics of its source category.",
+          "Element name": "resultObservationStatus",
+          "Value definitions": "A: Record is confirmed as correct;\nL: Missing observed value, the data were not collected;\nM: Missing observed value, the data can not exist;\nN: Missing observed value, observed value is not relevant or not significant;\nO: Missing observed value, no further information is available;\nW: Missing observed value, data are included in another source category;\nX: Reported value includes data from another source category (categories);\nY: The source category does not exactly match the standard definition;\nZ: Record reported in the past should be deleted"
+        },
+        {
+          "Element definition": "Remarks, comments or explanatory notes.",
+          "Element name": "Remarks",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique metadata identifier of version of the feature or record. Url that points either to the source of the reported data or to a page providing information on the data origin.",
+          "Element name": "metadata_versionId",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Timestamp when the feature or record was created. In case of reported data it's the release date and time of the respective CDR envelope.",
+          "Element name": "metadata_beginLifeSpanVersion",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Status of the feature or record regarding its registration.",
+          "Element name": "metadata_statusCode",
+          "Value definitions": "valid: accepted and valid reported feature or record;\nexperimental: derived feature or record, e.g. legacy record converted to the new structure by EEA or records with updated spatial identifiers "
+        },
+        {
+          "Element definition": "",
+          "Element name": "metadata_observationStatus",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Aditional information or statements regarding the reliability of the feature or record.",
+          "Element name": "metadata_statements",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique identifier of the record in the EEA WISE_SOE database.",
+          "Element name": "UID",
+          "Value definitions": ""
+        }
+      ],
+      "content_type": "text/csv",
+      "delimiter": ",",
+      "metadata_columns": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "original_bytes": 3976,
+      "record_count": 19,
+      "source_SHA256": "8793bf2c2f330187df06ebcab9c4412ba21414364ac6a88a0f31e8290d5dec14",
+      "source_URL": "https://sdi.eea.europa.eu/catalogue/api/records/115940ff-51d1-42ac-ae14-699043b953ca/attachments/Waterbase_v2022_1_dataset_definition_T_WISE1_Emissions.csv",
+      "status": 200
+    },
+    "RiverineInputLoads": {
+      "all_field_definition_source_records": [
+        {
+          "Element definition": "Abbreviation of EEA Member or Collaborating Country.",
+          "Element name": "countryCode",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique international identifier of the monitoring site in which the data were obtained.",
+          "Element name": "monitoringSiteIdentifier",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Specification of whether the monitoring site is a WFD monitoring site ('euMonitoringSiteCode') or not ('eionetMonitoringSiteCode').",
+          "Element name": "monitoringSiteIdentifierScheme",
+          "Value definitions": "eionetMonitoringSiteCode: EIONET identifier;\neuMonitoringSiteCode: WFD identifier "
+        },
+        {
+          "Element definition": "The year or range of years to which the data applies.",
+          "Element name": "phenomenonTimeReferencePeriod",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique code of the determinand monitored, as defined in the codelist.",
+          "Element name": "observedPropertyDeterminandCode",
+          "Value definitions": "http://dd.eionet.europa.eu/vocabulary/wise/ObservedProperty/"
+        },
+        {
+          "Element definition": "Name of the determinand.",
+          "Element name": "observedPropertyDeterminandLabel",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Annual emission of nutrients (tonne/year), organic matter (tonne/year) or hazardous substances (kg/year) from a specific source of emissions, aggregated by spatial unit.",
+          "Element name": "resultEmissionsValue",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unit of measure for the reported emission value.",
+          "Element name": "resultEmissionsUom",
+          "Value definitions": "http://dd.eionet.europa.eu/vocabulary/aq/UomEmissions/"
+        },
+        {
+          "Element definition": "Details of discharge estimate",
+          "Element name": "procedureEstimateDetail",
+          "Value definitions": "FloodN: Calculations not accounting for flood events;\nFloodY: Calculations accounting for flood events;\nOther: Other methods;\nOutN: Calculations excluding outlier values;\nOutY: Calculations including outlier values;\nXSS: Loads calculated by extrapolation from concentrations (of micropollutants) in suspended sediment"
+        },
+        {
+          "Element definition": "Status of the observed value in terms of its availability, relevancy, correctness or specifics of its source category.",
+          "Element name": "resultObservationStatus",
+          "Value definitions": "A: Record is confirmed as correct;\nL: Missing observed value, the data were not collected;\nM: Missing observed value, the data can not exist;\nN: Missing observed value, observed value is not relevant or not significant;\nO: Missing observed value, no further information is available;\nW: Missing observed value, data are included in another source category;\nX: Reported value includes data from another source category (categories);\nY: The source category does not exactly match the standard definition;\nZ: Record reported in the past should be deleted"
+        },
+        {
+          "Element definition": "Remarks, comments or explanatory notes.",
+          "Element name": "Remarks",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique metadata identifier of version of the feature or record. Url that points either to the source of the reported data or to a page providing information on the data origin.",
+          "Element name": "metadata_versionId",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Timestamp when the feature or record was created. In case of reported data it's the release date and time of the respective CDR envelope.",
+          "Element name": "metadata_beginLifeSpanVersion",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Status of the feature or record regarding its registration.",
+          "Element name": "metadata_statusCode",
+          "Value definitions": "valid: accepted and valid reported feature or record;\nexperimental: derived feature or record, e.g. legacy record converted to the new structure by EEA or records with updated spatial identifiers "
+        },
+        {
+          "Element definition": "",
+          "Element name": "metadata_observationStatus",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Aditional information or statements regarding the reliability of the feature or record.",
+          "Element name": "metadata_statements",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique identifier of the record in the EEA WISE_SOE database.",
+          "Element name": "UID",
+          "Value definitions": ""
+        }
+      ],
+      "content_type": "text/csv",
+      "delimiter": ",",
+      "metadata_columns": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "original_bytes": 3099,
+      "record_count": 17,
+      "source_SHA256": "583645922fe263650f1011e3c8e569f7e04cf5f14a974f792896461d3d3359e1",
+      "source_URL": "https://sdi.eea.europa.eu/catalogue/api/records/115940ff-51d1-42ac-ae14-699043b953ca/attachments/Waterbase_v2022_1_dataset_definition_T_WISE1_RiverineInputLoads.csv",
+      "status": 200
+    },
+    "SpatialObject": {
+      "all_field_definition_source_records": [
+        {
+          "Element definition": "Abbreviation of EEA Member or Collaborating Country.",
+          "Element name": "countryCode",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique identifier of the spatial object.",
+          "Element name": "thematicIdIdentifier",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Identifier defining the scheme used to assign the thematic identifier.",
+          "Element name": "thematicIdIdentifierScheme",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique international identifier of the monitoring site.",
+          "Element name": "monitoringSiteIdentifier",
+          "Value definitions": "Is equal to the thematicIdIdentifier value, if spatial object is a monitoring site."
+        },
+        {
+          "Element definition": "Specification of whether the monitoring site is a WFD monitoring site ('euMonitoringSiteCode') or not ('eionetMonitoringSiteCode').",
+          "Element name": "monitoringSiteIdentifierScheme",
+          "Value definitions": "eionetMonitoringSiteCode: EIONET identifier;\neuMonitoringSiteCode: WFD identifier "
+        },
+        {
+          "Element definition": "Name of the monitoring site",
+          "Element name": "monitoringSiteName",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique international identifier of the water body being monitored.",
+          "Element name": "waterBodyIdentifier",
+          "Value definitions": "Is equal to the thematicIdIdentifier value, if spatial object is a water body."
+        },
+        {
+          "Element definition": "Specification of whether the water body is a WFD water body ('euGroundwaterBodyCode' or 'euSurfaceWaterBodyCode') or not ('eionetGroundwaterBodyCode' or 'eionetSurfaceWaterBodyCode').",
+          "Element name": "waterBodyIdentifierScheme",
+          "Value definitions": "eionetGroundwaterBodyCode: Groundwater body identifier is an EIONET identifier;\neionetSurfaceWaterBodyCode: Surface water body identifier is an EIONET identifier;\neuGroundwaterBodyCode: Groundwater body identifier is a WFD identifier;\neuSurfaceWaterBodyCode: Surface water body identifier is a WFD identifier"
+        },
+        {
+          "Element definition": "Name of the water body",
+          "Element name": "waterBodyName",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Additional classification value which further specialises the type of management, regulation or restriction zone, represented by this spatial object.",
+          "Element name": "specialisedZoneType",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Specification of whether a water body is identified as natural, artificial (AWB) or heavily modified (HMWB).",
+          "Element name": "naturalAWBHMWB",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "For heavily modified river or lake water bodies, the value indicates whether the water body is a reservoir that has been created by damming a river or an existing lake.",
+          "Element name": "reservoir",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Member State code for the characterisation type of the surface water body under the WFD.",
+          "Element name": "surfaceWaterBodyTypeCode",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique international identifier of the river basin district sub-unit.",
+          "Element name": "subUnitIdentifier",
+          "Value definitions": "Is equal to the thematicIdIdentifier value, if spatial object is an RBD sub-unit."
+        },
+        {
+          "Element definition": "Identifier defining the scheme assigned to the spatial object identifier.",
+          "Element name": "subUnitIdentifierScheme",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Name of the river basin district sub-unit.",
+          "Element name": "subUnitName",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Unique international identifier of the river basin district.",
+          "Element name": "rbdIdentifier",
+          "Value definitions": "Is equal to the thematicIdIdentifier value, if spatial object is an RBD."
+        },
+        {
+          "Element definition": "Identifier defining the scheme assigned to the spatial object identifier.",
+          "Element name": "rbdIdentifierScheme",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Name of the river basin district.",
+          "Element name": "rbdName",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Information about the sensitivity and confidentiality status of the monitoring site location.",
+          "Element name": "confidentialityStatus",
+          "Value definitions": "F: Free for publication;\nN: Not for publication"
+        },
+        {
+          "Element definition": "Longitude of the monitoring site. It is not provided for monitoring sites where publication is restricted.",
+          "Element name": "lon",
+          "Value definitions": ""
+        },
+        {
+          "Element definition": "Latitude of the monitoring site. It is not provided for monitoring sites where publication is restricted.",
+          "Element name": "lat",
+          "Value definitions": ""
+        }
+      ],
+      "content_type": "text/csv",
+      "delimiter": ",",
+      "metadata_columns": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "original_bytes": 3095,
+      "record_count": 22,
+      "source_SHA256": "3306d530d3b8570d3410ca7a41efee031033f0bd946a2e55fbe433daabfced3b",
+      "source_URL": "https://sdi.eea.europa.eu/catalogue/api/records/115940ff-51d1-42ac-ae14-699043b953ca/attachments/Waterbase_v2022_1_dataset_definition_S_WISE1_SpatialObject_DerivedData.csv",
+      "status": 200
+    }
+  },
+  "UTC": "2026-11-11T06:17:38.706086+00:00",
+  "actual_WWTP_P_N_load_station_site_coverage_NOT_ESTABLISHED": true,
+  "all_2023_BQE_biological_scores_NOT_OPENED": true,
+  "reference_year_2023_NOT_INFERRED_from_1977_2025_dataset_time_range": true,
+  "schema": "gesui_EEA_WaterbaseEmissions2026_2023_ORIGINAL_WISE1_schema_field_dictionary_SOURCE_ONLY_v01"
+}
