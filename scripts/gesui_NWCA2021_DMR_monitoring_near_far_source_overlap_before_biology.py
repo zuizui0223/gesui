@@ -35,7 +35,7 @@ def run(root):
         raise ValueError("Source original 2026 ECHO site geometry changed")
     original=g["all_original_568_NWCA_source_site_to_sewage_source_distance_receipts_without_plant_or_TNTP_values"]["strict"]
     by={x["NWCA2021_source_site_visit_SHA256"]:x for x in original}
-    if len(original)!=len(by)!=568:raise ValueError("Original 568 source sites changed")
+    if len(original)!=568 or len(by)!=568:raise ValueError("Original 568 source sites changed")
     near={sid for sid,x in by.items() if x["outfall_rows_within_10km"]>0}
     far={sid for sid,x in by.items() if x["nearest_outfall_geodesic_km_within25km_else_null"] is None
                                       or x["nearest_outfall_geodesic_km_within25km_else_null"]>=20}
