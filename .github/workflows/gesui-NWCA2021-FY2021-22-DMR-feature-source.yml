@@ -1,0 +1,99 @@
+name: gesui US 2021 NWCA original 160 POTW 344 EXO features FY2021-22 historical DMR TN/TP SOURCE
+on:
+  push:
+    branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-FY2021-22-DMR-feature-source.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  two_exact_EPA_national_2021_22_DMR_sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 48
+    strategy:
+      fail-fast: false
+      matrix:
+        fy: [2021,2022]
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Validate exact original 2021 DMR pre-outcome source eligibility and parser
+        run: |
+          python -m pip install --quiet "pandas>=2.0"
+          python -m py_compile scripts/gesui_NWCA2021_ECHO_FY2021_FY2022_DMR_exact_NP_source_chuncks.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_568WETLAND_160POTW_EXACT_PERMIT_FEATURE_SOURCE_BEFORE_2021DMR.json')
+          v=json.loads(p.read_text())
+          assert v['original_2021_NWCA_wetland_source_n']==568
+          assert v['original_near10_source_wetlands']==128
+          assert v['original_distinct_NPDES_permit_IDs_within10km_of_original_NWCA_wetlands']==160
+          assert v['original_distinct_NPDES_permit_AND_feature_number_within10km']==344
+          assert v['2021_real_effluent_TN_TP_FY2021_FY2022_DMR_VALUES_NOT_YET_READ']
+          print('PASS: exact original 2026 registered POTW 344 external features and 2021 NWCA 568 wetland source IDs frozen')
+          PY
+      - name: Fetch ORIGINAL current EPA national FY archived DMR zip 600MB for fixed source FY2021 or FY2022
+        run: |
+          mkdir -p /tmp/gesui-FYDMR
+          curl --retry 5 --retry-all-errors --connect-timeout 45 --max-time 1600 --fail --location --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_dmrs_fy${{ matrix.fy }}.zip" \
+            -o "/tmp/gesui-FYDMR/npdes_dmrs_fy${{ matrix.fy }}.zip"
+          test -s "/tmp/gesui-FYDMR/npdes_dmrs_fy${{ matrix.fy }}.zip"
+          sha256sum "/tmp/gesui-FYDMR/npdes_dmrs_fy${{ matrix.fy }}.zip"
+          unzip -l "/tmp/gesui-FYDMR/npdes_dmrs_fy${{ matrix.fy }}.zip" | head -14
+      - name: Read only source-frozen 160 municipal registered permit/344 exact EXO feature and 00600 TN/00665 TP/50050 flow monitors with 2021 CALENDAR DMR period end
+        run: |
+          python -u scripts/gesui_NWCA2021_ECHO_FY2021_FY2022_DMR_exact_NP_source_chuncks.py \
+            --fy ${{ matrix.fy }} \
+            --dmr-zip /tmp/gesui-FYDMR/npdes_dmrs_fy${{ matrix.fy }}.zip \
+            --out /tmp/gesui-FYDMR/NWCA2021_ORIGINAL_160POTW_EXO_SOURCE_FY${{ matrix.fy }}_CAL2021_NP.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-original-160POTW-exactEXO-DMR-FY${{ matrix.fy }}
+          path: /tmp/gesui-FYDMR/NWCA2021_ORIGINAL_160POTW_EXO_SOURCE_FY${{ matrix.fy }}_CAL2021_NP.json
+          retention-days: 90
+  join_fiscal_2021_22_original_EPA_DMR_calendar2021:
+    needs: two_exact_EPA_national_2021_22_DMR_sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-NWCA2021-original-160POTW-exactEXO-DMR-FY*
+          path: /tmp/gesui2021dmr-joined
+          merge-multiple: true
+      - name: Join exact original EPA 2021/calendar period DMR nutrient source and test PREDECLARED NWCA bio feasibility gate
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_join_FY2021_FY2022_DMR_source_only_gates.py
+          python -u scripts/gesui_NWCA2021_join_FY2021_FY2022_DMR_source_only_gates.py \
+            --fy-json /tmp/gesui2021dmr-joined/NWCA2021_ORIGINAL_160POTW_EXO_SOURCE_FY2021_CAL2021_NP.json \
+            --fy-json /tmp/gesui2021dmr-joined/NWCA2021_ORIGINAL_160POTW_EXO_SOURCE_FY2022_CAL2021_NP.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_160POTW_ORIGINAL_CAL2021_DMR_TN_TP_EXO_FEATURE_SOURCE_GATE.json
+      - name: Archive only original source monitoring metadata/uncensored counts, no individual site vegetation results, no raw national DMR archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_160POTW_ORIGINAL_CAL2021_DMR_TN_TP_EXO_FEATURE_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze EPA true 2021 160POTW 344-feature outfall TN/TP DMR sampling availability and NWCA reporting gate"
+          git fetch origin analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git rebase origin/analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git push origin HEAD:analysis/us-nwca2021-2021dmr-feature-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-original-EPA-DMR-calendar2021-outfall-NUD
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_160POTW_ORIGINAL_CAL2021_DMR_TN_TP_EXO_FEATURE_SOURCE_GATE.json
+          retention-days: 90
