@@ -1,0 +1,40 @@
+name: gesui NWCA2021 128 wetlands x 160 POTW permit SOURCE only before DMR
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-DMR-2021-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-DMR2021-160permit-preoutcome-source.yml"
+      - "scripts/gesui_NWCA2021_potw_160permit_DMR2021_source_lock.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  freeze_POTW_160_ids_before_DMR_values:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Pre-2021 DMR site / permit source only, no biological results
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_potw_160permit_DMR2021_source_lock.py
+          python -u scripts/gesui_NWCA2021_potw_160permit_DMR2021_source_lock.py \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_160_SEWAGE_PERMITS_BEFORE_DMR2021_SOURCE.json
+      - name: Commit original fixed 160 source permits for FY2021 and FY2022 independently of nutrient/botany results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_160_SEWAGE_PERMITS_BEFORE_DMR2021_SOURCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 128 registered-source-near wetlands and 160 source permit hashes before FY2021 FY2022 DMR outcomes"
+          git fetch origin analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-DMR-2021-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-160-POTW-pre-DMR-source-frozen
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_160_SEWAGE_PERMITS_BEFORE_DMR2021_SOURCE.json
+          retention-days: 90
