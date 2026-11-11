@@ -104,9 +104,9 @@ def main():
     orig1=result["original_2021_DMR_sites_with_valid_TN_OR_TP_same_source_feature"]
     orig2=result["original_2021_DMR_sites_with_valid_BOTH_TN_and_TP_same_source_feature"]
     for got,ref in ((a1,orig1),(a2,orig2)):
-        if got["original_wetland_sites"]!=ref["n_original_NWCA_source_wetland_centroids"] or
-           got["original_near_2021_monitored_permit_ids"]!=ref["distinct_2021_measured_external_outfall_permit_IDs"] or
-           got["n_states"]!=ref["n_US_states"]:
+        if (got["original_wetland_sites"]!=ref["n_original_NWCA_source_wetland_centroids"] or
+            got["original_near_2021_monitored_permit_ids"]!=ref["distinct_2021_measured_external_outfall_permit_IDs"] or
+            got["n_states"]!=ref["n_US_states"]):
             raise ValueError("Independent site/permit/state opportunity differs from original")
     out={
        "schema":"gesui_US_2021_NWCA_568site_160POTW_344EXO_EPA_FY2021_FY2022_DMR_source_ONLY_independent_QA_v01",
