@@ -220,8 +220,8 @@ output_path.write_text(json.dumps(report,indent=2,sort_keys=True))
 print('NRSA1819_FUNCTIONAL_PROXY_RESULT_START')
 short={'source_manifest_sha':EXPECTED_MANIFEST_SHA,'dataset_qa':source_QA,
  'results':{k:{'mean':v['observed_fraction_mean'],
-     m:{'mse_gain':v['model_results'][m]['heldout_MSE_gain_pct'],
-       'slopes':v['model_results'][m]['posthoc_partial_slopes']} for m in ['TN','TP','TN+TP']}
+     'models':{m:{'mse_gain':v['model_results'][m]['heldout_MSE_gain_pct'],
+       'slopes':v['model_results'][m]['posthoc_partial_slopes']} for m in ['TN','TP','TN+TP']}}
      for k,v in outputs.items()}}
 print(json.dumps(short,sort_keys=True,default=float))
 print('NRSA1819_FUNCTIONAL_PROXY_RESULT_END')
