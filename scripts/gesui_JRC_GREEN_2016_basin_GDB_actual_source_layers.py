@@ -38,10 +38,43 @@ def result(archive,tmp):
         if total>1500_000_000:raise ValueError("Original model geodatabase above source-only budget")
         z.extractall(tmp)
     gdb=tmp/gdbs[0]
-    layers=pyogrio.list_layers(gdb)
     layerout=[]
+    paths_to_try=[(str(gdb),"OpenFileGDB auto"),("FileGDB:"+str(gdb),"FileGDB explicit")]
+    used_driver=None
+    errors=[]
+    layers=None
+    source_path=None
+    for driverpath,drivername in paths_to_try:
+        try:
+            v=pyogrio.list_layers(driverpath)
+            layers=v
+            source_path=driverpath
+            used_driver=drivername
+            break
+        except Exception as exc:
+            errors.append({"candidate":drivername,"error_type":type(exc).__name__,
+                           "detail":str(exc)[:420]})
+    if layers is None:
+        return {
+          "schema":"gesui_original_JRC_GREEN_1990to2021_basin_pointsource_2016_GDB_schema_SOURCE_ONLY_v01",
+          "UTC":datetime.now(timezone.utc).isoformat(),
+          "official_original_2026_JRC_BasinModel_GDB_url":SOURCE_URL,
+          "official_archive_SHA256":sha(archive),
+          "official_archive_bytes":archive.stat().st_size,
+          "ZIP_GDB_top_folder":gdbs[0],
+          "ZIP_file_count":len(names),
+          "ZIP_uncompressed_bytes":total,
+          "GDB_original_file_list_first15":names[:15],
+          "open_source_GDAL_layer_read_failures":errors,
+          "official_OPEN_public_ArcGIS_GDB_layers":[],
+          "source_source_access_status":"SOURCE_FORMAT_BLOCKER_FILEGDB_CDF_not_readable_with_available_driver",
+          "2016_modelled_point_source_is_NOT_measured_2016_POTW_annual_NP_outfall_mass":True,
+          "JRC_GREEN_NP_values_are_at_river_basin_SEA_OUTLETS_not_EEA_upstream_site":True,
+          "2022_2018_positive_BQE_EEA_observation_values_NOT_read":True,
+          "2016_NP_BQE_model_P_value_not_fit":True
+        }
     for name,geom in layers:
-        inf=pyogrio.read_info(gdb,layer=name)
+        inf=pyogrio.read_info(source_path,layer=name)
         fields=[str(x) for x in inf.get("fields",[])]
         candidates=[field for field in fields if any(q in field.lower() for q in (
             "year","time","1990","2016","2021","waste","psource","point","domestic","industry",
@@ -67,6 +100,9 @@ def result(archive,tmp):
        "ZIP_file_count":len(names),
        "ZIP_uncompressed_bytes":total,
        "official_OPEN_public_ArcGIS_GDB_layers":layerout,
+       "JRC_GDB_driver_used":used_driver,
+       "unavailable_GDAL_driver_attempts":errors,
+       "source_source_access_status":"OPEN_SOURCE_GDAL_LAYERS_AVAILABLE",
        "2016_modelled_point_source_is_NOT_measured_2016_POTW_annual_NP_outfall_mass":True,
        "JRC_GREEN_NP_values_are_at_river_basin_SEA_OUTLETS_not_EEA_upstream_site":True,
        "2022_2018_positive_BQE_EEA_observation_values_NOT_read":True,
