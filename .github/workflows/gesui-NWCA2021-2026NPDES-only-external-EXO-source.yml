@@ -1,0 +1,63 @@
+name: gesui US NWCA2021 true EXTERNAL NPDES outfall-only SOURCE first eligibility
+on:
+  push:
+    branches: ["analysis/nwca2021-EXO-external-only-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-2026NPDES-only-external-EXO-source.yml"
+      - "scripts/gesui_NWCA2021_ECHO_EXTERNAL_OUTFALL_only_SOURCE_568wetland.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_only_original_568_wetland_sewage_EXO_outfalls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Validate script without opening any NWCA vegetation response or water chemistry
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy
+          python -m py_compile scripts/gesui_NWCA2021_ECHO_EXTERNAL_OUTFALL_only_SOURCE_568wetland.py
+      - name: Source-identical original 568 EPA first-visit NWCA probability wetland source IDs
+        run: |
+          mkdir -p /tmp/gesui-NWCA2021-EXO-source
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-NWCA2021-EXO-source/nwca21_$item-data.csv"
+          done
+      - name: Download EXACT previously validated Nov 8 2026 EPA national NPDES registered-point ZIP and verify original SHA
+        run: |
+          mkdir -p /tmp/gesui-NPDES-EXO-source
+          curl --retry 4 --retry-all-errors --connect-timeout 30 --max-time 480 \
+            --fail --location --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-NPDES-EXO-source/npdes_outfalls_layer.zip
+          echo "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/gesui-NPDES-EXO-source/npdes_outfalls_layer.zip" | sha256sum -c -
+      - name: Original NPDES permit-feature source first, match ONLY subtype External Outfall and freeze 568 original wetland geometry before any H_ALL
+        run: |
+          python -u scripts/gesui_NWCA2021_ECHO_EXTERNAL_OUTFALL_only_SOURCE_568wetland.py \
+            --nwca-source-dir /tmp/gesui-NWCA2021-EXO-source \
+            --npdes-zip /tmp/gesui-NPDES-EXO-source/npdes_outfalls_layer.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_EXTERNAL_OUTFALL_ONLY_568SITE_SOURCE_GATE.json
+      - name: Commit external-only source group and explicit stop/pass gate, never source-conditional biodiversity results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_EXTERNAL_OUTFALL_ONLY_568SITE_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit and freeze true EXO external outfall-only USA NWCA 568 site eligibility, retain original source gate"
+          git fetch origin analysis/nwca2021-EXO-external-only-source-20261111
+          git rebase origin/analysis/nwca2021-EXO-external-only-source-20261111
+          git push origin HEAD:analysis/nwca2021-EXO-external-only-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-568-site-EXO-external-outfall-only-source-status
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NPDES_EXTERNAL_OUTFALL_ONLY_568SITE_SOURCE_GATE.json
+          retention-days: 90
