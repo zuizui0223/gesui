@@ -1,0 +1,40 @@
+name: gesui 2016 3rd-year JRC GREEN modeled European wastewater basin source public metadata
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-GREEN-source-GDB-access.yml"
+      - "scripts/gesui_JRC_GREEN_2016_basin_pointsource_original_access_only.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  2016_GREEN_EU_not_measured_UWWTD_source_catalogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Discover original 2016 public JRC GREEN 1990–2021 modeled wastewater and industry nutrient source metadata WITHOUT EEA 2016 biology outcomes
+        run: |
+          python -m py_compile scripts/gesui_JRC_GREEN_2016_basin_pointsource_original_access_only.py
+          python -u scripts/gesui_JRC_GREEN_2016_basin_pointsource_original_access_only.py \
+            --out results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_BASIN_POINT_SOURCE_OFFICIAL_FILE_METADATA_QA.json
+      - name: Commit model exposure-source provenance only; do not call sea-basin 2016 load actual measured POTW N/P
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_BASIN_POINT_SOURCE_OFFICIAL_FILE_METADATA_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit official EU-wide JRC GREEN 2016 basin outlet source apportionment archive access vs original WWTP measured source requirement"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-JRC-GREEN-2016-basin-NP-model-source-not-WWTP-emission
+          path: results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_BASIN_POINT_SOURCE_OFFICIAL_FILE_METADATA_QA.json
+          retention-days: 90
