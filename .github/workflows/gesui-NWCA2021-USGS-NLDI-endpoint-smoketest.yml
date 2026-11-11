@@ -1,0 +1,39 @@
+name: gesui USGS NLDI official v3 catchment hydrolocation navigation smoke test
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-USGS-NLDI-endpoint-smoketest.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  nldi_public_demo_schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Test only public USGS documentation example, no NWCA response or personal coordinates
+        run: |
+          python - <<'PY'
+          import json,urllib.request,urllib.parse,hashlib,time
+          point="POINT(-89.35 43.0864)"
+          base="https://api.water.usgs.gov/nldi/linked-data"
+          endpoints=[
+            ("catchment",base+"/comid/position?"+urllib.parse.urlencode({"coords":point,"f":"json"})),
+            ("hydrolocation",base+"/hydrolocation?"+urllib.parse.urlencode({"coords":point,"f":"json"})),
+            ("known_comid",base+"/comid/13293750/navigation/DM/flowlines?"+urllib.parse.urlencode({"distance":20,"f":"json","excludeGeometry":"true"})),
+          ]
+          for name,url in endpoints:
+            try:
+              req=urllib.request.Request(url,headers={"User-Agent":"gesui-NLDI-research-sourcetest/1.0","Accept":"application/json"})
+              with urllib.request.urlopen(req,timeout=50) as r:
+                raw=r.read()
+                data=json.loads(raw)
+                print("NLDI_PUBLIC_DEMO",name,"status",r.status,"sha256",hashlib.sha256(raw).hexdigest(),"json_type",type(data).__name__,"head",json.dumps(data)[:2200],flush=True)
+            except Exception as e:
+              print("NLDI_PUBLIC_DEMO_ERROR",name,type(e).__name__,str(e),flush=True)
+            time.sleep(.4)
+          PY
