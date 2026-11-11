@@ -152,7 +152,7 @@ def main():
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(out,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     print(json.dumps({
-      "source":{k:{n:v[k] for n in ("original_source_wetlands_with_at_least_one_reporting_permit_or_registered_feature",
+      "source":{k:{n:v[n] for n in ("original_source_wetlands_with_at_least_one_reporting_permit_or_registered_feature",
                  "original_distinct_administrative_permits_or_feature_source_hashes","states_with_site_report")}
                  for k,v in out["original_2021_DMR_actual_numerical_reporting_availability_by_source_level"].items()},
       "N_P_both_permit":out["source_permit_DMR_near_wetland_totalN_P_00600_00665_both_count"],
