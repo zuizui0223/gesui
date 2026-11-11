@@ -1,0 +1,99 @@
+name: gesui NWCA2021 71 wetlands 86 measured POTW outfalls USGS NLDI NHDPlus directed SOURCE
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-USGS-NLDI-2021POTW-source-direction.yml"
+      - "scripts/gesui_NWCA2021_USGS_NLDI_71wetland_86POTW_source_position_shards.py"
+      - "scripts/gesui_NWCA2021_USGS_NLDI_join4_source_route_DM_DD.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  official_NHDPlusV2_2021_measured_sources_with_sourceOnly_4shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 21
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3]
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify only source location/national EPA CSV interface and NHDPlus indexing dependencies
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy
+          python -m py_compile scripts/gesui_NWCA2021_USGS_NLDI_71wetland_86POTW_source_position_shards.py
+          python -m py_compile scripts/gesui_NWCA2021_USGS_NLDI_join4_source_route_DM_DD.py
+      - name: Restore original 2021 NWCA four EPA tables and EXACT official 2026-11-08 ECHO municipal outfall snapshot with SHA check
+        run: |
+          mkdir -p /tmp/gesui-nldi/nwca /tmp/gesui-nldi/sources
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-nldi/nwca/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-nldi/nwca/nwca21_$item-data.csv"
+          done
+          curl --retry 4 --retry-all-errors --connect-timeout 30 --max-time 480 \
+            --fail --location --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-nldi/sources/npdes_outfalls_layer.zip
+          echo 'f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/gesui-nldi/sources/npdes_outfalls_layer.zip' | sha256sum -c -
+      - name: Independently source-check 71 NWCA2021 wetlands and 86 true 2021 N/P DMR-matched permitted POTW outfalls on NHDPlusV2
+        run: |
+          python -u scripts/gesui_NWCA2021_USGS_NLDI_71wetland_86POTW_source_position_shards.py \
+            --nwca-dir /tmp/gesui-nldi/nwca \
+            --npdes-zip /tmp/gesui-nldi/sources/npdes_outfalls_layer.zip \
+            --shard ${{ matrix.shard }} \
+            --out /tmp/gesui-nldi/sources/NLDI_2021_NP71wet86potw_shard${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-USGS-NLDI-71wet86potw-source-shard-${{ matrix.shard }}
+          path: /tmp/gesui-nldi/sources/NLDI_2021_NP71wet86potw_shard${{ matrix.shard }}.json
+          if-no-files-found: warn
+          retention-days: 90
+  join_USGS_NLDI_NHDplus_source_and_river_direction_only_if_strict_support:
+    needs: official_NHDPlusV2_2021_measured_sources_with_sourceOnly_4shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-NWCA2021-USGS-NLDI-71wet86potw-source-shard-*
+          path: /tmp/gesui-nldi-joined
+          merge-multiple: true
+      - name: Do not call river navigation unless 71/86 source points have enough independently 200m stream-snapped candidate wetlands/outfalls
+        run: |
+          python -u scripts/gesui_NWCA2021_USGS_NLDI_join4_source_route_DM_DD.py \
+            --shard /tmp/gesui-nldi-joined/NLDI_2021_NP71wet86potw_shard0.json \
+            --shard /tmp/gesui-nldi-joined/NLDI_2021_NP71wet86potw_shard1.json \
+            --shard /tmp/gesui-nldi-joined/NLDI_2021_NP71wet86potw_shard2.json \
+            --shard /tmp/gesui-nldi-joined/NLDI_2021_NP71wet86potw_shard3.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json
+      - name: Store independent source-only 2021 POTW-to-wetland USGS NHDPlusV2 strict spatial and direction stop, no raw NWCA coordinates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit 2021 measured POTW source NHDPlusV2 direct 200m flowline support and true downstream connectivity for 71 wetlands"
+          git fetch origin analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-2021POTW-NHDPlus-source-only-directed-gate
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json
+          if-no-files-found: warn
+          retention-days: 90
