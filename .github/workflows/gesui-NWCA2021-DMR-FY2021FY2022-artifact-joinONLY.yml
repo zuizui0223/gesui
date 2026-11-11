@@ -1,0 +1,51 @@
+name: gesui 2021 EPA POTW DMR SOURCE ONLY join previous original FY2021 and FY2022 verified artifacts
+on:
+  push:
+    branches: ["analysis/nwca2021-actual-dmr-potw-source-audit-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-DMR-FY2021FY2022-artifact-joinONLY.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  finish_source_only_calendar2021_fiscal_artifact_merge_without_redownloading_1GB_DMR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Download previously SUCCESSFULLY parsed official original FY2021+FY2022 source receipt artifacts (not original raw DMR records)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 42928961162
+          github-token: ${{ github.token }}
+          repository: zuizui0223/gesui
+          pattern: gesui-NWCA2021-160NPDES-DMR-source-fiscal-*
+          path: /tmp/gesui-NWCA2021-DMR-twofiscal-source
+          merge-multiple: true
+      - name: Exact FY2021 Jan-Sep + FY2022 Oct-Dec 2021 joined source-only permit/EXO/outfall feature TN TP availability, no NWCA biological outcomes
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_POTW_160permit_CY2021_DMR_FY2021FY2022_join_gate.py
+          python -u scripts/gesui_NWCA2021_POTW_160permit_CY2021_DMR_FY2021FY2022_join_gate.py \
+            --fy2021-source /tmp/gesui-NWCA2021-DMR-twofiscal-source/ORIGINAL_NPDES_DMR_CY2021_FY2021_SOURCE_ONLY.json \
+            --fy2022-source /tmp/gesui-NWCA2021-DMR-twofiscal-source/ORIGINAL_NPDES_DMR_CY2021_FY2022_SOURCE_ONLY.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_160POTW_REAL2021_DMR_CALENDAR_FEATURE_AND_NP_SOURCE_QC.json
+      - name: Commit source integrity, real CY2021 DMR reporting and PRECOMMITTED stop criteria, never nitrate/phosphate ecological effect claims
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_160POTW_REAL2021_DMR_CALENDAR_FEATURE_AND_NP_SOURCE_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze EPA CY2021 reported EXO effluent and actual TN TP DMR source opportunity around 128 original NWCA near-POTW wetlands"
+          git fetch origin analysis/nwca2021-actual-dmr-potw-source-audit-20261111
+          git rebase origin/analysis/nwca2021-actual-dmr-potw-source-audit-20261111
+          git push origin HEAD:analysis/nwca2021-actual-dmr-potw-source-audit-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-original-160POTW-CY2021-actualDMR-independent-artifact-join
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_160POTW_REAL2021_DMR_CALENDAR_FEATURE_AND_NP_SOURCE_QC.json
+          retention-days: 90
