@@ -39,7 +39,7 @@ def get(k, url):
                     if not chunk:break
                     fh.write(chunk)
             with p.open("rb") as f:
-                header=f.readline(1024).decode("utf8-sig","replace")
+                header=f.readline(1024).decode("utf-8-sig","replace")
             if p.stat().st_size<1000 or "SITE_ID" not in header.upper() or "," not in header:
                 raise ValueError("Official CSV content/schema failed: "+k+", header "+repr(header[:100]))
             return p
