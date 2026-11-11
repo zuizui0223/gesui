@@ -109,16 +109,24 @@ def run(root,shards):
             raise ValueError("Original source strict NLDI recorded count mismatch: "+new_key)
     directed=macro["USGS_strict200m_directed_outfall_to_wetland_potential_matches"]
     downstream=[x for x in directed if x["DM_directed_different_comid"]]
-    if len(downstream)!=macro["USGS_downstream_DM_50km_outcome_source"]["potential_directed_source_pairs"]:
-        raise ValueError("Original strict downstream match count no longer agrees with source outcome")
-    if len({x["site_sha256"] for x in downstream})!=macro["USGS_downstream_DM_50km_outcome_source"]["potential_directed_unique_NWCA_wetlands"]:
-        raise ValueError("Original directed downstream wetland coverage differs")
+    navigated=bool(macro["USGS_downstream_DM_navigation_performed"])
     orig_gate=macro["precommitted_original_actual_DM_FLOW_SOURCE_STUDY_GATE"]
-    passed=(len({x["site_sha256"] for x in downstream})>=orig_gate["wetland_sites"] and
-            len({x["feature_sha256"] for x in downstream})>=orig_gate["source_features"] and
-            len({x["permit_sha256"] for x in downstream})>=orig_gate["permits"] and
-            len({x["original_state"] for x in downstream})>=orig_gate["states"] and
-            old["source_original_same_state_ecoregion_far_controls_n"]>=orig_gate["original_far_controls"])
+    if navigated:
+        if len(downstream)!=macro["USGS_downstream_DM_50km_outcome_source"]["potential_directed_source_pairs"]:
+            raise ValueError("Original strict downstream match count no longer agrees with source outcome")
+        if len({x["site_sha256"] for x in downstream})!=macro["USGS_downstream_DM_50km_outcome_source"]["potential_directed_unique_NWCA_wetlands"]:
+            raise ValueError("Original directed downstream wetland coverage differs")
+        passed=(len({x["site_sha256"] for x in downstream})>=orig_gate["wetland_sites"] and
+                len({x["feature_sha256"] for x in downstream})>=orig_gate["source_features"] and
+                len({x["permit_sha256"] for x in downstream})>=orig_gate["permits"] and
+                len({x["original_state"] for x in downstream})>=orig_gate["states"] and
+                old["source_original_same_state_ecoregion_far_controls_n"]>=orig_gate["original_far_controls"])
+    else:
+        if directed or macro["USGS_downstream_DM_50km_outcome_source"]["potential_directed_source_pairs"] is not None:
+            raise ValueError("NLDI navigation not performed must be represented as untested, NOT a 0 downstream result")
+        passed=False
+        if counts["source_strict200_DIFFERENT_comid_wetlands"]>=orig_gate["wetland_sites"] and counts["source_strict200_DIFFERENT_comid_POTW_features"]>=orig_gate["source_features"]:
+            raise ValueError("NLDI navigation source prefilter was sufficient but was skipped")
     if passed!=orig_gate["sufficient_USGS_NLDI_source_supported_NWCA2021_wetlands_for_future_observational_vegetation_test"]:
         raise ValueError("Original plant-allowed NLDI source gate independently disagrees")
     return {
@@ -128,7 +136,9 @@ def run(root,shards):
                          "originalUSGS_NLDI_river_strict_source_gate":sha(root/MAIN),
                          "original4_NLDI_index_shards":original_shas},
         "independent_157_source_point_snap_and_all_2021_nutrient_DMR_eligible_pairs_QA":counts,
-        "independent_2021_measured_POTW_to_wetland_50km_directed_candidates":len(downstream),
+        "original_USGS_NLDI_navigation_performed":navigated,
+        "independent_2021_measured_POTW_to_wetland_50km_directed_candidates":len(downstream) if navigated else None,
+        "no_navigated_data_never_converted_to_false_ZERO_outfall_exposure":True,
         "independent_original_study_source_gate_PASS":passed,
         "NO_actual_NWCA2021_plant_biodiversity_response_ever_read":True,
         "NO_USGS_NLDI_comid_or_river_200m_means_confirmed_WWTP_effluent_delivery":True
