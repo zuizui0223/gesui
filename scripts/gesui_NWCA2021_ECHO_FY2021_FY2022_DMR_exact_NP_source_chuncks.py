@@ -62,7 +62,9 @@ def analyze(root, archive,fy):
     per=defaultdict(counted_group)
     source_info=Counter()
     with zipfile.ZipFile(archive) as z:
-        csvs=[p for p in z.namelist() if p.split("/")[-1].lower()==f"npdes_dmr_fy{fy}.csv"]
+        # EPA documentation says singular DMR, but actual official FY2021/22
+        # national ZIP members use the plural NPDES_DMRS_FY2021.csv filename.
+        csvs=[p for p in z.namelist() if p.split("/")[-1].lower() in (f"npdes_dmr_fy{fy}.csv",f"npdes_dmrs_fy{fy}.csv")]
         if len(csvs)!=1:
             raise ValueError("Official NPDES FY archive missing exactly one national DMR csv; members="+str(z.namelist()[:10]))
         with z.open(csvs[0]) as f:
