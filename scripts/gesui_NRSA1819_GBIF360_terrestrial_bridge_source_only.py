@@ -16,8 +16,8 @@ for x in all_rows:
     site=x['site_id']
     if not site:continue
     # deterministic spatial reference without any nutrient, EPT or GBIF response.
-    if site not in by_site or (str(x['year']),str(x['date_col']),x['uid'])<
-       (str(by_site[site]['year']),str(by_site[site]['date_col']),by_site[site]['uid']):
+    if site not in by_site or ((str(x['year']),str(x['date_col']),x['uid']) <
+       (str(by_site[site]['year']),str(by_site[site]['date_col']),by_site[site]['uid'])):
         by_site[site]=x
 regions={}
 for x in by_site.values():
