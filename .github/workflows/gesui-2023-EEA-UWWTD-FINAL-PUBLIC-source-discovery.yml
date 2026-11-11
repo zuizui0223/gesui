@@ -1,0 +1,40 @@
+name: gesui 2023 final public EEA UWWTD original measured N P source access before numeric river EQRs
+on:
+  push:
+    branches: ["analysis/eea2023-thirdyear-benthic-macro-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2023-EEA-UWWTD-FINAL-PUBLIC-source-discovery.yml"
+      - "scripts/gesui_2023_official_EEA_UWWTD_FINAL_PUBLIC_source_discovery.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  official_2023_public_WWTP_NP_source_metadata_before_EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Retrieve official public 2023 EEA final wastewater download metadata only, never internal protected source
+        run: |
+          python -m py_compile scripts/gesui_2023_official_EEA_UWWTD_FINAL_PUBLIC_source_discovery.py
+          python -u scripts/gesui_2023_official_EEA_UWWTD_FINAL_PUBLIC_source_discovery.py \
+            --out results/eea2023_thirdyear_source_20261111/2023_OFFICIAL_EEA_FINAL_PUBLIC_UWWTD_TP_DCP_DOWNLOAD_SOURCE_ONLY.json
+      - name: Archive exact public EEA 2023 WWTP source access and year distinction before looking at 2023 benthic EQR
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2023_thirdyear_source_20261111/2023_OFFICIAL_EEA_FINAL_PUBLIC_UWWTD_TP_DCP_DOWNLOAD_SOURCE_ONLY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Discover original public final 2023 UWWTD source 2022 vs 2023 report-year measured TN TP not using biology outcome"
+          git fetch origin analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git rebase origin/analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git push origin HEAD:analysis/eea2023-thirdyear-benthic-macro-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2023-final-public-UWWTD-official-source-access
+          path: results/eea2023_thirdyear_source_20261111/2023_OFFICIAL_EEA_FINAL_PUBLIC_UWWTD_TP_DCP_DOWNLOAD_SOURCE_ONLY.json
+          retention-days: 90
