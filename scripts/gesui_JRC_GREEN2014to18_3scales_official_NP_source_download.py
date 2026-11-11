@@ -51,8 +51,10 @@ def read(layer,fields):
     rows=[]
     receipts=[{"stage":"count","SHA256":hcount,"url":ucount,"n":n},
               {"stage":"ids","SHA256":hids,"url":uids,"n":len(allids)}]
-    for offset in range(0,n,500):
-        chunk=allids[offset:offset+500]
+    for offset in range(0,n,80):
+        # ArcGIS Web Application Firewall rejects overlong GET objectIds URLs.
+        # Fixed small ID pages do not change the original study source population.
+        chunk=allids[offset:offset+80]
         out,stamp,url=query(layer,{"objectIds":",".join(map(str,chunk)),"outFields":",".join(["OBJECTID",*fields]),
                    "returnGeometry":"false"})
         values=out.get("features",[])
