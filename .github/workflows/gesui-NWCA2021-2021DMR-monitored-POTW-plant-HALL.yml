@@ -1,0 +1,68 @@
+name: gesui NWCA2021 vegetation vs ACTUAL 2021 DMR-monitored same EXO TNTP feature within10km
+on:
+  push:
+    branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-2021DMR-monitored-POTW-plant-HALL.yml"
+      - "scripts/gesui_NWCA2021_2021DMR_EXO_sameFeature_monitored_NP_vs_plants_HALL_posthoc.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_frozen_2021_DMR_TNTP_source_with_standardized_NWCA_plants:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install standardized NWCA wetland vegetation country-state effect reader
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+          python -m py_compile scripts/gesui_NWCA2021_2021DMR_EXO_sameFeature_monitored_NP_vs_plants_HALL_posthoc.py
+      - name: Verify historical 2021 EPA 160POTW 344 EXO same-feature TN and TP source-only gate and 32 original state/eco cases
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          q=Path("results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_CAL2021_ACTUAL_DMR_TNTP_NEARFAR_STATEECO_SOURCE_ONLY_GATE.json")
+          x=json.loads(q.read_text())
+          assert x["SOURCE_ONLY_no_2021_NWCA_plant_H_ALL_H_NAT_FQAI_or_measured_wetland_water_values_reopened"]
+          for v in x["original_source_DMR_2021_ANY_NP_and_BOTH_NP_strict_same_state_ecoregion_controls"].values():
+            assert v["may_descriptively_fit_2021_HALL_with_monitored_POTW_proximity_ONLY_NONCAUSAL"]
+          print("PASS: original 2021 DMR exact feature source matching independent of new 2021 plant H_ALL values")
+          PY
+      - name: Redownload and verify exact original official 2021 NWCA wetland source CSVs before actual plot-level plant models
+        run: |
+          mkdir -p /tmp/gesui-nwca2021-DMR
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 30 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-nwca2021-DMR/nwca21_$item-data.csv"
+            test -s "/tmp/gesui-nwca2021-DMR/nwca21_$item-data.csv"
+          done
+      - name: Compare ORIGINAL site-equal vs NWCA area-weight H_ALL and all native/alien/FQAI responses on SAME source-selected near DMR monitored TNTP vs far NWCA state-ecoregion control sites
+        run: |
+          python -u scripts/gesui_NWCA2021_2021DMR_EXO_sameFeature_monitored_NP_vs_plants_HALL_posthoc.py \
+            --nwca-dir /tmp/gesui-nwca2021-DMR \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_2021_DMR_MONITORED_SAME_EXO_FEATURE_NEARFAR_HALL_FQAI_POSTHOC.json
+      - name: Archive actual standardized wetland biology within original 2021 DMR source-monitoring frame without claiming hydrologic nutrient delivery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_2021_DMR_MONITORED_SAME_EXO_FEATURE_NEARFAR_HALL_FQAI_POSTHOC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Report source-locked 2021 TN/TP monitored exact external outfalls and standardized wetland HALL/FQAI; WWTP transport not inferred"
+          git fetch origin analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git rebase origin/analysis/us-nwca2021-2021dmr-feature-source-20261111
+          git push origin HEAD:analysis/us-nwca2021-2021dmr-feature-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-2021DMR-monitored-exactEXO-wetland-Shannon
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_2021_DMR_MONITORED_SAME_EXO_FEATURE_NEARFAR_HALL_FQAI_POSTHOC.json
+          retention-days: 90
