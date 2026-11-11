@@ -1,0 +1,60 @@
+name: gesui NWCA2016 sourceBLIND actualyear permit-date 2026 NPDES POTW 50near 162far
+on:
+  push:
+    branches: ["analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2016-POTW-actualyear-registered-permit-sourceONLY.yml"
+      - "scripts/gesui_NWCA2016_yearvalid_POTW_historical_source_BLIND.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit_original_NWCA2016_yearvalid_2016_POTW_permit_source_before_HALL:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify original year2016 source archive and original 2011 historical fail
+        run: |
+          python -m pip install --quiet numpy pandas scipy
+          python -m py_compile scripts/gesui_NWCA2016_yearvalid_POTW_historical_source_BLIND.py
+      - name: Download original EPA 2016 vegetation SITE IDs and original current NPDES register, exact SHA
+        run: |
+          mkdir -p /tmp/gesui-NWCA2016-historical
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2022-04/nwca-2016-site-information-data_0.csv" \
+            -o /tmp/gesui-NWCA2016-historical/2016_siteinfo.csv
+          curl --fail -L --retry 3 --max-time 120 -sS \
+            "https://www.epa.gov/system/files/other-files/2023-03/nwca_2016_veg_metrics.csv" \
+            -o /tmp/gesui-NWCA2016-historical/2016_vegmetrics.csv
+          curl --fail -L --retry 3 --max-time 300 -sS \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-NWCA2016-historical/npdes_outfalls_layer.zip
+          echo "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/gesui-NWCA2016-historical/npdes_outfalls_layer.zip" | sha256sum -c -
+      - name: Original 2016 dated registered sewage source candidate separation BEFORE any new 2016 H_ALL
+        run: |
+          python -u scripts/gesui_NWCA2016_yearvalid_POTW_historical_source_BLIND.py \
+            --source-dir /tmp/gesui-NWCA2016-historical \
+            --npdes-zip /tmp/gesui-NWCA2016-historical/npdes_outfalls_layer.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/NWCA2016_2026_NPDES_PERMIT_EFF_ASOF2016_SOURCE_ONLY_NEAR10_FAR20.json
+      - name: Archive original source-only year2016 near and far hash identities and failed year2011 gate acknowledgment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/NWCA2016_2026_NPDES_PERMIT_EFF_ASOF2016_SOURCE_ONLY_NEAR10_FAR20.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 2016 year-date constrained POTW 2026 registered sources, 50near 162far, 19 states before Shannon"
+          git fetch origin analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git rebase origin/analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+          git push origin HEAD:analysis/us-nwca-2011-2016-2021-potw-plant-replication-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2016-official-POTW-asof2016-premetric-source
+          path: results/us_NWCA2021_plant_TNTP_20261110/NWCA2016_2026_NPDES_PERMIT_EFF_ASOF2016_SOURCE_ONLY_NEAR10_FAR20.json
+          retention-days: 90
