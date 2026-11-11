@@ -95,7 +95,7 @@ def read_original(root,eeazip):
         raise ValueError("Original 2016 source map incomplete")
     numeric=pd.to_numeric(frame.resultNormalisedEQRValue,errors="coerce")
     frame["EQRest"]=numeric
-    frame["EQRest_valid"]=numeric.between(0,1,inclusive="both")&np.isfinite(numeric)
+    frame["EQRest_valid"]=(numeric.between(0,1,inclusive="both")&np.isfinite(numeric)).fillna(False)
     frame["source_2016_country_method"]=frame.countryCode.astype(str)+"|"+frame.procedureClassificationSystem.fillna("UNKNOWN").astype(str)
     # Double check SOURCE-ONLY key/code/country/method before biological values.
     matched=frame.loc[[
