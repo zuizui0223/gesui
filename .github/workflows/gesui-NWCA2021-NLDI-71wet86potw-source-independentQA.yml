@@ -4,6 +4,7 @@ on:
     branches: ["analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111"]
     paths:
       - ".github/workflows/gesui-NWCA2021-NLDI-71wet86potw-source-independentQA.yml"
+      - "scripts/audit_gesui_NWCA2021_USGS_NLDI_71WET_86POTW_source_offline.py"
       - "results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json"
   workflow_dispatch:
 permissions:
