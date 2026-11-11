@@ -1,0 +1,52 @@
+name: gesui NWCA2021 128 near wetlands x exact 344 registered POTW outfall 2021 DMR TN TP SOURCE gate
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-DMR-2021-source-20261111"]
+    paths:
+      - "results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  exact_2021_DMR_external_outfall_feature_to_original_wetlands:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify original 344 exact registered municipal NPDES outfall IDs were independently frozen BEFORE actual fiscal DMR
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_exact_344feature_2021_DMR_TNTP_hydrology_GATE.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_128WETLAND_160POTW_EXACT_NEAR_OUTFALL_FEATURE_SOURCE.json")
+          q=json.loads(p.read_text())
+          assert q["original_128_near10_wetland_site_location_count"]==128
+          assert q["original_160_distinct_administrative_registered_sewage_permits"]==160
+          assert q["original_near10_exact_permit_feature_ID_count"]==344
+          assert q["no_2021_actual_DMR_or_wetland_plant_nutrient_outcome_opened"]
+          print("Original 344 exact named source features PRE DMRS confirmed")
+          PY
+      - name: Source-only exact 2021 TN TP effluent measurement at geodesically near outfall feature ID, no NWCA plant diversity response
+        run: |
+          python -u scripts/gesui_NWCA2021_exact_344feature_2021_DMR_TNTP_hydrology_GATE.py \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_EXACT_344POTW_OUTFALL_2021_TNTP_DMR_NHDPLUS_SOURCE_GATE.json
+      - name: Archive verified 2021 DMR actual reporting opportunities and physical route STOP if source insufficient
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_EXACT_344POTW_OUTFALL_2021_TNTP_DMR_NHDPLUS_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Report exact original344 POTW outfall features with actual calendar2021 TN TP flow DMR near 128 NWCA wetlands BEFORE biological outcomes"
+          git fetch origin analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-DMR-2021-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-original344-exact-POTW-feature-2021-DMR-eligibility
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_EXACT_344POTW_OUTFALL_2021_TNTP_DMR_NHDPLUS_SOURCE_GATE.json
+          retention-days: 90
