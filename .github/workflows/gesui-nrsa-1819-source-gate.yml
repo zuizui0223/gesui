@@ -6,11 +6,13 @@ on:
       - "docs/AQUATIC_TERRESTRIAL_FUNCTIONAL_COUPLING_SOURCE_CONTRACT_20261111.md"
       - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py"
       - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_uid_diagnostics.py"
+      - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_freeze_native_uid.py"
       - ".github/workflows/gesui-nrsa-1819-source-gate.yml"
   pull_request:
     paths:
       - "docs/AQUATIC_TERRESTRIAL_FUNCTIONAL_COUPLING_SOURCE_CONTRACT_20261111.md"
       - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py"
+      - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_freeze_native_uid.py"
       - ".github/workflows/gesui-nrsa-1819-source-gate.yml"
   workflow_dispatch:
 
@@ -32,6 +34,8 @@ jobs:
         run: python scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py
       - name: Source-only duplicate UID and original individual-mass coverage diagnostic
         run: python scripts/gesui_aquatic_terrestrial_NRSA2018_2019_uid_diagnostics.py
+      - name: Freeze corrected EPA native UID sample manifest before ecological effects
+        run: python scripts/gesui_aquatic_terrestrial_NRSA2018_2019_freeze_native_uid.py
       - name: Preserve metadata, counts, exact source URL and hashes
         if: always()
         uses: actions/upload-artifact@v4
@@ -40,5 +44,7 @@ jobs:
           path: |
             ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA_1819_SOURCE_ONLY_QA.json
             ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA_1819_DUPLICATE_UID_PREOUTCOME_AUDIT.json
+            ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA1819_NATIVE_UID_SOURCE_QA_RESULT.json
+            ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
           if-no-files-found: warn
           retention-days: 30
