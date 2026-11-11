@@ -1,0 +1,52 @@
+name: gesui US NWCA2021 CY2021 actual POTW N P DMR source independent offline QA
+on:
+  push:
+    branches: ["analysis/nwca2021-actual-dmr-potw-source-audit-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-CY2021-DMR-independently-audited-source.yml"
+      - "scripts/audit_gesui_NWCA2021_160POTW_CY2021_FY2021FY2022_DMR_source_sets_independent.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  independent_CY2021_original_EPA_DMR_source_before_butterfly_and_plant_effect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Reuse original successfully completed fiscal archive scanner receipts only, no raw 1.2GB DMR and no vegetation outcomes
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 42928961162
+          github-token: ${{ github.token }}
+          repository: zuizui0223/gesui
+          pattern: gesui-NWCA2021-160NPDES-DMR-source-fiscal-*
+          path: /tmp/gesui-cy2021-fySOURCE
+          merge-multiple: true
+      - name: Independently recompute 128 wetland and 160 registered permit source QCs, TN TP exact feature overlaps and original predeclared STOP
+        run: |
+          python -m py_compile scripts/audit_gesui_NWCA2021_160POTW_CY2021_FY2021FY2022_DMR_source_sets_independent.py
+          python -u scripts/audit_gesui_NWCA2021_160POTW_CY2021_FY2021FY2022_DMR_source_sets_independent.py \
+            --fy2021-source /tmp/gesui-cy2021-fySOURCE/ORIGINAL_NPDES_DMR_CY2021_FY2021_SOURCE_ONLY.json \
+            --fy2022-source /tmp/gesui-cy2021-fySOURCE/ORIGINAL_NPDES_DMR_CY2021_FY2022_SOURCE_ONLY.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_CY2021_ACTUAL_DMR_SOURCE_NP_INDEPENDENT_QA.json
+      - name: Freeze independent exact original permit/feature source-site coverage QA, never recode absent N/P reports as zero or nutrient benefit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_CY2021_ACTUAL_DMR_SOURCE_NP_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit independently calendar2021 EPA real DMR source availability/2021 original 128 wetlands and 160 POTW permit geometries"
+          git fetch origin analysis/nwca2021-actual-dmr-potw-source-audit-20261111
+          git rebase origin/analysis/nwca2021-actual-dmr-potw-source-audit-20261111
+          git push origin HEAD:analysis/nwca2021-actual-dmr-potw-source-audit-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-US-NWCA2021-2021DMR-FY2021FY2022-original-POTW-source-independent-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_CY2021_ACTUAL_DMR_SOURCE_NP_INDEPENDENT_QA.json
+          retention-days: 90
