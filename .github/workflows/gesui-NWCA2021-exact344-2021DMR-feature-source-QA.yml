@@ -4,6 +4,7 @@ on:
     branches: ["analysis/nwca2021-POTW-DMR-2021-source-20261111"]
     paths:
       - "results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json"
+      - ".github/workflows/gesui-NWCA2021-exact344-2021DMR-feature-source-QA.yml"
   workflow_dispatch:
 permissions:
   contents: write
