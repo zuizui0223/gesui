@@ -1,0 +1,47 @@
+name: gesui fixed NRSA GBIF360 Lycaenidae family-key correction (source only)
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_NRSA_GBIF360_Lycaenidae_correct_backbone_key_20261112.py"
+      - ".github/workflows/gesui-gbif360-lycaenidae-taxonomy-repair.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  fixed-360-taxonomy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Read the original 360-site pre-count GBIF source manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-gbif360-source-only-counts
+          run-id: 43036787547
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif360
+      - name: Verify correct GBIF family identity, change only invalid ID, and recheck original source gate
+        env:
+          GBIF_360_SOURCE_ARTIFACT: ${{ runner.temp }}/original_gbif360
+        run: |
+          python -m py_compile scripts/gesui_NRSA_GBIF360_Lycaenidae_correct_backbone_key_20261112.py
+          python scripts/gesui_NRSA_GBIF360_Lycaenidae_correct_backbone_key_20261112.py
+      - name: Archive independently source-identified corrected source receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gbif360-correct-lycaenidae-family-source-only
+          path: |
+            ${{ runner.temp }}/nrsa_gbif_correct_taxon/NRSA_GBIF360_REPAIRED_LYCAENIDAE_360_RECORDS_URL_SHA.json
+            ${{ runner.temp }}/nrsa_gbif_correct_taxon/NRSA_GBIF360_TAXON_KEY_CORRECTION_SOURCE_GATE.json
+            ${{ runner.temp }}/nrsa_gbif_correct_taxon/NRSA_GBIF360_QUALIFIED_SITE_ID_SNAPSHOT_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 30
