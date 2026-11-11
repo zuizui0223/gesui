@@ -1,0 +1,62 @@
+{
+  "2026_register_NOT_proof_of_actual_historical_discharge": true,
+  "AUDIT_AFTER_2011_2016_source_proxy_signs_ALREADY_SEEN": true,
+  "EPA_ECHO_nov2026_NPDES_2021source_snapshot_SHA256": "f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160",
+  "original_2011_2016_preoutcome_site_source_SHA256": "18861b0e0f68ba8af7ff2a5079083d5ea7a60ad57a051573f64f2d6330de393d",
+  "original_2021plausible_permit_POTW_geo_SHA256": "3121ba2e87048a5b1aa883c4c7e26004df8a5f9cd5caadce7c32c824ba46807b",
+  "schema": "gesui_NWCA2011_2016_ECHO2026_PERMIT_year_plausibility_postHALL_source_only_QA_v01",
+  "utc": "2026-11-11T00:01:18.309009+00:00",
+  "year": {
+    "2011": {
+      "actual_2011_2016_WWTP_wastewater_NP_and_wetland_contact_UNMEASURED": true,
+      "historical_year_plausible_source_sites_far20_n": 914,
+      "historical_year_plausible_source_sites_near10_n": 14,
+      "historical_year_source_eligibility_comparability_SUPPORT_ONLY": {
+        "min_far": 60,
+        "min_geographic_state_eco": 20,
+        "min_near": 50,
+        "min_registered_permits": 15,
+        "min_states": 10,
+        "posthoc_historical_date_consistency_possible": false
+      },
+      "original_2021_permit_proxy_2011_16_SOURCE_near10_matched_n": 167,
+      "original_PRE2021_source_near_sites_also_near_year_valid_source_n": 6,
+      "source_2021_proximate_near_sample_historical_date_overlap_proportion": 0.03592814371257485,
+      "strict_historical_year_plausibility_matched_STATE_ECO_source": {
+        "different_registered_permits_in_near_historical": 12,
+        "far": 99,
+        "near": 12,
+        "state_ecoregions_with_both_groups": 5,
+        "states_with_both_groups": 5
+      },
+      "year_specific_ECHO2026_historical_date_plausible_source_points_n": 1533,
+      "year_specific_ECHO2026_historical_date_plausible_unique_permits_n": 937
+    },
+    "2016": {
+      "actual_2011_2016_WWTP_wastewater_NP_and_wetland_contact_UNMEASURED": true,
+      "historical_year_plausible_source_sites_far20_n": 835,
+      "historical_year_plausible_source_sites_near10_n": 58,
+      "historical_year_source_eligibility_comparability_SUPPORT_ONLY": {
+        "min_far": 60,
+        "min_geographic_state_eco": 20,
+        "min_near": 50,
+        "min_registered_permits": 15,
+        "min_states": 10,
+        "posthoc_historical_date_consistency_possible": true
+      },
+      "original_2021_permit_proxy_2011_16_SOURCE_near10_matched_n": 145,
+      "original_PRE2021_source_near_sites_also_near_year_valid_source_n": 29,
+      "source_2021_proximate_near_sample_historical_date_overlap_proportion": 0.2,
+      "strict_historical_year_plausibility_matched_STATE_ECO_source": {
+        "different_registered_permits_in_near_historical": 44,
+        "far": 162,
+        "near": 50,
+        "state_ecoregions_with_both_groups": 23,
+        "states_with_both_groups": 19
+      },
+      "year_specific_ECHO2026_historical_date_plausible_source_points_n": 3341,
+      "year_specific_ECHO2026_historical_date_plausible_unique_permits_n": 1792
+    }
+  },
+  "year_specific_permit_definition_ECHO2026_effective_at_or_before_historical_dec31_and_not_expired_terminated_before_jan1": true
+}
