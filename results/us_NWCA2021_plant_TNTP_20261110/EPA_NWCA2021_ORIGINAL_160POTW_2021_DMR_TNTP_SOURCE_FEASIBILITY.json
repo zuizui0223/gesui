@@ -1,13 +1,13 @@
 {
   "DMR_permit_match_does_not_verify_2026_nearby_OUTFALL_NUMBER_or_2021_WWTP_to_wetland_flow": true,
-  "UTC": "2026-11-11T04:48:53.503736+00:00",
+  "UTC": "2026-11-11T04:51:49.945741+00:00",
   "actual_2021_nutrient_loads_not_calculated_without_common_unit_flow_duration_and_hydrology": true,
   "future_exact_2021_DMR_outfall_feature_GEOMETRY_and_NHDPLUS_requires_separate_stage": true,
   "schema": "gesui_NWCA2021_160_originalPOTW_permit_FY2021_FY2022_calendar2021_DMR_nutrient_SOURCE_FEASIBILITY_v01",
   "source_2021_TN_00600_and_TP_00665_DMR_count_rows_after_year_FY_dedup": 8401,
   "source_2021_municipal_NPDES_near_permit_population_n": 160,
-  "source_FY2021_DMR_fiscal_JSON_SHA256": "e63dee7bc4d0c147a7fc549ce9be21a1ace1092674cc4ec377fc2655d59078ed",
-  "source_FY2022_DMR_fiscal_JSON_SHA256": "c595f803e56c996b2626d015c54b6fe75cdfcd2984340a6f75786927e78c9cdf",
+  "source_FY2021_DMR_fiscal_JSON_SHA256": "e60600d47c8df424b0a62578b1fb1f2a5835c4f8c85a0cfb9c309c98aa0891fa",
+  "source_FY2022_DMR_fiscal_JSON_SHA256": "6aa611dc5ef0b34bea5698945fee42771e53a587dcbbe542e34e580cc920ef08",
   "source_feature_specific_DMR_reported_permits_and_months_no_numeric_values": [
     {
       "NPDES_permit_SHA256": "01fc05e6b6f3124d2dd781683477fdf1034ad4e9c33f29e680ca4622b7a16aee",
@@ -873,6 +873,3509 @@
   ],
   "source_geo_568_NWCA_registered_outfall_SHA256": "50eaf83fd3adf62e3affbbf072d3eb6d0dd457fc3dba09168231ea88abd45bc2",
   "source_no_plant_diversity_HALL_FQAI_or_wetland_TNTP_values_read": true,
+  "source_original_2021_exact_permit_feature_DMR_reporting_summary": [
+    {
+      "NPDES_exact_permit_feature_SHA256": "3225593aa03628684fd3fc520ee2a93c82d02f0f12daf16b4ed7c807781db6ca",
+      "NPDES_permit_SHA256": "01fc05e6b6f3124d2dd781683477fdf1034ad4e9c33f29e680ca4622b7a16aee",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "cd3b4bd44487ef2d99f9dcfa9823f519affcebf6c9ddb1d9ee8dce48d39ff3d9",
+      "NPDES_permit_SHA256": "01ffef8d4faa7de2e0fc2d9b46736e148e966fd0fc837f85d8aa292e49236688",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "940db94a932efa9ae27aabdfe9d33d3dd3ec80b870ceb41e875d1c7fa64a9ffd",
+      "NPDES_permit_SHA256": "05cd239a5df3e7b7d5234d86b4c05b17ece8e30d1d6c64eea80db785bd424848",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "683858a215ea68a55625c4bbfc2e248584a0ab381591567fa4f25a62f428c4b1",
+      "NPDES_permit_SHA256": "06192f794ad6495ce8e11ff0b874c6baffde8166b25a1eaa2b9e00f7ac7f6b2b",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "437c66b2d136567679b6d285fb5ab39c4a5c7f5a83daddc1808fcf74dc1dcb56",
+      "NPDES_permit_SHA256": "08ab3755aea84f6a6f47e83e2b9c2395d6d514c52966a46caf1963f38d633d3a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "3728609c0ec9a02a4412ffe373e3d2ccce6f071981080dc10d17b40da5037c06",
+      "NPDES_permit_SHA256": "0a608ae63016fd192212cc5743da7c3cee9e73f0cd82b6617495156b179a3820",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "003a025a4ed6a96a6ce9c84c7f3682003cb421b1e83d7aba515eeb659eb522bd",
+      "NPDES_permit_SHA256": "0f6b8f50875b817d34d109a43fcc0d14a35960d6b47db408b2c28eb809e89432",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "c56712cdeec5dca692612e7075481ee5013b82dd404a3824aaf96dc3ecb8cfe2",
+      "NPDES_permit_SHA256": "10875ab48962533a5341847984ab0f062837f056d44315ef49fadaf670017cab",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "21d5a5f35d2afeb1e722d83e94a09bf00dde4c4ff605c8d5bebc02d9661ead3c",
+      "NPDES_permit_SHA256": "115bc683eb8232486004cd7e762791b56764e7427c332eec7ed6ce9d3fedde9e",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "05/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "957e84913b63253a1b598690443bb64fd47971e81fc8686073597f6e72ba6f7a",
+      "NPDES_permit_SHA256": "116777f3a208d867e0bacdb4d470289368109ddd46bbaff637cb121e39e9f64e",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "03/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a4b95e44d3142fb9932188cff9f371301b4771d9556da8e4d7b9d99580503663",
+      "NPDES_permit_SHA256": "11c7400b69ec1478310069ada68703779360180c063ca479d5f4c59c15cc9e07",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "aa475b56fc7d6445f3cd1e1df00ab04abcbcf55acd9bb6b313f8d7ed680593e1",
+      "NPDES_permit_SHA256": "13d6b1934a5b2dc643eadacd734147ad145f79073db023fd88310c8880d5e9f4",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "fa2910b7e50f60c3dac3d804d3daa5090157e68618b0b5f8d1b9175a20c226f7",
+      "NPDES_permit_SHA256": "1920bd6ddc52710e618ed848f11cd7332147891bfdae73a842dfda3f2ee2c197",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "315fcdd7168579b226a08283940ce00eb5fed21eb93fba87af5fdb3e2ed9f744",
+      "NPDES_permit_SHA256": "2023c26f162bdb426e59ac0f0d87f666fcc45867d38ec4005d52b46b6cd518cd",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "578072e8d49c5f7e2fc3c2f1c575fbc529b88a574a158eac9a14b673b46ef8f0",
+      "NPDES_permit_SHA256": "20462bb567e5f0246e576c9d67234f33e40256e4b7830a1d3c293290d54e417d",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "1ad5920ce014eeec5ac16f12bfad93978873bf5fb4cbd1db78e212ca39e172da",
+      "NPDES_permit_SHA256": "25c6077dbbf00779b4903f39ace797ec494eb968b905be134ed6e5fe9f279214",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "3d7e4fc8a4a8a18317e3030ce0cd4270f379f62900e4c93a0867453520871f8e",
+      "NPDES_permit_SHA256": "2c6460a55039325e634f3b02087adc340c5fbbd18062885dc2be02cd456ab3f4",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "f5f2977ad4d82d1888eaef1f2e7a619ef7605d43313ff5ed659bf7ee65448553",
+      "NPDES_permit_SHA256": "2c7e6c561b12bbbdade4e6e1c21f529585479b21d1fc2b4d6caa0310f8660a43",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2944f1b541bb9aaf4007c2e90851e3fe4f988316d4d57add539c23eded2b9a1a",
+      "NPDES_permit_SHA256": "2e127fb8cc68d71eccb5a079e91c8d96f1c4d3721b39aa3d78ed6b2b6c06a914",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "05/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "05/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "59aa5d16ca73bc4633c526bf726a3e183bcfe0cf1fb3b74d8876e6a6bdeae90d",
+      "NPDES_permit_SHA256": "2e199b1f161fe662b67ad2fba2944bd3073744a475e428f179a8ae5bb2a298f7",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "5d1dc4fd4713d7a275ff9f85ebd45e92fd953dad5ed4985abc6c6a6d73cc5540",
+      "NPDES_permit_SHA256": "2e199b1f161fe662b67ad2fba2944bd3073744a475e428f179a8ae5bb2a298f7",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "72b40290f72b0d02fcd6884d584c69051b4414b0331e5acde9553059f68f35a4",
+      "NPDES_permit_SHA256": "2e199b1f161fe662b67ad2fba2944bd3073744a475e428f179a8ae5bb2a298f7",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "b1ad616ac801db5b91d29a22db4f0ccb80e549ec0c98827bbc6809f8a199cb66",
+      "NPDES_permit_SHA256": "2e199b1f161fe662b67ad2fba2944bd3073744a475e428f179a8ae5bb2a298f7",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "29eb846969d399f626234ce9ce5bb0271a81b8b2dfc7b99644206adb75dd677d",
+      "NPDES_permit_SHA256": "2fc559952c25ca62356c140823bc29ce6fd289dbfbd360236c729e56f516f9c6",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2ba6dabc8c674818881057a167d255a0a6d7aaf83c8a98b823754a51c892da86",
+      "NPDES_permit_SHA256": "2fc559952c25ca62356c140823bc29ce6fd289dbfbd360236c729e56f516f9c6",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "07/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "f8c1d27754308ada0b18f79abf1a1afe0b1b80ac3f903c24dc6a81177e1a33d0",
+      "NPDES_permit_SHA256": "2fc559952c25ca62356c140823bc29ce6fd289dbfbd360236c729e56f516f9c6",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "957702cf7116188885e7e7e4df394cb92c9696da7895733dedf11ace5e074c6f",
+      "NPDES_permit_SHA256": "35203b8fb4bd56f1b53137a303400cc15f3a9e2d57e0fc327e9d8bacab82ae8b",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2379d54113838cd6b3e5966f7d99337d878b6fc30d880b71750d3d488f8696e2",
+      "NPDES_permit_SHA256": "35542bfce3d9aad9d11d8838477f6bdb8640601327323e98b7e8ce2c4c255c95",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "273d327588ff2f018de6a7fbb09d15f5de0dc0ea373bd0ad81940cbaf22d1897",
+      "NPDES_permit_SHA256": "390f582eb1ce5e470e67fa5a1e0d70d5de8b690cfb04c7a2e57b8fa75b191077",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "02/28/2021",
+        "05/31/2021",
+        "08/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "02/28/2021",
+        "05/31/2021",
+        "08/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "92a2c71733d574a953bec3f13b38662c80209b5cf347864429762bf83a16c7ef",
+      "NPDES_permit_SHA256": "3c6e2ef1054974e2e459584d33818aa4708f8125f2efd5b2b4ae9b470700b1a5",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "36548289ef464d3912e9d72124ee56b397ec95e6bf631f4faf4973d4c7765fd0",
+      "NPDES_permit_SHA256": "42c9ff22b34b1b53124b8606fc21f3387043ec532e72f66378c00ac850c1ecdc",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "4d214134c89babe17ad3052f5a1637009fb91f107b4b00d5872672960ffa6029",
+      "NPDES_permit_SHA256": "42c9ff22b34b1b53124b8606fc21f3387043ec532e72f66378c00ac850c1ecdc",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "f71acfc2bfc446874ee717063fa0e55600e8275186355edab78b125842738ce5",
+      "NPDES_permit_SHA256": "42c9ff22b34b1b53124b8606fc21f3387043ec532e72f66378c00ac850c1ecdc",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "623545d86548950191acf97bf2a41375ae2131e0142c739348f0dfe9fa3ffd5d",
+      "NPDES_permit_SHA256": "4681144937f10e8079aaf623d70065ab755bcf6e0768084ce1101258ffa19e53",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "c272ace14f23e504582e4c715e0725f4e8f644f39ec10c181e81b6d50f6d962b",
+      "NPDES_permit_SHA256": "4812572bb34198718f4d0e2514529ae47d53797aacd74f993d46f90e0205c333",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "beb78188ecf052d142f6f1b47d244a434a8d83a813315dccc02757e009ec8569",
+      "NPDES_permit_SHA256": "4bcc21ed0fd879c254afc340c9b2438e6f8b4468d70bff0b656ebf6b1bdb112d",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "d272192627c2ddb4adcd449932187ed9ff8ac1a01aa1efa60b89311dd4570114",
+      "NPDES_permit_SHA256": "4cb0252d8e46d894a5470a413b14866e130eb4f5db14917f8cc259ba9b3a306c",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "0f8417f1ccdd3889ed368065157e73cde8f7e0228f0cbdd29cb20760ee9db660",
+      "NPDES_permit_SHA256": "510408c1dbc9d81e8d9010e5ee780e16ffc73d2f1141295fc88a12e8f02d3c69",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "ffb04dfc6343d67dfa07a95c83c48967914467156c49c57acc351f117601194f",
+      "NPDES_permit_SHA256": "514bd84fad8b0652fd9a154873ebea582f573e11228997f1c9cf0d09d469b9ef",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "1e440abd2cd27930e6a5194a515c78f5135d68169687f019010f42f55ccfde69",
+      "NPDES_permit_SHA256": "55882d3a88d03c8625c83843f9922faf07f103659b8b00916bde79f4f45cb4e7",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "4f0b64a3c10bf5ba5d2f8e2ca2ec0da2fc6c42d39e9e0496792b5938caf5ce7b",
+      "NPDES_permit_SHA256": "55a4faffb1c52cd106b1fa42a05dcc99cfb1a85a2976eb2bda78622cd98db4b3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "ce6ed9c6477325136195ee3c4bd82db519a5bc89459c526dba9e326a467e8504",
+      "NPDES_permit_SHA256": "56d47c7902efd7e8da3534c77dc92d8a9d0620fc4bfef29eee6f442b04c39c51",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "3e19a856f58c0659cd585acb9bba42e928fca8ad1833e35e194fbfcd968e90c8",
+      "NPDES_permit_SHA256": "578af852ec028f3f618608bde3b894594a4c245774f9287c24f96d69a646c88e",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "32962892b405bb7d56ebb1d52ac553db1cbe49d3c5808e44c79a14a2ebf5ae00",
+      "NPDES_permit_SHA256": "59e1d8e1cc031f34dee4c2f319dabbbbf0efad7fda5efb05865d6c28864ce8ce",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "643c7e665068b731f25ff1fb422bbffe2d72816675541390e037bd61875e599a",
+      "NPDES_permit_SHA256": "59e1d8e1cc031f34dee4c2f319dabbbbf0efad7fda5efb05865d6c28864ce8ce",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a532deece0c5c3706b79dfc8c95807fa0735ad68079e3541545f40827892d4ff",
+      "NPDES_permit_SHA256": "59e907a555cf3fcdff7cdebc52a5ebb2681161fc8c6e8cae957f0bbe9e711516",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "dc3298445573132da764abc30bc6b332293a80efc928fa22ce91642c78cfbc77",
+      "NPDES_permit_SHA256": "5dd6666a341d8ec42560a9aaa223dbe119a59492bda588dec33f5d9670c9abd6",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "7000d73aed074af21da115500b1b5d34547600face7cc560e390fce4f43de054",
+      "NPDES_permit_SHA256": "5e7e915511cb7c9057036d363b84739cae4e58b73088f2735769f56b5da3a8ca",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "1a43bb647ebc52f9fa34d78b8ad814c54184cd725fe3c8a9a1b28800e69a4419",
+      "NPDES_permit_SHA256": "5f4fe903f524c96711205214b4285eacf7899e4e205a1ef705d49a8ae0e0b5f5",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "0c03df60809a42e38acfe8367b8bcaa86dc852b7a9d2919ccb90d9a774dc6315",
+      "NPDES_permit_SHA256": "600aaabb2ad7919369f95952219359c9d137e90b9c9485b34deaf645b34e1bda",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "50f16e1e1246a986cec3e3dffbaa55fb9247b6295e92d0e111dc6156797fb479",
+      "NPDES_permit_SHA256": "6621b03648a2a528b42a7ad29b72a333b0305b453543ffa307c1e7be5bd82f72",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "b9a54734cef6a6edf23e94ad60bc183a0ca3a13c2f86a4386ca1fd526687c5b5",
+      "NPDES_permit_SHA256": "67896d0a3c53fb2d6a10bd692c8ac4b46148f66843e6f72e2abb74c2dc6dccc7",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "8aa1ce61f418c3addb0852f1f9d6446cead7bd035f994071120df04184c5f801",
+      "NPDES_permit_SHA256": "69b4742aefc3680878776702930f61dfb000773cd090643774212b940429ad79",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "4db0650cafc28e1eac5d4926b625a0f2a7dd1e4613c936609652fd195e0f9e3e",
+      "NPDES_permit_SHA256": "6cbb49ea18b2f772a8023fd4606f14bf29c87d3bdb8f118543ed685421aee603",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "02/28/2021",
+        "05/31/2021",
+        "08/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "02/28/2021",
+        "05/31/2021",
+        "08/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "9a2d1b2738931107798647c968e83aeed3012b2336198e3c74438806991be18f",
+      "NPDES_permit_SHA256": "6dc6aefe6aa55c5400f2668830bbe8c2c3eb4c171063d3c2d3d4addcec0d004d",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "05/31/2021",
+        "11/30/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "05/31/2021",
+        "11/30/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "c4b46e37de307ab97c56bee5a870de8ddbbc53e80a18df4af9aef49b8eaee01e",
+      "NPDES_permit_SHA256": "6f9e5154e69d4603029248f4bd8338ccd283d2509c3576e57c6f61e65a49dcbe",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "154004a69276bfb2ce70411ee9262e0d2e5b0c22cca1bf00ebe000bd394313d6",
+      "NPDES_permit_SHA256": "711278e656c00728167d7b3719c9d6a179d4b292e2eb23355e769e1cf6146032",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "05/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "296122b336e85e75e89932edf384ffdffd4c16123d1d8625ec75c4fd1c9fee1a",
+      "NPDES_permit_SHA256": "711278e656c00728167d7b3719c9d6a179d4b292e2eb23355e769e1cf6146032",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "08/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "08/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a456e8a2a248993a68e4dd2592c60c2f4ff977ae52582c32866f1c15dc86ebe6",
+      "NPDES_permit_SHA256": "711278e656c00728167d7b3719c9d6a179d4b292e2eb23355e769e1cf6146032",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a8184449bf67cd020ff2bb6057d059651ded806ce48bfb97174e9a77c4927722",
+      "NPDES_permit_SHA256": "711278e656c00728167d7b3719c9d6a179d4b292e2eb23355e769e1cf6146032",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "54028bae447b20c07d3362c689359fc15dee08f5cdf8f86d8c9f775cf7de572b",
+      "NPDES_permit_SHA256": "71658fdc398d8d5530c5c0a77981dbe826ffd9338e35382192fd6d0c5da87a2a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2abbe0ef624aa145c26bf32d0ac08c9421f48c00d3ae456c5f42190346bf1719",
+      "NPDES_permit_SHA256": "7457ca062333ac0b1321e68fe535214f3a2ff4120b00672aa41f3933540dcaf3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "9557b6a68ae1d732ba46693ca883f9149d3ec0ebb6b7fce019b0bea480e2a1ae",
+      "NPDES_permit_SHA256": "751c5eebacb82a34f800080c4971e7eb36abdefba39b5574d008669aeb9b9458",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "818fdf78431fee7b49cb12e33dbe5b7d1c18df71e4fc1c45efa86ba0818b306d",
+      "NPDES_permit_SHA256": "765765c37a1196664a4a76c2f065208879b101cbeb1314ff3299a1e72bb91b72",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "afd6848c3f6597304efaca23b807dd130409a0be8cb6e0874764c02d348e6364",
+      "NPDES_permit_SHA256": "7bcfced188306c6eb9e06701a237e204c2500e1256fa899fd3c36f570b9a98f2",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "ef71656c1746cdf7fd7bf8cb37a2ff3c160e224c0cdc7aa25563d49be05ea57c",
+      "NPDES_permit_SHA256": "7d2b974c2d6b009a20ad3dca586cab82c1e4b42d9e5a9f6e898aadc0e4345705",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "7968d25e8cf1d8266703ff0bd0a6390490a7941a81f15d1d905894d523ba6ebc",
+      "NPDES_permit_SHA256": "7edea6b9d32408095e9890a7133a246d89065c679f0b91e5cc15093d15f736ce",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "f4bb26e489b095c282b886e49d793690d427b096f81d30b95d2d0f152ab7f464",
+      "NPDES_permit_SHA256": "82f116fe39faf115a228217ab6dca482da7ffadf27a5db431800a20eeed09b12",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "036c63f12fc62d061ab39316cc608e4c4b6c30b1e09a85657fbb70b05c32e00d",
+      "NPDES_permit_SHA256": "82fd065c13d4d2db51aab24c37f69b00d833ce341ef7956ca719ff256de15a43",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a02105785b406a40eba0cb4e9427386453a66ffce384a141d312dbe4c340a544",
+      "NPDES_permit_SHA256": "843e8070b3d569358aa57ec78d0d4885df46bf972d5861dead7f3d03749b1c9c",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "339f9bf4e83e0de574656767a2066af094607218a05ae5a8cbabb73db7b2ee33",
+      "NPDES_permit_SHA256": "8521eec028be8e6ef9715051c749d49b5e7e11ce8fde4c9ea73331c95a095999",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "e195a2c38d6ecda676a18f44cf9ca1e4d79c9eb9284305dcba7b9d7d35f67dcb",
+      "NPDES_permit_SHA256": "8999cad72aae686ad26afb53ffd893a945a04cf8fe08a4511c0ef7f4e885afc4",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2ac2559c4144d68ff64d95d5a7d7bd6cfcb8223575f26243dae35c36862ad3d4",
+      "NPDES_permit_SHA256": "8aa370d63abc002fc5a4531b86f26b264303a8116d13cf24a76ef4a2bdc00f1d",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a12dedec64565816d7ae6770c2aea377ba6ffa940c81b0b14075eba7d32adb72",
+      "NPDES_permit_SHA256": "8aaf8355a080043d3c4569ff6ce62318e50cd7ae72d098c3930909619030e2ce",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "6881e9bc8df21a7ef82a975eb6b671aa8080b86c842864edac9d984263de4fe3",
+      "NPDES_permit_SHA256": "8f02eb421512d6037c60cb9e386a716da225fcfd3ba6735010bce7f2ba1a667a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "05/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "05/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "068d6a0d5784448305c184f7d474d5601bfffb6d2d6c628727a2458e110a2d90",
+      "NPDES_permit_SHA256": "90f081cfc58dfcb047b1e977dce83572f7f93057b0e39ffbabbd2ec2fe098ec3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "e656f433ad15f309349eeb86adb1be1c4bf68c04446673c3f39d1bfab05b888a",
+      "NPDES_permit_SHA256": "920c7dce254b868fc29514b9e79622d2fb63bef03bb38a46a09d066493eb2484",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "901144690fe15b042b51653be2952f45dfd50f040130ec92d03b36a54392f641",
+      "NPDES_permit_SHA256": "98c540770ac0b596481ab8787aefd3c552e5bac418069b7826196b04fe8861d6",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "5cbb1c9ac79b88f222de0073a0afa9bed80be010873f9c16ffcf279346442e17",
+      "NPDES_permit_SHA256": "992b3a107f7d69236919e9f92d0605792f70265e8aaf05ef0c36f6b2d126f82a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "58116462edebf731d893a61799bc461d3f9f7a9edbdd98ffbf1e89b3f5c818b6",
+      "NPDES_permit_SHA256": "9b13c8ae81a173c6cc6f954d93b2e60a35ba0ab67db2436624f16cbb4266cad5",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "709a122c79d9cfeaf9b78d7f4ee049b93b7bcd8295bd40e3939ae67095e49399",
+      "NPDES_permit_SHA256": "9b8c1142cc81f881cf71d7c9f0d76e4fd9c14dfc0d625a049076f85e008ef248",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "da91503f68cdce0e145ac426019df37b92f9bb9bd07557bd75d04315723ce6e4",
+      "NPDES_permit_SHA256": "9bd2ff367beae97537b24fbfad51e909170fa2ce0e2bbcb4f81011cee4284791",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "0de63728a98211d21f899f17f11bf7f1ecc01df029c7c336b70224225dd7e6b9",
+      "NPDES_permit_SHA256": "9c17517d5270bcd3971cf0049c7a5634bf27b0c5c1b2449f489ad9529dc4dffd",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "02/28/2021",
+        "05/31/2021",
+        "08/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "02/28/2021",
+        "05/31/2021",
+        "08/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "5000739f56d29c597fab73b8dbc38123e70732ad3b6ff8dd37783e0577951ca8",
+      "NPDES_permit_SHA256": "9c248897fe31dbce6e94948fb2a3902736af6c2884d65584eaafa5da2b4cc190",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "02/28/2021",
+        "05/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "39e851a30d99f2ba0991b61e50c998c3eebfef148cdbc06c5cabdcadeb3b8bd7",
+      "NPDES_permit_SHA256": "9e4cd1aa51ab0115a108c6a2a28386c33de3e8e864ecdc078154aa2a554b4240",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "7927bf5e467ffb099454f43d6deee4d68fab53d003a848add15046bf8ed29735",
+      "NPDES_permit_SHA256": "a07d654761d32a22dba4a1a01228388adad0ad3a75ccdf4d5313fbfe1c9a581d",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "73b27d5df78be8522d51eb4e56bc0990c0a69776d8faf90af564203f8ae37ef3",
+      "NPDES_permit_SHA256": "a1c1331a4edc16f7e815ccaf8b91d01a6a0247923663f488725698d0b3b72eac",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "93699da35355b4913cb34b9783268f0b911573d3e17cfbed17d20ce8da6ffd05",
+      "NPDES_permit_SHA256": "a2bbd09c14b45223cbc4117a66c27b0ace000479955a64ed70d0ea605ab144f3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "cf8289721f9f87a5eee21687beec7ce22efd306282adb99d520e319f2d92f170",
+      "NPDES_permit_SHA256": "a2e2969b67ac5eeda17fe21efc905492d1aae245bdb11ab61fa52403ad7db77d",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "211fc563592a03385d1560044f599ed21db0b8f3f423488a9322f0ae97c2443b",
+      "NPDES_permit_SHA256": "a4cb5a86aa45e0586d6e122240b990a87c778cbdfa08b92a493c28c51cb5cde8",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "ea0994afa3987bfdeb333e90fd8238c1f7ea01a835585001b5d513bcedd9f767",
+      "NPDES_permit_SHA256": "a6a3d73adf360eb26037cbf20c12573565b9418a66e3c5a26095d29ee98b104e",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "5017e830510cf62b99642c91d30c94b32c7baa2a116964979c21b27fd6603a67",
+      "NPDES_permit_SHA256": "a758d3bf9740bbbb3eb6a12b086e4ab33b52b38c3a4abee866888b16e5ed5b5f",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "c6b6034d6e54d769ee36f520cfa55a6602d2074ab6c037817e32036d25395ac4",
+      "NPDES_permit_SHA256": "a8d7f5d93be274e05503d401a8d4158b54864b8dcf6e325aec0d6feae8b828ea",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "d16ede30e162eba308798bf244b55f1cead3730edf47494169efb73de411b731",
+      "NPDES_permit_SHA256": "af73b8d26dee5e0215e2e0eceaee43a014cbfca48b378bbad8e828e5e316800c",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "84117a0efabd1fc5b1c5e3b3fcfa24e4101cc79b34c4696cd48c6ae4fd40e22f",
+      "NPDES_permit_SHA256": "b15da90aa6d9833475720a3df72ecc07ae6ae5b85d435db8183ec95655fd3bd3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "33c3b6e9a4e4b66e9656539c8a919acfd54af414a7b5a991897a15455692b784",
+      "NPDES_permit_SHA256": "b4127ab40a479813213fe0b7d90daf9cb07a6d3761917427908412eaa64e8870",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "05/31/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "05/31/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "05/31/2021",
+        "10/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2137c15263c0c472ee2c9638685f8704498e927a00ea67c9554fc57747bb4fdd",
+      "NPDES_permit_SHA256": "b8447b15baabe1b63bd93214634ca68b9b4487ef50ebaeb668d3c6a4b4fcb9b9",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "83d0ca662fe374c627e9dc37474b8234a8a22f94655c5d89b4e8921ce3519f59",
+      "NPDES_permit_SHA256": "b90a672883832d53682bd5b256795b581f0082eea7c7d956b63e191002b8a2e5",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "76b506c07a279fa7877253ae614168adc110a9c391bcfdac3f53c2770648aed6",
+      "NPDES_permit_SHA256": "bbfb4fd668433712b4d438b3d3b35322aaf77aa5c90170405b6f2d90c9fb129a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "16779a4b2e55dcc0b6558a7c746b20de1a9aed5766e76d8b9149e278e3604cf2",
+      "NPDES_permit_SHA256": "c3d4c9523863341856921fd105905fb74b7035f96fce34f04b4a1306a9cece4f",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2a3993707488bbcd0b7bfbab9b9fb26e18bb8954447c6826c34b399c2b80aad3",
+      "NPDES_permit_SHA256": "c457679eac0a938967b230be35da75b2d77ccd52ea87eabf53b8f927f5f7a68a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "b309daa651232c21c62844385ff9c73d1e7f21e4562457cef3bbaa7da2bed1f8",
+      "NPDES_permit_SHA256": "c69602987ebbe9910d50e674d54ce915d57a3693eb727a1840628b2a9d99294b",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "533b36ed9d2780a9b7491a8683466454a471b121522a70a75f49d95832e397c5",
+      "NPDES_permit_SHA256": "c718f2e7a74bedc955fde597882714e6bfe4a94e89a6235da2a2f88ff91d73f3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "e52f16fb2a6e93f2be7335f20dc60d6d1a16815b31f05b35991015152ba8d246",
+      "NPDES_permit_SHA256": "c718f2e7a74bedc955fde597882714e6bfe4a94e89a6235da2a2f88ff91d73f3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "06/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a42b3ecfeea13b2b720fd5c15ce68930cdcbf3553abd5f86968bfa2190f20bab",
+      "NPDES_permit_SHA256": "c7e0428cc882206ffb18760b3dfe9aa6e8557975b52c6f4efabfa6c212dbfe30",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "cea62dadf38c70218b84388d4455e6956eda0ee8e69908f65f9c780ea37ac82f",
+      "NPDES_permit_SHA256": "cc100381c9cb7805817f1f2e13d35c95005306e9ecf0c76ebc27b5e8f174db86",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "5fa8b368c51284a50d455b2d261940915dea873425ce35ce4666271123bafcd6",
+      "NPDES_permit_SHA256": "cc7998ec56cdf6c2b24167af302f84f7c0f9391cc649b39703965ff6ced8b5a1",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "c06392789e0b5e097c65cc1a8aa7fbcac3838a2af5f739212b86a237b02bbed7",
+      "NPDES_permit_SHA256": "cca8aaadd444550ad641e54a7f23f11d97a60cf0413ae532f6ec88a421f585cd",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "af6fa9e24b428e21578f3c8332833a7e1f5d6b6414fa71c8a291756af77164ee",
+      "NPDES_permit_SHA256": "ccd01fd97b827537284e6cb73413a31088011aa84d0b45aab59b6e5a1d71c666",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "56d73df8d1e533b6cc9d351f153ca4a4f2774617af48a5ca1e77788eb330467d",
+      "NPDES_permit_SHA256": "ce407a974f3f550758c7e267096a2da8f1a4d7d678c5ff9553cbebc0ad68add4",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "196a8bb4174cd891a4529519d44af933ddda369fafdaa020e8a0e5988c26bad1",
+      "NPDES_permit_SHA256": "ce97b3490d6d5dbffa843aeacb870ff79221c617a0dd0c4eadcc41292d3beeee",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "c47085b6185ed6caf69450c125b1651aaf5e096ebc1c59b80a2ea6620fcd3173",
+      "NPDES_permit_SHA256": "cec2c7372622958fb15b039077e93d5697da1b978f7d5db33200326d2ab491d1",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "64987a072104310593598b1984c978c7783c23a126805a0de77f3d52083c1146",
+      "NPDES_permit_SHA256": "cfb286caf73607142746061a1fa74fde6fb888544c40dc936f44430a90337860",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "9da5141730d4cf613e54eff2807d9f8c71a80b71f4f50edbacdec8ba3ce24dfd",
+      "NPDES_permit_SHA256": "d5c84c46d02217a9264d294a829e757f59c3366a3c789bdc7fbeabd72f9603a4",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "fe5cb5305f9282b521559ec9c166157dc449812ab160ff67397f4526a79e70c9",
+      "NPDES_permit_SHA256": "d79152cea25ac7918f514d354ca46e987ccfbcf52c516e55b972db15d1b4db30",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "8168c9b05bef1373f0a8d4ddb197ee1d995117e1ffebfab07c3605ec531aedd1",
+      "NPDES_permit_SHA256": "db2bc3f9ccc1e7878cf9c2ceff26ba2a444ca5b5f218bdd514d89cdd1638e790",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2aab123bc3cc5a477474a3afa3299f1e8eccc4f5a927f43857c49ae6d38c9556",
+      "NPDES_permit_SHA256": "dba37515525152305c5b2c5b7452b50a60b48499099e7e53bb425f9989c4271a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "00d05375f6dd73ae31c838c1b7f2e2057d25be2a6e8678544c283d2c276a1158",
+      "NPDES_permit_SHA256": "dded703a8b335eba67da342456089df5feeb0da07ef0ded700b91668a62a117c",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "8b09d689de720df33dd8118f1db9cb308a7571e2ef311d13f92912ff85a6629e",
+      "NPDES_permit_SHA256": "df1923c198fd7a338d84096d6d1b158451b523cd626bdb1f8a4272efff787870",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "b0cbbaa2c8f09e406f9ad838eff781cc88d339664e1cf45e5bbee236eb2248f2",
+      "NPDES_permit_SHA256": "dfcfd66db28c8cb9b0b389684869b07b8e61a6d65a5088ab9ef6e3767b933a3c",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "9380dcb86cb2425cccda4045130768cf2988d96ebc7fd3e8d97ad29322cdbe32",
+      "NPDES_permit_SHA256": "e0671df6838cc76b5c9880187ce63a9349e1baf70534de34bd5241938353b36e",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "01c5f97daa6fd7e32702ecb2cb0ee8edc01336eb140545d67798e30403749bfe",
+      "NPDES_permit_SHA256": "e188bdbaecaa18045369d203f550ef5f17b24851dc4585926248116a95dde48b",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "3866269dbd03fbb5d6d3e14ca270628573deb340d7459aa73d84c09003740ec9",
+      "NPDES_permit_SHA256": "e3a99baf56f32561bf2197e7117e8fa88c2d104b619a71a1504049d58be15cc1",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a88caa999d85958fabe330a96702d201b5f9c59b2f067c2028626d13ef0bd907",
+      "NPDES_permit_SHA256": "e4aa95d8a637916f393298ece61dc94852cb502b78f10a0699b9155948276b2d",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "9954f146e54a31c9d6bf5b20b679284f355654cc2a8b5376f18d97fdc08bb0ff",
+      "NPDES_permit_SHA256": "e5b70a9b62ec1a006990f5e5d447368f7301be5c20102841e9dfc5b1cbf77303",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "09f0d48fe19a658de8f45cd1d8ab6fb08c95cd954e1b8566842fe53f3f8fdfcf",
+      "NPDES_permit_SHA256": "e7f59817142f5a525793032b510799d42a8bffea48d4aa4112d01938ac09a202",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "07/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "5fda56cd963be2ba055e3d36bb296cadbdd968e1014fb7ae298f971a5e5fa049",
+      "NPDES_permit_SHA256": "e7f59817142f5a525793032b510799d42a8bffea48d4aa4112d01938ac09a202",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "d9254980d135a2a1b41bc1d4faafd8e61b72aaaf82682dd7138905e4b7166400",
+      "NPDES_permit_SHA256": "e9ab983960a01b039a1d99739f321b81bde080d1ed00c7592ef0c7358db4b61a",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "1764a89c538a75f1900166241461fc0c7928c284309572fb30e131392c11e27d",
+      "NPDES_permit_SHA256": "eaf038d101e6b82c529f0fdd87b0032c1796c122d92a498a796ae621f18e6843",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "3610a443def0d0f87ac4d06cb1fb64207884519dcdc968a5b28c8e5fc71839f6",
+      "NPDES_permit_SHA256": "ec7ff6de528a42ad784d7958c47b62eae21ad277957d7721e595ba1c3e9ca9cc",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "a1804d96cd213646ac7e3d682f12258cf703d45f32ad5baac5ea76db26a921ee",
+      "NPDES_permit_SHA256": "ef5ece625f25a840a024a9defb2ad28445ddecd2fb4ae8715ed145946aa46a77",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "03/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "8cda929611fd954b7311b0b91c165fa4dee0306a46fe6c53e1142e63bd585deb",
+      "NPDES_permit_SHA256": "f101fb97ae0872d05a317a304d34e05c125c69058e52e336d095f85719c852be",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "06/30/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "bd71d2f73b837d5dfb17b336843eab5a64c539de331241ee8af6946b147a5f2e",
+      "NPDES_permit_SHA256": "f101fb97ae0872d05a317a304d34e05c125c69058e52e336d095f85719c852be",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "cbdd18ac65cc7b26935a9421810809b10225dc7e5c0cefa5a03ab97b57b2016c",
+      "NPDES_permit_SHA256": "f101fb97ae0872d05a317a304d34e05c125c69058e52e336d095f85719c852be",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "06/30/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": []
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "2bb70ff950a18eead703db0b16c6c65101bd902e0555d4a949b79977442fc795",
+      "NPDES_permit_SHA256": "f28a6a5fa4d2aa9efbb393ad8270bd0c1d904738de3204b6b9f0ef0779f8e0a8",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "c6e0297b111a44d202ea3704265150c89e1a120b611be201ca4daed1e72efbea",
+      "NPDES_permit_SHA256": "f2d83d691203acb39d2565ab507c55719ec8137dd78084b47917df4acf46b3a3",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "9f185167d591d7617a3f5c588526043b66d411264e200f1183a06d7f059acf41",
+      "NPDES_permit_SHA256": "f397d7dd65dccc89465db8f9dc5d16199cb5079ba1be93f31d2e5ef0ea4e66a6",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [
+        "03/31/2021",
+        "06/30/2021",
+        "09/30/2021",
+        "12/31/2021"
+      ],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    },
+    {
+      "NPDES_exact_permit_feature_SHA256": "8e298ba89fe2e4b3ad3cfc5547271ee0cd7277392196cf24a4603eef302aabe8",
+      "NPDES_permit_SHA256": "f530ab2b27c0202614bc1f83aed39f91ccfc601ba94585670bc9a23fcc75b285",
+      "reported_original_numeric_2021_TN00600_period_end_dates": [],
+      "reported_original_numeric_2021_TP00665_period_end_dates": [],
+      "reported_original_numeric_2021_flow50050_period_end_dates": [
+        "01/31/2021",
+        "02/28/2021",
+        "03/31/2021",
+        "04/30/2021",
+        "05/31/2021",
+        "06/30/2021",
+        "07/31/2021",
+        "08/31/2021",
+        "09/30/2021",
+        "10/31/2021",
+        "11/30/2021",
+        "12/31/2021"
+      ]
+    }
+  ],
   "source_original_EPA_national_DMRS_ZIP_SHA256": {
     "2021": "2a28acdd4e98cc8cfee7a4ee8bfcc71a6aa266477d7898599a3297d6482c2c10",
     "2022": "2bf892143d6f95afa2b0246c8b6ce028b4bf107a2e2c665a06367c32dcc8bc0d"
