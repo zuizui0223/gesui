@@ -13,6 +13,31 @@
     "strict_NLDI_candidates_original_states": 8
   },
   "independent_2021_measured_POTW_to_wetland_50km_directed_candidates": null,
+  "independent_USGS_NLDI_API_status_by_original_source_type": {
+    "NWCA_wetland": {
+      "500m_modelled_position_n": 26,
+      "NLDI_catchment_position_HTTP_status": {
+        "200": 71
+      },
+      "NLDI_stream_hydrolocation_HTTP_status": {
+        "200": 43,
+        "None": 28
+      },
+      "direct200m_success_n": 20
+    },
+    "POTW_outfall": {
+      "500m_modelled_position_n": 36,
+      "NLDI_catchment_position_HTTP_status": {
+        "200": 83,
+        "404": 3
+      },
+      "NLDI_stream_hydrolocation_HTTP_status": {
+        "200": 44,
+        "None": 42
+      },
+      "direct200m_success_n": 35
+    }
+  },
   "independent_original_study_source_gate_PASS": false,
   "no_navigated_data_never_converted_to_false_ZERO_outfall_exposure": true,
   "original_USGS_NLDI_navigation_performed": false,
