@@ -1,0 +1,48 @@
+name: gesui frozen GBIF360 5km coverage audit (no fresh GBIF queries)
+
+on:
+  push:
+    paths:
+      - "scripts/audit_NRSA1819_GBIF360_SOURCE_FIXED_COUNTS_20261112.py"
+      - ".github/workflows/gesui-gbif360-fixed-source-audit.yml"
+  pull_request:
+    paths:
+      - "scripts/audit_NRSA1819_GBIF360_SOURCE_FIXED_COUNTS_20261112.py"
+      - ".github/workflows/gesui-gbif360-fixed-source-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  data-support-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Get original immutable GBIF360 count artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-gbif360-source-only-counts
+          run-id: 43036787547
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/gbif360_frozen
+      - name: Recalculate exact request success, taxon-count histograms and joint support
+        env:
+          GBIF_360_SOURCE_ARTIFACT: ${{ runner.temp }}/gbif360_frozen
+        run: |
+          python -m py_compile scripts/audit_NRSA1819_GBIF360_SOURCE_FIXED_COUNTS_20261112.py
+          python scripts/audit_NRSA1819_GBIF360_SOURCE_FIXED_COUNTS_20261112.py
+      - name: Archive outcome-free source diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nrsa-gbif360-frozen-source-support-diagnostic
+          path: ${{ runner.temp }}/NRSA_GBIF360_SOURCE_COVERAGE_FAILURE_DIAGNOSTIC_20261112.json
+          if-no-files-found: warn
+          retention-days: 30
