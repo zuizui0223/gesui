@@ -1,0 +1,40 @@
+name: gesui original JRC GREEN CDF Geodatabase hosted official REST data equivalence probe
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-GREEN-CDF-official-REST-alternative.yml"
+      - "scripts/gesui_JRC_GREEN_CDF_official_hosted_REST_alternative.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_JRC_GREEN_official_Service2Data_replacement_meta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Discover officially published service or another file format for identical CDF GeoDatabase JRC GREEN 1990-2021 basin P N annual source
+        run: |
+          python -m py_compile scripts/gesui_JRC_GREEN_CDF_official_hosted_REST_alternative.py
+          python -u scripts/gesui_JRC_GREEN_CDF_official_hosted_REST_alternative.py \
+            --out results/eea2016_thirdyear_source_20261111/JRC_GREEN_CDF_ORIGINAL_GDB_PUBLISHED_REST_SERVICE_PROBE.json
+      - name: Archive exact official layer metadata / CDF driver limitation, no NWCA or EEA measured BQE outcome
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/JRC_GREEN_CDF_ORIGINAL_GDB_PUBLISHED_REST_SERVICE_PROBE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Probe official JRC hosted FeatureServer alternatives for compressed CDF GREEN basin 2016 model source without biology"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-JRC-GREEN-originalCDF-2016-public-ArcGIS-REST-equivalence-discovery
+          path: results/eea2016_thirdyear_source_20261111/JRC_GREEN_CDF_ORIGINAL_GDB_PUBLISHED_REST_SERVICE_PROBE.json
+          retention-days: 90
