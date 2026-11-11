@@ -1,0 +1,54 @@
+name: gesui NWCA2021 2021-POTW original NLDI 4source SHARD replay (no new USGS requests)
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-NLDI-original4-source-OFFLINE-replay.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  rejoin_NLDI_2021_source_NP_without_mislabeling_not_executed_flow_navigation_as_ZERO:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Download 4 exactly original completed USGS NLDI 2021 measured POTW/wetland source artifacts from SUCCESS run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui-nldi-original-4-source
+          for shard in 0 1 2 3; do
+            gh run download 42964085386 --name "gesui-NWCA2021-USGS-NLDI-71wet86potw-source-shard-$shard" \
+              --dir /tmp/gesui-nldi-original-4-source --repo zuizui0223/gesui
+            test -s "/tmp/gesui-nldi-original-4-source/NLDI_2021_NP71wet86potw_shard$shard.json"
+          done
+      - name: Strict 200m source mapping from SAME real four previously acquired USGS response shards, NOT RUN downstream when precommitted 10 wetlands/11outfalls gate fails
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_USGS_NLDI_join4_source_route_DM_DD.py
+          python -u scripts/gesui_NWCA2021_USGS_NLDI_join4_source_route_DM_DD.py \
+            --shard /tmp/gesui-nldi-original-4-source/NLDI_2021_NP71wet86potw_shard0.json \
+            --shard /tmp/gesui-nldi-original-4-source/NLDI_2021_NP71wet86potw_shard1.json \
+            --shard /tmp/gesui-nldi-original-4-source/NLDI_2021_NP71wet86potw_shard2.json \
+            --shard /tmp/gesui-nldi-original-4-source/NLDI_2021_NP71wet86potw_shard3.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json
+      - name: Preserve source PASS/FAIL and explicit NOT NAVIGATED not mistaken zero downstream connectivity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive original NLDI 2021 POTW source 200m STOP explicitly marking downstream route not run, not zero"
+          git fetch origin analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-71wet86POTW-NHDPlus-original-source-replay
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json
+          retention-days: 90
