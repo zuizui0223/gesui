@@ -1,0 +1,40 @@
+name: gesui 2023 PUBLIC EEA final UWWTD real GPKG distribution metadata HEAD source
+on:
+  push:
+    branches: ["analysis/eea2023-thirdyear-benthic-macro-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2023-EEA-PUBLIC-final-distribution-HEAD.yml"
+      - "scripts/gesui_2023_EEA_PUBLIC_UWWTD_FINAL_meta_distribution_probe.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_2023_public_real_distribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Resolve official EEA 2023 FINAL public-only UWWTD download records and test metadata-provided source HEAD
+        run: |
+          python -m py_compile scripts/gesui_2023_EEA_PUBLIC_UWWTD_FINAL_meta_distribution_probe.py
+          python -u scripts/gesui_2023_EEA_PUBLIC_UWWTD_FINAL_meta_distribution_probe.py \
+            --out results/eea2023_thirdyear_source_20261111/2023_EEA_FINAL_PUBLIC_TP_METADATA_DISTRIBUTION_HEAD.json
+      - name: Freeze official public-only 2023 UWWTD GPKG distribution source URLs before any N P mass or aquatic EQR
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2023_thirdyear_source_20261111/2023_EEA_FINAL_PUBLIC_TP_METADATA_DISTRIBUTION_HEAD.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original public EEA final 2023 wastewater source metadata distribution URLs and HEAD without measured N/P outcomes"
+          git fetch origin analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git rebase origin/analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git push origin HEAD:analysis/eea2023-thirdyear-benthic-macro-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA-2023-FINAL-public-distribution-source-HEAD
+          path: results/eea2023_thirdyear_source_20261111/2023_EEA_FINAL_PUBLIC_TP_METADATA_DISTRIBUTION_HEAD.json
+          retention-days: 90
