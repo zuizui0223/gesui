@@ -80,6 +80,6 @@ def main():
  a.out.write_text(json.dumps(manifest,indent=2,ensure_ascii=False,sort_keys=True)+"\n")
  print("EEA2016_CYCLE_SOURCE_ONLY",json.dumps({"n_probed":len(results),
     "n_http200":sum(v.get("http_status")==200 for v in results.values()),
-    "n_zip_preview":sum(v.get("content_starts_with_PK_ZIP") for v in results.values()),
+    "n_zip_preview":sum(bool(v.get("content_starts_with_PK_ZIP",False)) for v in results.values()),
     "NO_2016_EQR":True},indent=2),flush=True)
 if __name__=="__main__":main()
