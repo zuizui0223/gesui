@@ -1,0 +1,183 @@
+{
+  "NO_sewage_dose_N_P_flow_or_nutrient_mass_effect_computed": true,
+  "USGS_downstream_DM_50km_outcome_source": {
+    "potential_directed_original_US_states": 0,
+    "potential_directed_source_pairs": 0,
+    "potential_directed_unique_2021_measured_POTW_features": 0,
+    "potential_directed_unique_NPDES_administrative_permits": 0,
+    "potential_directed_unique_NWCA_wetlands": 0
+  },
+  "USGS_source_comid_navigation_response_receipts_without_full_geography": [],
+  "USGS_strict200m_directed_outfall_to_wetland_potential_matches": [],
+  "UTC": "2026-11-11T05:21:12.251376+00:00",
+  "all_original_NWCA2021_H_ALL_FQAI_or_TNTP_plant_biology_NOT_ACCESSED": true,
+  "official_NHDPlusV2_DD_navigation_diversion_ONLY_sensitivity_not_rescue": true,
+  "official_USGS_NLDI_direct_stream_candidate_DifferentCOMID_source_pairs_only": [
+    {
+      "feature_sha256": "4db0650cafc28e1eac5d4926b625a0f2a7dd1e4613c936609652fd195e0f9e3e",
+      "original_state": "TN",
+      "permit_sha256": "6cbb49ea18b2f772a8023fd4606f14bf29c87d3bdb8f118543ed685421aee603",
+      "site_sha256": "0686184a5bbed101d10b9715bf82ff157c9267d21ea30f7e84bd3215d35d21c1",
+      "source_comid": "14242878",
+      "source_direct_snap_m": 19.55,
+      "straight_geodesic_candidate_distance_km": 8.16177782117275,
+      "wetland_comid": "14242906",
+      "wetland_direct_snap_m": 57.81
+    },
+    {
+      "feature_sha256": "623545d86548950191acf97bf2a41375ae2131e0142c739348f0dfe9fa3ffd5d",
+      "original_state": "WI",
+      "permit_sha256": "4681144937f10e8079aaf623d70065ab755bcf6e0768084ce1101258ffa19e53",
+      "site_sha256": "1531323f38d62f47c639d1c0e0f2b5438ff87a7652910d048582b93bc46392da",
+      "source_comid": "13296610",
+      "source_direct_snap_m": 89.88,
+      "straight_geodesic_candidate_distance_km": 7.000477132040335,
+      "wetland_comid": "13296024",
+      "wetland_direct_snap_m": 48.96
+    },
+    {
+      "feature_sha256": "068d6a0d5784448305c184f7d474d5601bfffb6d2d6c628727a2458e110a2d90",
+      "original_state": "MD",
+      "permit_sha256": "90f081cfc58dfcb047b1e977dce83572f7f93057b0e39ffbabbd2ec2fe098ec3",
+      "site_sha256": "185a0485328ce81a974b218f58cf1944fbf3f06adc31a8f1a4e22184b172030e",
+      "source_comid": "4725317",
+      "source_direct_snap_m": 7.77,
+      "straight_geodesic_candidate_distance_km": 9.797568247790709,
+      "wetland_comid": "11686990",
+      "wetland_direct_snap_m": 23.68
+    },
+    {
+      "feature_sha256": "ce6ed9c6477325136195ee3c4bd82db519a5bc89459c526dba9e326a467e8504",
+      "original_state": "NJ",
+      "permit_sha256": "56d47c7902efd7e8da3534c77dc92d8a9d0620fc4bfef29eee6f442b04c39c51",
+      "site_sha256": "295c381693b653c0c654a92eb86c76280948810bb89038cd567522431edc2887",
+      "source_comid": "6203394",
+      "source_direct_snap_m": 40.03,
+      "straight_geodesic_candidate_distance_km": 0.5807858537432317,
+      "wetland_comid": "6203124",
+      "wetland_direct_snap_m": 70.22
+    },
+    {
+      "feature_sha256": "92a2c71733d574a953bec3f13b38662c80209b5cf347864429762bf83a16c7ef",
+      "original_state": "KS",
+      "permit_sha256": "3c6e2ef1054974e2e459584d33818aa4708f8125f2efd5b2b4ae9b470700b1a5",
+      "site_sha256": "2a511396a812f689727a63f8a104a176b9fd1b6c117dd0ace00c8919cfe33eac",
+      "source_comid": "3729101",
+      "source_direct_snap_m": 62.05,
+      "straight_geodesic_candidate_distance_km": 5.909308344127117,
+      "wetland_comid": "3729015",
+      "wetland_direct_snap_m": 35.16
+    },
+    {
+      "feature_sha256": "1a43bb647ebc52f9fa34d78b8ad814c54184cd725fe3c8a9a1b28800e69a4419",
+      "original_state": "MI",
+      "permit_sha256": "5f4fe903f524c96711205214b4285eacf7899e4e205a1ef705d49a8ae0e0b5f5",
+      "site_sha256": "3fe413a8b1b926c37a1c599183c4da0457b5fb0d43ddbcaaada938685786880d",
+      "source_comid": "13016315",
+      "source_direct_snap_m": 21.86,
+      "straight_geodesic_candidate_distance_km": 2.0661345725708435,
+      "wetland_comid": "13015171",
+      "wetland_direct_snap_m": 78.21
+    },
+    {
+      "feature_sha256": "6881e9bc8df21a7ef82a975eb6b671aa8080b86c842864edac9d984263de4fe3",
+      "original_state": "MI",
+      "permit_sha256": "8f02eb421512d6037c60cb9e386a716da225fcfd3ba6735010bce7f2ba1a667a",
+      "site_sha256": "3fe413a8b1b926c37a1c599183c4da0457b5fb0d43ddbcaaada938685786880d",
+      "source_comid": "13015377",
+      "source_direct_snap_m": 183.35,
+      "straight_geodesic_candidate_distance_km": 9.782613031135622,
+      "wetland_comid": "13015171",
+      "wetland_direct_snap_m": 78.21
+    },
+    {
+      "feature_sha256": "a12dedec64565816d7ae6770c2aea377ba6ffa940c81b0b14075eba7d32adb72",
+      "original_state": "MD",
+      "permit_sha256": "8aaf8355a080043d3c4569ff6ce62318e50cd7ae72d098c3930909619030e2ce",
+      "site_sha256": "d1e1809c180c83e0eb06003293adcf5aaba8f92022e6661e81a04107a4a4696d",
+      "source_comid": "8450658",
+      "source_direct_snap_m": 133.85,
+      "straight_geodesic_candidate_distance_km": 7.285991359224648,
+      "wetland_comid": "8450876",
+      "wetland_direct_snap_m": 24.48
+    },
+    {
+      "feature_sha256": "aa475b56fc7d6445f3cd1e1df00ab04abcbcf55acd9bb6b313f8d7ed680593e1",
+      "original_state": "WI",
+      "permit_sha256": "13d6b1934a5b2dc643eadacd734147ad145f79073db023fd88310c8880d5e9f4",
+      "site_sha256": "e28477e183fe3e1e88f4e70fe30d73c1bb5eecdef437cc28d99c85641db0dff4",
+      "source_comid": "6867211",
+      "source_direct_snap_m": 32.29,
+      "straight_geodesic_candidate_distance_km": 3.700171869248458,
+      "wetland_comid": "6867889",
+      "wetland_direct_snap_m": 74.46
+    },
+    {
+      "feature_sha256": "cf8289721f9f87a5eee21687beec7ce22efd306282adb99d520e319f2d92f170",
+      "original_state": "KY",
+      "permit_sha256": "a2e2969b67ac5eeda17fe21efc905492d1aae245bdb11ab61fa52403ad7db77d",
+      "site_sha256": "ee9c07f3bec8fd04e5f340ffd3569db2ab67768b0b060276c7dc56a713f88c48",
+      "source_comid": "938010306",
+      "source_direct_snap_m": 19.14,
+      "straight_geodesic_candidate_distance_km": 2.6097206474568306,
+      "wetland_comid": "14128213",
+      "wetland_direct_snap_m": 63.09
+    },
+    {
+      "feature_sha256": "296122b336e85e75e89932edf384ffdffd4c16123d1d8625ec75c4fd1c9fee1a",
+      "original_state": "WV",
+      "permit_sha256": "711278e656c00728167d7b3719c9d6a179d4b292e2eb23355e769e1cf6146032",
+      "site_sha256": "f92448e18d80dbd3ea16601551b960a6323a1bf317afe0b462afa01ae900c765",
+      "source_comid": "8444732",
+      "source_direct_snap_m": 47.6,
+      "straight_geodesic_candidate_distance_km": 5.3345193643574955,
+      "wetland_comid": "8444748",
+      "wetland_direct_snap_m": 59.64
+    }
+  ],
+  "original_2021_DMR_source_2026_registered_geo_reference_counts": {
+    "USGS_200m_direct_candidate_POTW": 35,
+    "USGS_200m_direct_candidate_wetlands": 20,
+    "USGS_500m_model_only_POTW": 36,
+    "USGS_500m_model_only_wetlands": 26,
+    "USGS_catchment_found_outfalls": 83,
+    "USGS_catchment_found_wetlands": 71,
+    "USGS_hydrolocation_API_failures": 70,
+    "USGS_position_API_failures": 3,
+    "pre_navigation_direct_candidate_SUPPORT_GATE_pass": false,
+    "source_157_original_GBIF_free_USGS_NLDI_points": 157,
+    "source_200m_candidate_NPDES_permits_different_comids_n": 11,
+    "source_200m_candidate_outfalls_different_comids_n": 11,
+    "source_200m_candidate_sites_different_comids_n": 10,
+    "source_200m_candidate_states_different_comids_n": 8,
+    "source_71_WETLAND_86_OUTFALL_original_NP2021": true,
+    "source_exact_original_SiteFeature_2021_DMR_nutrient_candidates_n": 100,
+    "source_original_same_state_ecoregion_far_controls_n": 137,
+    "source_site_feature_both200m_DIFFERENT_comid_to_test_downstream_n": 11,
+    "source_site_feature_both200m_same_comid_direction_unknown_n": 1,
+    "source_site_feature_both500m_modelled_not_strict_n": 16
+  },
+  "precommitted_direct_stream_both_original_sites_200m_and_diff_comid": true,
+  "precommitted_downstream_navigation_bound_km": 50,
+  "precommitted_original_actual_DM_FLOW_SOURCE_STUDY_GATE": {
+    "only_if_source_200m_direct_and_DifferentCOMID_and_DownstreamDM_reached": true,
+    "original_far_controls": 30,
+    "permits": 10,
+    "source_features": 15,
+    "states": 8,
+    "sufficient_USGS_NLDI_source_supported_NWCA2021_wetlands_for_future_observational_vegetation_test": false,
+    "wetland_sites": 20
+  },
+  "schema": "gesui_NWCA2021_USGS_NLDI_NHDPlusV2_2021DMR_71wetland86POTW_strict200m_DM_DD_source_GATE_v01",
+  "source_NHDPlus_version": "NHDPlusV2 (USGS NLDI)",
+  "source_USGS_NLDI_official_API": "https://api.water.usgs.gov/nldi/linked-data",
+  "source_original_2021_calendaryear_NP_DMR_status_SHA256": "68984d50c29779c696d832c96a5a57715482a63cfeb3f9d6cc4cafd7abf7ef68",
+  "source_original_344_EPA_registered_POTW_feature_geo_SHA256": "c103428b5f77883f4461830901a79641a7e578ab1681a8542490ce332dd2e6d5",
+  "source_original_USGS_NLDI_index_shards_SHA256": {
+    "0": "6ec11fd736ec214a3c09568de9a23fc4196b5d49cc5dac0cad2c269f22c46a9e",
+    "1": "5083f1a15de6fdf65647a75c59b9708ea29a1c6dfc52ede43817afa08138290a",
+    "2": "049c3059d1517f488262a8dd6c1157e998f86d1ec361ff6633263b73e79760e8",
+    "3": "6c39ddb1a5ce2fd2d3d3d152f41410bac3873419a7e6f00482b92a8f151383b4"
+  },
+  "source_wetland_within200m_river_DOES_NOT_prove_wetland_hydrologic_inflow": true
+}
