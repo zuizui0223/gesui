@@ -1,0 +1,96 @@
+name: gesui NWCA2021 original 160 POTW national actual DMR TN TP FY2021 FY2022 source-only
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-DMR-2021-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-160POTW-DMR2021-22-source.yml"
+      - "scripts/gesui_NWCA2021_160nearPOTW_source_2021FY22FY_nutrient_DMR.py"
+      - "scripts/gesui_NWCA2021_join_calendar2021_DMR160_source_fiscal_fy2021_22.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  exact_original_FY_DMR_160source_permit_calendar2021:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    strategy:
+      fail-fast: false
+      matrix:
+        fiscalyear: [2021,2022]
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify fixed original EPA 160 NPDES permit hashes and 128 NWCA source-near sites before DMR data
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_160nearPOTW_source_2021FY22FY_nutrient_DMR.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_160_SEWAGE_PERMITS_BEFORE_DMR2021_SOURCE.json")
+          a=json.loads(p.read_text())
+          assert a["NO_FY2021_FY2022_DMR_measurements_accessed_in_this_source_stage"] is True
+          assert a["original_registered_municipal_NPDES_permit_ids_SHA256_COUNT"]==160
+          assert a["original_2021_study_potential_near10_sites"]==128
+          print("SOURCE LOCK PASSED 160 original municipal near-wetland permits")
+          PY
+      - name: Download original national EPA ECHO DMR fiscal year source with SHA256 and no binary redistributions
+        run: |
+          mkdir -p /tmp/gesui-nwca-dmr
+          curl --fail --location --retry 5 --retry-all-errors --connect-timeout 40 --max-time 1800 \
+            --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_dmrs_fy${{ matrix.fiscalyear }}.zip" \
+            -o "/tmp/gesui-nwca-dmr/npdes_dmrs_fy${{ matrix.fiscalyear }}.zip"
+          test -s "/tmp/gesui-nwca-dmr/npdes_dmrs_fy${{ matrix.fiscalyear }}.zip"
+          sha256sum "/tmp/gesui-nwca-dmr/npdes_dmrs_fy${{ matrix.fiscalyear }}.zip"
+          unzip -l "/tmp/gesui-nwca-dmr/npdes_dmrs_fy${{ matrix.fiscalyear }}.zip" | head -15
+      - name: Stream national DMR without extracting, select only original 160 POTW permits, calendar2021 measured TN TP flow and feature identifiers
+        run: |
+          python -u scripts/gesui_NWCA2021_160nearPOTW_source_2021FY22FY_nutrient_DMR.py \
+            --fy ${{ matrix.fiscalyear }} \
+            --zip "/tmp/gesui-nwca-dmr/npdes_dmrs_fy${{ matrix.fiscalyear }}.zip" \
+            --out "/tmp/gesui-nwca-dmr/DMR_POTW_160_FY${{ matrix.fiscalyear }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-160POTW-DMR-national-FY${{ matrix.fiscalyear }}
+          path: /tmp/gesui-nwca-dmr/DMR_POTW_160_FY${{ matrix.fiscalyear }}.json
+          retention-days: 90
+  join_actual_calendar2021_POTW_permit_DMR_before_plant_biology:
+    needs: exact_original_FY_DMR_160source_permit_calendar2021
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-NWCA2021-160POTW-DMR-national-FY*
+          path: /tmp/gesui-dmr-160-source-joined
+          merge-multiple: true
+      - name: Join fiscal years to full calendar2021, verify original source ID hash cohort, report whether 160 permits have numeric final-effluent TN TP and flow
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_join_calendar2021_DMR160_source_fiscal_fy2021_22.py
+          python -u scripts/gesui_NWCA2021_join_calendar2021_DMR160_source_fiscal_fy2021_22.py \
+            --fy2021 /tmp/gesui-dmr-160-source-joined/DMR_POTW_160_FY2021.json \
+            --fy2022 /tmp/gesui-dmr-160-source-joined/DMR_POTW_160_FY2022.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json
+      - name: Preserve original measured-DMR availability without new 2021 NWCA HALL or TNTP response fit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze calendar2021 national POTW 160 original source N/P/flow DMR measurement support without plant response"
+          git fetch origin analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-DMR-2021-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-original-160POTW-calendar2021-measured-NP-source
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json
+          retention-days: 90
