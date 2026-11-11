@@ -1,0 +1,53 @@
+name: gesui official 2023 third year EEA river benthic BQE source-only site-gate
+on:
+  push:
+    branches: ["analysis/eea2023-thirdyear-benthic-macro-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2023-EEA-BQE-source-sites.yml"
+      - "scripts/gesui_2023_bqe_source_only_sites.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_2023_EEA_BQE_only_monitoring_sites_not_EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install data source-only site and methodology parsers
+        run: python -m pip install --quiet "numpy<3" pandas
+      - name: Recover official EEA public Waterbase Biology2026 archive for 2023 SITE IDs only
+        run: |
+          mkdir -p /tmp/gesui-2023-biological
+          curl --fail --location --retry 4 --connect-timeout 30 --max-time 520 \
+            --silent --show-error \
+            "https://sdi.eea.europa.eu/datashare/s/HCxTFz3Ac8xbHX6/download" \
+            -o /tmp/gesui-2023-biological/EEA_Waterbase_Biology2026.zip
+          test -s /tmp/gesui-2023-biological/EEA_Waterbase_Biology2026.zip
+      - name: Source-freeze original 2023 river EQR stations and countries, source-year and spatial folds BEFORE reading numerical score or WWTP loads
+        run: |
+          python -m py_compile scripts/gesui_2023_bqe_source_only_sites.py
+          python -u scripts/gesui_2023_bqe_source_only_sites.py \
+            --archive /tmp/gesui-2023-biological/EEA_Waterbase_Biology2026.zip \
+            --out results/eea2023_thirdyear_source_20261111/2023_BQE_PREOUTCOME_SOURCE_ONLY
+      - name: Publish only source-country, site ID and method/fold manifest and original Bio member SHA, not biological outcomes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2023_thirdyear_source_20261111/2023_BQE_PREOUTCOME_SOURCE_ONLY/
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze actual 2023 European benthic/phyto/fish original site-country-method network sample before numeric EQR and sewage source crosswalk"
+          git fetch origin analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git rebase origin/analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git push origin HEAD:analysis/eea2023-thirdyear-benthic-macro-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA2023-official-BQE-preoutcome-monitoring-sites
+          path: results/eea2023_thirdyear_source_20261111/2023_BQE_PREOUTCOME_SOURCE_ONLY/
+          retention-days: 90
