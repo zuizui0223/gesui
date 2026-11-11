@@ -40,17 +40,17 @@ def main():
     p=argparse.ArgumentParser();p.add_argument("--out",type=Path,required=True)
     a=p.parse_args()
     service=fetch("",{})
-    meta=service.get("JSON",{})
-    ll=meta.get("layers",[])
+    meta=service.get("JSON") or {}
+    ll=meta.get("layers") or []
     if len(ll)>MAX_LAYER:raise ValueError("JRC original official MapServer unexpected layer count")
     logs=[]
     for item in ll:
         layerid=item.get("id")
         if not isinstance(layerid,int):continue
         full=fetch("/"+str(layerid),{})
-        d=full.get("JSON",{})
+        d=full.get("JSON") or {}
         fields=[{"name":v.get("name"),"alias":v.get("alias"),"type":v.get("type"),
-                 "length":v.get("length")} for v in d.get("fields",[])[:300]]
+                 "length":v.get("length")} for v in (d.get("fields") or [])[:300]]
         pointfield=[v for v in fields if any(k in str(v["name"]).lower()+" "+str(v["alias"]).lower()
             for k in ("point","green","nutr","emission","waste","sewage","phosph","nitrog",
                       "1990","2016","2014","2018","load","agri","industry","rbd","nuts","country"))]
@@ -63,7 +63,7 @@ def main():
           "service_fields":fields,
           "source_point_and_nutrient_candidate_columns":pointfield,
           "original_source_maxRecordCount":d.get("maxRecordCount"),
-          "original_supportsStatistics":d.get("advancedQueryCapabilities",{}).get("supportsStatistics"),
+          "original_supportsStatistics":(d.get("advancedQueryCapabilities") or {}).get("supportsStatistics"),
           "reported_copyright":str(d.get("copyrightText",""))[:700],
           "layer_description_excerpt":str(d.get("description",""))[:700],
           "layer_name":d.get("name"),
