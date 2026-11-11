@@ -22,7 +22,7 @@ jobs:
         with: {python-version: "3.11"}
       - name: Validate independently coded NumPy source originally frozen 568 site and 239 EXO source comparisons
         run: |
-          python -m pip install --quiet "numpy<3" pandas scipy
+          python -m pip install --quiet "numpy<3" pandas scipy statsmodels
           python -m py_compile scripts/audit_gesui_NWCA2021_trueEXO_source239_independent_OLS_WLS.py
       - name: Redownload SHA-pinned original four EPA NWCA2021 source files only, no new 2026 source point selection
         run: |
