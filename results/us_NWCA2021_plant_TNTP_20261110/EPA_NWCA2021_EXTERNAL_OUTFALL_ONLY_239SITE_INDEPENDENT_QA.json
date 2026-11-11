@@ -1,0 +1,202 @@
+{
+  "US_state_and_ecoregion_source_overlap_239_exact": true,
+  "UTC": "2026-11-11T03:31:04.883660+00:00",
+  "actual2021_nutrient_not_confirmed_wastewater_source": true,
+  "descriptive_truncated_survey_area_weight_not_original_national_area_estimator": {
+    "weight_capped_at_95pct": {
+      "cap_WGT_TP_CORE": 330389.51208999974,
+      "not_official_NWCA_design_estimator": true,
+      "original_239_site_cluster_coefficient": {
+        "design_matrix_columns": 38,
+        "design_rank": 37,
+        "independent_numpy_near10_minus_far20_coefficient": 0.09151074438681803,
+        "independent_state_cluster_sandwich95": [
+          -0.08133871169997003,
+          0.2643602004736061
+        ],
+        "n_original_source_sites": 239,
+        "original_US_state_clusters": 27,
+        "original_state_ecoregion_strata_n": 32
+      },
+      "site_count_above_cap": 12
+    },
+    "weight_capped_at_99pct": {
+      "cap_WGT_TP_CORE": 576245.4956,
+      "not_official_NWCA_design_estimator": true,
+      "original_239_site_cluster_coefficient": {
+        "design_matrix_columns": 38,
+        "design_rank": 37,
+        "independent_numpy_near10_minus_far20_coefficient": 0.14336173309448239,
+        "independent_state_cluster_sandwich95": [
+          -0.029866762960158943,
+          0.3165902291491237
+        ],
+        "n_original_source_sites": 239,
+        "original_US_state_clusters": 27,
+        "original_state_ecoregion_strata_n": 32
+      },
+      "site_count_above_cap": 1
+    }
+  },
+  "independent_2021_all_five_NWCA_plant_endpoints_and_HALL_original_design_weight_beta_CI": {
+    "FQAIALL_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.9994960777035858,
+      "independent_state_cluster_sandwich95": [
+        -2.6355044233617524,
+        0.6365122679545806
+      ],
+      "n_original_source_sites": 239,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "FQAINAT_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -1.055292845092748,
+      "independent_state_cluster_sandwich95": [
+        -2.5385477692182707,
+        0.42796207903277494
+      ],
+      "n_original_source_sites": 239,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HALIEN_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.06417342399612389,
+      "independent_state_cluster_sandwich95": [
+        -0.20533283648761388,
+        0.07698598849536611
+      ],
+      "n_original_source_sites": 239,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HALL_original_design_weighted": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": 0.1450503773043806,
+      "independent_state_cluster_sandwich95": [
+        -0.028057846066821324,
+        0.31815860067558255
+      ],
+      "n_original_source_sites": 239,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HALL_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.1518309510795193,
+      "independent_state_cluster_sandwich95": [
+        -0.28261185968398256,
+        -0.02105004247505604
+      ],
+      "n_original_source_sites": 239,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "HNAT_site_equal": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": -0.14141303782390904,
+      "independent_state_cluster_sandwich95": [
+        -0.253405159212446,
+        -0.029420916435372105
+      ],
+      "n_original_source_sites": 239,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    }
+  },
+  "independent_original_2021_TN_TP_exact_204site_observational_concentrations": {
+    "log10_TN": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": 0.10767022181984837,
+      "independent_state_cluster_sandwich95": [
+        -0.11255013487545337,
+        0.32789057851515013
+      ],
+      "n_original_source_sites": 204,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    },
+    "log10_TP": {
+      "design_matrix_columns": 38,
+      "design_rank": 37,
+      "independent_numpy_near10_minus_far20_coefficient": 0.24853559130130407,
+      "independent_state_cluster_sandwich95": [
+        0.009899784186715499,
+        0.48717139841589263
+      ],
+      "n_original_source_sites": 204,
+      "original_US_state_clusters": 27,
+      "original_state_ecoregion_strata_n": 32
+    }
+  },
+  "leave_original_one_US_state_out_2021_HALL": {
+    "area_weighted_positive_count": 27,
+    "n_states_dropped": 27,
+    "site_beta_range": [
+      -0.17547049973998438,
+      -0.12256569244193258
+    ],
+    "site_equal_negative_count": 27,
+    "weighted_beta_range": [
+      0.07810525169070176,
+      0.17131112263239598
+    ]
+  },
+  "matched_STATE_ECO_strata": 32,
+  "matched_US_states": 27,
+  "observational_source_outfall_2026_registered_not_historical_wetland_dose": true,
+  "original_568_site_biodiversity_source_unchanged": true,
+  "original_EXO_source_only_SHA256": "b547942612ae441f6fe7d35593893c614398ba54aa31effca5d34fb036f07aa3",
+  "original_area_weight_WGT_TP_CORE_distribution": {
+    "all239": {
+      "effective_N_Kish": 60.41572403229654,
+      "maximum": 723064.0945,
+      "median": 25936.90633,
+      "min": 1212.841987,
+      "n": 239,
+      "p90": 192964.20400000026,
+      "p95": 330389.51208999974,
+      "p99": 576245.4956,
+      "top_1_site_fraction_of_total_weight": 0.04238787214505137,
+      "top_5_site_fraction_of_total_weight": 0.175667200329422
+    },
+    "far140": {
+      "effective_N_Kish": 37.088988751654526,
+      "maximum": 576245.4956,
+      "median": 27238.88323,
+      "min": 1212.841987,
+      "n": 140,
+      "p90": 191493.87525000013,
+      "p95": 255849.28667499873,
+      "p99": 563973.6816949996,
+      "top_1_site_fraction_of_total_weight": 0.061424749487056916,
+      "top_5_site_fraction_of_total_weight": 0.28240662903737784
+    },
+    "near99": {
+      "effective_N_Kish": 24.119788997158306,
+      "maximum": 723064.0945,
+      "median": 24623.53726,
+      "min": 1371.501064,
+      "n": 99,
+      "p90": 202451.25224000018,
+      "p95": 476038.9385,
+      "p99": 579181.8675779995,
+      "top_1_site_fraction_of_total_weight": 0.09418633369506131,
+      "top_5_site_fraction_of_total_weight": 0.36422870222835835
+    }
+  },
+  "original_previous_2021_240plant_source_model_SHA256": "bf6550286927979eac7584f22df09364c9183b5ed8c19ca3225de10160de56ea",
+  "schema": "gesui_NWCA2021_239plots_exact_EXTERNAL_OUTFALL_ONLY_NP_Shannon_independent_numpy_USstate_QA_v01",
+  "source_far20": 140,
+  "source_near10": 99,
+  "source_original_2021_239plant_sensitivity_model_SHA256": "0a907c82a59fd1aa88a946c13cb3dee0259bcca43a2e48370d87cb03ab3d419e"
+}

@@ -1,0 +1,55 @@
+name: gesui NWCA2021 239 true External Outfall source independent OLS and WLS
+on:
+  push:
+    branches: ["analysis/nwca2021-EXO-external-only-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-EXOonly-independent-NP-plants-QA.yml"
+      - "scripts/audit_gesui_NWCA2021_trueEXO_source239_independent_OLS_WLS.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source239_US_EPA_NWCA2021_independent_beta_CI:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Validate independently coded NumPy source originally frozen 568 site and 239 EXO source comparisons
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+          python -m py_compile scripts/audit_gesui_NWCA2021_trueEXO_source239_independent_OLS_WLS.py
+      - name: Redownload SHA-pinned original four EPA NWCA2021 source files only, no new 2026 source point selection
+        run: |
+          mkdir -p /tmp/gesui-NWCA2021-EXO-independent
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-NWCA2021-EXO-independent/nwca21_$item-data.csv"
+          done
+      - name: Reproduce all 239 original plant response coefficients, two source types, 204 TN TP wetland measurements, and area weight leverage
+        run: |
+          python -u scripts/audit_gesui_NWCA2021_trueEXO_source239_independent_OLS_WLS.py \
+            --source-dir /tmp/gesui-NWCA2021-EXO-independent \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_EXTERNAL_OUTFALL_ONLY_239SITE_INDEPENDENT_QA.json
+      - name: Preserve only independent exact source regressions and interpretation controls
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_EXTERNAL_OUTFALL_ONLY_239SITE_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Reproduce 239 EPA NWCA source EXO true external outfall vegetation and water quality contrasts by independent NumPy"
+          git fetch origin analysis/nwca2021-EXO-external-only-source-20261111
+          git rebase origin/analysis/nwca2021-EXO-external-only-source-20261111
+          git push origin HEAD:analysis/nwca2021-EXO-external-only-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-US-NWCA2021-EXOonly239-independent-Plantae-TNTP-state-QA
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_EXTERNAL_OUTFALL_ONLY_239SITE_INDEPENDENT_QA.json
+          retention-days: 90
