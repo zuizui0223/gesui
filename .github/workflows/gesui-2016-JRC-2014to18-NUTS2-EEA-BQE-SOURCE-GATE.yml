@@ -1,0 +1,56 @@
+name: gesui 2016 EEA BQE 2496 benthic sites x official GISCO NUTS2016 JRC GREEN regional NP preEQRSOURCE
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-2014to18-NUTS2-EEA-BQE-SOURCE-GATE.yml"
+      - "scripts/gesui_EEA2016_source_sites_GISCO2016_NUTS2_JRC2014to18_NP_QA.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_true_GISCO_2016_EEA_2016_sites_JRC_PointNP_year_avg_NO_EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install official 2016 NUTS2 source polygon analysis; do NOT install/read biological EQR outcome packages
+        run: |
+          python -m pip install --quiet "numpy<3" pandas geopandas shapely pyogrio pyproj
+          python -m py_compile scripts/gesui_EEA2016_source_sites_GISCO2016_NUTS2_JRC2014to18_NP_QA.py
+      - name: Download original Eurostat 2016 GISCO 1:1m NUTS2 polygons (2016 year matched) and retain SHA
+        run: |
+          mkdir -p /tmp/gesui-GISCO2016
+          curl --fail --location --retry 5 --retry-all-errors --connect-timeout 30 --max-time 520 \
+            --silent --show-error \
+            https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2016_4326_LEVL_2.geojson \
+            -o /tmp/gesui-GISCO2016/NUTS_RG_01M_2016_4326_LEVL_2.geojson
+          test -s /tmp/gesui-GISCO2016/NUTS_RG_01M_2016_4326_LEVL_2.geojson
+          sha256sum /tmp/gesui-GISCO2016/NUTS_RG_01M_2016_4326_LEVL_2.geojson
+      - name: Freeze actual 2016 BQE geolocated source-only 2496 benthic site to identical NUTS2 JRC real 2014-18 N/P load and independently replicated country/region support gate
+        run: |
+          python -u scripts/gesui_EEA2016_source_sites_GISCO2016_NUTS2_JRC2014to18_NP_QA.py \
+            --gisco /tmp/gesui-GISCO2016/NUTS_RG_01M_2016_4326_LEVL_2.geojson \
+            --out results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_GISCO_NUTS2_GREEN_POINT_NP_SOURCE_GATE_BEFORE_EQR.json
+      - name: Archive all hashed original source-selected 2016 aquatic observation sites + 2014–18 model N/P, no EQR values
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_GISCO_NUTS2_GREEN_POINT_NP_SOURCE_GATE_BEFORE_EQR.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 2016 EEA BQE site IDs within official NUTS2016 polygons linked exact 337 JRC modeled point N/P regions before 2016 normalized EQR"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2016-EEA-BQE-benthic-GISCO2016-JRC-GREEN-real-NP-preEQRSOURCE
+          path: results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_GISCO_NUTS2_GREEN_POINT_NP_SOURCE_GATE_BEFORE_EQR.json
+          retention-days: 90
