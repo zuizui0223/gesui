@@ -1,0 +1,53 @@
+name: gesui NRSA2018-19 360 river sites x GBIF original record coverage
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_NRSA1819_GBIF360_terrestrial_bridge_source_only.py"
+      - "docs/NRSA1819_GBIF_SAME_RIVER_PLANT_LYCAENID_SOURCE_GATE_PRE_DATA_20261111.md"
+      - ".github/workflows/gesui-nrsa-gbif360-source-gate.yml"
+  pull_request:
+    paths:
+      - "scripts/gesui_NRSA1819_GBIF360_terrestrial_bridge_source_only.py"
+      - "docs/NRSA1819_GBIF_SAME_RIVER_PLANT_LYCAENID_SOURCE_GATE_PRE_DATA_20261111.md"
+      - ".github/workflows/gesui-nrsa-gbif360-source-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  gbif-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Reuse frozen original EPA UID manifest from pre-EPT SUCCESS
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: nrsa1819-genuine-source-only-qc
+          path: ${{ runner.temp }}/original_nrsa_uid
+      - name: Source-only GBIF official count queries on 360 frozen NRSA sites
+        env:
+          NRSA_FROZEN_MANIFEST: ${{ runner.temp }}/original_nrsa_uid/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA1819_GBIF360_terrestrial_bridge_source_only.py
+          python scripts/gesui_NRSA1819_GBIF360_terrestrial_bridge_source_only.py
+      - name: Preserve source counts, URL and SHA and stop decision
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nrsa1819-gbif360-source-only-counts
+          path: |
+            ${{ runner.temp }}/gesui_nrsa1819_gbif_source/NRSA1819_360_GBIF_PRE_COUNTS_SITE_MANIFEST.json
+            ${{ runner.temp }}/gesui_nrsa1819_gbif_source/GBIF_360x3_ORIGINAL_COUNTS_WITH_URL_SHA_ONLY.json
+            ${{ runner.temp }}/gesui_nrsa1819_gbif_source/GBIF_360x3_SOURCE_SUPPORT_REPORT.json
+          if-no-files-found: warn
+          retention-days: 30
