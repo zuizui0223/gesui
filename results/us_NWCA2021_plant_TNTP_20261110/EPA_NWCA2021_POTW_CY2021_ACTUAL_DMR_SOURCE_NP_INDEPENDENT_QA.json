@@ -1,0 +1,54 @@
+{
+  "UTC": "2026-11-11T00:15:11.638251+00:00",
+  "all_six_permit_and_feature_source_site_and_US_state_counts_exactly_reproduced": {
+    "2021_exact_nearby_external_outfall_effluent_feature": {
+      "source_permits_or_features": 149,
+      "source_states": 29,
+      "source_wetlands": 104
+    },
+    "2021_exact_nearby_external_outfall_total_N_feature": {
+      "source_permits_or_features": 34,
+      "source_states": 17,
+      "source_wetlands": 31
+    },
+    "2021_exact_nearby_external_outfall_total_P_feature": {
+      "source_permits_or_features": 83,
+      "source_states": 25,
+      "source_wetlands": 66
+    },
+    "2021_external_outfall_effluent_numeric_permit": {
+      "source_permits_or_features": 129,
+      "source_states": 29,
+      "source_wetlands": 109
+    },
+    "any_2021_DMR_permit": {
+      "source_permits_or_features": 149,
+      "source_states": 32,
+      "source_wetlands": 121
+    },
+    "any_2021_numeric_DMR_permit": {
+      "source_permits_or_features": 138,
+      "source_states": 31,
+      "source_wetlands": 117
+    }
+  },
+  "no_nutrient_biodiversity_causal_WWTP_effect_regression_performed": true,
+  "original_160_near_administrative_permits_and_all_regulated_features_reproduced": true,
+  "original_2021_NWCA_plant_diversity_and_local_water_chemistry_VALUES_NOT_READ": true,
+  "original_2021_municipal_DMR_9months_plus_3months_correctly_joined": true,
+  "original_568_study_sites_and_128_registered_near_source_sites_reproduced": true,
+  "original_NWCA_wetland_US_states_near_same_feature_both_nutrients": 16,
+  "original_NWCA_wetlands_near_same_feature_both_nutrients": 26,
+  "original_both_TN_and_TP_same_registered_feature_n": 31,
+  "original_both_TN_and_TP_total_numeric_00600_00665_permits": 31,
+  "original_source_files_SHA256": {
+    "first_2021_calendar_DMR_join_original_result": "f979cc84ed1c50911aa04f86c5c72dd7a8301992b422480dc3daea956e488a1e",
+    "original_568_NWCA_geometric_registered_POTW_before_outcomes": "50eaf83fd3adf62e3affbbf072d3eb6d0dd457fc3dba09168231ea88abd45bc2",
+    "original_FY2021_ECHO_DMR_source_receipt": "207aa9cb84f8db010f738f69fd55c1c7de3bf4b4b2137507c84f44231fcf12f6",
+    "original_FY2022_ECHO_DMR_source_receipt": "e589de9b0c052e0083b51c1e744ef8d2937d8fc038ede2b076972ba119490252"
+  },
+  "schema": "gesui_NWCA2021_POTW_160permit_2021_actual_EPA_DMR_FY2021FY2022_independent_SOURCE_JOIN_QA_v01",
+  "sewage_outfall_to_2021_wetland_hydrological_route_STILL_UNVERIFIED": true,
+  "source_EFFLUENT_registration_and_historical_DMR_support_gate_PASS": true,
+  "source_TN_and_TP_both_support_gate_PASS": false
+}
