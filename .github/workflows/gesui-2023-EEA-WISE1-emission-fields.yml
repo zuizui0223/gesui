@@ -1,0 +1,40 @@
+name: gesui official EEA 2026 WISE1 2023 emission field/grain dictionary SOURCE only
+on:
+  push:
+    branches: ["analysis/eea2023-thirdyear-benthic-macro-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2023-EEA-WISE1-emission-fields.yml"
+      - "scripts/gesui_2023_WISE1_Emissions2026_official_field_dictionary.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  emission_fields_and_source_grain_official:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Read only official EEA source schema CSV attachments for 2026 WISE1 emissions table, spatial key, riverine input load
+        run: |
+          python -m py_compile scripts/gesui_2023_WISE1_Emissions2026_official_field_dictionary.py
+          python -u scripts/gesui_2023_WISE1_Emissions2026_official_field_dictionary.py \
+            --out results/eea2023_thirdyear_source_20261111/2023_EEA_WISE1_EMISSION2026_OFFICIAL_SOURCE_FIELD_DICTIONARY.json
+      - name: Preserve original WISE1 field definitions and keep all 2023 biological EQR scores unread
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2023_thirdyear_source_20261111/2023_EEA_WISE1_EMISSION2026_OFFICIAL_SOURCE_FIELD_DICTIONARY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original EEA 2026 WISE1 emissions source reporting grain and spatial ID dictionary before 2023 EQR"
+          git fetch origin analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git rebase origin/analysis/eea2023-thirdyear-benthic-macro-source-20261111
+          git push origin HEAD:analysis/eea2023-thirdyear-benthic-macro-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EEA-WISE1-Emissions2026-2023-source-schema
+          path: results/eea2023_thirdyear_source_20261111/2023_EEA_WISE1_EMISSION2026_OFFICIAL_SOURCE_FIELD_DICTIONARY.json
+          retention-days: 90
