@@ -1,0 +1,153 @@
+{
+  "2018_2022_successful_actual_NP_benthic_results_not_used_to_select_2023_treatment_source": true,
+  "2022_23_public_source_UNLIKE_internal_restricted_release": true,
+  "2023_source_year_only_NOT_assumed_from_2022_2023_catalogue_period": true,
+  "UTC": "2026-11-11T06:08:33.084583+00:00",
+  "final_EEA_UWWTD_2023_public_TP_metadata_UUID": "88b3b08d-3b1b-4a65-9406-365b218e09da",
+  "original_EEA_BQE2023_numeric_EQR_outcomes_not_read": true,
+  "public_catalogue_probes": {
+    "public_discharge_eea_datahub": {
+      "2022_and_FINAL_in_initial_source": true,
+      "2023_and_FINAL_in_initial_source": true,
+      "ContentLength": null,
+      "ContentType": "text/html; charset=utf-8",
+      "HTTP": 200,
+      "final_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/21874828-fa7a-4e7e-8a0a-52ec7d92f99f",
+      "first600kB_sha256": "7cc6f7365bb60c4b5fd23103716de000bdf03108bfc0428f79534dce3d5d734f",
+      "official_public_source_URL_candidates_unverified": [
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/DischargePoints_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/DischargePoints_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_DischargePoints_public_ETRS89_202412/MapServer"
+      ],
+      "retrieved_initial_bytes": 600000
+    },
+    "public_tabular_eea_datahub": {
+      "2022_and_FINAL_in_initial_source": true,
+      "2023_and_FINAL_in_initial_source": true,
+      "ContentLength": null,
+      "ContentType": "text/html; charset=utf-8",
+      "HTTP": 200,
+      "final_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/6244937d-1c2c-47f5-bdf1-33ca01ff1715",
+      "first600kB_sha256": "23ee4c825be313940a0523e72fd12b2993eaf3a5334bb1b1320f41d73c324d88",
+      "official_public_source_URL_candidates_unverified": [
+        "https://sdi.eea.europa.eu/datastore/public?path=%2Feea_t_uwwtd-final_p_2023_v10_r00%2FTableSchem",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/TreatmentPlants_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/TreatmentPlants_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/DischargePoints_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/DischargePoints_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/Agglomerations_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/Agglomerations_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_TreatmentPlants_public_ETRS89_202412/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_Agglomerations_public_ETRS89_202412/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_DischargePoints_public_ETRS89_202412/MapServer"
+      ],
+      "retrieved_initial_bytes": 600000
+    },
+    "public_treatment_catalogue_api": {
+      "2022_and_FINAL_in_initial_source": true,
+      "2023_and_FINAL_in_initial_source": true,
+      "ContentLength": "101165",
+      "ContentType": "application/json;charset=utf-8",
+      "HTTP": 200,
+      "final_url": "https://sdi.eea.europa.eu/catalogue/srv/api/records/88b3b08d-3b1b-4a65-9406-365b218e09da",
+      "first600kB_sha256": "6eda4216150fae0fba036e7c3073d8d67585376eec9ddf3eb298927c6c568c0c",
+      "official_public_source_URL_candidates_unverified": [
+        "https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPsTh",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPs",
+        "https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_4258_100_m_uwwtd-tp_p_2022-2023_v10_r",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/TreatmentPlants_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/TreatmentPlants_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "UWWTD Treatment Plants, Oct. 2025 is one of the datasets produced within the frame of the reporting under 12th UWWTD Art.15 reporting period (UWWTD data call 2023). The Urban Waste Water Treatment Directive (UWWTD) (91/271/EEC) obliges Member States to report data on the implementation of the Directive upon request from the European Commission bi-annually. Reported data include receiving areas as designated under UWWTD, agglomerations, urban waste water treatment plants serving the agglomerations and points of discharges. Dataset UWWTD_TreatmentPlants contains urban waste water treatment plants and collecting systems without UWWTP, including ",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9 "
+      ],
+      "retrieved_initial_bytes": 101165
+    },
+    "public_treatment_catalogue_xml": {
+      "2022_and_FINAL_in_initial_source": true,
+      "2023_and_FINAL_in_initial_source": true,
+      "ContentLength": null,
+      "ContentType": "application/xml",
+      "HTTP": 200,
+      "final_url": "https://sdi.eea.europa.eu/catalogue/srv/api/records/88b3b08d-3b1b-4a65-9406-365b218e09da/formatters/xml?approved=true",
+      "first600kB_sha256": "93c4946c4a62edbacbe0d225fdb3b8b3c5fe399d1d66fb3dd06fa1f737820c4c",
+      "official_public_source_URL_candidates_unverified": [
+        "https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPs",
+        "https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_4258_100_m_uwwtd-tp_p_2022-2023_v10_r",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/TreatmentPlants_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/TreatmentPlants_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+      ],
+      "retrieved_initial_bytes": 53467
+    },
+    "public_treatment_datahub_json": {
+      "2022_and_FINAL_in_initial_source": true,
+      "2023_and_FINAL_in_initial_source": true,
+      "ContentLength": "110164",
+      "ContentType": "application/json;charset=utf-8",
+      "HTTP": 200,
+      "final_url": "https://sdi.eea.europa.eu/catalogue/datahub/api/records/88b3b08d-3b1b-4a65-9406-365b218e09da?language=all",
+      "first600kB_sha256": "5be62486b2c0af34655c9a3693ddf81e5119ac7a31f041035b8b976204fa2ab0",
+      "official_public_source_URL_candidates_unverified": [
+        "https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPsTh",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPs",
+        "https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_4258_100_m_uwwtd-tp_p_2022-2023_v10_r",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/TreatmentPlants_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/TreatmentPlants_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "UWWTD Treatment Plants, Oct. 2025 is one of the datasets produced within the frame of the reporting under 12th UWWTD Art.15 reporting period (UWWTD data call 2023). The Urban Waste Water Treatment Directive (UWWTD) (91/271/EEC) obliges Member States to report data on the implementation of the Directive upon request from the European Commission bi-annually. Reported data include receiving areas as designated under UWWTD, agglomerations, urban waste water treatment plants serving the agglomerations and points of discharges. Dataset UWWTD_TreatmentPlants contains urban waste water treatment plants and collecting systems without UWWTP, including ",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9 "
+      ],
+      "retrieved_initial_bytes": 110164
+    },
+    "public_treatment_eea_datahub": {
+      "2022_and_FINAL_in_initial_source": true,
+      "2023_and_FINAL_in_initial_source": true,
+      "ContentLength": null,
+      "ContentType": "text/html; charset=utf-8",
+      "HTTP": 200,
+      "final_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/6ffd0af1-64eb-4cce-9970-0028e01ee64e",
+      "first600kB_sha256": "b9be37301c85d805d3c858234a131399af3f6317550cd6cc9a40103431f4ef53",
+      "official_public_source_URL_candidates_unverified": [
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/TreatmentPlants_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/TreatmentPlants_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/UWWTD/SDI_TreatmentPlants_public_ETRS89_202412/MapServer"
+      ],
+      "retrieved_initial_bytes": 600000
+    },
+    "public_treatment_inspire_json": {
+      "2022_and_FINAL_in_initial_source": true,
+      "2023_and_FINAL_in_initial_source": true,
+      "ContentLength": "110256",
+      "ContentType": "application/json;charset=utf-8",
+      "HTTP": 200,
+      "final_url": "https://sdi.eea.europa.eu/catalogue/inspire-pds/api/records/88b3b08d-3b1b-4a65-9406-365b218e09da?language=all",
+      "first600kB_sha256": "65d89370fd12436dc39824af4f783631e1d63b3ade029f918eb346f6b12c23d9",
+      "official_public_source_URL_candidates_unverified": [
+        "https://www.eea.europa.eu/themes/water/european-waters/water-use-and-environmental-pressures/uwwtd/interactive-maps/urban-waste-water-treatment-maps-",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPsTh",
+        "https://dd.eionet.europa.eu/datasets/latest/UWWTDArt15/tables/UWWTPs",
+        "https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_4258_100_m_uwwtd-tp_p_2022-2023_v10_r",
+        "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/TreatmentPlants_2022/MapServer",
+        "https://water.discomap.eea.europa.eu/arcgis/services/WISE_UWWTD/TreatmentPlants_2022/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+        "UWWTD Treatment Plants, Oct. 2025 is one of the datasets produced within the frame of the reporting under 12th UWWTD Art.15 reporting period (UWWTD data call 2023). The Urban Waste Water Treatment Directive (UWWTD) (91/271/EEC) obliges Member States to report data on the implementation of the Directive upon request from the European Commission bi-annually. Reported data include receiving areas as designated under UWWTD, agglomerations, urban waste water treatment plants serving the agglomerations and points of discharges. Dataset UWWTD_TreatmentPlants contains urban waste water treatment plants and collecting systems without UWWTP, including ",
+        "https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-9 "
+      ],
+      "retrieved_initial_bytes": 110256
+    }
+  },
+  "schema": "gesui_2023_BQE_2022_23_EEA_UWWTD_FINAL_PUBLIC_measured_NP_OFFICIAL_ACCESS_ONLY_v01",
+  "source_2023_FRESHWATER_outfall_plus_plant_must_both_support_measured_annual_NP": true
+}
