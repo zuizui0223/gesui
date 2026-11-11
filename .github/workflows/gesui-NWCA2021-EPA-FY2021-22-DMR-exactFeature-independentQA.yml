@@ -4,6 +4,8 @@ on:
     branches: ["analysis/us-nwca2021-2021dmr-feature-source-20261111"]
     paths:
       - "results/us_NWCA2021_plant_TNTP_20261110/NWCA2021_160POTW_ORIGINAL_CAL2021_DMR_TN_TP_EXO_FEATURE_SOURCE_GATE.json"
+      - ".github/workflows/gesui-NWCA2021-EPA-FY2021-22-DMR-exactFeature-independentQA.yml"
+      - "scripts/audit_gesui_NWCA2021_DMR_160POTW_344EXO_source_only.py"
   workflow_dispatch:
 permissions:
   contents: write
