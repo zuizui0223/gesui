@@ -1,0 +1,4313 @@
+{
+  "2016_EEA_benthic_EQR_outcome_scores_read": false,
+  "layer_schema_and_query_support": [
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 0,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Nitrogen",
+        "parentLayerId": -1,
+        "subLayerIds": [
+          1,
+          6,
+          11,
+          16,
+          17,
+          22,
+          27,
+          28
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Nitrogen",
+      "official_source_metadata_SHA256": "4e9f13a49d0fcfb5f25085db461b08252ea2725c0806a2ecbfe308f062897e5f",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 1,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Point Sources [t]",
+        "parentLayerId": 0,
+        "subLayerIds": [
+          2,
+          5
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Point Sources [t]",
+      "official_source_metadata_SHA256": "6cea537db3f137c337c717d9f796b5e42678b72061213c548b922a530d2850cf",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 2,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 1,
+        "subLayerIds": [
+          3,
+          4
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "2d37b463d898b028b6e5cb17b9310a6f31e354abeb291c064e060f860234f6c9",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 3,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 2,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_Ps_Country_V2",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "eb734ba9a816843ae94cf05875e7feac9d1deb6264523fdfac404dbfa4452bc8",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "cntrLatnName",
+          "length": 128,
+          "name": "cntrLatnName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N point sources [t]",
+          "length": null,
+          "name": "PsN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N point sources [t]",
+          "length": null,
+          "name": "PsN",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 4,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 2,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_Ps_NUTS2_V2",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "ea1eed381281857a7ae7c4e95139529a855c4c0b2c97972204d5986af5345eab",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N point sources [t]",
+          "length": null,
+          "name": "PsN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N point sources [t]",
+          "length": null,
+          "name": "PsN",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 5,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 1,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_Ps_Basin_3857",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "bce05e01bd7a3c2ff97e548647b460ea757c7ac0f5a438b411375681a23ed39f",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N point sources [t]",
+          "length": null,
+          "name": "PsN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "N point sources [t]",
+          "length": null,
+          "name": "PsN",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 6,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Scattered dwellings [t]",
+        "parentLayerId": 0,
+        "subLayerIds": [
+          7,
+          10
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Scattered dwellings [t]",
+      "official_source_metadata_SHA256": "df73e3780a61348a9b35a0f1ab50c8325865a3d08f35306d730240099b82febf",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 7,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 6,
+        "subLayerIds": [
+          8,
+          9
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "4c26337c9b324a464b3d27aac5a6532ee85ad79ccbcf6d615c6e7995d567c936",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 8,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 7,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_Sd_Country_V2",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "0b771019c80ad2341c7c90ce76d1c14d3e3709e285e12d40481654fac3eba59e",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "cntrLatnName",
+          "length": 128,
+          "name": "cntrLatnName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N scattered dwellings [t]",
+          "length": null,
+          "name": "SdN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 9,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 7,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_Sd_NUTS2_V2",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "e3ff6e6318c6b8d90e621020f1c6177cd0e10f66a96c73537c90540eda3fc47e",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N scattered dwellings [t]",
+          "length": null,
+          "name": "SdN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 10,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 6,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_Sd_Basin_3035",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "1d8ea759c8e55ce41e86ab0b722c6c51eec3df47ce6043a2e9748f12af5054d1",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N scattered dwellings [t]",
+          "length": null,
+          "name": "SdN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 11,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "N load to the sea [t]",
+        "parentLayerId": 0,
+        "subLayerIds": [
+          12,
+          15
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "N load to the sea [t]",
+      "official_source_metadata_SHA256": "d3ccb959b9e8800e889e8b277f961de60b50a48d054c5fd20aefc4c8f08d55aa",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 12,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 11,
+        "subLayerIds": [
+          13,
+          14
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "40944b61e1995516a885fab1276f89d5b78564222d68fde779a737396a712b6b",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 13,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 12,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_CatchLoad_Country_V2",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "35aeac5b5cf03809ff2faa9055631b0c8e9245a81aa410d82288089e0b068c10",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "cntrLatnName",
+          "length": 128,
+          "name": "cntrLatnName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 14,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 12,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_CatchLoad_NUTS2_V2",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "262d965c81098c33d1cd6a092f5b0f5e0eb7af75a718258db1e862e4d1157416",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 15,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 11,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_CatchLoad_Basin_3857",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "9791ea7181fcdf154f4ffed93a57005d06a8a7460260f21e83100e970aea9ddd",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "N loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "N loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": false,
+        "id": 16,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "N diffuse emissions [t] - Catchment level ",
+        "parentLayerId": 0,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenN_De_Catchment",
+      "layer_name": "N diffuse emissions [t] - Catchment level ",
+      "official_source_metadata_SHA256": "b246690d207b10018add79b5a406324fa97ea6cdd2faa942989eb0f936e684e7",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "HydroID",
+          "length": null,
+          "name": "HydroID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "NextDownID",
+          "length": null,
+          "name": "NextDownID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Shreve",
+          "length": null,
+          "name": "Shreve",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "N diffuse emissions [t]",
+          "length": null,
+          "name": "De",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "N diffuse emissions [t]",
+          "length": null,
+          "name": "De",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 17,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Mean organic N leaching [kg/ha] (NinDOC)",
+        "parentLayerId": 0,
+        "subLayerIds": [
+          18,
+          21
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Mean organic N leaching [kg/ha] (NinDOC)",
+      "official_source_metadata_SHA256": "064e79cca9cc3a5e159e99d40c8cde3151ca70835618fcf33a9b84177d27428e",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 18,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 17,
+        "subLayerIds": [
+          19,
+          20
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "ef7d1037375affaa97e12fc0fd73a57f27c0aac43427dcd6e0e7e58eab62b214",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 26,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 19,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 18,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "FC_ZS_NinDOC_kgha_COUNTRY_3857_EU28",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "e7c4f7bf17d5e19c09bc723ddf3734e60c73b8b3faf85db38dc27ab3a0ce3f6c",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID_1",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_LATN",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "CNTR_CODE",
+          "length": 2,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_SUM",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Mean organic N leaching [kg/ha]",
+          "length": null,
+          "name": "MEAN_kgha",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM_kgUAA",
+          "length": null,
+          "name": "SUM_kgUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Organic N leaching [t]",
+          "length": null,
+          "name": "SUM_tUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_LATN",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "CNTR_CODE",
+          "length": 2,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_COUNTRY_SUM",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 27,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 20,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 18,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "FC_ZS_NinDOC_kgha_NUTS2_3857_EU28",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "faf8298a872ecc6562689f0af9c417ec0c3707c953ab43074a897877449a8957",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID_1",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_NUTS2_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_NUTS2_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS_NAME",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "CNTR_NAME_INT",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "NUTS_ID",
+          "length": 4,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_SUM",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Mean organic N leaching [kg/ha]",
+          "length": null,
+          "name": "MEAN_kgha",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM_kgUAA",
+          "length": null,
+          "name": "SUM_kgUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Organic N leaching [t]",
+          "length": null,
+          "name": "SUM_tUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_NUTS2_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_NUTS2_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS_NAME",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "CNTR_NAME_INT",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "NUTS_ID",
+          "length": 4,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_NUTS2_SUM",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 26,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 21,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 17,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "FC_ZS_NinDOC_kgha_RIVERBASIN_3035",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "ca330f947a87c2a5748a8ee5bc004c6f6efea5322f5bfc5d7a4e83e7b1c67f6a",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "HydroID",
+          "length": null,
+          "name": "Basin_3035_HydroID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "JunctionID",
+          "length": null,
+          "name": "Basin_3035_JunctionID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Basin_3035_Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "Basin_3035_AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Basin_3035_Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "Basin_3035_SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "CommCode",
+          "length": null,
+          "name": "Basin_3035_CommCode",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "IslandID",
+          "length": null,
+          "name": "Basin_3035_IslandID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Window",
+          "length": null,
+          "name": "Basin_3035_Window",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "HydroID",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_HydroID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NinDOC_kgha_RIVERBASIN_SUM",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Mean organic N leaching [kg/ha]",
+          "length": null,
+          "name": "MEAN_kgha",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM_kgUAA",
+          "length": null,
+          "name": "SUM_kgUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Organic N leaching [t]",
+          "length": null,
+          "name": "SUM_tUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 22,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Mean NO3 leaching [kg/ha] (NLeaching)",
+        "parentLayerId": 0,
+        "subLayerIds": [
+          23,
+          26
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Mean NO3 leaching [kg/ha] (NLeaching)",
+      "official_source_metadata_SHA256": "2cab17e6fdae8bcaf03871373a69abe8c4c992273714cee1b9b443b24178a0cd",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 23,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 22,
+        "subLayerIds": [
+          24,
+          25
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "da86a874cc7754a8ed23eccc91adf4ac05d9c046d102d65f4850fe20e12cc61f",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 26,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 24,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 23,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "FC_ZS_NLeaching_kg_COUNTRY_3857",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "662ade2870f97d979b2163152f95b5c8855120a4327790dd519617ebf606a72c",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID_1",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_LATN",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "CNTR_CODE",
+          "length": 2,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_SUM",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Mean NO3 leaching [kg/ha]",
+          "length": null,
+          "name": "MEAN_kgha",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM_kgUAA",
+          "length": null,
+          "name": "SUM_kgUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "NO3 leaching [t]",
+          "length": null,
+          "name": "SUM_tUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_LATN",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_COUNTRY_3035_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "CNTR_CODE",
+          "length": 2,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_COUNTRY_SUM",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 27,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 25,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 23,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "FC_ZS_NLeaching_kg_NUTS2_3857",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "711b271a1290418ac6a02306771de56555ecdd7d73b22d838a457c178e737783",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_NUTS2_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_NUTS2_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS_NAME",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "CNTR_NAME_INT",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "NUTS_ID",
+          "length": 4,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_SUM",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Mean NO3 leaching [kg/ha]",
+          "length": null,
+          "name": "MEAN_kgha",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "NO3 leaching [t]",
+          "length": null,
+          "name": "SUM_tUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "OBJECTID_1",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "SUM_kgUAA",
+          "length": null,
+          "name": "SUM_kgUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "inputSource",
+          "length": 12,
+          "name": "giscoEsriNuts2016_NUTS2_3035_inputSource",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 area [sqkm]",
+          "length": null,
+          "name": "giscoEsriNuts2016_NUTS2_3035_areaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Country code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_CODE",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_LATN",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS_NAME",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NUTS_NAME",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_ASCI",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_ASCI",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NAME_HTML",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_NAME_HTML",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "CNTR_NAME_INT",
+          "length": 255,
+          "name": "giscoEsriNuts2016_NUTS2_3035_CNTR_NAME_INT",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "NUTS_ID",
+          "length": 4,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_NUTS_ID",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "ZONE_CODE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_ZONE_CODE",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_NUTS2_SUM",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 26,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 26,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 22,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "FC_ZS_NLeaching_kg_RIVERBASIN_3857",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "f73fa365d597d04b585fd07e6a53fcbc644691928868b80f7b5ec57e500cc622",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "HydroID",
+          "length": null,
+          "name": "Basin_3035_HydroID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "JunctionID",
+          "length": null,
+          "name": "Basin_3035_JunctionID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Basin_3035_Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "Basin_3035_AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Basin_3035_Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "Basin_3035_SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "CommCode",
+          "length": null,
+          "name": "Basin_3035_CommCode",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "IslandID",
+          "length": null,
+          "name": "Basin_3035_IslandID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Window",
+          "length": null,
+          "name": "Basin_3035_Window",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_OBJECTID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "HydroID",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_HydroID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "COUNT",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_COUNT",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "AREA",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_AREA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MIN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_MIN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MAX",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_MAX",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "RANGE",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_RANGE",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "MEAN",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_MEAN",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "STD",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_STD",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM",
+          "length": null,
+          "name": "T_ZS_NLeaching_kgha_RIVERBASIN_SUM",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Mean NO3 leaching [kg/ha]",
+          "length": null,
+          "name": "MEAN_kgha",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "SUM_kgUAA",
+          "length": null,
+          "name": "SUM_kgUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "NO3 leaching [t]",
+          "length": null,
+          "name": "SUM_tUAA",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": false,
+        "id": 27,
+        "maxScale": 0,
+        "minScale": 5000000,
+        "name": "Organic N leaching 1000 x 1000 m cell size [kg/ha] ",
+        "parentLayerId": 0,
+        "subLayerIds": null,
+        "type": "Raster Layer"
+      },
+      "layer_description_excerpt": "NinDOC_kgha_3857",
+      "layer_name": "Organic N leaching 1000 x 1000 m cell size [kg/ha] ",
+      "official_source_metadata_SHA256": "973ac23c1be03e9abfd8bb539476d2db63f657dc3d6fba95c38fe2396f3e7a0c",
+      "original_geometryType": null,
+      "original_service_layer_type": "Raster Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": false,
+        "id": 28,
+        "maxScale": 0,
+        "minScale": 5000000,
+        "name": "NO3 leaching 1000 x 1000 m cell size [kg/ha] ",
+        "parentLayerId": 0,
+        "subLayerIds": null,
+        "type": "Raster Layer"
+      },
+      "layer_description_excerpt": "NLeaching_kgha_3857",
+      "layer_name": "NO3 leaching 1000 x 1000 m cell size [kg/ha] ",
+      "official_source_metadata_SHA256": "b61b18831d299095bf9864d3716577d868c24b2dbe416085fda0f9b6f16989b8",
+      "original_geometryType": null,
+      "original_service_layer_type": "Raster Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": false,
+        "id": 29,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Phosphorus",
+        "parentLayerId": -1,
+        "subLayerIds": [
+          30,
+          35,
+          40,
+          45
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Phosphorus",
+      "official_source_metadata_SHA256": "76c771427de8247c85395e5968ffab3d13eb1e9b5dc23030c35ec3b17860cf19",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 30,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Point sources [t]",
+        "parentLayerId": 29,
+        "subLayerIds": [
+          31,
+          34
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Point sources [t]",
+      "official_source_metadata_SHA256": "ced3c5ba16a751fb7474b56114b64228c0644e8538069d4612f29a547a6a2844",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 31,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 30,
+        "subLayerIds": [
+          32,
+          33
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "3a2dd69df91224ef3e3ca7e69543dd2122e06cade4565a04c2fec8776ec28f88",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 32,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 31,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_Ps_Country",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "819b2b6094b3f6f553ae91fdeb472175a1bc8654f56e9fba2a76a616d975e67f",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "cntrLatnName",
+          "length": 128,
+          "name": "cntrLatnName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P point sources [t]",
+          "length": null,
+          "name": "PsP",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P point sources [t]",
+          "length": null,
+          "name": "PsP",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 33,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 31,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_Ps_NUTS2",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "f3191475e007fa306d014b77847060e03a39b547c49f188b77c85c89b3a52748",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P point sources [t]",
+          "length": null,
+          "name": "PsP",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P point sources [t]",
+          "length": null,
+          "name": "PsP",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 34,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 30,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_Ps_Basin_3857",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "e743990398edbf6fc35ee1ca6238b918759aebbf0b0b53bb5eaef4bd2cb7a293",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P point sources [t]",
+          "length": null,
+          "name": "PsP",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "P point sources [t]",
+          "length": null,
+          "name": "PsP",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 35,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Scattered dwellings [t]",
+        "parentLayerId": 29,
+        "subLayerIds": [
+          36,
+          39
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Scattered dwellings [t]",
+      "official_source_metadata_SHA256": "bc168b3ed445a02c9035677ff14a082fe2e5fd4d36b03a263bdf8a59ce53bfd4",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 36,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 35,
+        "subLayerIds": [
+          37,
+          38
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "ed5ae5ce40f0e53ee282df58dbbe1575127c38516308d926146f25a70129937c",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 37,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 36,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_Sd_Country",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "45efe7b1c8a65f42f9079408c657c3129b413db542e108e75cb5fcd2b6345df8",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "cntrLatnName",
+          "length": 128,
+          "name": "cntrLatnName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P scattered dwellings [t]",
+          "length": null,
+          "name": "SdP",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 38,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 36,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_Sd_NUTS2",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "d8d958477a22e4d3583c706197acf48960b9897669c97bd665c625c4c7f9a2a0",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P scattered dwellings [t]",
+          "length": null,
+          "name": "SdP",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 39,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 35,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_Sd_Basin_3857",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "91334f52c5dc7f91a042a077b7852585db106d730f1e5969b04b144147c8dfe2",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P scattered dwellings [t]",
+          "length": null,
+          "name": "SdP",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 40,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "P load to the sea [t]",
+        "parentLayerId": 29,
+        "subLayerIds": [
+          41,
+          44
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "P load to the sea [t]",
+      "official_source_metadata_SHA256": "9c3f924ec96985ac18bcf32a995d8d85ba1b6828bf200d38713b57f0a8bcf42b",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 0,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 41,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "Administrative hierarchy",
+        "parentLayerId": 40,
+        "subLayerIds": [
+          42,
+          43
+        ],
+        "type": "Group Layer"
+      },
+      "layer_description_excerpt": "New Group Layer",
+      "layer_name": "Administrative hierarchy",
+      "official_source_metadata_SHA256": "865fde0d768493a2335359b5af00bb44c2754b07cf8ea1d70dab0ae1dc801e76",
+      "original_geometryType": null,
+      "original_service_layer_type": "Group Layer",
+      "original_source_maxRecordCount": null,
+      "original_supportsStatistics": false,
+      "reported_copyright": "",
+      "service_fields": [],
+      "source_point_and_nutrient_candidate_columns": [],
+      "supportsGeometry": false
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 42,
+        "maxScale": 20000000,
+        "minScale": 0,
+        "name": "Country level",
+        "parentLayerId": 41,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_CatchLoad_Country_3857",
+      "layer_name": "Country level",
+      "official_source_metadata_SHA256": "f88605257ef5b46fdb702c8cae2f3fed71dd0a6ed1dea22b9a8e7f6a4c2aa0f6",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "cntrLatnName",
+          "length": 128,
+          "name": "cntrLatnName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Original country name",
+          "length": 128,
+          "name": "cntrOrigName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "English country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 43,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "NUTS2 level",
+        "parentLayerId": 41,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_CatchLoad_NUTS2_3857",
+      "layer_name": "NUTS2 level",
+      "official_source_metadata_SHA256": "ba05d0ee71bab7303d7abed18385f2637c273babb073906050eb6a307ee11ebf",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "Country code",
+          "length": 2,
+          "name": "cntrCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Country name",
+          "length": 2147483647,
+          "name": "cntrEngName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 code",
+          "length": 4,
+          "name": "Nuts2",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "NUTS2 name",
+          "length": 128,
+          "name": "nutsNameLatn",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "nutsName",
+          "length": 128,
+          "name": "nutsName",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 10,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": true,
+        "id": 44,
+        "maxScale": 0,
+        "minScale": 20000000,
+        "name": "River basin level",
+        "parentLayerId": 40,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_CatchLoad_Basin_3857",
+      "layer_name": "River basin level",
+      "official_source_metadata_SHA256": "a9310a58847e30bad6e040e4d42b36305d944102879bb1f80ca233d908814b80",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Basin name",
+          "length": 36,
+          "name": "Name",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "Basin area [sqkm]",
+          "length": null,
+          "name": "AreaSqKm",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Strahler",
+          "length": null,
+          "name": "Strahler",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "SeaCode",
+          "length": 2,
+          "name": "SeaCode",
+          "type": "esriFieldTypeString"
+        },
+        {
+          "alias": "P loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "P loads to the sea [t]",
+          "length": null,
+          "name": "CatchLoad",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    },
+    {
+      "error": null,
+      "field_count": 9,
+      "http": 200,
+      "layer": {
+        "defaultVisibility": false,
+        "id": 45,
+        "maxScale": 0,
+        "minScale": 0,
+        "name": "P diffuse emissions [t] - Catchment level ",
+        "parentLayerId": 29,
+        "subLayerIds": null,
+        "type": "Feature Layer"
+      },
+      "layer_description_excerpt": "GreenP_De_Catchment",
+      "layer_name": "P diffuse emissions [t] - Catchment level ",
+      "official_source_metadata_SHA256": "83b761541f23811fd722ee43b8984cd6926495a54684a1dad743457f16c5a1a2",
+      "original_geometryType": "esriGeometryPolygon",
+      "original_service_layer_type": "Feature Layer",
+      "original_source_maxRecordCount": 2000,
+      "original_supportsStatistics": true,
+      "reported_copyright": "",
+      "service_fields": [
+        {
+          "alias": "OBJECTID",
+          "length": null,
+          "name": "OBJECTID",
+          "type": "esriFieldTypeOID"
+        },
+        {
+          "alias": "Shape",
+          "length": null,
+          "name": "Shape",
+          "type": "esriFieldTypeGeometry"
+        },
+        {
+          "alias": "HydroID",
+          "length": null,
+          "name": "HydroID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "NextDownID",
+          "length": null,
+          "name": "NextDownID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "BasinID",
+          "length": null,
+          "name": "BasinID",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "Shreve",
+          "length": null,
+          "name": "Shreve",
+          "type": "esriFieldTypeInteger"
+        },
+        {
+          "alias": "P diffuse emissions [t]",
+          "length": null,
+          "name": "De",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Length",
+          "length": null,
+          "name": "Shape_Length",
+          "type": "esriFieldTypeDouble"
+        },
+        {
+          "alias": "Shape_Area",
+          "length": null,
+          "name": "Shape_Area",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "source_point_and_nutrient_candidate_columns": [
+        {
+          "alias": "P diffuse emissions [t]",
+          "length": null,
+          "name": "De",
+          "type": "esriFieldTypeDouble"
+        }
+      ],
+      "supportsGeometry": true
+    }
+  ],
+  "official_original_service_http": 200,
+  "original_JRC_official_WaterHub_MapServer": "https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer",
+  "original_JRC_serviceDescription": "<div>Map image layer represents losses to water related both to Nitrogen (N) and Phosphorus (P).</div><div>Data come as output of different models:</div><ul><li>GREEN model:</li><ul><li>Point sources (N and P)</li><li>Scattered dwellings (N and P)</li><li>Load to the sea (N and P)</li><li>Diffuse emissions (N and P)</li></ul><li>DAYCENT model:</li><ul><li>Mean organic N leaching</li><li>Mean NO3 leaching</li></ul></ul><div>Point sources and scattered dwellings data from GREEN model have been aggregated at a country, NUTS2 and river basin level.</div><div>Diffuse emissions are represented at a catchment level.</div><div>Type of aggregation: total value over area. Data are averaged over period 2014-2018.</div><div>Unit of measures: [t]</div><div>Spatial coverage of aggregated data: all Europe and outside Europe where GREEN data are available.</div><div><br /></div><div>Data from DAYCENT model are originally provided as raster.</div><div>Raster data resolution: 1000 x 1000 m EPSG 3035 LAEA</div><div>Raster unit of measures: [kg substance/ha/y]</div><div>Reference year: 2010-2019</div><div>Raster spatial coverage: agricultural land from Corine Land Cover</div><div>Data from raster have been aggregated at a country, NUTS2 and river basin level.</div><div>Type of aggregation: mean value over area.</div><div>Spatial coverage of aggregated data: EU27 + UK.</div><div>Unit of measures: [kg/ha]</div><div><br /></div><div>Map image layer reference system: EPSG 3857 WebMercator.</div>",
+  "original_candidate_point_source_layers": 2,
+  "original_layer_count": 46,
+  "original_layer_names": [
+    "Nitrogen",
+    "Point Sources [t]",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "Scattered dwellings [t]",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "N load to the sea [t]",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "N diffuse emissions [t] - Catchment level ",
+    "Mean organic N leaching [kg/ha] (NinDOC)",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "Mean NO3 leaching [kg/ha] (NLeaching)",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "Organic N leaching 1000 x 1000 m cell size [kg/ha] ",
+    "NO3 leaching 1000 x 1000 m cell size [kg/ha] ",
+    "Phosphorus",
+    "Point sources [t]",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "Scattered dwellings [t]",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "P load to the sea [t]",
+    "Administrative hierarchy",
+    "Country level",
+    "NUTS2 level",
+    "River basin level",
+    "P diffuse emissions [t] - Catchment level "
+  ],
+  "original_service_SHA256": "a9660ee3072d866ca9df815b5cf724209dd7471dbdf33162240b4012168688ab",
+  "original_service_error": null,
+  "schema": "gesui_OFFICIAL_JRC_GREEN_MIS_2014to2018_model_NP_pointsource_MapServer_layer_metadata_v01",
+  "source_2018_MIS_basins_NOT_direct_NHDplus_EEA_microsite_exposures": true,
+  "source_description": "",
+  "source_modelled_not_measured_NP_from_sewage_plus_industry": true,
+  "source_numeric_2016_WWTP_specific_tonnes_available": false,
+  "source_reported_pointsource_NP_country_NUTS2_basin_averaged_2014to2018": true,
+  "utc": "2026-11-11T06:11:31.618209+00:00"
+}
