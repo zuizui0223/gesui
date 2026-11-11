@@ -58,6 +58,19 @@ def run(root,shards):
                 raise ValueError("Official NLDI original successful response SHA missing")
             results[key]=r
             original_counts[r["original_source_type"]]+=1
+    response_QC={
+        kind:{
+            "NLDI_catchment_position_HTTP_status":dict(Counter(
+                str(r["NLDI_position_HTTP_status"]) for r in results.values() if r["original_source_type"]==kind)),
+            "NLDI_stream_hydrolocation_HTTP_status":dict(Counter(
+                str(r["NLDI_hydrolocation_HTTP_status"]) for r in results.values() if r["original_source_type"]==kind)),
+            "direct200m_success_n":sum(r["source_strict_200m_DIRECT_stream_candidate"]
+                                      for r in results.values() if r["original_source_type"]==kind),
+            "500m_modelled_position_n":sum(r["source_500m_modelled_sensitivity_only"]
+                                         for r in results.values() if r["original_source_type"]==kind)
+        }
+        for kind in ("NWCA_wetland","POTW_outfall")
+    }
     if len(results)!=157 or original_counts!=Counter({"NWCA_wetland":71,"POTW_outfall":86}):
         raise ValueError("Independent original 71/86 source cohort not reproduced")
     measured={x["NPDES_exact_permit_feature_SHA256"]
@@ -136,6 +149,7 @@ def run(root,shards):
                          "originalUSGS_NLDI_river_strict_source_gate":sha(root/MAIN),
                          "original4_NLDI_index_shards":original_shas},
         "independent_157_source_point_snap_and_all_2021_nutrient_DMR_eligible_pairs_QA":counts,
+        "independent_USGS_NLDI_API_status_by_original_source_type":response_QC,
         "original_USGS_NLDI_navigation_performed":navigated,
         "independent_2021_measured_POTW_to_wetland_50km_directed_candidates":len(downstream) if navigated else None,
         "no_navigated_data_never_converted_to_false_ZERO_outfall_exposure":True,
