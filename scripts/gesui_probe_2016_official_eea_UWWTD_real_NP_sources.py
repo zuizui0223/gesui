@@ -53,7 +53,7 @@ def main():
  for key,url in URLS.items():
   rec=fetch(url,"GET")
   raw=rec.pop("body")
-  if not rec["content_starts_with_PK_ZIP"] and raw:
+  if not rec.get("content_starts_with_PK_ZIP",False) and raw:
    decoded=raw.decode("utf-8","replace")
    l=Links();l.feed(decoded)
    rec["candidate_public_href_evidence"]=list(dict.fromkeys(l.found))[:45]
