@@ -5,6 +5,7 @@ on:
     paths:
       - "docs/AQUATIC_TERRESTRIAL_FUNCTIONAL_COUPLING_SOURCE_CONTRACT_20261111.md"
       - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py"
+      - "scripts/gesui_aquatic_terrestrial_NRSA2018_2019_uid_diagnostics.py"
       - ".github/workflows/gesui-nrsa-1819-source-gate.yml"
   pull_request:
     paths:
@@ -29,11 +30,15 @@ jobs:
         run: python -m py_compile scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py
       - name: Audit authentic 2018-19 EPA source same-visit coverage (no ecological effects)
         run: python scripts/gesui_aquatic_terrestrial_NRSA2018_2019_source_gate.py
+      - name: Source-only duplicate UID and original individual-mass coverage diagnostic
+        run: python scripts/gesui_aquatic_terrestrial_NRSA2018_2019_uid_diagnostics.py
       - name: Preserve metadata, counts, exact source URL and hashes
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nrsa1819-genuine-source-only-qc
-          path: ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA_1819_SOURCE_ONLY_QA.json
+          path: |
+            ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA_1819_SOURCE_ONLY_QA.json
+            ${{ runner.temp }}/gesui_nrsa1819_source_gate/NRSA_1819_DUPLICATE_UID_PREOUTCOME_AUDIT.json
           if-no-files-found: warn
           retention-days: 30
