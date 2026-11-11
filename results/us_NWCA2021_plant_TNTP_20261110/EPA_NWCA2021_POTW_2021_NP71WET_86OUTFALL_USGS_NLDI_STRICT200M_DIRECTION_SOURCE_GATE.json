@@ -1,15 +1,18 @@
 {
   "NO_sewage_dose_N_P_flow_or_nutrient_mass_effect_computed": true,
   "USGS_downstream_DM_50km_outcome_source": {
-    "potential_directed_original_US_states": 0,
-    "potential_directed_source_pairs": 0,
-    "potential_directed_unique_2021_measured_POTW_features": 0,
-    "potential_directed_unique_NPDES_administrative_permits": 0,
-    "potential_directed_unique_NWCA_wetlands": 0
+    "NOT_run_is_not_a_zero_downstream_match": true,
+    "potential_directed_original_US_states": null,
+    "potential_directed_source_pairs": null,
+    "potential_directed_unique_2021_measured_POTW_features": null,
+    "potential_directed_unique_NPDES_administrative_permits": null,
+    "potential_directed_unique_NWCA_wetlands": null,
+    "status": "NOT_RUN_ORIGINAL_200M_SOURCE_SUPPORT_GATE_FAILED"
   },
+  "USGS_downstream_DM_navigation_performed": false,
   "USGS_source_comid_navigation_response_receipts_without_full_geography": [],
   "USGS_strict200m_directed_outfall_to_wetland_potential_matches": [],
-  "UTC": "2026-11-11T05:21:12.251376+00:00",
+  "UTC": "2026-11-11T05:23:52.136871+00:00",
   "all_original_NWCA2021_H_ALL_FQAI_or_TNTP_plant_biology_NOT_ACCESSED": true,
   "official_NHDPlusV2_DD_navigation_diversion_ONLY_sensitivity_not_rescue": true,
   "official_USGS_NLDI_direct_stream_candidate_DifferentCOMID_source_pairs_only": [
