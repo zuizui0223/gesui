@@ -42,7 +42,14 @@ def read(layer,fields):
     # Query number of objects independently. No "count returned = true zero".
     count,hcount,ucount=query(layer,{"where":"1=1","returnCountOnly":"true"})
     n=count.get("count")
-    if type(n) is not int or n<1 or n>30000:raise ValueError("JRC official GIS source layer impossible record count")
+    if type(n) is not int or n<1 or n>1_000_000:
+        raise ValueError("JRC official GIS source layer impossible record count: "+repr(n))
+    # Basin layers have many tens of thousands of original polygons. Do NOT
+    # select a partial basin subset or claim their omitted nutrients are zero.
+    # Country and NUTS2 layers are exhaustively indexed and retained.
+    if n>6000:
+        return None,[{"stage":"source_original_count_ONLY_no_values",
+                      "SHA256":hcount,"url":ucount,"n":n}],n
     # Native OBJECTID list source allows stable batches, not trusting offset.
     ids,hids,uids=query(layer,{"where":"1=1","returnIdsOnly":"true"})
     allids=ids.get("objectIds") or []
@@ -70,7 +77,7 @@ def read(layer,fields):
                          "original_layer_query_url":url})
         time.sleep(.12)
     if len(rows)!=n:raise ValueError("Original JRC full geographic source incomplete")
-    return rows,receipts
+    return rows,receipts,n
 def normalize_key(row,fields):
     q=[str(row.get(x) or "").strip().upper() for x in fields]
     if any(not x for x in q):return None
@@ -94,9 +101,24 @@ def main():
             fields=expected["key"]+["Ps"+nutrient]
             if layer not in indices or not set(fields).issubset({z["name"] for z in indices[layer]["service_fields"]}):
                 raise ValueError("Official original GREEN N/P point-source fields changed")
-            rows,log=read(layer,fields)
+            rows,log,original_count=read(layer,fields)
             prepared={}
             repeated=[]
+            if rows is None:
+                # Original full basin source too large for bounded ALL-objectID
+                # retrieval here; public source count retained but no effect data.
+                pair[nutrient]={
+                    "rows":{},
+                    "source_data_status":"COUNT_ONLY_TOO_LARGE_NO_NUTRIENT_VALUES",
+                    "all_original_features_n":original_count,
+                    "distinct_nonmissing_source_geographic_ids":None,
+                    "duplicate_country_region_key_count":None,
+                    "source_Ps_positive_count":None,
+                    "source_Ps_missing_numeric_count":None}
+                receipt[nutrient]=log
+                print("JRC_NP_SOURCE",scale,nutrient,"original features",original_count,
+                      "original basin source COUNT ONLY, not sampled",flush=True)
+                continue
             for r in rows:
                 code=normalize_key(r,expected["key"])
                 if code is None:continue
@@ -112,14 +134,15 @@ def main():
                     except (TypeError,ValueError):pass
                 prepared[code]={"source_GIS_recorded_Ps"+nutrient+"_t":q,
                                 "original_layer_OBJECTID":int(r["OBJECTID"])}
-            pair[nutrient]={"rows":prepared,"duplicate_country_region_key_count":len(repeated),
+            pair[nutrient]={"rows":prepared,"source_data_status":"FULL_SOURCE_COMPLETE","duplicate_country_region_key_count":len(repeated),
                 "all_original_features_n":len(rows),"distinct_nonmissing_source_geographic_ids":len(prepared),
                 "source_Ps_positive_count":sum(z["source_GIS_recorded_Ps"+nutrient+"_t"] is not None and z["source_GIS_recorded_Ps"+nutrient+"_t"]>0 for z in prepared.values()),
                 "source_Ps_missing_numeric_count":sum(z["source_GIS_recorded_Ps"+nutrient+"_t"] is None for z in prepared.values())}
             receipt[nutrient]=log
             print("JRC_NP_SOURCE",scale,nutrient,"n",len(rows),"unique",len(prepared),
                   "duplicates",len(repeated),flush=True)
-        keys=sorted(set(pair["N"]["rows"])|set(pair["P"]["rows"]))
+        entire_scale=all(pair[n]["source_data_status"]=="FULL_SOURCE_COMPLETE" for n in ("N","P"))
+        keys=sorted(set(pair["N"]["rows"])|set(pair["P"]["rows"])) if entire_scale else []
         joint=[]
         for key in keys:
             n=pair["N"]["rows"].get(key,{})
@@ -136,8 +159,10 @@ def main():
         result[scale]={
             "official_N_and_P_layer_indices":{"N":expected["N"],"P":expected["P"]},
             "original_region_id_field_names":expected["key"],
-            "original_modelled_NP_joint_geographic_records_n":len(joint),
-            "original_modelled_NP_both_nonmissing_regions_n":len(usable),
+            "original_complete_both_np_geographic_source_acquisition":entire_scale,
+            "basin_source_values_not_sampled_when_original_dataset_exceeds_6000":not entire_scale,
+            "original_modelled_NP_joint_geographic_records_n":len(joint) if entire_scale else None,
+            "original_modelled_NP_both_nonmissing_regions_n":len(usable) if entire_scale else None,
             "N_source_quality":{k:v for k,v in pair["N"].items() if k!="rows"},
             "P_source_quality":{k:v for k,v in pair["P"].items() if k!="rows"},
             "original_2016_EEA_benthic_country_overlap_n":len(bqe_cntr&source_country) if scale!="river_basin" else None,
@@ -172,6 +197,7 @@ def main():
        k:{"n":x["original_modelled_NP_joint_geographic_records_n"],
           "bothNP":x["original_modelled_NP_both_nonmissing_regions_n"],
           "benthic2016_country_overlap":x["original_2016_EEA_benthic_country_overlap_n"],
-          "source_duplicates":{nut:x[nut+"_source_quality"]["duplicate_country_region_key_count"] for nut in ("N","P")}}
+          "source_duplicates":{nut:x[nut+"_source_quality"]["duplicate_country_region_key_count"] for nut in ("N","P")},
+          "basin_data_FULL":x["original_complete_both_np_geographic_source_acquisition"]}
        for k,x in result.items()},indent=2),flush=True)
 if __name__=="__main__":main()
