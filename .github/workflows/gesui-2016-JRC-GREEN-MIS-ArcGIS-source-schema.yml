@@ -1,0 +1,40 @@
+name: gesui JRC GREEN official 2014-18 point-source NP ArcGIS MapServer schema SOURCE
+on:
+  push:
+    branches: ["analysis/eea2016-thirdyear-benthic-NP-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-2016-JRC-GREEN-MIS-ArcGIS-source-schema.yml"
+      - "scripts/gesui_JRC_GREEN_MIS_2014_2018_modelNP_ArcGIS_source_schema.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source_JRC_GREEN_2014_2018_pointsource_modelled_not_2016_measured:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Verify official JRC GREEN basin / NUTS2 point-source N/P ArcGIS feature layer source schemas
+        run: |
+          python -m py_compile scripts/gesui_JRC_GREEN_MIS_2014_2018_modelNP_ArcGIS_source_schema.py
+          python -u scripts/gesui_JRC_GREEN_MIS_2014_2018_modelNP_ArcGIS_source_schema.py \
+            --out results/eea2016_thirdyear_source_20261111/JRC_GREEN_2014TO2018_POINTSOURCE_NP_OFFICIAL_ARCGIS_SOURCE_LAYERS.json
+      - name: Preserve year/units/grain/source type and original official GIS fields, no 2016 BQE ecology effects
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/eea2016_thirdyear_source_20261111/JRC_GREEN_2014TO2018_POINTSOURCE_NP_OFFICIAL_ARCGIS_SOURCE_LAYERS.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit JRC GREEN 2014-18 national/NUTS2/RBD point-source model N/P published ArcGIS fields, not WWTP-2016 measured data"
+          git fetch origin analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git rebase origin/analysis/eea2016-thirdyear-benthic-NP-source-20261111
+          git push origin HEAD:analysis/eea2016-thirdyear-benthic-NP-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-JRC-GREEN-official-2014to2018-pointNpointP-source-ArcGIS-schema
+          path: results/eea2016_thirdyear_source_20261111/JRC_GREEN_2014TO2018_POINTSOURCE_NP_OFFICIAL_ARCGIS_SOURCE_LAYERS.json
+          retention-days: 90
