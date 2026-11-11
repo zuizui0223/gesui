@@ -1,0 +1,55 @@
+name: gesui 2021 NWCA71 POTW86 NLDI strictly directed source offline independent QA
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-NLDI-71wet86potw-source-independentQA.yml"
+      - "results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_POTW_2021_NP71WET_86OUTFALL_USGS_NLDI_STRICT200M_DIRECTION_SOURCE_GATE.json"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  independent_original_2021_NHDPlusV2_source_river_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Retrieve four preexisting original USGS NLDI source response shards, not fresh/reclassified river results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui-nldi-original-independent
+          for shard in 0 1 2 3; do
+            gh run download 42964085386 --name "gesui-NWCA2021-USGS-NLDI-71wet86potw-source-shard-$shard" \
+              --dir /tmp/gesui-nldi-original-independent --repo zuizui0223/gesui
+            test -s "/tmp/gesui-nldi-original-independent/NLDI_2021_NP71wet86potw_shard$shard.json"
+          done
+      - name: Reproduce NLDI exact source 71 wetland 86 actual TNTP-reported POTW feature 200m and 50km downstream source counts without rerunning main script
+        run: |
+          python -m py_compile scripts/audit_gesui_NWCA2021_USGS_NLDI_71WET_86POTW_source_offline.py
+          python -u scripts/audit_gesui_NWCA2021_USGS_NLDI_71WET_86POTW_source_offline.py \
+            --shard /tmp/gesui-nldi-original-independent/NLDI_2021_NP71wet86potw_shard0.json \
+            --shard /tmp/gesui-nldi-original-independent/NLDI_2021_NP71wet86potw_shard1.json \
+            --shard /tmp/gesui-nldi-original-independent/NLDI_2021_NP71wet86potw_shard2.json \
+            --shard /tmp/gesui-nldi-original-independent/NLDI_2021_NP71wet86potw_shard3.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NLDI_POTW71WET86_SOURCE_INDEPENDENT_QA.json
+      - name: Archive only reproducible measured POTW discharge reporting-to-wetland hydrologic feasibility, not plant causal effect
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NLDI_POTW71WET86_SOURCE_INDEPENDENT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Independently audit original USGS NLDI 71 wetland 86 measured POTW feature 200m downstream source-only stop"
+          git fetch origin analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-2021-USGS-NLDI-direction-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-NHDPlus-original71wet86potw-independent-geoQA
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_NLDI_POTW71WET86_SOURCE_INDEPENDENT_QA.json
+          retention-days: 90
