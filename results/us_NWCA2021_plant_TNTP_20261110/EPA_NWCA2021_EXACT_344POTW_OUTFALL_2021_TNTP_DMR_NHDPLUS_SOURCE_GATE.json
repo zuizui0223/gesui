@@ -1,0 +1,101 @@
+{
+  "2026_ECHO_permitted_feature_position_and_DMR2021_at_matching_feature_does_NOT_verify_receiving_wetland_flow": true,
+  "NO_2021_NWCA_plant_diversity_or_wetland_tn_tp_biology_read": true,
+  "UTC": "2026-11-11T04:52:30.591925+00:00",
+  "exact_original_outfall_GEOMETRY_to_2021_DMR_feature_matches": {
+    "FLOW": {
+      "exact_nearby_source_feature_ids_with_2021_reported_numeric": 124,
+      "matched_original_27state_study_NEAR_wetlands_103": 78,
+      "matched_source_NEAR_wetlands_128": 97,
+      "original_2021_source_administrative_permit_IDs": 115,
+      "original_distinct_calendar2021_quarters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "original_states_with_near_registered_outfall_and_2021_DMR": 26
+    },
+    "N": {
+      "exact_nearby_source_feature_ids_with_2021_reported_numeric": 34,
+      "matched_original_27state_study_NEAR_wetlands_103": 26,
+      "matched_source_NEAR_wetlands_128": 31,
+      "original_2021_source_administrative_permit_IDs": 33,
+      "original_distinct_calendar2021_quarters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "original_states_with_near_registered_outfall_and_2021_DMR": 17
+    },
+    "NandP_same_report_period": {
+      "exact_nearby_source_feature_ids_with_2021_reported_numeric": 31,
+      "matched_original_27state_study_NEAR_wetlands_103": 21,
+      "matched_source_NEAR_wetlands_128": 26,
+      "original_2021_source_administrative_permit_IDs": 30,
+      "original_distinct_calendar2021_quarters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "original_states_with_near_registered_outfall_and_2021_DMR": 16
+    },
+    "P": {
+      "exact_nearby_source_feature_ids_with_2021_reported_numeric": 83,
+      "matched_original_27state_study_NEAR_wetlands_103": 46,
+      "matched_source_NEAR_wetlands_128": 66,
+      "original_2021_source_administrative_permit_IDs": 78,
+      "original_distinct_calendar2021_quarters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "original_states_with_near_registered_outfall_and_2021_DMR": 25
+    },
+    "bothNandP": {
+      "exact_nearby_source_feature_ids_with_2021_reported_numeric": 31,
+      "matched_original_27state_study_NEAR_wetlands_103": 21,
+      "matched_source_NEAR_wetlands_128": 26,
+      "original_2021_source_administrative_permit_IDs": 30,
+      "original_distinct_calendar2021_quarters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "original_states_with_near_registered_outfall_and_2021_DMR": 16
+    },
+    "eitherN_orP": {
+      "exact_nearby_source_feature_ids_with_2021_reported_numeric": 86,
+      "matched_original_27state_study_NEAR_wetlands_103": 51,
+      "matched_source_NEAR_wetlands_128": 71,
+      "original_2021_source_administrative_permit_IDs": 81,
+      "original_distinct_calendar2021_quarters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "original_states_with_near_registered_outfall_and_2021_DMR": 26
+    }
+  },
+  "no_wastewater_driven_biodiversity_coefficient_estimated": true,
+  "original_2021_POTW_source_selection_geo_SHA256": "50eaf83fd3adf62e3affbbf072d3eb6d0dd457fc3dba09168231ea88abd45bc2",
+  "original_FY2021andFY2022_source_DMR_join_SHA256": "68984d50c29779c696d832c96a5a57715482a63cfeb3f9d6cc4cafd7abf7ef68",
+  "original_pre2021_DMR_exact344geo_features_SHA256": "c103428b5f77883f4461830901a79641a7e578ab1681a8542490ce332dd2e6d5",
+  "original_reported_NP_outfall_features_with_numeric_flow_at_same_feature": 76,
+  "schema": "gesui_NWCA2021_2026_registered_128wetland_344outfall_FEATURE_exact_actual_CY2021_TNTP_DMR_QC_v01",
+  "source_original_near_wetland_128_registered_outfall_feature344_pairs392": true,
+  "source_precommitted_2021_nutrient_monitoring_feature_opportunity_gate": {
+    "eligible_to_proceed_to_separate_NHDPlus_downstream_flow_route": true,
+    "min_fraction_of_same_outfall_features_with_flow": 0.5,
+    "min_near_wetlands_with_actual_2021_nutrient_DMR_at_exact_outfall_number": 20,
+    "min_original_calendar2021_reported_quarters": 2,
+    "min_original_independent_registered_municipal_sewage_permit_ids": 10,
+    "min_original_states": 6
+  },
+  "source_reported_2021_FINAL_EFFLUENT_numeric_totalN00600_totalP00665_flow50050": true
+}

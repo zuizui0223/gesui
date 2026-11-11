@@ -1,0 +1,52 @@
+name: gesui 2021 POTW 160 permit DMR FY2021 FY2022 artifact-only exact feature repair
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-DMR-2021-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-DMR160-source-artifact-rejoin.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  join_previously_successful_EPA_FY_DMR_artifacts_without_redownload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Recover original FY2021 FY2022 full-national DMR SHA-checked SOURCE-only results from successful frozen GitHub Actions artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui-DMR160-2021-source-replay
+          gh run download 42961571176 --name gesui-NWCA2021-160POTW-DMR-national-FY2021 \
+            --dir /tmp/gesui-DMR160-2021-source-replay --repo zuizui0223/gesui
+          gh run download 42961571176 --name gesui-NWCA2021-160POTW-DMR-national-FY2022 \
+            --dir /tmp/gesui-DMR160-2021-source-replay --repo zuizui0223/gesui
+          ls -l /tmp/gesui-DMR160-2021-source-replay/DMR_POTW_160_FY202*.json
+      - name: On exact same 160 original municipal permits, combine both source fiscal DMRs and retain source-only exact feature monthly reporting summaries
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_join_calendar2021_DMR160_source_fiscal_fy2021_22.py
+          python -u scripts/gesui_NWCA2021_join_calendar2021_DMR160_source_fiscal_fy2021_22.py \
+            --fy2021 /tmp/gesui-DMR160-2021-source-replay/DMR_POTW_160_FY2021.json \
+            --fy2022 /tmp/gesui-DMR160-2021-source-replay/DMR_POTW_160_FY2022.json \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json
+      - name: Replace original permit-only summary with original source-verified exact outfall-feature timing without requery or source edits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze original 2021 US municipal wastewater permit DMR N P flow source feature timestamps from successful earlier FY2021 and FY2022 artifacts"
+          git fetch origin analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-DMR-2021-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-DMR160-rejoined-actual2021-exact-reporting-source
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json
+          retention-days: 90

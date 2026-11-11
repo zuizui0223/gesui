@@ -1,0 +1,59 @@
+name: gesui NWCA2021 128 sites 160 permits EXACT nearby POTW feature ID geo freeze
+on:
+  push:
+    branches: ["analysis/nwca2021-POTW-DMR-2021-source-20261111"]
+    paths:
+      - ".github/workflows/gesui-NWCA2021-128near-POTW-exact-feature-source.yml"
+      - "scripts/gesui_NWCA2021_128near_160POTW_exact_outfall_feature_geo_source.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_US_ECHO2026_feature_geometry_not_new_2021_DMR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install only geodesic source identifiers, not biodiversity model dependencies
+        run: python -m pip install --quiet "numpy<3" pandas scipy
+      - name: Recover EXACT byte-matching original 2026-11-08 source ECHO permitted feature file and original NWCA 2021 SITE-only EPA source
+        run: |
+          mkdir -p /tmp/gesui-2021DMR-feature/epanwca
+          for item in siteinfo waterchem_wide vegmetrics hydrology_sources_wide; do
+            curl --retry 4 --connect-timeout 25 --max-time 240 --fail --location --silent --show-error \
+              "https://www.epa.gov/system/files/other-files/2024-05/nwca21_$item-data.csv" \
+              -o "/tmp/gesui-2021DMR-feature/epanwca/nwca21_$item-data.csv"
+          done
+          curl --retry 4 --retry-all-errors --connect-timeout 30 --max-time 450 \
+            --fail --location --silent --show-error \
+            "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip" \
+            -o /tmp/gesui-2021DMR-feature/npdes_outfalls_layer.zip
+          echo 'f0d1310b1c07085c42527e2ede5cf97ab83d517d50548b7dadb7621a44aa6160  /tmp/gesui-2021DMR-feature/npdes_outfalls_layer.zip' | sha256sum -c -
+      - name: Verify 568 original fixed wetland sites and 160 originally qualified NPDES permit source IDs, freeze true registered feature IDs within10km
+        run: |
+          python -m py_compile scripts/gesui_NWCA2021_128near_160POTW_exact_outfall_feature_geo_source.py
+          python -u scripts/gesui_NWCA2021_128near_160POTW_exact_outfall_feature_geo_source.py \
+            --nwca-source-dir /tmp/gesui-2021DMR-feature/epanwca \
+            --npdes-zip /tmp/gesui-2021DMR-feature/npdes_outfalls_layer.zip \
+            --out results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_128WETLAND_160POTW_EXACT_NEAR_OUTFALL_FEATURE_SOURCE.json
+      - name: Preserve exact source-only site and permitted feature IDs before original calendar2021 DMR feature merge
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_128WETLAND_160POTW_EXACT_NEAR_OUTFALL_FEATURE_SOURCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze true registered outfall FEATURE IDs within10km of 128 original NWCA2021 wetland sites before DMR feature match"
+          git fetch origin analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git rebase origin/analysis/nwca2021-POTW-DMR-2021-source-20261111
+          git push origin HEAD:analysis/nwca2021-POTW-DMR-2021-source-20261111
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NWCA2021-128wetlands-160permits-exact-registered-feature-ID
+          path: results/us_NWCA2021_plant_TNTP_20261110/EPA_NWCA2021_128WETLAND_160POTW_EXACT_NEAR_OUTFALL_FEATURE_SOURCE.json
+          retention-days: 90
