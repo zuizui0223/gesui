@@ -129,7 +129,9 @@ def main():
         "EPA_FY2021_and_FY2022_DMR_source_filters_precommitted_00600_00665_50050":True,
         "no_hydrological_wetland_receptor_path_known":True
     }
-    return result
+    a.out.parent.mkdir(parents=True,exist_ok=True)
+    a.out.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+    print(json.dumps({k:result[k] for k in ("original_2021_NWCA_wetland_source_n","original_near10_source_wetlands","original_near10_in_32_shared_state_ecoregion_source_wetlands","source_shared_state_ecoregion_n","original_distinct_NPDES_permit_IDs_within10km_of_original_NWCA_wetlands","original_distinct_NPDES_permit_AND_feature_number_within10km")},indent=2))
 
 if __name__=="__main__":
     main()
