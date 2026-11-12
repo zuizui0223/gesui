@@ -1,0 +1,46 @@
+name: gesui global macro same H3 r5 source geometry before HydroBASINS L7
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_macro_h3_r4r5r6_original_source_geometry_20261112.py"
+      - ".github/workflows/gesui-global-common-scale-geometry-source.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  source-geometry-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install only H3 point indexing
+        run: python -m pip install --quiet "h3>=4,<5"
+      - name: Retrieve SHA-locked original EPA pre-outcome native UID site geography
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: nrsa1819-genuine-source-only-qc
+          path: ${{ runner.temp }}/NRSA_original_UID
+      - name: Check syntax
+        run: python -m py_compile scripts/gesui_macro_h3_r4r5r6_original_source_geometry_20261112.py
+      - name: Compare archived 2018 and 2022 EEA, US 2018-19 EPA, 1055 coastal ports on H3 r4/5/6 geometry ONLY
+        env:
+          EPA_FROZEN_MANIFEST: ${{ runner.temp }}/NRSA_original_UID/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+        run: python scripts/gesui_macro_h3_r4r5r6_original_source_geometry_20261112.py
+      - name: Preserve source SHA and spatial support audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-global-H3-common-support-source-only
+          path: ${{ runner.temp }}/gesui_global_common_scale_geometry/SOURCE_ONLY_ORIGINAL_EEA_EPA_WPI_H3_R4_R5_R6_SPATIAL_CROSSWALK_QA.json
+          if-no-files-found: warn
+          retention-days: 30
