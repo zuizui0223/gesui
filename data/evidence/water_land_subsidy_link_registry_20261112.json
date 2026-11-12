@@ -1,0 +1,140 @@
+{
+  "schema_version": "gesui_water_land_subsidy_evidence_registry_v0.1_20261112",
+  "scientific_scope": "Water/land cross-boundary resource quality, quantity, timing and realized consumer response; this is NOT a pooled causal SEM",
+  "interpretation": "Separate source observation grains; only within a single original panel with native site/year joins can adjacent observed edges be evaluated",
+  "edges": [
+    {
+      "from": "measured_WWTP_reporting",
+      "to": "benthic_EQR",
+      "study": "EEA_UWWTD_2018_2022",
+      "grain": "monitor_site_year",
+      "geography": "Europe",
+      "n_per_year": {
+        "2018": 2634,
+        "2022": 2475
+      },
+      "association": "Small positive OOS predictive improvement from adding source N/P; not beneficial EQR sign",
+      "causal": false,
+      "ref": "https://github.com/zuizui0223/gesui/pull/17",
+      "measured_same_unit": true
+    },
+    {
+      "from": "measured_river_TN_TP",
+      "to": "benthic_EPT_count_fraction",
+      "study": "EPA_NRSA_2018_2019",
+      "grain": "native_UID_river_visit",
+      "geography": "48 US states",
+      "n_complete": 1220,
+      "association": "TP higher linked to lower EPT fraction; HUC8 holdouts",
+      "causal": false,
+      "ref": "https://github.com/zuizui0223/gesui/pull/58",
+      "measured_same_unit": true
+    },
+    {
+      "from": "riparian_vegetation_structure",
+      "to": "benthic_EPT_count_fraction",
+      "study": "EPA_NRSA_2018_2019_PHab",
+      "grain": "native_UID_river_visit",
+      "geography": "48 US states",
+      "n_complete_prespecified": 1184,
+      "n_complete_raw_source_posthoc": 1219,
+      "association": "Some additional spatial predictive information; habitat after nutrient interval spans zero",
+      "causal": false,
+      "ref": "https://github.com/zuizui0223/gesui/pull/59",
+      "measured_same_unit": true
+    },
+    {
+      "from": "adult_EPT_abundance_fraction",
+      "to": "emerging_adult_total_biomass",
+      "study": "HJA_AS015_2022",
+      "grain": "stream_with_23_intervals",
+      "geography": "1 Oregon Lookout Creek watershed",
+      "n_streams": 17,
+      "association": "Spearman rho −0.1618 with wide uncertainty; not a transport equation",
+      "causal": false,
+      "ref": "https://github.com/zuizui0223/gesui/pull/60",
+      "measured_same_unit": true
+    },
+    {
+      "from": "EPT_Diptera_seasonal_emergence",
+      "to": "potential_prey_biomass_temporal_continuity",
+      "study": "HJA_AS015_2022",
+      "grain": "17 streams ×23 intervals",
+      "geography": "1 Oregon watershed",
+      "n_streams": 17,
+      "association": "Top five of 23 intervals hold median 50.0% of biomass; EPT 98.8% median biomass fraction; 16/17 same-sign positive group covariance, weak magnitude",
+      "causal": false,
+      "ref": "https://github.com/zuizui0223/gesui/actions/runs/43142773724",
+      "measured_same_unit": true
+    },
+    {
+      "from": "emergent_insect_size",
+      "to": "Tetragnatha_spider_isotope_aquatic_diet",
+      "study": "Gagnon_Quebec_2024",
+      "grain": "site_within_two_rivers",
+      "geography": "Quebec 2 rivers",
+      "n_sites": 20,
+      "association": "Original authors reported mean aquatic dietary reliance 52% range 18–85%; source binary API401, not independently recalculated",
+      "causal": false,
+      "ref": "https://doi.org/10.5061/dryad.v6wwpzh8z",
+      "measured_same_unit": "published_original_only",
+      "access_status": "public metadata yes, raw data API401"
+    },
+    {
+      "from": "emergence_biomass",
+      "to": "field_insectivorous_bird_share",
+      "study": "Rideout_Ontario_2022",
+      "grain": "29 field locations",
+      "geography": "South Nation River watershed Ontario",
+      "n_sites": 29,
+      "association": "Original paper reports no clear positive biomass effect after habitat controls; same-year field count, original source API401",
+      "causal": false,
+      "ref": "https://doi.org/10.5061/dryad.sbcc2frfk",
+      "measured_same_unit": "published_original_only",
+      "access_status": "public metadata yes, raw data API401"
+    },
+    {
+      "from": "modeled_wastewater_generation",
+      "to": "opportunistic_GBIF_plants_host_records",
+      "study": "Global_WPI_Ports_GBIF_2011_24",
+      "grain": "ports",
+      "geography": "42 countries",
+      "n_ports": 1055,
+      "association": "Raw plant records positive, rarefaction/observer controls substantially weaken ecological claim",
+      "causal": false,
+      "ref": "https://github.com/zuizui0223/gesui/pull/46",
+      "measured_same_unit": true
+    }
+  ],
+  "necessary_unmeasured_edges": [
+    {
+      "from": "source_specific_WWTP_NP",
+      "to": "actual_river_TN_TP",
+      "problem": "hydrologic routing/dilution/other sources unverified in EPA NRSA"
+    },
+    {
+      "from": "larval_EPT_fraction",
+      "to": "adult_emergence_biomass",
+      "problem": "no same-site larval+adult measurements in original NRSA and HJA studies; one is not converted to the other"
+    },
+    {
+      "from": "actual_emergence_flux",
+      "to": "predator_assimilated_biomass",
+      "problem": "requires original near-date isotope diet/counts plus original trap catch, not present in HJA"
+    },
+    {
+      "from": "flowering_resource",
+      "to": "butterfly_visit_or_seed_set",
+      "problem": "no same-river source gates pass; records and services not equivalent"
+    },
+    {
+      "from": "wastewater",
+      "to": "pollination_change",
+      "problem": "requires all intervening physical + biological links plus controls"
+    }
+  ],
+  "global_replication_unit": "independent watershed or monitoring program, never individual taxon row or 23 within-stream repeated intervals",
+  "source_gate_for_future_studies": "Require original unique site IDs with same-year aquatic stressor, adult emergence quantity+timing, matched terrestrial consumer diet/abundance; multiple independent watersheds; documented all file SHA and detection/habitat controls",
+  "no_eBird": true,
+  "no_merge_main": true
+}
