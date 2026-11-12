@@ -1,0 +1,23 @@
+name: gesui HJA AS015 original data URL in official EML + local download page
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HJA_AS015_targeted_download_link_probe.py"
+      - ".github/workflows/gesui-hja-as015-targeted-urls.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Inspect HJA original registered download anchor and official EML file
+        run: python scripts/gesui_HJA_AS015_targeted_download_link_probe.py
