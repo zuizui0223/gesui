@@ -1,0 +1,74 @@
+name: gesui H7 454 EU three biological layers actual HydroATLAS cropland urban and WWTP NP
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_H7_454_three_response_actual_HydroATLAS_crop_urban_wwtp_NP_models.py"
+      - ".github/workflows/gesui-H7-454-HydroATLAS-cropland-urban-3layer-source.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  source-verifiable-454-trilayer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original numeric reproducibility packages
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Retrieve original true 1219 HydroATLAS L7 cropland, urban, and natural outlet flow source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          repository: zuizui0223/gesui
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_l7_hydroatlas
+      - name: Retrieve original exact 454 H7×period source-matched original EQR, GBIF plant S50 and Lycaenidae
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_biology
+      - name: Retrieve independently original-reconciled true reported annual 2018-22 upstream N/P source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          repository: zuizui0223/gesui
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_annual_source
+      - name: Retrieve source-frozen prior 454 reported NP conditional model for exact baseline fit reproduction
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43223533195
+          repository: zuizui0223/gesui
+          name: gesui-H7-454-2018-22-EEA-reported-upstream-NP-three-layer-original-observational
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_reportedNP_result
+      - name: Verify unchanged prior baseline, then test crop/urban/natural discharge-adjusted 3 original biological layers
+        env:
+          SOURCE_ORIGINAL_H7_HYDROATLAS_1219: ${{ runner.temp }}/original_l7_hydroatlas/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          SOURCE_ORIGINAL_H7_REPORT_NP_454: ${{ runner.temp }}/original_454_annual_source/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          SOURCE_ORIGINAL_H7_THREE_LAYER_SPATIAL_REPORT: ${{ runner.temp }}/original_454_biology/EU234_H7_SAME_BASINPLANT_BUTTERFLY_EQR_STATIC_HYDROWASTE_GRADIENT_RESULTS.json
+          SOURCE_ORIGINAL_H7_THREE_LAYER_NP_REPORT: ${{ runner.temp }}/original_454_reportedNP_result/EEA454_SAME_H7_PERIOD_YEAR_REPORTED_NP_SITE_FLOW_EQUIVALENT_3LAYER_POSTHOC.json
+          SOURCE_ORIGINAL_H7_THREE_LAYER_ROWS: ${{ runner.temp }}/original_454_biology/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/gesui_H7_454_three_response_actual_HydroATLAS_crop_urban_wwtp_NP_models.py
+          python scripts/gesui_H7_454_three_response_actual_HydroATLAS_crop_urban_wwtp_NP_models.py
+      - name: Preserve exact original same-H7 ecological-layer response fits and robust environmental confounders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-454-true-HydroATLAS-landuse-adjusted-WWTP-NP-3layer
+          path: ${{ runner.temp }}/gesui_H7_454_LANDCOVER_REPORT/
+          if-no-files-found: warn
+          retention-days: 30
