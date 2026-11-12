@@ -52,7 +52,15 @@ source_csv=[t for t in members if t.filename.lower().endswith(".csv") and ("hydr
 if len(source_csv)!=1:raise RuntimeError("Official HydroWASTE archive CSV ambiguous "+str([x.filename for x in members]))
 f=source_csv[0];raw=z.read(f)
 if len(raw)>50000000:raise RuntimeError("Original global raw WWTP source unexpectedly big")
-reader=csv.DictReader(io.StringIO(raw.decode("utf-8-sig"),newline=""))
+try:
+    decoded=raw.decode("utf-8-sig")
+    original_text_encoding="utf-8-sig"
+except UnicodeDecodeError:
+    # The source author's global native names have non-UTF-8 bytes.
+    # ISO-8859-1 is a reversible byte-to-Unicode mapping; no silent replacement.
+    decoded=raw.decode("latin-1")
+    original_text_encoding="iso-8859-1 original raw byte-safe"
+reader=csv.DictReader(io.StringIO(decoded,newline=""))
 original_columns=reader.fieldnames or []
 cols={x.lower():x for x in original_columns}
 # Preserve original fields no rename of scientific models.
@@ -97,6 +105,7 @@ original_member={
  "source_raw_SHA256":hashlib.sha256(raw).hexdigest(),
  "original_columns":original_columns,
  "source_N_rows":n,
+ "original_source_text_encoding":original_text_encoding,
  "latitude_longitude_valid":locgood,
  "HYRIV_ID_present":outfallgood,
  "modeled_WWTP_discharge_numeric":flowgood,
