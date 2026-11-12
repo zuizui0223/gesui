@@ -1,0 +1,34 @@
+name: gesui two original Dryad aquatic emergence to riparian field consumer source gates
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_dryad_field_panels_source_only_probe.py"
+      - "docs/DRYAD_MULTIPANEL_EMERGENCE_CONSUMER_SOURCE_PROTOCOL_20261112.md"
+      - ".github/workflows/gesui-dryad-aquatic-terrestrial-consumer-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only-dryad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify syntax
+        run: python -m py_compile scripts/gesui_dryad_field_panels_source_only_probe.py
+      - name: Verify Dryad dataset IDs and download public original files; inspect source keys only
+        run: python scripts/gesui_dryad_field_panels_source_only_probe.py
+      - name: Archive official source receipts, original public zip files and stop decisions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dryad-29bird-20spider-original-source-only-qa
+          path: ${{ runner.temp }}/gesui_dryad_field_panels_source
+          if-no-files-found: warn
+          retention-days: 30
