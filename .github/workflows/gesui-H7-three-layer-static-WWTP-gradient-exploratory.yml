@@ -1,0 +1,56 @@
+name: gesui EU L7 same-basin EQR plant-S50 Lycaenidae response to static WWTP gradient
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_234EU_EEA_EQR_Plantae_S50_Lycaenidae_static_WWTP_three_response.py"
+      - "docs/HYBAS7_234_EU_SAME_SCALE_THREE_OUTCOME_WWTP_SPATIAL_GRADIENT_PRE_MODEL_20261112.md"
+      - ".github/workflows/gesui-H7-three-layer-static-WWTP-gradient-exploratory.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  real-H7-ecosystem-layer-comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Pin numeric calculation family
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Get original pre-ecological EU234 H7 native plant S50 and butterfly5 source candidates
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43212724530
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-EU234-native-H7-plantS50-butterfly5-EQR-WWTP-source-reconciled
+          path: ${{ runner.temp }}/true_native_basin_periods
+      - name: Get original outcome-blind EU/US EEA station-to-L7 geographic crosswalk
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          path: ${{ runner.temp }}/true_EEA_H7_sites
+      - name: Compare the three already-defined response variables against the same modeled source
+        env:
+          EU234_FROZEN_CANDIDATES: ${{ runner.temp }}/true_native_basin_periods/EU234_H7_TRUE_ORIGINAL_PLANT_S50_BUTTERFLY5_EEA_WWTP_SOURCE_ONLY_CANDIDATES.json
+          HYBAS7_ORIGINAL_NATIVE_RIVER_SOURCE: ${{ runner.temp }}/true_EEA_H7_sites/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_234EU_EEA_EQR_Plantae_S50_Lycaenidae_static_WWTP_three_response.py
+          python scripts/gesui_HYBAS7_234EU_EEA_EQR_Plantae_S50_Lycaenidae_static_WWTP_three_response.py
+      - name: Archive actual same-basin period source data and all signed associations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          path: ${{ runner.temp }}/gesui_H7_EU234_TRILAYER_STATIC_WWTP/
+          if-no-files-found: warn
+          retention-days: 30
