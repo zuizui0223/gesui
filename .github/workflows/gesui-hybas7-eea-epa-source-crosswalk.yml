@@ -1,0 +1,48 @@
+name: gesui original HydroBASINS L7 Europe North America river crosswalk source-only
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HydroBASINS_L07_EEA_USA_native_original_source_join_20261112.py"
+      - ".github/workflows/gesui-hybas7-eea-epa-source-crosswalk.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  official-hydrobasins-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install GIS geometry and shapefile reader only
+        run: python -m pip install --quiet "shapely>=2.0,<3" "pyshp>=2.3,<3"
+      - name: Retrieve immutable original EPA native site manifest from pre-numeric gates
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: nrsa1819-genuine-source-only-qc
+          path: ${{ runner.temp }}/original_US_EPA_sources
+      - name: Syntax
+        run: python -m py_compile scripts/gesui_HydroBASINS_L07_EEA_USA_native_original_source_join_20261112.py
+      - name: Download official EU and North America HydroBASINS L07 and source-map EPA and EEA point records
+        env:
+          EPA_FROZEN_MANIFEST: ${{ runner.temp }}/original_US_EPA_sources/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+        run: python scripts/gesui_HydroBASINS_L07_EEA_USA_native_original_source_join_20261112.py
+      - name: Preserve original source manifests and spatial baseline H7 unit audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          path: |
+            ${{ runner.temp }}/gesui_hybas7_macro_source/GLOBAL_HYBAS7_EEA_EPA_SOURCE_SUPPORT_REPORT.json
+            ${{ runner.temp }}/gesui_hybas7_macro_source/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          if-no-files-found: warn
+          retention-days: 30

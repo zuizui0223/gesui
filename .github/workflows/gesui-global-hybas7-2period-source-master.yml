@@ -1,0 +1,46 @@
+name: gesui global HYBAS7 by 2017-2019 and 2020-2022 source index
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_x_2period_aquatic_plant_butterfly_master_frame_SOURCE_ONLY.py"
+      - ".github/workflows/gesui-global-hybas7-2period-source-master.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  freeze-common-unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve original outcome-blind original 2018-2022 EEA/US HydroBASINS Level7 point assignment
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          path: ${{ runner.temp }}/original_h7_site_source_map
+      - name: Syntax and create one source-only row for each actual Level7 basin by time window
+        env:
+          HYBAS7_FROZEN_NATIVE_SOURCE_MANIFEST: ${{ runner.temp }}/original_h7_site_source_map/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_x_2period_aquatic_plant_butterfly_master_frame_SOURCE_ONLY.py
+          python scripts/gesui_HYBAS7_x_2period_aquatic_plant_butterfly_master_frame_SOURCE_ONLY.py
+      - name: Keep runnable master table, headers and source missingness QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-global-HYBAS7-two-period-cross-taxa-source-only-master
+          path: |
+            ${{ runner.temp }}/gesui_HYBAS7_master/HYBAS7_2017_2019_2020_2022_ALL_RESPONSE_LAYERS_STATUS_MASTER_SOURCE_ONLY.csv
+            ${{ runner.temp }}/gesui_HYBAS7_master/HYBAS7_2PERIOD_GLOBAL_AQUATIC_PLANTS_BUTTERFLY_SOURCE_TABLE_QA.json
+          if-no-files-found: warn
+          retention-days: 30
