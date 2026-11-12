@@ -1,0 +1,47 @@
+name: gesui original HJA EPT-Diptera adult emergence seasonal resource continuity
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HJA_AS015_temporal_subsidy_EPT_Diptera_compensation_20261112.py"
+      - "docs/HJA_AS015_EMERGENCE_SEASONAL_COMPENSATION_PRE_ANALYSIS_20261112.md"
+      - ".github/workflows/gesui-AS015-seasonal-continuity-source-verified.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  source-verified-season:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical calculation library family
+        run: python -m pip install --quiet "numpy>=1.26,<3"
+      - name: Retrieve immutable pre-numeric 17-stream AS015 site-period source manifest
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43125631204
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-as015-2022-original-emergence-source-freeze
+          path: ${{ runner.temp }}/AS015_original_source_manifest
+      - name: Syntax check
+        run: python -m py_compile scripts/gesui_HJA_AS015_temporal_subsidy_EPT_Diptera_compensation_20261112.py
+      - name: Re-open exact SHA-locked official original HJA adult emergence and estimate temporal subsidy continuity
+        env:
+          AS015_FROZEN_SOURCE_MANIFEST: ${{ runner.temp }}/AS015_original_source_manifest/AS015_V2_SOURCE_ONLY_MANIFEST.json
+        run: python scripts/gesui_HJA_AS015_temporal_subsidy_EPT_Diptera_compensation_20261112.py
+      - name: Preserve source-authentic 17-stream sitewise temporal decomposition
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: as015-seasonal-ept-diptera-emergence-subsidy-continuity
+          path: ${{ runner.temp }}/gesui_AS015_seasonal_continuity/AS015_EPT_DIPTERA_EMERGENCE_TEMPORAL_COMPENSATION_SOURCE_ORIGINAL_20261112.json
+          if-no-files-found: warn
+          retention-days: 30
