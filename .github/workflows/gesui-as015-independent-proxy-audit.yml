@@ -1,0 +1,44 @@
+name: gesui AS015 emergence proxy independent 17-stream source-result QA
+
+on:
+  push:
+    paths:
+      - "scripts/audit_AS015_17stream_EPT_composition_vs_biomass_20261112.py"
+      - ".github/workflows/gesui-as015-independent-proxy-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original-site-analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Get saved SHA-pinned measured adult emergence without any API calls
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-as015-genuine-adult-emergence-biomass-calibration
+          run-id: 43126089434
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/AS015_numeric_original
+      - name: Pure Python independent stream rank / leave-one-out and original biomass QA
+        env:
+          AS015_VERIFIED_NUMERIC_RESULT: ${{ runner.temp }}/AS015_numeric_original/AS015_EMERGENCE_EPT_SHARE_TO_BIOMASS_CALIBRATION_20261112.json
+        run: |
+          python -m py_compile scripts/audit_AS015_17stream_EPT_composition_vs_biomass_20261112.py
+          python scripts/audit_AS015_17stream_EPT_composition_vs_biomass_20261112.py
+      - name: Preserve immutable analysis interpretation and alternative ratio definitions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-as015-independent-composition-biomass-QA
+          path: ${{ runner.temp }}/gesui_AS015_independent/HJA_AS015_17STREAM_EPT_PROXY_INDEPENDENT_QA_20261112.json
+          if-no-files-found: warn
+          retention-days: 30
