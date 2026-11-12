@@ -1,0 +1,35 @@
+name: gesui original global HydroWASTE 58502 WWTP outfalls source QA
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HydroWASTE58502_publisher_original_source_gate.py"
+      - ".github/workflows/gesui-hydrowaste58k-source-only.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-58k-outfalls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Source code syntax
+        run: python -m py_compile scripts/gesui_HydroWASTE58502_publisher_original_source_gate.py
+      - name: Download original public HydroWASTE publisher ZIP and audit all source outlet IDs and modeled flows
+        run: python scripts/gesui_HydroWASTE58502_publisher_original_source_gate.py
+      - name: Preserve authentic original source ZIP and global 58502 row QA for follow-up basin crosswalk
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hydrowaste58502-publisher-original-source-and-outfall-qa
+          path: |
+            ${{ runner.temp }}/gesui_hydrowaste_original_source/HYDROWASTE_GLOBAL_ORIGINAL_SOURCE_GATE.json
+            ${{ runner.temp }}/gesui_hydrowaste_original_source/HYDROWASTE_v10_original_publisher_archive.zip
+          if-no-files-found: warn
+          retention-days: 30
