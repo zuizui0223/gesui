@@ -1,0 +1,44 @@
+name: gesui HYBAS7 genuine GBIF 12-basin polygon taxon count preflight
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_GBIF1219_original_polygon_three_taxa_count_stage1.py"
+      - ".github/workflows/gesui-hybas7-12polygon-gbif-preflight.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  frozen-native-polygon-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch original pre-count full Level7 WKT geometry manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-1219-original-polygon-wkt-pre-gbif-source
+          repository: zuizui0223/gesui
+          run-id: 43197894183
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/native_original_basins
+      - name: Check syntax
+        run: python -m py_compile scripts/gesui_HYBAS7_GBIF1219_original_polygon_three_taxa_count_stage1.py
+      - name: Check 6 EU 6 NA predefined H7 basins x 2 periods x 3 taxa and exact GBIF rank
+        env:
+          HYBAS7_WKT_PRECOUNT_SOURCE: ${{ runner.temp }}/native_original_basins/HYBAS7_1219_ORIGINAL_NATIVE_POLYGONS_WKT_BEFORE_NEW_GBIF_COUNTS.json
+        run: python scripts/gesui_HYBAS7_GBIF1219_original_polygon_three_taxa_count_stage1.py --mode preflight
+      - name: Preserve original GBIF source URL, response SHA and original sampled count quality
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hybas7-12-GBIF-original-polygon-source-preflight
+          path: ${{ runner.temp }}/gesui_H7_GBIF_preflight_shard0
+          if-no-files-found: warn
+          retention-days: 30
