@@ -1,0 +1,48 @@
+name: gesui genuine HYBAS7 1219 basin polygon WKT pre-GBIF source freeze
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_original_monitored_1219_Polygon_WKT_source_only.py"
+      - ".github/workflows/gesui-hybas7-1219-original-polygon-freeze.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-polygon-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original shape geospatial validation
+        run: python -m pip install --quiet "shapely>=2.0,<3" "pyshp>=2.3,<3"
+      - name: Retrieve immutable 2018/2022 Europe and 2018-2019 US native Level 7 station IDs
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          path: ${{ runner.temp }}/original_1219_L7_basins
+      - name: Validate code syntax
+        run: python -m py_compile scripts/gesui_HYBAS7_original_monitored_1219_Polygon_WKT_source_only.py
+      - name: Freeze all source-original polygon WKT components before new biological GBIF counts
+        env:
+          HYBAS7_FROZEN_NATIVE_SOURCE_MANIFEST: ${{ runner.temp }}/original_1219_L7_basins/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+        run: python scripts/gesui_HYBAS7_original_monitored_1219_Polygon_WKT_source_only.py
+      - name: Archive exact native full polygons, source hashes and immutable four shards
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hybas7-1219-original-polygon-wkt-pre-gbif-source
+          path: |
+            ${{ runner.temp }}/gesui_hybas7_original_polygons/HYBAS7_1219_ORIGINAL_NATIVE_POLYGONS_WKT_BEFORE_NEW_GBIF_COUNTS.json
+            ${{ runner.temp }}/gesui_hybas7_original_polygons/HYBAS7_1219_POLYGON_NATIVE_SOURCE_QA.json
+          if-no-files-found: warn
+          retention-days: 30
