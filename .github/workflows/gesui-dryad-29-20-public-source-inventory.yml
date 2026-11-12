@@ -1,0 +1,31 @@
+name: gesui Dryad field-consumer source file inventory only
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_Dryad_field_panels_public_file_inventory_20261112.py"
+      - ".github/workflows/gesui-dryad-29-20-public-source-inventory.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metadata-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Read official original Dryad version file inventories only
+        run: python scripts/gesui_Dryad_field_panels_public_file_inventory_20261112.py
+      - name: Preserve public original source names and access blocker
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dryad-field-panels-official-public-metadata-only
+          path: ${{ runner.temp }}/DRYAD_FIELD_STUDIES_PUBLIC_FILE_INVENTORY_ONLY_20261112.json
+          if-no-files-found: warn
+          retention-days: 30
