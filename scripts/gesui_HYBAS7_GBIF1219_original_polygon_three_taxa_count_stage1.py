@@ -68,7 +68,7 @@ def api(b,period,label,key):
            "occurrenceStatus":"PRESENT"
         }
         if label=="Lycaenidae":query["checklistKey"]=CHECKLIST
-        url="https://api.gbif.org/v1/occurrence/search?"+urllib.parse.urlencode(query)
+        url="https://api.gbif.org/v1/occurrence/search?"+urllib.parse.urlencode(query,safe="(),")
         ok=False;err=None;httpcode=None
         for attempt in range(4):
             try:
@@ -86,7 +86,7 @@ def api(b,period,label,key):
                 err=type(e).__name__+" "+str(e)[:180]
                 # Retry on temporary server overload only; malformed geometry
                 # is a source quality fail, not a missing biological species.
-                if e.code not in (429,500,502,503,504):
+                if e.code not in (400,429,500,502,503,504):
                     break
                 time.sleep([2,5,10,18][attempt])
             except Exception as e:
