@@ -1,0 +1,54 @@
+name: gesui 234 repeated EU EQR catchments pre-species-facet source freeze
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_234_original_EU_repeated_basin_and_butterfly_family_taxonomy_freeze.py"
+      - ".github/workflows/gesui-hybas7-234-EU-5butterfly-families-source-freeze.yml"
+      - "docs/HYBAS7_234_REPEATED_EU_EQR_TRUE_PLANT_SPECIES_RAREFACTION_BUTTERFLY5_PROTOCOL_20261112.md"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  fixed-original-EU-rivers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Original source only EEA2018/22 station-to-basin pre-outcome mapping
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          path: ${{ runner.temp }}/original_h7_stations
+      - name: Original source only all 1219 complete L7 basin WKT before GBIF
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43197894183
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: hybas7-1219-original-polygon-wkt-pre-gbif-source
+          path: ${{ runner.temp }}/original_native_wkt
+      - name: Freeze original 234 EEA repeated basins and GBIF five family ID verified
+        env:
+          HYBAS7_ORIGINAL_NATIVE_RIVER_SOURCE: ${{ runner.temp }}/original_h7_stations/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          HYBAS7_ORIGINAL_NATIVE_WKT_SOURCE: ${{ runner.temp }}/original_native_wkt/HYBAS7_1219_ORIGINAL_NATIVE_POLYGONS_WKT_BEFORE_NEW_GBIF_COUNTS.json
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_234_original_EU_repeated_basin_and_butterfly_family_taxonomy_freeze.py
+          python scripts/gesui_HYBAS7_234_original_EU_repeated_basin_and_butterfly_family_taxonomy_freeze.py
+      - name: Preserve source-lock actual 234 river polygons and verified original butterfly taxonomy
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          path: ${{ runner.temp }}/gesui_H7_234_EU_macro_cohort/
+          if-no-files-found: warn
+          retention-days: 30
