@@ -1,0 +1,31 @@
+name: gesui HJA AS015 original publication source route probe
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HJA_AS015_source_route_probe.py"
+      - ".github/workflows/gesui-as015-source-route-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Probe only official HJA and EDI source routes (no ecological outcomes)
+        run: python scripts/gesui_HJA_AS015_source_route_probe.py
+      - name: Preserve authentic route response statuses and matching links
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: as015-official-source-route-status
+          path: ${{ runner.temp }}/gesui_AS015_route_probe/AS015_OFFICIAL_SOURCE_ROUTE_PROBE.json
+          if-no-files-found: warn
+          retention-days: 30

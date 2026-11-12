@@ -1,0 +1,36 @@
+name: gesui independent measured adult emergence AS015 2022 source freeze
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HJA_AS015_2022_emergence_SOURCE_GATE.py"
+      - "docs/AS015_EMERGENCE_SOURCE_FREEZE_PRE_NUMERIC_20261112.md"
+      - ".github/workflows/gesui-as015-emergence-source-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Syntax check
+        run: python -m py_compile scripts/gesui_HJA_AS015_2022_emergence_SOURCE_GATE.py
+      - name: Official EDI v2 source MD5, taxonomy and field-visit coverage (no ecology coefficients)
+        run: python scripts/gesui_HJA_AS015_2022_emergence_SOURCE_GATE.py
+      - name: Preserve EDI source receipt and outcome-blind site manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-as015-2022-original-emergence-source-freeze
+          path: |
+            ${{ runner.temp }}/gesui_AS015_emergence_original_source/AS015_V2_SOURCE_GATE_SUMMARY.json
+            ${{ runner.temp }}/gesui_AS015_emergence_original_source/AS015_V2_SOURCE_ONLY_MANIFEST.json
+          if-no-files-found: warn
+          retention-days: 30

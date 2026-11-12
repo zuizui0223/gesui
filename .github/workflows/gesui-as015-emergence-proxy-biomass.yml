@@ -1,0 +1,46 @@
+name: gesui HJA adult emergence 2022 EPT proxy versus true biomass (post-source)
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HJA_AS015_emergence_proxy_BIOMASS_after_source_freeze.py"
+      - ".github/workflows/gesui-as015-emergence-proxy-biomass.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  emergence-proxy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install version-constrained statistic packages
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Read immutable PRE-biological AS015 site/time source cohort
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43125631204
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-as015-2022-original-emergence-source-freeze
+          path: ${{ runner.temp }}/frozen_as015_original
+      - name: Syntax check
+        run: python -m py_compile scripts/gesui_HJA_AS015_emergence_proxy_BIOMASS_after_source_freeze.py
+      - name: Genuine original adult emergence biomass, n17 stream-level proxy test, exact 9/8 regime permutations
+        env:
+          AS015_FROZEN_SOURCE_MANIFEST: ${{ runner.temp }}/frozen_as015_original/AS015_V2_SOURCE_ONLY_MANIFEST.json
+        run: python scripts/gesui_HJA_AS015_emergence_proxy_BIOMASS_after_source_freeze.py
+      - name: Preserve source-verified 17-stream aggregate results and native rows
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-as015-genuine-adult-emergence-biomass-calibration
+          path: ${{ runner.temp }}/gesui_HJA_AS015_emergence_actual/AS015_EMERGENCE_EPT_SHARE_TO_BIOMASS_CALIBRATION_20261112.json
+          if-no-files-found: warn
+          retention-days: 30
