@@ -1,0 +1,35 @@
+name: gesui genuine 2026 eight-WWTP insect to spider Borealis source gate
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_Borealis_Wardlaw8WWTP_source_only.py"
+      - ".github/workflows/gesui-borealis-8wwtp-insect-spider-source-only.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Read published dataset spreadsheet structure
+        run: python -m pip install --quiet "openpyxl>=3.1,<4"
+      - name: Check original URL, DOI and script syntax
+        run: python -m py_compile scripts/gesui_Borealis_Wardlaw8WWTP_source_only.py
+      - name: Read official Canadian Borealis source files and site/year/taxon structure, not effects
+        run: python scripts/gesui_Borealis_Wardlaw8WWTP_source_only.py
+      - name: Archive original public data and immutable source metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-borealis-8wwtp-2026-genuine-source-first
+          path: ${{ runner.temp }}/gesui_borealis_wardlaw_original_source/
+          if-no-files-found: warn
+          retention-days: 30
