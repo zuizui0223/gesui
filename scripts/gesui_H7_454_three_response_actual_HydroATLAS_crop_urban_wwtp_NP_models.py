@@ -30,7 +30,7 @@ prior=read_json_source("SOURCE_ORIGINAL_H7_THREE_LAYER_SPATIAL_REPORT")
 prior_annual=read_json_source("SOURCE_ORIGINAL_H7_THREE_LAYER_NP_REPORT")
 if prior["schema"]!=OLD_SPATIAL or prior_annual["schema"]!=OLD_ANNUAL:
     raise RuntimeError("Previously verified original source record expected schema mismatch")
-with open(os.environ["SOURCE_ORIGINAL_H7_THREE_LAYER_ROWS"],encoding="utf8-sig",newline="") as f:
+with open(os.environ["SOURCE_ORIGINAL_H7_THREE_LAYER_ROWS"],encoding="utf-8-sig",newline="") as f:
     rows=list(csv.DictReader(f))
 if len(rows)!=454 or len({(r["HYBAS_ID_L07"],r["PERIOD"]) for r in rows})!=454:
     raise RuntimeError("Original 454 native basin-period rows changed")
