@@ -1,0 +1,47 @@
+name: gesui 234 repeat EU H7 original botanical speciesKey rarefaction butterfly5 FULL
+
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-H7-234-EU-species50-butterfly5-full-shards.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  genuine-basin-period-species-and-butterflies:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve immutable 234 EU repeated EEA H7 basins and original 5 family taxon keys
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_234_native_h7
+      - name: Genuine fixed H7 source speciesKey facet and five original butterfly families for BOTH years
+        env:
+          H7_234_PRE_NEW_RESPONSE_SOURCE: ${{ runner.temp }}/original_234_native_h7/HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_234_EU_Plantae_speciesKey50_Butterfly5_original_gbif_source.py
+          python scripts/gesui_HYBAS7_234_EU_Plantae_speciesKey50_Butterfly5_original_gbif_source.py --mode full --shard ${{ matrix.shard }}
+      - name: Preserve every source URL, full botanical speciesKey facets/rarefaction and five-butterfly-family counts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/gesui_H7_234_EU_full_shard${{ matrix.shard }}/
+          if-no-files-found: warn
+          retention-days: 30
