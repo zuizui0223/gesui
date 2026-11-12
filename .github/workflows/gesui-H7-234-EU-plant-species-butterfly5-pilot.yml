@@ -1,0 +1,44 @@
+name: gesui H7 234 repeated Europe river basins butterfly5 species facet pilot
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_234_EU_Plantae_speciesKey50_Butterfly5_original_gbif_source.py"
+      - ".github/workflows/gesui-H7-234-EU-plant-species-butterfly5-pilot.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original-facet-source-6-basins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Get immutable original 234 EEA two-year basins + verified GBIF family IDs
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          path: ${{ runner.temp }}/pre_new_facets_EU_source
+      - name: Query fixed 6 original EU basins, both periods, exact original facet and families
+        env:
+          H7_234_PRE_NEW_RESPONSE_SOURCE: ${{ runner.temp }}/pre_new_facets_EU_source/HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_234_EU_Plantae_speciesKey50_Butterfly5_original_gbif_source.py
+          python scripts/gesui_HYBAS7_234_EU_Plantae_speciesKey50_Butterfly5_original_gbif_source.py --mode pilot
+      - name: Preserve original live per-species facet source and butterfly-family QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-h7-234-EU-S50-butterfly5-original-pilot
+          path: ${{ runner.temp }}/gesui_H7_234_EU_pilot_shard0/
+          if-no-files-found: warn
+          retention-days: 30

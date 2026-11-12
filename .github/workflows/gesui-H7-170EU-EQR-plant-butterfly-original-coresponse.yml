@@ -1,0 +1,56 @@
+name: gesui H7 170 repeated EU basin EQR plant S50 and five-family butterfly coresponse
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_H7_170EU_exact_station_EQR_plantS50_butterfly5_original_coreponse.py"
+      - "docs/HYBAS7_170_EU_EXACT_STATION_EQR_PLANTS_S50_BUTTERFLY_CORESPONSE_ANALYSIS_CONTRACT_20261112.md"
+      - ".github/workflows/gesui-H7-170EU-EQR-plant-butterfly-original-coresponse.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original-170-basin-coresponse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent numeric calculation packages
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Read previously source-gated 234 H7 x2 genuine 50-rarefied Plantae and five-family butterfly master
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43212724530
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-EU234-native-H7-plantS50-butterfly5-EQR-WWTP-source-reconciled
+          path: ${{ runner.temp }}/original_bio_source
+      - name: Read exact source-pinned 1047 identical EEA physical station and method pairs
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204743959
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-H7-234-EU-original-same-BQE-station-method-source-only
+          path: ${{ runner.temp }}/original_EQR_site
+      - name: Calculate basin-equal country/method-aware original response cochanges and 5fold cross-validation
+        env:
+          EU234_FROZEN_CANDIDATES: ${{ runner.temp }}/original_bio_source/EU234_H7_TRUE_ORIGINAL_PLANT_S50_BUTTERFLY5_EEA_WWTP_SOURCE_ONLY_CANDIDATES.json
+          EU234_FROZEN_STATIONS: ${{ runner.temp }}/original_EQR_site/H7_EU_234_ORIGINAL_EXACT_BQE_METHOD_SAME_STATION_PAIRS_2018_2022.json
+        run: |
+          python -m py_compile scripts/gesui_H7_170EU_exact_station_EQR_plantS50_butterfly5_original_coreponse.py
+          python scripts/gesui_H7_170EU_exact_station_EQR_plantS50_butterfly5_original_coreponse.py
+      - name: Archive inspectable real original paired basin-year biological values and all signed results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-170EU-real-EQR-plantS50-Lycaenidae-5family-macro-coresponse
+          path: ${{ runner.temp }}/gesui_H7_170_EU_CO_RESPONSE/
+          if-no-files-found: warn
+          retention-days: 30

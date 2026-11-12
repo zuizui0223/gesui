@@ -1,0 +1,45 @@
+name: gesui 169 EU H7 same-station two-year triplet response independent QA
+
+on:
+  push:
+    paths:
+      - "scripts/audit_H7_169EU_exact_EQR_plantS50_lycaenidae_cochange_independent.py"
+      - ".github/workflows/gesui-H7-169-EU-coreponse-independent-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-repro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43214039321
+          name: gesui-H7-170EU-real-EQR-plantS50-Lycaenidae-5family-macro-coresponse
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_169
+      - name: Numerically reproduce actual 169 native EU catchments x three-biodiversity layer changes
+        env:
+          H7_REAL_EQR_PLANT_BUTTERFLY_SOURCE_REPORT: ${{ runner.temp }}/original_source_169/H7_170EU_EQR_PLANT_S50_LYCAENIDAE_ORIGINAL_TRUE_COHANGE_RESULTS.json
+          H7_REAL_EQR_PLANT_BUTTERFLY_SOURCE_ROWS: ${{ runner.temp }}/original_source_169/H7_170EU_ORIGINAL_BASIN_PAIRED_ECOLOGICAL_DATA.csv
+        run: |
+          python -m py_compile scripts/audit_H7_169EU_exact_EQR_plantS50_lycaenidae_cochange_independent.py
+          python scripts/audit_H7_169EU_exact_EQR_plantS50_lycaenidae_cochange_independent.py
+      - name: Archive independent exact year and basin co-response validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-169EU-two-year-EQR-S50-Lycaenidae-independent-qa
+          path: ${{ runner.temp }}/H7_169EU_REPEAT_MACRO_DOUBLEYEAR_INDEPENDENT_QA.json
+          if-no-files-found: warn
+          retention-days: 30

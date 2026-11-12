@@ -1,0 +1,53 @@
+name: gesui EEA 2018-22 exact same-station BQE-method source freeze for 234 H7 catchments
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_H7_234_EU_EEA_same_station_biological_method_source_freeze.py"
+      - ".github/workflows/gesui-H7-234-EU-same-station-method-source.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  repeat-method-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve original HydroBASINS L7 site reference
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen_H7_EEA_original
+      - name: Retrieve already frozen original 234 EU source basins and accepted GBIF taxonomy
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen_234_basin
+      - name: Freeze exact EEA monitoring station and biology method/source identity before new ecosystem results
+        env:
+          HYBAS7_ORIGINAL_NATIVE_RIVER_SOURCE: ${{ runner.temp }}/frozen_H7_EEA_original/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          H7_234_PRE_NEW_RESPONSE_SOURCE: ${{ runner.temp }}/frozen_234_basin/HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json
+        run: |
+          python -m py_compile scripts/gesui_H7_234_EU_EEA_same_station_biological_method_source_freeze.py
+          python scripts/gesui_H7_234_EU_EEA_same_station_biological_method_source_freeze.py
+      - name: Preserve original source-only method-compatible EQR physical stations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-234-EU-original-same-BQE-station-method-source-only
+          path: ${{ runner.temp }}/gesui_H7_234_EU_same_station_source/
+          if-no-files-found: warn
+          retention-days: 30
