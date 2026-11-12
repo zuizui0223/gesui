@@ -1,0 +1,55 @@
+name: gesui HydroATLAS 1219 genuine H7 cropland urban source via remote 4GB ZIP Level07 DBF only
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_BasinATLAS_L07_Figshare_remoteZip_DBf_to_1219_hydrobasins_source.py"
+      - ".github/workflows/gesui-HydroATLAS-L07-remoteZIP-DBF-only.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  only-real-level07-attributes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original dBASE source table reader
+        run: python -m pip install --quiet "pyshp>=2.3,<3"
+      - name: Verify original minimal official HydroATLAS Figshare 4GB archive byte-range SOURCE receipt
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225221641
+          repository: zuizui0223/gesui
+          name: gesui-hydroatlas-original-L7-figure-byte-range-QA
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_fsh_original_range
+      - name: Verify exact original 1219 river-monitored native HydroBASINS Level 7 population
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219_h7
+      - name: Original 2019 global BasinATLAS level-07 DBF ONLY via authenticated-free official HTTP Range and original ZIP CRC check
+        env:
+          HYDROATLAS_OFFICIAL_RANGE_QA: ${{ runner.temp }}/original_fsh_original_range/HYDROATLAS_OFFICIAL_FIGSHARE_H7_DBF_ONLY_RANGE_PREFLIGHT.json
+          HYBAS7_FROZEN_1219_COHORT: ${{ runner.temp }}/original_1219_h7/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+        run: |
+          python -m py_compile scripts/gesui_BasinATLAS_L07_Figshare_remoteZip_DBf_to_1219_hydrobasins_source.py
+          python scripts/gesui_BasinATLAS_L07_Figshare_remoteZip_DBf_to_1219_hydrobasins_source.py
+      - name: Preserve exact original Level7 static agricultural/built-area metadata and 1219 native IDs, no ecological effects
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          path: ${{ runner.temp }}/gesui_HydroATLAS_level07_raw_DBf/
+          if-no-files-found: warn
+          retention-days: 30
