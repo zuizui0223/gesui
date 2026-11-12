@@ -1,0 +1,57 @@
+name: gesui genuine EEA2018-22 annual reported upstream N/P to three native H7 biological layers
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_H7_EEA454_reported_annual_NP_vs_three_layer_original_outcomes.py"
+      - "docs/EEA_H7_454_REPORTED_ANNUAL_NP_FLOW_VS_THREE_BIOTA_MODEL_FREEZE_20261112.md"
+      - ".github/workflows/gesui-H7-EEA454-NP-reported-real-multilayer.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  report-source-macro-models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Reproducible numeric family
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Get authentic source-only annual 2018-22 EEA station reported N/P and original modeled flow
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          path: ${{ runner.temp }}/true_source_np_pre_bio
+      - name: Get original source-verified 454 H7×period EQR/S50/five-family butterfly rows, no new site selection
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          path: ${{ runner.temp }}/original_three_outcome_source
+      - name: Reproduce original 454 H7 static-outlet baseline exactly, then add only report-source N/P
+        env:
+          SOURCE_EEA_2018_2022_NP_MANIFEST: ${{ runner.temp }}/true_source_np_pre_bio/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          SOURCE_PREVIOUS_THREE_OUTCOME_RESULT: ${{ runner.temp }}/original_three_outcome_source/EU234_H7_SAME_BASINPLANT_BUTTERFLY_EQR_STATIC_HYDROWASTE_GRADIENT_RESULTS.json
+          SOURCE_PREVIOUS_THREE_OUTCOME_COHORT: ${{ runner.temp }}/original_three_outcome_source/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/gesui_H7_EEA454_reported_annual_NP_vs_three_layer_original_outcomes.py
+          python scripts/gesui_H7_EEA454_reported_annual_NP_vs_three_layer_original_outcomes.py
+      - name: Archive original EEA annual report mass versus three indexed ecological response comparisons
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-454-2018-22-EEA-reported-upstream-NP-three-layer-original-observational
+          path: ${{ runner.temp }}/gesui_H7_EU_454_REPORTED_NP_EFFECTS/
+          if-no-files-found: warn
+          retention-days: 30
