@@ -36,8 +36,8 @@ E={}
 for year,(path,sha) in BLOBS.items():
     b=pathlib.Path(path).read_bytes()
     if gsha(b)!=sha:raise RuntimeError("Original EEA source Git blob changed")
-    rows=list(csv.DictReader(b.decode("utf8-sig").splitlines()))
-    if len(rows)!=("2634"=="2634" and {"EEA18":2634,"EEA22":2475}[year]):
+    rows=list(csv.DictReader(b.decode("utf-8-sig").splitlines()))
+    if len(rows)!={"EEA18":2634,"EEA22":2475}[year]:
         raise RuntimeError("Original EEA station-year row count changed")
     E[year]={a["site_key"]:a for a in rows}
     if len(E[year])!=len(rows):raise RuntimeError("Duplicate station ID within a biology year")
