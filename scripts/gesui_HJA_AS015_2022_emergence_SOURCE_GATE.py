@@ -1,41 +1,74 @@
 #!/usr/bin/env python3
 """HJA AS015 v2 2022 emergence DATA SOURCE ONLY — pre-outcome gate.
 
-Official EDI PASTA endpoint only; original MD5 MUST match AS015 published
-metadata. Freezes 17 stream x interval x taxon keys after checking provenance,
+Official HJA EML-linked original; EDI PASTA endpoint returned HTTP 403.
+Original MD5 MUST match AS015 published metadata. Freezes 17 stream x interval x taxon keys after checking provenance,
 before ecological response quantities are compared.
 """
-import csv,hashlib,io,json,math,os,pathlib,re,time,urllib.request
-PKG="https://pasta.lternet.edu/package"
-SCOPE="knb-lter-and/12548/2"
+import csv,hashlib,io,json,math,os,pathlib,re,time,urllib.request,urllib.parse,base64,xml.etree.ElementTree as ET
+EML_URL="https://andrewsforest.oregonstate.edu/sites/default/files/lter/fsdbdata/eml_archive/AS015_2.xml"
+CATALOG_URL="https://andrewsforest.oregonstate.edu/data/datacatalog/AS015"
+EXPECTED_EML_SHA256="fb4a6eb41374e7d682bb74b77a0841bd802198f8285951ca7c47a86786fc962e"
 EXPECTED_MD5="f3e6e400990da883ae0d341731431749"
 ROOT=pathlib.Path(os.environ.get("RUNNER_TEMP","/tmp"))/"gesui_AS015_emergence_original_source"
 ROOT.mkdir(parents=True,exist_ok=True)
-def fetch(url):
+def fetch(url, tries=2):
     err=None
-    for n in range(4):
+    for n in range(tries):
         try:
-            req=urllib.request.Request(url,headers={"Accept":"text/plain,text/csv,application/octet-stream,*/*",
-                "User-Agent":"gesui-academic-lter-as015-20261112/1.0"})
-            with urllib.request.urlopen(req,timeout=90) as response:
+            req=urllib.request.Request(url,headers={"Accept":"text/plain,text/csv,application/octet-stream,application/xml,text/html,*/*",
+                "User-Agent":"Mozilla/5.0 (compatible; gesui-hja-source-integrity/1.0)"})
+            with urllib.request.urlopen(req,timeout=60) as response:
                 buf=response.read()
-                if len(buf)==0:raise ValueError("Empty response")
+                if len(buf)==0:raise ValueError("Empty original source response")
                 return buf,response.geturl()
         except Exception as e:
             err=e
-            print("EDI source request retry",n+1,type(e).__name__,str(e)[:160],flush=True)
-            time.sleep(min(1+3*n,9))
-    raise RuntimeError("Official EDI original endpoint unavailable "+url+" "+str(err))
-name_url=PKG+"/name/eml/"+SCOPE
-names,actual_names_url=fetch(name_url)
-txt=names.decode("utf-8-sig","replace")
-print("Original EDI entity-name response metadata "+repr(txt[:400]),flush=True)
-found=re.findall(r"\b[a-fA-F0-9]{32,40}\b",txt)
-if len(set(found))!=1 or "AS01501" not in txt:
-    raise RuntimeError("Could not uniquely bind AS01501_v1.csv via original PASTA entity names")
-entity=found[0]
-url=PKG+"/data/eml/"+SCOPE+"/"+entity
-data,actual_data_url=fetch(url)
+            print("Official HJA source request:",type(e).__name__,str(e)[:120],flush=True)
+            time.sleep(min(1+n*2,3))
+    raise RuntimeError("Original HJA source endpoint unavailable "+url+" "+str(err))
+eml,eml_resolved=fetch(EML_URL)
+eml_sha=hashlib.sha256(eml).hexdigest()
+if eml_sha!=EXPECTED_EML_SHA256:raise RuntimeError("Original HJA EML SHA changed; refuse replacement")
+root=ET.fromstring(eml)
+if root.attrib.get("packageId")!="knb-lter-and.12548.2":
+    raise RuntimeError("Official HJA EML packageId mismatch")
+def local(el):return el.tag.rsplit("}",1)[-1]
+table_candidates=[]
+for t in root.iter():
+    if local(t)!="dataTable":continue
+    names=[(x.text or "").strip() for x in t.iter() if local(x)=="objectName"]
+    urls=[(x.text or "").strip() for x in t.iter() if local(x)=="url"]
+    if "AS01501_v1.csv" in names:
+        table_candidates.append([u for u in urls if u.endswith("/AS01501_v1.csv")])
+if len(table_candidates)!=1 or len(table_candidates[0])!=1:
+    raise RuntimeError("Original HJA EML has ambiguous/missing AS015 entity download URL")
+url=table_candidates[0][0]
+if url!="https://andrewsforest.oregonstate.edu/fsdbdata/cache/AS01501_v1.csv":
+    raise RuntimeError("Unexpected original authoritative EML-linked CSV URL")
+name_url=EML_URL
+entity="AS01501_v1.csv"
+access_route="EML_LINK_DIRECT"
+try:
+    data,actual_data_url=fetch(url)
+except RuntimeError:
+    # HJA's current official catalog distributes exactly the SAME EML URL using
+    # its signed /data/datacatalog/download/<encoded-url> handler. Verify that
+    # its base64 path component decodes to the EML-published URL.
+    page,_=fetch(CATALOG_URL)
+    paths=re.findall(rb'href="(https://andrewsforest\.oregonstate\.edu/data/datacatalog/download/[^"]+)"',page)
+    proxy=[]
+    for path in paths:
+        decoded=path.decode("utf-8")
+        token=decoded.rsplit("/",1)[-1].split(".",1)[0]
+        try:
+            source=base64.urlsafe_b64decode(token+"="*(-len(token)%4)).decode("utf8")
+            if source==url:proxy.append(decoded)
+        except (ValueError, UnicodeError):pass
+    if len(set(proxy))!=1:
+        raise RuntimeError("Cannot validate unique official HJA signed download against published EML source URL")
+    data,actual_data_url=fetch(proxy[0])
+    access_route="EML_VERIFIED_OFFICIAL_CATALOG_SIGNED_DOWNLOAD"
 md5=hashlib.md5(data).hexdigest();sha=hashlib.sha256(data).hexdigest()
 if md5!=EXPECTED_MD5:
     raise RuntimeError("AS015 ORIGINAL MD5 mismatch; do not substitute or alter source. expected="+EXPECTED_MD5+" actual="+md5+" prefix="+repr(data[:100]))
@@ -98,6 +131,8 @@ result={
  "status":"PASS_FREEZE_BEFORE_EMERGENCE_AMOUNTS" if gate else "STOP_NO_BIOMASS_ASSOCIATIONS",
  "original_package":"knb-lter-and.12548.2",
  "original_entity_name_response_url":name_url,
+ "original_EML_SHA256":eml_sha,
+ "official_source_access_route":access_route,
  "original_data_entity_id":entity,
  "original_source_url":url,
  "original_resolved_data_url":actual_data_url,
