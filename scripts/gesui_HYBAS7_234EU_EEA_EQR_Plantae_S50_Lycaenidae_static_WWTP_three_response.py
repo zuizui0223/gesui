@@ -13,7 +13,7 @@ from scipy.stats import spearmanr
 
 OUT=pathlib.Path(os.environ.get("RUNNER_TEMP","/tmp"))/"gesui_H7_EU234_TRILAYER_STATIC_WWTP"
 OUT.mkdir(parents=True,exist_ok=True)
-SOURCE_SHA="07fa9744cd4e9574587a7b25c4ed4a4590c22b1f288061cf16"
+SOURCE_SHA="07fa9744cd4e9574587a7b25c4ed4fa7f3183e377cac61c28723a4f24a86c875"
 H7_SHA="a396eaed1c0b406eb3bbb7178e04ba91989ab5964c4f0175fc1193673d624d89"
 BLOBS={
  "EEA18":("results/eea2018_independent_temporal_bqe_20261108/benthic_invertebrates_2018_WWTP_source_real_EQR.csv","0f30bfbc3dac13f6a182c8a910e9899c04778322"),
