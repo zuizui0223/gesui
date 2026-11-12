@@ -1,0 +1,47 @@
+name: gesui independent true 454 EU H7 same-layer wastewater gradient sensitivity QA
+
+on:
+  push:
+    paths:
+      - "scripts/audit_H7_EU454_three_layer_static_outflow_country_period_source_20261112.py"
+      - ".github/workflows/gesui-H7-454-trilayer-independent-country-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  true-original-macro-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent numeric libraries
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Restore original 454 true EU H7-basin-period source outcome data and saved coefficients
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          path: ${{ runner.temp }}/original_454_actual
+      - name: Check original published input/source contract and independently reproduce source-locked 5fold models
+        env:
+          H7_ORIGINAL_THREE_LAYER_SOURCE_REPORT: ${{ runner.temp }}/original_454_actual/EU234_H7_SAME_BASINPLANT_BUTTERFLY_EQR_STATIC_HYDROWASTE_GRADIENT_RESULTS.json
+          H7_ORIGINAL_THREE_LAYER_ROWS: ${{ runner.temp }}/original_454_actual/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/audit_H7_EU454_three_layer_static_outflow_country_period_source_20261112.py
+          python scripts/audit_H7_EU454_three_layer_static_outflow_country_period_source_20261112.py
+      - name: Preserve independent country/period source diagnostics and exact reproduced results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-454-EU-WWTP-3layer-independent-QA-period-country
+          path: ${{ runner.temp }}/gesui_H7_454_OUTLET_GRADIENT_AUDIT/
+          if-no-files-found: warn
+          retention-days: 30
