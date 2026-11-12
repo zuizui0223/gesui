@@ -257,10 +257,15 @@ out={
    "This is POSTHOC exploration after seeing same-basin temporal co-change fail; must not claim a new preregistered confirmation."
  ]}
 path=OUT/"EU234_H7_SAME_BASINPLANT_BUTTERFLY_EQR_STATIC_HYDROWASTE_GRADIENT_RESULTS.json"
-path.write_text(json.dumps(out,indent=2,sort_keys=True))
+def normalize_numpy_number(v):
+    if isinstance(v,np.integer):return int(v)
+    if isinstance(v,np.floating):return float(v)
+    if isinstance(v,np.ndarray):return v.tolist()
+    raise TypeError("Non-serializable original source result type "+str(type(v)))
+path.write_text(json.dumps(out,indent=2,sort_keys=True,default=normalize_numpy_number,allow_nan=False))
 with (OUT/"EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv").open("w",newline="") as f:
     writer=csv.DictWriter(f,fieldnames=list(rows[0]))
     writer.writeheader();writer.writerows(rows)
 print("HYBAS7_234EU_THREE_LAYER_SPATIAL_WWTP_RESULT_START",flush=True)
-print(json.dumps({"source_grain":out["source_grain"],"results":results},sort_keys=True),flush=True)
+print(json.dumps({"source_grain":out["source_grain"],"results":results},sort_keys=True,default=normalize_numpy_number,allow_nan=False),flush=True)
 print("HYBAS7_234EU_THREE_LAYER_SPATIAL_WWTP_RESULT_END",flush=True)
