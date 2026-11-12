@@ -56,6 +56,9 @@ macro=csvrows(macrofile);macromap={(r["HYBAS_ID_L07"],r["PERIOD"]):r for r in ma
 if len(macromap)!=2438:raise RuntimeError("Original full biological source macro table changed")
 by_station=collections.defaultdict(list)
 for q in stations:by_station[q["HYBAS_ID_L07"]].append(q)
+verified_native_method_basins={q["HYBAS_ID_L07"] for q in stations}
+if len(verified_native_method_basins)!=174:
+    raise RuntimeError("Original method-matched 174 H7 basins changed; do not infer from defaultdict keys")
 panel=[]
 missing=collections.Counter();counts=collections.Counter();hist=[]
 for (h,period),val in sorted(ind.items()):
@@ -75,7 +78,7 @@ for (h,period),val in sorted(ind.items()):
         raise RuntimeError("A source-frozen repeated EQR basin has no original recorded EEA study station")
     row={
       "HYBAS_ID_L07":h,"PERIOD":period,
-      "ORIGINAL_STATION_METHOD_REPEAT_ELIGIBLE":bool(h in by_station),
+      "ORIGINAL_STATION_METHOD_REPEAT_ELIGIBLE":bool(h in verified_native_method_basins),
       "N_ORIGINAL_SAME_STATION_METHOD_EEA2018_2022":len(by_station[h]),
       "EEA_SOURCE_MONITOR_STATION_N_IN_THIS_PERIOD":int(m["EEA_BENTHIC_NUMERIC_EQR_ORIGINAL_STATIONS_SOURCE_N"]),
       "source_EEA_country_or_state_codes":m["OBSERVED_COUNTRY_OR_STATE_CODES"],
@@ -107,8 +110,8 @@ for (h,period),val in sorted(ind.items()):
 bypair=collections.defaultdict(dict)
 for x in panel:bypair[x["HYBAS_ID_L07"]][x["PERIOD"]]=x
 pairs=[q for q in bypair.values() if all(q[p]["original_5family_plant_S50_and_butterfly20_source_eligible"] for p in ("2017-2019","2020-2022"))]
-method_basins=sum(h in by_station for h in source_basin)
-method_eligible=sum(h in by_station for h,q in bypair.items() if all(q[p]["original_5family_plant_S50_and_butterfly20_source_eligible"] for p in ("2017-2019","2020-2022")))
+method_basins=len(verified_native_method_basins & source_basin)
+method_eligible=sum(h in verified_native_method_basins for h,q in bypair.items() if all(q[p]["original_5family_plant_S50_and_butterfly20_source_eligible"] for p in ("2017-2019","2020-2022")))
 # Countries must be confirmed from original native monitoring station metadata,
 # source IDs only; no EQR outcome or within-country effect.
 country_code=collections.Counter()
