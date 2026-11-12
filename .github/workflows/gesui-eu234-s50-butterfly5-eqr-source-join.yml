@@ -1,0 +1,91 @@
+name: gesui EU234 original true plant S50 five-butterfly EQR source compatibility
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_234EU_S50_five_family_source_reconciliation.py"
+      - ".github/workflows/gesui-eu234-s50-butterfly5-eqr-source-join.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  same-native-basin-period:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_234_wkt
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204743959
+          name: gesui-H7-234-EU-original-same-BQE-station-method-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_same_method
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43202839926
+          name: gesui-H7-1219-x2-GBIF-PLANTAE-LYCAENIDAE-ANIMALIA-HYDROWASTE-MASTER
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_macro_master
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-0
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/facets0
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-1
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/facets1
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-2
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/facets2
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-3
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/facets3
+      - name: Audit immutable native site/grain/country by original source without opening numerical EQR
+        env:
+          SOURCE_EU234_COLORECT_NATIVE: ${{ runner.temp }}/original_234_wkt/HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json
+          SOURCE_EU_SAME_METHOD_STATIONS: ${{ runner.temp }}/original_EEA_same_method/H7_EU_234_ORIGINAL_EXACT_BQE_METHOD_SAME_STATION_PAIRS_2018_2022.json
+          SOURCE_H7_1219X2_GBIF_WWTP: ${{ runner.temp }}/original_macro_master/HYBAS7_1219x2_GBIF_PLANTAE_LYCAENIDAE_ANIMALIA_HYDROWASTE_SOURCE_ONLY_MASTER.csv
+          SOURCE_EU234_FACETS_SHARD_0: ${{ runner.temp }}/facets0
+          SOURCE_EU234_FACETS_SHARD_1: ${{ runner.temp }}/facets1
+          SOURCE_EU234_FACETS_SHARD_2: ${{ runner.temp }}/facets2
+          SOURCE_EU234_FACETS_SHARD_3: ${{ runner.temp }}/facets3
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_234EU_S50_five_family_source_reconciliation.py
+          python scripts/gesui_HYBAS7_234EU_S50_five_family_source_reconciliation.py
+      - name: Preserve exact eligible source manifest and threshold stop or pass decision
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EU234-native-H7-plantS50-butterfly5-EQR-WWTP-source-reconciled
+          path: ${{ runner.temp }}/gesui_H7_234EU_SOURCE_RECONCILIATION
+          if-no-files-found: warn
+          retention-days: 30
