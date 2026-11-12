@@ -1,0 +1,53 @@
+name: gesui 2438 real river H7-period rows merged with static HydroWASTE source
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_1219x2_original_aquatic_static_HydroWASTE_source_master.py"
+      - ".github/workflows/gesui-H7-2438-static-wwtp-source-master.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original_source_master:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Original fixed river H7 by two-period source-missingness master
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-global-HYBAS7-two-period-cross-taxa-source-only-master
+          run-id: 43165738190
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_aquatic_master
+      - name: Original 58502 real HydroWASTE static model outlets mapped through Level7
+        uses: actions/download-artifact@v4
+        with:
+          name: hydrowaste58502-to-1219-hybas7-true-outfall-routing-SOURCE
+          run-id: 43199920991
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_outlets
+      - name: Verify source-only no-year-imputation 1-to-2 join
+        env:
+          HYBAS7_ORIGINAL_MASTER: ${{ runner.temp }}/original_aquatic_master/HYBAS7_2017_2019_2020_2022_ALL_RESPONSE_LAYERS_STATUS_MASTER_SOURCE_ONLY.csv
+          HYDROWASTE_ORIGINAL_H7_SOURCE: ${{ runner.temp }}/original_outlets/HYBAS7_1219_OFFICIAL_HYDROWASTE_STATIC_UPSTREAM_OUTFALL_PRESSURE_SOURCE_ONLY.csv
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_1219x2_original_aquatic_static_HydroWASTE_source_master.py
+          python scripts/gesui_HYBAS7_1219x2_original_aquatic_static_HydroWASTE_source_master.py
+      - name: Archive complete 2438 source-only macro master data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-2438-real-aquatic-monitoring-plus-static-WWTP-source-table
+          path: ${{ runner.temp }}/gesui_HYBAS7_2PERIOD_STATIC_HYDROWASTE/
+          if-no-files-found: warn
+          retention-days: 30
