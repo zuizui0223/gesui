@@ -1,0 +1,44 @@
+name: gesui AS015 17-stream seasonal pulse and mass covariance independent arithmetic QA
+
+on:
+  push:
+    paths:
+      - "scripts/audit_AS015_17streams_temporal_covariance_arithmetic_20261112.py"
+      - ".github/workflows/gesui-AS015-seasonal-independent-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  saved-original-source-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Reuse pre-audited HJA AS015 genuine 17-stream temporal report
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43142773724
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: as015-seasonal-ept-diptera-emergence-subsidy-continuity
+          path: ${{ runner.temp }}/frozen_as015_pulse_original
+      - name: Independent manual covariance identities and 17-stream pulse QA
+        env:
+          AS015_SEASONAL_SOURCE_REPORT: ${{ runner.temp }}/frozen_as015_pulse_original/AS015_EPT_DIPTERA_EMERGENCE_TEMPORAL_COMPENSATION_SOURCE_ORIGINAL_20261112.json
+        run: |
+          python -m py_compile scripts/audit_AS015_17streams_temporal_covariance_arithmetic_20261112.py
+          python scripts/audit_AS015_17streams_temporal_covariance_arithmetic_20261112.py
+      - name: Preserve source-independent numerical arithmetic QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: as015-17stream-seasonal-covariance-independently-audited
+          path: ${{ runner.temp }}/AS015_INDEPENDENT_VAR_IDENTITY_PULSE_AUDIT_20261112.json
+          if-no-files-found: warn
+          retention-days: 30
