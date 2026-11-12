@@ -1,0 +1,51 @@
+name: gesui H7 GBIF original polygon HTTP400 error-only diagnostic
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_GBIF_polygon_HTTP400_source_diagnostic.py"
+      - ".github/workflows/gesui-hybas7-gbif-http400-diagnostic.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  documented-failure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve archived source-only GBIF 12-basin failures
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-12-GBIF-original-polygon-source-preflight
+          run-id: 43198266937
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_failed_gbif
+      - name: Retrieve immutable original full real basin WKT source
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-1219-original-polygon-wkt-pre-gbif-source
+          run-id: 43197894183
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_fixed_H7_WKT
+      - name: Rerun only failed original source requests and save HTTP400 body, no ecology
+        env:
+          GBIF_PREFLIGHT_SOURCE_ARTIFACT: ${{ runner.temp }}/original_failed_gbif
+          GBIF_FROZEN_WKT_SOURCE_MANIFEST: ${{ runner.temp }}/original_fixed_H7_WKT
+        run: python scripts/gesui_HYBAS7_GBIF_polygon_HTTP400_source_diagnostic.py
+      - name: Archive exact source server rejection reasons
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hybas7-gbif-original-400-polygon-source-diagnostic
+          path: ${{ runner.temp }}/HYBAS7_GBIF_ORIGINAL_SOURCE_400_TECHNICAL_DIAGNOSTIC.json
+          if-no-files-found: warn
+          retention-days: 30

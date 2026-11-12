@@ -1,0 +1,57 @@
+name: gesui original HydroWASTE 58502 points to true 1219 L7 outlets and upstream topology
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HydroWASTE58502_to_HYBAS7_monitored1219_original_outfall_network_SOURCE_ONLY.py"
+      - ".github/workflows/gesui-hydrowaste-l7-basin-pressure-source.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  source-hydrowaste-true-river:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install GIS source topology and shapefiles
+        run: python -m pip install --quiet "shapely>=2.0,<3" "pyshp>=2.3,<3"
+      - name: Retrieve unchanged real 1219 H7 study basin source identities
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H7_river_sites
+      - name: Retrieve original authentic Figshare HydroWASTE source 58502 plant census
+        uses: actions/download-artifact@v4
+        with:
+          name: hydrowaste58502-publisher-original-source-and-outfall-qa
+          run-id: 43198783733
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_hydrowaste
+      - name: Verify source crosswalk syntax
+        run: python -m py_compile scripts/gesui_HydroWASTE58502_to_HYBAS7_monitored1219_original_outfall_network_SOURCE_ONLY.py
+      - name: Map original WWTP outlets to authentic H7 polygons and topology of NEXT_DOWN, no ecology
+        env:
+          HYBAS7_FROZEN_NATIVE_SOURCE_MANIFEST: ${{ runner.temp }}/original_H7_river_sites/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          HYDROWASTE_ORIGINAL_PUBLISHER_ZIP: ${{ runner.temp }}/original_hydrowaste/HYDROWASTE_v10_original_publisher_archive.zip
+        run: python scripts/gesui_HydroWASTE58502_to_HYBAS7_monitored1219_original_outfall_network_SOURCE_ONLY.py
+      - name: Archive 1219 native monitoring basins with local and outlet-upstream static outfall source
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hydrowaste58502-to-1219-hybas7-true-outfall-routing-SOURCE
+          path: |
+            ${{ runner.temp }}/gesui_HYDROWASTE_HYBAS7_source_crosswalk/HYBAS7_1219_OFFICIAL_HYDROWASTE_STATIC_UPSTREAM_OUTFALL_PRESSURE_SOURCE_ONLY.csv
+            ${{ runner.temp }}/gesui_HYDROWASTE_HYBAS7_source_crosswalk/HYDROWASTE_EU_NA_1219_HYBAS7_OUTFALL_SOURCE_AUDIT.json
+          if-no-files-found: warn
+          retention-days: 30

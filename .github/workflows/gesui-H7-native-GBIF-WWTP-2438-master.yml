@@ -1,0 +1,89 @@
+name: gesui 1219 true H7 basin × two-period GBIF native counts and HydroWASTE macro master
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_HYBAS7_1219x2_native_GBIF_HydroWASTE_original_master_join.py"
+      - ".github/workflows/gesui-H7-native-GBIF-WWTP-2438-master.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original-global-macro-master:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve original 1219 H7 × two-period freshwater monitoring source-only table
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-global-HYBAS7-two-period-cross-taxa-source-only-master
+          run-id: 43165738190
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_benthic_macro_frame
+      - name: Retrieve original 58502 HydroWASTE local and cumulative outfall source
+        uses: actions/download-artifact@v4
+        with:
+          name: hydrowaste58502-to-1219-hybas7-true-outfall-routing-SOURCE
+          run-id: 43199920991
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_static_outfall
+      - name: Retrieve original fixed all-1219 GBIF full-source shard 0
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-gbif1219-full-original-source-shard-0
+          run-id: 43199340731
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif_shard0
+      - name: Retrieve original fixed all-1219 GBIF full-source shard 1
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-gbif1219-full-original-source-shard-1
+          run-id: 43199340731
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif_shard1
+      - name: Retrieve original fixed all-1219 GBIF full-source shard 2
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-gbif1219-full-original-source-shard-2
+          run-id: 43199340731
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif_shard2
+      - name: Retrieve original fixed all-1219 GBIF full-source shard 3
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-gbif1219-full-original-source-shard-3
+          run-id: 43199340731
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif_shard3
+      - name: Check source merger code syntax and compute one original basin-period source row
+        env:
+          ORIGINAL_H7_MASTER: ${{ runner.temp }}/original_benthic_macro_frame/HYBAS7_2017_2019_2020_2022_ALL_RESPONSE_LAYERS_STATUS_MASTER_SOURCE_ONLY.csv
+          ORIGINAL_H7_WWTP_PRESSURE: ${{ runner.temp }}/original_static_outfall/HYBAS7_1219_OFFICIAL_HYDROWASTE_STATIC_UPSTREAM_OUTFALL_PRESSURE_SOURCE_ONLY.csv
+          GBIF_H7_SHARD_0: ${{ runner.temp }}/original_gbif_shard0
+          GBIF_H7_SHARD_1: ${{ runner.temp }}/original_gbif_shard1
+          GBIF_H7_SHARD_2: ${{ runner.temp }}/original_gbif_shard2
+          GBIF_H7_SHARD_3: ${{ runner.temp }}/original_gbif_shard3
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_1219x2_native_GBIF_HydroWASTE_original_master_join.py
+          python scripts/gesui_HYBAS7_1219x2_native_GBIF_HydroWASTE_original_master_join.py
+      - name: Preserve the full real original three kingdom source + registered model WWTP macro panel
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-1219-x2-GBIF-PLANTAE-LYCAENIDAE-ANIMALIA-HYDROWASTE-MASTER
+          path: ${{ runner.temp }}/gesui_H7_full_multitaxon_master/
+          if-no-files-found: warn
+          retention-days: 30
