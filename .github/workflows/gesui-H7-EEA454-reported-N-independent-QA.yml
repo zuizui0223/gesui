@@ -1,0 +1,64 @@
+name: gesui independent EEA H7 454 annual reported N country/year/outlier source audit
+
+on:
+  push:
+    paths:
+      - "scripts/audit_H7_454_original_reported_N_country_period_positive_only_outlier_20261112.py"
+      - ".github/workflows/gesui-H7-EEA454-reported-N-independent-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original-input-reproduction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install numerical engine
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Restore original SOURCE ONLY 2018/2022 EEA station reported upstream N/P manifest
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_reported_source
+      - name: Restore unchanged original 454 source-verified EQR/PlantS50/Butterfly5 study rows
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_matched_ecology
+      - name: Restore actual full 454 source result with annual N/P originally added
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43223533195
+          name: gesui-H7-454-2018-22-EEA-reported-upstream-NP-three-layer-original-observational
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_NP_model
+      - name: Independent numerical reproduction plus source reporting/year/country intensity sensitivity
+        env:
+          ORIGINAL_REPORTED_NP_SOURCE_MANIFEST: ${{ runner.temp }}/original_reported_source/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          ORIGINAL_454_TRI_LAYER_REPORTED_NP_RESULT: ${{ runner.temp }}/original_NP_model/EEA454_SAME_H7_PERIOD_YEAR_REPORTED_NP_SITE_FLOW_EQUIVALENT_3LAYER_POSTHOC.json
+          ORIGINAL_454_TRI_LAYER_SOURCE_ROWS: ${{ runner.temp }}/original_454_matched_ecology/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/audit_H7_454_original_reported_N_country_period_positive_only_outlier_20261112.py
+          python scripts/audit_H7_454_original_reported_N_country_period_positive_only_outlier_20261112.py
+      - name: Preserve exact replay and source-reporting sensitivity receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-454-h7-annual-reported-N-independent-year-country-leverage
+          path: ${{ runner.temp }}/gesui_H7_454_reported_N_independent/
+          if-no-files-found: warn
+          retention-days: 30
