@@ -4,7 +4,7 @@
 
 ## Original, fixed candidate source
 
-234 original EEA river-monitoring HydroBASINS L7 basins observed in both 2018 and 2022; 468 original two-period source rows, 455 original rows support genuine rarefied plants S50 and >=20 butterfly-family records. Candidate source SHA256 07fa9744cd4e9574587a7b25c4ed4a4590c22b1f288061cf16. Original EU2018 EQR Git blob 0f30bfbc3dac13f6a182c8a910e9899c04778322, EU2022 325f199e985d9862ffee5b0edb205c61a7be3833, H7 source monitor assignment SHA256 a396eaed1c0b406eb3bbb7178e04ba91989ab5964c4f0175fc1193673d624d89.
+234 original EEA river-monitoring HydroBASINS L7 basins observed in both 2018 and 2022; 468 original two-period source rows, 455 original rows support genuine rarefied plants S50 and >=20 butterfly-family records. Candidate source SHA256 07fa9744cd4e9574587a7b25c4ed4fa7f3183e377cac61c28723a4f24a86c875. Original EU2018 EQR Git blob 0f30bfbc3dac13f6a182c8a910e9899c04778322, EU2022 325f199e985d9862ffee5b0edb205c61a7be3833, H7 source monitor assignment SHA256 a396eaed1c0b406eb3bbb7178e04ba91989ab5964c4f0175fc1193673d624d89.
 
 A priori numeric gate: at least 320 complete basin-period rows, 170 unique H7 basins, 12 source countries. If it fails, stop; no alternative favorable scale/year/basin threshold. EQR per basin-period is the original equal-physical-station average within the appropriate original biological source year. This cross-sectional design explicitly DOES NOT assert station and method repeated over time.
 
