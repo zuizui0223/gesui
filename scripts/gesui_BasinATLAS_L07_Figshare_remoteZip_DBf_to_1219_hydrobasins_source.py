@@ -127,10 +127,11 @@ with zipfile.ZipFile(r,mode="r",allowZip64=True) as z:
     field_lower={x.lower():x for x in fields}
     if "hybas_id" not in field_lower:
         raise RuntimeError("Original Level07 DBF lacks real HYBAS_ID, do not join by points or alias")
-    desired=["crp_pc_syr","crp_pc_uyr","glc_pc_s22","glc_pc_u22","dis_m3_pyr",
+    desired=["crp_pc_sse","crp_pc_use","urb_pc_sse","urb_pc_use",
+            "glc_pc_s22","glc_pc_u22","dis_m3_pyr","hft_ix_s09",
             "pop_ct_s15","pop_ct_u15"]
     found={x:field_lower.get(x) for x in desired}
-    if not (found["crp_pc_syr"] and found["glc_pc_s22"]):
+    if not (found["crp_pc_sse"] and found["urb_pc_sse"] and found["glc_pc_s22"]):
         raise RuntimeError("Source original BasinATLAS missing fixed cropland/artificial cover fields; "+
                            repr([x for x in fields if "crp_" in x.lower() or "glc_pc_s22" in x.lower()]))
     foundrows={}
