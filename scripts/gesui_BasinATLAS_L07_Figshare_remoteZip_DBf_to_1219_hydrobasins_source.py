@@ -76,7 +76,12 @@ class HttpRangeReader(io.RawIOBase):
         raise RuntimeError("Official HydroATLAS original random ZIP source read failed "+str(err))
     def read(self,n=-1):
         if n is None or n<0:
-            raise RuntimeError("No unbounded read() of 4GB official HydroATLAS archive allowed")
+            # zipfile._EndRecData() uses no-arg read() only AFTER it seeks
+            # to the ZIP footer (22 bytes from EOF). Safely permit just the
+            # remaining footer bytes, never any 4GB unbounded retrieval.
+            n=self.total-self.position
+            if n>self.max_chunk:
+                raise RuntimeError("No unbounded read() of 4GB official HydroATLAS archive allowed")
         if n==0:return b""
         n=min(n,self.total-self.position)
         chunks=[]
