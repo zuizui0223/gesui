@@ -1,0 +1,47 @@
+name: gesui 1219 true river L7 basins x 2 periods x 3 taxa original GBIF complete source
+
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-hybas7-1219-gbif-all-shards.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  same-basin-source-counts:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve exact source-locked 1219 Level7 polygons and original four shards
+        uses: actions/download-artifact@v4
+        with:
+          name: hybas7-1219-original-polygon-wkt-pre-gbif-source
+          run-id: 43197894183
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/real_H7_geometry
+      - name: Run unchanged 2017-19 and 2020-22 original native basin Plantae Lycaenidae Animalia count requests
+        env:
+          HYBAS7_WKT_PRECOUNT_SOURCE: ${{ runner.temp }}/real_H7_geometry/HYBAS7_1219_ORIGINAL_NATIVE_POLYGONS_WKT_BEFORE_NEW_GBIF_COUNTS.json
+        run: |
+          python -m py_compile scripts/gesui_HYBAS7_GBIF1219_original_polygon_three_taxa_count_stage1.py
+          python scripts/gesui_HYBAS7_GBIF1219_original_polygon_three_taxa_count_stage1.py --mode full --shard ${{ matrix.shard }}
+      - name: Preserve every source URL, response digest, strict missing/error, original count
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hybas7-gbif1219-full-original-source-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/gesui_H7_GBIF_full_shard${{ matrix.shard }}/
+          if-no-files-found: warn
+          retention-days: 30
