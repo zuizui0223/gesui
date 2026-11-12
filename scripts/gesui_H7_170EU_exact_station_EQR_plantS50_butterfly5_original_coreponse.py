@@ -61,6 +61,15 @@ for hid in sorted(idx):
     if not (x["original_5family_plant_S50_and_butterfly20_source_eligible"] and y["original_5family_plant_S50_and_butterfly20_source_eligible"]):
         excluded["new_original_GBIF_source_not_supported"]+=1
         continue
+    # Preserve honest source missingness: predeclared fixed model requires
+    # original indexed plant AND Animalia background in BOTH fixed periods.
+    # Failed GBIF API source requests are NA, never biological zero, and no
+    # source-absent row may be imputed to rescue an ecological coefficient.
+    opportunity_keys=("original_GBIF_Animalia_record_opportunity",
+                      "original_GBIF_Plantae_record_opportunity")
+    if any(r.get(k) is None for r in (x,y) for k in opportunity_keys):
+        excluded["missing_original_background_record_opportunity_source"]+=1
+        continue
     country=collections.Counter(s["country"] for s in idx[hid])
     nation=sorted(country, key=lambda k:(-country[k],k))[0]
     vals=[]
