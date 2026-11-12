@@ -1,0 +1,34 @@
+name: gesui original public Dryad Zenodo Borealis ecosystem-field source gate
+
+on:
+  push:
+    paths:
+      - "scripts/audit_public_dryad_zenodo_borealis_source_routes_20261112.py"
+      - "docs/ZENODO_BOREALIS_ORIGINAL_CONSUMER_SOURCE_CONTRACT_20261112.md"
+      - ".github/workflows/gesui-public-archive-consumer-source-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify source-only script
+        run: python -m py_compile scripts/audit_public_dryad_zenodo_borealis_source_routes_20261112.py
+      - name: Read only official published API routes and SHA-verify source files
+        run: python scripts/audit_public_dryad_zenodo_borealis_source_routes_20261112.py
+      - name: Preserve original source-identity receipts and legitimately public verified files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waterland-original-published-field-source-identity-qa
+          path: ${{ runner.temp }}/gesui_wwtp_consumer_public_source_gate/
+          if-no-files-found: warn
+          retention-days: 30
