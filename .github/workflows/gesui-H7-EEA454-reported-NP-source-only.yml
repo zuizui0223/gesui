@@ -1,0 +1,54 @@
+name: gesui original 2018/2022 EEA station-reported NP flow source gate H7 454
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_H7_EEA454_2018_2022_original_reported_upstream_NP_source_gate.py"
+      - ".github/workflows/gesui-H7-EEA454-reported-NP-source-only.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  true-reported-annual-NP:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Read original source-pinned 454 same-H7-period study cohort
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          path: ${{ runner.temp }}/original_454_macro
+      - name: Read original native EEA upstream source station to H7 geography
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          path: ${{ runner.temp }}/original_native_H7
+      - name: Audit 2018/2022 authentic station-matched reported P/N upstream loads without opening ecological outcomes
+        env:
+          SOURCE_454_H7_MACRO_REPORT: ${{ runner.temp }}/original_454_macro/EU234_H7_SAME_BASINPLANT_BUTTERFLY_EQR_STATIC_HYDROWASTE_GRADIENT_RESULTS.json
+          SOURCE_454_H7_MACRO_COHORT: ${{ runner.temp }}/original_454_macro/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          SOURCE_NATIVE_STATION_H7_MANIFEST: ${{ runner.temp }}/original_native_H7/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+        run: |
+          python -m py_compile scripts/gesui_H7_EEA454_2018_2022_original_reported_upstream_NP_source_gate.py
+          python scripts/gesui_H7_EEA454_2018_2022_original_reported_upstream_NP_source_gate.py
+      - name: Preserve authentic upstream reported annual NP source-only station-flow support and STOP decision
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          path: ${{ runner.temp }}/gesui_H7_EEA_2018_2022_NP_SOURCE/
+          if-no-files-found: warn
+          retention-days: 30
