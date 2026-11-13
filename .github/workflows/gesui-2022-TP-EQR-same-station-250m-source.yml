@@ -1,0 +1,54 @@
+name: gesui true 2022 EEA EQR Peters TP/TN same station physical source gate
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_Peters2022_TP_TN_EEA_benthic_source_station_exact_HYRIV250m_H7_gate.py"
+      - "docs/20261113_EEA2022_PETERS_TP_SAME_STATION_EQR_H7_SOURCE_MATCH_PRE_OUTCOME.md"
+      - ".github/workflows/gesui-2022-TP-EQR-same-station-250m-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-year-reach-station-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Reopen original fixed 232 H7×454 genuine aquatic GBIF 3-layer macro source cohort
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_study
+      - name: Read original outcome-blind EEA2018/22 site to Level7 source geography only
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_6330_native_site
+      - name: Freeze exact original 2022 nutrient and EEA benthic station same-reach positions within 250m without opening TP or EQR
+        env:
+          ORIGINAL_454_H7_SAME_THREE_LAYER_COHORT: ${{ runner.temp }}/original_454_study/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          ORIGINAL_6330_EEA_EPA_H7_STATION_IDS: ${{ runner.temp }}/original_6330_native_site/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+        run: |
+          python -m py_compile scripts/gesui_Peters2022_TP_TN_EEA_benthic_source_station_exact_HYRIV250m_H7_gate.py
+          python scripts/gesui_Peters2022_TP_TN_EEA_benthic_source_station_exact_HYRIV250m_H7_gate.py
+      - name: Preserve original exact location source quality gate and native 2022 H7 cohort, not outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EEA-Peters2022-TP-TN-250m-original-station-overlap-SOURCE
+          path: ${{ runner.temp }}/gesui_2022_EEA_Peters_same_site_source/
+          if-no-files-found: warn
+          retention-days: 30
