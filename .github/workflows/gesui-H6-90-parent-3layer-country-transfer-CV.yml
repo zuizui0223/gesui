@@ -1,0 +1,82 @@
+name: gesui H6 90-parent geographic CV and country-heldout 3 biological-layer WWTP transfer
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_H6_parent_geoblock_LOCO_real454_three_biota_hydroatlas_WWTP_N_source.py"
+      - ".github/workflows/gesui-H6-90-parent-3layer-country-transfer-CV.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  authentic-original-spatial-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original numeric model and source validation
+        run: python -m pip install --quiet "numpy>=1.26,<3"
+      - name: Retrieve original source-frozen 232 native H7 basins mapped to H6 with explicitly audited invalid polygon repair
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43338311684
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H6_geographic_sources
+      - name: Restore true HydroATLAS 1219 H7 landcover and flow source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_HydroATLAS
+      - name: Restore genuine original annual source N/P report source per true monitored EEA river
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_annualNP
+      - name: Restore prior original 454 same-H7×period true 3 layer EEA, GBIF plant and butterfly responses
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_native_EEA_GBIF
+      - name: Restore previously known original 454 H7 country/method/land-use and annual N model results for numeric reproduction
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43227058486
+          name: gesui-H7-454-true-HydroATLAS-landuse-adjusted-WWTP-NP-3layer
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H7_models
+      - name: Reproduce original 454 rows 8 H7 models, THEN source-H6 parent spatial heldout and LOCO results
+        env:
+          ORIGINAL_TRUE_H6_GEOGRAPHY: ${{ runner.temp }}/original_H6_geographic_sources/HYBAS7_232_TO_OFFICIAL_HYBAS6_SOURCE_PARENT_EXPLICIT_REPAIR_v2.json
+          ORIGINAL_H7_HYDROATLAS_SOURCE: ${{ runner.temp }}/original_HydroATLAS/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          ORIGINAL_H7_ANNUAL_REPORTED_SOURCE: ${{ runner.temp }}/original_EEA_annualNP/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          ORIGINAL_454_EEA_GBIF_SOURCE_ROWS: ${{ runner.temp }}/original_454_native_EEA_GBIF/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          PREVIOUS_EXACT_H7_LAND_ADJUSTED_RESULT: ${{ runner.temp }}/original_H7_models/H7_454_EU_THREE_LAYER_STATIC_WWTP_REPORTED_NP_HYDROATLAS_CROP_URBAN_NATURAL_FLOW_RESULTS.json
+        run: |
+          python -m py_compile scripts/gesui_H6_parent_geoblock_LOCO_real454_three_biota_hydroatlas_WWTP_N_source.py
+          python scripts/gesui_H6_parent_geoblock_LOCO_real454_three_biota_hydroatlas_WWTP_N_source.py
+      - name: Preserve original 454 source-matched EQR/Plantae/Lycaenidae geographic-block and country-heldout results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H6-90-parent-block-and-country-transfer-EQR-Plant-Butterfly
+          path: ${{ runner.temp }}/gesui_H6_GEO_COUNTRY_TRANSFER_RESULT/
+          if-no-files-found: warn
+          retention-days: 30
