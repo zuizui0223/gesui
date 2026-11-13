@@ -79,7 +79,7 @@ def outfalls():
  m=orig.LATLONG_TYPE.str.strip().str.lower().eq("permitted feature")
  m &=orig.SUB_TYPE_DESC.str.strip().str.lower().eq("external outfall")
  code=orig.SIC_CODES.fillna("")+";"+orig.NAICS_CODES.fillna("")
- m &=code.str.contains(r"(?<!\\d)(?:221320|4952)(?!\\d)",regex=True)
+ m &=code.str.contains(r"(?<![0-9])(?:221320|4952)(?![0-9])",regex=True)
  raw=orig[m].copy()
  raw["lat"]=pd.to_numeric(raw.LATITUDE83,errors="coerce")
  raw["lon"]=pd.to_numeric(raw.LONGITUDE83,errors="coerce")
