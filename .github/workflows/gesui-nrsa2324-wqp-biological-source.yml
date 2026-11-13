@@ -1,0 +1,36 @@
+name: gesui NRSA2324 WQP biological alternate official source probe
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA2324_WQP_biological_SOURCE_probe.py
+      - .github/workflows/gesui-nrsa2324-wqp-biological-source.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  official-waterquality-portal-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen
+      - name: Fixed four native original 2023/24 source sites; official WQP2/WQP3 biological endpoints
+        env:
+          ORIGINAL_PRE_BIOFILM_UID_2129: ${{ runner.temp }}/frozen/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA2324_WQP_biological_SOURCE_probe.py
+          python scripts/gesui_NRSA2324_WQP_biological_SOURCE_probe.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa2324-official-WQP-bio-source-4sites
+          path: ${{ runner.temp }}/gesui2324_wqp_official/NRSA2324_WQP_BIOLOGICAL_SOURCE_PROBE.json
+          if-no-files-found: warn
+          retention-days: 45
