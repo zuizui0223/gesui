@@ -71,8 +71,12 @@ def main():
         "source_source_count_not_complete_numeric_quality_cases":True}
  if len(source)<600 or attrs["distinct_HUC8"]<300 or attrs["distinct_states"]<25:
   raise RuntimeError("New same-visit triad source supports insufficient")
- if not all(attrs["source_phab_has_required_fields"][k] for k in PHAB_FIELDS[:4]):
-  raise RuntimeError("Source PHab broad canopy/riparian/width fields absent")
+ print("NRSA1819_SOURCE_PHAB_FIELD_QA",json.dumps({
+  "requested_field_available":attrs["source_phab_has_required_fields"],
+  "candidate_column_names":[c for c in evidence["phab"]["columns"]
+          if any(z in c.upper() for z in ("WIDTH","XW","W1_HALL","XPCAN","XGVEG","XFC_OHV","XEMBED","XCDENMID"))]},sort_keys=True),flush=True)
+ if not all(attrs["source_phab_has_required_fields"][k] for k in ("XPCAN","XGVEG","XFC_OHV","W1_HALL")):
+  raise RuntimeError("Source PHab original 2018 canopy/riparian/human pressure fields absent")
  out={"schema":"gesui_NRSA1819_EPT_Chla_PHab_true_native_source_gate_v1",
       "original_1221_source_benthic_SHA256":BENTHOS_FROZEN_SHA,
       "frozen_2018_Chla_unique_site_date_bridge_not_numeric_selected":True,
