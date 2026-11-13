@@ -57,3 +57,12 @@ All are *predictive* differences relative to different response-specific referen
 The EPA 2023–24 original Count/MMI/Taxa files remained unreachable (HTTP 404) from publisher links in [PR #75](https://github.com/zuizui0223/gesui/pull/75). The original NRSA 2023/24 QAPP states biological data will eventually enter WQX / Water Quality Portal; availability there must be tested by true monitoring-location and visit keys, not assumed. The same 2018 n946 result stands whether or not the 2023 original website recovers.
 
 Keep PR unmerged/DRAFT, no eBird or publication outside user-requested repository changes.
+
+### Official 2023–24 WQX / Water Quality Portal alternative discovery: limited identifier probe, NOT the absence of biological records
+
+[Original WQP3+WQP2 actual online site/API probe SUCCESS #43529685828](https://github.com/zuizui0223/gesui/actions/runs/43529685828). Four exact EPA NRSA native 2023/24 sites were independently source-selected **before portal outcomes** (2 per 2023 and 2 per 2024, source UID sorted by SHA256), then probed through 24 bounded queries: original native `SITE_ID` and `EPA_NRSA-` prefix × legacy WQP Station, WQX3 Station and legacy biological Result profiles.
+
+- Original and prefixed native site-ID queries returned **HTTP200 with zero Station records for all 16 tested legacy/WQX3 site-only requests**. The test did NOT map these source NARS IDs into possibly different official WQX monitoring identifiers.
+- All 8 legacy biological `Result/search?dataProfile=biological` queries returned **HTTP400** (query unsupported, invalid, or unavailable): NOT a scientific zero of benthic taxon abundance.
+- This is deliberately a small, source-blind endpoint access probe. **Do not infer that WQP globally lacks EPA NRSA2324 benthic data**, that NRSA species are absent, or that the publisher's original Count/MMI link has recovered. The EPA original 2023/24 Benthic Count/MMI publisher CSV URLs previously returned 404 and no verified same-UID alternative is yet established.
+- The actual 2018 same-visit EPT–Chla–PHab result remains independent of this 2023 access issue. Next source discovery would require official crosswalk `MonitoringLocationIdentifier` / `ActivityIdentifier` to native NARS `UID` and date, or restored original NARS files.
