@@ -163,8 +163,13 @@ summary={
  "note":"Independent code and saved original source only, NOT new field sampling or a causal randomized downstream negative control. Operational-only 0 indexed source is not evidence of no functioning treatment plants, because STATUS mostly unreported."
 }
 path=ROOT/"EU454_ORIGINAL_HYRIV_RECEIVER_WWTP_3BIOTA_H6_COUNTRY_INDEPENDENT_SKLEARN_QA.json"
-path.write_text(json.dumps(summary,indent=2,sort_keys=True,allow_nan=False))
+def native_number(x):
+    if isinstance(x,np.integer):return int(x)
+    if isinstance(x,np.floating):return float(x)
+    if isinstance(x,np.ndarray):return x.tolist()
+    raise TypeError("Unexpected independent source type "+str(type(x)))
+path.write_text(json.dumps(summary,indent=2,sort_keys=True,allow_nan=False,default=native_number))
 brief={k:v for k,v in summary.items() if k not in ("source_original_crossresponse_numeric_QA","note")}
 print("HYRIV_RECEPTOR_SKLEARN_INDEPENDENT_QA_START")
-print(json.dumps(brief,sort_keys=True,allow_nan=False),flush=True)
+print(json.dumps(brief,sort_keys=True,allow_nan=False,default=native_number),flush=True)
 print("HYRIV_RECEPTOR_SKLEARN_INDEPENDENT_QA_END")
