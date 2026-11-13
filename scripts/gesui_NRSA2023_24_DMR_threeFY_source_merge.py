@@ -67,8 +67,13 @@ def main():
    k=(x["calendar_year"],x["permit"],x["feature"],x["parameter"],x["class"])
    if k[:3] not in mapping:raise RuntimeError("DMR reports source feature not in original NRSA upstream source+year")
    if k in values:
-    raise RuntimeError("Same feature/year/param/class occurred across fiscal archives; independent dedup required")
-   values[k]=(int(x["reported_numeric_rows"]),int(x["strictly_positive_numeric_rows"]))
+    # One calendar year crosses two distinct US fiscal archives. Aggregate
+    # reporting opportunity by source rather than misclassifying recurrence
+    # as a duplicated outfall or a scientific model failure.
+    prior=values[k]
+    values[k]=(prior[0]+int(x["reported_numeric_rows"]),prior[1]+int(x["strictly_positive_numeric_rows"]))
+   else:
+    values[k]=(int(x["reported_numeric_rows"]),int(x["strictly_positive_numeric_rows"]))
    official_report_years[x["calendar_year"]]+=int(x["reported_numeric_rows"])
  report={}
  for year in (2023,2024):
@@ -90,7 +95,7 @@ def main():
    s2={uid for (y,p,f),uids in mapping.items() if y==year and (p,f) in both for uid in uids}
    by_class[category]={"by_parameter":by_param,
        "same_exact_source_feature_positive_both_N_and_P":len(both),
-       "source_associated_NR​​SA_site_UIDs_both_N_P":len(s2),
+       "source_associated_NRSA_site_UIDs_both_N_P":len(s2),
        "states_with_both_N_P":len({meta[uid]["state"] for uid in s2}),
        "HUC8_with_both_N_P":len({meta[uid]["huc8"] for uid in s2}),
        "meets_min40source_visits_25features_10HUC8_5states":(
@@ -109,7 +114,7 @@ def main():
  "verified_distinct_registered_outfalls":len(unique_features),
  "true_treated_versus_no_treatment_control_sample_NOT_identified":True,
  "true_reported_annual_effluent_mass_NOT_estimated":True,
- "not_actual_NP_delivered_at_NR​​SA_visited_reach":True,
+ "not_actual_NP_delivered_at_NRSA_visited_reach":True,
  "no_biodiversity_or_biomass_source_specific_effect_regression":True,
  "unreported_NP_is_NOT_zero":True,
  "prohibition_on_causal_mediation_from_source_only_data":True
