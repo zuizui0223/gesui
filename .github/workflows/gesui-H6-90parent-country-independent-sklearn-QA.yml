@@ -1,0 +1,77 @@
+name: gesui H6 90 parent country-heldout independent sklearn ridge source audit
+
+on:
+  push:
+    paths:
+      - "scripts/audit_454_EU_H6_90parent_LOCO_independent_sklearn_ridge.py"
+      - ".github/workflows/gesui-H6-90parent-country-independent-sklearn-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  independent-numerical-source-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent sklearn numerical implementation
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scikit-learn>=1.4,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43338311684
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/H6_group_geo
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/H7_hydroatlas_original
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/EEA_true_annual_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_plant_butterfly_454
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43338763077
+          name: gesui-H6-90-parent-block-and-country-transfer-EQR-Plant-Butterfly
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_geoblock_models
+      - name: Independently reproduce source-original 3 biological families x six model specifications x 2 validation strategies
+        env:
+          ORIGINAL_H6_REPAIRED_SOURCE_MAP: ${{ runner.temp }}/H6_group_geo/HYBAS7_232_TO_OFFICIAL_HYBAS6_SOURCE_PARENT_EXPLICIT_REPAIR_v2.json
+          ORIGINAL_H7_ATLAS_1219: ${{ runner.temp }}/H7_hydroatlas_original/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          ORIGINAL_ANNUAL_NP_454: ${{ runner.temp }}/EEA_true_annual_source/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          ORIGINAL_454_SOURCE_BIOLOGICAL_ROWS: ${{ runner.temp }}/original_EEA_plant_butterfly_454/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          ORIGINAL_H6_MACRO_MODEL_RESULT: ${{ runner.temp }}/original_source_geoblock_models/H7_454_EU_H6_REPAIRED_SOURCE_SPATIAL_AND_COUNTRY_BENTHIC_PLANT_BUTTERFLY_RESULTS.json
+        run: |
+          python -m py_compile scripts/audit_454_EU_H6_90parent_LOCO_independent_sklearn_ridge.py
+          python scripts/audit_454_EU_H6_90parent_LOCO_independent_sklearn_ridge.py
+      - name: Preserve independent sklearn original EU H6 blocked and country transfer ecological response validations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H6-90parent-3biota-country-source-sklearn-independent-QA
+          path: ${{ runner.temp }}/gesui_H6_sklearn_independent/
+          if-no-files-found: warn
+          retention-days: 30
