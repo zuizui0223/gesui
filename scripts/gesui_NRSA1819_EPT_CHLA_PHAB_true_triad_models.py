@@ -77,6 +77,9 @@ if not np.allclose(x.ept_fraction.to_numpy(float),x.raw_EPT_fraction.to_numpy(fl
  raise RuntimeError("Independent raw EPA 2018 EPT source count disagrees with original PR73 EPT fraction")
 x["log_taxon_richness"]=np.log1p(x.native_taxonID_richness)
 x["log_total_subsample_count"]=np.log(x.total_benthic_subsample_count)
+# Ephemeral only: independent numerical audit can recompute identical source matrix.
+# Never upload raw native UID/coordinates/biological visit values as artifacts.
+x.to_csv(ROOT/"AUDIT_ONLY_2018_19_EPT_Chla_PHAB_SOURCE_PANEL.csv",index_label="UID")
 flag=x.chla_flag.fillna("").eq("")&x.tn_mgL_rawflag.fillna("").eq("")&x.tp_mgL_rawflag.fillna("").eq("")
 core=["lat","lon","year","stream_order","season_sin","season_cos","log_cond","log_tn","log_tp",
       "log_chla","ept_fraction","log_taxon_richness","log_total_subsample_count"]
