@@ -22,7 +22,7 @@ def api(path,timeout=48):
             "response_sha256":hashlib.sha256(raw).hexdigest()}
    feats=val.get("features",[]) if isinstance(val,dict) else []
    return {"status":r.status,"root_type":type(val).__name__,"keys":list(val.keys())[:15] if isinstance(val,dict) else [],
-           "features_n":len(feats),"feature_head":[{"geometry_type":z.get("geometry",{}).get("type"),"properties":z.get("properties",{})} for z in feats[:3]],
+           "features_n":len(feats),"feature_head":[{"geometry_type":(z.get("geometry") or {}).get("type"),"properties":z.get("properties",{})} for z in feats[:3]],
            "response_sha256":hashlib.sha256(raw).hexdigest()}
  except Exception as e:
   return {"status":getattr(e,"code",None),"error":type(e).__name__+":"+str(e)[:250]}
