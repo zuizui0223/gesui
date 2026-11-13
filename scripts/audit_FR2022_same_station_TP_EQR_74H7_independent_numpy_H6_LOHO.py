@@ -101,7 +101,7 @@ sourceCovars=base0["true_same_2022_I2M2_benthic_EQR"]["source_baseline_covariate
 XB0=np.array([[float(z[c]) for c in sourceCovars] for z in rows])
 Xp=np.column_stack([XB0,originalW])
 OOS0=predict(XB0,originalTP,fold);OOS1=predict(Xp,originalTP,fold)
-LOHO0=predict(XB0,originalTP,groups);LOHO1=predict(Xp,originalTP,groups)
+LOHO0=predict(XB0,originalTP,group);LOHO1=predict(Xp,originalTP,group)
 s=float(spearmanr(originalTP,originalW).statistic)
 if not math.isclose(s,original["original_same_H7_measured_TP_vs_modelled_old_HydroWASTE_outlet_Spearman"]["rho"],rel_tol=1e-12):
     raise RuntimeError("Original TP-source index Spearman not reproducible")
