@@ -1,0 +1,63 @@
+name: gesui NRSA1819 true benthos Chla PHab native source quality sensitivities
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA1819_EPT_CHLA_PHAB_range_sensitivity.py
+      - .github/workflows/gesui-nrsa1819-ept-chla-phab-sensitivity.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-physical-range-sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scikit-learn>=1.5,<2" "statsmodels>=0.14,<1" "scipy>=1.12,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen18
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozenCHLA
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa1819-ept-chla-phab-source-native-UID
+          run-id: 43528570410
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozenTriad
+      - name: Rebuild authentic original 2018 EPT Chla nutrient source and 2018 PR77 PHab nested models
+        env:
+          SOURCE_FROZEN_18_MANIFEST: ${{ runner.temp }}/frozen18/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          SOURCE_FROZEN_BIOMASS_CROSSWALK: ${{ runner.temp }}/frozenCHLA/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+          FROZEN_TRIAD_SOURCE: ${{ runner.temp }}/frozenTriad/NRSA1819_ORIGINAL_EPT_CHLA_PHAB_SOURCE_ONLY_QA.json
+        run: |
+          python scripts/gesui_nrsa_nutrient_periphyton_EPT_two_era_numeric.py > ${{ runner.temp }}/old_source.log
+          python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_true_triad_models.py > ${{ runner.temp }}/original_triad.log
+      - name: Independent original PHab source ranges, duplicated visits, larval sample effort and 2018/2019 splits
+        run: |
+          python -m py_compile scripts/gesui_NRSA1819_EPT_CHLA_PHAB_range_sensitivity.py
+          python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_range_sensitivity.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa1819-ept-chla-taxonomic-PHab-range-and-sensitivity
+          path: ${{ runner.temp }}/gesui1819_triad_numeric/NRSA1819_EPT_Chla_PHAB_RANGE_AND_SENSITIVITY_QA.json
+          if-no-files-found: warn
+          retention-days: 60

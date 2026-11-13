@@ -1,0 +1,47 @@
+name: gesui NRSA 2018-19 EPT chlorophyll physical same-visit SOURCE gate
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA1819_EPT_CHLA_PHAB_source_only.py
+      - .github/workflows/gesui-nrsa1819-ept-chla-phab-source.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  original-EPA-source-only-join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/orig_BERW
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/orig_2018_CHLA
+      - name: True native UID 2018 benthos/chlorophyll/site/chem/phab original SHA coverage before looking at numerical outcomes
+        env:
+          NRSA_FROZEN_MANIFEST: ${{ runner.temp }}/orig_BERW/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          NRSA_BIOFILM_FROZEN_CROSSWALK: ${{ runner.temp }}/orig_2018_CHLA/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA1819_EPT_CHLA_PHAB_source_only.py
+          python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_source_only.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa1819-ept-chla-phab-source-native-UID
+          path: ${{ runner.temp }}/gesui1819_triad_source/NRSA1819_ORIGINAL_EPT_CHLA_PHAB_SOURCE_ONLY_QA.json
+          if-no-files-found: warn
+          retention-days: 60
