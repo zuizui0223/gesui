@@ -8,6 +8,16 @@ import collections,hashlib,json,os,pathlib,sys
 root=pathlib.Path(os.environ.get("RUNNER_TEMP","/tmp"))/"gesui_nrsa_nldi_merge"
 root.mkdir(parents=True,exist_ok=True)
 base=pathlib.Path(sys.argv[1])
+geo_path=pathlib.Path(sys.argv[2])
+if not geo_path.exists():raise RuntimeError("Original source geography required for independent full-support verification")
+geo=json.loads(geo_path.read_text())
+expected={}
+for era in ("2018_19","2023_24"):
+ for x in geo["eras"][era]["source_records"]:
+  if x["candidate_outfalls_25km"] and str(x["comid"]).isdigit():
+   if x["uid"] in expected:raise RuntimeError("Original geography repeated native UID")
+   expected[x["uid"]]=(era,x)
+
 fs=sorted(base.rglob("USGS_NLDI_NRSA_POTW_SOURCE_ROUTE_SHARD*.json"))
 if len(fs)!=6:raise RuntimeError(f"Require all 6 original source shards, found {len(fs)}")
 data=[json.loads(p.read_text()) for p in fs]
@@ -18,6 +28,22 @@ if not all(x["no_DMR_or_biological_numeric_values_read"] for x in data):raise Ru
 sites=[r for x in data for r in x["site_route_records"]]
 keys=[r["uid"] for r in sites]
 if len(set(keys))!=len(keys):raise RuntimeError("Duplicate original visit across source shards")
+if set(keys)!=set(expected):
+ missing=set(expected)-set(keys);extra=set(keys)-set(expected)
+ raise RuntimeError(f"Original eligible geo+COMID source population changed: missing={len(missing)} extra={len(extra)}")
+if hashlib.sha256(geo_path.read_bytes()).hexdigest()!=data[0]["geo_source_sha256"]:
+ raise RuntimeError("Source original geography SHA changed since route run")
+for x in sites:
+ era,original=expected[x["uid"]]
+ if x["era"]!=era:raise RuntimeError("Wrong native survey era")
+ if x.get("status")=="NETWORK_SOURCE_API_OK":
+  exact={(z["permit"],z["feature"]) for z in original["candidate_outfalls_25km"]}
+  for z in x["matched_NLDI_exact_registered_pairs"]:
+   if (z["permit"],z["feature"]) not in exact:
+    raise RuntimeError("NLDI returned non-frozen registered external-outfall identity")
+   tag=(z["permit"]+(z["feature"].zfill(3) if z["feature"].isdigit() and len(z["feature"])<=3 else z["feature"])).upper()
+   if z["nldi_exact_id"]!=tag:raise RuntimeError("NLDI matching key not exact original permit+feature")
+
 out={}
 for era in ("2018_19","2023_24"):
  rr=[x for x in sites if x["era"]==era]
@@ -66,6 +92,7 @@ summ={"schema":"gesui_NRSA_2018_19_2023_24_UPSTREAM_POTW_SOURCE_ONLY_NO_DMR_JOIN
       "original_NPDES_zip_SHA256":data[0]["original_ECHO_national_zip_sha256"],
       "original_geocandidate_manifest_SHA256":data[0]["geo_source_sha256"],
       "all_shards_count":6,"original_route_sites_total":len(sites),
+      "original_geo_eligible_expected_sites_verified":len(expected),
       "eras":out,
       "source_only_DMR_required_before_any_sewage_NP_biology":True,
       "no_assigned_measured_WWTP_mass_or_concentrations":True,
