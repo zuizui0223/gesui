@@ -46,3 +46,13 @@ The negative **ambient instream TP vs pigment-per-AFDM observational spatial gra
 **NO** EPA NRSA 2023–24 benthic Count/MMI or true EPT/raw richness endpoints were obtained (original official CSV endpoints still HTTP 404 in [PR #75](https://github.com/zuizui0223/gesui/pull/75)). **NO** contemporaneous verified wastewater source N/P (the original exact-upstream EEA/EPA DMR dual N/P gate fails in [PR #74](https://github.com/zuizui0223/gesui/pull/74)). **NO** real RSDS, productivity rate, insect emergence biomass, riparian predators, pollination services, or measured habitat manipulation. The new study is a macroscale natural gradient comparison rather than any sewage-driven multitrophic service cascade.
 
 Follow-ups should prioritize restored official aquatic benthic original data with physical native-UID overlap, and independent measured wastewater source mass with upstream hydraulic routing, not sign-selected buffer adjustments. Never override earlier positive and null branch results, no eBird, leave DRAFT unmerged.
+
+### Additional independent bootstrap check: PHab gain after nutrients
+
+A second independently reconstructed [whole-HUC8 source/OOS QA SUCCESS #43460882616](https://github.com/zuizui0223/gesui/actions/runs/43460882616) also computed *physical environment added after the already measured river TN/TP*. Fixed out-of-fold predictions, 2,000 HUC8-group resamples:
+
+- Dense n1,117 pigment/AFDM: PHab added after nutrient-model **+10.3803%** MSE gain, descriptive cluster-bootstrap95 **[+5.880%,+14.428%]**.
+- Broad n1,828 pigment/AFDM: PHab added after nutrient-model **+0.5713%**, descriptive bootstrap95 **[−0.606%,+1.718%]**.
+- Dense AFDM: +2.4773% [−0.167%,+4.901%]; dense Chla: +2.0244% [−0.189%,+4.337%].
+  
+The marked discrepancy between dense versus broad PHab information reflects both different *variables* and a selected native survey *subcohort*. It does NOT prove shading or embedded sediment causes pigment change. Interpretation must compare within each exact sample, as the documented same-cohort nested models do, rather than treating the +10.38% versus +0.57% difference as a fixed treatment effect.
