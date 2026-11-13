@@ -1,0 +1,74 @@
+name: gesui original 263 same-site 2018-2022 measured TP I2M2 EQR delta 73 H7 24 H6
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_FR2018_2022_263_true_same_physical_EEA_I2M2_TP_datewise_delta_H7_H6_3biota.py"
+      - "docs/20261113_SOURCE_LOCKED_FR_I2M2_263_SAME_SITE_2018_2022_MEASURED_TP_EQR_DELTA_PRE_MODEL.md"
+      - ".github/workflows/gesui-FR2018-2022-263-same-site-real-TP-I2M2-EQR-delta.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  genuine-two-year-TP-I2M2-field:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Reproducible numeric field observation analysis
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2" "scikit-learn>=1.4,<2"
+      - name: Restore source-only official Peters actual measured 2018/22 TP date-eligible original 263 same I2M2 stations
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43373061409
+          name: gesui-FR2018-22-realTP-I2M2-same-263-site-date-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_263_TP_2018_2022
+      - name: Restore genuine original source-only 74 H7 and 24 H6 hydrological blocked groupfold assignments
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43370462196
+          name: gesui-FR2022-TP-EQR-74H7-H6-hydrologic-fold-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_74H7_geo
+      - name: Restore true original 1219 H7 HydroATLAS upstream agricultural/urban natural discharge attributes
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_1219_HydroATLAS
+      - name: Restore original 454 H7×period observation-effort-adjusted plant S50 / Lycaenidae and EEA geography cohort
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_biota_macro
+      - name: Independently reconstruct actual TP 2018+2022 original date/value medians and same EEA station I2M2 EQR two-year source changes
+        env:
+          ORIGINAL_DATEWISE_2018_2022_TP_SOURCE_ELIGIBLE: ${{ runner.temp }}/source_original_263_TP_2018_2022/FR2018_2022_TRUE_TP_I2M2_SOURCE_ONLY_STATION_DATES_ELIGIBLE.json
+          ORIGINAL_74H7_H6_PRE_OUTCOME_SOURCE_FOLDS: ${{ runner.temp }}/source_original_74H7_geo/FR2022_74H7_I2M2_TP_EQR_SOURCE_FROZEN_H6_GROUPOUT_FOLDS.json
+          ORIGINAL_HYDROATLAS_L07_1219_SOURCE: ${{ runner.temp }}/source_original_1219_HydroATLAS/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          ORIGINAL_454_H7_BIOTIC_AND_RECORDING_SOURCE: ${{ runner.temp }}/source_original_biota_macro/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/gesui_FR2018_2022_263_true_same_physical_EEA_I2M2_TP_datewise_delta_H7_H6_3biota.py
+          python scripts/gesui_FR2018_2022_263_true_same_physical_EEA_I2M2_TP_datewise_delta_H7_H6_3biota.py
+      - name: Preserve original exact 263 actual TP/EQR two-year river station observations, 73 source catchments, 24 source H6 group results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota
+          path: ${{ runner.temp }}/gesui_FR_2018_2022_TRUE_TP_I2M2_WITHINSITE/
+          if-no-files-found: warn
+          retention-days: 30
