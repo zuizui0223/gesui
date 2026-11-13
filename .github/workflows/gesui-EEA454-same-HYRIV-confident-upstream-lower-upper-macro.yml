@@ -1,0 +1,100 @@
+name: gesui EEA454 same-reach confidently upstream WWTP lower-upper bounds H6 3biotic
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_EEA454_confident_same_reach_WWTP_source_lower_upper_H6country_3biota.py"
+      - ".github/workflows/gesui-EEA454-same-HYRIV-confident-upstream-lower-upper-macro.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original-EEA454-routed-source-uncertainty:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original deterministic Ridge numerical calculations
+        run: python -m pip install --quiet "numpy>=1.26,<3"
+      - name: Fetch original outcome-blind 471 EEA same HYRIV receiver/WWTP station-position quality audit
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43364964322
+          name: gesui-EEA454-original-same-HYRIV-WWTP-station-geometry-QA
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_same_reach_geometry
+      - name: Fetch genuine original whole EU river network derived exact receiver upstream/outlet source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43340832143
+          name: gesui-HydroRIVERS-original-EU-454-H7-WWTP-true-monitor-reach-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_upstream_receiver_H7
+      - name: Fetch source-original H7 to 90 H6 hydrologic parent grouping
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43338311684
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H6_parents
+      - name: Fetch authentic native HydroATLAS Level7 upstream agriculture/urban/flow
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_HydroATLAS
+      - name: Fetch original 2018 and 2022 true river-site matched reported N/P annual source data
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_reportedNP
+      - name: Fetch original same 454 basin-period EEA EQR original plant S50 and five-family Lycaenidae rows
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_GBIF_454
+      - name: Fetch original 3biota × geographic 90 H6 parent and source country-block baseline models
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43338763077
+          name: gesui-H6-90-parent-block-and-country-transfer-EQR-Plant-Butterfly
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_geo_country_models
+      - name: Reproduce old CV values exactly, then test geometry-confident same-reach WWTP lower and possible upper source
+        env:
+          ORIGINAL_SAME_HYRIV_WWTP_POSITION_SOURCE: ${{ runner.temp }}/original_same_reach_geometry/EEA454_HYRIV_SAME_REACH_POSITION_ORDER_SOURCE_ONLY.json
+          TRUE_RECEIVER_WWTP_SOURCE: ${{ runner.temp }}/original_upstream_receiver_H7/EU454_ORIGINAL_EEA_MONITOR_RECEIVER_HYRIV_WWTP_NETWORK_SOURCE_ONLY.json
+          TRUE_SOURCE_H6_PARENT_MAPPING: ${{ runner.temp }}/original_H6_parents/HYBAS7_232_TO_OFFICIAL_HYBAS6_SOURCE_PARENT_EXPLICIT_REPAIR_v2.json
+          TRUE_SOURCE_H7_HYDROATLAS: ${{ runner.temp }}/original_HydroATLAS/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          TRUE_SOURCE_EEA_REPORTED_NP: ${{ runner.temp }}/original_reportedNP/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          TRUE_SOURCE_454_EEA_GBIF_ORIGINAL_ROWS: ${{ runner.temp }}/original_EEA_GBIF_454/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          TRUE_SOURCE_PREVIOUS_H6_MODEL_RESULTS: ${{ runner.temp }}/original_geo_country_models/H7_454_EU_H6_REPAIRED_SOURCE_SPATIAL_AND_COUNTRY_BENTHIC_PLANT_BUTTERFLY_RESULTS.json
+        run: |
+          python -m py_compile scripts/gesui_EEA454_confident_same_reach_WWTP_source_lower_upper_H6country_3biota.py
+          python scripts/gesui_EEA454_confident_same_reach_WWTP_source_lower_upper_H6country_3biota.py
+      - name: Preserve source-frozen same-reach confident WWTP lower/upper H6/country 3-biota comparative CV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EU454-same-HYRIV-confident-WWTP-upstream-lower-upper-3biota
+          path: ${{ runner.temp }}/gesui_HYRIV_EU454_SAME_REACH_CONFIDENT_MACRO/
+          if-no-files-found: warn
+          retention-days: 30

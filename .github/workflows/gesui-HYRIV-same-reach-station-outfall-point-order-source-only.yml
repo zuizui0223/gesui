@@ -1,0 +1,62 @@
+name: gesui EEA454 original same HydroRIVERS reach station-vs-outfall positional direction source-only
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_EEA454_HYRIV_same_reach_WWTP_station_point_order_SOURCE_20261113.py"
+      - "docs/20261113_HYRIV_SAME_REACH_POINT_LINEAR_REFERENCE_PRE_OUTCOME_CONTRACT.md"
+      - ".github/workflows/gesui-HYRIV-same-reach-station-outfall-point-order-source-only.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  exact-same-reach-original-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original geometry and local metric projection without altering biological outcomes
+        run: python -m pip install --quiet "shapely>=2,<3" "pyproj>=3.6,<4" "pyshp>=2.3,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_h7_macro_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_3525_eu_stations
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43198783733
+          repository: zuizui0223/gesui
+          name: hydrowaste58502-publisher-original-source-and-outfall-qa
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_58502_HydroWASTE
+      - name: Source-only original true river line direction vs next-downstream neighbor plus real station and outfall point projected position
+        env:
+          ORIGINAL_454_H7_STUDY_COHORT: ${{ runner.temp }}/original_454_h7_macro_source/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          ORIGINAL_EEA_STATION_H7_SOURCE: ${{ runner.temp }}/original_3525_eu_stations/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          ORIGINAL_WASTE_PUBLISHER_ZIP: ${{ runner.temp }}/original_58502_HydroWASTE/HYDROWASTE_v10_original_publisher_archive.zip
+        run: |
+          python -m py_compile scripts/gesui_EEA454_HYRIV_same_reach_WWTP_station_point_order_SOURCE_20261113.py
+          python scripts/gesui_EEA454_HYRIV_same_reach_WWTP_station_point_order_SOURCE_20261113.py
+      - name: Preserve source-only exact station-year classified upstream/downstream/unresolved outfalls, never raw HydroRIVERS
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EEA454-original-same-HYRIV-WWTP-station-geometry-QA
+          path: ${{ runner.temp }}/gesui_EU454_HYRIV_same_reach_geometry/
+          if-no-files-found: warn
+          retention-days: 30
