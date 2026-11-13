@@ -1,0 +1,45 @@
+name: gesui FR263 measured TP source-only 2018/22 same calendar month eligibility
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_FR263_real2018_2022_TP_matched_calendar_month_source_only.py"
+      - "docs/FR2018_22_TP_EQR_MONTH_ALIGNED_ORIGINAL_SOURCE_AND_MODEL_FREEZE_20261113.md"
+      - ".github/workflows/gesui-FR263-original-TP-month-overlap-SOURCE.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  true-original-measured-months:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Get outcome-blind original 263 physical site dual-year TP date/source eligibility
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43373061409
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          name: gesui-FR2018-22-realTP-I2M2-same-263-site-date-SOURCE
+          path: ${{ runner.temp }}/original_263_station_month_sources
+      - name: Freeze original Peters real 2018 and 2022 common monthly measurement opportunities ONLY
+        env:
+          ORIGINAL_DATEONLY_2018_22_263_SAME_SITE_SOURCE: ${{ runner.temp }}/original_263_station_month_sources/FR2018_2022_TRUE_TP_I2M2_SOURCE_ONLY_STATION_DATES_ELIGIBLE.json
+        run: |
+          python -m py_compile scripts/gesui_FR263_real2018_2022_TP_matched_calendar_month_source_only.py
+          python scripts/gesui_FR263_real2018_2022_TP_matched_calendar_month_source_only.py
+      - name: Save original 263 WQ month overlap and predefined source eligibility for new temporal models
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR263-2018-2022-true-TP-common-calendar-months-SOURCE
+          path: ${{ runner.temp }}/gesui_FR2018_22_TP_MONTH_SOURCE_ONLY/
+          if-no-files-found: warn
+          retention-days: 30
