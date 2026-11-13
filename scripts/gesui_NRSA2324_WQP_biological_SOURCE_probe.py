@@ -54,7 +54,7 @@ def sites():
   for r in csv.DictReader(f):
    if r.get("UID") in valid and r.get("SITE_ID") and r.get("DATE_COL"):
     date=str(r["DATE_COL"])
-    year=date[:4]
+    year=str(r.get("YEAR","")).strip()
     if year in ("2023","2024"):
      rows.append({"UID":r["UID"],"SITE_ID":r["SITE_ID"],"YEAR":year,"date":date})
  p.unlink()
