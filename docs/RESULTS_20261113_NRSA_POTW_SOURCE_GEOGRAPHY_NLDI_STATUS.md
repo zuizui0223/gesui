@@ -88,3 +88,13 @@ The source-only historical effluent monitoring question was investigated exactly
 - A missing/reporting-zero source is **not** a verified no-wastewater site. The previously defined minimum40 properly monitored non-exposed comparator sites is also **not established**.
 - The earlier 2018/19 TN↔EPT and 2023/24 TN/TP↔AFDM/Chla results are preserved as **measured ambient river nutrients**, not attributable WWTP effluent effects. No increased-biomass or ecosystem-service benefit/harm conclusion follows from the new DMR coverage.
 - **Prospective route:** source-complete discharge records and exact recipients, properly reported quantity units, actual stream discharge/dilution, and measured in-stream N/P+biological endpoints on enough common visits. Do not tune buffers, quality rules, environmental endpoints or falsely pool 2018 with 2024 merely to pass positivity.
+
+### Independent DMR physical-unit audit (2026-11-14)
+
+[Separate independent reporter-type/unit QA SUCCESS #43451087456](https://github.com/zuizui0223/gesui/actions/runs/43451087456), using the source-only three-fiscal artifact rather than re-estimating biological outcomes.
+
+- Original DMR `VALUE_TYPE_CODE` **C1/C2/C3** are concentration reports, mostly native `mg/L`, sometimes `ug/L` or blank `DMR_UNIT_DESC`. Do not combine `ug/L` with `mg/L` or assume blank is known.
+- DMR **Q1/Q2** are quantity-type reports, not uniform annual mass: original units include `lb/d`, `kg/d`, `lb/mo`, `lb/yr` and **many blank unit codes**. Without unit, reporting-statistic definition, duration and outlet-specific flow, a correct `t/year` effluent mass cannot be reconstructed directly.
+- For example, in the original source-matched FY2024+FY2025 calendar 2024 reporting population, there were 483 original **total-N** quantity rows (205 blank native-unit codes), and 902 original **total-P** quantity rows (611 blank native-unit codes). These are DMR *reporting records*, not independent outfalls, and do not imply emission magnitude or flow to the NRSA reach.
+- Both site-year dual-N/P criteria fail already using the *least restrictive* positive report counts, **before** excluding missing units or incomplete sampling frequency. A stricter unit-qualified site count cannot rescue the frozen minimum-support gate.
+- Retain exact 2023 n13 /2024 n17 dual-positive quantity-associated original NRSA visits, 2023 n25 /2024 n38 dual-positive concentration-associated visits. These are source-coverage counts only and are not additive.
