@@ -1,0 +1,52 @@
+name: gesui explicit invalid EU H6 source polygon repair sensitivity for fixed 232 H7
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_EU232_HYBAS6_explicit_invalid_geometries_make_valid_SOURCE_SENSITIVITY_20261113.py"
+      - ".github/workflows/gesui-hybas6-EU232-explicit-source-repair-sensitivity.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  repair-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "shapely>=2.0,<3" "pyshp>=2.3,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_EU_macro
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_H7_sites
+      - name: Apply explicit outcome-blind make_valid solely to original H6 invalid source polygons after original gate fails
+        env:
+          SOURCE_2018_22_ORIGINAL_NATIVE_H7: ${{ runner.temp }}/original_EEA_H7_sites/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          ORIGINAL_454_EEA_GBIF_SOURCE_COHORT: ${{ runner.temp }}/original_454_EU_macro/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/gesui_EU232_HYBAS6_explicit_invalid_geometries_make_valid_SOURCE_SENSITIVITY_20261113.py
+          python scripts/gesui_EU232_HYBAS6_explicit_invalid_geometries_make_valid_SOURCE_SENSITIVITY_20261113.py
+      - name: Preserve original 232 H7 source sample, original 207 H6 invalid record, and repaired parent IDs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          path: ${{ runner.temp }}/gesui_HYBAS6_GEOGRAPHY_SOURCE/
+          if-no-files-found: warn
+          retention-days: 30
