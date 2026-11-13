@@ -64,6 +64,8 @@ def retrieve(url, filename, expected=None, required=True):
         except Exception as exc:
             last = str(exc)
             p.unlink(missing_ok=True)
+            if isinstance(exc, urllib.error.HTTPError) and exc.code in (403,404,410):
+                break  # original source unavailable; do not invent zero records
             time.sleep(min(2 ** attempt, 8))
     if required: raise RuntimeError(f"EPA download FAILED ({filename}): {last}")
     return None, "ERROR: " + str(last)
@@ -115,24 +117,34 @@ def main():
         selected_sets[period] = {}
         for kind, (url, expected) in files.items():
             filename = period+"_"+kind+".csv"
-            p, sha = retrieve(url,filename,expected)
+            p, sha = retrieve(url,filename,expected,required=(period=="2018_19"))
+            if p is None:
+                outputs[period][kind]={"source_url":url,"status":"UNAVAILABLE",
+                                       "download_error":sha,"columns":[]}
+                selected_sets[period][kind]=set()
+                print(f"SOURCE {period}/{kind}: unavailable ({sha}); NOT ZERO",flush=True)
+                continue
             info, ids = inspect_csv(p)
             info.update({"source_url":url, "sha256":sha, "bytes":p.stat().st_size,
-                         "pinned_from_earlier_analysis":bool(expected)})
+                         "pinned_from_earlier_analysis":bool(expected),"status":"OK"})
             outputs[period][kind]=info
             selected_sets[period][kind]=ids
             print(f"SOURCE {period}/{kind}: rows={info['rows']} UIDs={len(ids)} SHA={sha[:16]}", flush=True)
             p.unlink()  # raw EPA data belong in the reproducible source, not the artifact.
         core=["sites","water","benthos_count","periphyton_biomass","periphyton_chla"]
-        allkeys=set.intersection(*(selected_sets[period][k] for k in core))
+        source_complete=all(len(selected_sets[period][k])>0 for k in core)
+        allkeys=set.intersection(*(selected_sets[period][k] for k in core)) if source_complete else None
         outputs[period]["shared_UID_availability"]={
-            "all_five_original_tables_raw_UID_intersection":len(allkeys),
+            "all_five_original_tables_raw_UID_intersection":len(allkeys) if allkeys is not None else None,
+            "five_table_original_source_complete":source_complete,
             "pairwise_intersections":{k:len(selected_sets[period]["sites"] & selected_sets[period][k])
                                       for k in core if k!="sites"},
             "source_only_not_numeric_eligible": True,
         }
-        if any(len(selected_sets[period][k])==0 for k in core):
-            raise RuntimeError("Missing UID or empty UID table; inspect original metadata before joining")
+        if not source_complete:
+            print(f"SOURCE {period}: incomplete original UID availability; NO effect fitting.",flush=True)
+            if period=="2018_19":
+                raise RuntimeError("Previously verified 2018/19 source now missing; stop all fitting")
     meta_out = {}
     for label,url in METADATA.items():
         p, sha = retrieve(url,"metadata_"+label+".txt",required=False)
