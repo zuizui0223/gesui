@@ -1,6 +1,6 @@
 # EPA NRSA 2018–2024 × POTW: source-only geography and flow-network audit (2026-11-13)
 
-**Status: Source audit; hydrological six-shard job running at time of this entry. Not an observed sewage nutrient, biodiversity, biomass or ecosystem-service effect.**
+**Status: Original NLDI 6-shard source audit COMPLETE; FY2023–25 original EPA DMR source audit and independent unit-quality check COMPLETE. Bilateral N/P positive reporting does NOT pass the predeclared site-year gate. No wastewater-induced biodiversity, biomass or ecosystem-service effect identified.**
 
 ## Source-authentic original-data results completed
 
@@ -25,7 +25,7 @@ Original source universe from [PR #73](https://github.com/zuizui0223/gesui/pull/
 
 [USGS NLDI compatibility probe success #43444057539](https://github.com/zuizui0223/gesui/actions/runs/43444057539) found NLDI feature sources `npdes`, `epa_nrsa` and true COMID upstream-tributary/downstream-mainstem navigation. Example NLDI `npdes` identifiers are **permit ID + original outfall code**; EPA original facility license (9 chars) and original numbered outfall (3 chars) are not interchangeable with registered facility location. The exact byte-level permit/outfall match is mandatory, with padding of original ICIS numeric 1–3-character feature codes only according to EPA data dictionary; ambiguous or unrelated IDs omitted.
 
-[6-shard directed topology source stage](https://github.com/zuizui0223/gesui/actions/runs/43444789943): source-only 25km geo candidate screen then 50km river UT and DM from native COMID, mark independent-upstream, downstream, same-reach ordering unresolved, NLDI API errors independently. The stage **does not** read DMR concentrations, mass, NRSA ecological values, or ecosystem services, and should not be declared successful until every shard and independent merger pass.
+[6-shard directed topology source stage](https://github.com/zuizui0223/gesui/actions/runs/43444789943): source-only 25km geo candidate screen then 50km river UT and DM from native COMID, mark independent-upstream, downstream, same-reach ordering unresolved, NLDI API errors independently. The stage **does not** read DMR concentrations, mass, NRSA ecological values, or ecosystem services. All six shards and their independent merger subsequently passed; the final counts and status are reported below.
 
 ## Expected next source gate (not yet established)
 
