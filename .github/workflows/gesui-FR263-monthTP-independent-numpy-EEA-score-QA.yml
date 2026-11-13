@@ -1,0 +1,48 @@
+name: gesui FR263 real TP same calendar months EEA I2M2 source normalization independent numerical QA
+
+on:
+  push:
+    paths:
+      - "scripts/audit_FR263_matchedmonth_TP_EQR_sourceEEA_normalisation_independent_numpy.py"
+      - ".github/workflows/gesui-FR263-monthTP-independent-numpy-EEA-score-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  independent-source-EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Independent numerical calculation
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Restore immutable source-month-matched 263 WQ TP/EEA I2M2 physical sites and original 73 H7 outputs
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43378917089
+          name: gesui-FR263-2018-22-TP-calendar-month-balanced-I2M2-3biota-H6
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_monthTP_response
+      - name: Recompute seven original month TP I2M2 model MSE values with NumPy and audit original EEA score normalization source columns
+        env:
+          ORIGINAL_FR263_MONTHMATCHED_RESULT: ${{ runner.temp }}/original_monthTP_response/FR263_SAME_SITE_I2M2_2018_22_MONTHMATCHED_TP_H6_BENTHIC_PLANT_BUTTERFLY_RESULTS.json
+          ORIGINAL_FR73_H7_MONTHMATCHED_DATA: ${{ runner.temp }}/original_monthTP_response/FR73_NATIVE_H7_MONTHMATCHED_TP_I2M2_GBIF_DELTAS.csv
+          ORIGINAL_FR263_STATION_MONTHMATCHED_DATA: ${{ runner.temp }}/original_monthTP_response/FR263_SOURCE_PHYSICAL_WQ_EEA_MATCHED_CALENDAR_MONTH_TP_EQR.csv
+        run: |
+          python -m py_compile scripts/audit_FR263_matchedmonth_TP_EQR_sourceEEA_normalisation_independent_numpy.py
+          python scripts/audit_FR263_matchedmonth_TP_EQR_sourceEEA_normalisation_independent_numpy.py
+      - name: Preserve exact original 2018/22 EEA normalized EQR field lineage and independently computed 3 biotic responses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR263-monthTP-independent-NUMPY-EQR-lineage-3biota
+          path: ${{ runner.temp }}/gesui_FR263_TP_EQR_MONTH_INDEPENDENT/
+          if-no-files-found: warn
+          retention-days: 30
