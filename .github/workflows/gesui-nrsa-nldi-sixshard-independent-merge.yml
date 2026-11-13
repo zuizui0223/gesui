@@ -1,0 +1,53 @@
+name: gesui NRSA independent 6-shard NLDI POTW source completeness and gate
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_nrsa_nldi_6shard_exact_source_qa.py"
+      - ".github/workflows/gesui-nrsa-nldi-sixshard-independent-merge.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate-true-upstream-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download ALL six pre-numeric USGS NLDI directed river source shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-nrsa-POTW-NLDI-source-route-shard-*
+          run-id: 43444789943
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/nldi_6shards
+          merge-multiple: true
+      - name: Download FROZEN original ECHO municipal external outfall and NRSA geo25 source opportunity
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-POTW-outfall-geo-source-2018-24
+          run-id: 43444463485
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_geo
+      - name: Independent true UID census, exact outfall identity and HUC8 source gates
+        run: |
+          python -m py_compile scripts/gesui_nrsa_nldi_6shard_exact_source_qa.py
+          python -u scripts/gesui_nrsa_nldi_6shard_exact_source_qa.py \
+            "${{ runner.temp }}/nldi_6shards" \
+            "${{ runner.temp }}/original_geo/NRSA_NPDES_POTW_2ERA_SOURCE_ONLY_GEO25.json"
+      - name: Save all source-only original IDs and gate QA, without biological values or historical effluent doses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-NRSA-2018-24-upstream-POTW-6shard-source-independentQA
+          path: ${{ runner.temp }}/gesui_nrsa_nldi_merge/NRSA_NLDI_POTW_TRUE_UPSTREAM_EXACT_SOURCE_JOIN_QA.json
+          if-no-files-found: warn
+          retention-days: 60
