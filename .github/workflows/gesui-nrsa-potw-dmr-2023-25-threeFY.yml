@@ -1,0 +1,76 @@
+name: gesui EPA original FY2023–25 DMR exact upstream outfall TN TP source
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_NRSA2023_24_true_upstream_POTW_DMR_source_fiscal.py"
+      - ".github/workflows/gesui-nrsa-potw-dmr-2023-25-threeFY.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  read-official-source-fiscal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 48
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        fiscal: [2023,2024,2025]
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Minimal original EPA DMR streaming reader
+        run: |
+          python -m pip install --quiet "pandas>=2.1,<3" "numpy>=1.26,<3"
+          python -m py_compile scripts/gesui_NRSA2023_24_true_upstream_POTW_DMR_source_fiscal.py
+      - name: Recover immutably audited ORIGINAL 6-shard source-only upstream outfalls
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA-2018-24-upstream-POTW-6shard-source-independentQA
+          run-id: 43449175435
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_nldi
+      - name: Recover ORIGINAL pre-DMR dated EPA registered EXO outfalls near NRSA
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-POTW-outfall-geo-source-2018-24
+          run-id: 43444463485
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_echo
+      - name: Acquire the ORIGINAL EPA ECHO full FY fiscal DMR ZIP, not alternate filtered summaries
+        run: |
+          mkdir -p "${{ runner.temp }}/original_dmr"
+          curl --fail --location --silent --show-error \
+            --retry 3 --retry-all-errors --connect-timeout 40 --max-time 1800 \
+            "https://echo.epa.gov/files/echodownloads/npdes_dmrs_fy${{ matrix.fiscal }}.zip" \
+            -o "${{ runner.temp }}/original_dmr/npdes_dmrs_fy${{ matrix.fiscal }}.zip"
+          test -s "${{ runner.temp }}/original_dmr/npdes_dmrs_fy${{ matrix.fiscal }}.zip"
+          sha256sum "${{ runner.temp }}/original_dmr/npdes_dmrs_fy${{ matrix.fiscal }}.zip"
+      - name: Frozen upstream registration -> EXACT permit/external-outfall/source monitoring year TN and TP reporter opportunity
+        run: |
+          python -u scripts/gesui_NRSA2023_24_true_upstream_POTW_DMR_source_fiscal.py \
+            --fiscal ${{ matrix.fiscal }} \
+            --dmr-archive "${{ runner.temp }}/original_dmr/npdes_dmrs_fy${{ matrix.fiscal }}.zip" \
+            --source-qa "${{ runner.temp }}/original_source_nldi/NRSA_NLDI_POTW_TRUE_UPSTREAM_EXACT_SOURCE_JOIN_QA.json" \
+            --geo-source "${{ runner.temp }}/original_source_echo/NRSA_NPDES_POTW_2ERA_SOURCE_ONLY_GEO25.json" \
+            --out "${{ runner.temp }}/original_dmr/NRSA_POTW_DMR_SOURCE_FY${{ matrix.fiscal }}.json"
+      - name: Upload only SOURCE reporting types/counts, not actual concentration/mass values or NRSA biodiversity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-nrsa-2023-24-exact-upstream-POTW-DMR-fiscal-${{ matrix.fiscal }}
+          path: ${{ runner.temp }}/original_dmr/NRSA_POTW_DMR_SOURCE_FY${{ matrix.fiscal }}.json
+          if-no-files-found: warn
+          retention-days: 60

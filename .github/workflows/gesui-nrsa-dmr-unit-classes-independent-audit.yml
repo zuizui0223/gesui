@@ -1,0 +1,39 @@
+name: gesui independently audit exact 2023–24 historical DMR N/P unit classes
+
+on:
+  push:
+    paths:
+      - "scripts/audit_NRSA2023_24_DMR_NP_reported_units_independent.py"
+      - ".github/workflows/gesui-nrsa-dmr-unit-classes-independent-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  second-code-verify-source-unit-types:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA-2023-24-original-EXO-DMR-NP-threeFY-independent-source-gate
+          run-id: 43450461565
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_DMR_merged
+      - name: Independently audit exact upstream NRSA source N/P reporting units and STOP gate
+        run: |
+          python -m py_compile scripts/audit_NRSA2023_24_DMR_NP_reported_units_independent.py
+          python scripts/audit_NRSA2023_24_DMR_NP_reported_units_independent.py \
+            --input "${{ runner.temp }}/original_DMR_merged/NRSA_TRUE_HISTORIC_DMR_2023_24_SOURCE_COHORT_QA.json" \
+            --output "${{ runner.temp }}/NRSA_TRUE_HISTORIC_DMR_2023_24_UNIT_QA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-true-2023-24-DMR-NP-type-unit-independent-QA
+          path: ${{ runner.temp }}/NRSA_TRUE_HISTORIC_DMR_2023_24_UNIT_QA.json
+          if-no-files-found: warn
+          retention-days: 60

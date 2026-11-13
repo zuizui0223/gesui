@@ -1,0 +1,47 @@
+name: gesui NRSA NLDI true upstream POTW exact-feature routes (6 shards)
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_nrsa_nldi_upstream_registered_POTW_source_shards.py"
+      - ".github/workflows/gesui-nrsa-nldi-potw-route-sixshards.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  direct-river-route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0,1,2,3,4,5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-POTW-outfall-geo-source-2018-24
+          run-id: 43444463485
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/nrsa_geo_frozen
+      - name: Real USGS NLDI upstream and downstream provider crosswalk no DMR
+        run: |
+          python -m py_compile scripts/gesui_nrsa_nldi_upstream_registered_POTW_source_shards.py
+          python -u scripts/gesui_nrsa_nldi_upstream_registered_POTW_source_shards.py \
+            --geo-source "${{ runner.temp }}/nrsa_geo_frozen/NRSA_NPDES_POTW_2ERA_SOURCE_ONLY_GEO25.json" \
+            --shard ${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa-POTW-NLDI-source-route-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/gesui_nrsa_npdes_nldi/USGS_NLDI_NRSA_POTW_SOURCE_ROUTE_SHARD${{ matrix.shard }}.json
+          if-no-files-found: warn
+          retention-days: 30

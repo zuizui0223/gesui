@@ -1,0 +1,32 @@
+name: gesui USGS NLDI NRSA and NPDES source API smoke
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_NRSA_USGS_NLDI_NPDES_native_source_probe.py"
+      - ".github/workflows/gesui-nrsa-nldi-provider-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  official-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "pandas>=2.1,<3"
+      - run: |
+          python -m py_compile scripts/gesui_NRSA_USGS_NLDI_NPDES_native_source_probe.py
+          python -u scripts/gesui_NRSA_USGS_NLDI_NPDES_native_source_probe.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-USGS-NLDI-NRSA-NPDES-source-compatibility
+          path: ${{ runner.temp }}/gesui_nrsa_nldi_probe/USGS_NLDI_NRSA_NPDES_NAVIGATION_SOURCE_PROBE.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,64 @@
+name: gesui real 2023–24 DMR three-fiscal exact upstream TN TP source gate
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_NRSA2023_24_DMR_threeFY_source_merge.py"
+      - ".github/workflows/gesui-nrsa-dmr-threeFY-independent-source-join.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  verified-source-coverage-and-NP-types:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Load deterministic date join tool
+        run: python -m pip install --quiet "pandas>=2.1,<3"
+      - name: Three complete official EPA fiscal archive source-only scans
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-nrsa-2023-24-exact-upstream-POTW-DMR-fiscal-*
+          run-id: 43449939212
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_DMR_source_fiscal
+          merge-multiple: true
+      - name: Independently audited 6-shard original upstream NLDI/NRSA site-source census
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA-2018-24-upstream-POTW-6shard-source-independentQA
+          run-id: 43449175435
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source
+      - name: Original ECHO source-only 25 km cohort and original site observation years
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-POTW-outfall-geo-source-2018-24
+          run-id: 43444463485
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_geo
+      - name: Source-only year-specific N/P concentration/quantity monitoring reporting coverage
+        run: |
+          python -m py_compile scripts/gesui_NRSA2023_24_DMR_threeFY_source_merge.py
+          python -u scripts/gesui_NRSA2023_24_DMR_threeFY_source_merge.py \
+            --fiscal-dir "${{ runner.temp }}/original_DMR_source_fiscal" \
+            --source-qa "${{ runner.temp }}/original_source/NRSA_NLDI_POTW_TRUE_UPSTREAM_EXACT_SOURCE_JOIN_QA.json" \
+            --geo-source "${{ runner.temp }}/original_geo/NRSA_NPDES_POTW_2ERA_SOURCE_ONLY_GEO25.json" \
+            --out "${{ runner.temp }}/NRSA_TRUE_HISTORIC_DMR_2023_24_SOURCE_COHORT_QA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA-2023-24-original-EXO-DMR-NP-threeFY-independent-source-gate
+          path: ${{ runner.temp }}/NRSA_TRUE_HISTORIC_DMR_2023_24_SOURCE_COHORT_QA.json
+          if-no-files-found: warn
+          retention-days: 60
