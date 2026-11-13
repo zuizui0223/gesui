@@ -1,0 +1,55 @@
+name: gesui NRSA 2023–24 pigment AFDM independent manual numeric QA
+
+on:
+  push:
+    paths:
+      - "scripts/audit_NRSA2324_pigment_AFDM_manual_numpy.py"
+      - ".github/workflows/gesui-nrsa2324-pigment-afdm-independentQA.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  pure-numpy-cross-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scikit-learn>=1.5,<2" "statsmodels>=0.14,<1" "scipy>=1.12,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen18
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen2324
+      - name: Reconstitute exact original two-era EPA source and fixed visit cohort
+        env:
+          SOURCE_FROZEN_18_MANIFEST: ${{ runner.temp }}/frozen18/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          SOURCE_FROZEN_BIOMASS_CROSSWALK: ${{ runner.temp }}/frozen2324/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+        run: python scripts/gesui_nrsa_nutrient_periphyton_EPT_two_era_numeric.py > ${{ runner.temp }}/original_source_rebuild.log
+      - name: Reproduce derived ratio and target source main analysis before independent NUMPY
+        run: python scripts/gesui_NRSA2324_pigment_per_AFDM_posthoc.py > ${{ runner.temp }}/source_result_rebuild.log
+      - name: Independent closed-form numpy RIDGE and HUC8-cluster OLS + ratio algebra
+        run: |
+          python -m py_compile scripts/audit_NRSA2324_pigment_AFDM_manual_numpy.py
+          python scripts/audit_NRSA2324_pigment_AFDM_manual_numpy.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA2324-pigmentAFDM-source-independent-pureNumPy-QA
+          path: ${{ runner.temp }}/gesui_biomass_numeric/NRSA2324_PIGMENT_AFDM_MANUAL_NUMPY_QA.json
+          if-no-files-found: warn
+          retention-days: 60
