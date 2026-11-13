@@ -1,0 +1,65 @@
+name: gesui HydroRIVERS original EU WWTP to TRUE monitoring reach network source gate
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_EEA454_HydroRIVERS_v10_original_receptor_network_WWTP_source_gate.py"
+      - "docs/ORIGINAL_HYDRO_RIVERS_RECEPTOR_SPECIFIC_WWTP_SOURCE_CONTRACT_20261113.md"
+      - ".github/workflows/gesui-HydroRIVERS-EU-454-original-WWTP-station-route-source.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  source-only-original-network:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install only native original shapefile DBF parser
+        run: python -m pip install --quiet "pyshp>=2.3,<3"
+      - name: Restore 454 original H7×period fixed genuine field survey cohort
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_454_H7
+      - name: Restore EEA2018/2022 actual station coordinates and H7 basin source mapping
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_EEA_h7_station
+      - name: Restore original 58502 global registered HydroWASTE point outfall data and model flow
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43198783733
+          name: hydrowaste58502-publisher-original-source-and-outfall-qa
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_HydroWASTE
+      - name: Download authentic EU HydroRIVERS reach DBF, verify full directed network, compute receiver-specific source and downstream controls
+        env:
+          ORIGINAL_FIXED_454_H7_COHORT: ${{ runner.temp }}/source_original_454_H7/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          ORIGINAL_EEA_TO_H7_SOURCE_MANIFEST: ${{ runner.temp }}/source_original_EEA_h7_station/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          ORIGINAL_HYDROWASTE_PUBLISHER_ZIP: ${{ runner.temp }}/source_original_HydroWASTE/HYDROWASTE_v10_original_publisher_archive.zip
+        run: |
+          python -m py_compile scripts/gesui_EEA454_HydroRIVERS_v10_original_receptor_network_WWTP_source_gate.py
+          python scripts/gesui_EEA454_HydroRIVERS_v10_original_receptor_network_WWTP_source_gate.py
+      - name: Save ONLY genuine derived H7×period original upstream source indicators, not licensed HydroRIVERS raw network
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-HydroRIVERS-original-EU-454-H7-WWTP-true-monitor-reach-SOURCE
+          path: ${{ runner.temp }}/gesui_HydroRIVERS_EEA_RECEPTOR_SOURCE/
+          if-no-files-found: warn
+          retention-days: 30
