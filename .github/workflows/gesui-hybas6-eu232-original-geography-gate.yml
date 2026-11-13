@@ -1,0 +1,56 @@
+name: gesui true European HydroBASINS Level6 parent grouping for original 232 H7 river basins
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_EU232_HYBAS7_true_Level6_parent_original_source_freeze.py"
+      - "docs/HYBAS6_GEOGRAPHIC_BLOCK_COUNTRY_TRANSFER_454_H7_SOURCE_FREEZE_20261113.md"
+      - ".github/workflows/gesui-hybas6-eu232-original-geography-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  native-parent-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install genuine polygon source geometry and tree index
+        run: python -m pip install --quiet "shapely>=2.0,<3" "pyshp>=2.3,<3"
+      - name: Restore existing source-locked 454 H7×period original EQR/plant/butterfly candidate rows
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          github-token: ${{ github.token }}
+          repository: zuizui0223/gesui
+          path: ${{ runner.temp }}/original_454_EU_macro
+      - name: Restore original EEA 2018/22 native monitoring geography before biology
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_H7_sites
+      - name: Freeze all 232 native Level7 study polygons into original parent Level6 catchments before new spatial holdout
+        env:
+          SOURCE_2018_22_ORIGINAL_NATIVE_H7: ${{ runner.temp }}/original_EEA_H7_sites/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json
+          ORIGINAL_454_EEA_GBIF_SOURCE_COHORT: ${{ runner.temp }}/original_454_EU_macro/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/gesui_EU232_HYBAS7_true_Level6_parent_original_source_freeze.py
+          python scripts/gesui_EU232_HYBAS7_true_Level6_parent_original_source_freeze.py
+      - name: Preserve original official Level6 geographic parent for original 454 H7 study rows; no outcome effects
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H6-official-EU232-H7-parent-only-source-frozen
+          path: ${{ runner.temp }}/gesui_HYBAS6_GEOGRAPHY_SOURCE/
+          if-no-files-found: warn
+          retention-days: 30
