@@ -130,12 +130,15 @@ for tier,cols in (("wide",widecols),("dense_substrate",densecols)):
     if abs(z-ref)>0.00005:raise RuntimeError("HUC8 sandwich uncertainty different")
   results[resp]={"manual_mse":got,"verified_slopes":slopes,
     "HUC8_bootstrap_2000_fixedOOF_NP_added_to_PHab_MSE_gain_95":
-       bootstrap_gain(y,predictions["physical"],predictions["physical+nutrients"],groups)}
+       bootstrap_gain(y,predictions["physical"],predictions["physical+nutrients"],groups),
+    "HUC8_bootstrap_2000_fixedOOF_PHab_added_to_NP_MSE_gain_95":
+       bootstrap_gain(y,predictions["nutrients"],predictions["physical+nutrients"],groups)}
  result["tiers"][tier]={"n":len(d),"HUC8":d.huc8.nunique(),"responses":results}
 dest=ROOT/"NRSA2324_PHAB_NP_INDEPENDENT_MANUAL_QA.json"
 dest.write_text(json.dumps(result,sort_keys=True,indent=2))
 print("PHAB_INDEPENDENT_NUMPY_QA_SUCCESS")
 print(json.dumps({tier:{"n":o["n"],"HUC8":o["HUC8"],"response":{m:{
  "NP_gain_HUC8_boot95":a["HUC8_bootstrap_2000_fixedOOF_NP_added_to_PHab_MSE_gain_95"],
+ "PHab_gain_HUC8_boot95":a["HUC8_bootstrap_2000_fixedOOF_PHab_added_to_NP_MSE_gain_95"],
  "TP_beta":a["verified_slopes"]["log_tp"]["beta"]} for m,a in o["responses"].items()}}
  for tier,o in result["tiers"].items()},sort_keys=True))
