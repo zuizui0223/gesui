@@ -75,6 +75,8 @@ for era,urls in URLS.items():
   dd=D[table]
   match=collections.Counter()
   unit=collections.Counter()
+  unit_vol=collections.Counter()
+  result_availability=collections.Counter()
   analyte=collections.Counter()
   sample=collections.Counter()
   flag=collections.Counter()
@@ -106,6 +108,9 @@ for era,urls in URLS.items():
     if uid in mapped and mapped[uid]!=canonical:collisions["one_source_UID_multiple_dest"]+=1
     mapped[uid]=canonical
    unit[str(r.get("RESULT_UNITS","")).strip()]+=1
+   unit_vol[str(r.get("RESULT_VOL_UNITS","")).strip()]+=1
+   result_availability["RESULT_nonblank" if str(r.get("RESULT","")).strip() else "RESULT_blank"]+=1
+   result_availability["RESULT_VOL_nonblank" if str(r.get("RESULT_VOL","")).strip() else "RESULT_VOL_blank"]+=1
    analyte[str(r.get("ANALYTE","")).strip()]+=1
    sample[str(r.get("SAMPLE_TYPE","")).strip()]+=1
    flag[str(r.get("NARS_FLAG","")).strip()]+=1
@@ -113,6 +118,7 @@ for era,urls in URLS.items():
    "original_rows":len(dd),"unique_original_uid":len({str(z.get("UID","")).strip() for z in dd}),
    "join_path_rows":dict(match),"distinct_canonical_site_UID":len(set(mapped.values())),
    "key_collisions":dict(collisions),"RESULT_UNITS":dict(unit),
+   "RESULT_VOL_UNITS":dict(unit_vol),"result_cell_availability":dict(result_availability),
    "ANALYTE":dict(analyte),"SAMPLE_TYPE":dict(sample),"NARS_FLAG":dict(flag),
    "direct_UID_site_intersection":len({str(z.get("UID","")).strip() for z in dd}&set(siteuids)),
   }
