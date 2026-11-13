@@ -1,0 +1,48 @@
+name: gesui independent 2018-2022 TP EEA I2M2 spatial vs temporal across exact same 263 sites
+
+on:
+  push:
+    paths:
+      - "scripts/audit_263_EEA_same_I2M2_Peters_TP_2018_2022_spatial_temporal_independent_numpy.py"
+      - ".github/workflows/gesui-FR263-2018-22-TP-EQR-independent-spacetime-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  source-locked-independent-Spacetime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: NumPy normal-equations and SciPy original rank correlations
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Restore exact 263 observed physical site pair 2018/2022 TP I2M2 EQR original 73 H7 ×24 H6 main results
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43373639391
+          name: gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_fixed_2018_2022_real_TP_EQR
+      - name: Reproduce original source same-physical-site temporal null via second numerical implementation and contrast 2018/2022 spatial coupling
+        env:
+          ORIGINAL_REAL_2018_22_TP_EQR_MAIN_REPORT: ${{ runner.temp }}/original_fixed_2018_2022_real_TP_EQR/FR_REAL_2018_2022_I2M2_SAME_STATION_TP_DELTA_73H7_24H6_3BIOTA_RESULTS.json
+          ORIGINAL_REAL_2018_22_TP_EQR_263_SITES: ${{ runner.temp }}/original_fixed_2018_2022_real_TP_EQR/FR263_SAME_PHYSICAL_STATION_2018_2022_REAL_TP_AND_EEA_EQR.csv
+          ORIGINAL_REAL_2018_22_TP_EQR_73_H7: ${{ runner.temp }}/original_fixed_2018_2022_real_TP_EQR/FR73_HYBAS7_NATIVE_2018_2022_REAL_TP_I2M2_EQR_AND_GBIF_INDEX_DELTA.csv
+        run: |
+          python -m py_compile scripts/audit_263_EEA_same_I2M2_Peters_TP_2018_2022_spatial_temporal_independent_numpy.py
+          python scripts/audit_263_EEA_same_I2M2_Peters_TP_2018_2022_spatial_temporal_independent_numpy.py
+      - name: Preserve secondary independently recomputed original three layer spatial-vs-temporal phenomenon and exact source receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR263-2018-22-TP-I2M2-spatial-vs-temporal-independent-sourceQA
+          path: ${{ runner.temp }}/gesui_FR2018_2022_TP_EQR_SPATIAL_TEMPORAL_INDEPENDENT/
+          if-no-files-found: warn
+          retention-days: 30
