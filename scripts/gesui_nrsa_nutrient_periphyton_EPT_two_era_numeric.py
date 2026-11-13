@@ -232,12 +232,18 @@ def fit_one(era,p,strict=True):
    models[name]={"MSE":err,"heldout_MSE_gain_vs_baseline_pct":100*(base-err)/base}
   xfull=X["TN+TP"+("+chla" if ykey=="ept_fraction" else "")]
   ids=list(range(xfull.shape[1]-3,xfull.shape[1])) if ykey=="ept_fraction" else list(range(xfull.shape[1]-2,xfull.shape[1]))
+  slopevals=ols_cluster(xfull,Y,blocks,ids)
+  slopenames=["log_tn","log_tp","log_chla"] if ykey=="ept_fraction" else ["log_tn","log_tp"]
   outputs[ykey]={"n":len(p),"observed_mean":float(Y.mean()),"observed_SD":float(Y.std()),
                  "huc8_disjoint_5fold":models,
-                 "partial_slopes":ols_cluster(xfull,Y,blocks,ids)}
+                 "partial_slopes":{name:slopevals[str(index)] for name,index in zip(slopenames,ids)}}
  qa["result"]="COMPUTED - OBSERVATIONAL ONLY";qa["responses"]=outputs
  return qa
 p18=prepare("2018_19");p23=prepare("2023_24")
+# Ephemeral per-visit analysis frames for independently implemented numerical QA.
+# Neither rows nor site coordinates are uploaded as GitHub Actions artifacts.
+p18.to_csv(ROOT/"AUDIT_ONLY_2018_19_PANEL.csv",index_label="UID")
+p23.to_csv(ROOT/"AUDIT_ONLY_2023_24_PANEL.csv",index_label="UID")
 out={
  "schema":"gesui_NRSA_2018_19_2023_24_SAME_UID_NUTRIENT_BIOMASS_EPT_EXPLORATORY_v1",
  "source_SHAs":{n:s for n,(u,s) in EXPECTED.items()},
