@@ -66,3 +66,34 @@ Keep PR unmerged/DRAFT, no eBird or publication outside user-requested repositor
 - All 8 legacy biological `Result/search?dataProfile=biological` queries returned **HTTP400** (query unsupported, invalid, or unavailable): NOT a scientific zero of benthic taxon abundance.
 - This is deliberately a small, source-blind endpoint access probe. **Do not infer that WQP globally lacks EPA NRSA2324 benthic data**, that NRSA species are absent, or that the publisher's original Count/MMI link has recovered. The EPA original 2023/24 Benthic Count/MMI publisher CSV URLs previously returned 404 and no verified same-UID alternative is yet established.
 - The actual 2018 same-visit EPT–Chla–PHab result remains independent of this 2023 access issue. Next source discovery would require official crosswalk `MonitoringLocationIdentifier` / `ActivityIdentifier` to native NARS `UID` and date, or restored original NARS files.
+
+### POSTHOC source-frozen sensitivity and original EPA physical measurement range QA
+
+[Actual original source numeric range and 6 prespecified descriptive sensitivities SUCCESS #43530015630](https://github.com/zuizui0223/gesui/actions/runs/43530015630). Every sensitivity uses the same original published EPA n1,221 source-native UID population and exactly pre-existing EPT/Chla data, not new observations or a new confirmatory study.
+
+Physical metrics on the original 1,220 PHab-available source visits (not all used in final n946):
+- W1_HALL human disturbance has 0 negative values, range 0 to 5.884; XPCAN 0–1, XFC_OHV 0–0.875; XEMBED 5.4–100%; source canopy XCDENMID 0–102.81% (1 original value >100; provenance retained as reported, no artificial clipping).
+- XGVEG original 0.0068–1.227; 35/1,220 PHab numeric records are >1 and 22/946 primary strict records >1. These are retained in primary and explicitly excluded in source-defined sensitivity, not silently capped.
+- XWIDTH 0.304–89.76 metres, so its log10 can be negative where width <1 m; this is NOT a negative width or missing sentinel. No true physical primary predictor in the source had a negative value or unverified missingness sentinel.
+
+**EPT fraction vs measured areal log10 Chla after actual measured TN/TP + all dense PHab, exploratory partial slope per +1 SD logChla:**
+
+| SOURCE fixed sensitivity | Visits / HUC8 | β EPT–Chla | HUC8 descriptive95 | Additional Chla HUC8 5fold MSE gain |
+| --- | ---: | ---: | ---: | ---: |
+| Strict original primary (all) | 946 /603 | **−0.01986** | [−0.03365,−0.00608] | +1.0857% |
+| First native physical site visit only | 880 /603 | **−0.01858** | [−0.03264,−0.00451] | +0.8558% |
+| Original standardized benthic counted subsample ≥250 | 775 /509 | **−0.02219** | [−0.03702,−0.00735] | +0.8031% |
+| Original XGVEG raw ≤1 (exclude 22 >1, do not clip) | 924 /596 | **−0.02000** | [−0.03380,−0.00621] | +1.1080% |
+| 2018 native visits alone | 487 /337 | −0.01354 | [−0.03258,+0.00550] | +0.6664% |
+| 2019 native visits alone | 459 /333 | **−0.02659** | [−0.05031,−0.00287] | +1.4834% |
+
+These **do not prove temporal change**. The sign is negative in both years but the 2018 year-specific uncertainty includes zero. Extra Chla cross-watershed prediction itself remains weak on the whole cohort, with the old HUC8 resample95 crossing zero. Different year groups include distinct site mixes/conditions.
+
+**Native source taxon-ID richness vs original TP**, after Chla+TN+full PHab+original counted-subsample control:
+- Main β−0.03562 [−0.06536,−0.00588].
+- First physical site β−0.04247 [−0.07269,−0.01224].
+- Larvae ≥250 β−0.04206 [−0.07579,−0.00832].
+- Original XGVEG≤1 β−0.03856 [−0.06847,−0.00864].
+- 2018 alone β−0.05176 [−0.09213,−0.01139]; 2019 alone β−0.03011 [−0.07970,+0.01947] (uncertain).
+
+**Interpretation:** The cross-biota partial sign is not explained solely by repeated visits, undersized larval subsamples or the recognized nonbounded XGVEG values. But between-year uncertainty and weak independent geographic prediction prohibit declaring a stable universal productivity–diversity tradeoff, wastewater causation, or realized service loss. Both EPT composition and taxon-ID richness are relative/standardized survey endpoints, not insect dry mass.
