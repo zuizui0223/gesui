@@ -1,0 +1,93 @@
+name: gesui 454 EEA confident same HYRIV WWTP source 3biota independent sklearn CV
+
+on:
+  push:
+    paths:
+      - "scripts/audit_EU454_HYRIV_confident_same_reach_upstream_3biota_independent_sklearn.py"
+      - ".github/workflows/gesui-EU454-HYRIV-same-reach-independent-sklearn-QA.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  true-source-independently-recomputed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Independent numerical library
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scikit-learn>=1.4,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43364964322
+          name: gesui-EEA454-original-same-HYRIV-WWTP-station-geometry-QA
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_same_reach_site_order
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43340832143
+          name: gesui-HydroRIVERS-original-EU-454-H7-WWTP-true-monitor-reach-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_receptor_derived
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43338311684
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H6_geo
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H7_landuse
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_reported_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_3biota
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43365344082
+          name: gesui-EU454-same-HYRIV-confident-WWTP-upstream-lower-upper-3biota
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H6_country_upstream_models
+      - name: Independent original 3 responses × 17 pressure models × 2 geographic evaluation designs
+        env:
+          ORIGINAL_HYRIV_SAME_REACH_WWTP_POINT_SOURCE: ${{ runner.temp }}/original_same_reach_site_order/EEA454_HYRIV_SAME_REACH_POSITION_ORDER_SOURCE_ONLY.json
+          RECEPTOR_SOURCE_454: ${{ runner.temp }}/original_receptor_derived/EU454_ORIGINAL_EEA_MONITOR_RECEIVER_HYRIV_WWTP_NETWORK_SOURCE_ONLY.json
+          H6_PARENT_SOURCE_MAP: ${{ runner.temp }}/original_H6_geo/HYBAS7_232_TO_OFFICIAL_HYBAS6_SOURCE_PARENT_EXPLICIT_REPAIR_v2.json
+          H7_ATLAS_SOURCE: ${{ runner.temp }}/original_H7_landuse/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          REPORTED_NP_SOURCE_454: ${{ runner.temp }}/original_reported_source/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          ORIGINAL_H7_EEA_BUTTERFLY_PLANT_ROWS: ${{ runner.temp }}/original_454_3biota/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          ORIGINAL_TRUE_RECEIVER_3LAYER_MODEL_RESULTS: ${{ runner.temp }}/original_H6_country_upstream_models/EU454_HYRIV_CONFIDENT_SAME_REACH_UPSTREAM_LOWER_UPPER_3LAYERS_SOURCE_RESULTS.json
+        run: |
+          python -m py_compile scripts/audit_EU454_HYRIV_confident_same_reach_upstream_3biota_independent_sklearn.py
+          python scripts/audit_EU454_HYRIV_confident_same_reach_upstream_3biota_independent_sklearn.py
+      - name: Preserve original source 3 biology × 17 model ×2 holdout independent source replay
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EU454-HYRIV-same-reach-17model-independent-sklearn-QA
+          path: ${{ runner.temp }}/gesui_HYRIV_same_reach_confident_independent/
+          if-no-files-found: warn
+          retention-days: 30
