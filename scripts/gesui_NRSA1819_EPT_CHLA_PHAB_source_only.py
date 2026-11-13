@@ -67,7 +67,7 @@ def main():
         "distinct_HUC8":len({M[v]["huc8"] for v in source}),
         "distinct_states":len({M[v]["state"] for v in source}),
         "distinct_physical_site_ID":len({M[v]["site_id"] for v in source}),
-        "source_phab_has_required_fields":{k:k in evidence["phab"]["columns"] for k in PHAB_FIELDS},
+        "source_phab_has_required_fields":{k:k.upper() in {c.upper() for c in evidence["phab"]["columns"]} for k in PHAB_FIELDS},
         "source_source_count_not_complete_numeric_quality_cases":True}
  if len(source)<600 or attrs["distinct_HUC8"]<300 or attrs["distinct_states"]<25:
   raise RuntimeError("New same-visit triad source supports insufficient")
