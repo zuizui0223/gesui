@@ -81,7 +81,7 @@ for label,key in response.items():
        (rw.mean(),prior["after_landcover_and_river_flow_MODELED_WWTP_H7_OUTLET_incremental_H6_CV"]["original_additional_MSE"])]:
         if not math.isclose(float(a),float(b),rel_tol=1e-9,abs_tol=1e-12):
             raise RuntimeError("Independent NUMPY ridge failed original scikit-learn 2022 TP/I2M2 ecology source replay "+label)
-    x=groups
+    x=group
     loho0=predict(X0,y,x);lohoTP=predict(Xtp,y,x);lohoW=predict(Xw,y,x);lohoBoth=predict(Xboth,y,x)
     output[label]={
        "independent_exact_Numpy_Ridge_REPRO_3_original_H6_5fold_MSE":True,
