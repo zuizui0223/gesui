@@ -1,0 +1,56 @@
+name: gesui NRSA real POTW outfall source geography 2018–24
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_nrsa_potw_outfall_source_only_2018_24.py"
+      - ".github/workflows/gesui-nrsa-potw-outfall-source.yml"
+  pull_request:
+    paths:
+      - "scripts/gesui_nrsa_potw_outfall_source_only_2018_24.py"
+      - ".github/workflows/gesui-nrsa-potw-outfall-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  authentic-outfall-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Scientific geospatial prerequisites
+        run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scipy>=1.13,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_n_benthos
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_n_biomass
+      - name: Official 2-era source IDs and ECHO actual registered External Outfall positions
+        env:
+          NRSA_BENTHOS_18_MANIFEST: ${{ runner.temp }}/original_n_benthos/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          NRSA_PERIPHYTON_2ERA_CROSSWALK: ${{ runner.temp }}/original_n_biomass/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+        run: |
+          python -m py_compile scripts/gesui_nrsa_potw_outfall_source_only_2018_24.py
+          python -u scripts/gesui_nrsa_potw_outfall_source_only_2018_24.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa-POTW-outfall-geo-source-2018-24
+          path: ${{ runner.temp }}/gesui_nrsa_wwtp_source/NRSA_NPDES_POTW_2ERA_SOURCE_ONLY_GEO25.json
+          if-no-files-found: warn
+          retention-days: 30
