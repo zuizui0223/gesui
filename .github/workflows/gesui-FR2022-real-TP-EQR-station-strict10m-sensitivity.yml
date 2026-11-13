@@ -1,0 +1,48 @@
+name: gesui France2022 TP I2M2 EQR exact <=10m station co-location sensitivity
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_FR2022_real_TP_EQR_station_strict10m_posthoc_sensitivity.py"
+      - ".github/workflows/gesui-FR2022-real-TP-EQR-station-strict10m-sensitivity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-exact-station-coordinate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Reproducible numerical ecosystem source test
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2" "scikit-learn>=1.4,<2"
+      - name: Original 273 exact same-river TP and I2M2 EQR source sites, 74 H7 and 24 H6 results
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43370847415
+          name: gesui-FR2022-real-TP-EQR-273stations-74H7-3biota-H6-geoCV
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_273_TP_EQR_source
+      - name: Evaluate strictly coincident 10m source station-year pairs against original 250m 74-H7 river macro
+        env:
+          ORIGINAL_FR2022_TP_EQR_RESULTS: ${{ runner.temp }}/original_273_TP_EQR_source/FR2022_EEA_I2M2_BENTHIC_REAL_PETERS_TP_273SITES_74H7_3BIOTA_H6_GROUPCV_RESULTS.json
+          ORIGINAL_FR2022_TP_EQR_273_SITES: ${{ runner.temp }}/original_273_TP_EQR_source/FR2022_REAL_TP_I2M2_EQR_273_SAME_RIVER_STATION_MATCHED_DATA.csv
+          ORIGINAL_FR2022_TP_EQR_74_H7: ${{ runner.temp }}/original_273_TP_EQR_source/FR2022_REAL_TP_EQR_74_H7_BASIN_MEDIAN_3BIOTA_MACRO_DATA.csv
+        run: |
+          python -m py_compile scripts/gesui_FR2022_real_TP_EQR_station_strict10m_posthoc_sensitivity.py
+          python scripts/gesui_FR2022_real_TP_EQR_station_strict10m_posthoc_sensitivity.py
+      - name: Preserve only original source 10m co-location sensitivity signed results, no new sites
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR2022-realTP-I2M2-10m-exact-station-sensitivity
+          path: ${{ runner.temp }}/gesui_FR2022_TP_EQR_strict10m_QA/
+          if-no-files-found: warn
+          retention-days: 30
