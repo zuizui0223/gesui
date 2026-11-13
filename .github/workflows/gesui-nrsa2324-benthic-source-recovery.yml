@@ -1,0 +1,42 @@
+name: gesui EPA NRSA2023-24 benthic Count Metrics MMI source recovery
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_NRSA2324_benthic_source_recovery.py"
+      - ".github/workflows/gesui-nrsa2324-benthic-source-recovery.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  official-epa-benthic-source-and-frozen-uid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_biomass_UID
+      - name: Original EPA file HTTP source, SHA, UID and biological-table grain audit
+        env:
+          FROZEN_2129_SOURCE: ${{ runner.temp }}/original_biomass_UID/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA2324_benthic_source_recovery.py
+          python -u scripts/gesui_NRSA2324_benthic_source_recovery.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA2324-benthic-original-source-UID-only-recovery
+          path: ${{ runner.temp }}/gesui2324_benthic_source/NRSA2324_ORIGINAL_BENTHIC_SOURCE_AND_UID_QA.json
+          if-no-files-found: warn
+          retention-days: 60
