@@ -1,0 +1,53 @@
+name: gesui 273 real TP I2M2 source WWTP P 2022 reporting gate and 2018 EEA biology continuity
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_FR2022_273_actual_TP_EQR_2022_WWTP_report_P_and_2018_EEA_sourceonly_gate.py"
+      - ".github/workflows/gesui-FR273-realTP-EQR-reportedP-2018-stations-sourceonly.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  strict-original-reported-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Restore original outcome-blind 273 river-TP EEA-I2M2 pairs
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43370128446
+          name: gesui-EEA-Peters2022-TP-TN-250m-original-station-overlap-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_273_frTP_EQR
+      - name: Restore original 74 H7 24 H6 source geography
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43370462196
+          name: gesui-FR2022-TP-EQR-74H7-H6-hydrologic-fold-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_74H7_h6
+      - name: Audit original same-site 2022 WWTP reported P/N support and 2018 exact biological station ID continuity WITHOUT numeric TP/EQR
+        env:
+          PRE_ORIGINAL_273TP_EQR_SITE_MATCH: ${{ runner.temp }}/original_273_frTP_EQR/EEA2022_PETERS_TP_TN_HYRIV_250M_TO_FIXED_227_H7_SOURCE_MATCH.json
+          PRE_ORIGINAL_74H7_H6_PARENT_FOLDS: ${{ runner.temp }}/original_74H7_h6/FR2022_74H7_I2M2_TP_EQR_SOURCE_FROZEN_H6_GROUPOUT_FOLDS.json
+        run: |
+          python -m py_compile scripts/gesui_FR2022_273_actual_TP_EQR_2022_WWTP_report_P_and_2018_EEA_sourceonly_gate.py
+          python scripts/gesui_FR2022_273_actual_TP_EQR_2022_WWTP_report_P_and_2018_EEA_sourceonly_gate.py
+      - name: Preserve explicit source reported-P fail/allow gate and source-only 2018 site continuity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR2022-273-trueTP-EQR-reportedP-2018-I2M2-sourcegate
+          path: ${{ runner.temp }}/gesui_FR2022_273_TP_EQR_WWTP_SOURCE_GATE/
+          if-no-files-found: warn
+          retention-days: 30
