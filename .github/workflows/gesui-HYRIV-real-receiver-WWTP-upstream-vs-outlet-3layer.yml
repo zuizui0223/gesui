@@ -1,0 +1,92 @@
+name: gesui original HYRIV receptor-upstream WWTP strict 50km vs basin-outlet 3-biota H6/country CV
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_EU454_TRUE_HYRIV_receiver_upstream_WWTP_vs_basin_outlet_3biota_H6_country_CV.py"
+      - "docs/EEA454_TRUE_RECEIVER_WWTP_UPSTREAM_VS_DOWNSTREAM_MODEL_FREEZE_20261113.md"
+      - ".github/workflows/gesui-HYRIV-real-receiver-WWTP-upstream-vs-outlet-3layer.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  source-locked-receptor-macro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fixed Ridge numerical model
+        run: python -m pip install --quiet "numpy>=1.26,<3"
+      - name: Get 454 genuine original EEA monitoring-reach source upstream 50km/whole network, no raw HydroRIVERS redistribution
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43340832143
+          repository: zuizui0223/gesui
+          name: gesui-HydroRIVERS-original-EU-454-H7-WWTP-true-monitor-reach-SOURCE
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_true_EEA_receptor
+      - name: Get authentic 232-to-90 H6 parent river grouping, explicitly source-geometry corrected
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43338311684
+          repository: zuizui0223/gesui
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_true_H6_geography
+      - name: Get genuine original HydroATLAS cropland, urban and outlet flow for 1219 H7 basins
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          repository: zuizui0223/gesui
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_environment
+      - name: Get source-reported 2018/22 original station-matched annual N/P mass
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          repository: zuizui0223/gesui
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_reported_NP
+      - name: Get actual original EEA EQR and genuine GBIF PlantS50 butterfly 5-family response rows at fixed H7 periods
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_EEA_GBIF
+      - name: Get source-validated original true 90 H6 parent spatial and 11 country blocked baselines for exact recheck
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43338763077
+          repository: zuizui0223/gesui
+          name: gesui-H6-90-parent-block-and-country-transfer-EQR-Plant-Butterfly
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H6_CV_models
+      - name: Numerical revalidate original H6/country baselines before receptor-specific true-network WWTP source comparison
+        env:
+          TRUE_RECEIVER_WWTP_SOURCE: ${{ runner.temp }}/source_true_EEA_receptor/EU454_ORIGINAL_EEA_MONITOR_RECEIVER_HYRIV_WWTP_NETWORK_SOURCE_ONLY.json
+          TRUE_SOURCE_H6_PARENT_MAPPING: ${{ runner.temp }}/source_true_H6_geography/HYBAS7_232_TO_OFFICIAL_HYBAS6_SOURCE_PARENT_EXPLICIT_REPAIR_v2.json
+          TRUE_SOURCE_H7_HYDROATLAS: ${{ runner.temp }}/source_original_environment/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          TRUE_SOURCE_EEA_REPORTED_NP: ${{ runner.temp }}/source_original_reported_NP/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json
+          TRUE_SOURCE_454_EEA_GBIF_ORIGINAL_ROWS: ${{ runner.temp }}/source_original_EEA_GBIF/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          TRUE_SOURCE_PREVIOUS_H6_MODEL_RESULTS: ${{ runner.temp }}/original_H6_CV_models/H7_454_EU_H6_REPAIRED_SOURCE_SPATIAL_AND_COUNTRY_BENTHIC_PLANT_BUTTERFLY_RESULTS.json
+        run: |
+          python -m py_compile scripts/gesui_EU454_TRUE_HYRIV_receiver_upstream_WWTP_vs_basin_outlet_3biota_H6_country_CV.py
+          python scripts/gesui_EU454_TRUE_HYRIV_receiver_upstream_WWTP_vs_basin_outlet_3biota_H6_country_CV.py
+      - name: Retain source-only-derived receiver upstream/downstream, original H6/country CV model receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EU454-H6-country-3layers-original-HYRIV-station-WWTP-versus-outlet-CV
+          path: ${{ runner.temp }}/gesui_EU454_HYRIV_RECEIVER_WWTP_RESULTS/
+          if-no-files-found: warn
+          retention-days: 30
