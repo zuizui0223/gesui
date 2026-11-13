@@ -1,0 +1,48 @@
+name: gesui independent NUMPY France2022 genuine TP I2M2 EQR 74 H7 24 H6 leaveout source
+
+on:
+  push:
+    paths:
+      - "scripts/audit_FR2022_same_station_TP_EQR_74H7_independent_numpy_H6_LOHO.py"
+      - ".github/workflows/gesui-FR2022-TP-I2M2-74H7-independent-numpy-24H6-LOHO.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  independent-real-source-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent numeric engine
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2"
+      - name: Restore original 2022 TP I2M2 EQR 273 physically matched stations, original 74 H7 source rows and signed study result
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43370847415
+          repository: zuizui0223/gesui
+          name: gesui-FR2022-real-TP-EQR-273stations-74H7-3biota-H6-geoCV
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_2022_true_TP_EQR
+      - name: Independently compute identical all nine original H6 model MSE plus 24fold H6-parent leaveout source sensitivity
+        env:
+          ORIGINAL_FR2022_TP_EQR_MAIN_RESULTS: ${{ runner.temp }}/original_2022_true_TP_EQR/FR2022_EEA_I2M2_BENTHIC_REAL_PETERS_TP_273SITES_74H7_3BIOTA_H6_GROUPCV_RESULTS.json
+          ORIGINAL_FR2022_TP_EQR_H7_ROWS: ${{ runner.temp }}/original_2022_true_TP_EQR/FR2022_REAL_TP_EQR_74_H7_BASIN_MEDIAN_3BIOTA_MACRO_DATA.csv
+          ORIGINAL_FR2022_TP_EQR_STATION_ROWS: ${{ runner.temp }}/original_2022_true_TP_EQR/FR2022_REAL_TP_I2M2_EQR_273_SAME_RIVER_STATION_MATCHED_DATA.csv
+        run: |
+          python -m py_compile scripts/audit_FR2022_same_station_TP_EQR_74H7_independent_numpy_H6_LOHO.py
+          python scripts/audit_FR2022_same_station_TP_EQR_74H7_independent_numpy_H6_LOHO.py
+      - name: Preserve original source independent biology calculations, true 24 H6 leaveout and WWTP to measured TP diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR2022-74H7-realTP-I2M2-EQR-independent-NUMPY-24H6-LOHO
+          path: ${{ runner.temp }}/gesui_FR2022_TP_EQR_INDEPENDENT/
+          if-no-files-found: warn
+          retention-days: 30

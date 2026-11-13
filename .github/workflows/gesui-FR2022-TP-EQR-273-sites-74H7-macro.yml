@@ -1,0 +1,74 @@
+name: gesui measured TP2022 at true EEA I2M2 same site 273 points 74 H7 24 H6 3 biota
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_FR2022_273_actual_same_station_TP_EQR_74H7_3biota_H6_macro.py"
+      - "docs/20261113_FR_I2M2_2022_SAME_STATION_TP_EQR_H7_BIODIVERSITY_NUMERIC_ANALYSIS_FREEZE.md"
+      - ".github/workflows/gesui-FR2022-TP-EQR-273-sites-74H7-macro.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  genuine-measured-water-chemistry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Independent original numeric source family
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2" "scikit-learn>=1.4,<2"
+      - name: Restore original 273 same river reach <=250m 2022 WQ TP and EEA EQR source-only matching
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43370128446
+          name: gesui-EEA-Peters2022-TP-TN-250m-original-station-overlap-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_273_physically_same_sites
+      - name: Restore original pre-biological 74 real H7 /24 H6 GroupKFold source-only H6 folds
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43370462196
+          name: gesui-FR2022-TP-EQR-74H7-H6-hydrologic-fold-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_74H7_H6_folds
+      - name: Restore genuine original 1219 HydroATLAS agriculture/urban/river source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H7_env_atlas
+      - name: Restore 454 original EQR Plant S50 Lycaenidae true native H7×period common source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_454_H7_3biota
+      - name: Fit real 2022 river TP to same-site EQR in France I2M2 plus same H7 area plant/butterfly, original 24 H6 group withheld
+        env:
+          ORIGINAL_TP_EQR_SAME_REACH_250M_SOURCE: ${{ runner.temp }}/original_273_physically_same_sites/EEA2022_PETERS_TP_TN_HYRIV_250M_TO_FIXED_227_H7_SOURCE_MATCH.json
+          ORIGINAL_TP_EQR_H6_FROZEN_FOLDS: ${{ runner.temp }}/original_74H7_H6_folds/FR2022_74H7_I2M2_TP_EQR_SOURCE_FROZEN_H6_GROUPOUT_FOLDS.json
+          ORIGINAL_H7_HYDROATLAS_1219_ATTRIBUTES: ${{ runner.temp }}/original_H7_env_atlas/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          ORIGINAL_FIXED_454_H7_BIODIVERSITY_ROWS: ${{ runner.temp }}/original_454_H7_3biota/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+        run: |
+          python -m py_compile scripts/gesui_FR2022_273_actual_same_station_TP_EQR_74H7_3biota_H6_macro.py
+          python scripts/gesui_FR2022_273_actual_same_station_TP_EQR_74H7_3biota_H6_macro.py
+      - name: Preserve actual 2022 same-river TP and EQR source field values and same-H7 3 biota results + H6 CV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR2022-real-TP-EQR-273stations-74H7-3biota-H6-geoCV
+          path: ${{ runner.temp }}/gesui_FR2022_TRUE_TP_EQR_3BIOTA_MACRO/
+          if-no-files-found: warn
+          retention-days: 30

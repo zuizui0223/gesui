@@ -1,0 +1,61 @@
+name: gesui France2022 true 273 measured TP and EEA I2M2 station 74-H7 H6 source fold freeze
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_FR2022_real_TP_EQR_74H7_true_H6_fold_source_freeze.py"
+      - ".github/workflows/gesui-FR2022-TP-EQR-74-H7-H6-source-fold.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  original-physically-same-sites:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Deterministic original H6 hydrological group split
+        run: python -m pip install --quiet "scikit-learn>=1.4,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43370128446
+          name: gesui-EEA-Peters2022-TP-TN-250m-original-station-overlap-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_true_same_TP_EQR_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43338311684
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H6_parent_geo
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219_H7_ATLAS
+      - name: Check exact 273 TP/EEA source pairs match original 74 H7 in >=10 H6 parents before TP/EQR numeric analysis
+        env:
+          ORIGINAL_FR_TP_EQR_250M_SOURCE: ${{ runner.temp }}/original_true_same_TP_EQR_source/EEA2022_PETERS_TP_TN_HYRIV_250M_TO_FIXED_227_H7_SOURCE_MATCH.json
+          ORIGINAL_H6_PARENT_232_SOURCE: ${{ runner.temp }}/original_H6_parent_geo/HYBAS7_232_TO_OFFICIAL_HYBAS6_SOURCE_PARENT_EXPLICIT_REPAIR_v2.json
+          ORIGINAL_ATLAS_L7_1219_SOURCE: ${{ runner.temp }}/original_1219_H7_ATLAS/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+        run: |
+          python -m py_compile scripts/gesui_FR2022_real_TP_EQR_74H7_true_H6_fold_source_freeze.py
+          python scripts/gesui_FR2022_real_TP_EQR_74H7_true_H6_fold_source_freeze.py
+      - name: Preserve exact true-H6 5fold group assignments and source counts, no outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR2022-TP-EQR-74H7-H6-hydrologic-fold-SOURCE
+          path: ${{ runner.temp }}/gesui_FR2022_TP_EQR_H6_source/
+          if-no-files-found: warn
+          retention-days: 30
