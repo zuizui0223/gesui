@@ -1,0 +1,37 @@
+name: gesui NRSA measured biomass and benthos source-only audit
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_nrsa_1819_2324_biomass_benthic_source_only.py"
+      - ".github/workflows/gesui-nrsa-biomass-source-only.yml"
+  pull_request:
+    paths:
+      - "scripts/gesui_nrsa_1819_2324_biomass_benthic_source_only.py"
+      - ".github/workflows/gesui-nrsa-biomass-source-only.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  EPA-genuine-UID-overlap-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Audit two authentic EPA NRSA eras before testing any ecological outcomes
+        run: |
+          python -m py_compile scripts/gesui_nrsa_1819_2324_biomass_benthic_source_only.py
+          python scripts/gesui_nrsa_1819_2324_biomass_benthic_source_only.py
+      - name: Preserve source availability and publisher SHA records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nrsa1819-2324-biomass-benthos-source-only
+          path: ${{ runner.temp }}/gesui_nrsa_biomass_source/SOURCE_ONLY_NRSA_BIOMASS_BENTHOS_2018_2024.json
+          if-no-files-found: warn
+          retention-days: 30
