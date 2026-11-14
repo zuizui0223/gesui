@@ -1,0 +1,179 @@
+name: gesui EPA three-era EPT scraper clinger pollution-tolerance actual functional transport
+
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA3cycle_EPT_FFG_HABIT_PTV_EXTERNAL.py
+      - .github/workflows/gesui-nrsa-threecycle-EPT-functional-trait-external.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  true-original-sources-three-cycle-ept-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fixed reproducible matrix and original source parsers
+        run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scikit-learn>=1.5,<2" "scipy>=1.12,<2" "statsmodels>=0.14,<1"
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA0809-five-original-EPA-source-census
+          run-id: 43562414140
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/src0809
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa0809-original-BERWW-TAXA-ID-to-ORDER-source-QA
+          run-id: 43563239544
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/taxa0809
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA0809-original-EPT-fraction-source-fidelity
+          run-id: 43563366026
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/fidelity0809
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa1314-original-source-schema-BERW-measurements
+          run-id: 43560769667
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/src1314
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/src1819
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/src18chla
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa1819-ept-chla-phab-source-native-UID
+          run-id: 43528570410
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/src18triad
+
+      - name: Reconstruct independent 2008–09 ORIGINAL EPA BERWW chemistry and taxon share panel
+        env:
+          ORIGINAL_2008_SOURCE: ${{ runner.temp }}/src0809/NRSA0809_EPA_ORIGINAL_SOURCE_ONLY_COUNT_AND_GRANULARITY.json
+          ORIGINAL_TAXON_QA: ${{ runner.temp }}/taxa0809/NRSA0809_BERWW_TOTAL300_TAXA_ID_ORDER_ORIGINAL_CROSSWALK_SOURCE_QA.json
+          ORIGINAL_EPT_FIDELITY: ${{ runner.temp }}/fidelity0809/NRSA0809_EPT_REAL_TOTAL300_SOURCE_PUBLISHED_FIDELITY_QA.json
+        run: |
+          python scripts/gesui_NRSA0809_rescued_EPT_NP_PHAB_numeric.py > ${{ runner.temp }}/rebuild_2008_original_source_model.log
+
+      - name: Reconstruct independent 2013–14 ORIGINAL EPA BERW chemistry pigment PHab panel
+        env:
+          NRSA1314_SEMANTIC_SOURCE_QA: ${{ runner.temp }}/src1314/NRSA1314_SIX_ORIGINAL_MEASUREMENT_SEMANTICS_SOURCE_ONLY.json
+        run: |
+          python scripts/gesui_NRSA1314_independent_cycle_numeric.py > ${{ runner.temp }}/rebuild_2013_original_source_model.log
+
+      - name: Reconstruct independent 2018–19 ORIGINAL EPA BERW chemistry pigment PHab panel
+        env:
+          SOURCE_FROZEN_18_MANIFEST: ${{ runner.temp }}/src1819/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          SOURCE_FROZEN_BIOMASS_CROSSWALK: ${{ runner.temp }}/src18chla/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+          FROZEN_TRIAD_SOURCE: ${{ runner.temp }}/src18triad/NRSA1819_ORIGINAL_EPT_CHLA_PHAB_SOURCE_ONLY_QA.json
+        run: |
+          python scripts/gesui_nrsa_nutrient_periphyton_EPT_two_era_numeric.py > ${{ runner.temp }}/rebuild_2018_original_source_model.log
+          python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_true_triad_models.py > ${{ runner.temp }}/rebuild_2018_original_benthos_PHab.log
+
+      - name: Source-first audit exact 2648 native UIDs, original HUC8 overlap and shared six environmental variables
+        run: |
+          python -m py_compile scripts/gesui_NRSA_3cycle_SOURCE_2648_EPT_PHab_NP_harmonize.py
+          python -u scripts/gesui_NRSA_3cycle_SOURCE_2648_EPT_PHab_NP_harmonize.py
+
+      - name: Source-only original native BERW taxon-ID and count distribution without rarefied ecological fits
+        env:
+          NRSA1314_SEMANTIC_SOURCE_QA: ${{ runner.temp }}/src1314/NRSA1314_SIX_ORIGINAL_MEASUREMENT_SEMANTICS_SOURCE_ONLY.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA_3cycle_EPT_taxonID_count200_SOURCE_census.py
+          python -u scripts/gesui_NRSA_3cycle_EPT_taxonID_count200_SOURCE_census.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA-three-era-original-EPT-taxa-rarefaction-count200-source-only
+          path: ${{ runner.temp }}/gesui_threecycle_rarefied_taxa/NRSA_THREECYCLE_EPT_TAXA_SOURCE_CENSUS_PRE_EFFECT.json
+          if-no-files-found: warn
+          retention-days: 60
+      - name: Audit original 2008 and 2013 EPA autecology PTV FFG HABIT and cross-cycle 2018 original named taxon identity
+        run: |
+          python -m py_compile scripts/gesui_NRSA_3cycle_official_EPA_autecology_trait_SOURCE_QA.py
+          python -u scripts/gesui_NRSA_3cycle_official_EPA_autecology_trait_SOURCE_QA.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA-3era-original-EPA-autecology-identity-source-only
+          path: ${{ runner.temp }}/gesui_threecycle_traits/NRSA_THREECYCLE_REAL_EPA_TRAITS_IDENTITY_AND_COVERAGE_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 60
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA-3era-original-EPA-autecology-identity-source-only
+          run-id: 43570200596
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/prior_traits_source
+
+      - name: Real original EPT source counted site x EPA functional FFG HABIT PTV coverage, no environmental regression
+        env:
+          FROZEN_TRUE_EPA_TRAITS_SOURCE_QA: ${{ runner.temp }}/prior_traits_source/NRSA_THREECYCLE_REAL_EPA_TRAITS_IDENTITY_AND_COVERAGE_SOURCE_ONLY.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA3cycle_EPT_trait_site_SOURCEonly.py
+          python -u scripts/gesui_NRSA3cycle_EPT_trait_site_SOURCEonly.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA-3era-original-EPT-scraper-clinger-PTV-site-coverage-sourceonly
+          path: ${{ runner.temp }}/gesui_threecycle_traits/NRSA_3CYCLE_ORIGINAL_EPT_FFG_HABIT_PTV_SOURCE_ONLY_SITES.json
+          if-no-files-found: warn
+          retention-days: 60
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA-3era-original-EPT-scraper-clinger-PTV-site-coverage-sourceonly
+          run-id: 43571110513
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_trait_site_gate
+
+      - name: Three true EPA source functional EPT traits, three distinct outcomes, zero shared HUC8 external period tests
+        env:
+          ORIGINAL_EPT_TRAIT_SITE_SOURCE_QA: ${{ runner.temp }}/original_trait_site_gate/NRSA_3CYCLE_ORIGINAL_EPT_FFG_HABIT_PTV_SOURCE_ONLY_SITES.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA3cycle_EPT_FFG_HABIT_PTV_EXTERNAL.py
+          python -u scripts/gesui_NRSA3cycle_EPT_FFG_HABIT_PTV_EXTERNAL.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA-three-era-original-EPT-FFG-HABIT-PTV-functional-externalHUC
+          path: ${{ runner.temp }}/gesui_threecycle_traits/NRSA_3CYCLE_EPT_SCRAPER_CLINGER_PTV_TRUE_FUNCTION_EXTERNAL.json
+          if-no-files-found: warn
+          retention-days: 60
