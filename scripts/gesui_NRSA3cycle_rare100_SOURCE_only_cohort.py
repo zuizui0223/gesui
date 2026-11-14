@@ -11,11 +11,9 @@ T=pathlib.Path(os.environ.get("RUNNER_TEMP","/tmp"))
 R=T/"gesui_threecycle_rarefied_taxa"
 old_counts=pd.read_csv(R/"AUDIT_ONLY_ORIGINAL_EPA_3CYCLE_TAXON_COUNTS.csv",
  dtype={"cycle":str,"UID":str,"key":str,"order":str},keep_default_na=False)
-orig2209=pd.read_csv(R/"AUDIT_ONLY_EPA_THREECYCLE_RARE200_SAME_UID.csv",
- dtype={"source_cycle":str,"source_UID":str,"huc8":str,"state":str,"eco9":str})
 full2648=pd.read_csv(T/"gesui_threecycle_ept_transfer"/"AUDIT_ONLY_NRSA_THREE_REAL_CYCLE_EPT_NP_PHAB.csv",
  dtype={"source_cycle":str,"source_UID":str,"huc8":str,"state":str,"eco9":str})
-if len(full2648)!=2648 or len(orig2209)!=2209:raise RuntimeError("Prior source pop changed")
+if len(full2648)!=2648:raise RuntimeError("Prior source pop changed")
 old_counts["count"]=pd.to_numeric(old_counts["count"],errors="raise")
 old_counts["known"]=old_counts.known.astype(str).str.lower().isin(("true","1","yes"))
 g=old_counts.groupby(["cycle","UID"],sort=True)
@@ -25,6 +23,12 @@ q=g.apply(lambda x:pd.Series({
 if len(q)!=2648:raise RuntimeError("Source counts don't span original all 2648 original UIDs")
 q=q.rename(columns={"cycle":"source_cycle","UID":"source_UID"})
 x=full2648.merge(q,on=["source_cycle","source_UID"],validate="one_to_one")
+# Reconstruct the unchanged original source-only m200 eligibility directly
+# from signed original TOTAL300 counts; no new m200 numerical outcome used.
+orig2209=x[(x.N>=200)&(x.known_frac>=.95-1e-10)].copy()
+if len(orig2209)!=2209:raise RuntimeError("Original source-only n2209 m200 count gate changed")
+for name,n in {"2008_09":476,"2013_14":957,"2018_19":776}.items():
+ if orig2209.source_cycle.eq(name).sum()!=n:raise RuntimeError("Original source-m200 by cycle count changed "+name)
 source_only={}
 for era in ["2008_09","2013_14","2018_19"]:
  v=x[x.source_cycle.eq(era)].copy()
