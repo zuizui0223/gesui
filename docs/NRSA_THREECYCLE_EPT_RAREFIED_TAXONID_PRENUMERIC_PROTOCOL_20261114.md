@@ -39,3 +39,15 @@ For each of three original response types (primary **rare200 EPT taxon-ID richne
 Predeclare primary novelty threshold: **all three survey eras** external PHab gain has positive 95% HUC8-block descriptive bootstrap for rare200 EPT richness *after measured ambient N/P*. If not, reject universal predictive richness claim. Predictive gains do not identify cause/biological abundance. Distinguish 2008 `BERWW` from 2013/18 `BERW`, and source 2013/18 samples are original periphyton-Chla-eligible while 2008 is source-only chemistry eligible; national river lengths are not sample-weighted.
 
 **Do not infer:** wastewater source-delivered total N/P (failed original DMR gate in [PR #74](https://github.com/zuizui0223/gesui/pull/74)), full energy subsidy, primary production, insect emergence mass, predator feeding, pollination or water purification. Keep PR81's robust EPT counted-fraction transport and 2013 unshared-basin EPT–Chla interaction non-replication. Branch Draft /unmerged, no eBird, no TinyFish.
+
+
+## Source-only census outcome and external training support gate (no new ecological model inspected)
+
+The [raw EPA 3-cycle count source-only audit SUCCESS #43568105806](https://github.com/zuizui0223/gesui/actions/runs/43568105806) reported original native count>=200 and >=95% order+taxonID eligibility, all independently matching the already frozen original counted EPT fraction:
+- 2008: **476** original UIDs, **369** source HUC8, **46** states; 2008 original TOTAL300 median 300, 2008 original raw positive count integer source n586 broader before m200.
+- 2013: **957** original UIDs, **623** source HUC8, **47** states.
+- 2018: **776** original UIDs, **512** source HUC8, **47** states.
+- Total **2,209 original native UID** source opportunities; these source HUC numbers are sums by cycle, **not distinct union catchments** (HUC8 identity overlap is re-audited before model).
+- Each survey original taxon-count native UID shares exactly match frozen PR81 EPT fraction: worst difference ≈1.1×10^-16; original positive `TOTAL300` values integer and no repeated original UID+TAXA_ID rows across selected original source cohorts.
+
+**New rarefied-subcohort model-fit support gate, fixed before any newly calculated EPT richness or external-prediction outcomes:** for a left-out period, target after rare200 ≥250 original UIDs and ≥150 canonical HUC8, and other-two-period training AFTER removing every source original HUC8 present in the target entire wider original cycle must retain ≥300 original rare200 UIDs and ≥200 distinct canonical HUC8, ≥15 states. This is explicitly a **smaller effort-standardized subset** with its own transparent a-priori support gate; it is not a claim that the original PR81 larger-sample ≥400 UID gate was met. If a period fails, export its support QA and do NOT fit it or weaken this threshold after seeing rich EPT effects. All four baseline models and HUC8-equal weights remain identical to PR81.
