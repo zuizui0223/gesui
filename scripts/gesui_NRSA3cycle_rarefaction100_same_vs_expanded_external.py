@@ -101,6 +101,9 @@ df["log1p_rare100_ept"]=np.log1p(df.source_rare100_ept_taxonID)
 df["log1p_rare100_nonEPT"]=np.log1p(df.source_rare100_nonEPT_taxonID)
 df["log1p_rare100_ept_upper"]=np.log1p(df.source_rare100_ept_upper_bound)
 df=df.sort_values(["source_cycle","source_UID"]).reset_index(drop=True)
+# Keep original per-site raw EPA measurements ONLY on this ephemeral runner
+# for independently implemented arithmetic / source QA; never upload CSV.
+df.to_csv(R/"AUDIT_ONLY_EPA3ERA_RARE100_2403_NATIVE_UID_OBSERVED.csv",index=False)
 # The n2209 source-only m200 membership was verified above. Rebuild this
 # SAME frozen native-UID subset after deriving its rare100 response columns;
 # otherwise this copy predates the new response schema.
