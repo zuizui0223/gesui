@@ -144,7 +144,10 @@ def sandwich(test,col):
  y=test[col].to_numpy(float)
  beta=np.linalg.lstsq(A,y,rcond=None)[0]
  err=y-A@beta
- bread=np.linalg.pinv(A)
+ # OLS covariance bread must be (A' A)^-1, not the rectangular
+ # Moore-Penrose A^+ itself. Form via A^+ (A^+)' for stable rank handling.
+ pinv_design=np.linalg.pinv(A)
+ bread=pinv_design@pinv_design.T
  meat=np.zeros((A.shape[1],A.shape[1]))
  groups=test.huc8.to_numpy(str)
  for h in pd.unique(groups):
@@ -152,7 +155,7 @@ def sandwich(test,col):
   v=A[mask].T@err[mask]
   meat+=np.outer(v,v)
  G=len(pd.unique(groups));K=np.linalg.matrix_rank(A);N=len(test)
- V=bread@meat@bread.T*G/(G-1)*(N-1)/(N-K)
+ V=bread@meat@bread*G/(G-1)*(N-1)/(N-K)
  vals={}
  for k in ("XEMBED","log_tn","log_tp"):
   i=X.columns.get_loc(k)+1
