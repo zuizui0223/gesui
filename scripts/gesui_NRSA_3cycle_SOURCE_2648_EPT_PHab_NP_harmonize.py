@@ -61,14 +61,21 @@ def src_cycle(name):
  # numerical quantity. Restore ONLY the missing leading zero, never
  # round, hash, geocode or guess an unobserved basin.
  rawhuc=df.huc8.astype(str).str.strip()
- if not rawhuc.str.fullmatch(r"\d{7,8}").all():
-  badcode=rawhuc.loc[~rawhuc.str.fullmatch(r"\d{7,8}")].unique()[:10]
-  raise RuntimeError("Original HUC8 code not an unambiguous 7/8 decimal code "+name+":"+str(badcode))
+ # Actual 2013 EPA source original HUC8 uses an 'H' prefix, e.g.
+ # H10270102 (an HUC identifier, not an additional watershed digit).
+ # Accept ONLY the literal H + 8 digits, or 7/8 digits without a prefix.
+ # The 2008 source sometimes drops the leading 0; restore it only then.
+ prefixed=rawhuc.str.fullmatch(r"[Hh]\d{8}")
+ canonical=rawhuc.where(~prefixed,rawhuc.str.slice(1))
+ if not canonical.str.fullmatch(r"\d{7,8}").all():
+  badcode=rawhuc.loc[~canonical.str.fullmatch(r"\d{7,8}")].unique()[:10]
+  raise RuntimeError("Original HUC8 cannot be canonicalized from exact H+8 / 7–8 decimal source "+name+":"+str(badcode))
  huc_original_lengths={str(int(k)):int(v) for k,v in rawhuc.str.len().value_counts().items()}
- huc_leading_zero_restored=int(rawhuc.str.len().eq(7).sum())
- df["huc8"]=rawhuc.str.zfill(8)
+ huc_Hprefix_n=int(prefixed.sum())
+ huc_leading_zero_restored=int(canonical.str.len().eq(7).sum())
+ df["huc8"]=canonical.str.zfill(8)
  if df.huc8.nunique()!=rawhuc.nunique():
-  raise RuntimeError("Original HUC8 leading-zero normalization collapses distinct original source codes: "+name)
+  raise RuntimeError("Original HUC8 canonicalization collapses distinct original source basin codes: "+name)
  df["state"]=df.state.astype(str).str.strip().str.upper()
  df["eco9"]=df.eco9.astype(str).str.strip().str.upper()
  df["site_id"]=df.site_id.astype(str).str.strip()
@@ -111,6 +118,7 @@ def src_cycle(name):
   "source_huc8_sorted_sha256":hashlib.sha256("\n".join(sorted(set(df.huc8))).encode()).hexdigest(),
   "original_raw_HUC8_source_digit_length_distribution":huc_original_lengths,
   "original_seven_digit_HUC8_rows_restored_a_leading_zero":huc_leading_zero_restored,
+  "original_literal_Hprefix_eightdigit_HUC8_rows_normalized":huc_Hprefix_n,
   "original_HUC8_identity_normalization_did_not_collapse_basin_labels":True,
   "source_aggregation_huc8_not_pseudo_independent_UID":True,
   "method":"BERWW original TOTAL300 count+TAXA_ID→ORDER" if name=="2008_09" else "BERW original TOTAL300 count",
