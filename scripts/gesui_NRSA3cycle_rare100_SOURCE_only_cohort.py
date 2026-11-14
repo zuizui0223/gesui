@@ -49,7 +49,7 @@ for era in ["2008_09","2013_14","2018_19"]:
   "source_m100_fraction_of_full_visits":float(len(M100)/len(v)),
   "source_m200_subset_of_m100":True,
   "source_mean_N_m100":float(M100.N.mean()),
-  "source_mean_N_same_m200":float(M200.merge(q,on=["source_cycle","source_UID"]).N.mean()),
+  "source_mean_N_same_m200":float(M200["N"].mean()),
   "m100_source_gate_target_min250_HUC150_states20":bool(len(M100)>=250 and M100.huc8.nunique()>=150 and M100.state.nunique()>=20),
   "m100_selected_original_native_UID_sha256":hashlib.sha256("\n".join(sorted(sets100)).encode()).hexdigest()}
  # Eligibility fixed regardless of model performance; publish IDs for join
