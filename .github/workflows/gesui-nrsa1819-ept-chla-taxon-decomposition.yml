@@ -54,6 +54,7 @@ jobs:
         run: |
           python scripts/gesui_nrsa_nutrient_periphyton_EPT_two_era_numeric.py > ${{ runner.temp }}/original_composite_source.log
           python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_true_triad_models.py > ${{ runner.temp }}/triad_source.log
+          python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_five_context_interactions.py > ${{ runner.temp }}/predecomposition_original_interaction.log
       - name: Actual original TAXA_ID, chironomid counts, EPT/nonEPT richness and embeddedness moderator Q+I models
         run: |
           python -m py_compile scripts/gesui_NRSA1819_EPT_Chla_Embed_Chiro_Taxon_decompose.py
