@@ -1,6 +1,9 @@
 name: Source-only restore of actual H7 plant and butterfly speciesKey identities
 
 on:
+  push:
+    paths:
+      - ".github/workflows/gesui-H7-original-plant-butterfly-specieskey-retention-source.yml"
   workflow_dispatch:
     inputs:
       mode:
@@ -41,12 +44,12 @@ jobs:
           H7_234_PRE_NEW_RESPONSE_SOURCE: ${{ runner.temp }}/original_source/HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json
         run: |
           python -m py_compile scripts/gesui_H7_original_fivefamily_plants_speciesKey_retention.py
-          python scripts/gesui_H7_original_fivefamily_plants_speciesKey_retention.py --mode ${{ inputs.mode }} --shard ${{ matrix.shard }} --out ${{ runner.temp }}/original_h7_specieskey_shard
+          python scripts/gesui_H7_original_fivefamily_plants_speciesKey_retention.py --mode "${{ github.event_name == 'push' && 'pilot' || inputs.mode }}" --shard ${{ matrix.shard }} --out ${{ runner.temp }}/original_h7_specieskey_shard
       - name: Preserve original source identities and full source QA
         if: always() && (inputs.mode == 'full' || matrix.shard == 0)
         uses: actions/upload-artifact@v4
         with:
-          name: gesui-H7-six-groups-original-speciesKey-${{ inputs.mode }}-${{ matrix.shard }}
+          name: gesui-H7-six-groups-original-speciesKey-${{ github.event_name == 'push' && 'pilot' || inputs.mode }}-${{ matrix.shard }}
           path: ${{ runner.temp }}/original_h7_specieskey_shard/
           if-no-files-found: warn
           retention-days: 30
