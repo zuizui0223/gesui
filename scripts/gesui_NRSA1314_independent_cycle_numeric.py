@@ -194,6 +194,10 @@ def model(d,exposure="logchla",response="ept_fraction"):
 m=model(sample)
 mass=sample[sample.strict_original_AFDM_flag & sample.original_afdm_areal_unit].dropna(subset=["logafdm"]).copy()
 m_mass=model(mass,"logafdm","ept_fraction") if len(mass)>=350 and mass.huc8.nunique()>=200 else {"gate":"NO_AREAL_MASS_SAMPLE_SUPPORT","n":len(mass)}
+# Ephemeral raw field panel for independent review within the same GH runner;
+# deliberately excluded from uploaded artifact and git repository.
+sample.to_csv(ROOT/"AUDIT_ONLY_NRSA1314_BERW_EPT_CHLA_SOURCE_PANEL.csv",index_label="UID")
+mass.to_csv(ROOT/"AUDIT_ONLY_NRSA1314_AREAL_AFDM_SOURCE_PANEL.csv",index_label="UID")
 # Periphyt-on AFDM response vs ambient N/P and sediment is not response
 # in a model deliberately optimized for positive sign; only status and a
 # directly measured same-visit correlation reported as secondary.
