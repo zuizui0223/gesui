@@ -100,14 +100,20 @@ def source():
                 raise RuntimeError("A source butterfly family GBIF query was NOT complete "+str((h,p,f)))
             family_counts[f]=count_check(f,s["source_record_index_count"])
         n=sum(family_counts.values())
-        if n!=int(float(r["original_source_5family_butterfly_records"])):
+        # The original signed 454 CSV saved log1p(total) and the Lycaenidae
+        # share/logodds, NOT the untransformed family counts. Recover their
+        # exact intended comparison from original source shards only.
+        original_total=round(math.expm1(float(r["log1p_GBIF_5family_butterfly_source_records"])))
+        if n!=original_total:
             raise RuntimeError("Original five-family denominator differs from prior signed cohort")
-        if family_counts["Lycaenidae"]!=int(float(r["original_source_lycaenidae_records"])):
-            raise RuntimeError("Original Lycaenidae count differs from prior signed cohort")
         if n<20:
             raise RuntimeError("Prior source eligibility n>=20 source count failed")
-        if abs(family_counts["Lycaenidae"]/n-float(r["lycaenidae_fivefamily_index_share"]))>1e-10:
+        lyr=family_counts["Lycaenidae"]
+        if abs(lyr/n-float(r["lycaenidae_fivefamily_index_share"]))>1e-10:
             raise RuntimeError("Family share fidelity failed")
+        published_logodds=math.log((lyr+0.5)/(n-lyr+0.5))
+        if abs(published_logodds-float(r["lycaenidae_fivefamily_index_share_logodds"]))>1e-10:
+            raise RuntimeError("Original recorded Lycaenidae logodds could not be reconstructed")
         r["family_original_counts"]=family_counts
         r["native_obs_total"]=n
         r["W"]=float(r["W_static_upstream_MODEL_flow_per_UpArea"])
