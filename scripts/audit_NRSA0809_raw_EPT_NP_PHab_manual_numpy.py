@@ -84,7 +84,7 @@ for name in ("ept_share_raw_count_lower_bound","log1p_ept_taxa","benthic_mmi_sco
   if abs(b["beta"]-old["beta_1SD_log10_observed_instream"])>1e-7:
    raise RuntimeError("Independent original 2008 nutrient adjusted slope mismatch "+name+"/"+c)
   if max(abs(x-y) for x,y in zip(b["ci"],old["HUC8_cluster_descriptive95"]))>6e-5:
-   raise RuntimeError("Independent 2008 HUC8 covar slope interval mismatch "+name+"/"+c)
+   raise RuntimeError("Independent 2008 HUC8 covar slope interval mismatch "+name+"/"+c+":"+str((b["ci"],old["HUC8_cluster_descriptive95"])))
  if max(abs(a-b) for a,b in zip(result["extra_NP_after_PHab_2000_fixedOOF_boot95"],
                                 orig["HUC8_bootstrap2000_fixed_OOF_extra_NP_descriptive95"]))>1e-6:
   raise RuntimeError("Independent bootstrap on original HUC8 errors mismatch "+name)
