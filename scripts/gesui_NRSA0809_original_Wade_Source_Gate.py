@@ -94,4 +94,3 @@ result={
  "no_2018_wadeable_protocol_claim_without_source_verification":True,
  "not_wastewater_delivery_or_ecosystem_services":True}
 p.write_text(json.dumps(result,indent=2,sort_keys=True))
-if __name__=="__main__":main()
