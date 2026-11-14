@@ -1,0 +1,116 @@
+name: gesui European host plant exact taxonomy source
+on:
+  push:
+    paths: ['.github/workflows/gesui-european-host-plant-taxonomy.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43600676744
+          name: gesui-clarke2024-nlm-original-supplements-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: original_eu
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43595715491
+          name: gesui-H7-original-303-butterfly-host-taxonomy-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: original_taxa
+      - name: Validate archived source XML cells against local 5589-row extraction; exact botanical lookup only
+        run: |
+          python - <<'PY'
+          import pathlib,json,re,zipfile,xml.etree.ElementTree as ET,hashlib,urllib.request,urllib.parse,urllib.error,time,concurrent.futures
+          out=pathlib.Path('eu_taxonomy');(out/'responses').mkdir(parents=True)
+          eu=pathlib.Path('original_eu');tx=pathlib.Path('original_taxa')
+          def find(root,name):
+              x=list(root.rglob(name))
+              if len(x)!=1:raise RuntimeError('Not unique '+name)
+              return x[0]
+          taxa=json.loads(find(tx,'butterfly_usage_aliases.json').read_text())
+          plants=json.loads(find(tx,'plant_name_crosswalk.json').read_text())
+          if len(taxa)!=303:raise RuntimeError('Original butterfly population drift')
+          source=find(eu,'ECE3-14-e10834-s005.xlsx')
+          manifest=json.loads(find(eu,'SOURCE_MANIFEST.json').read_text())
+          expected=next(x['sha256'] for x in manifest if x.get('file')==source.name)
+          if hashlib.sha256(source.read_bytes()).hexdigest()!=expected:raise RuntimeError('Original table source hash drift')
+          # Read raw OOXML cell payloads; no edits/recalculation of the workbook.
+          ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+          with zipfile.ZipFile(source) as z:
+              ss=ET.fromstring(z.read('xl/sharedStrings.xml'))
+              strings=[''.join(n.itertext()) for n in ss.findall('s:si',ns)]
+              tree=ET.fromstring(z.read('xl/worksheets/sheet1.xml'))
+              rows=[]
+              for row in tree.findall('s:sheetData/s:row',ns):
+                  d={}
+                  for c in row.findall('s:c',ns):
+                      v=c.find('s:v',ns)
+                      if v is None:continue
+                      d[re.sub(r'\d','',c.attrib['r'])]=strings[int(v.text)] if c.attrib.get('t')=='s' else v.text
+                  rows.append(d)
+          if len(rows)!=5590 or rows[0].get('B')!='accepted_butterfly' or rows[0].get('E')!='accepted_plant':raise RuntimeError('Appendix schema drift')
+          def bmatch(name):
+              direct={str(t['original_speciesKey']) for t in taxa if t['canonicalName'].lower()==name.lower()}
+              if len(direct)==1:return next(iter(direct))
+              if len(direct)>1:return None
+              aliases={str(t['original_speciesKey']) for t in taxa if name.lower() in t['aliases']}
+              return next(iter(aliases)) if len(aliases)==1 else None
+          def binom(name):
+              m=re.match(r'^([A-Z][a-z-]+) ([a-z][a-z-]+)(?: |$)',name.strip())
+              if not m or m.group(2) in ('sp','spp','agg','cf','aff'):return None
+              return ' '.join(m.groups()).lower()
+          def accept(name,j):
+              if j.get('matchType')!='EXACT' or j.get('rank')!='SPECIES' or j.get('kingdom')!='Plantae':return None
+              if j.get('status') not in ('ACCEPTED','SYNONYM') or j.get('canonicalName','').lower()!=name.lower():return None
+              k=j.get('acceptedUsageKey',j.get('usageKey'));return str(k) if isinstance(k,int) and k>0 else None
+          cached={}
+          for p in plants:
+              n=p['match'].get('canonicalName','').lower()
+              if accept(n,p['match']):cached[n]=p
+          names=sorted({binom(r.get('E','')) for r in rows[1:] if bmatch(r.get('B','')) and binom(r.get('E',''))})
+          pending=[n for n in names if n not in cached]
+          sha=hashlib.sha256(json.dumps(pending,separators=(',',':')).encode()).hexdigest()
+          if sha!='c954e13efd9d378271fbdff0fb55bf07d036f4b99e928c787356637efc9457ba':raise RuntimeError('Independent name extraction differs from local artifact_tool CSV')
+          print('SOURCE_NAMES',len(names),len(pending),sha,flush=True)
+          def fetch(name):
+              time.sleep(.12)
+              url='https://api.gbif.org/v1/species/match?'+urllib.parse.urlencode({'name':name,'kingdom':'Plantae','rank':'SPECIES','strict':'true'})
+              for a in range(5):
+                  try:
+                      with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'gesui-European-host-audit/1'}),timeout=65) as r:raw=r.read()
+                      j=json.loads(raw);fn=hashlib.sha256(name.encode()).hexdigest()+'.json';(out/'responses'/fn).write_bytes(raw)
+                      return {'source_name':name,'accepted_speciesKey':accept(name,j),'match':j,'url':url,'response_file':fn,'sha256':hashlib.sha256(raw).hexdigest(),'api_success':True}
+                  except Exception as e:
+                      if isinstance(e,urllib.error.HTTPError) and e.code not in (429,500,502,503,504):break
+                      time.sleep(2**a)
+              return {'source_name':name,'accepted_speciesKey':None,'api_success':False,'url':url}
+          res=[]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+              for i,v in enumerate(pool.map(fetch,pending)):
+                  res.append(v)
+                  if i%100==0:print('SOURCE_PROGRESS',i,len(pending),flush=True)
+          (out/'new_plant_crosswalk.json').write_text(json.dumps(res,ensure_ascii=False))
+          (out/'reused_plant_crosswalk.json').write_text(json.dumps({n:cached[n] for n in names if n in cached},ensure_ascii=False))
+          qa={'original_table_sha256':expected,'n_source_rows':5589,'n_species_names':len(names),'n_new_names':len(pending),'pending_sha256':sha,'new_api_success':sum(x['api_success'] for x in res),'new_exact_species_matches':sum(x['accepted_speciesKey'] is not None for x in res),'unmatched_not_absent':True}
+          (out/'SOURCE_QA.json').write_text(json.dumps(qa,indent=2));print(json.dumps(qa),flush=True)
+          if not all(x['api_success'] for x in res):raise SystemExit('API failures retained as missing')
+          PY
+      - name: Preserve full new taxonomy and original response receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-european-host-plant-taxonomy-20261114
+          path: eu_taxonomy/
+          retention-days: 90
+          if-no-files-found: error
