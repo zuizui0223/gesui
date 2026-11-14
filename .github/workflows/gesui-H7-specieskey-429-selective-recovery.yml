@@ -1,0 +1,79 @@
+name: Source-only retry 8 failed HTTP429 H7 plant and butterfly identity facets
+
+on:
+  push:
+    paths:
+      - '.github/workflows/gesui-H7-specieskey-429-selective-recovery.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  authentic-failed-facet-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original source geometry and taxonomy receipt
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/geometry
+      - name: Preserve initial full shard 0 as source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43592211212
+          name: gesui-H7-six-groups-original-speciesKey-full-0
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/full0
+      - name: Preserve initial full shard 1 as source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43592211212
+          name: gesui-H7-six-groups-original-speciesKey-full-1
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/full1
+      - name: Preserve initial full shard 2 as source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43592211212
+          name: gesui-H7-six-groups-original-speciesKey-full-2
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/full2
+      - name: Preserve initial full shard 3 as source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43592211212
+          name: gesui-H7-six-groups-original-speciesKey-full-3
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/full3
+      - name: Retry only authentic 8 original HTTP429 missing facets, then audit original 2808
+        env:
+          H7_234_PRE_NEW_RESPONSE_SOURCE: ${{ runner.temp }}/geometry/HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json
+          SPECIESKEY_SHARD_DIR_0: ${{ runner.temp }}/full0
+          SPECIESKEY_SHARD_DIR_1: ${{ runner.temp }}/full1
+          SPECIESKEY_SHARD_DIR_2: ${{ runner.temp }}/full2
+          SPECIESKEY_SHARD_DIR_3: ${{ runner.temp }}/full3
+        run: |
+          python -m py_compile scripts/gesui_H7_original_speciesKey_retry429_and_audit.py
+          python scripts/gesui_H7_original_speciesKey_retry429_and_audit.py
+      - name: Archive real source identities, original receipts, and explicit unresolved status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          path: ${{ runner.temp }}/gesui_H7_original_source_retry429/
+          if-no-files-found: warn
+          retention-days: 30
