@@ -101,6 +101,11 @@ df["log1p_rare100_ept"]=np.log1p(df.source_rare100_ept_taxonID)
 df["log1p_rare100_nonEPT"]=np.log1p(df.source_rare100_nonEPT_taxonID)
 df["log1p_rare100_ept_upper"]=np.log1p(df.source_rare100_ept_upper_bound)
 df=df.sort_values(["source_cycle","source_UID"]).reset_index(drop=True)
+# The n2209 source-only m200 membership was verified above. Rebuild this
+# SAME frozen native-UID subset after deriving its rare100 response columns;
+# otherwise this copy predates the new response schema.
+m200same=df[df.source_count_N.ge(200)].copy()
+if len(m200same)!=2209:raise RuntimeError("Original source-fixed rare200 cohort changed after response construction")
 # Source only full 2648 original target cycle HUC8 used for exclusion:
 # the m100 threshold never modifies the train-disjoint HUC8 decision.
 YEARS=["2008_09","2013_14","2018_19"]
