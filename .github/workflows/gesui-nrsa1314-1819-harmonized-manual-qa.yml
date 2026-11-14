@@ -1,0 +1,74 @@
+name: gesui two-cycle EPA2013 vs2018 harmonized BERW EPT-Chla cross-check
+on:
+  push:
+    paths:
+      - scripts/audit_NRSA1314_1819_harmonized_EPT_Chla_embed_numpy.py
+      - .github/workflows/gesui-nrsa1314-1819-harmonized-manual-qa.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  independent-national-cycle-harmonized-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "statsmodels>=0.14,<1" "scipy>=1.12,<2" "scikit-learn>=1.5,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa1314-original-source-schema-BERW-measurements
+          run-id: 43560769667
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen1314
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen18
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen1819CHLA
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa1819-ept-chla-phab-source-native-UID
+          run-id: 43528570410
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen18Triad
+      - name: Rebuild actual independent 2013 original EPA national source cohort, original results & ephemeral native UID panel
+        env:
+          NRSA1314_SEMANTIC_SOURCE_QA: ${{ runner.temp }}/frozen1314/NRSA1314_SIX_ORIGINAL_MEASUREMENT_SEMANTICS_SOURCE_ONLY.json
+        run: python scripts/gesui_NRSA1314_independent_cycle_numeric.py > ${{ runner.temp }}/original_2013_source_fits.log
+      - name: Rebuild original 2018–19 EPA wadeable taxon/Chla same-UID panel
+        env:
+          SOURCE_FROZEN_18_MANIFEST: ${{ runner.temp }}/frozen18/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          SOURCE_FROZEN_BIOMASS_CROSSWALK: ${{ runner.temp }}/frozen1819CHLA/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+          FROZEN_TRIAD_SOURCE: ${{ runner.temp }}/frozen18Triad/NRSA1819_ORIGINAL_EPT_CHLA_PHAB_SOURCE_ONLY_QA.json
+        run: |
+          python scripts/gesui_nrsa_nutrient_periphyton_EPT_two_era_numeric.py > ${{ runner.temp }}/original_2018_source.log
+          python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_true_triad_models.py > ${{ runner.temp }}/original_2018_triad.log
+      - name: Independently derive 2013,2018 same six field PHab controls + 2013 year and pseudoreplication sensitivities
+        run: |
+          python -m py_compile scripts/audit_NRSA1314_1819_harmonized_EPT_Chla_embed_numpy.py
+          python -u scripts/audit_NRSA1314_1819_harmonized_EPT_Chla_embed_numpy.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-EPA2013-2018-harmonized-BERW-EPT-Chla-independent-NumPy
+          path: ${{ runner.temp }}/gesui1314_independent_numeric/NRSA1314_1819_HARMONIZED_EPT_CHLA_EMBED_INDEPENDENT_NUMPY.json
+          if-no-files-found: warn
+          retention-days: 60
