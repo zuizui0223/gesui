@@ -93,6 +93,7 @@ def task(basin,period,field,families):
             params["checklistKey"]=GBIF_BACKBONE
         offset=0
         parttotal=None
+        part_keys=set()
         while True:
             query=dict(params,facetOffset=str(offset))
             r=http_json(query)
@@ -124,8 +125,9 @@ def task(basin,period,field,families):
                 count=cell.get("count")
                 if not key.isdigit() or not isinstance(count,int) or count<0:
                     raise RuntimeError("Source speciesKey/count malformed")
-                if any(x["speciesKey"]==key for x in receipts if "speciesKey" in x):
-                    raise RuntimeError("Duplicate within-page GBIF facet key")
+                if key in part_keys:
+                    raise RuntimeError("Duplicate original speciesKey across paginated facets in one polygon part")
+                part_keys.add(key)
                 hits[key]+=count
             receipts.append({"status":"source_success","url":r["uri"],
                 "source_SHA256":r["sha256"],"facetOffset":offset,
