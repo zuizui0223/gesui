@@ -1,0 +1,60 @@
+name: gesui Clarke2024 original country and evidence host source
+on:
+  push:
+    paths: ['.github/workflows/gesui-clarke2024-source-20261114.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download fixed original Dryad files and verify publisher SHA256
+        run: |
+          python - <<'PY'
+          import pathlib,urllib.request,json,hashlib,csv,io,time
+          out=pathlib.Path('clarke2024_source');out.mkdir()
+          files=[
+          (2850976,'butterfly_synonym.csv','48cbd45f0aa543803f9426e1a8753b9acaeeec6274b02f7d1dbedbee64fb25ff'),
+          (2850977,'larval_host_plant_status.csv','b765d6b3fae070be670a905de606b7d44588c1870e87643ca52bdff60311fd2f'),
+          (2850981,'larval_host_plant.csv','885f6491fd5064e1b99918bd6a3c80c0a82b81e7f5d541c528afa31d95dd3a70'),
+          (2850982,'larval_plants.csv','3ab08e01a7c41936bc4dc902cebe2d097e0e0f712f99e32a5a642c23f57260da'),
+          (2851042,'README.md','e1688f3b1c02ab7592c0941995b93742fa8b5835ac5d152455fdbbb460ae1b14'),
+          (2850980,'reference.csv','d3516cb102350e15bd682957d3c6513b7edf5b97d43a3304bdcc9d05168e9176'),
+          (2850978,'region.csv','2ba9b4f1393d095e0f03ab010d1aa9a6ebd1a006413c7ad2ba8ba4a558e4ad70'),
+          (2850979,'wcvp_extendedb.csv','1dc8cf7a81aef4b89499d5d3f3f3805d34cd1aedfab0ab662b947fbcc64166a0'),
+          (2850987,'wiemers_distribution.csv','3b50833afe15bf314bac20b713990f14375be51b02baed2dffb270398aab65ee')]
+          receipts=[]
+          for fid,name,wanted in files:
+              url=f'https://datadryad.org/api/v2/files/{fid}/download'
+              for attempt in range(4):
+                  try:
+                      req=urllib.request.Request(url,headers={'User-Agent':'gesui-source-audit/1','Accept':'*/*'})
+                      with urllib.request.urlopen(req,timeout=100) as r:raw=r.read()
+                      break
+                  except Exception:
+                      if attempt==3:raise
+                      time.sleep(3*(attempt+1))
+              got=hashlib.sha256(raw).hexdigest()
+              if got!=wanted:raise RuntimeError('Publisher source SHA mismatch: '+name)
+              (out/name).write_bytes(raw)
+              receipts.append({'file':name,'url':url,'sha256':got,'bytes':len(raw)})
+              print('SOURCE_VERIFIED',name,len(raw),flush=True)
+              if name.endswith('.csv'):
+                  lines=raw.decode('utf-8-sig').splitlines()
+                  print('HEADER_AND_FIRST_ROW',name,lines[:2],flush=True)
+          (out/'SOURCE_MANIFEST.json').write_text(json.dumps({'doi':'10.5061/dryad.1vhhmgr12','version':274312,'source_only':True,'files':receipts},indent=2))
+          PY
+      - name: Retain source tables and publisher digest receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-clarke2024-publisher-source-20261114
+          path: clarke2024_source/
+          retention-days: 90
+          if-no-files-found: error
