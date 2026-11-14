@@ -1,0 +1,69 @@
+name: gesui EPT Chla five physical interactions independent NumPy and robustness
+on:
+  push:
+    paths:
+      - scripts/audit_NRSA1819_EPT_Chla_context_5mods_manual_numpy.py
+      - .github/workflows/gesui-nrsa1819-context-interaction-independentQA.yml
+  pull_request:
+    paths:
+      - scripts/audit_NRSA1819_EPT_Chla_context_5mods_manual_numpy.py
+      - .github/workflows/gesui-nrsa1819-context-interaction-independentQA.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-epa-source-independently-audited:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "statsmodels>=0.14,<1" "scipy>=1.12,<2" "scikit-learn>=1.5,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa1819-genuine-source-only-qc
+          run-id: 43034107486
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen18
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-two-era-source-only-uid-crosswalk
+          run-id: 43417864266
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozenCHLA
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa1819-ept-chla-phab-source-native-UID
+          run-id: 43528570410
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozenTriad
+      - name: Rebuild originally frozen EPA benthic chlorophyll TN TP physical source
+        env:
+          SOURCE_FROZEN_18_MANIFEST: ${{ runner.temp }}/frozen18/NRSA1819_BERW_NATIVE_UID_SITE_GEOGRAPHY_MANIFEST_SOURCE_ONLY.json
+          SOURCE_FROZEN_BIOMASS_CROSSWALK: ${{ runner.temp }}/frozenCHLA/SOURCE_ONLY_NRSA_2ERA_UID_CONCORDANCE.json
+          FROZEN_TRIAD_SOURCE: ${{ runner.temp }}/frozenTriad/NRSA1819_ORIGINAL_EPT_CHLA_PHAB_SOURCE_ONLY_QA.json
+        run: |
+          python scripts/gesui_nrsa_nutrient_periphyton_EPT_two_era_numeric.py > ${{ runner.temp }}/original_2018_source.log
+          python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_true_triad_models.py > ${{ runner.temp }}/original_2018_triad.log
+      - name: Recalculate fixed 5 interaction models on original source
+        run: python scripts/gesui_NRSA1819_EPT_CHLA_PHAB_five_context_interactions.py > ${{ runner.temp }}/original_interactions.log
+      - name: Independent closed-form OLS HUC8 sandwich and Ridge CV plus 7 physical/year/count sensitivities
+        run: |
+          python -m py_compile scripts/audit_NRSA1819_EPT_Chla_context_5mods_manual_numpy.py
+          python -u scripts/audit_NRSA1819_EPT_Chla_context_5mods_manual_numpy.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa1819-EPT-Chla-fivePHAB-interaction-independent-numpy
+          path: ${{ runner.temp }}/gesui1819_triad_numeric/NRSA1819_EPT_CHLA_PHAB_INTERACTION_INDEPENDENT_NUMPY_SENSITIVITY.json
+          if-no-files-found: warn
+          retention-days: 60
