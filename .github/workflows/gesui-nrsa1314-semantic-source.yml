@@ -1,0 +1,42 @@
+name: gesui NRSA 2013 original source unit and sample BERW harmonization
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA1314_original_6table_semantic_SOURCE_ONLY.py
+      - .github/workflows/gesui-nrsa1314-semantic-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  genuine-source-schema-and-wadeable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "pandas>=2.1,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa1314-original-EPA-six-table-source-census
+          run-id: 43560419988
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EPA2013
+      - name: Confirm source-pinned original 2013 BERW/BETB, chemistry, areal pigment, AFDM units, per-visit geography before ecological coefficients
+        env:
+          NRSA1314_ORIGINAL_SIX_SOURCE_QA: ${{ runner.temp }}/original_EPA2013/NRSA1314_EPA_ORIGINAL_SIX_TABLE_SOURCE_GATE.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA1314_original_6table_semantic_SOURCE_ONLY.py
+          python scripts/gesui_NRSA1314_original_6table_semantic_SOURCE_ONLY.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa1314-original-source-schema-BERW-measurements
+          path: ${{ runner.temp }}/gesui1314_independent_semantics/NRSA1314_SIX_ORIGINAL_MEASUREMENT_SEMANTICS_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 60
