@@ -5,6 +5,10 @@ on:
     paths:
       - scripts/gesui_NRSA1819_EPT_CHLA_PHAB_five_context_interactions.py
       - .github/workflows/gesui-nrsa1819-ept-chla-context-interactions.yml
+  pull_request:
+    paths:
+      - scripts/gesui_NRSA1819_EPT_CHLA_PHAB_five_context_interactions.py
+      - .github/workflows/gesui-nrsa1819-ept-chla-context-interactions.yml
   workflow_dispatch:
 
 permissions:
