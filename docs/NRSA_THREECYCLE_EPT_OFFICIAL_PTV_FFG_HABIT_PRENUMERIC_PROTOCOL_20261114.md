@@ -1,0 +1,24 @@
+# Frozen operational EPT trait endpoints before new trait regression
+
+2026-11-14. Exploratory/posthoc after earlier EPT fraction and rare200 richness results. SOURCE-only [original EPA autecology trait audit SUCCESS #43570200596](https://github.com/zuizui0223/gesui/actions/runs/43570200596) was completed before these new trait effects were fitted. The EPA original 2008 and 2013 autecology tables contain FFG functional feeding group, HABIT and PTV pollution tolerance; 2018 original BERW count identities were matched **by exact TAXA_ID, normalized TARGET_TAXON name and ORDER**, with conflicting PTV/FFG/HABIT among old official tables left missing. True original EPT individual-weighted trait coverage:
+- FFG: 2008 98.34%; 2013 96.86%; 2018 96.13%.
+- HABIT: 2008 99.17%; 2013 99.03%; 2018 97.85%.
+- PTV: 2008 94.74%; 2013 93.56%; 2018 93.07%.
+Original source-only coverage gate >=70% EPT counted individuals per period PASSED.
+
+## Fixed authentic source and SITE cohort
+Exactly **n2209 actual original PR82 m200-eligible BERWW (2008) / BERW (2013 and2018) counted samples**; only source actual EPT individual counts enter the source response. N>=200 original counted individual specimens and >=95% known original ORDER; source native UID/huc8 and original environmental measured chemistry and six physical habitat fields unchanged. No source sample chosen for effect sign.
+
+## Only three operational functional endpoints
+1. Among original EPT individuals with verified original FFG, the fractional weight coded SC (scraper/consumer of surface resources). Multi-assigned original FFG like SC,SH or CG,PR,SC gets equal fraction 1/2 or 1/3, not double-counted observations.
+2. Among original EPT individuals with verified original HABIT, the fractional weight coded CN (clinger/attachment form), with multiple original listed habits split equally. This is **not** measured habitat attachment or direct canopy feeding.
+3. Original EPT individual-count-weighted **mean PTV pollution tolerance score**, valid 0–10, lower score more sensitive in official source metric definition. This is a preexisting taxon attribute, **not** measured experimental tolerance or adaptation.
+
+Unknown trait is excluded from both trait numerator and trait-known denominator, NEVER assigned as zero. Original EPT counted zero => missing trait ratio (not biological zero), counted EPT>0 but trait-known <80% of actual original EPT counted individuals => excluded for that specific endpoint, with original source count/fraction and HUC8 distribution audited separately. For each endpoint in each period minimum target >=250 original native UIDs, >=150 HUC8, >=20 states; other-two original periods after removing all original target-period HUC8 from training >=300 original native UIDs, >=200 distinct HUC8 and >=15 states. If any fail, no model for that response/period.
+
+## Source-locked model and limits
+Four original EPA PR82 comparator models: geographic state/eco9/lat/lon/Strahler/field season/field conductivity; + original measured ambient TN/TP; + six original PHab fields (XEMBED riverbed embedding, XCDENMID canopy density, XPCAN canopy presence, XFC_OHV overhanging vegetation, W1_HALL human disturbance, log wetted width); +both. Ridge alpha10 trained on two other EPA survey periods **after excluding ALL original HUC8 appearing in the entire heldout original target period**, one-hot category levels and numeric scalers trained on fitting periods only, HUC8-equal fitting weight and test MSE, descriptive fixed HUC8 2000-block resample 95 intervals. Report every positive/negative/uncertain NP added after PHab and PHab added after NP (no selective feature tuning). Secondary sensitivity alternative multi-code any-membership is exploratory, not substitute primary if unfavorable.
+
+FFG, HABIT and PTV are overlapping properties of original EPT classified taxa, not independent field samples. No causal riverbed or nutrient effect is identified. Original TN/TP concentrations are measured AMBIENT stream water, not historically verified source-delivered sewage; actual POTW dual N/P source gate failed [PR #74](https://github.com/zuizui0223/gesui/pull/74). No actual insect dry mass, flow of larvae to emergent adult biomass, fish predators, pollination, primary production or ecosystem service measured. Preserve old positive and failed PR82 universal EPT richness and PR79 novel HUC8 Chla moderation failures. Draft unmerged, no eBird/TinyFish.
+
+Official sources: [2008 EPA Taxa List and Autecology](https://www.epa.gov/sites/default/files/2016-06/nrsa_0809_benttaxa.csv), [2013 EPA Benthic Taxa List](https://www.epa.gov/sites/default/files/2019-04/nrsa1314_benttaxa_02012019.csv), [2013 metadata/trait coding](https://www.epa.gov/sites/default/files/2019-04/nrsa1314_benttaxa_meta_04292019.txt), original 2018 EPA BERW counts with native TAXA_ID/TARGET_TAXON/ORDER.
