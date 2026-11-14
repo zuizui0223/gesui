@@ -22,3 +22,13 @@ Four original EPA PR82 comparator models: geographic state/eco9/lat/lon/Strahler
 FFG, HABIT and PTV are overlapping properties of original EPT classified taxa, not independent field samples. No causal riverbed or nutrient effect is identified. Original TN/TP concentrations are measured AMBIENT stream water, not historically verified source-delivered sewage; actual POTW dual N/P source gate failed [PR #74](https://github.com/zuizui0223/gesui/pull/74). No actual insect dry mass, flow of larvae to emergent adult biomass, fish predators, pollination, primary production or ecosystem service measured. Preserve old positive and failed PR82 universal EPT richness and PR79 novel HUC8 Chla moderation failures. Draft unmerged, no eBird/TinyFish.
 
 Official sources: [2008 EPA Taxa List and Autecology](https://www.epa.gov/sites/default/files/2016-06/nrsa_0809_benttaxa.csv), [2013 EPA Benthic Taxa List](https://www.epa.gov/sites/default/files/2019-04/nrsa1314_benttaxa_02012019.csv), [2013 metadata/trait coding](https://www.epa.gov/sites/default/files/2019-04/nrsa1314_benttaxa_meta_04292019.txt), original 2018 EPA BERW counts with native TAXA_ID/TARGET_TAXON/ORDER.
+
+## Source-only site-support result and fixed descriptive co-gradient sensitivity, before new functional predictor effects
+
+[True EPA 3-cycle same-UID EPT traits site source gate SUCCESS #43571110513](https://github.com/zuizui0223/gesui/actions/runs/43571110513), requiring **EPT counted>0 and >=80% actual source EPT individuals trait-assigned at each site**:
+- Scraper FFG: 2008 n454/357 HUC8, 2013 n892/593 HUC8, 2018 n701/477 HUC8.
+- Clinger HABIT: 2008 n462/360, 2013 n918/605, 2018 n719/481.
+- Pollution tolerance PTV: 2008 n440/345, 2013 n851/576, 2018 n674/460.
+All target source gates passed, train after excluding *the entire prior full target-cycle HUC8* remains subject to predeclared source gate n300/200HUC8/15states; no effects fitted when gate fails.
+
+Additional pre-frozen **descriptive within-era partial gradients**: for every supported functional endpoint and era, simultaneously adjust for same geographic state, eco9, latitude/longitude, stream order, season, field conductivity, six original PHab and measured in-stream TN/TP (all main effects). Report continuous original trait response change per +1 standard deviation in each of exactly **XEMBED, logTN, logTP**, with HUC8-cluster robust 95% descriptive intervals, no selected interactions, no tests interpreted as confirmatory under 9 endpoints ×3 moderators multiplicity. Coefficients are observational and correlated covariates may be mediators/colliders, not mechanistic attribution. Reporting every coefficient and null is mandatory.
