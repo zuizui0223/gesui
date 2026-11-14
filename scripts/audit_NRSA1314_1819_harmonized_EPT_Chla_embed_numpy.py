@@ -105,6 +105,8 @@ out={"schema":"gesui_NRSA1314_NR​​SA1819_HARMONIZED_EPT_CHLA_EMBED_MANUAL_NU
      "2013_only_original_2014":evaluate(d[d.year==2014],"logchla"),
      "2013_unique_physical_site_first_visit":evaluate(d.sort_values(["year","UID"]).drop_duplicates("site_id"),"logchla"),
      "2013_original_benthic_TOTAL300_ge250":evaluate(d[d.total_benthic_counted>=250],"logchla"),
+     "2013_HUC8_exclusive_of_all_2018_valid_HUC8":evaluate(d[~d.huc8.isin(set(q.huc8))],"logchla"),
+     "2018_HUC8_exclusive_of_all_2013_valid_HUC8":evaluate(q[~q.huc8.isin(set(d.huc8))],"logchla"),
      "no_independent_experimental_confirmation_or_WWTP_attribution":True,
      "outcome_based_site_rediscovery_or_drop_positive_sign_not_used":True}
 for key,m,truth in [
@@ -128,4 +130,5 @@ print("NRSA1314_1819_HARMONIZED_INDEPENDENT_NUMPY_PASS",
        "2013_14_original_source_harmonized","2013_14_original_areal_AFDM_secondary",
        "2018_19_original_source_harmonized","2013_only_original_2013","2013_only_original_2014",
        "2013_unique_physical_site_first_visit","2013_original_benthic_TOTAL300_ge250",
+       "2013_HUC8_exclusive_of_all_2018_valid_HUC8","2018_HUC8_exclusive_of_all_2013_valid_HUC8",
        "shared_2013_2018_HUC8","separate_2013_HUC8","separate_2018_HUC8")},sort_keys=True))
