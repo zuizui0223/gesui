@@ -1,0 +1,30 @@
+name: gesui independent NRSA2013-14 EPT Chla PHab nutrient source census
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA1314_official_6table_SOURCE_only.py
+      - .github/workflows/gesui-nrsa1314-independent-source-census.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  independent-era-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Publisher authentic EPA NRSA 2013-14 source-only six-table UID and header audit
+        run: |
+          python -m py_compile scripts/gesui_NRSA1314_official_6table_SOURCE_only.py
+          python scripts/gesui_NRSA1314_official_6table_SOURCE_only.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa1314-original-EPA-six-table-source-census
+          path: ${{ runner.temp }}/gesui1314_independent_source/NRSA1314_EPA_ORIGINAL_SIX_TABLE_SOURCE_GATE.json
+          if-no-files-found: warn
+          retention-days: 60
