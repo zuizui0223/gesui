@@ -83,3 +83,41 @@ Potential ecological hypotheses, **NOT proven mechanisms**: substrate embedding 
 - Relative EPT fraction ≠ absolute aquatic insect biomass or adult emergence; original 2008 unknown taxon order bounded, later BERW and 2008 BERWW protocols and source flags need cross-method caution.
 - All HUC8-group resample intervals are fixed OOS error quantiles, **not confirmatory p-values, causal-effect confidence or independent refitting**. Distinct original 1,030 HUC8 rather than 2,648 biological independent replicates; groups may have repeat visits, sampling is unweighted by national spatial survey weights.
 - No data from eBird, no TinyFish. No main merge. Keep all positive and negative old PRs #73–#80 and new PR Draft status.
+
+
+## Posthoc source-semantic four-group PHab ablation — why the environmental signal differs between cycles
+
+The full original PHab six-variable result was already known before this diagnostic, so this is **posthoc mechanistic *exploration***, not an independently preregistered ecological effect. Nevertheless all **four** physical source-defined groups were documented *before looking at their newly fitted grouped effects* in [the source freeze](https://github.com/zuizui0223/gesui/blob/analysis/nrsa-threecycle-ept-crossperiod-huc8-20261114/docs/NRSA_THREECYCLE_EPT_PHAB_FOURGROUP_ABLATION_POSTHOC_FREEZE_20261114.md), and all positive and negative group results are reported. The native original 2,648 EPT visits, original 1,030 HUC8 and the **EXACT same zero-HUC8-overlap train/test partitions** were reused. Source actual response is original EPT counted relative share, not richness/emergence.
+
+The source physical groups are: `XEMBED` embeddedness (substrate); `XCDENMID + XPCAN + XFC_OHV` canopy/cover; `log10(XWIDTH)` channel geometry; `W1_HALL` human-disturbance weighted index. No variable was omitted based on its result.
+
+**Independent original empirical source-only standalone group added to geographic + measured ambient TN/TP baseline** (HUC8-equal external MSE improvements):
+
+| Original external target cycle | Substrate embeddedness XEMBED | Canopy / vegetation structure | Wetted channel width | W1_HALL human disturbance |
+|---|---:|---:|---:|---:|
+| 2008–09 | +3.187% [−2.910%,+9.029%] uncertain | **+3.663% [+1.048%,+6.369%]** | **+4.419% [+1.047%,+7.829%]** | −0.315% [−2.234%,+1.497%] |
+| 2013–14 | **+6.881% [+3.079%,+10.621%]** | +0.494% [−2.892%,+3.890%] | +1.709% [−0.101%,+3.418%] | +0.793% [−0.042%,+1.632%] |
+| 2018–19 | **+10.048% [+7.720%,+12.679%]** | +1.016% [−1.480%,+3.396%] | **+2.752% [+0.925%,+4.512%]** | +0.052% [−1.005%,+1.033%] |
+
+All bracket ranges are fixed heldout error 2,000 independent-HUC8 source group resample **descriptive95**, **not causal confidence intervals or confirmatory p-values**. The groups are correlated, so their standalone gains are non-additive and must not be equated to variance partition components.
+
+**Independent conditional ablation:** in the full PHab+NP model, remove one group and then add it back. Thus if a group remains useful despite all other physical variables, its conditional information is more likely nonredundant, but still **NOT a causal effect**:
+
+| Original external cycle | Add XEMBED after other 3 groups [descriptive95] | Add width after other 3 groups [descriptive95] |
+|---|---|---|
+| 2008–09 | +1.731% [−3.983%,+7.039%] uncertain | +2.224% [−0.332%,+4.828%] uncertain |
+| 2013–14 | **+6.008% [+2.743%,+9.260%]** | +0.834% [−0.773%,+2.280%] uncertain |
+| 2018–19 | **+7.909% [+5.878%,+10.091%]** | **+1.642% [+0.367%,+2.911%]** |
+
+Conditional canopy/cover information: 2008 +1.355% [−0.158%,+2.919%], 2013 −0.390% [−2.951%,+2.058%], 2018 −0.661% [−2.549%,+1.085%]. W1_HALL was generally weak, with 2013 small +0.307% [+0.069%,+0.543%] conditionally; no causal sewage implication.
+
+**Audit and source lineage:**
+- [Authentic EPA three-period original raw source and four-group external model SUCCESS #43567292831](https://github.com/zuizui0223/gesui/actions/runs/43567292831).
+- [Independent NumPy weighted normal equation for all 3 periods × four group SOLO and conditional tests, all 2000 HUC8 bootstrap quantiles reproduced exactly SUCCESS #43567482957](https://github.com/zuizui0223/gesui/actions/runs/43567482957). Full PHab and no-PHab original MSEs were independently checked against the pre-existing parent run **before** evaluating any new group results.
+- This is a new diagnostic on **the same field data**, not independent field replication; 4 groups×3 periods×2 contrasts entail many exploratory comparisons, so individual positive bootstrap intervals should not be overinterpreted as multiplicity-protected discoveries.
+
+### Scientific consequence
+
+The positive six-variable physical-environment transport is supported across **whole unseen survey cycles** even when no training record shares an HUC8 with test. **But the specific physical feature carrying predictive information differs across original cycles**: true `XEMBED` riverbed embeddedness is strongly conditionally informative in the 2013 and 2018 tests, whereas **canopy/vegetation cover and actual channel width** carry substantial *standalone* information in the 2008 test. This argues against a one-variable universal direct nutrient→riverbed→EPT process or a single static substrate mechanism. Variation could reflect original habitat distributions, protocol changes, correlations between physical predictors, and differences in regional assemblages. These 2008/2013/2018 are NOT randomized replicates and EPT counted share is a compositional outcome, not insect biomass.
+
+A defensible paper-level macroecological story would emphasize **historically transportable predictability from measured local environmental structure with region/protocol-dependent drivers**, instead of asserting a sewage causal subsidy or a universal bottom-up biodiversity–biomass cascade. The original EU/US wastewater-source direct-discharge evidence remains inadequate for this latter claim.
