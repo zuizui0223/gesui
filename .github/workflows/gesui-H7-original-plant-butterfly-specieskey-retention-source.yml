@@ -1,0 +1,52 @@
+name: Source-only restore of actual H7 plant and butterfly speciesKey identities
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Source-only pilot or full original H7 study
+        type: choice
+        options: [pilot, full]
+        default: pilot
+        required: true
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  gbif-original-h7-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve exact frozen original 234 H7 polygons and five-family taxon keys
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source
+      - name: Fetch full source speciesKey identity facets
+        if: inputs.mode == 'full' || matrix.shard == 0
+        env:
+          H7_234_PRE_NEW_RESPONSE_SOURCE: ${{ runner.temp }}/original_source/HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json
+        run: |
+          python -m py_compile scripts/gesui_H7_original_fivefamily_plants_speciesKey_retention.py
+          python scripts/gesui_H7_original_fivefamily_plants_speciesKey_retention.py --mode ${{ inputs.mode }} --shard ${{ matrix.shard }} --out ${{ runner.temp }}/original_h7_specieskey_shard
+      - name: Preserve original source identities and full source QA
+        if: always() && (inputs.mode == 'full' || matrix.shard == 0)
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-H7-six-groups-original-speciesKey-${{ inputs.mode }}-${{ matrix.shard }}
+          path: ${{ runner.temp }}/original_h7_specieskey_shard/
+          if-no-files-found: warn
+          retention-days: 30
