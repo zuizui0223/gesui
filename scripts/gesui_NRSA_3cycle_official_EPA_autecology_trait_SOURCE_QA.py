@@ -112,6 +112,7 @@ mapping={
  "2008_09":trait_maps["taxa2008"],
  "2013_14":trait_maps["taxa2013"]}
 stats={}
+traitRows=[]
 for era in ("2008_09","2013_14","2018_19"):
  site=counts[counts.cycle.eq(era)].copy()
  site["key"]=normalize(site.key)
@@ -176,7 +177,29 @@ for era in ("2008_09","2013_14","2018_19"):
   result["true_original_"+trait+"_verified_EPT_counted_individual_coverage"]=float(site.loc[ept&can,"count"].sum()/denom) if denom else 0
   result["original_"+trait+"_known_category_counts"]=site.loc[ept&can,key].value_counts().head(20).to_dict()
  stats[era]=result
+ # Original-source verified taxon trait assignment is made BEFORE any
+ # environmental effect fitting. Every original per-cycle TAXA_ID maps
+ # to only ONE original FFG/HABIT/PTV after identifier and order QA.
+ schema=["key","order"]+["FFG_norm","HABIT_norm","PTV_norm","VOLTINISM_norm"]
+ for col in schema:
+  if col not in site:site[col]=""
+ validtrait=site[schema].copy()
+ for trait in FIELDS:
+  validtrait.loc[~good_identity,trait+"_norm"]=""
+ conflict=validtrait.groupby("key",dropna=False).nunique()
+ if (conflict>1).any().any():
+  raise RuntimeError("Original source trait assignment discordant across repeated UID rows for taxon key "+era)
+ one=validtrait.drop_duplicates("key").copy()
+ one["source_cycle"]=era
+ traitRows.append(one)
  print("NRSA_3CYCLE_OFFICIAL_BENTHIC_TRAITS_SOURCE_COVERAGE",era,json.dumps(result,sort_keys=True),flush=True)
+# Emit ONLY the original taxonomic trait lookup to runner ephemeral disk.
+# The taxon-level lookup is never a new field observation or per-site
+# ecological response, and is excluded from uploaded workflow artifacts.
+lookup=pd.concat(traitRows,ignore_index=True)
+if lookup.duplicated(["source_cycle","key"]).any():
+ raise RuntimeError("Source checked EPT trait key duplicates after grouping")
+lookup.to_csv(R/"AUDIT_ONLY_EPA_ORIGINAL_3CYCLE_TAXA_FFG_HABIT_PTV.csv",index=False)
 # Conservative source gate for genuinely comparable 3-era FFG, PTV, HABIT.
 passes={trait:all(stats[era]["true_original_"+trait+"_verified_EPT_counted_individual_coverage"]>=.70
                  for era in stats) for trait in ("FFG","HABIT","PTV")}
