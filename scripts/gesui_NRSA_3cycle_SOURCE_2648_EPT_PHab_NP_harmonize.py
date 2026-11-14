@@ -41,7 +41,16 @@ def src_cycle(name):
   flags=(source.chla_flag.fillna("").eq("") &
          source.tn_mgL_rawflag.fillna("").eq("") &
          source.tp_mgL_rawflag.fillna("").eq(""))
-  df=source.loc[flags].copy()
+  # EXACT original PR77 same-visit EPT+Chla+TN/TP source-quality frame:
+  # n947 strictly measured before physical, n946 with all original dense
+  # PHab fields. Don't select a different cohort based on result values.
+  old_core=["lat","lon","year","stream_order","season_sin","season_cos",
+            "log_cond","log_tn","log_tp","log_chla","ept_fraction",
+            "log_taxon_richness","log_total_subsample_count"]
+  old_phab=["XPCAN","XGVEG","XFC_OHV","W1_HALL",
+            "log_width","XCDENMID","XEMBED"]
+  df=source.loc[flags].dropna(subset=old_core+old_phab).copy()
+  df=df[(df.huc8!="")&(df.state!="")&(df.eco9!="")]
   df=df.rename(columns={"log_afdm":"log_afdm_original"})
  else:raise RuntimeError("Unknown frozen original cycle")
  df=df.rename(columns={"UID":"source_UID"})
