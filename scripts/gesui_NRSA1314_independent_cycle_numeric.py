@@ -69,10 +69,14 @@ for k in ("water","chla","afdm","phab"):
 date_discordance={}
 for k in ("water","chla","afdm","phab"):
  if "DATE_COL" in raw[k]:
-  t=ref.DATE_COL.astype(str).str.strip()
-  v=raw[k].DATE_COL.astype(str).str.strip()
-  eq=t.eq(v)|t.eq("")|v.eq("")
-  date_discordance[k]=int((~eq).sum())
+  t=pd.to_datetime(ref.DATE_COL,errors="coerce",format="mixed")
+  v=pd.to_datetime(raw[k].DATE_COL,errors="coerce",format="mixed")
+  bad=t.notna()&v.notna()&t.dt.normalize().ne(v.dt.normalize())
+  date_discordance[k]=int(bad.sum())
+  fmt_only=int((ref.DATE_COL.astype(str)!=raw[k].DATE_COL.astype(str)).sum()-bad.sum())
+  print("NRSA1314_ORIGINAL_DATE_ALIGNMENT",k,
+        "true_unmatched",date_discordance[k],"format_only_or_missing",fmt_only,
+        "original_sample_date_pairs",list(zip(ref.DATE_COL.loc[bad].head(4).tolist(),raw[k].DATE_COL.loc[bad].head(4).tolist())),flush=True)
   if date_discordance[k]>0:raise RuntimeError("Native original SITE_ID same but original visit DATE_COL conflicts: "+k)
 B=raw["benthic"]
 B=B[B.UID.isin(allowed)&B.SAMPLE_TYPE.str.upper().eq("BERW")].copy()
