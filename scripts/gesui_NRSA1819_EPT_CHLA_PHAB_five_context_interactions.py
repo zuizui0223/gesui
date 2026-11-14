@@ -169,7 +169,7 @@ quality={
  "states":d.state.nunique(),"HUC8":d.huc8.nunique(),
  "fivefold_groups":np.bincount(fold,minlength=5).tolist(),
  "initial_2018_year_only":int((d.year==2018).sum()),
- "initial_2019_year_only":int((d.year==2019).sum()
+ "initial_2019_year_only":int((d.year==2019).sum())
 }
 report={
  "schema":"gesui_NR​​SA1819_EPT_CHLA_fivePHAB_moderators_preattached_posthoc_v1",
