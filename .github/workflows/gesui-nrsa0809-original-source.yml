@@ -1,0 +1,27 @@
+name: gesui original EPA NRSA2008-09 benthic water physical source
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA0809_original_SourceOnly.py
+      - .github/workflows/gesui-nrsa0809-original-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact-EPA-source-and-identifier-QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - name: Five original US EPA 2008–09 CSV and metadata/source header
+        run: |
+          python -m py_compile scripts/gesui_NRSA0809_original_SourceOnly.py
+          python -u scripts/gesui_NRSA0809_original_SourceOnly.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-NRSA0809-five-original-EPA-source-census
+          path: ${{ runner.temp }}/gesui0809_source/NRSA0809_EPA_ORIGINAL_SOURCE_ONLY_COUNT_AND_GRANULARITY.json
+          if-no-files-found: warn
+          retention-days: 60
