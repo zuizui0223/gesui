@@ -14,10 +14,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Download fixed original Dryad files and verify publisher SHA256
+      - name: Download public files; never bypass authorization or browser challenge
         run: |
           python - <<'PY'
-          import pathlib,urllib.request,json,hashlib,csv,io,time
+          import pathlib,urllib.request,urllib.error,json,hashlib,time
           out=pathlib.Path('clarke2024_source');out.mkdir()
           files=[
           (2850976,'butterfly_synonym.csv','48cbd45f0aa543803f9426e1a8753b9acaeeec6274b02f7d1dbedbee64fb25ff'),
@@ -29,26 +29,25 @@ jobs:
           (2850978,'region.csv','2ba9b4f1393d095e0f03ab010d1aa9a6ebd1a006413c7ad2ba8ba4a558e4ad70'),
           (2850979,'wcvp_extendedb.csv','1dc8cf7a81aef4b89499d5d3f3f3805d34cd1aedfab0ab662b947fbcc64166a0'),
           (2850987,'wiemers_distribution.csv','3b50833afe15bf314bac20b713990f14375be51b02baed2dffb270398aab65ee')]
-          receipts=[]
+          receipts=[];failed=False
           for fid,name,wanted in files:
-              url=f'https://datadryad.org/api/v2/files/{fid}/download'
-              for attempt in range(4):
-                  try:
-                      req=urllib.request.Request(url,headers={'User-Agent':'gesui-source-audit/1','Accept':'*/*'})
-                      with urllib.request.urlopen(req,timeout=100) as r:raw=r.read()
-                      break
-                  except Exception:
-                      if attempt==3:raise
-                      time.sleep(3*(attempt+1))
-              got=hashlib.sha256(raw).hexdigest()
-              if got!=wanted:raise RuntimeError('Publisher source SHA mismatch: '+name)
-              (out/name).write_bytes(raw)
-              receipts.append({'file':name,'url':url,'sha256':got,'bytes':len(raw)})
-              print('SOURCE_VERIFIED',name,len(raw),flush=True)
-              if name.endswith('.csv'):
-                  lines=raw.decode('utf-8-sig').splitlines()
-                  print('HEADER_AND_FIRST_ROW',name,lines[:2],flush=True)
+              url=f'https://datadryad.org/downloads/file_stream/{fid}'
+              try:
+                  req=urllib.request.Request(url,headers={'User-Agent':'gesui-source-audit/1','Accept':'*/*'})
+                  with urllib.request.urlopen(req,timeout=100) as r:raw=r.read();ct=r.headers.get('Content-Type','')
+                  got=hashlib.sha256(raw).hexdigest()
+                  if got!=wanted:
+                      receipts.append({'file':name,'url':url,'error':'not_authenticated_original_bytes','sha256':got,'content_type':ct,'prefix':raw[:180].decode(errors='replace')})
+                      failed=True;break
+                  (out/name).write_bytes(raw)
+                  receipts.append({'file':name,'url':url,'sha256':got,'bytes':len(raw),'verified':True})
+                  print('SOURCE_VERIFIED',name,len(raw),flush=True)
+                  if name.endswith('.csv'):print('HEADER_AND_FIRST_ROW',name,raw.decode('utf-8-sig').splitlines()[:2],flush=True)
+              except Exception as e:
+                  receipts.append({'file':name,'url':url,'error':str(e)});failed=True;break
           (out/'SOURCE_MANIFEST.json').write_text(json.dumps({'doi':'10.5061/dryad.1vhhmgr12','version':274312,'source_only':True,'files':receipts},indent=2))
+          print(json.dumps(receipts),flush=True)
+          if failed:raise SystemExit('Public source route unavailable; do not use error response as data')
           PY
       - name: Retain source tables and publisher digest receipts
         if: always()
