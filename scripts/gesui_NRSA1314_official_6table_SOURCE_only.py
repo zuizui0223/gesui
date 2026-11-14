@@ -41,7 +41,7 @@ def get(name,leaf):
    if i==2:return None,{"url":url,"status":"UNAVAILABLE_NOT_ZERO","error":type(e).__name__+":"+str(e)[:150]}
    time.sleep(2**i)
 def inspect(p):
- with p.open(encoding="utf-8-sig",newline="") as f:
+ with p.open(encoding="utf-8-sig",errors="replace",newline="") as f:
   r=csv.DictReader(f)
   cols=r.fieldnames
   if not cols or "UID" not in cols:raise RuntimeError("Original EPA 2013 UID header not found")
@@ -91,6 +91,7 @@ def main():
   "original_table_receipts":entries,
   "original_source_only_join":source,
   "source_only_numerical_effects_not_read":True,
+  "text_encoding_note":"Official 2013 files include non-UTF8 original person/taxon labels; source UID census only uses ASCII IDs with replacement on non-ID text. Raw original byte SHA preserved.",
   "old_NR​​SA1819_interaction_known_a_priori":True,
   "no_source_selection_based_on_new_independent_effect_sign":True,
   "zero_rows_or_HTTP_404_NOT_biological_zero":True
