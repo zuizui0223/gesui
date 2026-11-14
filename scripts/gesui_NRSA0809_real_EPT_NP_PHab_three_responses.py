@@ -127,6 +127,20 @@ flags=D.source_nutrients_unalerted & D.source_cond_unalerted & D.MMI_record_wade
 baseline=["lat","lon","year","stream_order","season_sin","season_cos","log_cond",
           "log_tn","log_tp","XEMBED","XCDENMID","XPCAN","XFC_OHV","W1_HALL","log_width"]
 # Keep original EPT=0 where a genuine published biological zero was measured.
+# SOURCE measurement completeness diagnostics, before fitting; not a
+# license to loosen original pre-committed sample/quality gates based on signs.
+print("NRSA0809_PRENUMERIC_ORIGINAL_SOURCE_QA",json.dumps({
+  "source_1299_UIDs":len(D),
+  "BENT_SAMPLE_TYPE":m.BENT_SAMPLE_TYPE.str.strip().value_counts().head(12).to_dict(),
+  "SAMPLED_BENT":m.SAMPLED_BENT.str.strip().value_counts().head(12).to_dict(),
+  "MMI_wade_yes":int(source_mmi_ok.sum()),
+  "original_CHEMW_nutrient_no_alert":int(D.source_nutrients_unalerted.sum()),
+  "source_COND_no_alert":int(D.source_cond_unalerted.sum()),
+  "joint_all_quality_flags":int(flags.sum()),
+  "all_covariate_numeric_nonmissing":{col:int(D[col].notna().sum()) for col in baseline+["ept_fraction","log1p_EPT_taxon_count","benthic_MMI"]},
+  "joint_good_flags_and_all_numeric":int(D.loc[flags].dropna(subset=baseline+["ept_fraction","log1p_EPT_taxon_count","benthic_MMI"]).shape[0]),
+  "original_measurement_ranges":ranges
+ },sort_keys=True),flush=True)
 Q=D[flags].dropna(subset=baseline+["ept_fraction","log1p_EPT_taxon_count","benthic_MMI"]).copy()
 Q=Q[(Q.state!="")&(Q.eco9!="")&(Q.huc8!="")&Q.year.isin([2008,2009])].sort_index()
 if len(Q)<300 or Q.huc8.nunique()<150 or Q.state.nunique()<20:
