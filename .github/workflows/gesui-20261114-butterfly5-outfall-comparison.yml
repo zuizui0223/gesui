@@ -1,0 +1,104 @@
+name: gesui five-butterfly-family same-basin sewage geography contrast (Draft)
+
+on:
+  push:
+    paths:
+      - "scripts/gesui_EU454_fivefamily_wastewater_association_20261114.py"
+      - "docs/SEWAGE_ASSOCIATED_ASSEMBLAGE_FIVE_BUTTERFLY_FAMILIES_PROTOCOL_20261114.md"
+      - ".github/workflows/gesui-20261114-butterfly5-outfall-comparison.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  real-comparative-five-family-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --quiet "numpy>=1.26,<3"
+      - name: Retrieve original 454 same-unit EU butterfly/EQR source cohort
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original454
+      - name: Retrieve authentic H6 parent geographic grouping
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43338311684
+          name: gesui-H6-EU232-original-invalid-polygon-explicit-repair-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/originalH6
+      - name: Retrieve original HydroATLAS upstream land use and flow
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/originalAtlas
+      - name: Retrieve independent original five-family GBIF source shard 0
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-0
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/family0
+      - name: Retrieve independent original five-family GBIF source shard 1
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-1
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/family1
+      - name: Retrieve independent original five-family GBIF source shard 2
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-2
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/family2
+      - name: Retrieve independent original five-family GBIF source shard 3
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43204891739
+          name: gesui-234-EU-L7-original-S50-butterfly5-full-shard-3
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/family3
+      - name: Evaluate all five family contrasts on the exact same original cohort
+        env:
+          ORIGINAL_454_EEA_GBIF_SOURCE_ROWS: ${{ runner.temp }}/original454/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv
+          ORIGINAL_TRUE_H6_GEOGRAPHY: ${{ runner.temp }}/originalH6/HYBAS7_232_TO_OFFICIAL_HYBAS6_SOURCE_PARENT_EXPLICIT_REPAIR_v2.json
+          ORIGINAL_H7_HYDROATLAS_SOURCE: ${{ runner.temp }}/originalAtlas/HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json
+          ORIGINAL_FAMILY_SHARD_0: ${{ runner.temp }}/family0/HYBAS7_234EU_NATIVE_PLANT_S50_BUTTERFLY5_ORIGINAL_SOURCE_RESULTS.json
+          ORIGINAL_FAMILY_QA_0: ${{ runner.temp }}/family0/HYBAS7_234EU_NATIVE_SOURCE_JOINT_ECOLOGY_QA.json
+          ORIGINAL_FAMILY_SHARD_1: ${{ runner.temp }}/family1/HYBAS7_234EU_NATIVE_PLANT_S50_BUTTERFLY5_ORIGINAL_SOURCE_RESULTS.json
+          ORIGINAL_FAMILY_QA_1: ${{ runner.temp }}/family1/HYBAS7_234EU_NATIVE_SOURCE_JOINT_ECOLOGY_QA.json
+          ORIGINAL_FAMILY_SHARD_2: ${{ runner.temp }}/family2/HYBAS7_234EU_NATIVE_PLANT_S50_BUTTERFLY5_ORIGINAL_SOURCE_RESULTS.json
+          ORIGINAL_FAMILY_QA_2: ${{ runner.temp }}/family2/HYBAS7_234EU_NATIVE_SOURCE_JOINT_ECOLOGY_QA.json
+          ORIGINAL_FAMILY_SHARD_3: ${{ runner.temp }}/family3/HYBAS7_234EU_NATIVE_PLANT_S50_BUTTERFLY5_ORIGINAL_SOURCE_RESULTS.json
+          ORIGINAL_FAMILY_QA_3: ${{ runner.temp }}/family3/HYBAS7_234EU_NATIVE_SOURCE_JOINT_ECOLOGY_QA.json
+        run: |
+          python -m py_compile scripts/gesui_EU454_fivefamily_wastewater_association_20261114.py
+          python scripts/gesui_EU454_fivefamily_wastewater_association_20261114.py
+      - name: Retain all original family positive, negative and null comparisons
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-five-family-original-h6-country-wastewater-contrast-20261114
+          path: ${{ runner.temp }}/gesui_20261114_5BUTTERFLY_FAMILY_MACRO/
+          if-no-files-found: warn
+          retention-days: 30
