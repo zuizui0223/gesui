@@ -1,0 +1,47 @@
+name: gesui EPA 2008 raw benthic taxon ID to EPT order original source
+on:
+  push:
+    paths:
+      - scripts/gesui_NRSA0809_original_TAXA_ID_ORDER_bridge_source.py
+      - .github/workflows/gesui-nrsa0809-benthic-order-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  native-original-TAXA-ID-to-ORDER:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --quiet "pandas>=2.1,<3" "numpy>=1.26,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA0809-original-wade-BERWW-CHEMW-HUC8-gate
+          run-id: 43562599406
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/orig0809_gate
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA0809-five-original-EPA-source-census
+          run-id: 43562414140
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/orig0809_source
+      - name: Exact original TAXA_ID to ORDER before environmental or biological coefficients
+        env:
+          NRSA0809_FROZEN_SOURCE_QA: ${{ runner.temp }}/orig0809_gate/NRSA0809_ORIGINAL_WADEABLE_BENTHIC_CHEMW_PHAB_SEMANTICS.json
+          NRSA0809_FIRST_EPA_SOURCE: ${{ runner.temp }}/orig0809_source/NRSA0809_EPA_ORIGINAL_SOURCE_ONLY_COUNT_AND_GRANULARITY.json
+        run: |
+          python -m py_compile scripts/gesui_NRSA0809_original_TAXA_ID_ORDER_bridge_source.py
+          python -u scripts/gesui_NRSA0809_original_TAXA_ID_ORDER_bridge_source.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa0809-original-BERWW-TAXA-ID-to-ORDER-source-QA
+          path: ${{ runner.temp }}/gesui0809_taxon_source/NRSA0809_BERWW_TOTAL300_TAXA_ID_ORDER_ORIGINAL_CROSSWALK_SOURCE_QA.json
+          if-no-files-found: warn
+          retention-days: 60
