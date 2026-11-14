@@ -55,7 +55,20 @@ def src_cycle(name):
  else:raise RuntimeError("Unknown frozen original cycle")
  df=df.rename(columns={"UID":"source_UID"})
  df["source_cycle"]=name
- df["huc8"]=df.huc8.astype(str).str.strip()
+ # Original EPA HUC8 is stored in some 2008 numeric-like fields
+ # as SEVEN decimal digits when the leading zero was omitted by CSV
+ # publisher. HUC8 is an eight-digit geographic identifier, not a
+ # numerical quantity. Restore ONLY the missing leading zero, never
+ # round, hash, geocode or guess an unobserved basin.
+ rawhuc=df.huc8.astype(str).str.strip()
+ if not rawhuc.str.fullmatch(r"\d{7,8}").all():
+  badcode=rawhuc.loc[~rawhuc.str.fullmatch(r"\d{7,8}")].unique()[:10]
+  raise RuntimeError("Original HUC8 code not an unambiguous 7/8 decimal code "+name+":"+str(badcode))
+ huc_original_lengths={str(int(k)):int(v) for k,v in rawhuc.str.len().value_counts().items()}
+ huc_leading_zero_restored=int(rawhuc.str.len().eq(7).sum())
+ df["huc8"]=rawhuc.str.zfill(8)
+ if df.huc8.nunique()!=rawhuc.nunique():
+  raise RuntimeError("Original HUC8 leading-zero normalization collapses distinct original source codes: "+name)
  df["state"]=df.state.astype(str).str.strip().str.upper()
  df["eco9"]=df.eco9.astype(str).str.strip().str.upper()
  df["site_id"]=df.site_id.astype(str).str.strip()
@@ -96,6 +109,9 @@ def src_cycle(name):
   "source_year_counts":{str(int(k)):int(v) for k,v in df.year.value_counts().items()},
   "ecoregions":sorted(df.eco9.unique().tolist()),
   "source_huc8_sorted_sha256":hashlib.sha256("\n".join(sorted(set(df.huc8))).encode()).hexdigest(),
+  "original_raw_HUC8_source_digit_length_distribution":huc_original_lengths,
+  "original_seven_digit_HUC8_rows_restored_a_leading_zero":huc_leading_zero_restored,
+  "original_HUC8_identity_normalization_did_not_collapse_basin_labels":True,
   "source_aggregation_huc8_not_pseudo_independent_UID":True,
   "method":"BERWW original TOTAL300 count+TAXA_ID→ORDER" if name=="2008_09" else "BERW original TOTAL300 count",
   "same_panel_selected_pre_transfer_on_original_EPA_source_chem_chla_quality":name!="2008_09"}
