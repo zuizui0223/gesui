@@ -141,7 +141,7 @@ jobs:
         run: |
           python scripts/gesui_NRSA3cycle_rare100_SOURCE_only_cohort.py
 
-      - name: 100-individual exact hypergeom EPT diversity and original whole-survey/HUC8 external models: same sites versus expanded
+      - name: "100-individual hypergeom EPT taxon diversity, external HUC8 same vs expanded source sites"
         env:
           ORIGINAL_M100_SOURCE_ONLY_QA: ${{ runner.temp }}/prior_m100_source/NRSA_3ERA_RARE100_SOURCE_ONLY_COHORT_AND_ADDED_N_QA.json
           ORIGINAL_RARE200_MODEL_RESULT: ${{ runner.temp }}/prior_m200_result/NRSA_THREECYCLE_RARE200_EPT_SHARE_RICHNESS_EXTERNAL_TRANSPORT.json
