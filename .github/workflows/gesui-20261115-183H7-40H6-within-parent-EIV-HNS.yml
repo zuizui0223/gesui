@@ -1,0 +1,46 @@
+name: gesui original 183 true H7 in 40 H6 terrestrial within-parent EIV-HNS source association
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/test_183_40_within_H6.py'
+      - '.github/workflows/gesui-20261115-183H7-40H6-within-parent-EIV-HNS.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_183_H7_source_within_40_H6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43726596337
+          name: gesui-20261115-genuine-183H7-40H6-terrestrial-EIV-HNS-source-replayed
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_183_40
+      - name: Independent weighted H6 source cluster regression and 9999 geographically blocked null labels
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/test_183_40_within_H6.py
+          python -u analysis/20261115_h6_source_expansion/test_183_40_within_H6.py \
+            --source '${{ runner.temp }}/original_source_183_40' \
+            --output '${{ runner.temp }}/within_parent_results'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-genuine-183H7-40H6-original-terrestrial-within-parent-FE-null
+          path: ${{ runner.temp }}/within_parent_results/
+          retention-days: 90
+          if-no-files-found: warn
