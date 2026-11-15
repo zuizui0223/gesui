@@ -1,0 +1,72 @@
+{
+  "n_original_rows": 454,
+  "H7": 232,
+  "H6": 90,
+  "butterfly_keys": 303,
+  "host_keys": 990,
+  "catalogue_edges": 1565,
+  "edges_co_recorded_anywhere": 997,
+  "total_candidate_links_across_rows": 140128,
+  "median_host_support": 0.32398690720586965,
+  "median_catalogue_coverage": 0.9283156153137728,
+  "family_summary": [
+    {
+      "family": "Lycaenidae",
+      "recorded_speciesKeys": 75,
+      "host_mapped_speciesKeys": 52,
+      "catalogue_species_coverage": 0.6933333333333334,
+      "source_record_coverage": 0.9678816476327247,
+      "mean_host_support": 0.28332566140643073,
+      "median_host_support": 0.28293304274853504
+    },
+    {
+      "family": "Nymphalidae",
+      "recorded_speciesKeys": 149,
+      "host_mapped_speciesKeys": 100,
+      "catalogue_species_coverage": 0.6711409395973155,
+      "source_record_coverage": 0.9474349087374039,
+      "mean_host_support": 0.32363537314654395,
+      "median_host_support": 0.32736284461615117
+    },
+    {
+      "family": "Pieridae",
+      "recorded_speciesKeys": 33,
+      "host_mapped_speciesKeys": 20,
+      "catalogue_species_coverage": 0.6060606060606061,
+      "source_record_coverage": 0.9237990497181674,
+      "mean_host_support": 0.3081225823124656,
+      "median_host_support": 0.29294157486848194
+    },
+    {
+      "family": "Papilionidae",
+      "recorded_speciesKeys": 15,
+      "host_mapped_speciesKeys": 10,
+      "catalogue_species_coverage": 0.6666666666666666,
+      "source_record_coverage": 0.996509926070477,
+      "mean_host_support": 0.4610978514333568,
+      "median_host_support": 0.47993985443966747
+    },
+    {
+      "family": "Hesperiidae",
+      "recorded_speciesKeys": 31,
+      "host_mapped_speciesKeys": 27,
+      "catalogue_species_coverage": 0.8709677419354839,
+      "source_record_coverage": 0.9951678569044917,
+      "mean_host_support": 0.24022568875155448,
+      "median_host_support": 0.25078195665388037
+    }
+  ],
+  "null": {
+    "draws": 499,
+    "movable_host_keys": 912,
+    "all_host_keys": 990,
+    "observed_H6_equal_expected_links": 5.439283246918273,
+    "null_H6_equal_mean": 4.067968481546259,
+    "null_H6_equal95": [
+      3.6187018381028597,
+      4.5637308922916935
+    ],
+    "mc_fraction_null_at_least_observed_plus1": 0.002,
+    "not_causal_or_realized_network": true
+  }
+}
