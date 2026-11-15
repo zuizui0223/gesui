@@ -7,7 +7,7 @@ import base64,hashlib,html,html.parser,json,os,pathlib,re,urllib.request,urllib.
 ROOT="https://sdi.eea.europa.eu"
 TOKEN="ZcJ37WK6oaWonFJ"  # Public token embedded in EEA's official direct-download HTML.
 CANDIDATES=[
-("share_ui",ROOT+"/s/"+TOKEN,"GET"),
+("share_ui",ROOT+"/data/82e194cc-2506-411c-b341-9eb50b6ad5e0","GET"),
 ("dav_get",ROOT+"/public.php/dav/files/"+TOKEN+"/","GET"),
 ("dav_options",ROOT+"/public.php/dav/files/"+TOKEN+"/","OPTIONS"),
 ("dav_propfind",ROOT+"/public.php/dav/files/"+TOKEN+"/","PROPFIND"),
