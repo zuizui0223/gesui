@@ -132,8 +132,8 @@ def main(a):
         raise RuntimeError("Genuine 29 EIV/HNS supported H7 /10 H6 missing from 1219 covariate source")
     chosen=[]
     for h6 in sorted(perparent,key=int):
-        a=sorted(perparent[h6],key=lambda x:x["source_predeclared_geo_rank"])
-        chosen.append(a[0])
+        ordered=sorted(perparent[h6],key=lambda x:x["source_predeclared_geo_rank"])
+        chosen.append(ordered[0])
     if len(chosen)!=10:
         raise RuntimeError("Exactly ten previously source-eligible singleton H6 need one new H7")
     output={
