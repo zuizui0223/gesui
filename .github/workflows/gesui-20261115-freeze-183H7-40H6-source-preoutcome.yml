@@ -1,0 +1,49 @@
+name: gesui source-only freeze 183 distinct H7 within 40 true H6 before terrestrial model
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/freeze_183_H7_40_H6_preoutcome.py'
+      - '.github/workflows/gesui-20261115-freeze-183H7-40H6-source-preoutcome.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-source-only-H7-H6-freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EIV_v2
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43725920793
+          name: gesui-20261115-original-1219-H7-W-env-replay-old232-new29-strict
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_environment
+      - name: Freeze distinct true H7 source IDs and true parent H6 only (never open ecological outcomes)
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/freeze_183_H7_40_H6_preoutcome.py
+          python -u analysis/20261115_h6_source_expansion/freeze_183_H7_40_H6_preoutcome.py \
+            --prior '${{ runner.temp }}/original_EIV_v2' \
+            --environment '${{ runner.temp }}/original_environment' \
+            --output '${{ runner.temp }}/frozen_cohort'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-original-terrestrial-183H7-40H6-geographic-preoutcome-cohort
+          path: ${{ runner.temp }}/frozen_cohort/
+          retention-days: 90
+          if-no-files-found: warn
