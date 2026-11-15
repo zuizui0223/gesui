@@ -1,0 +1,134 @@
+name: gesui authentic 11511 EU H7 Plantae GBIF keys to harmonized EIV NUTRI source-only full join
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-full-plant-nutri-20261115
+    paths:
+      - 'analysis/20261115_eu454_plant_nutri/gbif_taxonomy_shard.py'
+      - 'analysis/20261115_eu454_plant_nutri/join_eiv_and_gate.py'
+      - '.github/workflows/gesui-eu454-plant-full-eiv-source-20261115.yml'
+  workflow_dispatch:
+concurrency:
+  group: gesui-eu454-full-eiv-source-only
+  cancel-in-progress: true
+permissions:
+  contents: read
+  actions: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original SHA-pinned 2808 EU H7 GBIF facets
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_h7
+      - name: Independent prior validated 1006-key PR12 EIV source-taxonomy crosswalk
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 42378520227
+          name: gesui-EEA2022-European-Ellenberg-N-traits-1006-GBIF-speciesKeys
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/prior_eiv
+      - name: Before bulk calls verify genuine 11511 union/old taxonomy and 16 new API keys
+        run: |
+          python -m py_compile analysis/20261115_eu454_plant_nutri/*.py
+          python -u analysis/20261115_eu454_plant_nutri/gbif_taxonomy_shard.py \
+            --source-dir '${{ runner.temp }}/original_h7' \
+            --cache-dir '${{ runner.temp }}/prior_eiv' \
+            --shard 0 --shards 8 --workers 4 --max-new-keys 16 \
+            --output '${{ runner.temp }}/pilot'
+      - name: Preserve original-source pilot acquisition results
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-11511-EIV-source-pilot-16-key
+          path: ${{ runner.temp }}/pilot/
+          retention-days: 90
+          if-no-files-found: error
+  authentic-taxonomy-shards:
+    needs: pilot
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_h7
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 42378520227
+          name: gesui-EEA2022-European-Ellenberg-N-traits-1006-GBIF-speciesKeys
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/prior_eiv
+      - name: Full original source key taxonomy acquisition (one of eight deterministic shards)
+        run: |
+          python -u analysis/20261115_eu454_plant_nutri/gbif_taxonomy_shard.py \
+            --source-dir '${{ runner.temp }}/original_h7' \
+            --cache-dir '${{ runner.temp }}/prior_eiv' \
+            --shard '${{ matrix.shard }}' --shards 8 --workers 6 \
+            --output '${{ runner.temp }}/shard'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-11511-original-EIV-GBIF-taxonomy-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/shard/
+          retention-days: 90
+          if-no-files-found: warn
+  exact-eiv-source-gate:
+    needs: authentic-taxonomy-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-only European harmonized EIV parser
+        run: python -m pip install --quiet pandas numpy requests
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_h7
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-20261115-11511-original-EIV-GBIF-taxonomy-shard-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/all_source_shards
+      - name: Assemble exact 11511-source taxonomy, verify EIV 2023 SHA, and check pre-result source support
+        run: |
+          python -u analysis/20261115_eu454_plant_nutri/join_eiv_and_gate.py \
+            --source-dir '${{ runner.temp }}/original_h7' \
+            --shard-dir '${{ runner.temp }}/all_source_shards' \
+            --output '${{ runner.temp }}/completed_eiv'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-EU454-all11511-H7-NUTRI-exact-taxonomy-and-trait-eligibility
+          path: ${{ runner.temp }}/completed_eiv/
+          retention-days: 90
+          if-no-files-found: warn

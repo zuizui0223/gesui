@@ -1,0 +1,55 @@
+name: gesui EU454 source authentic non-catalogued-host-plant NUTRI and whole-country holdout falsifiers
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-full-plant-nutri-20261115
+    paths:
+      - 'analysis/20261115_eu454_plant_nutri/adversarial_host_exclusion_country.py'
+      - '.github/workflows/gesui-eu454-hns-host-exclusion-country-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-authentic-stress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install fixed source numerical and H6 cluster tools
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_11511_nutri
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_H7_facets
+      - name: Leave out known 990 candidate host plants then rerun same-cohort EIV-HNS & source-country H6-purged holdout
+        run: |
+          python -m py_compile analysis/20261115_eu454_plant_nutri/adversarial_host_exclusion_country.py
+          python -u analysis/20261115_eu454_plant_nutri/adversarial_host_exclusion_country.py \
+            --facets '${{ runner.temp }}/original_H7_facets' \
+            --source '${{ runner.temp }}/original_11511_nutri' \
+            --output '${{ runner.temp }}/adversarial_country'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-EU454-HNS-host-catalogue-exclusion-country-out-H6-purged
+          path: ${{ runner.temp }}/adversarial_country/
+          retention-days: 90
+          if-no-files-found: warn

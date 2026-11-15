@@ -1,0 +1,57 @@
+name: gesui documented GBIF hybrid-name source QA recovery, no new trait assignments
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-full-plant-nutri-20261115
+    paths:
+      - 'analysis/20261115_eu454_plant_nutri/refine_source_hybrid_status.py'
+      - '.github/workflows/gesui-eu454-plant-hybrid-source-reconcile-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-hybrid-QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43717141966
+          name: gesui-20261115-EU454-all11511-H7-NUTRI-exact-taxonomy-and-trait-eligibility
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_v1
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43717803707
+          name: gesui-20261115-EU454-181-source-schema-recheck
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/official_181
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_h7_facets
+      - name: Check 181 precise hybrid status and preserve exact 4011 original matched EIV scores
+        run: |
+          python -m py_compile analysis/20261115_eu454_plant_nutri/refine_source_hybrid_status.py
+          python -u analysis/20261115_eu454_plant_nutri/refine_source_hybrid_status.py \
+            --base '${{ runner.temp }}/original_v1' \
+            --diagnostic '${{ runner.temp }}/official_181' \
+            --facets '${{ runner.temp }}/original_h7_facets' \
+            --output '${{ runner.temp }}/refined_v2'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          path: ${{ runner.temp }}/refined_v2/
+          retention-days: 90
+          if-no-files-found: warn
