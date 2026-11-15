@@ -1,0 +1,49 @@
+name: EEA WISE6 actual TNTP at exact 2018 2022 source-positive original monitoring stations
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-positive-stations.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Recover original EEA monitor H7 mapping
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/sites
+      - name: Recover previously frozen 454 original study population
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/study
+      - name: Rebuild SHA-locked 132 ORIGINAL station reported-source positives before any water-quality queries
+        env:
+          ORIGINAL_H7_454_DIR: ${{ runner.temp }}/study
+          ORIGINAL_EEA_SITE_H7_MAP_DIR: ${{ runner.temp }}/sites
+        run: |
+          python -m py_compile scripts/gesui_20261115_wise6_reported_source_site_gate.py
+          python scripts/gesui_20261115_wise6_reported_source_site_gate.py
+      - name: Preserve complete original measured source and failure diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-wise6-2026-true-reported-source-original-site-TNTP-pilot
+          path: ${{ runner.temp }}/gesui_reported_site_WISE6/
+          retention-days: 90
+          if-no-files-found: warn
