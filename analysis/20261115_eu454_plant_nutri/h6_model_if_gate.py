@@ -151,8 +151,13 @@ def cv_h6(df,target,base,extra):
 
 def main(args):
     gate=json.loads((args.source_dir/"EU454_FULL_EIV_SOURCE_GATE.json").read_text())
-    if gate.get("schema")!="GESUI_EU454_FULLSOURCE_PLANT_NUTRI_TRAIT_GATE_V1" or gate.get("source_facets_SHA256")!=FACETS_SHA or gate.get("source_EIV",{}).get("original_source_SHA256")!=EIV_SHA:
+    if gate.get("schema")!="GESUI_EU454_FULLSOURCE_PLANT_NUTRI_TRAIT_GATE_V2_HYBRID_QA" or gate.get("source_facets_SHA256")!=FACETS_SHA or gate.get("source_EIV",{}).get("original_source_SHA256")!=EIV_SHA:
         raise RuntimeError("Full-original source taxonomy/EIV gate incorrect")
+    if not (gate.get("original_EIV_NUTRI_scored_keys_unchanged") and
+            gate.get("original_plant_ELIGIBILITY_H7period_unchanged") and
+            gate.get("source_hybrid_score_assigned")==0 and
+            gate.get("official_confirmed_valid_unscorable_nonbinomial_hybrids")==175):
+        raise RuntimeError("Refined official GBIF hybrid provenance cannot be verified")
     args.output.mkdir(parents=True,exist_ok=True)
     if not gate.get("hard_source_support_pass"):
         report={"schema":"GESUI_EU454_PLANT_HNS_SAMEBASIN_MODEL_RESULT_V1",
