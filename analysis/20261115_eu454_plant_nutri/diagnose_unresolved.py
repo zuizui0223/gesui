@@ -9,6 +9,7 @@ available or original GBIF speciesKey no longer resolves cleanly.
 from __future__ import annotations
 import argparse
 import json
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import requests
 
@@ -25,8 +26,7 @@ def main(a):
             "phylum","genus","species","acceptedKey","acceptedUsageKey","nubKey",
             "authorship"]
     headers={"User-Agent":"gesui-h7-source-taxonomy-QA-20261115","Accept":"application/json"}
-    reports=[];counts={}
-    for row in invalid:
+    def source_one(row):
         k=str(row["speciesKey"])
         try:
             resp=requests.get("https://api.gbif.org/v1/species/"+k,headers=headers,timeout=(10,35))
@@ -39,12 +39,16 @@ def main(a):
             out["source_http"]=code
             out["missing_fields"]=[f for f in ["rank","canonicalName","scientificName",
                       "taxonomicStatus","kingdom","phylum"] if not val.get(f)]
-            key=";".join(out["missing_fields"]) or "NONE"
-            counts[key]=counts.get(key,0)+1
-            reports.append(out)
+            return out
         except Exception as exc:
-            reports.append({"speciesKey":k,"status":"ERROR","error":type(exc).__name__+": "+str(exc)[:120]})
-            counts["ERROR"]=counts.get("ERROR",0)+1
+            return {"speciesKey":k,"status":"ERROR","error":type(exc).__name__+": "+str(exc)[:120]}
+    with ThreadPoolExecutor(max_workers=8) as exe:
+        reports=list(exe.map(source_one,invalid))
+    counts={}
+    for out in reports:
+        if out.get("status")=="ERROR":signature="ERROR"
+        else:signature=";".join(out["missing_fields"]) or "NONE"
+        counts[signature]=counts.get(signature,0)+1
     out={"schema":"GESUI_EU454_181_UNRESOLVED_TAXONOMY_SOURCE_ONLY_AUDIT_V1",
          "n_original_keys":11511,"original_invalid_n":181,
          "no_trait_or_W_or_butterfly_response_used":True,
