@@ -1,0 +1,426 @@
+{
+  "WWTP_location_and_report_not_received_dose": true,
+  "downstream_only_valid_as_monitor_site_weak_negative_control": true,
+  "full_population_not_true_untreated_controls": true,
+  "n_original_rows": 454,
+  "original_H6": 90,
+  "original_H7": 232,
+  "original_source_join_qa": {
+    "country_mode_mismatch_n": 11,
+    "flow_value_max_abs_diff": 1.1368683772161603e-13,
+    "original_H6": 90,
+    "original_H7": 232,
+    "original_joint_rows": 454,
+    "positive_reported_source_not_confirmed_no_source_controls": true,
+    "report_not_proof_of_actual_zero": true,
+    "same_field_site_EEA_EQR_but_butterfly_records_are_basinwide": true,
+    "source_N_and_P_are_mass_to_modelled_flow_not_measured_water_concentration": true
+  },
+  "outcomes": {
+    "EQR": {
+      "directional_contrast": {
+        "N": {
+          "H6_descriptive_bootstrap95": [
+            -9.152603217816894,
+            2.1263409004377896
+          ],
+          "both_source_gain_pct": 3.1449953335311047,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": -3.5061729841780704
+        },
+        "P": {
+          "H6_descriptive_bootstrap95": [
+            -4.45213268665109,
+            3.979974873562833
+          ],
+          "both_source_gain_pct": 3.102022095090905,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": -0.43878697228782715
+        },
+        "presence": {
+          "H6_descriptive_bootstrap95": [
+            -4.131688171021274,
+            4.002790174218601
+          ],
+          "both_source_gain_pct": 2.474642299176829,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": -0.24937895819660294
+        }
+      },
+      "n_H6": 90,
+      "n_original_454": 454,
+      "outcome": "EQR_original_site_equal_basin_period_mean",
+      "posthoc": true,
+      "scores": {
+        "source_both_N": {
+          "95_interval": [
+            -3.7789307170343203,
+            9.86649339805177
+          ],
+          "MSE_added": 0.027927473493134805,
+          "MSE_base": 0.028834311235961634,
+          "gain": 3.1449953335311047,
+          "n_H6": 90
+        },
+        "source_both_P": {
+          "95_interval": [
+            -0.9391126135138304,
+            7.542623462245736
+          ],
+          "MSE_added": 0.027939864530454824,
+          "MSE_base": 0.028834311235961634,
+          "gain": 3.102022095090905,
+          "n_H6": 90
+        },
+        "source_both_present": {
+          "95_interval": [
+            -1.1452371250828743,
+            6.081992103495335
+          ],
+          "MSE_added": 0.02812076517344023,
+          "MSE_base": 0.028834311235961634,
+          "gain": 2.474642299176829,
+          "n_H6": 90
+        },
+        "source_down_N": {
+          "95_interval": [
+            -0.9571930622959317,
+            8.20790758169366
+          ],
+          "MSE_added": 0.02782595173970474,
+          "MSE_base": 0.028834311235961634,
+          "gain": 3.497081959076885,
+          "n_H6": 90
+        },
+        "source_down_P": {
+          "95_interval": [
+            -1.007282381483359,
+            6.0345109679305375
+          ],
+          "MSE_added": 0.02816793249957424,
+          "MSE_base": 0.028834311235961634,
+          "gain": 2.311061744926644,
+          "n_H6": 90
+        },
+        "source_down_present": {
+          "95_interval": [
+            -0.8627756966738686,
+            5.294278197965
+          ],
+          "MSE_added": 0.028208746047343167,
+          "MSE_base": 0.028834311235961634,
+          "gain": 2.1695166688714678,
+          "n_H6": 90
+        },
+        "source_up_N": {
+          "95_interval": [
+            -4.337663109786173,
+            3.645318906982917
+          ],
+          "MSE_added": 0.02883693257043385,
+          "MSE_base": 0.028834311235961634,
+          "gain": -0.009091025101184988,
+          "n_H6": 90
+        },
+        "source_up_P": {
+          "95_interval": [
+            -1.366245064631856,
+            5.4856163068361425
+          ],
+          "MSE_added": 0.028294453700826564,
+          "MSE_base": 0.028834311235961634,
+          "gain": 1.8722747726388167,
+          "n_H6": 90
+        },
+        "source_up_present": {
+          "95_interval": [
+            -1.2980800140073625,
+            5.12162416932829
+          ],
+          "MSE_added": 0.028280652752306575,
+          "MSE_base": 0.028834311235961634,
+          "gain": 1.9201377106748647,
+          "n_H6": 90
+        }
+      }
+    },
+    "HNS": {
+      "directional_contrast": {
+        "N": {
+          "H6_descriptive_bootstrap95": [
+            -4.391807604523622,
+            4.491095558899177
+          ],
+          "both_source_gain_pct": 0.8746936948578355,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": -0.029557551689230615
+        },
+        "P": {
+          "H6_descriptive_bootstrap95": [
+            -3.1668205091273616,
+            5.445654731454042
+          ],
+          "both_source_gain_pct": 0.8796392929201896,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": 1.3761750435709437
+        },
+        "presence": {
+          "H6_descriptive_bootstrap95": [
+            -3.1523368212702927,
+            9.555058660819824
+          ],
+          "both_source_gain_pct": 1.3814119448685822,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": 3.3688352786051907
+        }
+      },
+      "n_H6": 90,
+      "n_original_454": 454,
+      "outcome": "primary_record_mean",
+      "posthoc": true,
+      "scores": {
+        "source_both_N": {
+          "95_interval": [
+            -3.9339399107272692,
+            4.824365124638558
+          ],
+          "MSE_added": 0.11144055250290381,
+          "MSE_base": 0.11242391742008952,
+          "gain": 0.8746936948578355,
+          "n_H6": 90
+        },
+        "source_both_P": {
+          "95_interval": [
+            -1.8949313888339905,
+            4.10698399798241
+          ],
+          "MSE_added": 0.11143499246782226,
+          "MSE_base": 0.11242391742008952,
+          "gain": 0.8796392929201896,
+          "n_H6": 90
+        },
+        "source_both_present": {
+          "95_interval": [
+            -3.479282167981714,
+            4.998272822876131
+          ],
+          "MSE_added": 0.11087087999595921,
+          "MSE_base": 0.11242391742008952,
+          "gain": 1.3814119448685822,
+          "n_H6": 90
+        },
+        "source_down_N": {
+          "95_interval": [
+            -3.914920570763458,
+            4.291710755466855
+          ],
+          "MSE_added": 0.1117946530653834,
+          "MSE_base": 0.11242391742008952,
+          "gain": 0.5597246290171259,
+          "n_H6": 90
+        },
+        "source_down_P": {
+          "95_interval": [
+            -3.357215890077142,
+            3.8942488608629224
+          ],
+          "MSE_added": 0.11250071664892006,
+          "MSE_base": 0.11242391742008952,
+          "gain": -0.0683121799995351,
+          "n_H6": 90
+        },
+        "source_down_present": {
+          "95_interval": [
+            -4.673387328907642,
+            4.366917044607983
+          ],
+          "MSE_added": 0.11252845210095583,
+          "MSE_base": 0.11242391742008952,
+          "gain": -0.09298259949055233,
+          "n_H6": 90
+        },
+        "source_up_N": {
+          "95_interval": [
+            -1.3817231620459691,
+            2.0544348165114767
+          ],
+          "MSE_added": 0.1118278828228859,
+          "MSE_base": 0.11242391742008952,
+          "gain": 0.5301670773278954,
+          "n_H6": 90
+        },
+        "source_up_P": {
+          "95_interval": [
+            -0.8502183244595256,
+            3.2316560896725908
+          ],
+          "MSE_added": 0.11095356675437998,
+          "MSE_base": 0.11242391742008952,
+          "gain": 1.3078628635714085,
+          "n_H6": 90
+        },
+        "source_up_present": {
+          "95_interval": [
+            -0.8933571457129464,
+            6.303889617324149
+          ],
+          "MSE_added": 0.10874107550931789,
+          "MSE_base": 0.11242391742008952,
+          "gain": 3.2758526791146383,
+          "n_H6": 90
+        }
+      }
+    },
+    "plant_S50": {
+      "directional_contrast": {
+        "N": {
+          "H6_descriptive_bootstrap95": [
+            -4.987794386731261,
+            1.751879172778539
+          ],
+          "both_source_gain_pct": 1.6025120848215062,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": -1.1339511339389474
+        },
+        "P": {
+          "H6_descriptive_bootstrap95": [
+            -3.2928256948563193,
+            1.9731555242258352
+          ],
+          "both_source_gain_pct": 0.36357146404145196,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": -0.2825483626744163
+        },
+        "presence": {
+          "H6_descriptive_bootstrap95": [
+            0.033461532588870524,
+            4.8857624063486105
+          ],
+          "both_source_gain_pct": -2.7237868791368642,
+          "interpretation": "posthoc directionality falsifier; not causal proof",
+          "upstream_minus_downstream_gain_percentage_points": 1.8608876589228307
+        }
+      },
+      "n_H6": 90,
+      "n_original_454": 454,
+      "outcome": "plant_S50",
+      "posthoc": true,
+      "scores": {
+        "source_both_N": {
+          "95_interval": [
+            -0.38800386867502895,
+            4.675110310659981
+          ],
+          "MSE_added": 3.9903075572944324,
+          "MSE_base": 4.055294135897244,
+          "gain": 1.6025120848215062,
+          "n_H6": 90
+        },
+        "source_both_P": {
+          "95_interval": [
+            -1.2931836427982775,
+            2.2002248346932727
+          ],
+          "MSE_added": 4.040550243636175,
+          "MSE_base": 4.055294135897244,
+          "gain": 0.36357146404145196,
+          "n_H6": 90
+        },
+        "source_both_present": {
+          "95_interval": [
+            -6.206993199825085,
+            -0.548727036061881
+          ],
+          "MSE_added": 4.165751705481219,
+          "MSE_base": 4.055294135897244,
+          "gain": -2.7237868791368642,
+          "n_H6": 90
+        },
+        "source_down_N": {
+          "95_interval": [
+            -0.831557366714556,
+            4.652175038475721
+          ],
+          "MSE_added": 4.001522456662652,
+          "MSE_base": 4.055294135897244,
+          "gain": 1.3259624932901288,
+          "n_H6": 90
+        },
+        "source_down_P": {
+          "95_interval": [
+            -1.1572307117874174,
+            1.9801789474386433
+          ],
+          "MSE_added": 4.0503025980241905,
+          "MSE_base": 4.055294135897244,
+          "gain": 0.12308695018860293,
+          "n_H6": 90
+        },
+        "source_down_present": {
+          "95_interval": [
+            -5.2198708708035815,
+            -0.3056813205836464
+          ],
+          "MSE_added": 4.144494747558218,
+          "MSE_base": 4.055294135897244,
+          "gain": -2.199608922849154,
+          "n_H6": 90
+        },
+        "source_up_N": {
+          "95_interval": [
+            -0.8341424815572758,
+            1.3935936042196433
+          ],
+          "MSE_added": 4.047507510501219,
+          "MSE_base": 4.055294135897244,
+          "gain": 0.19201135935118127,
+          "n_H6": 90
+        },
+        "source_up_P": {
+          "95_interval": [
+            -1.5989085892916817,
+            1.1741491038915386
+          ],
+          "MSE_added": 4.0617607652068,
+          "MSE_base": 4.055294135897244,
+          "gain": -0.15946141248581336,
+          "n_H6": 90
+        },
+        "source_up_present": {
+          "95_interval": [
+            -0.670296166684069,
+            0.09855310300920682
+          ],
+          "MSE_added": 4.069030279450285,
+          "MSE_base": 4.055294135897244,
+          "gain": -0.338721263926323,
+          "n_H6": 90
+        }
+      }
+    }
+  },
+  "posthoc": true,
+  "schema": "GESUI_EEA_2018_2022_ACTUAL_UPDOWN_PLACEBO_454_NONCAUSAL_V1",
+  "source_GH_action_run": 43679382449,
+  "source_counts": {
+    "H7_period_both_positive": 35,
+    "H7_period_downstream_positive": 61,
+    "H7_period_upstream_positive": 56,
+    "all_0_mean_no_matched_positive_report_not_untreated_control": true,
+    "n_original_EEA_site_year": 3525,
+    "no_actual_receiver_water_chemistry": true,
+    "no_randomized_contrast_or_SEM": true,
+    "original_GitHub_EEA_source_blobs": {
+      "EEA18": "0f30bfbc3dac13f6a182c8a910e9899c04778322",
+      "EEA22": "325f199e985d9862ffee5b0edb205c61a7be3833"
+    },
+    "original_H7": 232,
+    "original_H7_periods": 454,
+    "original_downstream_positive_site_year": 249,
+    "original_source_annual_UP_GH_SHA256": "012ad79feabc8c11e0d74f803730b5b7913b96a64a6af26fb0c97263d9aa7c26",
+    "original_source_native_site_H7_SHA256": "a396eaed1c0b406eb3bbb7178e04ba91989ab5964c4f0175fc1193673d624d89",
+    "original_upstream_positive_site_year": 132,
+    "schema": "GESUI_ORIGINAL_454_H7_UPSTREAM_DOWNSTREAM_NP_PLACEBO_SOURCE_GATE_V1",
+    "source_independent_of_biological_outcomes": true
+  }
+}

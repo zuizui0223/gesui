@@ -1,0 +1,71 @@
+name: EEA original up/down annual N/P direction 27-model H6 negative control
+on:
+  push:
+    paths:
+      - '.github/workflows/gesui-20261115-np-direction-H6-qa.yml'
+      - 'analysis/20261115_np_direction/**'
+      - 'results/20261115_np_direction/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-directional-source-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GESUI_PR90_SCRIPTS: analysis/20261115_reported_np_hns/scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install independent numerical QA requirements
+        run: python -m pip install --quiet numpy pandas scipy scikit-learn statsmodels
+      - name: Fetch original GH source-only 454 H7 N/P reported load exact station indices
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/eea_reported_up
+      - name: Fetch SHA-checked original EEA source direction negative-control study cohort
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43679382449
+          name: gesui-454-H7-annual-NP-upstream-downstream-source-only-negative-control
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/eea_direction
+      - name: Run original Python unit suite and source diagnostics
+        run: python -m unittest discover -s analysis/20261115_np_direction/tests -v
+      - name: Refit all H6-out EQR / plant / butterfly direction contrasts on exact original 454 H7 periods
+        run: |
+          python analysis/20261115_np_direction/scripts/analyze_placebo.py \
+            --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --source '${{ runner.temp }}/eea_reported_up/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json' \
+            --placebo '${{ runner.temp }}/eea_direction' \
+            --model analysis/20261115_multilayer/scripts/multilayer.py \
+            --out '${{ runner.temp }}/negativecontrol_recomputed'
+      - name: Verify exact original source-model numerical output against precommit archive
+        run: |
+          python analysis/20261115_np_direction/scripts/validate_results.py \
+            --saved results/20261115_np_direction/DIRECTIONAL_NEGATIVE_CONTROL_RESULTS.json \
+            --rerun '${{ runner.temp }}/negativecontrol_recomputed/DIRECTIONAL_NEGATIVE_CONTROL_RESULTS.json'
+      - name: Independently re-estimate 27 source-hash-frozen OOF Ridge models in sklearn
+        run: |
+          python analysis/20261115_np_direction/scripts/independent_sklearn_qa.py \
+            --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --source '${{ runner.temp }}/eea_reported_up/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json' \
+            --placebo '${{ runner.temp }}/eea_direction' \
+            --models '${{ runner.temp }}/negativecontrol_recomputed/DIRECTIONAL_NEGATIVE_CONTROL_RESULTS.json' \
+            --out '${{ runner.temp }}/negativecontrol_recomputed/INDEPENDENT_NUMERICAL_QA.json'
+      - name: Archive new genuine numerical audit and all negative/null source cases
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-annual-NP-source-direction-negativecontrol-H6-models
+          path: ${{ runner.temp }}/negativecontrol_recomputed/
+          retention-days: 90
+          if-no-files-found: warn
