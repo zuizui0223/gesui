@@ -36,7 +36,7 @@ jobs:
           assert q['no_causal_sewage_or_NaN_nutrient_measured']
           assert q['no_independent_proboscis_contact_event_confirmed']
           x=list(csv.DictReader(open('results/20261115_adult_resource_behavior/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv')))
-          assert len(x)==46 and all(v['original_substrate_visually_verified']=='NO' for v in x)
+          assert len(x)==46 and all(v['original_substrate_visually_verified']=='NOT_REVIEWED' and v['ecological_feeding_event_confirmed']=='NOT_REVIEWED' for v in x)
           PY
       - uses: actions/upload-artifact@v4
         with:
