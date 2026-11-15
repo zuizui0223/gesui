@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "analysis/20261115_multilayer/scripts"))
 sys.path.insert(0, str(ROOT / "analysis/20261115_hns/scripts"))
 sys.path.insert(0, str(ROOT / "analysis/20261115_hns_family_decomposition"))
-from analyse import verify_source, design, COMMON
+from family_base import verify_source, design, COMMON
 from score_core import aggregate_traits
 from multilayer import cv_add_value, _matrix
 
