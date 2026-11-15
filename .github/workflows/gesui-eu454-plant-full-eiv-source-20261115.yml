@@ -8,6 +8,9 @@ on:
       - 'analysis/20261115_eu454_plant_nutri/join_eiv_and_gate.py'
       - '.github/workflows/gesui-eu454-plant-full-eiv-source-20261115.yml'
   workflow_dispatch:
+concurrency:
+  group: gesui-eu454-full-eiv-source-only
+  cancel-in-progress: true
 permissions:
   contents: read
   actions: read
