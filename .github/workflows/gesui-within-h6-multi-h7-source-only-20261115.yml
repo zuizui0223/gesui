@@ -1,0 +1,42 @@
+name: gesui true H6 multi-distinct-H7 within-region source-only spatial gate
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-eiv-specificity-20261115
+    paths:
+      - 'analysis/20261115_eiv_specificity/h6_multiH7_source_gate.py'
+      - '.github/workflows/gesui-within-h6-multi-h7-source-only-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet pandas
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_v2
+      - name: Count truly distinct H7 within genuine H6 parents, only original source eligibility
+        run: |
+          python -m py_compile analysis/20261115_eiv_specificity/h6_multiH7_source_gate.py
+          python -u analysis/20261115_eiv_specificity/h6_multiH7_source_gate.py \
+            --v2 '${{ runner.temp }}/source_v2' \
+            --output '${{ runner.temp }}/within_h6_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-trueH6-multiH7-withinparent-source-only-gate
+          path: ${{ runner.temp }}/within_h6_source/
+          retention-days: 90
+          if-no-files-found: warn
