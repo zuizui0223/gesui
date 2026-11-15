@@ -1,0 +1,1327 @@
+{
+  "absence_of_field_not_observed_nonpuddling": true,
+  "all_categorical_raw_substrates_require_human_picture_validation": true,
+  "analysis_type": "POSTHOC_DESCRIPTIVE_ANNOTATION_SOURCE_AUDIT_NOT_CONFIRMATORY_BEHAVIOUR_PREVALENCE",
+  "butterfly_family_taxa_from_iNat_authority": {
+    "Hesperiidae": {
+      "original_id": 47653,
+      "taxonomy_search_response_SHA256": "77bb057c5c2c39b8734f3d51204282626090f7431f6e280d2cd71806e10b4397"
+    },
+    "Lycaenidae": {
+      "original_id": 47923,
+      "taxonomy_search_response_SHA256": "1de6200693967d355797383195b97cbdf3c8ae4ad15f9d7902bceb6a7f126824"
+    },
+    "Nymphalidae": {
+      "original_id": 47922,
+      "taxonomy_search_response_SHA256": "66c5396cab50e3f892b9271c0028f72b4eaf3d58551ffac769fc68b92c14f136"
+    },
+    "Papilionidae": {
+      "original_id": 47223,
+      "taxonomy_search_response_SHA256": "e0de201ca2341bdfb6a825c04a176347c6a92a138c8797360bfacae203017ab4"
+    },
+    "Pieridae": {
+      "original_id": 48508,
+      "taxonomy_search_response_SHA256": "5764e33aa16844533e0dd81a1705a59292ba8b42914802ca5f556d9379c51d0c"
+    },
+    "Riodinidae": {
+      "original_id": 59166,
+      "taxonomy_search_response_SHA256": "3a4692d66d6b7769dbad97580127bf8b421408ba7138ffead0fc22f0cea644d4"
+    }
+  },
+  "fields": {
+    "carrion18609": {
+      "family_ancestor_counts_among_selected_tagged_observations": {
+        "OTHER_OR_UNCLASSIFIED": 6
+      },
+      "family_x_substrate_count_field500_full_census_if_complete": null,
+      "fetch_complete": true,
+      "fetched_distinct_observations": 6,
+      "field_id": 18609,
+      "fraction_top1_observation_owner": 0.3333333333333333,
+      "fraction_top5_observation_owners": 1.0,
+      "n_distinct_tagger_observers_may_not_equal_observers": 5,
+      "n_source_matching_field_to_returned": 6,
+      "not_a_behavioral_absence_rate": true,
+      "not_population_sampling_prevalence": true,
+      "raw_field_value_counts": {
+        "yes": 6
+      },
+      "raw_field_value_counts_published_top90_not_full_vocabulary": false,
+      "source_HTTP_SHA256_receipts": [
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e1e2e75dc1bc4078ce863c7a75c7fe8898e525998859d1e2eb5027906284a23d",
+          "page": 1,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 1,
+          "original_HTTP_SHA256": "ce5f027e6398ec8f3131de6b45c7fb4e7ec92b18fb369b999f7cded8a92a9c0a",
+          "page": 2,
+          "returned_observations": 1
+        }
+      ],
+      "source_name": "Behavior: Consuming carrion",
+      "source_total_results": 6,
+      "substrate_text_class_counts_if_field500": null,
+      "taxon_obs_year_counts": {
+        "2019": 1,
+        "2025": 3,
+        "2026": 2
+      },
+      "total_distinct_unstandardized_raw_value_strings": 1
+    },
+    "feeding16376": {
+      "family_ancestor_counts_among_selected_tagged_observations": {
+        "Hesperiidae": 1,
+        "Nymphalidae": 1,
+        "OTHER_OR_UNCLASSIFIED": 18
+      },
+      "family_x_substrate_count_field500_full_census_if_complete": null,
+      "fetch_complete": false,
+      "fetched_distinct_observations": 20,
+      "field_id": 16376,
+      "fraction_top1_observation_owner": 0.5,
+      "fraction_top5_observation_owners": 0.8,
+      "n_distinct_tagger_observers_may_not_equal_observers": 9,
+      "n_source_matching_field_to_returned": 20,
+      "not_a_behavioral_absence_rate": true,
+      "not_population_sampling_prevalence": true,
+      "raw_field_value_counts": {
+        "nectar/pollen feeding": 4,
+        "no, none of these": 11,
+        "parasitism": 3,
+        "scavenging": 1,
+        "scavenging or decomposition": 1
+      },
+      "raw_field_value_counts_published_top90_not_full_vocabulary": false,
+      "source_HTTP_SHA256_receipts": [
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "2ba07c67263537d6d236b8421819b567ada2ff10df0d1c3769329f21ac96f427",
+          "page": 1,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "29d79b92f785e9d9521fd10276f2a3b9219422e47a8c69a1f44db952ed28d6a5",
+          "page": 2,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "edb4677285f7c0a41fdc82e2d234ffa7e7ad80bce3036ae2d1cbbdf5aaabaae3",
+          "page": 3,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "846d8f8f3712e04b8d70aa076f5b562962bbe38cf11d14b4ae6ca8bb1ac53c37",
+          "page": 4,
+          "returned_observations": 5
+        }
+      ],
+      "source_name": "Is observation one of these special types of feeding?",
+      "source_total_results": 24479,
+      "substrate_text_class_counts_if_field500": null,
+      "taxon_obs_year_counts": {
+        "2006": 1,
+        "2009": 3,
+        "2012": 6,
+        "2013": 5,
+        "2014": 5
+      },
+      "total_distinct_unstandardized_raw_value_strings": 5
+    },
+    "mixed17428": {
+      "family_ancestor_counts_among_selected_tagged_observations": {
+        "Nymphalidae": 2,
+        "Papilionidae": 3,
+        "Pieridae": 25
+      },
+      "family_x_substrate_count_field500_full_census_if_complete": null,
+      "fetch_complete": false,
+      "fetched_distinct_observations": 30,
+      "field_id": 17428,
+      "fraction_top1_observation_owner": 0.1,
+      "fraction_top5_observation_owners": 0.36666666666666664,
+      "n_distinct_tagger_observers_may_not_equal_observers": 23,
+      "n_source_matching_field_to_returned": 30,
+      "not_a_behavioral_absence_rate": true,
+      "not_population_sampling_prevalence": true,
+      "raw_field_value_counts": {
+        "maybe": 3,
+        "yes": 27
+      },
+      "raw_field_value_counts_published_top90_not_full_vocabulary": false,
+      "source_HTTP_SHA256_receipts": [
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "62118b21c917ad1142636f9dfa89b8d10bec3a9216ebc427b0af91687476a04b",
+          "page": 1,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "926a04d44c11392af0ea8cda1802f78956c090ac7f22ce7dc89b14f5d1c1b5c4",
+          "page": 2,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "820b526308e1ca6923c8d5b3816369e282b4ee9a480a8cda4e5fcfabb88acf81",
+          "page": 3,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "c26aa65f339f5c2e05c1bde244d6acf2640ed8fc2a37cb3f1c6ac1c4511403ef",
+          "page": 4,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "500a8b83f33bc00218ef40d5efaf0b2f888fe9d4954d5269fb8283cf07563330",
+          "page": 5,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "f3532fd37d5434623bb7be65028832368856326bacb5a9cd3ff66672d26b08a1",
+          "page": 6,
+          "returned_observations": 5
+        }
+      ],
+      "source_name": "Lepidopterans aggregating/Roosting/mud puddling",
+      "source_total_results": 665,
+      "substrate_text_class_counts_if_field500": null,
+      "taxon_obs_year_counts": {
+        "2004": 1,
+        "2006": 1,
+        "2009": 1,
+        "2010": 4,
+        "2012": 3,
+        "2013": 1,
+        "2014": 8,
+        "2015": 2,
+        "2016": 2,
+        "2017": 4,
+        "2018": 3
+      },
+      "total_distinct_unstandardized_raw_value_strings": 2
+    },
+    "substrate500": {
+      "family_ancestor_counts_among_selected_tagged_observations": {
+        "Hesperiidae": 48,
+        "Lycaenidae": 200,
+        "Nymphalidae": 300,
+        "OTHER_OR_UNCLASSIFIED": 13,
+        "Papilionidae": 115,
+        "Pieridae": 64,
+        "Riodinidae": 6
+      },
+      "family_x_substrate_count_field500_full_census_if_complete": {
+        "Hesperiidae": {
+          "AMBIGUOUS_MULTIPLE_SUBSTRATES": 2,
+          "UNCLASSIFIED_TEXT": 8,
+          "carrion_or_dead_organism": 1,
+          "dung_feces": 5,
+          "mud_soil_sand": 22,
+          "rock_gravel": 8,
+          "urine_sweat_salt": 1,
+          "water_only": 1
+        },
+        "Lycaenidae": {
+          "AMBIGUOUS_MULTIPLE_SUBSTRATES": 18,
+          "UNCLASSIFIED_TEXT": 15,
+          "dung_feces": 9,
+          "mud_soil_sand": 137,
+          "rock_gravel": 16,
+          "water_only": 5
+        },
+        "Nymphalidae": {
+          "AMBIGUOUS_MULTIPLE_SUBSTRATES": 14,
+          "UNCLASSIFIED_TEXT": 74,
+          "carrion_or_dead_organism": 2,
+          "dung_feces": 24,
+          "mud_soil_sand": 143,
+          "rock_gravel": 33,
+          "urine_sweat_salt": 4,
+          "water_only": 6
+        },
+        "OTHER_OR_UNCLASSIFIED": {
+          "UNCLASSIFIED_TEXT": 2,
+          "dung_feces": 2,
+          "mud_soil_sand": 8,
+          "rock_gravel": 1
+        },
+        "Papilionidae": {
+          "AMBIGUOUS_MULTIPLE_SUBSTRATES": 6,
+          "UNCLASSIFIED_TEXT": 24,
+          "dung_feces": 6,
+          "mud_soil_sand": 61,
+          "rock_gravel": 13,
+          "water_only": 5
+        },
+        "Pieridae": {
+          "UNCLASSIFIED_TEXT": 11,
+          "mud_soil_sand": 51,
+          "rock_gravel": 1,
+          "water_only": 1
+        },
+        "Riodinidae": {
+          "AMBIGUOUS_MULTIPLE_SUBSTRATES": 1,
+          "mud_soil_sand": 4,
+          "rock_gravel": 1
+        }
+      },
+      "fetch_complete": true,
+      "fetched_distinct_observations": 746,
+      "field_id": 500,
+      "fraction_top1_observation_owner": 0.2064343163538874,
+      "fraction_top5_observation_owners": 0.5026809651474531,
+      "n_distinct_tagger_observers_may_not_equal_observers": 181,
+      "n_source_matching_field_to_returned": 746,
+      "not_a_behavioral_absence_rate": true,
+      "not_population_sampling_prevalence": true,
+      "raw_field_value_counts": {
+        "animal remains": 2,
+        "bare ground": 2,
+        "bird dropping": 4,
+        "bird droppings": 3,
+        "bird poop": 5,
+        "cattle manure": 6,
+        "concrete": 3,
+        "crater pond mud": 2,
+        "crater pond's decaying vegetation and mud": 2,
+        "creek": 2,
+        "creek minerals": 2,
+        "damp ground": 2,
+        "damp mud": 2,
+        "damp sand": 2,
+        "damp soil": 7,
+        "damp, gravelly dirt": 3,
+        "dirt": 1,
+        "disturbed ground": 3,
+        "dog poop": 2,
+        "dry dirt": 1,
+        "drying water": 3,
+        "fallen tree roots": 2,
+        "feces": 3,
+        "floor": 2,
+        "from mud": 34,
+        "fruit": 3,
+        "fruits": 3,
+        "granitic rock": 1,
+        "gravel": 10,
+        "gravel and soil": 2,
+        "gravelly mud": 4,
+        "ground moistened with agricultural water.": 1,
+        "horse manure": 2,
+        "leaf": 4,
+        "moist dirt": 1,
+        "moist forest stream sand": 16,
+        "moist rocky soil": 3,
+        "moist sand and gravel": 2,
+        "moist soil": 8,
+        "mud": 99,
+        "mud and decaying organic matter": 2,
+        "mud/ rock": 12,
+        "muddy concrete": 1,
+        "muddy soil": 2,
+        "muddy soil mixed with horse dung": 2,
+        "poop": 5,
+        "road": 12,
+        "rock": 16,
+        "rock on stream bank": 1,
+        "rocks": 12,
+        "rocks from a firepit": 1,
+        "rotting banana": 3,
+        "sand": 11,
+        "sandy gravels mixed together wet mud": 1,
+        "sandy soil": 9,
+        "scat": 8,
+        "set soil": 2,
+        "soil": 77,
+        "soil and gravel": 2,
+        "soil and wood": 1,
+        "stone": 11,
+        "stone floor": 5,
+        "stream bank": 1,
+        "stream bed": 1,
+        "stream muddy edge": 1,
+        "stream muddy edges": 2,
+        "stream, wet soil": 22,
+        "sweat": 3,
+        "tree sap": 3,
+        "tree sap - shivan tree": 7,
+        "water": 12,
+        "water on rock": 2,
+        "water stream bed, sand": 13,
+        "wet bare ground": 2,
+        "wet brick": 2,
+        "wet dirt": 5,
+        "wet floor": 5,
+        "wet ground": 5,
+        "wet laterite soil": 22,
+        "wet rocks": 2,
+        "wet sand": 2,
+        "wet sand (road crossing of a stream)": 5,
+        "wet sand (tiny drying stream)": 2,
+        "wet sandy soil": 5,
+        "wet soil": 45,
+        "wet, mossy rocks": 2,
+        "wet, rocky soil": 2,
+        "wet, sandy soil": 2,
+        "wood fragments": 1,
+        "wood mulch": 1
+      },
+      "raw_field_value_counts_published_top90_not_full_vocabulary": true,
+      "source_HTTP_SHA256_receipts": [
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "573feac3d1593411abe9282a962772ec938301245a8d7decfc4106b76f0af4b3",
+          "page": 1,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "a389f661a420b21b32ff905b0fad7e5b13840ca70e5b4275a3b6ce452a8f8ab1",
+          "page": 2,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "49c7000ed2e49c894abcec6380ff679325b985c552ffd1277b56fb06a58ff2ce",
+          "page": 3,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "670b7b0450a8710946e7c8725c8aa82aef3ea82947fafb3d361af051b4b85000",
+          "page": 4,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e5f45d5ef17229dda2e90e214265e02a811a5b27b02215db6cf34fefce64b3d4",
+          "page": 5,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "9900df7fbca9dee32087f2f7045a6aebeae7a357b9812ade849f574169b01802",
+          "page": 6,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "4fcea1f886e49f793dd77e64d7bbdc87bd01deced1404bf7f17b751b00311e47",
+          "page": 7,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7b920192f09f8d6847ec91b5b77c182198e408239f481ce580e9d75749a3cc2d",
+          "page": 8,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "b88ea0e9dbc91fd564d34df1b871128d2d9e8e567a3f034ffb1160b134ea7182",
+          "page": 9,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "25e18e57df7fdbc3cec219ca33f37481d4dea76cf326343689aa571373ef9c12",
+          "page": 10,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "37efb37908d32383f3eed5260cd07cfba0537d4f639cab070eef601973b5a37b",
+          "page": 11,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "248a862a83bb4ba523ff81d6a61a0b66225bfc06ca21bd02b7f6d852bc873d1b",
+          "page": 12,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "a7ff4c64cc4aa2dfe2e0182452d01c1c1cc94f069e263ed875ffd3cb940234da",
+          "page": 13,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "893c1580a78faa2d02e3396e1391969b4600e768bb0b775c10dbbca5aa8e0739",
+          "page": 14,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "010c29704eab7a8bbf9ca968bc1c854addce111e620dba52c8f7e55d825e8eae",
+          "page": 15,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "70b29f3ffbf576979d9e43d785a461c037b48b25a585924f2cb3017738bc98a2",
+          "page": 16,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "3daabd40bdb68c42b79b80fce30f69fceea8e7e422e65515ca93dab0bf784f3d",
+          "page": 17,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "70bbc17cecda27174e4e917a85849e97d08de4afa2230038d09d8747a8fddec6",
+          "page": 18,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "49686ca332dd7b4846becd67dd9a35a067f5a25c8c38feac7f020aac2de98046",
+          "page": 19,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "8367c3bc9fe20382a8b6a5595e93d88e36c2a0b1980ba4c1828b96c233867619",
+          "page": 20,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "43b34ae2a14e82ad053ec7f16f145bc72f8ecb1c1a66f8910efbe7131c7d203a",
+          "page": 21,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "75840a6a64615286f63e246e724ff571999de718c8463ce5a16f6c7906d9e1df",
+          "page": 22,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "74e2b93f7ec770d2e30c569176da1e9c1cbcb68be199058e89502c83dd459554",
+          "page": 23,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "d5465f3fb0eceb0498da92c83ee3e20275912305eede1f097adee47b4a981b3b",
+          "page": 24,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "f126fde079ddf3f112bdaba3d2c97ab4557a217ec5287119ea29f7c008c25f3a",
+          "page": 25,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "d32e8f9967a198446bd168d1c1b0ba1689547d98950a390577c8c1a895115ccc",
+          "page": 26,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "84150df050fd951c3066c45034db78c748d2b979d1cd15bbde65797e43d0a32a",
+          "page": 27,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "2e94145e1f15a779c385f7117497c0d5b174bf92ae34e268642c1d84ac5c5325",
+          "page": 28,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "558d0b07cadd9bd1a61315208f4b3c5de2c75644c12a859c0bfa7c023fb0382c",
+          "page": 29,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7bd14bfa5d8e44d2e440d858d85baf68ada6bf539186bbfb4dc6f9708ec9fb2c",
+          "page": 30,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "6eec5bdad064871a8ba0a62989e3f1cfc9cd0ada7214f4036c7282a194ff18bb",
+          "page": 31,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "a3e8d57fe0081bd41c706a6ea244b0fab19bed56f64804895bf78a37e1ab3848",
+          "page": 32,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "3c85d779e456494c9a1affdfebd1eaa3f20419b9622e27ddda4a303fb3b021ce",
+          "page": 33,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "551478c87da7d9fece8f1ec252a7d52eb5517e169f376f892554ac98f6140bf8",
+          "page": 34,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "c1de39e9c59de68e6a320533f06b5923fdd3c027c852cfd837b420f5b9434b4b",
+          "page": 35,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "60eb57d4beab4d7ca97a030893281ae41e4f7401d7a730d01ddc7936a86f6eb5",
+          "page": 36,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "07e6c7cec0e377d7d9d13c29999fa7dbbd5e2b3eb43143d0abb5e4f7b34c7f9b",
+          "page": 37,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "28a38e57b7b88f45af56296ce36e00aaa147ca3bd12e12aa34aa19915672417e",
+          "page": 38,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "56d46fe46cfb408ab7c4a1d2bc32a0062ea77c61f9741ced564cb679f58c385a",
+          "page": 39,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "c559a76b494fe491d2a0a196e8de8923acae85d46ffc2758b4ab35a710a14868",
+          "page": 40,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "55a5d9b376ededb132e03f71276718f64ae64150491b0f57c389ee268c96d50d",
+          "page": 41,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "4bd21f24569124593af89089a9398d8d27b292ce6fb38e4c06fe6a1ba58a6aed",
+          "page": 42,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "c1594ac36d5979f5e2dc02b00a6f0c94dba38d908556fc3ec57cae140141192d",
+          "page": 43,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "2c274f647350491b38d86b9181f06cbe89ae0114505e8cfec88c755a9bca7a68",
+          "page": 44,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "ea2f592f8ff15b00668a86d34caeabd80a80d61ae2ce351161dd526974384351",
+          "page": 45,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "25196ddafcacd9734bbecb99bdd8b8e3d7b17b6b7a0363e19509fcf1cbf6b20f",
+          "page": 46,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "756fe060a41ec8e29750b3ca61fd1233df4f5abb342dadc42b887d35e8094dea",
+          "page": 47,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e2af1d7240b4881073203115bad0d3f37b24a14110cd066f6effc6843ccfa78d",
+          "page": 48,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "0c7a07325debe208e34b0fa87e774f4d89c13e0926f84c6cdcfddd58bcebb255",
+          "page": 49,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "b35a082225cfaa3015cdc110e9caebd1bb4a1ef55982e519d30881145b5b12ee",
+          "page": 50,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "5e12726bc114c819c29947cf7d0307b925868999ba6bab3ce9665ed9363ad3db",
+          "page": 51,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "1a52f86db802d2a24f0d9ab605b0b2cf71493b99416f92fe6e8934547e715a11",
+          "page": 52,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "502b34afc39887dc41c393e6e67bcaa906f7ab4d46923b72a9084b3fe08487d2",
+          "page": 53,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "172e8d9c17641fb678ca053bdb6bf68c922e08cdfdd4488dd91ccc95ed1ab1a2",
+          "page": 54,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "f484a0250ea1b1221105039df02153c9efd1711e77f878bbbf69b28f9da73e69",
+          "page": 55,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "6d102689b8f305665675c82644634f414e25bedf4472af9c184946a3cbee5008",
+          "page": 56,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "1c57b42b56ee42a6ca5d37d598df1a07ac375f9e5db09b4fe3e21c71ddd15592",
+          "page": 57,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "2e80d7ea47681bdbb75c3a070273d99f72df94469a8b5c95803a1db8e037c4fc",
+          "page": 58,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "9117ccf582075cf6909ed1960cfec2885bde6cf7d906aa8a42476c45244a1bb3",
+          "page": 59,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "ef62971be874a06b1d951bac8b2330c6dc907e9075d7c4025fac7be3b529df0c",
+          "page": 60,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "bea7e6ce19fa282e32b6111b0f43ca9072721c22055f7a1bed7c878fe4f0ab24",
+          "page": 61,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "c3d3c17bf4c02bdc83891e513e759601ce24507bb24a7c6f09ed5c9e85b29fc3",
+          "page": 62,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "df8596616eb4e4b81624e7ed17e4ba2256444852cf3b58c9a3b75382cee9f215",
+          "page": 63,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "95bac53ece26b75e510aaf139e8231ac30a12939e5b346450cb2ee5bf1b4880f",
+          "page": 64,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "61ca9513603a3dde3d8ff47d1faac17804d02554c16dc7a24a8251504d32853e",
+          "page": 65,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "c74f8c414ebc62d40ca172817e081c864d9dbe32493435f7b9300e61f0d70215",
+          "page": 66,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "3eb300a66a2365d866a76f9507cf5c551707b719cce83f452ae50739379aa0bd",
+          "page": 67,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "88fc2077e9f2177cbf1a914c6a925a69d56c73228ac711be4566365940ff1553",
+          "page": 68,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7829f412e51524a0a4e0eb4ba133c5d53643a67302c39e175cf4379131352e2a",
+          "page": 69,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "540518faf5751d236a7d1a5794a0c351241071a5ede129b9eb7d5069587a4dd8",
+          "page": 70,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "bfbacc9990c268183915f661a698f2806d42bae7db8fadff8882cde504bd98c0",
+          "page": 71,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "fc0e1777446b8de920be30cc6d07da9826c93a581d32708715c21fe0d5e06cb3",
+          "page": 72,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "fdaf157ccb81af53a62ebd0238674e2bae47e02cc40ef312897790b774ba2f34",
+          "page": 73,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "aea2af85c07554a9cdec73584c9280f9f0ba0f52d6beb90b09b712bdc9acfda7",
+          "page": 74,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "2d7508802a2b7c5e364e9335828367df00b6cfdd0199714b9d23c6adfb20025b",
+          "page": 75,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "af436bf3666e3e724539e5512f631de576360b481b9bfd3d891beb8c2df22883",
+          "page": 76,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "a63b8efc5c24149b9f8a723d9d21adc9bd986d5ac5fc59f0b069fd17931980dd",
+          "page": 77,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "97417138bb3bffb97f874a2678a620a217b4f235a00db59c689b4a1d47d9de00",
+          "page": 78,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "38b418fa8e480e7cf0c18c362d2779965aba53133889124981f2c34579b2723e",
+          "page": 79,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "a0a589fa93617bb8dc1d1c5ab5cbbd9b78513e25d756ac48882cd0c5ba1a7d3c",
+          "page": 80,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "a55a4622a92e47fbc4e68f1c165526da4714232c8f25c761e3abef673b219344",
+          "page": 81,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7697287896009b9c6492a962c43badfac3225e3f2309111c9dd43c0cd3bd1ed0",
+          "page": 82,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e677811b011dd969a317febde14328d2058de9397f3e1108ff9ffb6060e56bc8",
+          "page": 83,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "d06016c5760985e99693fbd499145ebb131f84d81cce183ebecad1c81b6bb808",
+          "page": 84,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "0cc839be93aa3f5c1aa7148468e2b888256bfb5634ead6e5595b57556bd1d4ed",
+          "page": 85,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "ec8fd15d5fb9eec7b9bb75c4a6ade7f0979c8739f3704e740b861fe6d17219d3",
+          "page": 86,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "5bd4a44c4b21b0fd9010eba07ecc31642552cf23e7384da0b1665e7d08d3807f",
+          "page": 87,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e712a67e1a43902552e37ae308f09c6179eb4266928216b4038b35ff32e34d87",
+          "page": 88,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "8d88bef4943f920ded05dc477e43267dbe6affef2ab45eb91f90dc19a209838a",
+          "page": 89,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "69702f7e5abab17200e06a05913a4c4b0e202a514814f484b38f71ba2d670149",
+          "page": 90,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "fc36b2f58bf0ad2273bdcdb3258d7c601bd1f9cae0966c66cbfe01308624498d",
+          "page": 91,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "4e175886c791a6a9e527ead53ed0761cf443606984fe341a2abeab4f2044202a",
+          "page": 92,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "cd7064c59fe73cc72175e4b91b6037bddb70bace8d1e99f0f6dd437779005007",
+          "page": 93,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "d9de943d566251cf31d1b77d6158d3b4e382fb319b70624cc6a25544580a2e04",
+          "page": 94,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "58d56c21415c2a0c08ec2d9eebcf4efdfa9ecd249952301256022459e599a3d1",
+          "page": 95,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "6c987bc0668e863496c2fde8111469a57d3b151e45e1dbf4c4a93a0b06295385",
+          "page": 96,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "cf36d1817ee7f2244e5caf15c921bda41efa4d279cc8f27dcd5246cc26a7089c",
+          "page": 97,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "623a9d882626b365bb5198bd1f4b1068ab9da74a8d66e7aa42c802c928406b96",
+          "page": 98,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "1439a91d9cd2c0bf8c8c694c93e21c4e631b7d0661bbf44fb887e8e17256a861",
+          "page": 99,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "01ad73651f2c31f1664d8b29fd1fbe5a10c99ade82c43a08393c152c3f71b8ea",
+          "page": 100,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "d0229ff447b0344db34c79470ebcb0157c6342f16ac681d7746b339ec37ad3c6",
+          "page": 101,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "12bf963adfa3449c73d0c391ba0d829c707a8b24738996f0c35e96e5213b1c9e",
+          "page": 102,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "9d1b287224a03970627e9f0a2bc928babb57ca35e3c74a2efd401c47cb6dd5af",
+          "page": 103,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "cec78ad02cc3f352927b8346d0f163a2bdfacb8a76f94a019f205f5ba5317488",
+          "page": 104,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e2136b6a209a6fd416e5824c1fb2c6a4923d2ea5ea6b70f1a7acadd2ea77f066",
+          "page": 105,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "d967bc40ea36021bf8b3920faca067011692bbd3d9f5c102c00612cd4e6194bc",
+          "page": 106,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "362a3933058d7e64f30e5d1028f6f34f08b2c5b73b7229ca7e079da19c11e200",
+          "page": 107,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7950e9de66a354565e99c9a5d7eb5ddc704e8650b6a374680c7af3df5a1cb770",
+          "page": 108,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e2e4eb85d954eea66182befc08af72c83cc6d65141d2cd7af6abc250637aad6e",
+          "page": 109,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "f07a05a36ef18c6930b2d276aa063e4201b27e1a03150820bb7ad06df1a20fad",
+          "page": 110,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "248320dab14aba23e3ae4d9659710266005686ad7001aa93c0fc16d6fd032bbd",
+          "page": 111,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7fbbb0c4af77df85c5cb8407df584bbf8b41e6a2821668dd9abab7d50ad97236",
+          "page": 112,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "8e73df249e7292c8f372a9504fea6d9ad42c72b43554c283fc44a96eba76057c",
+          "page": 113,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "cd4dd5ea18de15820ae12149b57e15221150f1f286575277debdd894a2bccf52",
+          "page": 114,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "490d707f42cf00071cff89166be93dd3d06a8ceb9749fb4ba3af7a58833e1425",
+          "page": 115,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e63736f0834048d1975300ffc2d19b05aa5aa6d4b405ba7a01f83572995ef420",
+          "page": 116,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "6e9aa94db31176423211914c35d36c0f7025182fb44b36c9890f5f57e289fa1f",
+          "page": 117,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "54f7bdab53045fce8df3d35a496657b09e585f4362ddc5c5232540ba22579eee",
+          "page": 118,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "879bd7a306e4176e31395b15f58b69b4efc7835a662396f04bf948dd0841f99e",
+          "page": 119,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "374de63fb3d38bb83a5968c686120336ab1cd4f91d86074f0a7a773b66a8d301",
+          "page": 120,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "e55ffe2a8ee420cafed48441d3a47e71901909bec85efdd8728cdf625ec1060e",
+          "page": 121,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "c6e1b8e0369e9ab8049021c52ed9534e18cd9a19b2a2a5cb994e044eef5c4b69",
+          "page": 122,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "8653c5aca7d636780fc1a486d7ac871eab056d5408910a8220f33ed420e3bd48",
+          "page": 123,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "dce62202946fbccfd90fcea4b031abda18018b10a25ea59683446b9d8939759c",
+          "page": 124,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7c611a8cc1ea45c1713fe069e75e93a04b0d164e287723c7bf92039d721fb1c8",
+          "page": 125,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "44fb1b3b04e5557de9aaa138081f1b7dcb3e29498dce50e131357e43c59cb87e",
+          "page": 126,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "0037be3a60805764dd103bd71c9cf765cebdd184d5ded401ed672c36060cde9b",
+          "page": 127,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "6a7a85ef32d997dbcb988609e4c0777d75cd6c077fcadc461fe3c5f6928c6883",
+          "page": 128,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "abb427ba8e5fb882a4782acdc54217e79ea06e466cd389ca9dc95a75d3862e12",
+          "page": 129,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "87f081d45e0883a0fdcb5d16d6e52cc6961846e4b4436bb42ba37d8da9c324ca",
+          "page": 130,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "6178febc39328fdb78431f705807ebb953e26ff012f2375f4989299462c69ab8",
+          "page": 131,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "caae269c0542102942c10d5c037452cf3816c4040ad07ecadb963b6ebf504e37",
+          "page": 132,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "072bf6e06cb33ef8a94a5ff4c855f2574cbb069cd65694b519813b43b83a6515",
+          "page": 133,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "25ac3210683510da37e2e78fcfb3af0ccaeb856f403e5c44b57d7a7366e78ece",
+          "page": 134,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "83839efc466d8eaa46fde20c80a6b2963edfff5e96bac6e9e00513f3835f42f8",
+          "page": 135,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "b4e6032690fed64c92d2dd2b202a03dd8ab2cae9823528cefe4b376a5469971c",
+          "page": 136,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "cfb83b345fc1a882e3b8c79c9d23bef1034461f8e6c22e115dd5d06360c4e786",
+          "page": 137,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "d3084eb048a3b086f979ba1a991cf10f4e2ca8cf1828e417312ae70f526dc1b7",
+          "page": 138,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "5b71a49a688d9964f6d42abc740c2c9a4f7ccec625a1976880e0abac1845b6b1",
+          "page": 139,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "498441476eedb385d8b5e419a4225f4f558f63a530d6eb93d87157217bdbbc54",
+          "page": 140,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "fb64b247f054a30d29379de7bc008e3a44133fb6e8540479e1f5bd97190440b3",
+          "page": 141,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "24349dca4c1818fe7217cc63ed8f9d61b398f6bc080fdfffc2f9ded46161b7d4",
+          "page": 142,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "3e395f7d31390fa42d407562e30f7e8fd8df8e777a43964029bc430c8e05ea32",
+          "page": 143,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "ec6279ef44739b84529fdfbfcfd0878f537bfbf50eda360be2dc3c4078e000f5",
+          "page": 144,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "3bf4bd49a44557ae021b5304deeadf0d281fc7d5548194ca0b012c9213297349",
+          "page": 145,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "a4507d031f609dcdb2b25fc84ae1730257c61932a5d81ba140f0e9153c41118c",
+          "page": 146,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "27ff2561ba05bdf72af28f08526fdad4da439e79f46970583640ae2da0f5255b",
+          "page": 147,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "6efb8d5f70369be86991d4848869a1d64efa50fa5679367b77c6c90ba1403862",
+          "page": 148,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 5,
+          "original_HTTP_SHA256": "7cad6d448e13b9026829b39515bdebe08dcadee6007518c0603d6d72828ef21a",
+          "page": 149,
+          "returned_observations": 5
+        },
+        {
+          "matching_explicit_field": 1,
+          "original_HTTP_SHA256": "8f5c47f58753cc00c0bee437dc9be61cf9c076cc904a906e6739b52b3c2ef046",
+          "page": 150,
+          "returned_observations": 1
+        }
+      ],
+      "source_name": "Butterfly Puddling Substrate",
+      "source_total_results": 746,
+      "substrate_text_class_counts_if_field500": {
+        "AMBIGUOUS_MULTIPLE_SUBSTRATES": 41,
+        "UNCLASSIFIED_TEXT": 134,
+        "carrion_or_dead_organism": 3,
+        "dung_feces": 46,
+        "mud_soil_sand": 426,
+        "rock_gravel": 73,
+        "urine_sweat_salt": 5,
+        "water_only": 18
+      },
+      "taxon_obs_year_counts": {
+        "1989": 2,
+        "2006": 1,
+        "2009": 2,
+        "2010": 10,
+        "2011": 3,
+        "2012": 6,
+        "2013": 18,
+        "2014": 21,
+        "2015": 6,
+        "2016": 6,
+        "2017": 9,
+        "2018": 70,
+        "2019": 37,
+        "2020": 44,
+        "2021": 90,
+        "2022": 63,
+        "2023": 52,
+        "2024": 63,
+        "2025": 95,
+        "2026": 148
+      },
+      "total_distinct_unstandardized_raw_value_strings": 204
+    }
+  },
+  "mixed_field17428_not_specific_to_puddling": true,
+  "no_H7_WWTP_or_2022_riparian_source_geography_used": true,
+  "no_HNS_or_nutrient_assimilation_or_biological_wastewater_effect": true,
+  "raw_observation_photo_coordinates_and_user_ids_not_republished": true,
+  "schema": "GESUI_20261115_ORIGINAL_INAT_ADULT_PUDDLING_FIELD500_TAXON_SOURCE_AUDIT_V1",
+  "single_field_tags_can_cluster_by_photographer_and_project": true,
+  "source_field500_annotated_value_not_verified_active_fluid_intake": true,
+  "target_composition_cannot_estimate_family_puddling_propensity": true
+}

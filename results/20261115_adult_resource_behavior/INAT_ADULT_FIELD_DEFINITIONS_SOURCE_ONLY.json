@@ -1,0 +1,981 @@
+{
+  "candidate_fields": [
+    {
+      "allowed_values": "rural|urban",
+      "created_at": "2013-01-10T21:57:15.265Z",
+      "datatype": "text",
+      "description": "",
+      "id": 121,
+      "name": "Roosting Site",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-10-05T03:51:50.768Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2013-08-09T19:54:58.476Z",
+      "datatype": "text",
+      "description": "Substrate on which butterfly is puddling.",
+      "id": 500,
+      "name": "Butterfly Puddling Substrate",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-13T15:28:14.732Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2014-03-10T22:18:24.205Z",
+      "datatype": "text",
+      "description": "consuming the flesh of a dead animal",
+      "id": 946,
+      "name": "carrion",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-30T18:52:00.109Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2014-10-12T15:48:07.224Z",
+      "datatype": "text",
+      "description": "Describe the roosting site",
+      "id": 1690,
+      "name": "Roosting site?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-06T02:40:15.110Z"
+    },
+    {
+      "allowed_values": "yes|no|maybe",
+      "created_at": "2014-01-02T06:06:56.234Z",
+      "datatype": "text",
+      "description": "Majority of birds are roosting",
+      "id": 1844,
+      "name": "Roosting",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-10-16T23:35:16.339Z"
+    },
+    {
+      "allowed_values": "pig|cattle|human",
+      "created_at": "2016-06-12T23:04:41.608Z",
+      "datatype": "text",
+      "description": "Type of dung used to bait pitfall trap",
+      "id": 4909,
+      "name": "Dung Type",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2023-11-05T06:45:27.112Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2016-08-30T07:02:46.595Z",
+      "datatype": "taxon",
+      "description": "Include tree species",
+      "id": 5285,
+      "name": "Observed Species Association: Roosting (Tree)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-05-21T09:46:41.747Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2017-06-07T15:14:10.919Z",
+      "datatype": "text",
+      "description": "Are any of the bugs present eating dead/decomposing material?",
+      "id": 6636,
+      "name": "Behavior: eating carrion",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-14T21:36:42.726Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2017-07-28T22:13:51.559Z",
+      "datatype": "text",
+      "description": "Verwendung",
+      "id": 6968,
+      "name": "Verwendung",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2019-08-07T22:19:13.468Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2017-12-01T19:02:16.212Z",
+      "datatype": "taxon",
+      "description": "coprófagos",
+      "id": 7760,
+      "name": "dungbeetle",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2017-12-01T19:02:16.212Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2018-01-09T19:27:11.984Z",
+      "datatype": "text",
+      "description": "Have you observed Chimney Swifts roosting in this location during the late-summer migratory season?",
+      "id": 7920,
+      "name": "Confirmed Roosting?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2023-02-14T13:20:45.745Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2018-07-30T14:35:24.564Z",
+      "datatype": "text",
+      "description": "",
+      "id": 9197,
+      "name": "Feces",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-09T05:07:58.666Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2019-10-20T01:28:24.288Z",
+      "datatype": "text",
+      "description": "",
+      "id": 11058,
+      "name": "Pinguicula zamudioana",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2019-10-20T01:28:24.288Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2020-08-21T06:28:25.438Z",
+      "datatype": "taxon",
+      "description": "",
+      "id": 12425,
+      "name": "Observed Species Association: On dung of",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-07-25T17:51:26.087Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2021-07-17T22:50:39.911Z",
+      "datatype": "text",
+      "description": "Presencia de Polluelos",
+      "id": 13970,
+      "name": "\"Polluelos\" (Adult feeding young that have left the nest, but are not yet flying and independent)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-12-17T14:47:18.137Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2021-07-27T02:32:10.623Z",
+      "datatype": "text",
+      "description": "Adultos alimentando polluelos o transportando alimento para los mismos.",
+      "id": 14000,
+      "name": "“Alimentación de polluelos” (Feeding young)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-10T01:02:52.629Z"
+    },
+    {
+      "allowed_values": "no|yes|maybe|unknown",
+      "created_at": "2021-09-16T23:53:25.576Z",
+      "datatype": "text",
+      "description": "Was this organism feeding on the honeydew produced by spotted lanternflies?",
+      "id": 14180,
+      "name": "Feeding on honeydew?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-13T06:10:40.230Z"
+    },
+    {
+      "allowed_values": "no|yes|maybe|unknown",
+      "created_at": "2021-09-16T23:55:31.922Z",
+      "datatype": "text",
+      "description": "Was this organism feeding from the wounds in the plant caused by spotted lanternfly feeding?",
+      "id": 14181,
+      "name": "Feeding on plant wound?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-12-24T16:13:16.447Z"
+    },
+    {
+      "allowed_values": "no|yes|maybe|unknown",
+      "created_at": "2021-09-18T01:47:51.686Z",
+      "datatype": "text",
+      "description": "Answer 'yes' here if the organism appeared to be feeding on something- even if what it was feeding on was unclear.",
+      "id": 14201,
+      "name": "Feeding behavior?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-14T17:57:06.108Z"
+    },
+    {
+      "allowed_values": "no|yes|maybe|unknown",
+      "created_at": "2021-09-18T01:51:44.350Z",
+      "datatype": "text",
+      "description": "Was this organism feeding on fungus or sooty mold?",
+      "id": 14202,
+      "name": "Feeding on fungus/sooty mold?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-07T22:12:25.442Z"
+    },
+    {
+      "allowed_values": "individual pellet randomly distributed|cluster",
+      "created_at": "2022-01-11T13:48:23.366Z",
+      "datatype": "text",
+      "description": "How are the pellet distributed?",
+      "id": 14572,
+      "name": "Pellet aggregates",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2024-08-23T18:48:50.649Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2022-05-10T15:57:42.349Z",
+      "datatype": "text",
+      "description": "",
+      "id": 15111,
+      "name": "Feeding_",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2022-05-10T15:57:42.349Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2022-06-12T04:56:42.771Z",
+      "datatype": "text",
+      "description": "Prey category/Species/Stage of feeding",
+      "id": 15274,
+      "name": "Hunting/feeding",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-15T02:28:24.315Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2022-06-24T19:00:01.820Z",
+      "datatype": "text",
+      "description": "For insects feeding on flowers.",
+      "id": 15301,
+      "name": "Feeding on:",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-14T01:20:50.567Z"
+    },
+    {
+      "allowed_values": "yes|no|maybe",
+      "created_at": "2022-11-07T18:11:53.094Z",
+      "datatype": "text",
+      "description": "bird feeding the young",
+      "id": 15790,
+      "name": "feeding the young",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-06-10T22:58:27.704Z"
+    },
+    {
+      "allowed_values": "yes|no|maybe",
+      "created_at": "2022-12-09T08:12:47.953Z",
+      "datatype": "text",
+      "description": "Aggregation behaviour more than five individuals of the same sex are seen grouping together",
+      "id": 15911,
+      "name": "Thrips aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-11T13:22:05.154Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2022-12-21T17:20:48.373Z",
+      "datatype": "text",
+      "description": "on horse dung",
+      "id": 15959,
+      "name": "Dung beetle",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-08T18:23:29.520Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2022-12-21T17:21:40.781Z",
+      "datatype": "text",
+      "description": "sort of dung",
+      "id": 15960,
+      "name": "Dung beetle on dung",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-06-26T19:53:55.225Z"
+    },
+    {
+      "allowed_values": "No, none of these|Scavenging or Decomposition|Nectar/pollen feeding|Parasitism",
+      "created_at": "2023-04-19T16:50:00.696Z",
+      "datatype": "text",
+      "description": "Scavenging/Decomposition: eating an animal that was already dead, or eating detritus. Nectar/pollen feeding: visiting a flower to collect pollen/nectar. Parasitism: eating parts of an animal (e.g. blood) or, in certain cases, a plant (e.g. sap-sucking)",
+      "id": 16376,
+      "name": "Is observation one of these special types of feeding?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-15T09:42:29.985Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2023-09-23T15:56:05.481Z",
+      "datatype": "taxon",
+      "description": "Was this organism feeding on honeydew released by sap-sucking homopterans?",
+      "id": 16965,
+      "name": "Feeding on homopteran honeydew?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-02T12:20:05.161Z"
+    },
+    {
+      "allowed_values": "Yes|No|Maybe",
+      "created_at": "2024-02-06T07:37:37.638Z",
+      "datatype": "text",
+      "description": "Active Aggregation of butterflies for resting, mud puddling. Observable features include several butterflies of the same species or mixture of related species with flexed wings or actively seeking nectar or water observed",
+      "id": 17428,
+      "name": "Lepidopterans aggregating/Roosting/mud puddling",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-13T15:28:16.993Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2024-04-20T18:35:33.416Z",
+      "datatype": "text",
+      "description": "Erratic direction, frequent dives",
+      "id": 17724,
+      "name": "Foraging or Feeding underwater",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2024-04-20T18:35:33.416Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2024-06-19T18:58:48.111Z",
+      "datatype": "text",
+      "description": "Did you see evidence of burrows or mud chimneys?",
+      "id": 18018,
+      "name": "Presence of burrows or mud chimneys",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-10T03:08:38.211Z"
+    },
+    {
+      "allowed_values": "potenziell|hoch|sehr hoch|vom Aussterben bedroht",
+      "created_at": "2024-07-03T09:50:53.820Z",
+      "datatype": "text",
+      "description": "",
+      "id": 18050,
+      "name": "ROTE LISTE GEFÄHRDUNG",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2024-07-03T09:53:20.136Z"
+    },
+    {
+      "allowed_values": "No Selection|Yes|No|Maybe",
+      "created_at": "2024-07-16T16:18:42.307Z",
+      "datatype": "text",
+      "description": "Please check and indicate if there are signs of sapsucker feeding (i.e. many holes in horizontal lines). Please describe area of the tree in the notes",
+      "id": 18113,
+      "name": "Optional - Signs of sap sucker feeding?",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-15T04:32:39.019Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2024-10-26T18:48:36.458Z",
+      "datatype": "text",
+      "description": "Is the animal eating carrion?",
+      "id": 18609,
+      "name": "Behavior: Consuming carrion",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-08T13:09:50.508Z"
+    },
+    {
+      "allowed_values": "yes|no|maybe",
+      "created_at": "2024-11-17T17:48:54.545Z",
+      "datatype": "text",
+      "description": "Fruit fly aggregation/Lekking",
+      "id": 18718,
+      "name": "Fruit fly aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-06-16T15:38:14.997Z"
+    },
+    {
+      "allowed_values": "yes|maybe",
+      "created_at": "2024-12-05T08:57:16.512Z",
+      "datatype": "text",
+      "description": "Document observations with visible plant feeding by mosquitoes",
+      "id": 18781,
+      "name": "Mosquito_Plant_feeding",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-01-27T11:30:38.166Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2025-03-23T17:31:26.944Z",
+      "datatype": "text",
+      "description": "",
+      "id": 19341,
+      "name": "aggregation of bee nests",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-01-24T01:17:14.028Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2025-04-11T01:15:36.257Z",
+      "datatype": "text",
+      "description": "",
+      "id": 19527,
+      "name": "Tiger beetles feeding",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-07-05T20:03:34.104Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-06-05T10:50:52.383Z",
+      "datatype": "text",
+      "description": "For recording the original accession number as submitted to the Virtual Museum project: DungBeetleMAP",
+      "id": 19814,
+      "name": "DungBeetleMAP",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-06-06T13:32:54.293Z"
+    },
+    {
+      "allowed_values": "yes|no|maybe",
+      "created_at": "2025-07-15T18:10:30.514Z",
+      "datatype": "text",
+      "description": "",
+      "id": 20096,
+      "name": "Herbivore feeding on crops",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-07-16T12:21:27.624Z"
+    },
+    {
+      "allowed_values": "Chewing (marging)|Chewing (hole)|Mining|Skeletonizing|Surface, Scraping|Vein|Sucking|Galling|Nest|Oviposition|Other",
+      "created_at": "2025-08-15T16:49:07.712Z",
+      "datatype": "text",
+      "description": "Herbivore feeding pattern observed in leaves",
+      "id": 20276,
+      "name": "Feeding guild",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-08-15T19:28:44.970Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-08-25T13:37:21.830Z",
+      "datatype": "taxon",
+      "description": "Dung source (animal species)",
+      "id": 20305,
+      "name": "Type of Dung",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-10-04T16:04:56.913Z"
+    },
+    {
+      "allowed_values": "Solitary foraging|Tandem running|Group recruitment|Trail forming|Nuptial flight aggregation|Cooperative carrying|Not observed|Other",
+      "created_at": "2025-09-03T05:43:41.849Z",
+      "datatype": "text",
+      "description": "Observed grouping behaviour of ants",
+      "id": 20335,
+      "name": "Ant_Aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-09-03T07:44:44.685Z"
+    },
+    {
+      "allowed_values": "present|absent",
+      "created_at": "2025-10-12T06:13:59.373Z",
+      "datatype": "text",
+      "description": "Used to visualize range of C. latro in Bryodesma obs by presence of silken feeding tube structures, see https://www.inaturalist.org/observations/320665990",
+      "id": 20495,
+      "name": "Chionodes latro feeding tubes",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-03-04T23:46:19.693Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-10-19T22:04:27.800Z",
+      "datatype": "taxon",
+      "description": "",
+      "id": 20549,
+      "name": "bird species observed feeding (1)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-12T22:30:25.005Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-10-19T22:04:57.561Z",
+      "datatype": "taxon",
+      "description": "",
+      "id": 20550,
+      "name": "bird species observed feeding (2)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-05T01:23:13.726Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-10-19T22:05:13.605Z",
+      "datatype": "taxon",
+      "description": "",
+      "id": 20551,
+      "name": "bird species observed feeding (3)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-10-20T00:06:59.123Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-10-19T22:05:37.574Z",
+      "datatype": "taxon",
+      "description": "",
+      "id": 20552,
+      "name": "bird species observed feeding (4)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-10-20T00:07:03.544Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-10-19T22:05:46.349Z",
+      "datatype": "taxon",
+      "description": "",
+      "id": 20553,
+      "name": "bird species observed feeding (5)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-10-20T00:07:09.463Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-10-19T22:05:54.698Z",
+      "datatype": "taxon",
+      "description": "",
+      "id": 20554,
+      "name": "bird species observed feeding (6)",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2025-10-20T00:07:13.306Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2025-12-11T10:50:10.227Z",
+      "datatype": "text",
+      "description": "",
+      "id": 20915,
+      "name": "Feeding behaviour",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-10-13T20:31:36.800Z"
+    },
+    {
+      "allowed_values": "No Selection|None|Low|Medium|High|Other|Not Sure",
+      "created_at": "2026-03-27T15:18:25.546Z",
+      "datatype": "text",
+      "description": "Please select the best fitting category",
+      "id": 21482,
+      "name": "Foliage - insect feeding",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-10-11T18:18:25.849Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2026-04-10T13:20:18.284Z",
+      "datatype": "text",
+      "description": "",
+      "id": 21600,
+      "name": "Feeding together",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-04-10T13:20:18.284Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2026-05-14T15:27:50.464Z",
+      "datatype": "text",
+      "description": "",
+      "id": 21808,
+      "name": "on/in dung",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-05-14T17:29:55.143Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2026-06-14T20:11:24.966Z",
+      "datatype": "text",
+      "description": "(yes/no) recent evidence of mud/dust bathing (active, wallow, covered in mud etc.)",
+      "id": 21975,
+      "name": "mud or dust bathing",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-06-15T00:16:15.704Z"
+    },
+    {
+      "allowed_values": "Pollen|Nectar|Both pollen and nectar|Unsure but plant-feeding",
+      "created_at": "2026-06-27T20:10:15.757Z",
+      "datatype": "text",
+      "description": "Records whether the crab spider is actively feeding on plant resources (pollen or nectar)",
+      "id": 22071,
+      "name": "Thomisus: floral feeding behavior",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-06-27T22:11:33.772Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-08-31T07:12:22.747Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22478,
+      "name": "ACTAN:0000551 dis-aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-09T11:18:41.581Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-08-31T10:51:17.368Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22517,
+      "name": "ACTAN:0000413 school aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-09T11:10:58.481Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-08-31T19:01:05.100Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22538,
+      "name": "ACTAN:0000314 pseudo-school aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-02T17:09:32.210Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-09-02T14:15:32.544Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22581,
+      "name": "ACTAN:0000483 cluster aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-02T16:17:41.149Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-09-06T15:45:47.865Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22611,
+      "name": "ACTAN:0000411 aggregation participation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-06T17:46:42.731Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-09-08T08:59:36.388Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22623,
+      "name": "ACTAN:0000959 foraging aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-08T15:15:35.080Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-09-08T16:43:35.380Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22631,
+      "name": "ACTAN:0000664 torus aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-08T18:46:55.076Z"
+    },
+    {
+      "allowed_values": "No comments|Observation comment|Catalogue comment|Both comments",
+      "created_at": "2026-09-09T07:37:31.143Z",
+      "datatype": "text",
+      "description": "Select a drop-down item to show where you have left a comment about this Field. You could comment in this specific Observation. Or make a general comment under the project journal's most recent Catalogue upload. Or perhaps both. Or neither.",
+      "id": 22634,
+      "name": "ACTAN:0000663 leapfrog aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-09-09T09:41:34.228Z"
+    },
+    {
+      "allowed_values": "Yes|No",
+      "created_at": "2026-10-06T02:22:22.195Z",
+      "datatype": "text",
+      "description": "Depicts at least three male bees in a grouping, not feeding",
+      "id": 22875,
+      "name": "Male Bee Aggregation",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-10-07T03:18:50.883Z"
+    },
+    {
+      "allowed_values": "yes|no",
+      "created_at": "2026-10-13T21:52:18.550Z",
+      "datatype": "text",
+      "description": "Feeding during the day?",
+      "id": 22940,
+      "name": "Day Feeding",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-11T05:44:21.472Z"
+    },
+    {
+      "allowed_values": "",
+      "created_at": "2026-10-13T22:08:11.625Z",
+      "datatype": "taxon",
+      "description": "abnormal roost location - list species if possible",
+      "id": 22942,
+      "name": "Roosting in",
+      "not_independently_verified_behavior": true,
+      "updated_at": "2026-11-11T05:42:37.389Z"
+    }
+  ],
+  "decision": "SOURCE_ONLY_CLASSIFICATION_VALIDITY_NOT_BIOLOGICAL_EFFECT",
+  "field_17428_might_include_rest_aggregation_and_nectar": true,
+  "field_absence_not_true_behavior_absence": true,
+  "fields_are_user_created_and_not_curator_standardized": true,
+  "mixed_field_17428_cannot_claim_puddling_ingestion": true,
+  "mixed_original_field_17428": {
+    "allowed_values": "Yes|No|Maybe",
+    "created_at": "2024-02-06T07:37:37.638Z",
+    "datatype": "text",
+    "description": "Active Aggregation of butterflies for resting, mud puddling. Observable features include several butterflies of the same species or mixture of related species with flexed wings or actively seeking nectar or water observed",
+    "id": 17428,
+    "name": "Lepidopterans aggregating/Roosting/mud puddling",
+    "not_independently_verified_behavior": true,
+    "updated_at": "2026-11-13T15:28:16.993Z"
+  },
+  "n_adult_keyword_candidate_fields": 69,
+  "n_unique_fields": 97,
+  "no_HNS_computed": true,
+  "no_adult_resource_family_contrast_run": true,
+  "no_sewage_water_quality_or_map_crossing": true,
+  "no_species_or_observations_read": true,
+  "query_terms": [
+    "puddling",
+    "mud",
+    "carrion",
+    "dung",
+    "feces",
+    "feeding",
+    "feeding behavior",
+    "behavior",
+    "roosting",
+    "aggregat"
+  ],
+  "request_receipts": {
+    "aggregat": {
+      "field_ids": [
+        22875,
+        22634,
+        22631,
+        22623,
+        22611,
+        22581,
+        22538,
+        22517,
+        22478,
+        20335,
+        19341,
+        18718,
+        17428,
+        15911,
+        14572
+      ],
+      "metadata_results_n": 15,
+      "receipts": [
+        {
+          "SHA256": "c40281503729f17e751517e9f09d3357944ba9bf99e432677169ff48f6fec18d",
+          "items": 15,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "behavior": {
+      "field_ids": [
+        23082,
+        23017,
+        22439,
+        22438,
+        22286,
+        22071,
+        21717,
+        21713,
+        21421,
+        21161,
+        21029,
+        20595,
+        20226,
+        19984,
+        19938,
+        19873,
+        19646,
+        18941,
+        18931,
+        18609,
+        18393,
+        17942,
+        17941,
+        17933,
+        17528,
+        17525,
+        17255,
+        17057,
+        17056,
+        17055
+      ],
+      "metadata_results_n": 30,
+      "receipts": [
+        {
+          "SHA256": "3474810a0ce799873d476f8bc9eb9964953e00d4ee99de8bb9ae28171e1a0c12",
+          "items": 30,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "carrion": {
+      "field_ids": [
+        18609,
+        6636,
+        946
+      ],
+      "metadata_results_n": 3,
+      "receipts": [
+        {
+          "SHA256": "ec429e8e745d9c99dce57b74aa14769da6e9961cc8422edfd1cd904f5e9bbfe0",
+          "items": 3,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "dung": {
+      "field_ids": [
+        21808,
+        20305,
+        19814,
+        18050,
+        15960,
+        15959,
+        12425,
+        7760,
+        6968,
+        4909
+      ],
+      "metadata_results_n": 10,
+      "receipts": [
+        {
+          "SHA256": "c5f415c9adf034166718b86cd9ef8a9f3064a0a32b88d0dfbb656ed8951936d3",
+          "items": 10,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "feces": {
+      "field_ids": [
+        9197
+      ],
+      "metadata_results_n": 1,
+      "receipts": [
+        {
+          "SHA256": "7e34d4d5eb023812a9bdd23c3a4a405d1541215032779e77f524d00488a9db49",
+          "items": 1,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "feeding": {
+      "field_ids": [
+        22940,
+        22071,
+        21600,
+        21482,
+        20915,
+        20554,
+        20553,
+        20552,
+        20551,
+        20550,
+        20549,
+        20495,
+        20276,
+        20096,
+        19527,
+        18781,
+        18113,
+        17724,
+        16965,
+        16376,
+        15790,
+        15301,
+        15274,
+        15111,
+        14202,
+        14201,
+        14181,
+        14180,
+        14000,
+        13970
+      ],
+      "metadata_results_n": 30,
+      "receipts": [
+        {
+          "SHA256": "86ca5f89a13e419c04f3ffc08d062d89549c09ee53de8895e6d9533d5ee8529d",
+          "items": 30,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "feeding behavior": {
+      "field_ids": [
+        22071,
+        14201
+      ],
+      "metadata_results_n": 2,
+      "receipts": [
+        {
+          "SHA256": "f2c8038f6c5635601c8870bb9ca5b428a2703e9bdc40868e5f9cb7683385a408",
+          "items": 2,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "mud": {
+      "field_ids": [
+        21975,
+        18018,
+        17428,
+        11058
+      ],
+      "metadata_results_n": 4,
+      "receipts": [
+        {
+          "SHA256": "3f011ec6ec4e72b949d952922794ad1a28618c119b702c6108befafce6f1fff6",
+          "items": 4,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "puddling": {
+      "field_ids": [
+        17428,
+        500
+      ],
+      "metadata_results_n": 2,
+      "receipts": [
+        {
+          "SHA256": "9ec412d46863a04bb0a89adc5bcaafb5191be83aaa3aa961edd482d3af23c350",
+          "items": 2,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    },
+    "roosting": {
+      "field_ids": [
+        22942,
+        17428,
+        7920,
+        5285,
+        1690,
+        1844,
+        121
+      ],
+      "metadata_results_n": 7,
+      "receipts": [
+        {
+          "SHA256": "2c8b026a23fbb472ada31004f075b7294c0b075713eb1592bfcf771a78349ffc",
+          "items": 7,
+          "page": 1,
+          "reported_total": null
+        }
+      ]
+    }
+  },
+  "schema": "GESUI_20261115_INAT_ADULT_PUDDLING_SUBSTRATE_ORIGINAL_FIELD_AUDIT_V1",
+  "source_endpoint": "https://www.inaturalist.org/observation_fields.json",
+  "strict_candidates_not_photo_or_value_validated": true,
+  "strict_name_description_candidate_field_ids": [
+    946,
+    4909,
+    6968,
+    7760,
+    9197,
+    12425,
+    15959,
+    15960,
+    18050,
+    18609,
+    19814,
+    20305,
+    21808
+  ]
+}
