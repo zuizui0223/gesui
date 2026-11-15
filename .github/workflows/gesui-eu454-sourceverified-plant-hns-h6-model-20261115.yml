@@ -1,0 +1,48 @@
+name: gesui EU454 source-verified plant NUTRI and butterfly HNS same-H7 observational H6 holdout
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-full-plant-nutri-20261115
+    paths:
+      - 'analysis/20261115_eu454_plant_nutri/h6_model_if_gate.py'
+      - '.github/workflows/gesui-eu454-sourceverified-plant-hns-h6-model-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-gated-H7-H6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-locked observational WLS and ridge array dependencies
+        run: python -m pip install --quiet pandas numpy scipy statsmodels
+      - name: Retrieve exactly the genuine 11511-key source-v2 official 175-hybrid QA and 4011 unchanged EIV traits
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/verified_plant_nutri
+      - name: Apply unchanged 100 H7 x period, 40 H6, five-country eligibility and source QA gate BEFORE ecological models
+        run: |
+          python -m py_compile analysis/20261115_eu454_plant_nutri/h6_model_if_gate.py
+          python -u analysis/20261115_eu454_plant_nutri/h6_model_if_gate.py \
+            --source-dir '${{ runner.temp }}/verified_plant_nutri' \
+            --output '${{ runner.temp }}/same_h7_original_models'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-EU454-NUTRI-HNS-genuine-H6-out-observational-model
+          path: ${{ runner.temp }}/same_h7_original_models/
+          retention-days: 90
+          if-no-files-found: warn
