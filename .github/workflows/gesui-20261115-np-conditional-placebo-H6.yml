@@ -61,6 +61,11 @@ jobs:
           python analysis/20261115_np_conditional/scripts/validate_saved.py \
             --saved results/20261115_np_conditional/CONDITIONAL_NEGATIVE_CONTROL_RESULTS.json \
             --rerun '${{ runner.temp }}/conditional_rerun/CONDITIONAL_NEGATIVE_CONTROL_RESULTS.json'
+      - name: Check original 222 repeat H7 source-reporting state transitions only, not wastewater intervention
+        run: |
+          python analysis/20261115_np_conditional/scripts/source_transition_audit.py \
+            --original-direction-panel results/20261115_np_direction/H7_454_DIRECTIONAL_SOURCE_AUDIT_PANEL.csv \
+            --out '${{ runner.temp }}/conditional_rerun/SOURCE_REPORT_PAIRED_PERIOD_TRANSITIONS.json'
       - name: Preserve source-locked conditional/null results and independent QA
         if: always()
         uses: actions/upload-artifact@v4
