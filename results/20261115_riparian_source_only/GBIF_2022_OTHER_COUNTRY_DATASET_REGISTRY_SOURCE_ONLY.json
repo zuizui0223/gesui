@@ -1,0 +1,613 @@
+{
+  "2022_2022_crosscountry_data_granted": false,
+  "GBIF_event_occurrence_or_species_results_queried": false,
+  "additional_country_precision_must_be_authorized_and_verified": true,
+  "eBMS_data_request_requires_signed_licence_and_coordinator_approval": true,
+  "frozen_biological_primary_status": "STOP_SOURCE_OPPORTUNITY_UNPROVEN",
+  "frozen_protocol_git_blob": "b9ce415c36d398eee77d8318a20aef4873e0bf44",
+  "n_2022_full_8cell_matched_countries_verified": 0,
+  "n_registry_candidates_preselected": 11,
+  "n_registry_metadata_available": 11,
+  "no_request_was_sent": true,
+  "official_eBMS_2022_2024_data_access": "https://butterfly-monitoring.net/ebms-data%20access",
+  "outfall_site_matching_or_HNS_performed": false,
+  "results": [
+    {
+      "country": "SE",
+      "dataset_key": "be77e203-486c-4651-91b9-8347968b728c",
+      "known_from_original_source": "previously audited 2022 264 point-site event source",
+      "label": "Swedish Butterfly Monitoring Scheme",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2020-02-04T10:53:07.469+00:00",
+        "doi": "10.15468/othndo",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://www.gbif.se/ipt/archive.do?r=lu_sebms"
+          },
+          {
+            "type": "EML",
+            "url": "https://www.gbif.se/ipt/eml.do?r=lu_sebms"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 69.06,
+              "maxLongitude": 24.167,
+              "minLatitude": 55.336,
+              "minLongitude": 10.957
+            },
+            "description": "All data is collected within Sweden."
+          }
+        ],
+        "homepage": "http://dagfjarilar.lu.se",
+        "key": "be77e203-486c-4651-91b9-8347968b728c",
+        "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "modified": "2026-10-16T07:53:23.405+00:00",
+        "n_metadata_contacts": 4,
+        "published": "2026-10-16T00:00:00.000+00:00",
+        "publishingOrganizationKey": "b87ed4f6-c49f-44f7-99c6-75875e9c18df",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2025-12-31T00:00:00.000+00:00",
+            "start": "2009-01-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "Swedish Butterfly Monitoring Scheme (SeBMS)",
+        "type": "SAMPLING_EVENT"
+      },
+      "registry_receipt_sha256": "8a0bc8e7c5113100a631335c88f66b46a3f0994eec3218801b9baf3d7515e07f",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "BE",
+      "dataset_key": "81b909c7-5612-4148-8e70-99fea2cdb572",
+      "known_from_original_source": "published 5km generalized positions; catalog temporal scope 1991–2020",
+      "label": "Flanders all-butterfly monitoring",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2021-03-01T13:34:27.882+00:00",
+        "doi": "10.15468/wwrgcd",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://ipt.inbo.be/archive.do?r=bms-occurrences"
+          },
+          {
+            "type": "EML",
+            "url": "https://ipt.inbo.be/eml.do?r=bms-occurrences"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 51.51,
+              "maxLongitude": 5.94,
+              "minLatitude": 50.67,
+              "minLongitude": 2.53
+            },
+            "description": "Flanders, Belgium"
+          }
+        ],
+        "homepage": "https://meetnetten.be",
+        "key": "81b909c7-5612-4148-8e70-99fea2cdb572",
+        "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+        "modified": "2025-10-16T12:28:09.471+00:00",
+        "n_metadata_contacts": 9,
+        "published": "2025-10-08T00:00:00.000+00:00",
+        "publishingOrganizationKey": "1cd669d0-80ea-11de-a9d0-f1765f95f18b",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2020-12-31T00:00:00.000+00:00",
+            "start": "1991-01-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "Butterfly monitoring scheme in Flanders, Belgium",
+        "type": "SAMPLING_EVENT"
+      },
+      "registry_receipt_sha256": "ab7fc7f20280c6fd88f4ce3ce74ef4f5ed2a1ace109bfaa09353f06425c52e4a",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "BE",
+      "dataset_key": "63938753-1fec-4c08-ae39-e9f8a6576521",
+      "known_from_original_source": "reported 1/5/10km generalized UTM positions; precise section positions require approval",
+      "label": "Flanders priority species monitoring",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2019-12-23T09:31:52.888+00:00",
+        "doi": "10.15468/kfhvy4",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://ipt.inbo.be/archive.do?r=meetnetten-butterflies-occurrences"
+          },
+          {
+            "type": "EML",
+            "url": "https://ipt.inbo.be/eml.do?r=meetnetten-butterflies-occurrences"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 51.51,
+              "maxLongitude": 5.94,
+              "minLatitude": 50.67,
+              "minLongitude": 2.53
+            },
+            "description": "Flanders, Belgium"
+          }
+        ],
+        "homepage": "https://meetnetten.be",
+        "key": "63938753-1fec-4c08-ae39-e9f8a6576521",
+        "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "modified": "2026-02-27T08:14:33.826+00:00",
+        "n_metadata_contacts": 12,
+        "published": "2026-02-27T00:00:00.000+00:00",
+        "publishingOrganizationKey": "1cd669d0-80ea-11de-a9d0-f1765f95f18b",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2023-05-20T00:00:00.000+00:00",
+            "start": "2016-01-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "Meetnetten.be - Transects for butterflies in Flanders, Belgium",
+        "type": "SAMPLING_EVENT"
+      },
+      "registry_receipt_sha256": "ab570eec2d4e12b70426471d4dc3bd067868e4084b9a0d9e0d0d8def3c5b2a32",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "DK",
+      "dataset_key": "caa38f94-ddeb-43e7-9a27-1ac46d7ddc5c",
+      "known_from_original_source": "sampling started 2023",
+      "label": "Denmark EBMS transects",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2025-03-12T12:17:32.801+00:00",
+        "doi": "10.15468/cmjmsc",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://ipt.brc.ac.uk/archive.do?r=ebms_denmark_transects"
+          },
+          {
+            "type": "EML",
+            "url": "https://ipt.brc.ac.uk/eml.do?r=ebms_denmark_transects"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 58.008,
+              "maxLongitude": 15.699,
+              "minLatitude": 54.24,
+              "minLongitude": 7.471
+            },
+            "description": "Denmark"
+          }
+        ],
+        "homepage": null,
+        "key": "caa38f94-ddeb-43e7-9a27-1ac46d7ddc5c",
+        "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+        "modified": "2026-02-20T14:03:37.663+00:00",
+        "n_metadata_contacts": 6,
+        "published": "2026-02-10T00:00:00.000+00:00",
+        "publishingOrganizationKey": "0c392aa0-a452-4254-be5c-e49dd60e9b02",
+        "registry_only_no_observation_count": true,
+        "subtype": "OBSERVATION",
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2024-12-31T00:00:00.000+00:00",
+            "start": "2018-01-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "EBMS Denmark transects",
+        "type": "SAMPLING_EVENT"
+      },
+      "registry_receipt_sha256": "8bcb0df665b3f39934d1eb216ad1bdeb55c9e42aa105221b555f253fb6236f85",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "DK",
+      "dataset_key": "99f9976a-dfdd-4359-bf4a-5538f29458cf",
+      "known_from_original_source": "sampling started 2023",
+      "label": "Denmark EBMS fifteen-minute counts",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2025-03-31T07:33:51.273+00:00",
+        "doi": "10.15468/auqp62",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://ipt.brc.ac.uk/archive.do?r=ebms_denmark_15-minute_counts"
+          },
+          {
+            "type": "EML",
+            "url": "https://ipt.brc.ac.uk/eml.do?r=ebms_denmark_15-minute_counts"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 58.008,
+              "maxLongitude": 15.699,
+              "minLatitude": 54.24,
+              "minLongitude": 7.471
+            },
+            "description": "Denmark"
+          }
+        ],
+        "homepage": null,
+        "key": "99f9976a-dfdd-4359-bf4a-5538f29458cf",
+        "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+        "modified": "2026-02-20T13:49:42.015+00:00",
+        "n_metadata_contacts": 6,
+        "published": "2026-02-10T00:00:00.000+00:00",
+        "publishingOrganizationKey": "0c392aa0-a452-4254-be5c-e49dd60e9b02",
+        "registry_only_no_observation_count": true,
+        "subtype": "OBSERVATION",
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2023-01-01T00:00:00.000+00:00",
+            "start": "2023-01-01T00:00:00.000+00:00"
+          },
+          {
+            "@type": "range",
+            "end": "2024-12-31T00:00:00.000+00:00",
+            "start": "2024-12-31T00:00:00.000+00:00"
+          }
+        ],
+        "title": "EBMS Denmark 15 minute counts",
+        "type": "SAMPLING_EVENT"
+      },
+      "registry_receipt_sha256": "b75d58599b47bc03ee7220060d08080c19152ce32236134e6e37feafa5df4cd2",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "ES",
+      "dataset_key": "d7a3df60-e856-438b-851d-74653ef6c0d2",
+      "known_from_original_source": "2021 archived version not necessarily including 2022",
+      "label": "Sierra Nevada butterfly monitoring",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2021-02-18T10:55:45.365+00:00",
+        "doi": "10.15470/tc3gdq",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://ipt.gbif.es/archive.do?r=butterflies"
+          },
+          {
+            "type": "EML",
+            "url": "https://ipt.gbif.es/eml.do?r=butterflies"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 37.154,
+              "maxLongitude": -2.95,
+              "minLatitude": 36.937,
+              "minLongitude": -3.609
+            },
+            "description": "Sierra Nevada (SE Spain) is one of the southernmost highest mountain ranges of Europe. It comprises an elevation range from 270 to 3,492 m a.s.l. and it extends along 100 km from west to east in parallel to the Mediterranean coast line, with a notable increase of aridity towards the eastern sector. Sierra Nevada presents a notable environmental heterogeneity, not only in its elevational gradient, but also in its different orientations and in the west-east gradient. The five Mediterranean bioclimatic belts are represented here: thermo, meso, supra, oro and crioro-Mediterranean. A forest belt occupies good part at the middle and lower elevations and presents an uneven state of transformation, while certain extensions of holm oaks still persist (on siliceous environments and also on carbonate soils), relictic Pyrenean oak forests and some native pine forests of Pinus sylvestris and Pinus pinaster, the presence of more than 30,000 ha of reforestation pine forests is also noteworthy. Above the tree line there are 30,000 ha of typical mediterranean mountain scrubland mainly compounded by species of the genus Genista, Juniperus, Berberis and Hormatophila among others. On the upper belts, rocky landscapes defined by recent glacial events alternates with high mountain grasslands and 74 glacial lakes distributed in an elevation range situated between 2,600 and 3,100 m a.s.l. The high mountain area comprises more than 30 summits that reach an elevation above 3,000 m a.s.l. During more than the half of the year, these areas remain under a snow cover and this fact conditions a good part of the ecological processes there. The high mountain ecosystem of Sierra Nevada holds a huge number of plant and animal endemism, representing a hotspot within the mediterranean hotspot. Sierra Nevada hold some of the higher protections figures for a natural area in Spain and in Europe, so it was declared as a Natural Park since 1989 and as a National Park since 1999, is also designated as a UNESCO Biosphere Reserve (since 1986), as a Natura 2000 network site (since 2006) and holds the distinctive Green List awarded by the IUCN in recognition of good management practices."
+          }
+        ],
+        "homepage": null,
+        "key": "d7a3df60-e856-438b-851d-74653ef6c0d2",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2021-12-17T11:08:32.017+00:00",
+        "n_metadata_contacts": 4,
+        "published": "2021-12-17T00:00:00.000+00:00",
+        "publishingOrganizationKey": "4b4b2111-ee51-45f5-bf5e-f535f4a1c9dc",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2020-03-08T00:00:00.000+00:00",
+            "start": "2008-07-07T00:00:00.000+00:00"
+          }
+        ],
+        "title": "Dataset of butterfly monitoring in Sierra Nevada (Spain)",
+        "type": "SAMPLING_EVENT"
+      },
+      "registry_receipt_sha256": "81caa48615be89fffb7c73d4a5cb16eab589625418b7795c749d40c8ce3ed060",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "FI",
+      "dataset_key": "eacd5f7d-60aa-49e9-a7cd-36d1c46b22ac",
+      "known_from_original_source": "GBIF occurrence dataset not sampling-event core; dated transect counts may not preserve visits/zeros",
+      "label": "Finnish agricultural landscape butterfly monitoring",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2024-06-14T01:03:45.309+00:00",
+        "doi": "10.15468/4zse8p",
+        "endpoints": [
+          {
+            "type": "EML",
+            "url": "https://gbif.laji.fi/metadata/HR.3431"
+          },
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://gbif.laji.fi/archive/HR.3431"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 69.7661,
+              "maxLongitude": 30.7302,
+              "minLatitude": 59.8139,
+              "minLongitude": 19.53
+            },
+            "description": "Finland"
+          }
+        ],
+        "homepage": "https://www.ymparisto.fi/en-US/Nature/Species/Species_monitoring/Monitoring_butterflies_in_Finnish_agricultural_landscapes",
+        "key": "eacd5f7d-60aa-49e9-a7cd-36d1c46b22ac",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2026-10-24T06:04:26.919+00:00",
+        "n_metadata_contacts": 3,
+        "published": "2026-10-24T00:00:00.000+00:00",
+        "publishingOrganizationKey": "3c16888a-efd8-46fc-9aa4-4117b07c63f9",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2026-12-31T00:00:00.000+00:00",
+            "start": "1999-01-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "Butterflies in Finnish agricultural landscapes",
+        "type": "OCCURRENCE"
+      },
+      "registry_receipt_sha256": "bb442fc751e291832ff1fcd9e8445246bfd9f23de6d7d6a8df2ffb5ca174ac40",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "NL",
+      "dataset_key": "fda5ee54-cd11-4da7-9314-0d328f1ccfda",
+      "known_from_original_source": "metadata-only registry; original sections/events require NDFF request",
+      "label": "NDFF butterfly-dragonfly monitoring programme",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2018-03-21T11:06:44.732+00:00",
+        "doi": "10.15468/it724g",
+        "endpoints": [
+          {
+            "type": "EML",
+            "url": "https://ipt.ndff.nl/eml.do?r=3_202_meetnet_vlinders_libellen"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 53.521,
+              "maxLongitude": 7.207,
+              "minLatitude": 50.736,
+              "minLongitude": 3.318
+            },
+            "description": "Netherlands"
+          }
+        ],
+        "homepage": "http://www.ndff.nl/english",
+        "key": "fda5ee54-cd11-4da7-9314-0d328f1ccfda",
+        "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+        "modified": "2018-04-03T15:02:11.256+00:00",
+        "n_metadata_contacts": 4,
+        "published": "2018-03-21T00:00:00.000+00:00",
+        "publishingOrganizationKey": "6fbb8fe2-66e2-4a9e-bb39-b84665571f1c",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [],
+        "title": "NDFF Butterfly and dragonfly monitoring program",
+        "type": "METADATA"
+      },
+      "registry_receipt_sha256": "e14a06c2b6689263bfd2ee8950e195c33d16e22e28aa9043c91463b46b4c8524",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "NL",
+      "dataset_key": "1897eef5-1e10-4842-97f7-cad98925b59d",
+      "known_from_original_source": "published indexes, not 2022 visits/section coordinates",
+      "label": "Dutch Butterfly Monitoring Indexes",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2015-12-17T17:46:36.698+00:00",
+        "doi": "10.15468/eh7tvg",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://cloud.gbif.org/eubon/archive.do?r=bms-nl"
+          },
+          {
+            "type": "EML",
+            "url": "https://cloud.gbif.org/eubon/eml.do?r=bms-nl"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 53.77,
+              "maxLongitude": 7.45,
+              "minLatitude": 50.58,
+              "minLongitude": 3.23
+            },
+            "description": "The Netherlands"
+          }
+        ],
+        "homepage": "http://www.vlinderstichting.nl/landelijk-meetnet-vlinders",
+        "key": "1897eef5-1e10-4842-97f7-cad98925b59d",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2025-10-29T10:20:41.193+00:00",
+        "n_metadata_contacts": 3,
+        "published": "2017-08-28T00:00:00.000+00:00",
+        "publishingOrganizationKey": "21c07296-77a8-4adf-aba1-e1035429be3a",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "1990-01-01T00:00:00.000+00:00",
+            "start": "1990-01-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "Dutch Butterfly Monitoring Indexes",
+        "type": "OCCURRENCE"
+      },
+      "registry_receipt_sha256": "96352bf1f3b00561d1d76105ae2d01fd5adf994be3774caab48a29f8aa0c7ff7",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "NL",
+      "dataset_key": "421e6128-74cb-48ac-b76e-e419d39e2527",
+      "known_from_original_source": "2022 publication date; occurrence data not verified as 2022 survey events",
+      "label": "NDFF Butterfly Data",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2019-03-06T11:28:46.206+00:00",
+        "doi": "10.15468/ah1ln9",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://ipt.vlinderstichting.nl/archive.do?r=ndffbutterflyobservationdata"
+          },
+          {
+            "type": "EML",
+            "url": "https://ipt.vlinderstichting.nl/eml.do?r=ndffbutterflyobservationdata"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 71.41,
+              "maxLongitude": 40.25,
+              "minLatitude": 33.72,
+              "minLongitude": -11.25
+            },
+            "description": "European butterfly observations"
+          }
+        ],
+        "homepage": null,
+        "key": "421e6128-74cb-48ac-b76e-e419d39e2527",
+        "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+        "modified": "2022-01-25T11:46:49.810+00:00",
+        "n_metadata_contacts": 4,
+        "published": "2022-01-25T00:00:00.000+00:00",
+        "publishingOrganizationKey": "0510c602-bf08-4c96-af10-82da8bd3c2a3",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2018-12-31T00:00:00.000+00:00",
+            "start": "1901-01-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "NDFF Butterfly Data",
+        "type": "OCCURRENCE"
+      },
+      "registry_receipt_sha256": "b694d13968efe7846e460ae85883aa1ee13de90b8b7ef6c7110d340e9e4176fa",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    },
+    {
+      "country": "GB",
+      "dataset_key": "1e266c3d-92ef-4d5a-8e4a-c04742c772c3",
+      "known_from_original_source": "2026 publisher archive but precise section event access/year requires direct audit",
+      "label": "UK Butterfly Monitoring Scheme",
+      "qualified_8_cell_source_reference_pairs_verified": 0,
+      "registry": {
+        "archive_field_2022_precision_NOT_VERIFIED": true,
+        "created": "2017-05-27T07:50:06.749+00:00",
+        "doi": "10.15468/gmqvmk",
+        "endpoints": [
+          {
+            "type": "DWC_ARCHIVE",
+            "url": "https://registry.nbnatlas.org/archives/dr1206/dr1206.zip"
+          }
+        ],
+        "geographicCoverages": [
+          {
+            "boundingBox": {
+              "globalCoverage": false,
+              "maxLatitude": 58.567,
+              "maxLongitude": 1.63,
+              "minLatitude": 49.957,
+              "minLongitude": -7.771
+            },
+            "description": "UK."
+          }
+        ],
+        "homepage": "https://registry.nbnatlas.org/public/show/dr1206",
+        "key": "1e266c3d-92ef-4d5a-8e4a-c04742c772c3",
+        "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+        "modified": "2026-02-18T15:53:08.121+00:00",
+        "n_metadata_contacts": 4,
+        "published": "2026-01-12T00:00:00.000+00:00",
+        "publishingOrganizationKey": "179ccc1f-7315-4925-9725-69377ca8b6d4",
+        "registry_only_no_observation_count": true,
+        "subtype": null,
+        "temporalCoverages": [
+          {
+            "@type": "range",
+            "end": "2020-10-27T00:00:00.000+00:00",
+            "start": "1973-05-01T00:00:00.000+00:00"
+          }
+        ],
+        "title": "UK Butterfly Monitoring Scheme (UKBMS)",
+        "type": "OCCURRENCE"
+      },
+      "registry_receipt_sha256": "032abe2e8ffb04345c36c11cba4969168caa90b04966b2c72f3289e51ac3f241",
+      "source_2022_event_0to100m_verified": false,
+      "status": "REGISTRY_VERIFIED_METADATA_ONLY"
+    }
+  ],
+  "schema": "GESUI_20261115_2022_3COUNTRY_BUTTERFLY_DATASET_REGISTRY_METADATA_ONLY_V1"
+}
