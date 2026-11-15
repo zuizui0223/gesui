@@ -1,0 +1,38 @@
+name: GESUI source audit original iNaturalist butterfly puddling substrates (no WWTP)
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_adult_resource_behavior/audit_inat_puddling_substrate_original_obs.py
+      - .github/workflows/gesui-20261115-inat-original-puddling-substrate-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-field-annotated-observations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Source-audit original field 500 substrate labels and source taxonomy (no treatment effect)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_adult_resource_behavior/audit_inat_puddling_substrate_original_obs.py \
+            --output results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json
+          python - <<'PY'
+          import json
+          p="results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json"
+          a=json.load(open(p))
+          assert a["no_H7_WWTP_or_2022_riparian_source_geography_used"]
+          assert a["no_HNS_or_nutrient_assimilation_or_biological_wastewater_effect"]
+          assert a["absence_of_field_not_observed_nonpuddling"]
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-inat-puddling-substrate-field500-original-annotation-audit
+          path: results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json
+          if-no-files-found: error
