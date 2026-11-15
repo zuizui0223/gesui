@@ -1,0 +1,27 @@
+name: EEA WISE6 actual TN and TP code and exact station year source pilot
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-tn-tp-pilot.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check total nitrogen and phosphorus measured WISE6 codes and same-site filters
+        run: python scripts/gesui_20261115_wise6_total_np_source_pilot.py
+      - name: Preserve raw source row receipts and all failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-wisewq-2026-real-NP-same-station-source-pilot
+          path: ${{ runner.temp }}/gesui_wise6_exact_source_pilot/
+          retention-days: 90
+          if-no-files-found: warn
