@@ -1,0 +1,118 @@
+name: gesui 30 new official H7 x2 periods x6 original GBIF speciesKey source facets (pilot and full)
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/acquire_extra_h7_specieskey.py'
+      - '.github/workflows/gesui-20261115-30-extraH7-six-speciesKey-source.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+concurrency:
+  group: gesui-20261115-30-extraH7-original-facets-source
+  cancel-in-progress: true
+jobs:
+  original-twoH7-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43723994932
+          name: gesui-20261115-prior1219-authentic-H7-source-counts-40-new-H7-12-H6-opportunity
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_30_count_supported
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43197894183
+          name: hybas7-1219-original-polygon-wkt-pre-gbif-source
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_1219_nativeWKT
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_5families
+      - name: Pilot two preselected original new-H7 source facets, no ecology
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/acquire_extra_h7_specieskey.py
+          python -u analysis/20261115_h6_source_expansion/acquire_extra_h7_specieskey.py \
+            --prior '${{ runner.temp }}/source_30_count_supported' \
+            --wkt '${{ runner.temp }}/source_1219_nativeWKT' \
+            --taxonomy '${{ runner.temp }}/source_original_5families' \
+            --mode pilot --shard 0 --output '${{ runner.temp }}/pilot'
+          python - <<'PY'
+          import json,glob
+          f=glob.glob('${{ runner.temp }}/pilot/*_QA.json')
+          assert len(f)==1
+          j=json.load(open(f[0]))
+          assert j['source_H7_in_shard']==2 and j['source_6_group_2period_facets_requested']==24
+          assert j['source_facet_missing']==0, 'Original GBIF API source pilot incompleteness; do not launch full unattended'
+          print('SOURCE PILOT 24/24 native original facets PASS',flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-extraH7-original-24-facet-pilot
+          path: ${{ runner.temp }}/pilot/
+          retention-days: 90
+          if-no-files-found: warn
+  genuine-30H7-full-3shards:
+    needs: original-twoH7-pilot
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0,1,2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43723994932
+          name: gesui-20261115-prior1219-authentic-H7-source-counts-40-new-H7-12-H6-opportunity
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_30_count_supported
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43197894183
+          name: hybas7-1219-original-polygon-wkt-pre-gbif-source
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_1219_nativeWKT
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_5families
+      - name: Full original 30 new H7 source taxonomy from 1219 native WKT (one of 3 deterministic shards)
+        run: |
+          python -u analysis/20261115_h6_source_expansion/acquire_extra_h7_specieskey.py \
+            --prior '${{ runner.temp }}/source_30_count_supported' \
+            --wkt '${{ runner.temp }}/source_1219_nativeWKT' \
+            --taxonomy '${{ runner.temp }}/source_original_5families' \
+            --mode full --shard ${{ matrix.shard }} --output '${{ runner.temp }}/new_H7_facet_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-extraH7-30-official-H7-original-specieskey-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/new_H7_facet_source/
+          retention-days: 90
+          if-no-files-found: warn
