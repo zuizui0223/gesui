@@ -1,0 +1,70 @@
+name: gesui authentic original plant EIV scored species-label global and genus permutation within H6
+on:
+  push:
+    branches:
+      - analysis/gesui-40h6-withinparent-adversarial-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/plant_eiv_global_genus_label_null.py'
+      - '.github/workflows/gesui-20261115-eiv-plant-genus-null-183H7.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-verified-eiv-label-nulls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '2'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43726596337
+          name: gesui-20261115-genuine-183H7-40H6-terrestrial-EIV-HNS-source-replayed
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_183
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/old_2808_facets
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43725053634
+          name: gesui-20261115-original-30-extraH7-360-speciesKey-one-missing-recovery
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/new_360_facets
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/EIV_4011
+      - name: Reproduce actual CWM 183 H7 and FWL coefficient before 4999 global + 4999 genus score shuffles
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/plant_eiv_global_genus_label_null.py
+          python -u analysis/20261115_h6_source_expansion/plant_eiv_global_genus_label_null.py \
+            --source183 '${{ runner.temp }}/original_183' \
+            --oldfacets '${{ runner.temp }}/old_2808_facets' \
+            --newfacets '${{ runner.temp }}/new_360_facets' \
+            --eiv '${{ runner.temp }}/EIV_4011' \
+            --output '${{ runner.temp }}/EIV_global_genus_null'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-source-authentic-183H7-40H6-plantEIV-global-genus-label-null
+          path: ${{ runner.temp }}/EIV_global_genus_null/
+          retention-days: 90
+          if-no-files-found: warn

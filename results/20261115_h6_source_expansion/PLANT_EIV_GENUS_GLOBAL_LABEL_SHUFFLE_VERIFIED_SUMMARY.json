@@ -1,0 +1,44 @@
+{
+  "schema": "GESUI_20261115_SOURCE_REPLAYED_ADVERSARIAL_NUMERICAL_RECEIPT_V1",
+  "source_run_id": 43728586124,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43728586124",
+  "source_run_conclusion": "success",
+  "kind": "plant trait source label randomization",
+  "source_native_183_H7_40_H6_panel_SHA256": "c0840b1c5c6e85342fea41d57dc40fa5ec295fabf6bcd6908a4072557db9a736",
+  "posthoc_observational_not_causal": true,
+  "derived_from_original_success_log": {
+    "CWM_original_replay_max_abs": 5.329070518200751e-15,
+    "all_species_trait_shuffle": {
+      "n_original_label_shuffles": 4999,
+      "null_exceeding_observed_abs_partial_r": 5,
+      "null_mean": 0.0017010693257752524,
+      "null_not_causal_sewage_or_field_intervention": true,
+      "null_q025_median_q975": [
+        -0.3029386200178146,
+        0.0046574263360388045,
+        0.30329579465646617
+      ],
+      "null_sd": 0.1584900899958406,
+      "two_sided_permutation_p": 0.0012
+    },
+    "n_H6": 40,
+    "n_H7": 183,
+    "n_eiv_scored_species": 4011,
+    "n_genus_exchangeable_species": 3562,
+    "partial_r": 0.44649414053662123,
+    "source_beta_fwl": 0.11807615189599406,
+    "within_genus_trait_shuffle": {
+      "n_original_label_shuffles": 4999,
+      "null_exceeding_observed_abs_partial_r": 3431,
+      "null_mean": 0.4613220937750107,
+      "null_not_causal_sewage_or_field_intervention": true,
+      "null_q025_median_q975": [
+        0.39636587164724607,
+        0.4623423448471295,
+        0.5220988536401714
+      ],
+      "null_sd": 0.03221201039938737,
+      "two_sided_permutation_p": 0.6864
+    }
+  }
+}
