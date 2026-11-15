@@ -1,0 +1,6050 @@
+[
+  {
+    "remove_top_hosts": 0,
+    "subset": "all454",
+    "family": "All",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 5.439283246918273,
+    "null_mean": 4.656822526659037,
+    "excess_pct": 16.802459526423053,
+    "null_assignment_95": [
+      4.325853941370486,
+      5.01350493936507
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.119414244558007,
+      18.563791364813596
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.7824607202592357,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "all454",
+    "family": "Lycaenidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.9693279386504519,
+    "null_mean": 0.8213142861491837,
+    "excess_pct": 18.02156068601284,
+    "null_assignment_95": [
+      0.7124845735195321,
+      0.9454186455441286
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.169907054220776,
+      20.921997188715817
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.1480136525012682,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "all454",
+    "family": "Nymphalidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 3.019760609802781,
+    "null_mean": 2.614267034152328,
+    "excess_pct": 15.510794052526222,
+    "null_assignment_95": [
+      2.3462805413683188,
+      2.923286682289312
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.198343589669387,
+      17.896662922998598
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.40549357565045296,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "all454",
+    "family": "Pieridae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.8829034296649005,
+    "null_mean": 0.8016233579825723,
+    "excess_pct": 10.139434046293761,
+    "null_assignment_95": [
+      0.6577341061796305,
+      0.9251308471264749
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.529714688756484,
+      12.489651478531371
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.126,
+    "excess_abs": 0.0812800716823282,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "all454",
+    "family": "Papilionidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.32513183161710146,
+    "null_mean": 0.24861344514007977,
+    "excess_pct": 30.778056445783886,
+    "null_assignment_95": [
+      0.20123477869902232,
+      0.31528781265792094
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      24.459522234664934,
+      37.195432641247436
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.016,
+    "excess_abs": 0.0765183864770217,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "all454",
+    "family": "Hesperiidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.24215943718303634,
+    "null_mean": 0.171004403234873,
+    "excess_pct": 41.61005950848677,
+    "null_assignment_95": [
+      0.1374006879611894,
+      0.21026376144253395
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      35.08575560509293,
+      48.11954941200613
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.07115503394816333,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "coverage80",
+    "family": "All",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 5.4905105933264124,
+    "null_mean": 4.720218152249124,
+    "excess_pct": 16.31900086461584,
+    "null_assignment_95": [
+      4.3915215496048425,
+      5.081826904332851
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.539850925815335,
+      18.178688871864736
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.770292441077288,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "coverage80",
+    "family": "Lycaenidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.993552658511714,
+    "null_mean": 0.8455045246945053,
+    "excess_pct": 17.510034481566006,
+    "null_assignment_95": [
+      0.732527670993332,
+      0.9724094367196776
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.637786148668901,
+      20.350267632548807
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.14804813381720872,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "coverage80",
+    "family": "Nymphalidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 3.0618640765993868,
+    "null_mean": 2.6605373263431793,
+    "excess_pct": 15.084424724377676,
+    "null_assignment_95": [
+      2.3910302643666865,
+      2.972564927274328
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.627769366829245,
+      17.601566663011337
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.40132675025620745,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "coverage80",
+    "family": "Pieridae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.8356452222157678,
+    "null_mean": 0.7679504494578477,
+    "excess_pct": 8.81499227010163,
+    "null_assignment_95": [
+      0.6393050471532248,
+      0.8769801586959215
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      6.109236626296274,
+      11.250019061836767
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.152,
+    "excess_abs": 0.06769477275792002,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "coverage80",
+    "family": "Papilionidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.3363656305480765,
+    "null_mean": 0.26030581624125315,
+    "excess_pct": 29.21940639095464,
+    "null_assignment_95": [
+      0.2113918285303094,
+      0.3301788399494034
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      23.115867837951292,
+      35.45951358778778
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.016,
+    "excess_abs": 0.07605981430682335,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "coverage80",
+    "family": "Hesperiidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.26308300545146707,
+    "null_mean": 0.18592003551233857,
+    "excess_pct": 41.50331067143518,
+    "null_assignment_95": [
+      0.15124280498416423,
+      0.22756131647982294
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      34.850172032137394,
+      48.23848970819091
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.0771629699391285,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2017_2019",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 5.613812978863409,
+    "null_mean": 4.8265147552732275,
+    "excess_pct": 16.31194067582651,
+    "null_assignment_95": [
+      4.476183650305574,
+      5.214641961980875
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.20690995389601,
+      18.296723062799465
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.7872982235901818,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2017_2019",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.9753832968236376,
+    "null_mean": 0.7997988029289144,
+    "excess_pct": 21.953582982585317,
+    "null_assignment_95": [
+      0.6796577672766027,
+      0.9393580960669043
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.12657755727944,
+      25.9749197575457
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.1755844938947232,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2017_2019",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 3.272804140647607,
+    "null_mean": 2.860937485800048,
+    "excess_pct": 14.396213020795257,
+    "null_assignment_95": [
+      2.5522690502159318,
+      3.204094527517538
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.671912148334757,
+      17.009853425192315
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.41186665484755913,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2017_2019",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.7956097782743986,
+    "null_mean": 0.7352829517662103,
+    "excess_pct": 8.204572996460513,
+    "null_assignment_95": [
+      0.6172923769932711,
+      0.8522163276028616
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      4.828802717887935,
+      11.156529852192653
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.156,
+    "excess_abs": 0.060326826508188325,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2017_2019",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.31104104456584086,
+    "null_mean": 0.24953954841873763,
+    "excess_pct": 24.64599160206109,
+    "null_assignment_95": [
+      0.2018604722459717,
+      0.3166175754465574
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.21638949893972,
+      30.834887089290234
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.034,
+    "excess_abs": 0.061501496147103235,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2017_2019",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.25897471855192483,
+    "null_mean": 0.18095596635931607,
+    "excess_pct": 43.114771931692175,
+    "null_assignment_95": [
+      0.14465831274226434,
+      0.22544001822320228
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      36.45143562380565,
+      50.67766750598073
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.07801875219260876,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2020_2022",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 5.2636889806758616,
+    "null_mean": 4.484366317840525,
+    "excess_pct": 17.378657486898263,
+    "null_assignment_95": [
+      4.15171944503028,
+      4.8589341919328515
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.71329404329287,
+      19.103948285634434
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.7793226628353365,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2020_2022",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.9631088097483991,
+    "null_mean": 0.8411273045539445,
+    "excess_pct": 14.502145458129224,
+    "null_assignment_95": [
+      0.7405243764899995,
+      0.9553226015645258
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.683816203005696,
+      17.314566816075374
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.026,
+    "excess_abs": 0.12198150519445461,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2020_2022",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 2.7645407356183362,
+    "null_mean": 2.3662148201159585,
+    "excess_pct": 16.833886429756095,
+    "null_assignment_95": [
+      2.1291752955898033,
+      2.6424179102394802
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.6860150319195,
+      19.09868898872621
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.3983259155023777,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2020_2022",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.9706932811561961,
+    "null_mean": 0.8684489271721946,
+    "excess_pct": 11.7732143808301,
+    "null_assignment_95": [
+      0.7060314342753322,
+      1.010356325782655
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      9.202147991312692,
+      14.164277828167767
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.112,
+    "excess_abs": 0.10224435398400156,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2020_2022",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.33776770026803626,
+    "null_mean": 0.24634500095912792,
+    "excess_pct": 37.11165193243626,
+    "null_assignment_95": [
+      0.1955892134406011,
+      0.3241839505488307
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      30.1476038923402,
+      43.976101630031344
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.01,
+    "excess_abs": 0.09142269930890834,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "period2020_2022",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.2275784538848935,
+    "null_mean": 0.16223026503929888,
+    "excess_pct": 40.28113301162677,
+    "null_assignment_95": [
+      0.13036755444731402,
+      0.1991965543478425
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      32.385620400622294,
+      47.4857962082836
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.06534818884559462,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "France",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 5.707904085984631,
+    "null_mean": 4.671095378827605,
+    "excess_pct": 22.196264967238875,
+    "null_assignment_95": [
+      4.174518411944549,
+      5.203704816310456
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      20.833955585584018,
+      23.589169411400096
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 1.036808707157026,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "France",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.933254351793661,
+    "null_mean": 0.8063333258097402,
+    "excess_pct": 15.740515977863566,
+    "null_assignment_95": [
+      0.6894723042983367,
+      0.9249705945291455
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.898361645344359,
+      18.425897309421305
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.018,
+    "excess_abs": 0.12692102598392085,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "France",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 3.228822616828202,
+    "null_mean": 2.627188415857291,
+    "excess_pct": 22.900306553559034,
+    "null_assignment_95": [
+      2.2151768630581206,
+      3.0760470987208746
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      21.154237994688394,
+      24.82026313331799
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.6016342009709108,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "France",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.8422149639853358,
+    "null_mean": 0.7291205011539473,
+    "excess_pct": 15.511079808124828,
+    "null_assignment_95": [
+      0.5760501792399697,
+      0.864142392529416
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.704349350353578,
+      18.074830012738335
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.08,
+    "excess_abs": 0.11309446283138846,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "France",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.43811610867969825,
+    "null_mean": 0.3121723187841193,
+    "excess_pct": 40.34431700610668,
+    "null_assignment_95": [
+      0.23293969210166335,
+      0.42234280449081385
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      33.729551440342924,
+      47.10636475289316
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.12594378989557897,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "France",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.265496044697736,
+    "null_mean": 0.19628081722250684,
+    "excess_pct": 35.26336829786365,
+    "null_assignment_95": [
+      0.14587812260209274,
+      0.2517501088938057
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      31.321489335521665,
+      39.51083417682361
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.06921522747522918,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "outside_France",
+    "family": "All",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 5.311618858412345,
+    "null_mean": 4.685656216123788,
+    "excess_pct": 13.359124387627075,
+    "null_assignment_95": [
+      4.350218475979226,
+      5.051433880007241
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.151049567563339,
+      15.470879595632198
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.6259626422885569,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "outside_France",
+    "family": "Lycaenidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.9975386094538959,
+    "null_mean": 0.8325364183875135,
+    "excess_pct": 19.819216003302852,
+    "null_assignment_95": [
+      0.7133933393069096,
+      0.9726313522513887
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.651881650582009,
+      23.90392083319278
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.16500219106638248,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "outside_France",
+    "family": "Nymphalidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 2.9141387763546667,
+    "null_mean": 2.631341663998142,
+    "excess_pct": 10.747259324995206,
+    "null_assignment_95": [
+      2.383136068399476,
+      2.8948108031356816
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.928496723638662,
+      13.658224935265036
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.018,
+    "excess_abs": 0.2827971123565245,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "outside_France",
+    "family": "Pieridae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.9173948278438485,
+    "null_mean": 0.854014179639443,
+    "excess_pct": 7.421498344578326,
+    "null_assignment_95": [
+      0.7068773152572484,
+      0.9937523637921378
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.757375030802624,
+      10.597641679088749
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.198,
+    "excess_abs": 0.06338064820440548,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "outside_France",
+    "family": "Papilionidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.24729313723869967,
+    "null_mean": 0.20530943766049248,
+    "excess_pct": 20.44898668887938,
+    "null_assignment_95": [
+      0.16804420943731546,
+      0.2596231428255621
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.956695029861,
+      29.508024516560297
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.072,
+    "excess_abs": 0.04198369957820719,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "outside_France",
+    "family": "Hesperiidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.2352535075212361,
+    "null_mean": 0.1624545164381969,
+    "excess_pct": 44.81192193307497,
+    "null_assignment_95": [
+      0.12820304425372597,
+      0.2017933706763934
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      34.104551805027604,
+      55.129923053257336
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.07279899108303922,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_FR",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 5.707904085984631,
+    "null_mean": 4.671095378827605,
+    "excess_pct": 22.196264967238875,
+    "null_assignment_95": [
+      4.174518411944549,
+      5.203704816310456
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      20.833955585584018,
+      23.589169411400096
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 1.036808707157026,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_FR",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.933254351793661,
+    "null_mean": 0.8063333258097402,
+    "excess_pct": 15.740515977863566,
+    "null_assignment_95": [
+      0.6894723042983367,
+      0.9249705945291455
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.898361645344359,
+      18.425897309421305
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.018,
+    "excess_abs": 0.12692102598392085,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_FR",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 3.228822616828202,
+    "null_mean": 2.627188415857291,
+    "excess_pct": 22.900306553559034,
+    "null_assignment_95": [
+      2.2151768630581206,
+      3.0760470987208746
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      21.154237994688394,
+      24.82026313331799
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.6016342009709108,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_FR",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.8422149639853358,
+    "null_mean": 0.7291205011539473,
+    "excess_pct": 15.511079808124828,
+    "null_assignment_95": [
+      0.5760501792399697,
+      0.864142392529416
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.704349350353578,
+      18.074830012738335
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.08,
+    "excess_abs": 0.11309446283138846,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_FR",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.43811610867969825,
+    "null_mean": 0.3121723187841193,
+    "excess_pct": 40.34431700610668,
+    "null_assignment_95": [
+      0.23293969210166335,
+      0.42234280449081385
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      33.729551440342924,
+      47.10636475289316
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.12594378989557897,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_FR",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.265496044697736,
+    "null_mean": 0.19628081722250684,
+    "excess_pct": 35.26336829786365,
+    "null_assignment_95": [
+      0.14587812260209274,
+      0.2517501088938057
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      31.321489335521665,
+      39.51083417682361
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.06921522747522918,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_HR",
+    "family": "All",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 4.1443823776479745,
+    "null_mean": 3.761053504941478,
+    "excess_pct": 10.192061139328601,
+    "null_assignment_95": [
+      3.313143332849479,
+      4.292275894892134
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      6.222701368010045,
+      14.779629177038386
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.062,
+    "excess_abs": 0.3833288727064965,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_HR",
+    "family": "Lycaenidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.8274960730834696,
+    "null_mean": 0.7886726378045783,
+    "excess_pct": 4.922629925004607,
+    "null_assignment_95": [
+      0.5938547915955289,
+      1.00995149026853
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -7.427425877879896,
+      20.278921782253487
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.356,
+    "excess_abs": 0.038823435278891316,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_HR",
+    "family": "Nymphalidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 2.2770465158474638,
+    "null_mean": 1.9642752751603834,
+    "excess_pct": 15.922984148010656,
+    "null_assignment_95": [
+      1.6304124290729363,
+      2.3951211929510845
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.040337515872622,
+      22.784892246842723
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.064,
+    "excess_abs": 0.3127712406870804,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_HR",
+    "family": "Pieridae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.5922178511812893,
+    "null_mean": 0.5978012105944525,
+    "excess_pct": -0.9339826206793744,
+    "null_assignment_95": [
+      0.40977595047781756,
+      0.7421978808262535
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.038406965157195,
+      8.001415020959124
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.566,
+    "excess_abs": -0.005583359413163125,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_HR",
+    "family": "Papilionidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.33708986447461353,
+    "null_mean": 0.26220588496470265,
+    "excess_pct": 28.559229141631025,
+    "null_assignment_95": [
+      0.18870300104720075,
+      0.35934223436135954
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.71776793148316,
+      47.674958497210966
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.062,
+    "excess_abs": 0.07488397950991088,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_HR",
+    "family": "Hesperiidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.11053207306113864,
+    "null_mean": 0.14809849641736156,
+    "excess_pct": -25.3658371050275,
+    "null_assignment_95": [
+      0.07213653551274309,
+      0.22757359892739207
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -47.87591786549371,
+      -1.2168557353811815
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.78,
+    "excess_abs": -0.037566423356222914,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_IT",
+    "family": "All",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 3.745267262926579,
+    "null_mean": 3.198123053066521,
+    "excess_pct": 17.10829135656393,
+    "null_assignment_95": [
+      2.8969093759207154,
+      3.5803630773732733
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.50333314457712,
+      20.283750754945647
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.5471442098600581,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_IT",
+    "family": "Lycaenidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.669589763444099,
+    "null_mean": 0.5695175842570604,
+    "excess_pct": 17.571394097968618,
+    "null_assignment_95": [
+      0.45610866622353147,
+      0.70342800928821
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.828866460620317,
+      21.176852294004068
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.074,
+    "excess_abs": 0.10007217918703859,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_IT",
+    "family": "Nymphalidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 2.0304728784441686,
+    "null_mean": 1.750629350147848,
+    "excess_pct": 15.985309984245767,
+    "null_assignment_95": [
+      1.5053348792891896,
+      2.0256364129170716
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.006218841021232,
+      20.507923396721434
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.026,
+    "excess_abs": 0.27984352829632053,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_IT",
+    "family": "Pieridae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.485524785349301,
+    "null_mean": 0.49615682210972145,
+    "excess_pct": -2.1428782769148835,
+    "null_assignment_95": [
+      0.383047415932237,
+      0.5864352123338739
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -6.043991645289667,
+      2.963340790779815
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.612,
+    "excess_abs": -0.01063203676042046,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_IT",
+    "family": "Papilionidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.4511929979164623,
+    "null_mean": 0.29460907949026627,
+    "excess_pct": 53.1497259680924,
+    "null_assignment_95": [
+      0.20271641474296428,
+      0.43095564059162933
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      41.61656596728065,
+      63.95589727337179
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.156583918426196,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_IT",
+    "family": "Hesperiidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.10848683777254745,
+    "null_mean": 0.08721021706162509,
+    "excess_pct": 24.39693584971556,
+    "null_assignment_95": [
+      0.05438837882720824,
+      0.12971940257364648
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      17.58732404133597,
+      31.95995093276307
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.144,
+    "excess_abs": 0.02127662071092236,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_LT",
+    "family": "All",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 6.384423197283696,
+    "null_mean": 6.130657936529388,
+    "excess_pct": 4.139282657449428,
+    "null_assignment_95": [
+      5.612554538578062,
+      6.660923372224363
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.8028636568423628,
+      5.959014184718647
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.194,
+    "excess_abs": 0.2537652607543084,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_LT",
+    "family": "Lycaenidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 1.0074777310668817,
+    "null_mean": 0.9178408479282124,
+    "excess_pct": 9.766059479810817,
+    "null_assignment_95": [
+      0.7618783047267581,
+      1.1084904099859982
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -3.1742212169731645,
+      22.290014542086155
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.172,
+    "excess_abs": 0.08963688313866924,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_LT",
+    "family": "Nymphalidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 3.611896460143463,
+    "null_mean": 3.632242403213633,
+    "excess_pct": -0.5601482723776585,
+    "null_assignment_95": [
+      3.2781721635047782,
+      4.072302818796792
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -4.127831700701808,
+      2.6977331876044985
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.512,
+    "excess_abs": -0.020345943070169792,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_LT",
+    "family": "Pieridae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 1.0668069432417218,
+    "null_mean": 1.0270482094623121,
+    "excess_pct": 3.871165288358225,
+    "null_assignment_95": [
+      0.7928801935827274,
+      1.2554886189364245
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -4.620123508469472,
+      9.663349299783397
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.372,
+    "excess_abs": 0.03975873377940964,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_LT",
+    "family": "Papilionidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.3193315366084672,
+    "null_mean": 0.3352013487366218,
+    "excess_pct": -4.734411776076708,
+    "null_assignment_95": [
+      0.29145708645216045,
+      0.4277867263553612
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.898694096755762,
+      -0.40421593461000915
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.52,
+    "excess_abs": -0.01586981212815458,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_LT",
+    "family": "Hesperiidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.3789105262231624,
+    "null_mean": 0.21832512718860883,
+    "excess_pct": 73.55332897428042,
+    "null_assignment_95": [
+      0.13502429637152105,
+      0.31534432499867704
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      53.58018623751268,
+      99.30014480836142
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.16058539903455357,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NL",
+    "family": "All",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 6.9672694605314245,
+    "null_mean": 6.185123461106202,
+    "excess_pct": 12.645600436977155,
+    "null_assignment_95": [
+      5.584454788733262,
+      6.8571696680664065
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.189383296146183,
+      14.361256526269628
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.7821459994252224,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NL",
+    "family": "Lycaenidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 1.1082696558230307,
+    "null_mean": 0.900185436211072,
+    "excess_pct": 23.115706080271202,
+    "null_assignment_95": [
+      0.7457397573407514,
+      1.0684701178487455
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      20.955992783246714,
+      24.92561282272845
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.20808421961195867,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NL",
+    "family": "Nymphalidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 3.1282076049833933,
+    "null_mean": 2.943003570092927,
+    "excess_pct": 6.2930278703202,
+    "null_assignment_95": [
+      2.5485645410563613,
+      3.453657515362377
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.8760384498581537,
+      10.203796621601025
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.216,
+    "excess_abs": 0.18520403489046622,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NL",
+    "family": "Pieridae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 2.3021391857843487,
+    "null_mean": 1.992186938569801,
+    "excess_pct": 15.558391695764428,
+    "null_assignment_95": [
+      1.5607245182279268,
+      2.38323605865753
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.889695891216935,
+      17.981355251798515
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.078,
+    "excess_abs": 0.3099522472145477,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NL",
+    "family": "Papilionidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.16326069720857653,
+    "null_mean": 0.17677879733485677,
+    "excess_pct": -7.646901285720409,
+    "null_assignment_95": [
+      0.15254666845854548,
+      0.2175139341274146
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -7.994265833228753,
+      -7.186374289438035
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.64,
+    "excess_abs": -0.013518100126280241,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NL",
+    "family": "Hesperiidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.26539231673207586,
+    "null_mean": 0.1729687188975447,
+    "excess_pct": 53.43370663991378,
+    "null_assignment_95": [
+      0.09926789953206978,
+      0.2778218998033384
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      46.737861356581114,
+      59.77742936321584
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.042,
+    "excess_abs": 0.09242359783453116,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NO",
+    "family": "All",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 6.004577116296822,
+    "null_mean": 4.925322831202461,
+    "excess_pct": 21.912356247130994,
+    "null_assignment_95": [
+      4.276494164061601,
+      5.596742151369011
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.684721402611252,
+      26.316879993156743
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 1.0792542850943612,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NO",
+    "family": "Lycaenidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 1.4353017307842182,
+    "null_mean": 1.1151965176740357,
+    "excess_pct": 28.70392868315492,
+    "null_assignment_95": [
+      0.88526067957003,
+      1.3832783163918378
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      21.203190017672163,
+      37.22104532099447
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.3201052131101825,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NO",
+    "family": "Nymphalidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 3.388599594950818,
+    "null_mean": 2.8408221043562576,
+    "excess_pct": 19.282358080591223,
+    "null_assignment_95": [
+      2.4274957429902813,
+      3.2499114315336723
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.293338791035588,
+      27.316172337142063
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.01,
+    "excess_abs": 0.5477774905945605,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NO",
+    "family": "Pieridae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.7487784548460991,
+    "null_mean": 0.6682271567868304,
+    "excess_pct": 12.05447836729645,
+    "null_assignment_95": [
+      0.48060397951747325,
+      0.833525043441342
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      5.589091810813091,
+      17.8521057517107
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.21,
+    "excess_abs": 0.08055129805926864,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NO",
+    "family": "Papilionidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.06266174330936591,
+    "null_mean": 0.0704675070230209,
+    "excess_pct": -11.07711063356468,
+    "null_assignment_95": [
+      0.06239434255752187,
+      0.09498221615789011
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -12.117512850443406,
+      -8.839987328523979
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.764,
+    "excess_abs": -0.0078057637136549896,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 0,
+    "subset": "country_NO",
+    "family": "Hesperiidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.3692355924063207,
+    "null_mean": 0.23060954536231576,
+    "excess_pct": 60.11288337011658,
+    "null_assignment_95": [
+      0.1554081241042532,
+      0.31482984575844947
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      45.92066645727268,
+      90.00700635908898
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.13862604704400494,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "all454",
+    "family": "All",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 4.91678431587213,
+    "null_mean": 4.2060354404917994,
+    "excess_pct": 16.898309237670727,
+    "null_assignment_95": [
+      3.9025856118510744,
+      4.546246549942705
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.102672675895509,
+      18.762336069385714
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.7107488753803306,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "all454",
+    "family": "Lycaenidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.9693279386504519,
+    "null_mean": 0.8201233326347275,
+    "excess_pct": 18.192947338346023,
+    "null_assignment_95": [
+      0.7058164676486961,
+      0.9304281944035343
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.39353528900708,
+      21.085043711982504
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.01,
+    "excess_abs": 0.14920460601572438,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "all454",
+    "family": "Nymphalidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 2.49726167875664,
+    "null_mean": 2.1663101948216537,
+    "excess_pct": 15.277197361951789,
+    "null_assignment_95": [
+      1.94468539788719,
+      2.4201133669607198
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.564650022586472,
+      18.028404695781926
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.3309514839349865,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "all454",
+    "family": "Pieridae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.8829034296649005,
+    "null_mean": 0.8017225468158399,
+    "excess_pct": 10.125807634010364,
+    "null_assignment_95": [
+      0.6656620157509583,
+      0.9252491355651405
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.500201726742394,
+      12.480872148187105
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.134,
+    "excess_abs": 0.08118088284906066,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "all454",
+    "family": "Papilionidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.32513183161710146,
+    "null_mean": 0.24712092356231039,
+    "excess_pct": 31.567908912869136,
+    "null_assignment_95": [
+      0.19816572613583638,
+      0.3138339230163322
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      25.147239892441224,
+      38.02996780563446
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.016,
+    "excess_abs": 0.07801090805479108,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "all454",
+    "family": "Hesperiidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.24215943718303634,
+    "null_mean": 0.17075844265726822,
+    "excess_pct": 41.81403473506613,
+    "null_assignment_95": [
+      0.13771043461720966,
+      0.20823039542398625
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      35.34854036459466,
+      48.353527482229524
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.07140099452576812,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "coverage80",
+    "family": "All",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 4.986906947495339,
+    "null_mean": 4.287131416239539,
+    "excess_pct": 16.322698403997336,
+    "null_assignment_95": [
+      3.980983204693402,
+      4.6361611691731035
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.441093675521467,
+      18.239363855827303
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.6997755312558,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "coverage80",
+    "family": "Lycaenidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.993552658511714,
+    "null_mean": 0.8448216721722617,
+    "excess_pct": 17.605015500729927,
+    "null_assignment_95": [
+      0.7310029905158743,
+      0.9592617464499188
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.71519568826779,
+      20.484067351342144
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.14873098633945236,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "coverage80",
+    "family": "Nymphalidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 2.558260430768313,
+    "null_mean": 2.230351546418877,
+    "excess_pct": 14.70211657332392,
+    "null_assignment_95": [
+      2.00000620175259,
+      2.4918922646070976
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.897259353495597,
+      17.540423628374512
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.01,
+    "excess_abs": 0.3279088843494362,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "coverage80",
+    "family": "Pieridae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.8356452222157678,
+    "null_mean": 0.7675312843630507,
+    "excess_pct": 8.874418442662257,
+    "null_assignment_95": [
+      0.6424547522108394,
+      0.8779087162518694
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      6.162080474720671,
+      11.30910613322394
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.152,
+    "excess_abs": 0.06811393785271702,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "coverage80",
+    "family": "Papilionidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.3363656305480765,
+    "null_mean": 0.25878128609925427,
+    "excess_pct": 29.980662673986846,
+    "null_assignment_95": [
+      0.20849235121091894,
+      0.327220410351634
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      23.804066522420328,
+      36.32879301150115
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.016,
+    "excess_abs": 0.07758434444882223,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "coverage80",
+    "family": "Hesperiidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.26308300545146707,
+    "null_mean": 0.18564562718609573,
+    "excess_pct": 41.71247092598966,
+    "null_assignment_95": [
+      0.1505361111480396,
+      0.22600021167805956
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      35.11011962037352,
+      48.406252185769375
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.07743737826537134,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2017_2019",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 5.018105327543092,
+    "null_mean": 4.3107455255293425,
+    "excess_pct": 16.409221973892517,
+    "null_assignment_95": [
+      3.9877352245584388,
+      4.688161986669558
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.150318268814239,
+      18.475401531322497
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.707359802013749,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2017_2019",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.9753832968236376,
+    "null_mean": 0.7974073918947403,
+    "excess_pct": 22.319319677486817,
+    "null_assignment_95": [
+      0.6746414443014465,
+      0.9273961892567325
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.433039737400172,
+      26.387394448336785
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.17797590492889725,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2017_2019",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 2.6770964893272895,
+    "null_mean": 2.3477625148762105,
+    "excess_pct": 14.027567625103,
+    "null_assignment_95": [
+      2.1074925396801527,
+      2.631513067039505
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.847372201341566,
+      17.048098220915573
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.32933397445107904,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2017_2019",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.7956097782743986,
+    "null_mean": 0.7362600896464195,
+    "excess_pct": 8.060967783338779,
+    "null_assignment_95": [
+      0.6200474393055302,
+      0.8522163276028616
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      4.725919166104019,
+      10.954455251845525
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.166,
+    "excess_abs": 0.05934968862797907,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2017_2019",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.31104104456584086,
+    "null_mean": 0.24825625767291182,
+    "excess_pct": 25.290313920566177,
+    "null_assignment_95": [
+      0.20163915944580232,
+      0.31209897709819784
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.87103274052869,
+      31.552978265028205
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.03,
+    "excess_abs": 0.06278478689292905,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2017_2019",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.25897471855192483,
+    "null_mean": 0.18105927143906067,
+    "excess_pct": 43.033116445013555,
+    "null_assignment_95": [
+      0.14189003152797497,
+      0.22345026258914044
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      36.42282882480878,
+      50.69027291114373
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.07791544711286416,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2020_2022",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 4.813456935261441,
+    "null_mean": 4.0988238413491835,
+    "excess_pct": 17.43507702631657,
+    "null_assignment_95": [
+      3.7924227853881876,
+      4.431888866732517
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.601809672875229,
+      19.288680063146
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.7146330939122576,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2020_2022",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.9631088097483991,
+    "null_mean": 0.8410770154427516,
+    "excess_pct": 14.50899169339548,
+    "null_assignment_95": [
+      0.7349876212717066,
+      0.947389006330882
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.767941685431765,
+      17.278339320786955
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.018,
+    "excess_abs": 0.12203179430564748,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2020_2022",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 2.314308690203916,
+    "null_mean": 1.9835821045118531,
+    "excess_pct": 16.67319870147006,
+    "null_assignment_95": [
+      1.7865633228039528,
+      2.2261907801830434
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.138976487676919,
+      19.262509176077426
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.3307265856920627,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2020_2022",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.9706932811561961,
+    "null_mean": 0.8677356096054445,
+    "excess_pct": 11.86509697320892,
+    "null_assignment_95": [
+      0.7057450848324186,
+      1.0079541969626653
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      9.307574902264916,
+      14.260118950095578
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.118,
+    "excess_abs": 0.10295767155075164,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2020_2022",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.33776770026803626,
+    "null_mean": 0.24466368810013786,
+    "excess_pct": 38.05387423481987,
+    "null_assignment_95": [
+      0.19197028356743615,
+      0.32010831082858837
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      30.95815120951704,
+      44.97191175881761
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.0931040121678984,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "period2020_2022",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.2275784538848935,
+    "null_mean": 0.1617654236889964,
+    "excess_pct": 40.684238136343986,
+    "null_assignment_95": [
+      0.13036755444731402,
+      0.19670153748141642
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      32.88884654324023,
+      48.03147749025004
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.0658130301958971,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "France",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 5.300611110013324,
+    "null_mean": 4.330422142212889,
+    "excess_pct": 22.40402750445614,
+    "null_assignment_95": [
+      3.878481153995097,
+      4.800709110370421
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      20.912346693189917,
+      23.943097535171102
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.9701889678004347,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "France",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.933254351793661,
+    "null_mean": 0.8050898240322856,
+    "excess_pct": 15.919283033471277,
+    "null_assignment_95": [
+      0.6937394366319244,
+      0.9246830939134028
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.053164695791352,
+      18.547407632226474
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.12816452776137544,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "France",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 2.821529640856893,
+    "null_mean": 2.2913617146007557,
+    "excess_pct": 23.137679349264715,
+    "null_assignment_95": [
+      1.9427473084886278,
+      2.682424522171696
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      21.099611344895973,
+      25.396203958471062
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.5301679262561372,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "France",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.8422149639853358,
+    "null_mean": 0.726923052416441,
+    "excess_pct": 15.860263501843974,
+    "null_assignment_95": [
+      0.5795254662287243,
+      0.865565797274456
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.916468866916041,
+      18.572502137423736
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.07,
+    "excess_abs": 0.11529191156889484,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "France",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.43811610867969825,
+    "null_mean": 0.31106368084400443,
+    "excess_pct": 40.84450730183748,
+    "null_assignment_95": [
+      0.23409808286244352,
+      0.4170528174543918
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      34.116521648897645,
+      47.68602874294104
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.12705242783569382,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "France",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.265496044697736,
+    "null_mean": 0.19598387031940206,
+    "excess_pct": 35.46831393065533,
+    "null_assignment_95": [
+      0.14450929094255344,
+      0.24905711374689113
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      31.516738511075783,
+      39.79759613088803
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.06951217437833396,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "outside_France",
+    "family": "All",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 4.704916715920316,
+    "null_mean": 4.155677586311014,
+    "excess_pct": 13.216596287895864,
+    "null_assignment_95": [
+      3.839961266871906,
+      4.500927244994688
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.741836884990223,
+      15.54735130982161
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.549239129609302,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "outside_France",
+    "family": "Lycaenidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.9975386094538959,
+    "null_mean": 0.8313254135254189,
+    "excess_pct": 19.99375854800509,
+    "null_assignment_95": [
+      0.7051579674621857,
+      0.9639365136299415
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.875797467395202,
+      24.123879620124086
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.16621319592847705,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "outside_France",
+    "family": "Nymphalidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 2.307436633862637,
+    "null_mean": 2.1028484624597232,
+    "excess_pct": 9.729097224799776,
+    "null_assignment_95": [
+      1.910587970175808,
+      2.320539309641821
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      6.219427410257809,
+      13.309175777563638
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.036,
+    "excess_abs": 0.20458817140291385,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "outside_France",
+    "family": "Pieridae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.9173948278438485,
+    "null_mean": 0.8556259837684006,
+    "excess_pct": 7.219140751593556,
+    "null_assignment_95": [
+      0.7081969436452441,
+      0.9930976431133093
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.6170139818498415,
+      10.314583825789155
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.196,
+    "excess_abs": 0.061768844075447915,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "outside_France",
+    "family": "Papilionidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.24729313723869967,
+    "null_mean": 0.20361203975365683,
+    "excess_pct": 21.453101465851976,
+    "null_assignment_95": [
+      0.16393593123754355,
+      0.25539892340537274
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.827313492240249,
+      30.680570884154054
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.06,
+    "excess_abs": 0.04368109748504284,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "outside_France",
+    "family": "Hesperiidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.2352535075212361,
+    "null_mean": 0.1622656868038139,
+    "excess_pct": 44.98044050783674,
+    "null_assignment_95": [
+      0.12834448638740706,
+      0.20144726808865138
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      34.359157455063944,
+      55.500608993954074
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.07298782071742221,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_FR",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 5.300611110013324,
+    "null_mean": 4.330422142212889,
+    "excess_pct": 22.40402750445614,
+    "null_assignment_95": [
+      3.878481153995097,
+      4.800709110370421
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      20.912346693189917,
+      23.943097535171102
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.9701889678004347,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_FR",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.933254351793661,
+    "null_mean": 0.8050898240322856,
+    "excess_pct": 15.919283033471277,
+    "null_assignment_95": [
+      0.6937394366319244,
+      0.9246830939134028
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.053164695791352,
+      18.547407632226474
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.12816452776137544,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_FR",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 2.821529640856893,
+    "null_mean": 2.2913617146007557,
+    "excess_pct": 23.137679349264715,
+    "null_assignment_95": [
+      1.9427473084886278,
+      2.682424522171696
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      21.099611344895973,
+      25.396203958471062
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.5301679262561372,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_FR",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.8422149639853358,
+    "null_mean": 0.726923052416441,
+    "excess_pct": 15.860263501843974,
+    "null_assignment_95": [
+      0.5795254662287243,
+      0.865565797274456
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.916468866916041,
+      18.572502137423736
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.07,
+    "excess_abs": 0.11529191156889484,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_FR",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.43811610867969825,
+    "null_mean": 0.31106368084400443,
+    "excess_pct": 40.84450730183748,
+    "null_assignment_95": [
+      0.23409808286244352,
+      0.4170528174543918
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      34.116521648897645,
+      47.68602874294104
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.12705242783569382,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_FR",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.265496044697736,
+    "null_mean": 0.19598387031940206,
+    "excess_pct": 35.46831393065533,
+    "null_assignment_95": [
+      0.14450929094255344,
+      0.24905711374689113
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      31.516738511075783,
+      39.79759613088803
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.06951217437833396,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_HR",
+    "family": "All",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 3.63563468660121,
+    "null_mean": 3.3366532913707476,
+    "excess_pct": 8.9605172944905,
+    "null_assignment_95": [
+      2.9238460523634013,
+      3.8278399997956387
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.9194987500887892,
+      14.35012230035082
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.112,
+    "excess_abs": 0.2989813952304625,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_HR",
+    "family": "Lycaenidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.8274960730834696,
+    "null_mean": 0.7850875364165889,
+    "excess_pct": 5.401759001352624,
+    "null_assignment_95": [
+      0.5817569661521677,
+      1.0147257739014455
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -7.088581836923247,
+      21.273347319940402
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.356,
+    "excess_abs": 0.042408536666880714,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_HR",
+    "family": "Nymphalidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 1.768298824800699,
+    "null_mean": 1.5467007265933297,
+    "excess_pct": 14.327147740820422,
+    "null_assignment_95": [
+      1.2902789767032694,
+      1.8960699323037038
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      9.113924088578184,
+      22.390467978777043
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.094,
+    "excess_abs": 0.2215980982073693,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_HR",
+    "family": "Pieridae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.5922178511812893,
+    "null_mean": 0.5975193751448943,
+    "excess_pct": -0.8872555743183019,
+    "null_assignment_95": [
+      0.4314250723134291,
+      0.7438033442912702
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.145318300220948,
+      8.034511343850582
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.55,
+    "excess_abs": -0.005301523963604948,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_HR",
+    "family": "Papilionidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.33708986447461353,
+    "null_mean": 0.2602732442194253,
+    "excess_pct": 29.513836693266615,
+    "null_assignment_95": [
+      0.18228645953162642,
+      0.35274921932394054
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.45406716019836,
+      48.99583562118198
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.054,
+    "excess_abs": 0.0768166202551882,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_HR",
+    "family": "Hesperiidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.11053207306113864,
+    "null_mean": 0.14707240899650947,
+    "excess_pct": -24.845133213421466,
+    "null_assignment_95": [
+      0.06865892514626389,
+      0.22999233453002962
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -47.316059075882094,
+      -1.1052902297073917
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.764,
+    "excess_abs": -0.03654033593537083,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_IT",
+    "family": "All",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 3.4184914258226398,
+    "null_mean": 2.918440438867721,
+    "excess_pct": 17.134185104319812,
+    "null_assignment_95": [
+      2.6009612605926957,
+      3.2746390445245783
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.081405165111795,
+      20.63795143474896
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.5000509869549186,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_IT",
+    "family": "Lycaenidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.669589763444099,
+    "null_mean": 0.5666985857868388,
+    "excess_pct": 18.156243943047755,
+    "null_assignment_95": [
+      0.45437024730798503,
+      0.6926695942482487
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.361442690942336,
+      21.776445608140225
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.08,
+    "excess_abs": 0.10289117765726019,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_IT",
+    "family": "Nymphalidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 1.70369704134023,
+    "null_mean": 1.4793734508670877,
+    "excess_pct": 15.163418698751286,
+    "null_assignment_95": [
+      1.2836771645588048,
+      1.7274061704969959
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      9.086891306549632,
+      20.564862285290246
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.038,
+    "excess_abs": 0.2243235904731422,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_IT",
+    "family": "Pieridae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.485524785349301,
+    "null_mean": 0.49521031616744904,
+    "excess_pct": -1.9558418922098975,
+    "null_assignment_95": [
+      0.3817568257148053,
+      0.5937412324952217
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -6.046717841915184,
+      3.4382090312187255
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.58,
+    "excess_abs": -0.009685530818148047,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_IT",
+    "family": "Papilionidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.4511929979164623,
+    "null_mean": 0.2910549547744836,
+    "excess_pct": 55.019864982562304,
+    "null_assignment_95": [
+      0.19771269985477333,
+      0.4186114029271136
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      43.21159500531783,
+      66.01844706571235
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.16013804314197866,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_IT",
+    "family": "Hesperiidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.10848683777254745,
+    "null_mean": 0.08610313127186234,
+    "excess_pct": 25.99639080489502,
+    "null_assignment_95": [
+      0.0542712306558272,
+      0.12171405343770861
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      19.74830474463404,
+      33.51756039862482
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.112,
+    "excess_abs": 0.022383706500685108,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_LT",
+    "family": "All",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 5.373358299658821,
+    "null_mean": 5.205420732410459,
+    "excess_pct": 3.2262054477697477,
+    "null_assignment_95": [
+      4.700390775724705,
+      5.754544571483789
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.2617873255399839,
+      5.504952906178618
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.268,
+    "excess_abs": 0.16793756724836228,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_LT",
+    "family": "Lycaenidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 1.0074777310668817,
+    "null_mean": 0.9129025539051551,
+    "excess_pct": 10.359832685006642,
+    "null_assignment_95": [
+      0.7499876277797921,
+      1.1054155788449946
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -2.6840507647475818,
+      23.15285750878743
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.17,
+    "excess_abs": 0.09457517716172659,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_LT",
+    "family": "Nymphalidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 2.600831562518587,
+    "null_mean": 2.716974410981488,
+    "excess_pct": -4.274712635992217,
+    "null_assignment_95": [
+      2.3795879306294494,
+      3.1125749746928695
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.968555637184215,
+      -0.0034226805839200213
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.732,
+    "excess_abs": -0.1161428484629008,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_LT",
+    "family": "Pieridae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 1.0668069432417218,
+    "null_mean": 1.0230849765523942,
+    "excess_pct": 4.273542050892232,
+    "null_assignment_95": [
+      0.7804703683649441,
+      1.273521428733821
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -4.358262658054886,
+      10.278784377286767
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.36,
+    "excess_abs": 0.043721966689327596,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_LT",
+    "family": "Papilionidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.3193315366084672,
+    "null_mean": 0.33290535591590825,
+    "excess_pct": -4.077380873040026,
+    "null_assignment_95": [
+      0.29205086123463603,
+      0.42623466802295157
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.294246606823892,
+      0.38491820647185077
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.492,
+    "excess_abs": -0.01357381930744106,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_LT",
+    "family": "Hesperiidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.3789105262231624,
+    "null_mean": 0.219553435055513,
+    "excess_pct": 72.58237208967226,
+    "null_assignment_95": [
+      0.1356886954642645,
+      0.31596647947901385
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      52.273297112566,
+      98.37628621983316
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.1593570911676494,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NL",
+    "family": "All",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 6.249832173840595,
+    "null_mean": 5.5516476693876,
+    "excess_pct": 12.576167401668204,
+    "null_assignment_95": [
+      4.982666075884917,
+      6.189849147128893
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.816889516084661,
+      14.486984267761404
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.016,
+    "excess_abs": 0.6981845044529953,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NL",
+    "family": "Lycaenidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 1.1082696558230307,
+    "null_mean": 0.8990651401578933,
+    "excess_pct": 23.269116587970153,
+    "null_assignment_95": [
+      0.7375470236800632,
+      1.07087097482343
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      20.95836277023797,
+      25.209969787134277
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.20920451566513742,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NL",
+    "family": "Nymphalidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 2.410770318292563,
+    "null_mean": 2.3057732859065143,
+    "excess_pct": 4.553658116685533,
+    "null_assignment_95": [
+      1.9306159229983566,
+      2.7948509865147906
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.0822377569404296,
+      9.510450443711548
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.3,
+    "excess_abs": 0.10499703238604852,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NL",
+    "family": "Pieridae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 2.3021391857843487,
+    "null_mean": 1.9978766461855988,
+    "excess_pct": 15.229295571358549,
+    "null_assignment_95": [
+      1.563653887395996,
+      2.3795171518260605
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.802741199189892,
+      17.367409054571038
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.078,
+    "excess_abs": 0.30426253959874994,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NL",
+    "family": "Papilionidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.16326069720857653,
+    "null_mean": 0.17607484777761978,
+    "excess_pct": -7.277672382387834,
+    "null_assignment_95": [
+      0.15272705316350452,
+      0.2159203962516704
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -7.643155576679761,
+      -6.85172768432234
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.62,
+    "excess_abs": -0.012814150569043253,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NL",
+    "family": "Hesperiidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.26539231673207586,
+    "null_mean": 0.17285774935997297,
+    "excess_pct": 53.53220651936259,
+    "null_assignment_95": [
+      0.10152548436649625,
+      0.27985480637874727
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      47.57638875946475,
+      58.63323188696163
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.052,
+    "excess_abs": 0.09253456737210289,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NO",
+    "family": "All",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 5.641185477504287,
+    "null_mean": 4.614400165714246,
+    "excess_pct": 22.251761332257768,
+    "null_assignment_95": [
+      3.9874687703777627,
+      5.2830964970887395
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.964211881114412,
+      26.705421633675165
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 1.0267853117900412,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NO",
+    "family": "Lycaenidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 1.4353017307842182,
+    "null_mean": 1.1243952073501184,
+    "excess_pct": 27.651000413530614,
+    "null_assignment_95": [
+      0.8844239721808397,
+      1.3990034313440547
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      19.95265552012342,
+      36.481942647306404
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.31090652343409975,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NO",
+    "family": "Nymphalidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 3.025207956158282,
+    "null_mean": 2.515190547513948,
+    "excess_pct": 20.27748590055902,
+    "null_assignment_95": [
+      2.093820723994362,
+      2.921278874857234
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.581010152575086,
+      29.238195748635988
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.5100174086443339,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NO",
+    "family": "Pieridae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.7487784548460991,
+    "null_mean": 0.6738140830891403,
+    "excess_pct": 11.125379186686079,
+    "null_assignment_95": [
+      0.475029671738615,
+      0.8551688507892036
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      4.6578301841979775,
+      16.929595914978997
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.24,
+    "excess_abs": 0.0749643717569588,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NO",
+    "family": "Papilionidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.06266174330936591,
+    "null_mean": 0.07000596996141607,
+    "excess_pct": -10.490857645566432,
+    "null_assignment_95": [
+      0.06238628143890354,
+      0.09497472766824225
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -11.474150059347657,
+      -8.37334374624794
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.756,
+    "excess_abs": -0.007344226652050159,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 1,
+    "subset": "country_NO",
+    "family": "Hesperiidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.3692355924063207,
+    "null_mean": 0.23099435779962268,
+    "excess_pct": 59.84615205476842,
+    "null_assignment_95": [
+      0.1575580048384472,
+      0.31252729446132804
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      45.17629334327885,
+      90.93048921746596
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.13824123460669802,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "all454",
+    "family": "All",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 4.089947168848193,
+    "null_mean": 3.6357718471280416,
+    "excess_pct": 12.491854297153226,
+    "null_assignment_95": [
+      3.357829997044728,
+      3.8953154489154533
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.66992182782982,
+      14.299123445330162
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.4541753217201512,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "all454",
+    "family": "Lycaenidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.9361992833015474,
+    "null_mean": 0.7896817368073314,
+    "excess_pct": 18.553999626049823,
+    "null_assignment_95": [
+      0.6784300119754838,
+      0.899538334882187
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.658864856685959,
+      21.542720706937647
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.146517546494216,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "all454",
+    "family": "Nymphalidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 2.0353162695955715,
+    "null_mean": 1.8350177210450944,
+    "excess_pct": 10.915346824901583,
+    "null_assignment_95": [
+      1.650668703935906,
+      2.0242037259845773
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      8.392842476971369,
+      13.567135604685976
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.018,
+    "excess_abs": 0.20029854855047713,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "all454",
+    "family": "Pieridae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.6728841698474821,
+    "null_mean": 0.6449413882512752,
+    "excess_pct": 4.332607909064778,
+    "null_assignment_95": [
+      0.5540388081745793,
+      0.7431289284149925
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.1011988586970756,
+      7.292545774228737
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.288,
+    "excess_abs": 0.02794278159620689,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "all454",
+    "family": "Papilionidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.25816885933453926,
+    "null_mean": 0.2224054298025514,
+    "excess_pct": 16.080286152967638,
+    "null_assignment_95": [
+      0.18705325053145827,
+      0.2658298100739278
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.872665222614996,
+      20.38248231924769
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.056,
+    "excess_abs": 0.035763429531987856,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "all454",
+    "family": "Hesperiidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.18737858676905378,
+    "null_mean": 0.14372557122178922,
+    "excess_pct": 30.372476641544655,
+    "null_assignment_95": [
+      0.11683707510437838,
+      0.1731403026396152
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      24.370686591524525,
+      36.35892902164766
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.043653015547264556,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "coverage80",
+    "family": "All",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 4.141006544072565,
+    "null_mean": 3.703569705218164,
+    "excess_pct": 11.811221974250174,
+    "null_assignment_95": [
+      3.4274541386297805,
+      3.979186801225369
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      9.94402149879478,
+      13.698444318216133
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.43743683885440054,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "coverage80",
+    "family": "Lycaenidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.9580925369034103,
+    "null_mean": 0.8119988623079468,
+    "excess_pct": 17.99185705509747,
+    "null_assignment_95": [
+      0.6977869031237355,
+      0.9246053327567739
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.038734969478229,
+      20.918180277172965
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.14609367459546352,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "coverage80",
+    "family": "Nymphalidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 2.075230845563087,
+    "null_mean": 1.8833856746239153,
+    "excess_pct": 10.186186160595101,
+    "null_assignment_95": [
+      1.6917966353614424,
+      2.076788596572353
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.478107526467835,
+      12.954297561122189
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.03,
+    "excess_abs": 0.19184517093917175,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "coverage80",
+    "family": "Pieridae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.6358084255073766,
+    "null_mean": 0.6183034007907661,
+    "excess_pct": 2.831138352825313,
+    "null_assignment_95": [
+      0.5381704930090733,
+      0.7044288886304424
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -0.3671374277452035,
+      5.706386160084861
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.352,
+    "excess_abs": 0.01750502471661053,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "coverage80",
+    "family": "Papilionidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.26837843335727574,
+    "null_mean": 0.23346803085381615,
+    "excess_pct": 14.952969096363521,
+    "null_assignment_95": [
+      0.19701448734155613,
+      0.2790282607241859
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.770284523438477,
+      19.104732242165202
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.066,
+    "excess_abs": 0.03491040250345959,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "coverage80",
+    "family": "Hesperiidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.20349630274141528,
+    "null_mean": 0.1564137366417195,
+    "excess_pct": 30.10129871620091,
+    "null_assignment_95": [
+      0.12696556191073097,
+      0.18706679150320116
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      23.64416465514539,
+      36.65746400113989
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.04708256609969577,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2017_2019",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 4.277650907349731,
+    "null_mean": 3.8002356699917854,
+    "excess_pct": 12.562779754103449,
+    "null_assignment_95": [
+      3.5013827887384696,
+      4.087445700708372
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.342378005136629,
+      14.623886817501127
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.47741523735794544,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2017_2019",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.9494539860791912,
+    "null_mean": 0.7730994701131222,
+    "excess_pct": 22.81136164021227,
+    "null_assignment_95": [
+      0.6529780159188068,
+      0.9005772182009621
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.83285182559247,
+      27.022790627000873
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.176354515966069,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2017_2019",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 2.2198075766714607,
+    "null_mean": 2.022610622178649,
+    "excess_pct": 9.74962517898783,
+    "null_assignment_95": [
+      1.8150573258738198,
+      2.2371004472669265
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      6.558012947360587,
+      12.666360557067277
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.048,
+    "excess_abs": 0.19719695449281183,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2017_2019",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.6538960220420895,
+    "null_mean": 0.6256953699671665,
+    "excess_pct": 4.507089780191742,
+    "null_assignment_95": [
+      0.5290686229428365,
+      0.7306489553267402
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.5625592700791489,
+      7.9500945029368815
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.296,
+    "excess_abs": 0.02820065207492306,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2017_2019",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.25526062148694134,
+    "null_mean": 0.22667351027120108,
+    "excess_pct": 12.611580056945115,
+    "null_assignment_95": [
+      0.1899928700386283,
+      0.2760086434900124
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.909492808216326,
+      17.27646461028707
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.134,
+    "excess_abs": 0.028587111215740257,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2017_2019",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.19923270107004823,
+    "null_mean": 0.15215669746164653,
+    "excess_pct": 30.939159691125617,
+    "null_assignment_95": [
+      0.12312819397448874,
+      0.1842339656413928
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      24.677312511458133,
+      37.374114995510006
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.047076003608401695,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2020_2022",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 3.9053464823743456,
+    "null_mean": 3.470836379821704,
+    "excess_pct": 12.518887524596067,
+    "null_assignment_95": [
+      3.2069769716821233,
+      3.7346333037153174
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      10.665281668969005,
+      14.379906070326584
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.43451010255264144,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2020_2022",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.9232092749978744,
+    "null_mean": 0.8043695161319508,
+    "excess_pct": 14.774274320762393,
+    "null_assignment_95": [
+      0.6984974193407996,
+      0.907443019346462
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      11.929079050380462,
+      17.710646309489228
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.018,
+    "excess_abs": 0.11883975886592357,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2020_2022",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 1.851075818991942,
+    "null_mean": 1.6480622610441689,
+    "excess_pct": 12.318318472941003,
+    "null_assignment_95": [
+      1.4764036108122658,
+      1.8319032082447624
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      9.661701709943848,
+      15.132972893908745
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.2030135579477732,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2020_2022",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.6929238037380004,
+    "null_mean": 0.6647841526623797,
+    "excess_pct": 4.232900402773576,
+    "null_assignment_95": [
+      0.5721908474094041,
+      0.7635267798496645
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.0316016616647312,
+      7.333786965034459
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.312,
+    "excess_abs": 0.028139651075620775,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2020_2022",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.2600246940734749,
+    "null_mean": 0.21694857060877407,
+    "excess_pct": 19.855453918790978,
+    "null_assignment_95": [
+      0.18100070212489308,
+      0.2599160777448538
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.19257785182888,
+      24.533690741866536
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.028,
+    "excess_abs": 0.04307612346470083,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "period2020_2022",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.17811289057305377,
+    "null_mean": 0.13667187937443082,
+    "excess_pct": 30.321534604122746,
+    "null_assignment_95": [
+      0.11142824189281492,
+      0.16420739890034283
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      22.366102508823563,
+      37.93350012242397
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.04144101119862295,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "France",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 4.25405885985299,
+    "null_mean": 3.694201437060232,
+    "excess_pct": 15.1550323481624,
+    "null_assignment_95": [
+      3.354574401229018,
+      4.056968480015829
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.71812095082856,
+      16.57267833414755
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.5598574227927582,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "France",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.9051955694904787,
+    "null_mean": 0.7824598656965435,
+    "excess_pct": 15.685878493547566,
+    "null_assignment_95": [
+      0.6604357430158019,
+      0.892324972106369
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.885825591293784,
+      18.293793649711624
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.12273570379393528,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "France",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 2.2287207302233836,
+    "null_mean": 1.9279428704082977,
+    "excess_pct": 15.600973681932162,
+    "null_assignment_95": [
+      1.6565003938547054,
+      2.224925800258522
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.719770567604419,
+      17.59424762117852
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.024,
+    "excess_abs": 0.30077785981508587,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "France",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.5841797756110297,
+    "null_mean": 0.5484628906951396,
+    "excess_pct": 6.512178949905145,
+    "null_assignment_95": [
+      0.45336183236556904,
+      0.6401305736608527
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.8875254936318395,
+      8.98526529666968
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.268,
+    "excess_abs": 0.03571688491589009,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "France",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.3367456643008959,
+    "null_mean": 0.27225830363898107,
+    "excess_pct": 23.686095079555813,
+    "null_assignment_95": [
+      0.21717505429414202,
+      0.3451321257093892
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      19.00036180406075,
+      28.815055912644482
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.056,
+    "excess_abs": 0.06448736066191485,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "France",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.19921712022720112,
+    "null_mean": 0.16307750662127038,
+    "excess_pct": 22.161004515393422,
+    "null_assignment_95": [
+      0.12433117451757941,
+      0.21185931687820894
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      17.568666461110617,
+      27.198740560135686
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.064,
+    "excess_abs": 0.03613961360593074,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "outside_France",
+    "family": "All",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 4.013414556240554,
+    "null_mean": 3.623615062583145,
+    "excess_pct": 10.757199286491947,
+    "null_assignment_95": [
+      3.3113573354699817,
+      3.9019939085963182
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.932048828971359,
+      13.486328522730942
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.3897994936574092,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "outside_France",
+    "family": "Lycaenidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.9610731235856567,
+    "null_mean": 0.7962384234993338,
+    "excess_pct": 20.70167618411356,
+    "null_assignment_95": [
+      0.6726883894426083,
+      0.9324113476957572
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      16.39707721225589,
+      24.968476418208496
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.01,
+    "excess_abs": 0.16483470008632284,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "outside_France",
+    "family": "Nymphalidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 1.9275578542390168,
+    "null_mean": 1.79116818607004,
+    "excess_pct": 7.614565132949713,
+    "null_assignment_95": [
+      1.606001093432018,
+      1.968457438131643
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.5866420152819267,
+      11.504117755860298
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.082,
+    "excess_abs": 0.1363896681689769,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "outside_France",
+    "family": "Pieridae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.7340860171698045,
+    "null_mean": 0.70977972794788,
+    "excess_pct": 3.4244834368824417,
+    "null_assignment_95": [
+      0.6006314744232507,
+      0.8283892033720051
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -1.1682524313582479,
+      7.390425474016311
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.34,
+    "excess_abs": 0.02430628922192446,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "outside_France",
+    "family": "Papilionidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.20452486212899207,
+    "null_mean": 0.1886972001092918,
+    "excess_pct": 8.38786267657019,
+    "null_assignment_95": [
+      0.16087711352098472,
+      0.22578952322514653
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.602870759251691,
+      14.039725211065512
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.21,
+    "excess_abs": 0.01582766201970026,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "outside_France",
+    "family": "Hesperiidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.18617269911708414,
+    "null_mean": 0.13773152495659896,
+    "excess_pct": 35.17072375097106,
+    "null_assignment_95": [
+      0.10953671098208939,
+      0.17037400568149863
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      25.927334215796165,
+      44.67834707118917
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.048441174160485184,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_FR",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 4.25405885985299,
+    "null_mean": 3.694201437060232,
+    "excess_pct": 15.1550323481624,
+    "null_assignment_95": [
+      3.354574401229018,
+      4.056968480015829
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.71812095082856,
+      16.57267833414755
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.5598574227927582,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_FR",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.9051955694904787,
+    "null_mean": 0.7824598656965435,
+    "excess_pct": 15.685878493547566,
+    "null_assignment_95": [
+      0.6604357430158019,
+      0.892324972106369
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      12.885825591293784,
+      18.293793649711624
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.12273570379393528,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_FR",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 2.2287207302233836,
+    "null_mean": 1.9279428704082977,
+    "excess_pct": 15.600973681932162,
+    "null_assignment_95": [
+      1.6565003938547054,
+      2.224925800258522
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      13.719770567604419,
+      17.59424762117852
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.024,
+    "excess_abs": 0.30077785981508587,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_FR",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.5841797756110297,
+    "null_mean": 0.5484628906951396,
+    "excess_pct": 6.512178949905145,
+    "null_assignment_95": [
+      0.45336183236556904,
+      0.6401305736608527
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.8875254936318395,
+      8.98526529666968
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.268,
+    "excess_abs": 0.03571688491589009,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_FR",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.3367456643008959,
+    "null_mean": 0.27225830363898107,
+    "excess_pct": 23.686095079555813,
+    "null_assignment_95": [
+      0.21717505429414202,
+      0.3451321257093892
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      19.00036180406075,
+      28.815055912644482
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.056,
+    "excess_abs": 0.06448736066191485,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_FR",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.19921712022720112,
+    "null_mean": 0.16307750662127038,
+    "excess_pct": 22.161004515393422,
+    "null_assignment_95": [
+      0.12433117451757941,
+      0.21185931687820894
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      17.568666461110617,
+      27.198740560135686
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.064,
+    "excess_abs": 0.03613961360593074,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_HR",
+    "family": "All",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 2.522275403580039,
+    "null_mean": 2.460864614971182,
+    "excess_pct": 2.4954964298016247,
+    "null_assignment_95": [
+      2.114164085875614,
+      2.868625438598188
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -2.8868135629048224,
+      8.49745015917276
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.352,
+    "excess_abs": 0.06141078860885729,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_HR",
+    "family": "Lycaenidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.6988781046059758,
+    "null_mean": 0.6780713769736914,
+    "excess_pct": 3.06851584344221,
+    "null_assignment_95": [
+      0.4869489825618066,
+      0.8911202574981046
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.920378813746323,
+      21.271146509807444
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.404,
+    "excess_abs": 0.020806727632284416,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_HR",
+    "family": "Nymphalidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 1.140659612037324,
+    "null_mean": 1.0267867371276607,
+    "excess_pct": 11.090216769668459,
+    "null_assignment_95": [
+      0.7944595667783286,
+      1.2783370994017218
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.1758994687195106,
+      22.84735567807209
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.178,
+    "excess_abs": 0.11387287490966336,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_HR",
+    "family": "Pieridae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.3353412132166146,
+    "null_mean": 0.41013618225178455,
+    "excess_pct": -18.236618048307907,
+    "null_assignment_95": [
+      0.3091699109540587,
+      0.4980021300154346
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -34.84143596156532,
+      -0.7643029172555743
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.93,
+    "excess_abs": -0.07479496903516997,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_HR",
+    "family": "Papilionidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.2548566135951945,
+    "null_mean": 0.23168709879742838,
+    "excess_pct": 10.000347415987964,
+    "null_assignment_95": [
+      0.17253977030088122,
+      0.2948179671024333
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -1.6621563502492673,
+      25.98279720644967
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.226,
+    "excess_abs": 0.023169514797766133,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_HR",
+    "family": "Hesperiidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.09253986012493025,
+    "null_mean": 0.1141832198206168,
+    "excess_pct": -18.954939026670058,
+    "null_assignment_95": [
+      0.055922212699030284,
+      0.17797007908804063
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -42.13121418088827,
+      3.984649259871122
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.744,
+    "excess_abs": -0.02164335969568655,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_IT",
+    "family": "All",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 2.657604519505449,
+    "null_mean": 2.4187133884821552,
+    "excess_pct": 9.876785408345047,
+    "null_assignment_95": [
+      2.1829993072972864,
+      2.6609093702080697
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      6.692027818746222,
+      12.750371936377693
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.03,
+    "excess_abs": 0.23889113102329373,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_IT",
+    "family": "Lycaenidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.6370927658851905,
+    "null_mean": 0.5375396177642427,
+    "excess_pct": 18.520150856045436,
+    "null_assignment_95": [
+      0.4312839364024946,
+      0.6526802791923962
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      14.427396624783272,
+      22.459582930259508
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.05,
+    "excess_abs": 0.09955314812094773,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_IT",
+    "family": "Nymphalidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 1.3173020605057035,
+    "null_mean": 1.203671002504133,
+    "excess_pct": 9.440375132837042,
+    "null_assignment_95": [
+      1.029147087758624,
+      1.4060206456317834
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.6115042129349684,
+      14.420748009291517
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.104,
+    "excess_abs": 0.11363105800157047,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_IT",
+    "family": "Pieridae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.3050984240014854,
+    "null_mean": 0.3616980073700111,
+    "excess_pct": -15.648298363619483,
+    "null_assignment_95": [
+      0.290574371675094,
+      0.4218133791854322
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -20.655214938409188,
+      -11.219257294205669
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.95,
+    "excess_abs": -0.05659958336852572,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_IT",
+    "family": "Papilionidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.3155239162483006,
+    "null_mean": 0.24321481881530876,
+    "excess_pct": 29.730547581437293,
+    "null_assignment_95": [
+      0.18286229040429544,
+      0.3208482229872408
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      24.043847325124357,
+      35.42210997660231
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.04,
+    "excess_abs": 0.07230909743299185,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_IT",
+    "family": "Hesperiidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.08258735286476916,
+    "null_mean": 0.0725899420284601,
+    "excess_pct": 13.7724463705859,
+    "null_assignment_95": [
+      0.04698575044123183,
+      0.10505990788197324
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.9337737081990465,
+      18.138716199021815
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.242,
+    "excess_abs": 0.009997410836309062,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_LT",
+    "family": "All",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 4.62814159296554,
+    "null_mean": 4.582184188201933,
+    "excess_pct": 1.0029584773553424,
+    "null_assignment_95": [
+      4.107639164072814,
+      5.091728609529806
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -2.8330792756405696,
+      4.106815044297621
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.424,
+    "excess_abs": 0.0459574047636071,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_LT",
+    "family": "Lycaenidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.9650229288740052,
+    "null_mean": 0.8607790786276686,
+    "excess_pct": 12.110407052705273,
+    "null_assignment_95": [
+      0.6850091464611194,
+      1.07462646399682
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -1.8047021651111455,
+      25.669270821269144
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.156,
+    "excess_abs": 0.10424385024633664,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_LT",
+    "family": "Nymphalidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 2.117514603344701,
+    "null_mean": 2.279829101324881,
+    "excess_pct": -7.1195905818490335,
+    "null_assignment_95": [
+      1.9889126395412164,
+      2.625791280197784
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -13.271965588616807,
+      -1.389003546115225
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.818,
+    "excess_abs": -0.1623144979801796,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_LT",
+    "family": "Pieridae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.9491661535198227,
+    "null_mean": 0.9165143504575413,
+    "excess_pct": 3.5626068534530875,
+    "null_assignment_95": [
+      0.660510421266726,
+      1.1532725539290163
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -5.680632859236131,
+      9.712440600962262
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.408,
+    "excess_abs": 0.03265180306228144,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_LT",
+    "family": "Papilionidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.3193315366084672,
+    "null_mean": 0.3358030076073473,
+    "excess_pct": -4.90509930695443,
+    "null_assignment_95": [
+      0.2923541745901536,
+      0.4285328010431046
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.289041432398234,
+      -0.2157219667446531
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.528,
+    "excess_abs": -0.016471470998880133,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_LT",
+    "family": "Hesperiidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.2771063706185452,
+    "null_mean": 0.18925865018449434,
+    "excess_pct": 46.41675313039304,
+    "null_assignment_95": [
+      0.11547454874388789,
+      0.2635191946874726
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      33.901926046241634,
+      59.54107555939895
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.08784772043405087,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NL",
+    "family": "All",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 5.204431541887768,
+    "null_mean": 4.728375642082101,
+    "excess_pct": 10.068064296093858,
+    "null_assignment_95": [
+      4.22100013866468,
+      5.367836451573093
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.9911605634028104,
+      12.49100353860948
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.056,
+    "excess_abs": 0.476055899805667,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NL",
+    "family": "Lycaenidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 1.0492823774515827,
+    "null_mean": 0.8473361028821615,
+    "excess_pct": 23.833078029192123,
+    "null_assignment_95": [
+      0.690198523757902,
+      1.0098981516916288
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      21.469016862081514,
+      25.810541819575562
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.014,
+    "excess_abs": 0.20194627456942116,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NL",
+    "family": "Nymphalidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 2.010481419656804,
+    "null_mean": 1.9650854166098222,
+    "excess_pct": 2.3101287436807283,
+    "null_assignment_95": [
+      1.601837509321826,
+      2.4424882349237294
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -2.3289021423197553,
+      7.7692227440429695
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.356,
+    "excess_abs": 0.04539600304698177,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NL",
+    "family": "Pieridae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 1.7793098674008858,
+    "null_mean": 1.5969570988439958,
+    "excess_pct": 11.418764391910807,
+    "null_assignment_95": [
+      1.2613167156616938,
+      1.9025118377086392
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      7.3346763235886625,
+      14.801208436979385
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.156,
+    "excess_abs": 0.18235276855688998,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NL",
+    "family": "Papilionidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.16325820727153462,
+    "null_mean": 0.1776980273911002,
+    "excess_pct": -8.126044127538112,
+    "null_assignment_95": [
+      0.15293150674599243,
+      0.21670335223919318
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.427769906500727,
+      -7.739990760819149
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.646,
+    "excess_abs": -0.014439820119565572,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NL",
+    "family": "Hesperiidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.20209967010696117,
+    "null_mean": 0.14129899635502108,
+    "excess_pct": 43.02979873910444,
+    "null_assignment_95": [
+      0.08385266439099101,
+      0.21999285681255923
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      30.800822610473098,
+      49.812692462477415
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.072,
+    "excess_abs": 0.06080067375194009,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NO",
+    "family": "All",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 5.4439645124287415,
+    "null_mean": 4.420412683512948,
+    "excess_pct": 23.155119265976907,
+    "null_assignment_95": [
+      3.706144472111355,
+      5.115918616245181
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      19.469414965534167,
+      27.874232344606536
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 1.0235518289157932,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NO",
+    "family": "Lycaenidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 1.431010291234727,
+    "null_mean": 1.11603778711294,
+    "excess_pct": 28.22238706957978,
+    "null_assignment_95": [
+      0.8539311464275191,
+      1.384391358067769
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      20.323476492356658,
+      37.18577590275301
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.012,
+    "excess_abs": 0.3149725041217868,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NO",
+    "family": "Nymphalidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 2.8946775636166993,
+    "null_mean": 2.3821522580405463,
+    "excess_pct": 21.515220273859992,
+    "null_assignment_95": [
+      1.9935109256237553,
+      2.8164873331273217
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.229900970050727,
+      30.920386867119625
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.008,
+    "excess_abs": 0.512525305576153,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NO",
+    "family": "Pieridae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.7307021380476899,
+    "null_mean": 0.6455277804694342,
+    "excess_pct": 13.19453014343026,
+    "null_assignment_95": [
+      0.4602967692828672,
+      0.846991380628332
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      5.781255063425241,
+      20.010131596532755
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.204,
+    "excess_abs": 0.08517435757825575,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NO",
+    "family": "Papilionidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.06266174330936591,
+    "null_mean": 0.07078791414832751,
+    "excess_pct": -11.479602043272797,
+    "null_assignment_95": [
+      0.06239434255752187,
+      0.09499263474372875
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -12.464785913830696,
+      -9.290484837635868
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.798,
+    "excess_abs": -0.008126170838961597,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 5,
+    "subset": "country_NO",
+    "family": "Hesperiidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.3249127762202604,
+    "null_mean": 0.2059069437417009,
+    "excess_pct": 57.79592971271812,
+    "null_assignment_95": [
+      0.13286044612780082,
+      0.28367333322354704
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      41.740162038376674,
+      90.86169377699872
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.11900583247855948,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "all454",
+    "family": "All",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 2.697499241320772,
+    "null_mean": 2.58552852438592,
+    "excess_pct": 4.330670339885168,
+    "null_assignment_95": [
+      2.451041033711236,
+      2.7303294244463525
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.466667044513604,
+      6.273947826467474
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.064,
+    "excess_abs": 0.11197071693485183,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "all454",
+    "family": "Lycaenidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.5104509387343771,
+    "null_mean": 0.4839276518949742,
+    "excess_pct": 5.480837215137924,
+    "null_assignment_95": [
+      0.4431830365518092,
+      0.5256339281932424
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.417744088178688,
+      8.434397168972279
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.114,
+    "excess_abs": 0.02652328683940286,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "all454",
+    "family": "Nymphalidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 1.3832408135732805,
+    "null_mean": 1.3221855791442396,
+    "excess_pct": 4.617750744835525,
+    "null_assignment_95": [
+      1.212343858548649,
+      1.4424610144270582
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.8739355498660177,
+      7.571824794283007
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.14,
+    "excess_abs": 0.06105523442904093,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "all454",
+    "family": "Pieridae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.4196956978006649,
+    "null_mean": 0.4460109698029058,
+    "excess_pct": -5.900140082623917,
+    "null_assignment_95": [
+      0.3907155262927212,
+      0.5172891851729129
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.560643005359854,
+      -2.2696083345967537
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.75,
+    "excess_abs": -0.026315272002240875,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "all454",
+    "family": "Papilionidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.2196402404774095,
+    "null_mean": 0.20645014851096183,
+    "excess_pct": 6.38899611435606,
+    "null_assignment_95": [
+      0.17863797642672985,
+      0.24008258877865607
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.797804251940983,
+      9.94406035522969
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.228,
+    "excess_abs": 0.013190091966447659,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "all454",
+    "family": "Hesperiidae",
+    "n_rows": 454,
+    "n_H6": 90,
+    "observed": 0.16447155073504044,
+    "null_mean": 0.12695417503283896,
+    "excess_pct": 29.55190382080537,
+    "null_assignment_95": [
+      0.10211573174078356,
+      0.15439459522758073
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      23.469987425262673,
+      35.89444070950745
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.03751737570220148,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "coverage80",
+    "family": "All",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 2.7665164235601987,
+    "null_mean": 2.6569656344215304,
+    "excess_pct": 4.123154162004039,
+    "null_assignment_95": [
+      2.522812364599558,
+      2.799850119802128
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.1603840766157467,
+      6.234666738349886
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.07,
+    "excess_abs": 0.10955078913866823,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "coverage80",
+    "family": "Lycaenidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.5243638453624591,
+    "null_mean": 0.4979942833362239,
+    "excess_pct": 5.2951535607149935,
+    "null_assignment_95": [
+      0.45992092224449205,
+      0.537923649747617
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.042372970940551,
+      8.286631663276511
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.11,
+    "excess_abs": 0.026369562026235138,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "coverage80",
+    "family": "Nymphalidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 1.4190215963889679,
+    "null_mean": 1.3632876112362902,
+    "excess_pct": 4.088204476686741,
+    "null_assignment_95": [
+      1.2534211705771272,
+      1.4817605826036933
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.2321006617147945,
+      7.1207129001855565
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.148,
+    "excess_abs": 0.05573398515267769,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "coverage80",
+    "family": "Pieridae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.4159031394238753,
+    "null_mean": 0.44008405111119187,
+    "excess_pct": -5.494612137445309,
+    "null_assignment_95": [
+      0.3874392025650059,
+      0.5027737502946421
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.450084428521562,
+      -1.734933410422213
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.756,
+    "excess_abs": -0.024180911687316564,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "coverage80",
+    "family": "Papilionidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.2274670074147046,
+    "null_mean": 0.21665885848229788,
+    "excess_pct": 4.9885562068027856,
+    "null_assignment_95": [
+      0.1877705848395138,
+      0.25148540074884
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.694073123631788,
+      8.513883283022754
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.266,
+    "excess_abs": 0.010808148932406725,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "coverage80",
+    "family": "Hesperiidae",
+    "n_rows": 390,
+    "n_H6": 83,
+    "observed": 0.17976083497019185,
+    "null_mean": 0.13894083025552662,
+    "excess_pct": 29.3794161439751,
+    "null_assignment_95": [
+      0.11184279976047047,
+      0.1685858928150607
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      22.807792907246174,
+      36.103135649926145
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.04082000471466524,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2017_2019",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 2.7855749777466823,
+    "null_mean": 2.6866952270124926,
+    "excess_pct": 3.6803486208646152,
+    "null_assignment_95": [
+      2.536688839871374,
+      2.8468062459049324
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.8657428782079333,
+      5.621303991058091
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.116,
+    "excess_abs": 0.09887975073418964,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2017_2019",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.48945949984219544,
+    "null_mean": 0.45727411100220805,
+    "excess_pct": 7.038532920537888,
+    "null_assignment_95": [
+      0.4121528873953404,
+      0.5031575148642151
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.1278226795261403,
+      10.720409266472766
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.096,
+    "excess_abs": 0.032185388839987394,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2017_2019",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 1.5134666007013482,
+    "null_mean": 1.4632090516701204,
+    "excess_pct": 3.4347483685850166,
+    "null_assignment_95": [
+      1.3283384415372537,
+      1.5954988879350154
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.6106467702830916,
+      6.415631870412244
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.238,
+    "excess_abs": 0.05025754903122781,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2017_2019",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.39495893529862314,
+    "null_mean": 0.4219221321787778,
+    "excess_pct": -6.390562339291961,
+    "null_assignment_95": [
+      0.36425728183281036,
+      0.49775045629455644
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -10.96069747539085,
+      -2.0504262047497663
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.758,
+    "excess_abs": -0.02696319688015464,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2017_2019",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.21188593683866297,
+    "null_mean": 0.20977003448501944,
+    "excess_pct": 1.008677125328239,
+    "null_assignment_95": [
+      0.1813255747880772,
+      0.2481077860655847
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -2.7402940672499843,
+      4.989921180286021
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.42,
+    "excess_abs": 0.002115902353643534,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2017_2019",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 89,
+    "observed": 0.1758040050658532,
+    "null_mean": 0.134519897676367,
+    "excess_pct": 30.689963419990885,
+    "null_assignment_95": [
+      0.10508305448782831,
+      0.16502771789526605
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      24.032724729312473,
+      38.04993682964539
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.006,
+    "excess_abs": 0.04128410738948621,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2020_2022",
+    "family": "All",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 2.6148947928047663,
+    "null_mean": 2.486780114826728,
+    "excess_pct": 5.151829758256077,
+    "null_assignment_95": [
+      2.3696978043920067,
+      2.617806260799287
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.9946092570593645,
+      7.288844299971527
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.032,
+    "excess_abs": 0.12811467797803822,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2020_2022",
+    "family": "Lycaenidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.5297116431899088,
+    "null_mean": 0.5083869727661918,
+    "excess_pct": 4.194574520209882,
+    "null_assignment_95": [
+      0.4679914987934848,
+      0.5477042557103172
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.9729467362424449,
+      7.388344615354503
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.172,
+    "excess_abs": 0.021324670423716996,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2020_2022",
+    "family": "Nymphalidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 1.2572552690416294,
+    "null_mean": 1.185062796888093,
+    "excess_pct": 6.091868915563792,
+    "null_assignment_95": [
+      1.0878472336174074,
+      1.2906639657963672
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      3.0678394354124463,
+      9.410163879057867
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.086,
+    "excess_abs": 0.07219247215353652,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2020_2022",
+    "family": "Pieridae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.4448419512354572,
+    "null_mean": 0.4702754851180077,
+    "excess_pct": -5.408220221423699,
+    "null_assignment_95": [
+      0.41346000932891874,
+      0.5367105841958865
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.038723556775397,
+      -1.7205479166662276
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.758,
+    "excess_abs": -0.025433533882550485,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2020_2022",
+    "family": "Papilionidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.22665884987248724,
+    "null_mean": 0.20203795990601928,
+    "excess_pct": 12.18626934162308,
+    "null_assignment_95": [
+      0.17349107143288253,
+      0.23676898553134113
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      8.106100119084873,
+      16.498441580786064
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.08,
+    "excess_abs": 0.024620889966467968,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "period2020_2022",
+    "family": "Hesperiidae",
+    "n_rows": 227,
+    "n_H6": 90,
+    "observed": 0.1564270794652838,
+    "null_mean": 0.12101690014841655,
+    "excess_pct": 29.260524169301803,
+    "null_assignment_95": [
+      0.09739813531668906,
+      0.1470221291201282
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      21.397876884528653,
+      37.07110718949945
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.01,
+    "excess_abs": 0.035410179316867255,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "France",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 2.6451759211016332,
+    "null_mean": 2.5714767893163546,
+    "excess_pct": 2.866023605247947,
+    "null_assignment_95": [
+      2.3925342085466434,
+      2.7756851997350105
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.7940454528404903,
+      3.986137816998741
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.236,
+    "excess_abs": 0.07369913178527865,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "France",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.5438905740492969,
+    "null_mean": 0.5094952837488979,
+    "excess_pct": 6.750855483355278,
+    "null_assignment_95": [
+      0.4534033660606772,
+      0.5644254008587304
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.928319744063286,
+      10.967461809511095
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.114,
+    "excess_abs": 0.034395290300399006,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "France",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 1.3402705265381172,
+    "null_mean": 1.3104416787178546,
+    "excess_pct": 2.276243827153568,
+    "null_assignment_95": [
+      1.1520575732932996,
+      1.4858030044667703
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.22365071129151315,
+      4.365985840541941
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.354,
+    "excess_abs": 0.029828847820262627,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "France",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.33209198000117196,
+    "null_mean": 0.3688031379977307,
+    "excess_pct": -9.954133849258252,
+    "null_assignment_95": [
+      0.3127823840120503,
+      0.4264852955876051
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -11.726198885226887,
+      -8.149323682750817
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.88,
+    "excess_abs": -0.03671115799655872,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "France",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.2578439844384525,
+    "null_mean": 0.24394342704897726,
+    "excess_pct": 5.698270930122007,
+    "null_assignment_95": [
+      0.20243018606477514,
+      0.28552792576961683
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.267126603640551,
+      10.46390132092204
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.27,
+    "excess_abs": 0.013900557389475265,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "France",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.17107885607459353,
+    "null_mean": 0.13879326180289414,
+    "excess_pct": 23.261643866796256,
+    "null_assignment_95": [
+      0.10385596552693879,
+      0.17908942630555466
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.022608795769944,
+      28.95083733183195
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.056,
+    "excess_abs": 0.032285594271699386,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "outside_France",
+    "family": "All",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 2.7385949235759823,
+    "null_mean": 2.6016281722264547,
+    "excess_pct": 5.264655142180152,
+    "null_assignment_95": [
+      2.4757514567282137,
+      2.7434143358356637
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.410228455270852,
+      8.240828296335375
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.034,
+    "excess_abs": 0.13696675134952763,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "outside_France",
+    "family": "Lycaenidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.4842476273395146,
+    "null_mean": 0.4635777865430596,
+    "excess_pct": 4.458764288641137,
+    "null_assignment_95": [
+      0.4217877125115399,
+      0.5076341888007977
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -0.15445196238970396,
+      8.468525509982973
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.188,
+    "excess_abs": 0.020669840796455008,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "outside_France",
+    "family": "Nymphalidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 1.419495291405827,
+    "null_mean": 1.3368762136755377,
+    "excess_pct": 6.180009553999066,
+    "null_assignment_95": [
+      1.219687800252912,
+      1.461300952322561
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.9651505642013374,
+      10.544155896937067
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.078,
+    "excess_abs": 0.08261907773028931,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "outside_France",
+    "family": "Pieridae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.47547156334267326,
+    "null_mean": 0.49498703534957594,
+    "excess_pct": -3.942622859429079,
+    "null_assignment_95": [
+      0.42545565628190046,
+      0.589565810964937
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.995726874904062,
+      0.9233022259950358
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.636,
+    "excess_abs": -0.01951547200690268,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "outside_France",
+    "family": "Papilionidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.19298509592702698,
+    "null_mean": 0.18108924185019076,
+    "excess_pct": 6.569056204165502,
+    "null_assignment_95": [
+      0.15504915558938331,
+      0.21972303852229644
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.6170669588439792,
+      11.827952464978999
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.242,
+    "excess_abs": 0.011895854076836215,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "outside_France",
+    "family": "Hesperiidae",
+    "n_rows": 155,
+    "n_H6": 56,
+    "observed": 0.16639534556094107,
+    "null_mean": 0.12509789480809083,
+    "excess_pct": 33.012106891329786,
+    "null_assignment_95": [
+      0.09702232514170164,
+      0.1555434930113965
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      23.938254224850088,
+      42.96858301190623
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.004,
+    "excess_abs": 0.04129745075285024,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_FR",
+    "family": "All",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 2.6451759211016332,
+    "null_mean": 2.5714767893163546,
+    "excess_pct": 2.866023605247947,
+    "null_assignment_95": [
+      2.3925342085466434,
+      2.7756851997350105
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.7940454528404903,
+      3.986137816998741
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.236,
+    "excess_abs": 0.07369913178527865,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_FR",
+    "family": "Lycaenidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.5438905740492969,
+    "null_mean": 0.5094952837488979,
+    "excess_pct": 6.750855483355278,
+    "null_assignment_95": [
+      0.4534033660606772,
+      0.5644254008587304
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.928319744063286,
+      10.967461809511095
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.114,
+    "excess_abs": 0.034395290300399006,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_FR",
+    "family": "Nymphalidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 1.3402705265381172,
+    "null_mean": 1.3104416787178546,
+    "excess_pct": 2.276243827153568,
+    "null_assignment_95": [
+      1.1520575732932996,
+      1.4858030044667703
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.22365071129151315,
+      4.365985840541941
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.354,
+    "excess_abs": 0.029828847820262627,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_FR",
+    "family": "Pieridae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.33209198000117196,
+    "null_mean": 0.3688031379977307,
+    "excess_pct": -9.954133849258252,
+    "null_assignment_95": [
+      0.3127823840120503,
+      0.4264852955876051
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -11.726198885226887,
+      -8.149323682750817
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.88,
+    "excess_abs": -0.03671115799655872,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_FR",
+    "family": "Papilionidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.2578439844384525,
+    "null_mean": 0.24394342704897726,
+    "excess_pct": 5.698270930122007,
+    "null_assignment_95": [
+      0.20243018606477514,
+      0.28552792576961683
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.267126603640551,
+      10.46390132092204
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.27,
+    "excess_abs": 0.013900557389475265,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_FR",
+    "family": "Hesperiidae",
+    "n_rows": 299,
+    "n_H6": 36,
+    "observed": 0.17107885607459353,
+    "null_mean": 0.13879326180289414,
+    "excess_pct": 23.261643866796256,
+    "null_assignment_95": [
+      0.10385596552693879,
+      0.17908942630555466
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      18.022608795769944,
+      28.95083733183195
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.056,
+    "excess_abs": 0.032285594271699386,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_HR",
+    "family": "All",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 1.7695290741569067,
+    "null_mean": 1.8663908054909513,
+    "excess_pct": -5.189788282768848,
+    "null_assignment_95": [
+      1.6701052838911377,
+      2.1128780001117557
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -11.290298528768439,
+      1.0363924218640244
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.782,
+    "excess_abs": -0.09686173133404452,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_HR",
+    "family": "Lycaenidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.37429568544197644,
+    "null_mean": 0.4291493334053036,
+    "excess_pct": -12.781948774815277,
+    "null_assignment_95": [
+      0.32118121986837544,
+      0.530487902684932
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -26.093347545262198,
+      0.6702885579924703
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.828,
+    "excess_abs": -0.054853647963327146,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_HR",
+    "family": "Nymphalidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.8118307636732708,
+    "null_mean": 0.7783814586174229,
+    "excess_pct": 4.297289546858063,
+    "null_assignment_95": [
+      0.633372590011956,
+      0.9937918520061205
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -7.775271671070815,
+      25.39485244634223
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.326,
+    "excess_abs": 0.03344930505584787,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_HR",
+    "family": "Pieridae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.24528610061816003,
+    "null_mean": 0.33084433955326786,
+    "excess_pct": -25.86057208977349,
+    "null_assignment_95": [
+      0.23529668497227257,
+      0.4210162299106007
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -40.93115322287488,
+      -9.75542866497368
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.958,
+    "excess_abs": -0.08555823893510783,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_HR",
+    "family": "Papilionidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.2515512514656419,
+    "null_mean": 0.2229202648703491,
+    "excess_pct": 12.84359975614806,
+    "null_assignment_95": [
+      0.1694144265118564,
+      0.27601550245288203
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.45363896918485425,
+      28.964499627512033
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.164,
+    "excess_abs": 0.028630986595292784,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_HR",
+    "family": "Hesperiidae",
+    "n_rows": 10,
+    "n_H6": 8,
+    "observed": 0.08656527295785783,
+    "null_mean": 0.10509540904460764,
+    "excess_pct": -17.63172745146718,
+    "null_assignment_95": [
+      0.04864700710367428,
+      0.16840584937793895
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -40.00297446592794,
+      4.729188677488417
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.704,
+    "excess_abs": -0.018530136086749804,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_IT",
+    "family": "All",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 1.797082648158731,
+    "null_mean": 1.815296651673585,
+    "excess_pct": -1.0033623704457262,
+    "null_assignment_95": [
+      1.668777282390317,
+      1.9526996786044846
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -3.7161008667170288,
+      1.809550492329426
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.588,
+    "excess_abs": -0.018214003514853916,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_IT",
+    "family": "Lycaenidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.3173419375181343,
+    "null_mean": 0.3194505315405183,
+    "excess_pct": -0.6600690292219991,
+    "null_assignment_95": [
+      0.28369328056757787,
+      0.37117368497922204
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -4.318396557068289,
+      3.0596119473621313
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.494,
+    "excess_abs": -0.0021085940223840027,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_IT",
+    "family": "Nymphalidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.88723221000032,
+    "null_mean": 0.8952208830363719,
+    "excess_pct": -0.8923689323417361,
+    "null_assignment_95": [
+      0.7941492689680483,
+      0.9966697266251168
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -6.108963710140532,
+      3.8948370147976044
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.544,
+    "excess_abs": -0.007988673036051885,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_IT",
+    "family": "Pieridae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.2540675930809377,
+    "null_mean": 0.31974619203502685,
+    "excess_pct": -20.540854149373068,
+    "null_assignment_95": [
+      0.2582289737722136,
+      0.37987778854439147
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -25.505312771897977,
+      -16.135181804421013
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.98,
+    "excess_abs": -0.06567859895408917,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_IT",
+    "family": "Papilionidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.2738065742963572,
+    "null_mean": 0.22110514686954325,
+    "excess_pct": 23.835459360839263,
+    "null_assignment_95": [
+      0.16692379755835654,
+      0.2963468232634354
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      17.95684300094638,
+      31.18128743164146
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.066,
+    "excess_abs": 0.05270142742681394,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_IT",
+    "family": "Hesperiidae",
+    "n_rows": 46,
+    "n_H6": 15,
+    "observed": 0.06463433326298172,
+    "null_mean": 0.05977389819212464,
+    "excess_pct": 8.131367064658757,
+    "null_assignment_95": [
+      0.038518854150214596,
+      0.08635392917686907
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.006902454126426,
+      13.991342822421133
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.34,
+    "excess_abs": 0.00486043507085708,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_LT",
+    "family": "All",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 3.3109526721442166,
+    "null_mean": 3.3078871692276306,
+    "excess_pct": 0.09267253566274114,
+    "null_assignment_95": [
+      3.0219764880515676,
+      3.635756278458899
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -2.6187588279630676,
+      2.673110671392031
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.464,
+    "excess_abs": 0.003065502916586027,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_LT",
+    "family": "Lycaenidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.3977670675958422,
+    "null_mean": 0.41828500019206866,
+    "excess_pct": -4.905251822753631,
+    "null_assignment_95": [
+      0.35492808031250533,
+      0.49040389715721205
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -15.222152173338769,
+      5.420405464946964
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.7,
+    "excess_abs": -0.020517932596226474,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_LT",
+    "family": "Nymphalidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 1.6526838135481883,
+    "null_mean": 1.7203689935877213,
+    "excess_pct": -3.934340847330653,
+    "null_assignment_95": [
+      1.507589444975555,
+      1.9613069175228384
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -9.323551605652442,
+      0.9991904651206467
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.722,
+    "excess_abs": -0.06768518003953305,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_LT",
+    "family": "Pieridae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.6861562524602823,
+    "null_mean": 0.659255374308974,
+    "excess_pct": 4.080494327331907,
+    "null_assignment_95": [
+      0.44275291299329744,
+      0.8812030380919379
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -2.623519285552255,
+      9.216355171793706
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.418,
+    "excess_abs": 0.02690087815130837,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_LT",
+    "family": "Papilionidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.3193315366084672,
+    "null_mean": 0.3338004255891614,
+    "excess_pct": -4.334592730119036,
+    "null_assignment_95": [
+      0.29152812061341,
+      0.42809332105242
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.750590862938605,
+      0.43365726994025694
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.514,
+    "excess_abs": -0.014468888980694206,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_LT",
+    "family": "Hesperiidae",
+    "n_rows": 28,
+    "n_H6": 9,
+    "observed": 0.2550140019314369,
+    "null_mean": 0.17617737554970592,
+    "excess_pct": 44.74843954040419,
+    "null_assignment_95": [
+      0.10184453070477888,
+      0.249383236860219
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      31.911873209670116,
+      60.68846111079114
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.022,
+    "excess_abs": 0.078836626381731,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NL",
+    "family": "All",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 3.524675901217388,
+    "null_mean": 3.4211529828815515,
+    "excess_pct": 3.025965773931616,
+    "null_assignment_95": [
+      3.0544524218894984,
+      3.8463802046880717
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      0.775029387540016,
+      4.751917278617457
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.296,
+    "excess_abs": 0.1035229183358366,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NL",
+    "family": "Lycaenidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.6716976390538941,
+    "null_mean": 0.5626561029981004,
+    "excess_pct": 19.379783756857584,
+    "null_assignment_95": [
+      0.4664742423523679,
+      0.6767655619223458
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      17.312475249568916,
+      21.645244419889774
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.038,
+    "excess_abs": 0.1090415360557937,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NL",
+    "family": "Nymphalidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 1.3839141104726835,
+    "null_mean": 1.4715472540883867,
+    "excess_pct": -5.955170204166582,
+    "null_assignment_95": [
+      1.200916635046664,
+      1.7826395733424334
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.938751177569749,
+      -2.945032648265822
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.72,
+    "excess_abs": -0.08763314361570318,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NL",
+    "family": "Pieridae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 1.1111575127201148,
+    "null_mean": 1.078385420815997,
+    "excess_pct": 3.0389961948223965,
+    "null_assignment_95": [
+      0.8750079136482344,
+      1.3043783102924056
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -4.058324798282998,
+      8.721872229129502
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.394,
+    "excess_abs": 0.03277209190411767,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NL",
+    "family": "Papilionidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.1632553147016659,
+    "null_mean": 0.1773551341517816,
+    "excess_pct": -7.950048651001551,
+    "null_assignment_95": [
+      0.1534280467406071,
+      0.2162677888923401
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -8.206734832758178,
+      -7.596500015318219
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.644,
+    "excess_abs": -0.014099819450115708,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NL",
+    "family": "Hesperiidae",
+    "n_rows": 12,
+    "n_H6": 4,
+    "observed": 0.19465132426903112,
+    "null_mean": 0.13120907082728644,
+    "excess_pct": 48.35203316488324,
+    "null_assignment_95": [
+      0.0767265656890128,
+      0.20744727531907295
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      37.387343974544464,
+      54.13568272583584
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.074,
+    "excess_abs": 0.06344225344174467,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NO",
+    "family": "All",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 3.8918935067646263,
+    "null_mean": 3.221444135972932,
+    "excess_pct": 20.812075035074518,
+    "null_assignment_95": [
+      2.863083340032355,
+      3.5981006657142656
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      15.136292021799965,
+      28.383345569795917
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.6704493707916943,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NO",
+    "family": "Lycaenidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.7477632200088605,
+    "null_mean": 0.6853675684610623,
+    "excess_pct": 9.103969084487428,
+    "null_assignment_95": [
+      0.6016835883665095,
+      0.7830973353904486
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      1.0919382355558445,
+      16.937258234700835
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.092,
+    "excess_abs": 0.06239565154779825,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NO",
+    "family": "Nymphalidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 2.2659830569354837,
+    "null_mean": 1.8153961518993582,
+    "excess_pct": 24.820307378348193,
+    "null_assignment_95": [
+      1.5045180125374105,
+      2.1497512892117823
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      16.466051842142864,
+      37.92937618277474
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.002,
+    "excess_abs": 0.45058690503612553,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NO",
+    "family": "Pieridae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.5273286325347921,
+    "null_mean": 0.4595671131691028,
+    "excess_pct": 14.744640646371865,
+    "null_assignment_95": [
+      0.3017198189651832,
+      0.6423079791376967
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      2.9575970847016033,
+      24.280676849079423
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.21,
+    "excess_abs": 0.0677615193656893,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NO",
+    "family": "Papilionidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.06266174330936591,
+    "null_mean": 0.07069154536744401,
+    "excess_pct": -11.358928449421214,
+    "null_assignment_95": [
+      0.06240567973679055,
+      0.09498758347054993
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      -12.368817370244214,
+      -9.151734955380245
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.804,
+    "excess_abs": -0.0080298020580781,
+    "not_confirmatory_p_or_causal": true
+  },
+  {
+    "remove_top_hosts": 20,
+    "subset": "country_NO",
+    "family": "Hesperiidae",
+    "n_rows": 22,
+    "n_H6": 10,
+    "observed": 0.28815685397612395,
+    "null_mean": 0.19042175707596476,
+    "excess_pct": 51.325593462079986,
+    "null_assignment_95": [
+      0.11630496033982915,
+      0.27514478248447305
+    ],
+    "H6_fixed_nullmean_bootstrap95_pct": [
+      34.98301168862366,
+      88.43321422781322
+    ],
+    "mc_fraction_at_least_observed_plus1": 0.018,
+    "excess_abs": 0.09773509690015919,
+    "not_confirmatory_p_or_causal": true
+  }
+]
