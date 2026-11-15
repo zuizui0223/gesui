@@ -1,0 +1,109 @@
+{
+  "n_original_rows": 454,
+  "H7": 232,
+  "H6": 90,
+  "n_country_labels": 11,
+  "n_source_facets": 2808,
+  "all_original_303_species_retained": 303,
+  "positive_species_record_rows": 37785,
+  "all_source_species_records": 4318269,
+  "all_raw_family_records": 4400147,
+  "historical_family_count_drift_rows": 51,
+  "max_historical_count_drift": 6,
+  "source_coverage80_rows": 390,
+  "blank_original_method_rows": 44,
+  "score_variants": {
+    "primary": {
+      "n_scored_keys": 186,
+      "total_raw_record_score_coverage": 0.9106386672990697,
+      "median_raw_record_score_coverage": 0.8755118837321343,
+      "n_finite_rows": 454,
+      "family_reference_means": {
+        "Hesperiidae": 4.122877846790891,
+        "Lycaenidae": 3.6477818458137623,
+        "Nymphalidae": 3.8857899538117318,
+        "Papilionidae": 4.209507575757575,
+        "Pieridae": 4.097100209731789
+      }
+    },
+    "host80": {
+      "n_scored_keys": 63,
+      "total_raw_record_score_coverage": 0.1367633854050785,
+      "median_raw_record_score_coverage": 0.12890421502767335,
+      "n_finite_rows": 454,
+      "family_reference_means": {
+        "Hesperiidae": 4.286630036630036,
+        "Lycaenidae": 2.7279761904761903,
+        "Nymphalidae": 3.4882738095238097,
+        "Papilionidae": null,
+        "Pieridae": 3.4224074074074076
+      }
+    },
+    "strict_names": {
+      "n_scored_keys": 186,
+      "total_raw_record_score_coverage": 0.9106386672990697,
+      "median_raw_record_score_coverage": 0.8755118837321343,
+      "n_finite_rows": 454,
+      "family_reference_means": {
+        "Hesperiidae": 4.122877846790891,
+        "Lycaenidae": 3.6477818458137623,
+        "Nymphalidae": 3.8857899538117318,
+        "Papilionidae": 4.201845238095238,
+        "Pieridae": 4.097100209731789
+      }
+    },
+    "no_wikipedia": {
+      "n_scored_keys": 169,
+      "total_raw_record_score_coverage": 0.8931215252581334,
+      "median_raw_record_score_coverage": 0.8541094666256495,
+      "n_finite_rows": 454,
+      "family_reference_means": {
+        "Hesperiidae": 4.1875661375661375,
+        "Lycaenidae": 3.4648400023400017,
+        "Nymphalidae": 3.9042985856113144,
+        "Papilionidae": 4.1840909090909095,
+        "Pieridae": 4.303883554716887
+      }
+    },
+    "drop_Aglais_io": {
+      "n_scored_keys": 185,
+      "total_raw_record_score_coverage": 0.8621325605712719,
+      "median_raw_record_score_coverage": 0.8418461942343347,
+      "n_finite_rows": 454,
+      "family_reference_means": {
+        "Hesperiidae": 4.122877846790891,
+        "Lycaenidae": 3.6477818458137623,
+        "Nymphalidae": 3.8391130928095425,
+        "Papilionidae": 4.209507575757575,
+        "Pieridae": 4.097100209731789
+      }
+    },
+    "missing_hosts_low": {
+      "n_scored_keys": 186,
+      "total_raw_record_score_coverage": 0.9106386672990697,
+      "median_raw_record_score_coverage": 0.8755118837321343,
+      "n_finite_rows": 454,
+      "family_reference_means": {
+        "Hesperiidae": 3.5125672877846794,
+        "Lycaenidae": 2.685155014074319,
+        "Nymphalidae": 2.6200541619694544,
+        "Papilionidae": 2.2746517711679,
+        "Pieridae": 3.3845602144673355
+      }
+    },
+    "missing_hosts_high": {
+      "n_scored_keys": 186,
+      "total_raw_record_score_coverage": 0.9106386672990697,
+      "median_raw_record_score_coverage": 0.8755118837321343,
+      "n_finite_rows": 454,
+      "family_reference_means": {
+        "Hesperiidae": 5.263706004140786,
+        "Lycaenidae": 4.909689828853037,
+        "Nymphalidae": 5.935979380743248,
+        "Papilionidae": 7.009532374435601,
+        "Pieridae": 5.027979471508883
+      }
+    }
+  },
+  "traits_are_not_measured_leaf_nitrogen_or_actual_sewage_dose": true
+}

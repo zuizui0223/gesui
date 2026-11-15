@@ -1,0 +1,31 @@
+{
+  "EIV_rows": 8908,
+  "EIV_numeric_N": 7195,
+  "EIV_md5": "3519d41639647dde8d80042fc98b2ef5",
+  "EIV_SHA256": "b3fa7c3a6e9d356e52a45472549f807967bd0c3189e58e7e8a22e0389c29cc4e",
+  "original_EIV_overlap_comparisons": 624,
+  "original_EIV_max_abs_difference": 0.0,
+  "gesui_roster": 303,
+  "gesui_with_hosts": 209,
+  "gesui_with_scores": 190,
+  "gesui_coverage80_accepted": 63,
+  "gesui_matched_host_keys": 348,
+  "gesui_host_keys": 990,
+  "gesui_ambiguous_plant_matches": 0,
+  "gesui_source_unresolved_name_links": 28,
+  "chocho_roster": 230,
+  "chocho_with_scores": 147,
+  "chocho_coverage80": 25,
+  "chocho_matched_host_concepts": 253,
+  "chocho_host_concepts": 1677,
+  "cross_catalogue_taxa": 76,
+  "no_outcome_models_fit": true,
+  "all_scores_exploratory_catalogue_proxies": true,
+  "source_files_SHA256": {
+    "previous/gesui_host_network_20261114/source/verified_candidate_host_edges.json": "4a0b2aef296af18c997ee6ac3b7770412d88ab5a0dc3946d37ee0c565145d67f",
+    "previous/gesui_host_network_20261114/source/plant_name_crosswalk.json": "01bd0432a8a36110fe31b893a1953d21b08d78a4a853e2338225f2448fa905b5",
+    "previous/gesui_host_network_20261114/source/butterfly_usage_aliases.json": "4370ff528290711d2083891e0a83c6ba4eb9bda0a9230a3829aae06779f530fa",
+    "source/chocho/original230_host_edges.csv": "e55012d6b0eefd2b3e9e4b8f13fc4786ddc1e66c21f73e705bb20df92d0b5e22",
+    "source/EIV/EIV_Europe_Tichy_v2.xlsx": "b3fa7c3a6e9d356e52a45472549f807967bd0c3189e58e7e8a22e0389c29cc4e"
+  }
+}

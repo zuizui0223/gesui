@@ -1,0 +1,26 @@
+name: gesui 20261115 complete 63-result SHA and hydrology audit
+on:
+  push:
+    paths:
+      - 'results/20261115_sync/**'
+      - 'analysis/20261114_host_network/**'
+      - 'analysis/20261114_network_robustness/**'
+      - 'analysis/20261115_host_scores/**'
+      - 'analysis/20261115_hns/**'
+      - 'docs/RESULTS_*_FULL.md'
+      - 'scripts/verify_20261115_all_synced_results.py'
+      - '.github/workflows/gesui-20261115-all-results-integrity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archived-source-results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify 63 exact Git source/results including binaries and H7 research grain
+        run: python scripts/verify_20261115_all_synced_results.py

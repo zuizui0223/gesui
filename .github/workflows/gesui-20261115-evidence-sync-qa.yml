@@ -1,0 +1,21 @@
+name: gesui synced wastewater evidence numerical SHA and grain audit
+on:
+  push:
+    paths:
+      - 'results/20261115_sync/**'
+      - 'scripts/verify_20261115_evidence_sync.py'
+      - '.github/workflows/gesui-20261115-evidence-sync-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-synced-results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify four exact source SHA result tables and analysis-grain gates
+        run: python scripts/verify_20261115_evidence_sync.py

@@ -1,0 +1,21 @@
+{
+  "source_response_sha_checks": 1630,
+  "max_expected_link_difference_SciPy_sparse": 8.50646664218857e-10,
+  "max_host_support_difference_SciPy": 1.6607770714216485e-11,
+  "all_metric_rows_checked": 454,
+  "geography_constrained_null": {
+    "fixed_clusters": 6,
+    "draws": 499,
+    "movable_host_keys": 826,
+    "host_keys_total": 990,
+    "observed_H6_equal_expected_links": 5.439283246915138,
+    "null_H6_equal_mean": 4.656822526656729,
+    "null_H6_equal95": [
+      4.325853941368159,
+      5.0135049393632105
+    ],
+    "relative_excess_percent": 16.802459526413614,
+    "null_at_least_observed_plus1": 0.002,
+    "posthoc_not_causal": true
+  }
+}
