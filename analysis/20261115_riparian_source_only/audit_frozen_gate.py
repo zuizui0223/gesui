@@ -78,11 +78,20 @@ def replay(args):
     stop=load_verified_blob(args.de_stop,SOURCE_BLOBS["de2022_stop"])
     if hashlib.sha256(args.h7.read_bytes()).hexdigest()!=H7_AGGREGATE_SHA256:
         raise ValueError("Original H7 source SHA mismatch")
+    # Only schema and H7/H6 grouping keys are accessed; HNS values are NOT read by index.
     with args.h7.open(encoding="utf-8",newline="") as f:
-        reader=csv.DictReader(f)
-        columns=reader.fieldnames
-        rows=list(reader)
-    if len(rows)!=454 or len({x["h"] for x in rows})!=232 or len({x["h6"] for x in rows})!=90:
+        reader=csv.reader(f)
+        columns=next(reader)
+        hidx=columns.index("h")
+        h6idx=columns.index("h6")
+        nrows=0
+        h7ids=set()
+        h6ids=set()
+        for record in reader:
+            nrows+=1
+            h7ids.add(record[hidx])
+            h6ids.add(record[h6idx])
+    if nrows!=454 or len(h7ids)!=232 or len(h6ids)!=90:
         raise ValueError("Original H7 source-grain drift")
     forbidden=[
       "decimalLatitude","decimalLongitude","coordinateUncertaintyInMeters",
@@ -167,7 +176,7 @@ def replay(args):
       "qualified_8cell_source_reference_pairs_currently_verified":0,
       "zero_means_no_source_qualified_complete_pair_documented_NOT_ecological_zero":True,
       "qualifying_2022_8cell_point_cohort_assembled":False,
-      "new_local_HNS_values_accessed":False,
+      "no_local_HNS_response_computed_or_fit":True,
       "biological_outcome_test_executed":False,
       "decision":"STOP_DATA_OPPORTUNITY_NOT_YET_DEMONSTRATED",
       "reason_codes":["NO_VERIFIED_2022_EIGHT_CELL_SOURCE_REFERENCE_PAIR_COHORT",
@@ -190,6 +199,7 @@ def replay(args):
        "H7_nonspatial_original_rows":454,
        "verified_complete_2022_8cell_pairs":0,
        "biological_test_ran":False},sort_keys=True),flush=True)
+    print("GESUI_FROZEN_SOURCE_GATE_FULL_JSON="+json.dumps(dec,ensure_ascii=False,sort_keys=True,separators=(",",":")),flush=True)
     return dec
 
 
