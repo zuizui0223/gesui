@@ -1,0 +1,58 @@
+name: GESUI archive original SW2022 source-only river QA artifact
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - .github/workflows/gesui-20261115-archive-sw-original-river-sourceonly.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  commit-pinned-source-only-CSV:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - name: Download identical original source-only GH artifact
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43694358102
+          name: gesui-sebms-sw2022-authentic-original-river-outfall-sourceonly
+          repository: zuizui0223/gesui
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-sw-original-sourceonly
+      - name: Check original ZIP member digests and copy derived source-only QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/gesui-sw-original-sourceonly
+          echo "cbf62975ccdb4d8f52ba5056799c51a1b54fb6da1cb821310f876a82ddf8eff7  SW2022_ORIGINAL_RIVER_SITE_DISTANCE_SOURCE_ONLY.csv" | sha256sum -c -
+          echo "0cf39b1a07294d6a0498a2df5376a881be65a29ba8d5061c86d93014a441ffb8  SW2022_ORIGINAL_RIVER_SOURCE_FEASIBILITY.json" | sha256sum -c -
+          echo "bbf608164bd93a7b2d3efe6a5ba0782f2af3a551cc6a27e2529ca6243853054f  SW2022_ORIGINAL_RIVER_DIRECTION_SOURCE_RELATIONS.csv" | sha256sum -c -
+          cd "${{ github.workspace }}"
+          mkdir -p results/20261115_riparian_source_only
+          cp /tmp/gesui-sw-original-sourceonly/SW2022_ORIGINAL_RIVER_SITE_DISTANCE_SOURCE_ONLY.csv results/20261115_riparian_source_only/
+          cp /tmp/gesui-sw-original-sourceonly/SW2022_ORIGINAL_RIVER_SOURCE_FEASIBILITY.json results/20261115_riparian_source_only/
+          cp /tmp/gesui-sw-original-sourceonly/SW2022_ORIGINAL_RIVER_DIRECTION_SOURCE_RELATIONS.csv results/20261115_riparian_source_only/
+      - name: Commit exact derived source-only records only to existing Draft branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261115_riparian_source_only/SW2022_ORIGINAL_RIVER_SITE_DISTANCE_SOURCE_ONLY.csv \
+                  results/20261115_riparian_source_only/SW2022_ORIGINAL_RIVER_SOURCE_FEASIBILITY.json \
+                  results/20261115_riparian_source_only/SW2022_ORIGINAL_RIVER_DIRECTION_SOURCE_RELATIONS.csv
+          if git diff --cached --quiet; then
+            echo "Original source output already committed"
+            exit 0
+          fi
+          git commit -m "Archive original SHA-verified SW2022 river-distance source-only result"
+          git fetch origin analysis/gesui-hns-family-taxon-attribution-20261115
+          git rebase origin/analysis/gesui-hns-family-taxon-attribution-20261115
+          git push origin HEAD:analysis/gesui-hns-family-taxon-attribution-20261115
