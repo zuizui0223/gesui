@@ -157,3 +157,49 @@ All **78** amended organic candidate annotation records return at least one publ
 The 78 original iNat links are a **review queue, not 78 confirmed feeding observations**. Do not download and republish users' copyrighted photos in the public GitHub repository. No original sewage water quality, source-to-river incidence, host plant quality, or biomass measurement is present. In particular **zero text-labelled fish carcass candidates does not establish absence of fish-carcass feeding** in nature.
 
 The former 2022 eight-arm Lycaenidae-HNS primary remains separately STOP-gated, original H7 macro positive stays observational, and no claim of adult wastewater resource dependency has been established.
+
+
+## Original source photo-ID reuse and observer-day audit (2026-11-15, no photos viewed)
+
+**New independent code:** [audit_field500_observer_day_independence.py](../analysis/20261115_adult_resource_behavior/audit_field500_observer_day_independence.py). Verified [source run #43705857353 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43705857353) and immutable byte-checked [archive #43706046893 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43706046893), with full aggregate [JSON](../results/20261115_adult_resource_behavior/INAT_FIELD500_OBSERVER_DAY_PHOTO_DUPLICATE_SOURCE_QA.json). The 746 publicly annotated records were fetched independently from the sparse v2 original endpoint; original 746 family and 78 photo-review-queue IDs were source-verified. We did **not** fetch, inspect or redistribute any original photo **pixels**, exact coordinates or observer account names. The existence of a photo URL does **not** establish actual feeding.
+
+### What an independent sample can and cannot mean
+
+| Source metric | Actual result | Interpretation limit |
+|---|---:|---|
+| iNat observations with field500 | **746** | A voluntary, annotation-selected source frame, NOT a sampled population of butterflies |
+| Original distinct observation owners | **181** | Not 181 controlled feeding surveys |
+| Effective number of observation owners (inverse Simpson of owner record shares) | **13.965** | Concentration diagnostic **only**, not biological sample size or n_eff of independent carcasses |
+| Owner × observation-date groups across 746 | **473** | Without source site and animal ID, cannot certify independent butterfly feeding events |
+| Organic-labeled 78 original observations | **78** | Includes dung, animal remains, plant sap/fruit and mixed notes, not confirmed intake |
+| Distinct owner × date groups among organic-labeled observations | **62** | A proxy for repeated reporting; same owner-day may include separate local encounters |
+| Total photo ID tokens across all 746 (including secondary photos) | **1,642 distinct IDs** | Photos have not been inspected |
+| Photo IDs referenced in more than one original observation | **3** | Clear **photo reuse** (not necessarily same insect/site) |
+| Original observations affected by at least one reused photo ID | **6** | Do not treat every tagged observation as an independent visual behavior record |
+
+The pre-existing 78-image first-photo review list contains one same-first-photo pair (rotting banana); the new all-photo metadata audit finds **3 distinct shared photo IDs across 6 different original observations**. This explains why counting observations rather than independent photographic events can overstate independent support. It does NOT prove only three biological events are duplicated; separate images can still document the same event, and image reuse can have nonbiological reasons.
+
+### The three "animal-remains" annotated observations are not three confirmed carrion-feeding events
+
+| Public original observation | Original user-entered field500 value | Source owner-day comparison | Photo/proboscis validation |
+|---|---|---|---|
+| [#150764924](https://www.inaturalist.org/observations/150764924) | "animal remains" | **2015, same original owner and same day as #150764928** | 1 photo ID, **pixels not viewed** |
+| [#150764928](https://www.inaturalist.org/observations/150764928) | "animal remains" | **2015, same original owner and same day as #150764924** | 2 photo IDs, **pixels not viewed** |
+| [#367297297](https://www.inaturalist.org/observations/367297297) | "carcass of amphibian" | **2026, another owner-day** | 1 photo ID, **pixels not viewed** |
+
+**Proven:** three text annotations, two distinct owner-day clusters, two source observers, no identical photo ID among those three. **Not proven:** whether the first two are the same carcass, whether any photographed animal remains are genuine carrion, whether a visible adult butterfly extended its proboscis, whether any nutrient was swallowed, whether there is fish carcass use in this source, and whether any site had wastewater input. Two owner-days cannot be labelled "two independent feeding events."
+
+### Within-owner family annotation comparison — do not promote to biological choice
+
+Exactly **18 of the 181** original annotating owners contributed both Lycaenidae and Nymphalidae records, **8** of whom also had both an organic-labelled and a mineral-labelled record somewhere in their original source annotations. Across the 18, the *unweighted mean owner-specific difference* in the **share of voluntarily annotated organic candidates** (Lycaenidae minus Nymphalidae) was **−0.09789**. Leave-one-owner-out range was **−0.10365 to −0.07424**: **8** owners negative, **10** zero, **0** positive in their own annotated source. These are *only* conditional labels within a highly selected, overlapping observation-source sample; they are NOT measured comparative ecological substrate preferences. Observers may have sampled different habitats, sites, seasons, species and substrate availability for each family, even under the same account. No independent non-puddling denominator, source chemistry, sex, matched local substrate offers, or controlled feeding outcome is present.
+
+The data do **not** independently corroborate a generalized special Lycaenidae propensity for organic/carrion intake, nor do they refute experimental protein-bait choices. A selected observational label distribution is not a standardized preference experiment. **Do not calculate a confirmatory p value or wastewater-mediated path from these data.**
+
+### Decisions for the research record
+
+- Stage HNS (larval host trait): unchanged 2022 riparian one-shot, still STOP due source/geometry/observer opportunity.
+- Stage B1 (adult substrate labels): original full 746 / 78 organic review-ready records, photo-ID and observer-day dependence audited. **No human-reviewed proboscis contact** yet.
+- Stage B2 (wastewater-specific adult resource): still lacking measured site-specific organic/Na solutes, exact source→receiver exposure, habitat opportunity and balanced butterfly behavior observation.
+- Stage trophic pathway (fish carcass): original metadata in this selected field have no explicit fish-carcass annotation and only three broader animal-remains texts in two owner-days; **does not rule out fish-carcass feeding documented elsewhere**. Original local fish death and receiving-water chemistry must be independently distinguished before an ecosystem-service link.
+
+All revised original metadata stored on existing Draft PR #95. No images were redistributed, no new analysis PR or merge, and no purported proof of sewage-dependent butterflies.
