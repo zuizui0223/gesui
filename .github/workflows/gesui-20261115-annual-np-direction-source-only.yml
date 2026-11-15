@@ -1,0 +1,59 @@
+name: EEA original 454 H7 upstream vs downstream reported N/P source-only negative control
+on:
+  push:
+    paths:
+      - '.github/workflows/gesui-20261115-annual-np-direction-source-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Retrieve genuine frozen 454 H7 population, without opening biodiversity results
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original454
+      - name: Retrieve genuine site-to-H7 directionally mapped EEA station identities
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/stationgeo
+      - name: Retrieve frozen prior upstream reported N/P source for invariant crosscheck
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/reported_np
+      - name: Verify source-only parser tests
+        run: python -m unittest discover -s analysis/20261115_np_direction/tests -v
+      - name: Recover SHA-locked 2018 and 2022 original EEA station source and construct upstream versus downstream report masks
+        run: |
+          python analysis/20261115_np_direction/scripts/source_compare.py \
+          --cohort '${{ runner.temp }}/original454/EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv' \
+          --mapping '${{ runner.temp }}/stationgeo/EEA2018_EEA2022_EPA1819_NATIVE_HYBAS7_SOURCE_ONLY_GEOGRAPHY.json' \
+          --upstream-source '${{ runner.temp }}/reported_np/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json' \
+          --out '${{ runner.temp }}/gesui_20261115_annual_NP_direction_source'
+      - name: Preserve real source directional exposure and null/overlap audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-454-H7-annual-NP-upstream-downstream-source-only-negative-control
+          path: ${{ runner.temp }}/gesui_20261115_annual_NP_direction_source/
+          retention-days: 90
+          if-no-files-found: warn
