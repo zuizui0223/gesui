@@ -1,0 +1,51 @@
+name: gesui 20261115 frozen HNS trait-label permutation and original plant source gate
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-label-shuffle-20261115
+    paths:
+      - 'analysis/20261115_hns_trait_shuffle/**'
+      - 'analysis/20261115_plant_trait_source_gate/**'
+      - 'results/20261115_hns_trait_shuffle/**'
+      - '.github/workflows/gesui-hns-label-shuffle-plant-gate-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  hns-permute-plant-sourceonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify immutable 186 butterfly species, 9999 within-family shuffles and frozen JSON
+        run: |
+          node analysis/20261115_hns_trait_shuffle/permute.js --verify
+      - name: Retrieve exact original six-facet GBIF source without scraping new biological data
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_h7_facets
+      - name: Verify exact source SHA, original 454 rows, and Plantae source-only support
+        run: |
+          python -m py_compile analysis/20261115_plant_trait_source_gate/source_gate.py
+          python analysis/20261115_plant_trait_source_gate/source_gate.py \
+            --original '${{ runner.temp }}/original_h7_facets' \
+            --output '${{ runner.temp }}/plant_source_only'
+      - name: Store genuine nonbiological plant facet opportunity report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-H7-Plantae-original-source-only-opportunity
+          path: ${{ runner.temp }}/plant_source_only/
+          retention-days: 90
+          if-no-files-found: warn
