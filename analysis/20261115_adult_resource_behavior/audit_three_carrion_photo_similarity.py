@@ -110,7 +110,7 @@ def match(a,b):
     good=0
     if k1 is not None and k2 is not None and len(k1)>1 and len(k2)>1:
         m=cv2.BFMatcher(cv2.NORM_HAMMING,crossCheck=False).knnMatch(k1,k2,k=2)
-        good=sum(x.distance<0.7*y.distance for x,y in m if len((x,y))==2)
+        good=sum(pair[0].distance<0.7*pair[1].distance for pair in m if len(pair)==2)
     return {"status":"COMPUTABLE_SOURCE_FEATURE_DISTANCE_NOT_SAME_EVENT_PROOF",
             "pHash64_hamming":hd,
             "ORB_Lowe_ratio0p7_matching_keypoint_count":int(good),
