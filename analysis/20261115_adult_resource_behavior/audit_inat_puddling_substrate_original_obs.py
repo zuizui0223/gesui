@@ -20,7 +20,7 @@ INAT_QUERY={
 }
 FAMILIES=("Lycaenidae","Nymphalidae","Pieridae","Papilionidae","Hesperiidae","Riodinidae")
 MAX_FIELD_FETCH=1000
-CAP_BY_FIELD={500:80,17428:30,16376:20,18609:20}
+CAP_BY_FIELD={500:1000,17428:30,16376:20,18609:20}
 SOURCE_PAGE_SIZE=5
 REQUEST_TIMEOUT=55
 def request(path,params):
@@ -96,8 +96,9 @@ def audit(args):
         found={}
         pages=[]
         first=True;total=None
-        for page in range(1,17):
+        for page in range(1,(CAP_BY_FIELD[target]+SOURCE_PAGE_SIZE-1)//SOURCE_PAGE_SIZE+1):
             # Cap at 1000. No "missing field" means absence of behavior.
+            if page>1:time.sleep(1.05)  # follow original iNaturalist ~1 req/sec guidance
             d,digest=request("observations",{key:"","per_page":SOURCE_PAGE_SIZE,"page":page,"verifiable":"any",
                                                "order_by":"id","order":"asc"})
             if total is None:total=int(d.get("total_results",0))
@@ -125,9 +126,16 @@ def audit(args):
             if len(found)>=CAP_BY_FIELD[target] or page*SOURCE_PAGE_SIZE>=total or len(obs)<SOURCE_PAGE_SIZE:break
         if total is None:raise RuntimeError("Source iNat field query returned no total")
         arr=list(found.values())
+        if target==500 and len(found)!=total:
+            raise RuntimeError("Field 500 exact original full observation census not reached; cannot report family/substrate census")
         family_n=collections.Counter(x["family"] for x in arr)
         raw_values=collections.Counter(v.casefold().strip() for x in arr for v in x["values"])
         cats=collections.Counter(substrate(v) for x in arr for v in x["values"]) if target==500 else None
+        fam_substrate=collections.defaultdict(collections.Counter)
+        if target==500:
+            for x in arr:
+                for v in x["values"]:
+                    fam_substrate[x["family"]][substrate(v)]+=1
         obs_counts=collections.Counter(x["observer_id"] for x in arr if x["observer_id"] is not None)
         top1=max(obs_counts.values(),default=0)/len(arr) if arr else None
         top5=sum(v for _,v in obs_counts.most_common(5))/len(arr) if arr else None
@@ -140,6 +148,10 @@ def audit(args):
           "n_source_matching_field_to_returned":len(found),
           "raw_field_value_counts":dict(raw_values.most_common(90)),
           "substrate_text_class_counts_if_field500":dict(cats) if cats is not None else None,
+          "family_x_substrate_count_field500_full_census_if_complete":{
+            k:dict(v) for k,v in sorted(fam_substrate.items())} if target==500 else None,
+          "total_distinct_unstandardized_raw_value_strings":len(raw_values),
+          "raw_field_value_counts_published_top90_not_full_vocabulary":len(raw_values)>90,
           "family_ancestor_counts_among_selected_tagged_observations":dict(family_n),
           "n_distinct_tagger_observers_may_not_equal_observers":len(obs_counts),
           "fraction_top1_observation_owner":top1,
