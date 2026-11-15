@@ -1,0 +1,62 @@
+name: gesui new 30 original H7 source 4011 EIV and 186 HNS numeric trait coverage only
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - '.github/workflows/gesui-20261115-extra30H7-eiv-hns-source-coverage.yml'
+      - 'analysis/20261115_h6_source_expansion/audit_extra30_eiv_hns_source_coverage.py'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  old-fixed-EIV-and-HNS-scoring-support-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-only original taxon score matching dependency
+        run: python -m pip install --quiet pandas
+      - name: Source count eligible 30 new H7 from preexisting 1219 WKT/GBIF source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43723994932
+          name: gesui-20261115-prior1219-authentic-H7-source-counts-40-new-H7-12-H6-opportunity
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_counts
+      - name: Confirm source-only selective 1-facet retry and 359 previous original source receipts
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43725053634
+          name: gesui-20261115-original-30-extraH7-360-speciesKey-one-missing-recovery
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/recovered_360
+      - name: Original accepted EIV NUTRI exact 4011 plant speciesKeys source-v2 audit
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EIV_v2
+      - name: Audit all 360 original facets using fixed source trait completeness only, no W/HNS regression
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/audit_extra30_eiv_hns_source_coverage.py
+          python -u analysis/20261115_h6_source_expansion/audit_extra30_eiv_hns_source_coverage.py \
+            --prior '${{ runner.temp }}/original_source_counts' \
+            --shards '${{ runner.temp }}/recovered_360/patched_three_shards' \
+            --v2 '${{ runner.temp }}/original_EIV_v2' \
+            --output '${{ runner.temp }}/new_H7_numeric_source_coverage'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-30-newH7-2era-original-EIV4011-HNS186-source-quality-gate
+          path: ${{ runner.temp }}/new_H7_numeric_source_coverage/
+          retention-days: 90
+          if-no-files-found: warn
