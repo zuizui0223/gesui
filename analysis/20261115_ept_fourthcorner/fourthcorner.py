@@ -88,6 +88,7 @@ def compute(count,sites,qa):
             numerator=(known["count"]*known.trait).groupby(known.UID).sum()
             knownmass=known.groupby("UID")["count"].sum()
             ntaxa=known.groupby("UID")["key"].nunique()
+            all_taxa=e.groupby("UID")["key"].nunique()
             incidence=known.groupby("UID")["trait"].mean()
             calc_count=(numerator/knownmass)
             cover=(knownmass/denom).reindex(dsite.source_UID).fillna(0).to_numpy(float)
@@ -95,6 +96,8 @@ def compute(count,sites,qa):
             nw=calc_count.reindex(dsite.source_UID).to_numpy(float)
             inc=incidence.reindex(dsite.source_UID).to_numpy(float)
             nknown=ntaxa.reindex(dsite.source_UID).fillna(0).to_numpy(int)
+            nall=all_taxa.reindex(dsite.source_UID).fillna(0).to_numpy(int)
+            taxon_coverage=nknown/np.maximum(nall,1)
             mask=cover>=0.8-1e-10
             if not np.array_equal(mask,np.isfinite(published)):
                 raise ValueError(f"Original pre-outcome 80pct source cohort changed: {cycle} {kind}")
@@ -110,6 +113,8 @@ def compute(count,sites,qa):
             sel["CWM_incidence"]=inc[mask]
             sel["count_minus_incidence"]=nw[mask]-inc[mask]
             sel["known_taxa_n"]=nknown[mask]
+            sel["all_EPT_taxa_n"]=nall[mask]
+            sel["trait_taxon_coverage"]=taxon_coverage[mask]
             sel["trait_record_coverage"]=cover[mask]
             if not np.isfinite(sel[["CWM_count","CWM_incidence"]]).all().all():
                 raise ValueError("Unknown incidence trait treated as 0")
@@ -271,7 +276,7 @@ def run(outdir,permutations=399):
              "not_WWTP_specific_or_causal_community_selection":True,
              "multiplicity_primary_BH12":True,
              "within_order_trait_shuffle_B":permutations,
-             "results":{},"external":{}}
+             "results":{},"external":{}, "posthoc_strict_incidence_coverage":{}}
     tested=[]
     for era in CYCLES:
         outputs["results"][era]={}
@@ -294,6 +299,28 @@ def run(outdir,permutations=399):
     adj=bh([x[3] for x in tested])
     for (era,kind,weighted,p),q in zip(tested,adj):
         outputs["results"][era][kind]["regression"][weighted]["XEMBED"]["BH12_q"]=q
+    # POST-RESULT stress: stricter presence quality and non-singleton support.
+    # The original core coefficients above are never reselected or replaced.
+    for era in CYCLES:
+        outputs["posthoc_strict_incidence_coverage"][era]={}
+        for kind in PRIMARY:
+            site=data[(era,kind)]
+            strict=site[(site.known_taxa_n>=3)&
+                        (site.trait_taxon_coverage>=.80)&
+                        (site.original_EPT_counted_individuals>=10)].copy()
+            diag={"strict_n":len(strict),"strict_HUC8":strict.huc8.nunique(),
+                  "strict_states":strict.state.nunique(),
+                  "cutoffs_not_pre_registered":True,
+                  "min_3_scored_taxa":True,
+                  "min_80pct_incidence_taxon_scored":True,
+                  "min_10_counted_EPT_individuals":True}
+            if len(strict)>=250 and strict.huc8.nunique()>=150 and strict.state.nunique()>=20:
+                diag["status"]="exploratory_posthoc_numeric_sensitivity"
+                diag["slopes"]={k:model(strict,k) for k in
+                                ("CWM_count","CWM_incidence","count_minus_incidence")}
+            else:
+                diag["status"]="SOURCE_GATE_FAIL_NO_SLOPES"
+            outputs["posthoc_strict_incidence_coverage"][era][kind]=diag
     source_huc={c:set(original.loc[original.source_cycle==c,"huc8"]) for c in CYCLES}
     for kind in PRIMARY:
         outputs["external"][kind]={
@@ -310,7 +337,8 @@ def run(outdir,permutations=399):
            "difference_XEMBED":outputs["results"][era][k]["regression"]["count_minus_incidence"]["XEMBED"],
            "taxon_label_null":outputs["results"][era][k]["trait_label_null"],
          } for k in PRIMARY} for era in CYCLES},
-        "external":outputs["external"]},sort_keys=True,allow_nan=False),flush=True)
+        "external":outputs["external"],
+        "strict_source_sensitivity":outputs["posthoc_strict_incidence_coverage"]},sort_keys=True,allow_nan=False),flush=True)
     return outputs
 
 if __name__=="__main__":
