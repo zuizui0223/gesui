@@ -1,0 +1,85 @@
+name: gesui genuine original 183 H7 in 40 H6 terrestrial source HNS/NUTRI replay before FE
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/build_genuine_183_H7_40_H6_terrestrial.py'
+      - '.github/workflows/gesui-20261115-183-H7-terrestrial-source-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-first-original-HNS-NUTRI-reproduction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet numpy pandas
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43726224883
+          name: gesui-20261115-original-terrestrial-183H7-40H6-geographic-preoutcome-cohort
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_cohort
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43725920793
+          name: gesui-20261115-original-1219-H7-W-env-replay-old232-new29-strict
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_environment
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_234_facets
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43725053634
+          name: gesui-20261115-original-30-extraH7-360-speciesKey-one-missing-recovery
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_30_facets
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EIV_4011
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43202839926
+          name: gesui-H7-1219-x2-GBIF-PLANTAE-LYCAENIDAE-ANIMALIA-HYDROWASTE-MASTER
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219_master
+      - name: Rebuild all old/new source trait and record index values; demand exact old HNS and EIV reproduction
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/build_genuine_183_H7_40_H6_terrestrial.py
+          python -u analysis/20261115_h6_source_expansion/build_genuine_183_H7_40_H6_terrestrial.py \
+            --cohort '${{ runner.temp }}/source_cohort' \
+            --environment '${{ runner.temp }}/original_environment' \
+            --oldfacets '${{ runner.temp }}/original_234_facets' \
+            --newfacets '${{ runner.temp }}/original_30_facets' \
+            --eiv '${{ runner.temp }}/original_EIV_4011' \
+            --master '${{ runner.temp }}/original_1219_master' \
+            --output '${{ runner.temp }}/original_183_terrestrial_panel'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-genuine-183H7-40H6-terrestrial-EIV-HNS-source-replayed
+          path: ${{ runner.temp }}/original_183_terrestrial_panel/
+          retention-days: 90
+          if-no-files-found: warn

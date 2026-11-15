@@ -1,0 +1,42 @@
+name: gesui original EEA two-period H7 geographic extension hard upper bound
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/eea_bothperiod_ceiling.py'
+      - '.github/workflows/gesui-20261115-EEA-h7-twoera-source-ceiling.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  original-station-geography-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Retrieve authentic 6330 EEA18/22/EPA1819 site-H7 original mapping
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_6330
+      - name: Audit distinct original 2018 and 2022 EEA H7 identities, no plant or butterfly numerical outcomes
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/eea_bothperiod_ceiling.py
+          python -u analysis/20261115_h6_source_expansion/eea_bothperiod_ceiling.py \
+            --station-source '${{ runner.temp }}/source_6330' \
+            --output '${{ runner.temp }}/source_ceiling'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-original-EEA18-EEA22-source-H7-extension-hard-bound
+          path: ${{ runner.temp }}/source_ceiling/
+          retention-days: 90
+          if-no-files-found: warn

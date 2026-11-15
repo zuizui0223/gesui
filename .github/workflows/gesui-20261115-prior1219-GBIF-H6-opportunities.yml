@@ -1,0 +1,75 @@
+name: gesui recheck prior original 1219 H7 GBIF source counts for 40 new geographic candidates
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/audit_prior_1219_gbif_count_opportunity.py'
+      - '.github/workflows/gesui-20261115-prior1219-GBIF-H6-opportunities.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  prior-original-source-not-new-GBIF-queries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Retrieve official 501 EEA H7 to H6 geography source-only result
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43723429521
+          name: gesui-20261115-source-only-501-EEA-H7-official-H6-singleton-GIS-gate
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_candidate_geography
+      - name: Prior archived 1219 H7 source GBIF count shard0 (not new request)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43199340731
+          name: hybas7-gbif1219-full-original-source-shard-0
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219/0
+      - name: Prior archived 1219 H7 source GBIF count shard1
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43199340731
+          name: hybas7-gbif1219-full-original-source-shard-1
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219/1
+      - name: Prior archived 1219 H7 source GBIF count shard2
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43199340731
+          name: hybas7-gbif1219-full-original-source-shard-2
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219/2
+      - name: Prior archived 1219 H7 source GBIF count shard3
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43199340731
+          name: hybas7-gbif1219-full-original-source-shard-3
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219/3
+      - name: Recompute 12 singleton H6 source opportunity without new GBIF or trait or ecological models
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/audit_prior_1219_gbif_count_opportunity.py
+          python -u analysis/20261115_h6_source_expansion/audit_prior_1219_gbif_count_opportunity.py \
+            --geometry '${{ runner.temp }}/source_candidate_geography' \
+            --shards '${{ runner.temp }}/original_1219' \
+            --output '${{ runner.temp }}/candidate_source_results'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-prior1219-authentic-H7-source-counts-40-new-H7-12-H6-opportunity
+          path: ${{ runner.temp }}/candidate_source_results/
+          retention-days: 90
+          if-no-files-found: warn

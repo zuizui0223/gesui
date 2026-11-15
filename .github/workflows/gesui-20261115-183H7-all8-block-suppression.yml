@@ -1,0 +1,46 @@
+name: gesui 183 H7 40 H6 posthoc eight original covariate block suppression audit
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/diagnose_40H6_all8_blocks.py'
+      - '.github/workflows/gesui-20261115-183H7-all8-block-suppression.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-source-eight-blocks-no-selection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43726596337
+          name: gesui-20261115-genuine-183H7-40H6-terrestrial-EIV-HNS-source-replayed
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_183_40
+      - name: Report every H6-FE NUTRI→HNS model across all 8 prespecified posthoc source blocks
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/diagnose_40H6_all8_blocks.py
+          python -u analysis/20261115_h6_source_expansion/diagnose_40H6_all8_blocks.py \
+            --source '${{ runner.temp }}/original_183_40' \
+            --output '${{ runner.temp }}/all8'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-183H7-40H6-EIV-HNS-all8-block-suppressor-QA
+          path: ${{ runner.temp }}/all8/
+          retention-days: 90
+          if-no-files-found: warn

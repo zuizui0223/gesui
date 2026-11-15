@@ -1,0 +1,53 @@
+name: gesui official EU501 HydroBASINS H6/H7 source-only singleton opportunities
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/map_official_eu501_to_h6.py'
+      - '.github/workflows/gesui-20261115-EEA-singleera-official-H6-geo.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  source-native-geography-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official HydroBASINS shapefile geometry reader and GEOS validation
+        run: python -m pip install --quiet "shapely>=2.0,<3" "pyshp>=2.3,<3"
+      - name: Retrieve genuine EEA18/EEA22 source H7 station geography (6330 source visits)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_6330
+      - name: Retrieve genuine 451/454 original EIV accepted source-eligibility statuses ONLY
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_v2_trait_eligibility
+      - name: Download official Europe Level6/Level7 polygons and match all 501 EEA H7 to native parent H6
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/map_official_eu501_to_h6.py
+          python -u analysis/20261115_h6_source_expansion/map_official_eu501_to_h6.py \
+            --station-dir '${{ runner.temp }}/source_6330' \
+            --trait-dir '${{ runner.temp }}/source_v2_trait_eligibility' \
+            --output '${{ runner.temp }}/singleera_true_h6_geo'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-source-only-501-EEA-H7-official-H6-singleton-GIS-gate
+          path: ${{ runner.temp }}/singleera_true_h6_geo/
+          retention-days: 90
+          if-no-files-found: warn
