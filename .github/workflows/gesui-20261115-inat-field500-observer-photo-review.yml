@@ -1,0 +1,46 @@
+name: GESUI full 746 sparse iNat v2 observer and photo review source audit
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_adult_resource_behavior/audit_inat_v2_observer_photo_opportunity.py
+      - .github/workflows/gesui-20261115-inat-field500-observer-photo-review.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-substrate-photo-review-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Source-locked complete iNat field500 independent v2 sparse replay and photo URL candidate audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_adult_resource_behavior/audit_inat_v2_observer_photo_opportunity.py \
+            --baseline results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json \
+            --out results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json \
+            --review results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv
+          python - <<'PY'
+          import csv,json
+          p="results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json"
+          z=json.load(open(p))
+          assert z["n_original_field500_observations"]==746
+          assert z["original_field500_family_census_exactly_reproduced"]
+          assert z["original_old_regex_category_census_exactly_reproduced"]
+          assert z["no_WWTP_or_HNS_joint_model_run"] and z["no_family_puddling_propensity_estimated"]
+          v=list(csv.DictReader(open("results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv")))
+          assert len(v)==z["n_original_organic_candidate_annotations_for_photo_review"]
+          assert all(x["review_status"]=="NOT_HUMAN_REVIEWED" for x in v)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-iNat-full746-observer-photo-review-sourceonly
+          path: |
+            results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json
+            results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv
+          if-no-files-found: error
