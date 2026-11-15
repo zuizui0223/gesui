@@ -7,6 +7,7 @@ No made-up trait values or re-queried GBIF ecological records.
 """
 from __future__ import annotations
 import argparse
+import csv
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
@@ -18,6 +19,8 @@ from urllib.request import Request, urlopen
 
 FACETS_SHA="251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4"
 SOURCE_FILE="GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json"
+PANEL_SHA="1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca"
+PANEL_FILE="results/20261115_sync/hns_macro/H7_454_HNS_panel.csv"
 PR12_CROSS="GBIF_SPECIESKEY_EIV_EXACT_NAME_CROSSWALK.json"
 EIV_SHA="ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba"
 TOTAL_PLANT_KEYS=11511
@@ -39,9 +42,22 @@ def get_source(source_dir,cache_dir):
         raise RuntimeError("Original source facet count/status changed")
     plant=[r for r in j if r.get("group")=="Plantae"]
     if len(plant)!=468:raise RuntimeError("Original 234x2 Plantae facets changed")
-    keys=sorted({str(k) for f in plant for k,v in f["source_speciesKey_counts"].items() if int(v)>0},key=int)
+    # Original 468 source facets include 14 H7-period rows outside the fixed
+    # true 454 analysis panel. Do NOT leak the extra 102 distinct taxa.
+    panel_path=Path(PANEL_FILE)
+    if sha256(panel_path.read_bytes())!=PANEL_SHA:
+        raise RuntimeError("Genuine original 454 H7-period panel SHA mismatch")
+    with panel_path.open(newline="",encoding="utf-8-sig") as handle:
+        panel=list(csv.DictReader(handle))
+    target={(str(x["h"]),str(x["period"])) for x in panel}
+    if len(panel)!=454 or len(target)!=454:
+        raise RuntimeError("Original analysis 454 rows missing/duplicated")
+    selected=[f for f in plant if (str(f["HYBAS_ID_L07"]),str(f["period"])) in target]
+    if len(selected)!=454 or len({(str(f["HYBAS_ID_L07"]),str(f["period"])) for f in selected})!=454:
+        raise RuntimeError("Cannot reconcile authentic 454 cohort to 468 source original facets")
+    keys=sorted({str(k) for f in selected for k,v in f["source_speciesKey_counts"].items() if int(v)>0},key=int)
     if len(keys)!=TOTAL_PLANT_KEYS:
-        raise RuntimeError(f"Plantae original source-key union changed to {len(keys)}")
+        raise RuntimeError(f"454-cohort Plantae source-key union differs from original 11511: {len(keys)}")
     path=original_one(cache_dir,PR12_CROSS)
     previous=json.loads(path.read_text())
     if previous.get("source_SHA256")!=EIV_SHA or len(previous.get("species_taxonomy_and_matched_trait",[]))!=1006:
@@ -124,6 +140,8 @@ def main(args):
         "schema":"GESUI_EU454_GBIF_SPECIESKEY_TAXONOMY_SHARD_V1",
         "input_facets_SHA256":FACETS_SHA,"external_pr12_EIV_SHA256":EIV_SHA,
         "original_unique_specieskeys":len(keys),
+        "original_all_source_468_facets_include_14_outside_cohort":True,
+        "only_original_454_H7period_facets_selected":True,
         "shard":args.shard,"n_shards":args.shards,
         "pilot_max_new_keys":args.max_new_keys,
         "original_keys_assigned_to_shard":len([k for k in keys if int(k)%args.shards==args.shard]),
