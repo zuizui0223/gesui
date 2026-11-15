@@ -117,6 +117,30 @@ def estimate(df: pd.DataFrame, include_family: bool):
     }
 
 
+
+def out_of_H6_cv(df: pd.DataFrame):
+    """Original PR88 method: 5-fold true-H6 split, train-only Ridge, fixed-error H6 CI.
+
+    This tests predictive transport, not causal effect or observed resource flow.
+    """
+    import sys
+    sys.path.insert(0, str(Path("analysis/20261115_multilayer/scripts").resolve()))
+    from multilayer import cv_add_value
+
+    results = {}
+    for include_family, key in [(False, "without_family_shares"),
+                                (True, "with_four_family_shares")]:
+        base = COMMON + (FAMILY if include_family else [])
+        results[key] = {}
+        for label, col in OUTCOMES.items():
+            stats = cv_add_value(df, col, base, ["W"])
+            results[key][label] = stats
+    original = results["with_four_family_shares"]["record_weighted_HNS"][
+        "H6_equal_MSE_gain_percent"]
+    if abs(original - 10.0143) > 0.003:
+        raise ValueError(f"Failed original PR88 H6-out prediction reproduction: {original}")
+    return results
+
 def run(panel: Path, output: Path):
     df = verify_source(panel)
     no_family = estimate(df, False)
@@ -136,6 +160,8 @@ def run(panel: Path, output: Path):
         "no_added_independent_ecology_sites": True,
         "H6_cluster_CI_descriptive_unadjusted_multiple_tests": True
     }
+    result["out_of_H6_added_value_W_after_source_controls"] = out_of_H6_cv(df)
+    result["heldout_95_are_fixed_prediction_error_bootstraps_not_refits"] = True
     output.mkdir(parents=True, exist_ok=True)
     (output / "SOURCE_LOCKED_HNS_FAMILY_DECOMPOSITION.json").write_text(
         json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False) + "\n")
