@@ -1,0 +1,48 @@
+name: gesui 183 H7 40 true H6 adversarial old30 to external new10 parent transfer
+on:
+  push:
+    branches:
+      - analysis/gesui-40h6-withinparent-adversarial-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/adversarial_old30_new10_transfer.py'
+      - '.github/workflows/gesui-20261115-183H7-old30-new10-heldout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-authentic-full-original-H6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install fixed numpy pandas statsmodels source dependencies
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - name: Retrieve original immutable 183 distinct native H7 40 H6 EIV-HNS source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43726596337
+          name: gesui-20261115-genuine-183H7-40H6-terrestrial-EIV-HNS-source-replayed
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original183
+      - name: Reproduce all40 coefficient, test old30 FE, hold out new10 parent H6 pairs and reduced controls
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/adversarial_old30_new10_transfer.py
+          python -u analysis/20261115_h6_source_expansion/adversarial_old30_new10_transfer.py \
+            --source '${{ runner.temp }}/original183' \
+            --output '${{ runner.temp }}/adversarial'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-authentic-183H7-40H6-old30-new10-outparent-stress
+          path: ${{ runner.temp }}/adversarial/
+          retention-days: 90
+          if-no-files-found: warn
