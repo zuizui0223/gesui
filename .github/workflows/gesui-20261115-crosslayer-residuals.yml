@@ -1,0 +1,50 @@
+name: gesui same-H7 cross-layer residual co-response H6 test
+on:
+  push:
+    paths:
+      - 'analysis/20261115_crosslayer_residuals/**'
+      - 'results/20261115_crosslayer_residuals/**'
+      - '.github/workflows/gesui-20261115-crosslayer-residuals.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical requirements
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2'
+      - name: Reproduce source-gated H6 residual analysis
+        run: |
+          python analysis/20261115_crosslayer_residuals/recompute.py \
+            --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --output /tmp/gesui_crosslayer/recomputed.json
+      - name: Check independent JS point estimates against Python refit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          got=json.loads(Path('/tmp/gesui_crosslayer/recomputed.json').read_text())
+          ref=json.loads(Path('results/20261115_crosslayer_residuals/ORIGINAL_JS_DIAGNOSTIC.json').read_text())
+          for name, expected in ref['pairs'].items():
+              actual=got['pairs'][name]
+              assert abs(actual['H6_group_mean_Pearson_r']-expected['r'])<1e-5, (name,actual)
+              for a,b in zip(actual['H6_fixed_residual_resample95'], expected['bootstrap95']):
+                  assert abs(a-b)<0.003, (name,a,b)
+          assert all(v['rank']==v['columns'] for v in got['design'].values())
+          assert got['causal_mediation_or_SEM_fitted'] is False
+          print('PASS: 4 original H6 residual pairings match independent JS diagnostic')
+          PY
+      - name: Preserve numerical QA artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-h6-crosslayer-residual-20261115
+          path: /tmp/gesui_crosslayer/
+          if-no-files-found: warn
+          retention-days: 90
