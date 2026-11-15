@@ -1,0 +1,148 @@
+{
+  "licensed_noncommercial_research_transient_image_QA_only": true,
+  "n_distinct_observer_days": 2,
+  "n_observations": 3,
+  "no_HNS_WWTP_or_measured_nutrient_exposure": true,
+  "no_manual_visual_photograph_review": true,
+  "no_original_photo_pixel_bytes_stored_in_GitHub_results": true,
+  "no_visible_proboscis_or_carcase_identity_confirmed": true,
+  "nonindependence_warning": "Same owner/date does not establish identical carcass; photo similarity is noncausal.",
+  "observation_records": [
+    {
+      "original_description_is_present": true,
+      "original_observation_url": "https://www.inaturalist.org/observations/150764924",
+      "original_photo_licences": [
+        "cc-by-nc"
+      ],
+      "original_source_field500_value": "animal remains",
+      "original_source_proboscis_contact_confirmed_visually": false,
+      "original_source_substrate_confirmed_visually": false,
+      "reported_observation_day": "2015-08-13",
+      "reported_photo_ids": [
+        260028346
+      ],
+      "source_public_geojson_present": true
+    },
+    {
+      "original_description_is_present": false,
+      "original_observation_url": "https://www.inaturalist.org/observations/150764928",
+      "original_photo_licences": [
+        "cc-by-nc",
+        "cc-by-nc"
+      ],
+      "original_source_field500_value": "animal remains",
+      "original_source_proboscis_contact_confirmed_visually": false,
+      "original_source_substrate_confirmed_visually": false,
+      "reported_observation_day": "2015-08-13",
+      "reported_photo_ids": [
+        260028363,
+        260029204
+      ],
+      "source_public_geojson_present": true
+    },
+    {
+      "original_description_is_present": false,
+      "original_observation_url": "https://www.inaturalist.org/observations/367297297",
+      "original_photo_licences": [
+        "cc-by-nc"
+      ],
+      "original_source_field500_value": "carcass of amphibian",
+      "original_source_proboscis_contact_confirmed_visually": false,
+      "original_source_substrate_confirmed_visually": false,
+      "reported_observation_day": "2026-06-01",
+      "reported_photo_ids": [
+        670748495
+      ],
+      "source_public_geojson_present": true
+    }
+  ],
+  "original_three_source_response_SHA256": "32d110144153f659a525f95cda6d13e34f0db82d03236e67d0a9d84a75ed2ec3",
+  "photo_pair_source_similarity_NO_BEHAVIOR_CONCLUSION": [
+    {
+      "ORB_Lowe_ratio0p7_matching_keypoint_count": 1,
+      "ORB_RANSAC_5px_homography_inliers": 0,
+      "ORB_RANSAC_inlier_fraction": 0.0,
+      "automatic_same_butterfly_or_carcass_identity_unproven": true,
+      "original_photo_ids": [
+        260028346,
+        260028363
+      ],
+      "pHash64_hamming": 28,
+      "status": "COMPUTABLE_SOURCE_FEATURE_DISTANCE_NOT_SAME_EVENT_PROOF"
+    },
+    {
+      "ORB_Lowe_ratio0p7_matching_keypoint_count": 77,
+      "ORB_RANSAC_5px_homography_inliers": 75,
+      "ORB_RANSAC_inlier_fraction": 0.974,
+      "automatic_same_butterfly_or_carcass_identity_unproven": true,
+      "original_photo_ids": [
+        260028346,
+        260029204
+      ],
+      "pHash64_hamming": 26,
+      "status": "COMPUTABLE_SOURCE_FEATURE_DISTANCE_NOT_SAME_EVENT_PROOF"
+    },
+    {
+      "ORB_Lowe_ratio0p7_matching_keypoint_count": 0,
+      "ORB_RANSAC_5px_homography_inliers": 0,
+      "ORB_RANSAC_inlier_fraction": null,
+      "automatic_same_butterfly_or_carcass_identity_unproven": true,
+      "original_photo_ids": [
+        260028363,
+        260029204
+      ],
+      "pHash64_hamming": 40,
+      "status": "COMPUTABLE_SOURCE_FEATURE_DISTANCE_NOT_SAME_EVENT_PROOF"
+    }
+  ],
+  "same_owner_same_day_2015_public_site_distance_km": 0.0,
+  "schema": "GESUI_I_NAT_3_ANIMAL_REMAINS_PHOTO_FEATURES_AND_ORIGINAL_SITE_QA_V1",
+  "source_api": "https://api.inaturalist.org/v2/observations",
+  "source_original_photo_copyright": "CC BY-NC; photos never redistributed or committed",
+  "source_original_photo_features": [
+    {
+      "licence": "cc-by-nc",
+      "n_ORB_keypoints": 750,
+      "photo_id": 260028346,
+      "sha256_original_medium_photo_source": "5ac7c7df7ac6025cb1762e9fc350b14b4e1da21d9f92c856e16a38cc718c07f7",
+      "source_medium_pixel_dimensions": [
+        500,
+        375
+      ],
+      "status": "TEMPORARY_SOURCE_ONLY_IMAGE_FEATURES_COMPUTED"
+    },
+    {
+      "licence": "cc-by-nc",
+      "n_ORB_keypoints": 750,
+      "photo_id": 260028363,
+      "sha256_original_medium_photo_source": "249a8d9db4059590f19ed1ffd3c6da6a2e538a039e5ebf2b963722dbb4a21001",
+      "source_medium_pixel_dimensions": [
+        500,
+        375
+      ],
+      "status": "TEMPORARY_SOURCE_ONLY_IMAGE_FEATURES_COMPUTED"
+    },
+    {
+      "licence": "cc-by-nc",
+      "n_ORB_keypoints": 750,
+      "photo_id": 260029204,
+      "sha256_original_medium_photo_source": "bd09d7b2eb502717da684d3427c28160d2723cc39b6931ed0e64071402d13d55",
+      "source_medium_pixel_dimensions": [
+        500,
+        500
+      ],
+      "status": "TEMPORARY_SOURCE_ONLY_IMAGE_FEATURES_COMPUTED"
+    },
+    {
+      "licence": "cc-by-nc",
+      "n_ORB_keypoints": 750,
+      "photo_id": 670748495,
+      "sha256_original_medium_photo_source": "90c5b1a80036e633b8b2e3f14fa00879fdab9e219dc357475d1f897b34ccc8fb",
+      "source_medium_pixel_dimensions": [
+        500,
+        375
+      ],
+      "status": "TEMPORARY_SOURCE_ONLY_IMAGE_FEATURES_COMPUTED"
+    }
+  ]
+}
