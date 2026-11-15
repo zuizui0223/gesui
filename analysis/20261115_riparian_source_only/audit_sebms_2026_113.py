@@ -25,6 +25,7 @@ VERSION="1.13"
 URL="https://www.gbif.se/ipt/archive.do?r=lu_sebms&v=1.13"
 FROZEN_PROTOCOL_GIT_BLOB="b9ce415c36d398eee77d8318a20aef4873e0bf44"
 EXPECTED_SOURCE_EVENT_ROWS=39466
+EXPECTED_SOURCE_ARCHIVE_SHA256="384a2e5145df29268fe2de79fde9e196fc113e68adfc922a81acd58069437348"
 MAX_ARCHIVE_BYTES=50*1024*1024
 MAX_SITE_TRUNCATION_SAMPLE=0
 
@@ -147,9 +148,12 @@ def audit_events(events,meta,archive_sha,mime):
     quality=collections.Counter()
     uncertain_values=[]
     sites=collections.defaultdict(lambda:{"date_set":set(),"events":0,"protocols":set()})
+    protocol_sites=collections.defaultdict(lambda:collections.defaultdict(set))
+    protocol_uncertainty=collections.defaultdict(collections.Counter)
     for v,d in selected:
         prot=(v.get("samplingProtocol") or "").strip() or "__MISSING__"
         protocols[prot]+=1
+        protocol_uncertainty[prot][str(v.get("coordinateUncertaintyInMeters",""))]+=1
         eid=(v.get("eventID") or v.get("_coreID") or "").strip()
         if not eid:quality["missing_event_id"]+=1
         lat=num(v.get("decimalLatitude"))
@@ -168,6 +172,7 @@ def audit_events(events,meta,archive_sha,mime):
             else:quality["uncertainty_gt100m"]+=1
         # Sites identified from original locationID if populated; fallback to exact coordinates
         site=(v.get("locationID") or "").strip() or (f"coords:{lat:.8f}|{lon:.8f}")
+        protocol_sites[prot][site].add(d.isoformat())
         sites[site]["date_set"].add(d.isoformat())
         sites[site]["events"]+=1
         sites[site]["protocols"].add(prot)
@@ -193,6 +198,14 @@ def audit_events(events,meta,archive_sha,mime):
       "n_2022_full_year_event_rows":all_2022,
       "n_2022_May_to_September_event_rows":len(selected),
       "original_summer_event_samplingProtocol_counts":dict(sorted(protocols.items())),
+      "original_summer_site_count_by_protocol":{
+        prot:len(si) for prot,si in sorted(protocol_sites.items())},
+      "original_summer_site_count_with_5_dates_by_protocol":{
+        prot:sum(len(ds)>=5 for ds in si.values())
+        for prot,si in sorted(protocol_sites.items())},
+      "original_summer_uncertainty_m_by_protocol":{
+        prot:dict(sorted(counts.items()))
+        for prot,counts in sorted(protocol_uncertainty.items())},
       "original_summer_event_source_field_status":dict(sorted(quality.items())),
       "summer_distinct_event_site_ids_with_valid_coords":len(sites),
       "summer_sites_at_least_5_distinct_event_dates":eligible_sites_5,
@@ -222,8 +235,11 @@ def main():
     if git_blob(a.freeze.read_bytes())!=FROZEN_PROTOCOL_GIT_BLOB:
         raise ValueError("Frozen 2026-11-15 protocol Git blob changed")
     blob,mime=get_source_url(URL)
+    archive_sha=hashlib.sha256(blob).hexdigest()
+    if archive_sha!=EXPECTED_SOURCE_ARCHIVE_SHA256:
+        raise ValueError("Published frozen SeBMS version 1.13 source SHA drift: "+archive_sha)
     events,meta=parse_event_core(blob)
-    result=audit_events(events,meta,hashlib.sha256(blob).hexdigest(),mime)
+    result=audit_events(events,meta,archive_sha,mime)
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(result,indent=2,sort_keys=True,ensure_ascii=False,allow_nan=False)+"\n",encoding="utf-8")
     print("GESUI_SEBMS_SOURCE_ONLY="+json.dumps(result,sort_keys=True,ensure_ascii=False,separators=(",",":")),flush=True)
