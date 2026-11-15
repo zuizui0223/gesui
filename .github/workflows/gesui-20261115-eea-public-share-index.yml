@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - ".github/workflows/gesui-20261115-eea-public-share-index.yml"
+      - "scripts/gesui_20261115_eea_actual_public_share_index.py"
   workflow_dispatch:
 permissions:
   contents: read
