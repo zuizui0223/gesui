@@ -1,0 +1,52 @@
+name: gesui original 454 H7 plant EIV prior-1006 numeric coverage lower bound
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-label-shuffle-20261115
+    paths:
+      - 'analysis/20261115_plant_trait_source_gate/cached_eiv_overlap.py'
+      - '.github/workflows/gesui-h7-plant-eiv-prior1006-lowerbound-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-eiv-source-only-overlap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original SHA-pinned H7 234x2x6 speciesKey data
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_h7
+      - name: Independent PR12 exact-score EIV crosswalk (1006 previously surveyed keys)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 42378520227
+          name: gesui-EEA2022-European-Ellenberg-N-traits-1006-GBIF-speciesKeys
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/external_eiv1006
+      - name: Evaluate exact independent EIV overlap without opening W or HNS effects
+        run: |
+          python -m py_compile analysis/20261115_plant_trait_source_gate/cached_eiv_overlap.py
+          python analysis/20261115_plant_trait_source_gate/cached_eiv_overlap.py \
+            --source-dir '${{ runner.temp }}/original_h7' \
+            --eiv-dir '${{ runner.temp }}/external_eiv1006' \
+            --output '${{ runner.temp }}/plant_eiv_prior1006'
+      - name: Preserve only derived lower-bound site coverage and provenance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-H7-EIV-PR12-1006-plant-scoring-opportunity-only
+          path: ${{ runner.temp }}/plant_eiv_prior1006/
+          retention-days: 90
+          if-no-files-found: warn

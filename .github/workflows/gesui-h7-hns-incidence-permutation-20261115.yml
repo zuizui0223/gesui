@@ -1,0 +1,48 @@
+name: gesui genuine H7 occurrence and equal-species HNS conditional label shuffles
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-label-shuffle-20261115
+    paths:
+      - 'analysis/20261115_hns_trait_shuffle/incidence_full_source.py'
+      - '.github/workflows/gesui-h7-hns-incidence-permutation-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  genuine-incidence-permutation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install only original-source numeric dependencies
+        run: python -m pip install --quiet numpy pandas
+      - name: Download real 234x2x6 source speciesKey occurrence counts
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif_facets
+      - name: Reconstruct source identity, verify WLS β, randomize both record and equal-incidence species
+        run: |
+          python -m py_compile analysis/20261115_hns_trait_shuffle/incidence_full_source.py
+          python -u analysis/20261115_hns_trait_shuffle/incidence_full_source.py \
+            --facets '${{ runner.temp }}/original_gbif_facets' \
+            --out '${{ runner.temp }}/verified_hns_perm'
+      - name: Store exact derived coefficients and 9999-shuffle descriptive null
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-original454-HNS-record-incidence-label-permutations
+          path: ${{ runner.temp }}/verified_hns_perm/
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,54 @@
+{
+  "schema": "GESUI_EU_H7_WITHINFAMILY_HNS_INCIDENCE_VS_RECORD_PERMUTATION_SOURCE_VERIFIED_V1",
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43716120279",
+  "source_run_conclusion": "success",
+  "source_script": "analysis/20261115_hns_trait_shuffle/incidence_full_source.py",
+  "source_panel_sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "source_original_facets_sha256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+  "source_trait_table_sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+  "n_H7_periods": 454,
+  "n_H6": 90,
+  "n_scored_species": 186,
+  "n_permutations": 9999,
+  "rng": "numpy PCG64 default_rng(20261115)",
+  "results": {
+    "delta_observed": 0.05978834210586095,
+    "delta_perm": {
+      "extreme_permutations": 718,
+      "null_2p5_to_97p5": [
+        -0.06322034923066455,
+        0.06678549439255996
+      ],
+      "null_median": -0.00011290000732306488,
+      "null_sd": 0.03341802160512859,
+      "observed_beta": 0.05978834210586095,
+      "permutation_p_two_sided": 0.0719
+    },
+    "incidence_observed": 0.06729533284804515,
+    "incidence_perm": {
+      "extreme_permutations": 38,
+      "null_2p5_to_97p5": [
+        -0.048055498631527235,
+        0.046674639042240555
+      ],
+      "null_median": -0.00037056764229906965,
+      "null_sd": 0.024290668500241183,
+      "observed_beta": 0.06729533284804515,
+      "permutation_p_two_sided": 0.0039
+    },
+    "record_observed": 0.1270836749539061,
+    "record_perm": {
+      "extreme_permutations": 22,
+      "null_2p5_to_97p5": [
+        -0.08004797525642589,
+        0.08150317498461382
+      ],
+      "null_median": -0.00041889103655595137,
+      "null_sd": 0.04125766136983455,
+      "observed_beta": 0.1270836749539061,
+      "permutation_p_two_sided": 0.0023
+    }
+  },
+  "status": "original-source-restored posthoc; not wastewater causal or true biodiversity abundance",
+  "original_unmerged_stage": true
+}
