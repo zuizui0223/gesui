@@ -1,0 +1,449 @@
+{
+  "schema": "gesui-20261115-research-archive-source-byte-audit-v1",
+  "date": "2026-11-15",
+  "git_branch": "analysis/gesui-hns-ecosystem-evidence-sync-20261115",
+  "source_description": "Source-original code, tests, complete analysis reports and derived source-index data. This manifest does NOT include proprietary or other-licensed upstream raw materials or full reproducer ZIPs.",
+  "entries": [
+    {
+      "path": "analysis/20261114_host_network/scripts/analyse.py",
+      "bytes": 13662,
+      "sha256": "1df880eacd428bdaa8cb14b4f1f0cb792b50168830f746e5e72358009d144c0f",
+      "git_blob_sha1": "e6f34ead7a46ea6ab76dc0da3dc93e0ce4adab9c",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_host_network/scripts/host_source.py",
+      "bytes": 799,
+      "sha256": "2b854a9bdeda7e6c6963db891366a1353d42867083c439529b367176105e8bae",
+      "git_blob_sha1": "da772914760fa94335d95fbbe801d35c8f2c0f21",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_host_network/scripts/network.py",
+      "bytes": 1914,
+      "sha256": "cde47f066ff28358f40b0c20371454cd5361923d3c28a587e26dd76d3b7b4fce",
+      "git_blob_sha1": "a9e615e76229d8873994199831d2ccd676e41e3f",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_host_network/scripts/validate_results.py",
+      "bytes": 4176,
+      "sha256": "731a766b58490913d6e6f0dace053792a705d95f8a09c731a86c4cc82dbc1326",
+      "git_blob_sha1": "b96c32058e713ee198dc88faa3e1b0e5171809f8",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_host_network/tests/test_host_source.py",
+      "bytes": 1174,
+      "sha256": "43b4cf7000b6aec2d8768a96ba937ea9de921972811e0784eec34c5c86aab3a3",
+      "git_blob_sha1": "257c4831f7d4ebbbf3cc59cd84686425d4ea24dd",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_host_network/tests/test_network.py",
+      "bytes": 2057,
+      "sha256": "ec0dec53aa2d54853ce64e5bda140e0155b650555c7cb8e6bbfb27e5c23174d8",
+      "git_blob_sha1": "d2532215a422bdabeea2690363951a52bac8308f",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_network_robustness/scripts/analyse_robustness.py",
+      "bytes": 9983,
+      "sha256": "1373547a3e36d3c159ad9d7ec2d5511c8fc52f47f9fc64164de4a10f4999fa71",
+      "git_blob_sha1": "71a9fa232b12e9a191f3dcf64fa65321ae091734",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_network_robustness/scripts/pieridae_sensitivity.py",
+      "bytes": 6027,
+      "sha256": "c88f4ad8c2af5f08549b33bff460d67224c8eb1e81df9405f5bddeaaa823fd40",
+      "git_blob_sha1": "d1b0899447632dab2b5e72a202aadc5bcb598d5c",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_network_robustness/scripts/robustness_core.py",
+      "bytes": 2041,
+      "sha256": "c4bcc5c322c685e327e1ddd299dc26410eac063f5daf22300d9dc9630c6f4f69",
+      "git_blob_sha1": "027e80d5e240ef4fe5166e16494e403116c241ab",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261114_network_robustness/tests/test_robustness.py",
+      "bytes": 2557,
+      "sha256": "f51755a4b061bb8864279c1742ec886ff27fed7a3f507454500010b1ac72aae8",
+      "git_blob_sha1": "b94972e5b577565cd23273e47f50ab1c074be627",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/analyse.py",
+      "bytes": 5658,
+      "sha256": "f5c24a0f18eb77bae9f5d05cd21494eadab62960a00c54df38380dd5a61942bc",
+      "git_blob_sha1": "ee7e7f1f55f87261c096db04b8da6f1110e978a8",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/build_panel.py",
+      "bytes": 8375,
+      "sha256": "fcc376615b223a063d82c0da5953e66d93cd854a36c182b8d551aa9b91b66b92",
+      "git_blob_sha1": "9b42702d3d5b94bab521a23df4c25f28a429d8dc",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/diagnostics.py",
+      "bytes": 5631,
+      "sha256": "9e43194641a52034266c31a553499467f541c8c5e3453d43de3415c08d873084",
+      "git_blob_sha1": "a4a1e3fd708f7b5ee190b617d246a5932738e76d",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/model_core.py",
+      "bytes": 6151,
+      "sha256": "001b272b0893d0dc18bb8cb06f0a519c811e9ce5e9856f1ebf718e984e14d993",
+      "git_blob_sha1": "1a57f8ca4656d0e8faab4ad4d5fe269cc75a3a62",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/score_core.py",
+      "bytes": 3042,
+      "sha256": "f456cff9c47cc1a765582236d2ba57bc7d0107f89cf278f3873b9890221fd49e",
+      "git_blob_sha1": "b5b7760ffcc18d42fbd01d7979a6cf898dd7c89a",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/validate.py",
+      "bytes": 6254,
+      "sha256": "0bcd56cf6738423485ee08f03ed51415a2ebab478cdfbad79abed48d660af48c",
+      "git_blob_sha1": "9a910153dee7309a26948ab2e2e4e60cb7a21daf",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/write_report.py",
+      "bytes": 12530,
+      "sha256": "ca92a5a1f9a56b29f521d709b469fa3d4793b1c0d1f9ed7eee80b17a4beb97d7",
+      "git_blob_sha1": "daf24262a19e09f3db09af2b740e496ff4048e94",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_hns/tests/test_core.py",
+      "bytes": 4009,
+      "sha256": "6eb9781d7480036cdc743277f05e7c12295a546924e98d533b1acd30c4a12934",
+      "git_blob_sha1": "3b19028e71087baa0c2ff0d800800a826b856792",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_host_scores/scripts/annotate_and_validate.py",
+      "bytes": 10824,
+      "sha256": "140b1e9b78c765e33feb04654a1575e3475bbfb6bd0709f83220f673dce27913",
+      "git_blob_sha1": "fbef8a64469ce5e274923759c161e8dcfa3b145c",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_host_scores/scripts/build_scores.py",
+      "bytes": 14977,
+      "sha256": "5832b43a121b5ad2117dbb52aad9ce08bd28d18d40b94e3e2b7f87073a052abd",
+      "git_blob_sha1": "c8ae0dae78c090320ac09402a1a23a525b8a4cc3",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_host_scores/scripts/score_core.py",
+      "bytes": 2389,
+      "sha256": "7a240323ef3a15eba8e90c086b4137a480ab3a27641be1487fe0a391ea3573d5",
+      "git_blob_sha1": "86ad08ae9cc841c4d1b663d0b37527ae2f5c283f",
+      "file_type": "py"
+    },
+    {
+      "path": "analysis/20261115_host_scores/tests/test_scores.py",
+      "bytes": 2323,
+      "sha256": "b661439680197a109991919a7d9e810eb30840e3b4b3dfab415b94c7d7f0a254",
+      "git_blob_sha1": "6561c8092514bf6875667838763cd30bc9a1784e",
+      "file_type": "py"
+    },
+    {
+      "path": "docs/RESULTS_20261114_NETWORK_ROBUSTNESS_PIERIDAE_FULL.md",
+      "bytes": 9180,
+      "sha256": "009f7ac978a47322783ca75db0252b2190adde9baca5215ab4bef98c05c29617",
+      "git_blob_sha1": "a59a26fb9a0efe528f022958b9568d4b19dff171",
+      "file_type": "md"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HNS_MACRO_FULL.md",
+      "bytes": 11734,
+      "sha256": "62ede12e77c05580677ab3fd38b20d121e443e7a774a88e1df53cedafafff7aa",
+      "git_blob_sha1": "cfd3407da15ac4f07225e3a5a9945b7f712a29e0",
+      "file_type": "md"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HOST_NUTRIENT_SCORES_FULL.md",
+      "bytes": 11053,
+      "sha256": "351dfd667b13b48abf234936593c8da28795b1e378e439f7a819e54c35b1a13d",
+      "git_blob_sha1": "26ab6dc0409a720d497e009b37f53296b1987f6b",
+      "file_type": "md"
+    },
+    {
+      "path": "results/20261115_sync/ADULT_FEEDING_EVIDENCE_CATALOGUE.csv",
+      "bytes": 4854,
+      "sha256": "c00d636da8e4de03662100c5a47787e9fcafedaf7115c17660f95ed11eabe295",
+      "git_blob_sha1": "2d88fd7c48cea3f4532e8d8f2cc718e161a16d00",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/BUTTERFLY_FAMILY_NETWORK_PREDICTION.csv",
+      "bytes": 2119,
+      "sha256": "874c83dcbd9d52938cdddc9f70c96e93c71c0681dd1166592da79e69ab0be1f6",
+      "git_blob_sha1": "0dc73f71de46af19ebd5bb4270842d74bdb68c2b",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/CHOCHO_230_HOST_NUTRIENT_SCORES.csv",
+      "bytes": 68633,
+      "sha256": "8ceb8beb4ae107a0c6d87c144a2ff2514f5f4847a0ba96f55adb5e6ffb61184c",
+      "git_blob_sha1": "06264143945a079fb006e813b50a134986f4b890",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/CROSS_CATALOGUE_HNS_COMPARISON.csv",
+      "bytes": 7425,
+      "sha256": "fa751f606574a9d9901ec021443e5cf0c7b36e0bd18c678d9df962e7097d96ff",
+      "git_blob_sha1": "1e8daeaa15b36682d0084730e8d1418a1f778c17",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/FAMILY_HOST_SCORE_SUMMARY.csv",
+      "bytes": 465,
+      "sha256": "9bfcce96afa589b2e75c57f66a2d9fbbb767e0d8a797146f9cdd25237f73fb9d",
+      "git_blob_sha1": "8b55b40ed3edbbf65c1fbc93f1d0ddf367b61c67",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/GESUI_303_HOST_NUTRIENT_SCORES.csv",
+      "bytes": 256411,
+      "sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+      "git_blob_sha1": "68972258774dfdf5c2c7f1a71803c4deff4c0db2",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/GESUI_HOST_NUTRIENT_SCORES.xlsx",
+      "bytes": 238349,
+      "sha256": "14570d7c276e17f7be3c12e5060ff363bb95538b67452161f77cf0de4983869d",
+      "git_blob_sha1": "34ddc5f1b71bf3c5d0fa77a4b5cdcd9373445c8f",
+      "file_type": "xlsx"
+    },
+    {
+      "path": "results/20261115_sync/HNS_GEOGRAPHY_AND_TEMPORAL.csv",
+      "bytes": 1118,
+      "sha256": "49233615c5813251277fe32263e2d963498ac61db4cc84dee61b637e23fd8bd0",
+      "git_blob_sha1": "f0999be295449c4915eaaebab3254aee1cb7c8bb",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/HNS_MODEL_SUMMARY.csv",
+      "bytes": 3018,
+      "sha256": "c2a9d8be7501026663c2744ffd672c0d70b9d17680c90c9dc2c66918ac0d852a",
+      "git_blob_sha1": "dc1b3c3487b061985fef759c79021e98d7abd370",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/HNS_SOURCE_INDEPENDENT_VALIDATION.json",
+      "bytes": 1148,
+      "sha256": "2c918e4ba534f288c1b7873b0b5556de4c97e8bfd4480154d68d486df10cd3f7",
+      "git_blob_sha1": "16c4d9ad59e78596cb07b4eeb4226dd213dbf365",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/HNS_TRAIT_SOURCE_QA.json",
+      "bytes": 1491,
+      "sha256": "cdbea9b2bd180942828d09f5d5bc8f57912823bfaa3352adf2fa33a6609a8e51",
+      "git_blob_sha1": "144cda8f7629aa9778e0cdf2f65d9010ecccadd2",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/PIERIDAE_SOURCE_AND_SPECIES_SENSITIVITY.csv",
+      "bytes": 1933,
+      "sha256": "13baf6ec66a891a76c80c9a5de4216fb6a078a25f8e6e9e3f364fbd574fab92d",
+      "git_blob_sha1": "bdf052bed822870a660749eb27c794e550cd0180",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/figures/H6_wastewater_prediction_gain.png",
+      "bytes": 87167,
+      "sha256": "5bcf1e05953ea6cfaf65c864533922fbe4ab56cb521df295f661fec36fd2f038",
+      "git_blob_sha1": "bbcffd8e669574d29da3bd2b33a7f491d9f25bce",
+      "file_type": "png"
+    },
+    {
+      "path": "results/20261115_sync/figures/HNS_macro_coefficients.png",
+      "bytes": 128261,
+      "sha256": "d1d858f416f727491f1025d8fec16dbcc16ba0dbf8886f98d305cc10a097ef9c",
+      "git_blob_sha1": "31782f5590963cd9de261727667d73877e4255c0",
+      "file_type": "png"
+    },
+    {
+      "path": "results/20261115_sync/figures/family_prediction_forest.png",
+      "bytes": 100147,
+      "sha256": "13e8fa482fd0eaac37a8657ada394a3883a658384276c7fdf389b912ef3dcf0b",
+      "git_blob_sha1": "94a5d632afd6c8a66cc1cdb56cabb5549b48dc10",
+      "file_type": "png"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/H7_454_HNS_panel.csv",
+      "bytes": 1235384,
+      "sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+      "git_blob_sha1": "ef11d33a942247d51fd11a19b3c8837631e895c6",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/INDEPENDENT_QA.json",
+      "bytes": 3826,
+      "sha256": "5adeda5cd315eb41a8e182b8b0d49584f4eae289c2ff49b9bfe7cd6a925d9e81",
+      "git_blob_sha1": "efb702a7ac3baace009d86fb630db4f9d0657312",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/SOURCE_QA.json",
+      "bytes": 3709,
+      "sha256": "2cbe1b7f7c68f6bea304479a44aab5e4381032c2632a69e3c34706801d146cce",
+      "git_blob_sha1": "71a0bfa692301e59e65bca16de346f3fc18d7462",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/descriptive.json",
+      "bytes": 432,
+      "sha256": "68ed82eec286a6ef7ae61feb74cf6e7abb61e41825b56e9113e62a824d2942f4",
+      "git_blob_sha1": "9554912715e0c5a86990f6880a06766c76c12921",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/diagnostic_results.json",
+      "bytes": 46017,
+      "sha256": "198bd2c3baccfb1f94b7b775c90d72408245402c77f28f0922bd01f8c536876f",
+      "git_blob_sha1": "b70c4aed74854e94235f7fb075a7b214e142df55",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/model_results.json",
+      "bytes": 117178,
+      "sha256": "7d1e7332b34af7c8d2a76e6ec3e42f1bcc1e18d8b93effd2f0799b2582b736f5",
+      "git_blob_sha1": "35469f6a8a84df2e9f5e06106a431684ffc9d30a",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/paired_222_H7_HNS_changes.csv",
+      "bytes": 694742,
+      "sha256": "63b95ec6c780281accf1a569ce5b22177ee10f9ea21889df03551f2a9cfcd578",
+      "git_blob_sha1": "aa7fdaac8b27c212756577d3f49b9ed7155882e5",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/network/H7_candidate_host_network_panel.csv",
+      "bytes": 264686,
+      "sha256": "3db52952a3443cf5b5e055653707f12dcea8d4d178951c6ec81fb335ddc5391d",
+      "git_blob_sha1": "76d05f5967be943a4c3ce9e5494dbea1e485dfc8",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/network/host_plant_candidate_contributions.csv",
+      "bytes": 56260,
+      "sha256": "2a7ea7fd1645fb456d95e472d60e324f8364e8556e7d77ed60447f4a8429d942",
+      "git_blob_sha1": "6ee4dfa7b57137cc61966a5346eca63137dc9f05",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/network/independent_numerical_source_QA.json",
+      "bytes": 657,
+      "sha256": "381676410f299d1757e67ca8cabfe1926fa6528279fcf51b2225d3c7b48391b4",
+      "git_blob_sha1": "77fbeb1007b8f3b52f0612f8d47575f195999755",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/network/model_comparison_summary.csv",
+      "bytes": 1735,
+      "sha256": "7c57fc07e2a4ee8fc2d4689ba1572bb9725eb61e80d12c86438027cf2a4a8d7d",
+      "git_blob_sha1": "ed67037504784945c72f390026ab92a4e7075f08",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/network/model_results.json",
+      "bytes": 48975,
+      "sha256": "a389b6e7d2180d0a98341346d154e0255eb9b829c7a786bc594916997b6e754c",
+      "git_blob_sha1": "56e205dd0ac49f78438e01d8ba13d0261f168deb",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/network/null_audit.json",
+      "bytes": 340,
+      "sha256": "9cf4cc34f2e628466c73cbd32adca7eb919befad89827a0f113c51b73749c45c",
+      "git_blob_sha1": "1184df003ba842f51d8e68f9086614b4edf06e85",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/network/summary.json",
+      "bytes": 2304,
+      "sha256": "0a2f086b60d071378b8115e155dd83676c7d473c1bee5be7bca2e650d3da13c6",
+      "git_blob_sha1": "a31a1efc3242e2524e845a3afe57f993517b954c",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/robustness/H7_454_Pieridae_composition_sensitivity.csv",
+      "bytes": 567544,
+      "sha256": "abe3191c884679ce3ab12354f09152ca27cd22263a257e7b8b23c15cd65ca7f1",
+      "git_blob_sha1": "97883ee79d3d43f85ac374829970698e6b7c41c8",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/robustness/H7_454_geographic_null_network_panel.csv",
+      "bytes": 410944,
+      "sha256": "accc387ca2300433fcfed1236d52a9cde8cfbf7d726ed2509eb0c95d7b5c0273",
+      "git_blob_sha1": "82377e39c64c9fc71721764dc713155bce3c0c55",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/robustness/QA.json",
+      "bytes": 2604,
+      "sha256": "5ef6286b40a47a866998f307edf3e637ae4c1f919d69406b48a95bc785db09f5",
+      "git_blob_sha1": "569e7e217058539559828ce9246175b7a4bec948",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/robustness/final_verification.json",
+      "bytes": 282,
+      "sha256": "56c5577fc0db95e67fb910c8f03bc96286234a577890eeeaa78af1baa8ba91ce",
+      "git_blob_sha1": "bd4cadf3de5f263dbf598ef758df920229b8f851",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/robustness/model_results.json",
+      "bytes": 66311,
+      "sha256": "631d28813b7269cfe6fc9313283ab92cd627ce8af10e82db8e3f47279ff4bc17",
+      "git_blob_sha1": "f45448cf20c26933b52f5c41beffc78780e01db0",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/robustness/pieridae_sensitivity.json",
+      "bytes": 19246,
+      "sha256": "291c7642ded01c0122605c7ed28fcfb0ca4725e7dfcd268e674d0b0a46554799",
+      "git_blob_sha1": "656388bb86f0c16198403a6c1788112edeef9d60",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/robustness/source_archive_QA.json",
+      "bytes": 1095,
+      "sha256": "72a555c8f78aab417a8c2dc7f116ead4863ff15050a39286d4b79616458e6844",
+      "git_blob_sha1": "e9040e560dc17770e4cd14ea1f5b760b2265e81d",
+      "file_type": "json"
+    },
+    {
+      "path": "results/20261115_sync/robustness/structural_robustness.csv",
+      "bytes": 55842,
+      "sha256": "c20673c3c79f6e9698c36085b7b46ed8d362df81d37b74e0a33fde266daa4d78",
+      "git_blob_sha1": "a569f35d62ccf746d63b3e8175b5e8ef2a75fdcd",
+      "file_type": "csv"
+    },
+    {
+      "path": "results/20261115_sync/robustness/structural_robustness.json",
+      "bytes": 159330,
+      "sha256": "baf3584acf30974273decef7c84f449bf18336520b1257e304979b4a967da5d9",
+      "git_blob_sha1": "9ccba85184caf794a2194591dc4983bc07360588",
+      "file_type": "json"
+    }
+  ]
+}
