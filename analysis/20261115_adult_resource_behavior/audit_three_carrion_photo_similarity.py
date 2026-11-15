@@ -98,7 +98,7 @@ def loadpix(photo):
         return {"photo_id":ident,"licence":lic,"status":"TEMPORARY_SOURCE_ONLY_IMAGE_FEATURES_COMPUTED",
                 "sha256_original_medium_photo_source":dig,"source_medium_pixel_dimensions":[im.width,im.height],
                 "pHash64":phash,"n_ORB_keypoints":len(kp) if kp else 0,
-                "_desc":desc}
+                "_desc":desc,"_kp_xy":np.float32([k.pt for k in kp]) if kp else np.empty((0,2),np.float32)}
     except Exception as e:
         return {"photo_id":ident,"licence":lic,"status":"ORIGINAL_LICENSED_PHOTO_PIXELS_UNAVAILABLE",
                 "error_type":type(e).__name__}
@@ -107,13 +107,23 @@ def match(a,b):
         return {"status":"NO_BOTH_SOURCE_IMAGE_FEATURES"}
     hd=sum(x!=y for x,y in zip(a["pHash64"],b["pHash64"]))
     k1=a.get("_desc");k2=b.get("_desc")
-    good=0
+    goodmatches=[]
     if k1 is not None and k2 is not None and len(k1)>1 and len(k2)>1:
         m=cv2.BFMatcher(cv2.NORM_HAMMING,crossCheck=False).knnMatch(k1,k2,k=2)
-        good=sum(pair[0].distance<0.7*pair[1].distance for pair in m if len(pair)==2)
+        goodmatches=[pair[0] for pair in m if len(pair)==2 and pair[0].distance<0.7*pair[1].distance]
+    geometric_inliers=0
+    if len(goodmatches)>=8:
+        axy=a["_kp_xy"];bxy=b["_kp_xy"]
+        src=np.float32([axy[v.queryIdx] for v in goodmatches]).reshape(-1,1,2)
+        dst=np.float32([bxy[v.trainIdx] for v in goodmatches]).reshape(-1,1,2)
+        homography,mask=cv2.findHomography(src,dst,cv2.RANSAC,5.0)
+        if homography is not None and mask is not None:
+            geometric_inliers=int(mask.ravel().sum())
     return {"status":"COMPUTABLE_SOURCE_FEATURE_DISTANCE_NOT_SAME_EVENT_PROOF",
             "pHash64_hamming":hd,
-            "ORB_Lowe_ratio0p7_matching_keypoint_count":int(good),
+            "ORB_Lowe_ratio0p7_matching_keypoint_count":int(len(goodmatches)),
+            "ORB_RANSAC_5px_homography_inliers":geometric_inliers,
+            "ORB_RANSAC_inlier_fraction":round(geometric_inliers/len(goodmatches),4) if goodmatches else None,
             "automatic_same_butterfly_or_carcass_identity_unproven":True}
 def main(args):
     obs,sha=exact_cases()
@@ -139,7 +149,7 @@ def main(args):
     for i,j in combinations([260028346,260028363,260029204],2):
         pairs.append({"original_photo_ids":[i,j],**match(images[i],images[j])})
     # No image features output where they could enable unintended reconstruction
-    image_out=[{k:v for k,v in feat.items() if k not in ("_desc","pHash64")} for feat in images.values()]
+    image_out=[{k:v for k,v in feat.items() if k not in ("_desc","_kp_xy","pHash64")} for feat in images.values()]
     source={"schema":"GESUI_I_NAT_3_ANIMAL_REMAINS_PHOTO_FEATURES_AND_ORIGINAL_SITE_QA_V1",
        "source_api":"https://api.inaturalist.org/v2/observations",
        "original_three_source_response_SHA256":sha,
