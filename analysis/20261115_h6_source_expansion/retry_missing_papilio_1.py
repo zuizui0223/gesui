@@ -16,7 +16,7 @@ from gesui_H7_original_fivefamily_plants_speciesKey_retention import task,FAMILI
 
 MISSING=("2070055610","2017-2019","Papilionidae")
 WKT_SHA="47f597e0a798cd6155ee9fb69ce8916ed5629951d046d114feb9f667963310e4"
-TAXA_SHA="afc524ebfa353e4d1c6ea51d208ba529a85fedb57c4f0d28d83545010bb76189"
+TAXA_SHA="afc524ebfa353e4d1c6ea51d208ba529a85fedb57c4d0f28d83545010bb76189"
 QA_SCHEMA="GESUI_SOURCE_ONLY_30_NEW_H7_2ERA_SIX_ORIGINAL_FACET_ACQUISITION_V1"
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def one(base,name):
