@@ -42,6 +42,13 @@ jobs:
           python analysis/20261115_hns_family_taxon/analyse.py \
             --inputdir analysis/20261115_hns_family_taxon/download \
             --output results/20261115_hns_family_taxon
+      - name: Test taxon leverage, family effort and trait-score uncertainty on identical originals
+        run: |
+          export OPENBLAS_NUM_THREADS=1
+          export OMP_NUM_THREADS=1
+          python analysis/20261115_hns_family_taxon/sensitivity.py \
+            --inputdir analysis/20261115_hns_family_taxon/download \
+            --output results/20261115_hns_family_taxon
       - uses: actions/upload-artifact@v4
         with:
           name: gesui-h7-family-species-attribution-20261115
@@ -49,4 +56,6 @@ jobs:
             results/20261115_hns_family_taxon/FAMILY_HNS_ATTRIBUTION_RESULTS.json
             results/20261115_hns_family_taxon/FAMILY_HNS_ATTRIBUTION_SUMMARY.csv
             results/20261115_hns_family_taxon/SPECIES_W_SLOPE_ATTRIBUTION.csv
+            results/20261115_hns_family_taxon/FAMILY_TAXON_EFFORT_SENSITIVITY.json
+            results/20261115_hns_family_taxon/ALL_186_TAXON_LEAVE_ONE_OUT.csv
           if-no-files-found: error
