@@ -1,0 +1,58 @@
+{
+  "schema": "GESUI_20261115_CROSSLAYER_H6_RESIDUAL_NONCAUSAL_V1",
+  "provenance": {
+    "source_panel_sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "source_rows": 454,
+    "source_H7": 232,
+    "source_H6": 90,
+    "countries": 15,
+    "modelled_W_not_delivered_effluent": true,
+    "script_runtime_validation": "not yet verified"
+  },
+  "method": "H6-equal within-sample WLS residuals after original covariates; H6 mean r and fixed-residual 1000-draw H6 bootstrap; exploratory not mediation",
+  "pairs": {
+    "EQR__HNS_record": {
+      "r": -0.12999761313072666,
+      "bootstrap95": [
+        -0.30243186483468126,
+        0.057882902221103254
+      ],
+      "row_H6_equal_r": -0.14717187929972167,
+      "fr_h6_r": -0.28906170167893774,
+      "nonfr_h6_r": -0.03093833800057948
+    },
+    "plant_S50__HNS_record": {
+      "r": -0.1959403651005253,
+      "bootstrap95": [
+        -0.3831556535269939,
+        0.03706628842138405
+      ],
+      "row_H6_equal_r": -0.20775719108317273,
+      "fr_h6_r": -0.23971502157259886,
+      "nonfr_h6_r": -0.15193035973653196
+    },
+    "EQR__plant_S50": {
+      "r": 0.16155974388411906,
+      "bootstrap95": [
+        -0.0608164685251716,
+        0.3675221786340664
+      ],
+      "row_H6_equal_r": 0.1002963525081976,
+      "fr_h6_r": -0.09173991757939556,
+      "nonfr_h6_r": 0.36125324464474456
+    },
+    "EQR__HNS_incidence": {
+      "r": -0.09969056102393635,
+      "bootstrap95": [
+        -0.29408371631006347,
+        0.07052471733326744
+      ],
+      "row_H6_equal_r": -0.16902770402550066,
+      "fr_h6_r": -0.13919484996049955,
+      "nonfr_h6_r": -0.0645326087158957
+    }
+  },
+  "uncertainty": "descriptive fixed-residual; refit and model-selection uncertainty not covered; no multiplicity correction",
+  "inference": "no stable H6-level cross-response residual Pearson after environmental controls",
+  "causal_SEM_fitted": false
+}
