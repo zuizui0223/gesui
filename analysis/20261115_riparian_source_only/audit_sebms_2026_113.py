@@ -298,6 +298,7 @@ def main():
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(result,indent=2,sort_keys=True,ensure_ascii=False,allow_nan=False)+"\n",encoding="utf-8")
     print("GESUI_SEBMS_SOURCE_ONLY="+json.dumps(result,sort_keys=True,ensure_ascii=False,separators=(",",":")),flush=True)
+    print("GESUI_SEBMS_POINT_SITE_CSV="+a.point_sites_output.read_text(encoding="utf-8").replace("\n","\\n"),flush=True)
 
 
 if __name__=="__main__": main()
