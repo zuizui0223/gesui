@@ -1,0 +1,27 @@
+name: EEA WISE6 Discodata source query syntax diagnostic
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-sql-compat.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Probe source SQL syntax and 2022 data access without any biological response
+        run: python scripts/gesui_20261115_probe_wise6_sql_compat.py
+      - name: Archive negative or positive source compatibility receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-eea-wise6-2026-sql-compat-probe
+          path: ${{ runner.temp }}/gesui_wise6_query_syntax/
+          retention-days: 90
+          if-no-files-found: warn

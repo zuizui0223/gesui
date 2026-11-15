@@ -1,0 +1,27 @@
+name: EEA 2026 water-quality public share file index source-only probe
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-eea-nextcloud-metadata.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check only EEA public share HTML metadata and WebDAV file index, no 4.3GB corpus
+        run: python scripts/gesui_20261115_eea_public_share_file_index.py
+      - name: Save bounded public original metadata receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-eea-2026-public-share-publisher-file-index
+          path: ${{ runner.temp }}/gesui_EEA_2026_public_share_metadata/
+          retention-days: 90
+          if-no-files-found: warn

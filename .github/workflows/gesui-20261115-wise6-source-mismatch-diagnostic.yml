@@ -1,0 +1,40 @@
+name: EEA WISE6 source-only exact site TNTP missingness stage diagnostic
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-source-mismatch-diagnostic.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-missingness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Recover frozen positive-site pilot selected original source IDs and receipts
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43677752344
+          name: gesui-wise6-2026-true-reported-source-original-site-TNTP-pilot
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_pilot
+      - name: Diagnose first 4 source-available sites per calendar year using raw first-party source records only
+        env:
+          ORIGINAL_SELECTED_PILOT_DIR: ${{ runner.temp }}/original_pilot
+        run: |
+          python -m py_compile scripts/gesui_20261115_wise6_source_mismatch_diagnostic.py
+          python scripts/gesui_20261115_wise6_source_mismatch_diagnostic.py
+      - name: Preserve original observed station ID, year and determinand source row-count failure reasons
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-wise6-source-only-site-year-nutrient-failure-reasons
+          path: ${{ runner.temp }}/gesui_20261115_wise6_stage_diagnostics/
+          retention-days: 90
+          if-no-files-found: warn

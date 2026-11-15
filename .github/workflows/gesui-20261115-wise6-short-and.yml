@@ -1,0 +1,27 @@
+name: EEA WISE6 short two-predicate same-station nutrient source audit
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-short-and.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Probe actual known TN TP station source with one and two SQL WHERE keys
+        run: python scripts/gesui_20261115_wise6_short_and.py
+      - name: Preserve complete original-source responses and blocked request receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-eea-wise6-2026-two-predicate-NP-source
+          path: ${{ runner.temp }}/gesui_wise6_and_probe/
+          retention-days: 90
+          if-no-files-found: warn

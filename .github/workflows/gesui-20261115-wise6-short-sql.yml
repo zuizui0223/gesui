@@ -1,0 +1,27 @@
+name: EEA WISE6 short SQL same site source access diagnostic
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-short-sql.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run shortest original-site or nutrient-code SQL predicates
+        run: python scripts/gesui_20261115_wise6_short_sql.py
+      - name: Save successful and blocked original query receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-wise6-short-sql-exact-site-code-access
+          path: ${{ runner.temp }}/gesui_wise6_shortsql/
+          retention-days: 90
+          if-no-files-found: warn

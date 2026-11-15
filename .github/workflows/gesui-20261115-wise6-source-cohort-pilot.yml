@@ -1,0 +1,58 @@
+name: EEA WISE6 same-original EQR station actual 2018 2022 TN TP source pilot
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-source-cohort-pilot.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch SHA-frozen original EEA monitoring site-to-H7 source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          repository: zuizui0223/gesui
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/study_sites
+      - name: Fetch SHA-frozen original 454 H7 environmental panel (IDs only used)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          repository: zuizui0223/gesui
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/study_454
+      - name: Fetch official 2018 2022 EEA reported NP original H7 source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          repository: zuizui0223/gesui
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/reported_nutrients
+      - name: Attempt only deterministic original EEA native station IDs; preserve missing as missing
+        env:
+          ORIGINAL_H7_454_DIR: ${{ runner.temp }}/study_454
+          ORIGINAL_EEA_SITE_H7_MAP_DIR: ${{ runner.temp }}/study_sites
+          ORIGINAL_REPORTED_NP_DIR: ${{ runner.temp }}/reported_nutrients
+        run: |
+          python -m py_compile scripts/gesui_20261115_wise6_native_site_np_pilot.py
+          python scripts/gesui_20261115_wise6_native_site_np_pilot.py
+      - name: Preserve strict same-station chemistry source receipts even for zero support
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-original-EEA-2018-2022-site-TN-TP-coverage-pilot
+          path: ${{ runner.temp }}/gesui_wise6_native_pilot/
+          retention-days: 90
+          if-no-files-found: warn

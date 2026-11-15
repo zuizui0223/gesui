@@ -1,0 +1,28 @@
+name: EEA 2026 ICM actual public share initial-state & DAV index
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-eea-public-share-index.yml"
+      - "scripts/gesui_20261115_eea_actual_public_share_index.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Recover bounded public source file names from EEA share and DAV metadata
+        run: python scripts/gesui_20261115_eea_actual_public_share_index.py
+      - name: Preserve verified publisher original index and source access status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2026-waterquality-public-share-files-and-size-index
+          path: ${{ runner.temp }}/gesui_EEA_2026_public_file_index/
+          retention-days: 90
+          if-no-files-found: warn

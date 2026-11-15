@@ -1,0 +1,27 @@
+name: EEA 2026 WISE6 disaggregated same-original-station nutrient source pilot
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-disaggregated-pilot.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Probe original 2018 and 2022 EEA site annual water-quality sample table
+        run: python scripts/gesui_20261115_probe_wise6_disaggregated_sites.py
+      - name: Preserve official source row counts, native site scheme and source errors
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-wise6-2026-sample-original-site-year-source-pilot
+          path: ${{ runner.temp }}/gesui_wise6_disagg_pilot/
+          retention-days: 90
+          if-no-files-found: warn

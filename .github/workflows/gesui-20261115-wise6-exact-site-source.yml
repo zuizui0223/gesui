@@ -1,0 +1,50 @@
+name: EEA 2026 WISE6 exact original biological monitoring-site source preflight
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-wise6-exact-site-source.yml"
+      - "scripts/gesui_20261115_probe_wise6_same_station.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download original 3525 EEA BQE station-year identities and true H7 source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/orig_stations
+      - name: Download fixed 454 H7 biology and butterfly study cohort IDs
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43215754868
+          name: gesui-EU234-H7-three-outcome-static-WWTP-observational-macro
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/orig454
+      - name: Check first-party Discodata schema and pilot exact EEA site IDs
+        env:
+          ORIGINAL_H7_454_DIR: ${{ runner.temp }}/orig454
+          ORIGINAL_EEA_SITE_H7_MAP_DIR: ${{ runner.temp }}/orig_stations
+        run: |
+          python -m py_compile scripts/gesui_20261115_probe_wise6_same_station.py
+          python scripts/gesui_20261115_probe_wise6_same_station.py
+      - name: Save source access receipts including any blockers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-eea-wise6-2026-original-station-access
+          path: ${{ runner.temp }}/gesui_wise6_source_probe/
+          if-no-files-found: warn
+          retention-days: 90

@@ -1,0 +1,27 @@
+name: EEA 2026 Water Quality original publisher source file inventory without bulk download
+on:
+  push:
+    paths:
+      - ".github/workflows/gesui-20261115-eea-2026-publisher-inventory.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Inspect publisher WebDAV file names and size without downloading 4.3 GB data
+        run: python scripts/gesui_20261115_eea_2026_publisher_inventory.py
+      - name: Preserve first-party public source filename and SHA receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-EEA-2026-water-quality-original-publisher-file-inventory
+          path: ${{ runner.temp }}/gesui_WQ2026_source_inventory/
+          retention-days: 90
+          if-no-files-found: warn
