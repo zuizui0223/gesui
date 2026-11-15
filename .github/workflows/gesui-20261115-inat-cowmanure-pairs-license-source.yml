@@ -1,0 +1,43 @@
+name: GESUI 2018 Lyca Papilio two cow manure observation source-licence gate
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_adult_resource_behavior/audit_cowmanure2018_pairs.py
+      - .github/workflows/gesui-20261115-inat-cowmanure-pairs-license-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cowmanure-original-source-only-no-photo-artifact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install local temporary photo-feature backend for licensed media only
+        run: python -m pip install --quiet "numpy>=1.26,<3" "opencv-python-headless>=4.9,<5" "Pillow>=10,<12"
+      - name: Validate same-date same-observer source and noncommercial CC BY NC image features only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_adult_resource_behavior/audit_cowmanure2018_pairs.py \
+            --output results/20261115_adult_resource_behavior/INAT_2018_LYCA_PAPILIO_COWMANURE_PAIR_SOURCE_QA.json
+          python - <<'PY'
+          import json
+          d=json.load(open('results/20261115_adult_resource_behavior/INAT_2018_LYCA_PAPILIO_COWMANURE_PAIR_SOURCE_QA.json'))
+          assert d['n_original_annotated_observations']==4 and d['n_original_owner_day_clusters']==2
+          assert d['family_source_only_pairs']['Lycaenidae']['photo_pixels_downloaded'] is False
+          assert d['all_original_photo_pixels_absent_from_results']
+          assert d['no_proboscis_or_feeding_visual_confirmation']
+          assert d['no_sewage_exposure_or_nutrient_concentrations']
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-dung-original-2018-two-licensed-scene-pairs-sourceonly
+          path: results/20261115_adult_resource_behavior/INAT_2018_LYCA_PAPILIO_COWMANURE_PAIR_SOURCE_QA.json
+          if-no-files-found: error
+          retention-days: 30
