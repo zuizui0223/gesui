@@ -43,3 +43,58 @@ The authoritative iNaturalist help states observation fields can be user-created
 - **B3, trophic transfer:** A fish carcass resource may attract adults directly regardless of wastewater; this cross-subsidy requires documented fish mortality/resources and feeding, not merely river fish, faeces or raw iNat photograph proximity.
 
 **Status:** Original field metadata established. Additional source-tagged observation audit is nonconfirmatory and must honestly report sample/census limits; no biological sewage effect, no field protocol equivalence, no claims of adult nutritional dependency. No eBird or TinyFish.
+
+
+## FULL source census achieved — actual 746 iNaturalist field500 annotations
+
+**New original source result** — [GitHub Actions original-source census #43703011984 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43703011984); [SHA-checked source-result archive #43703509062 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43703509062). Reproducible [observation / taxonomic-family annotation reader](../analysis/20261115_adult_resource_behavior/audit_inat_puddling_substrate_original_obs.py), [exact original-field 97-name definition audit](../results/20261115_adult_resource_behavior/INAT_ADULT_FIELD_DEFINITIONS_SOURCE_ONLY.json), and [original observed 746 field500 source census with family×substrate, observer-concentration and HTTP receipts](../results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json).
+
+The iNaturalist public API at analysis time reported **746 observations whose original user-generated annotation field500 was populated**; **all 746 distinct original observation IDs were retrieved and source field-ID content individually matched**, not just the first 80. No photograph content, observation owner's personal identity, precise GPS or HNS source values are republished. Standard scientific family membership was derived from original iNaturalist taxon authority ancestor IDs. This is the **universe of that field's available public annotations**, NOT the universe of global butterfly feeding, puddling, or exposed habitats.
+
+### Source field500 free-text substrate labels (all 746 annotations)
+
+| Provisional raw-text substrate bin, NOT photo-validated behavior | Original annotations | % of 746 |
+|---|---:|---:|
+| Mud, soil, sand, clay or silt | **426** | 57.10% |
+| Rock, gravel, pebbles | **73** | 9.79% |
+| Dung / animal faeces or droppings | **46** | 6.17% |
+| Carrion/dead-organism regex labels | **3** | 0.40% |
+| Urine / sweat / explicit saline | **5** | 0.67% |
+| Water only | **18** | 2.41% |
+| Text clearly mixing two substrate classes | **41** | 5.50% |
+| Unclassifiable free text | **134** | 17.96% |
+| **Total** | **746** | **100.00%** |
+
+There were **204 distinct unstandardized free-text values**. Many records include words like "road", "tree sap", "stream", "fruit" or "animal remains", which may not be captured by the conservative pre-written regex, so these bins are neither validated substrate types nor proof of actual nutrient absorption. Specifically, "animal remains" without a regex-matched carrion keyword can fall into unclassified; the n=3 in carrion is **not a biological prevalence estimate or a proven upper bound**. The **175 mixed/unclassified labels** represent 23.46% of source annotations. Photograph-based curation must be implemented before comparing actual organic-resource use.
+
+### Family × provisional substrate from all original 746 observations
+
+| iNat taxon authority butterfly family | All source-tagged | Mud/soil/sand | Rock/gravel | Dung/faeces | Carrion regex | Mixed/unclassified | Other annotated |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **Lycaenidae** | **200** | 137 | 16 | 9 | 0 | 33 | 5 |
+| Nymphalidae | 300 | 143 | 33 | 24 | 2 | 88 | 10 |
+| Papilionidae | 115 | 61 | 13 | 6 | 0 | 30 | 5 |
+| Pieridae | 64 | 51 | 1 | 0 | 0 | 11 | 1 |
+| Hesperiidae | 48 | 22 | 8 | 5 | 1 | 10 | 2 |
+| Riodinidae | 6 | 4 | 1 | 0 | 0 | 1 | 0 |
+| Other/unclassified | 13 | 8 | 1 | 2 | 0 | 2 | 0 |
+| **Total** | **746** | **426** | **73** | **46** | **3** | **175** | **23** |
+
+**Scientific limitation: DO NOT interpret dung 9/200 for Lycaenidae versus 24/300 for Nymphalidae as biological family substrate preference, nutrient requirements, or absence of carrion feeding.** The original iNat field is independently user-filled and incomplete, and most butterfly observations do NOT receive these fields. The current family denominator is a set of **annotated public sightings**, not standardized samples with substrate choice and available sites. The observation owner's original public IDs were used internally only for concentration QA; they are not republished. One observer accounts for **20.64%** and the **five most active observers 50.27%** of the entire 746-annotation dataset (**181 distinct observation-owner IDs**). Counts may reflect a handful of photograph-focused contributors and their locality/season.
+
+### Two other fields are NOT independent confirmation
+
+- Original field17428 ("Lepidopterans aggregating/Roosting/mud puddling") currently has **665 public matching observations** by API search (a stale website scrape showed fewer). Its name and definition explicitly allow resting, aggregation and even actively seeking nectar; **affirmative is not proboscis intake**. Only the first 30 older observations were checked for taxonomy; do not treat their 25 Pieridae etc as family totals.
+- Field16376 covers all insects/organisms and has **24,479** source observations; only **20** oldest were inspected; this cannot establish puddling in butterflies without taxonomic restriction plus human photo verification. Field18609 "Behavior: Consuming carrion" had only **six** source records, none confirmed as butterflies by iNat current family ancestry. A different field on carcass use may exist; this is not a global absence statement.
+
+### Result and next admissible ecological inference
+
+**Original data establish a documented adult substrate-niche axis, not a wastewater subsidy effect.** Public annotations include several natural wet and organic substrates and a classifiable multi-family source cohort. But the expected Lycaenidae-specific organic subsidy from tropical bait choice experiments is **NOT replicated or falsified** by this self-selected annotation set, because platform users did not record all nonpuddling butterflies, substrate availability, sex, independent individuals, source nutrient concentrations or unbiased site visits. Evidence of feeding by a fish carcass also cannot be inferred from the field text alone.
+
+A defensible next independent macro analysis would:
+1. Obtain photo/video verification for original adult proboscis feeding and explicit substrate, including negative controls where adults are photographed but not feeding; annotate substrate as mud/sand, feces, verified carcass, urine/salt, fruit/sap etc; independent two-reader coding and uncertainty required.
+2. Calculate **within-observer, season, location and availability strata** a difference in verified substrate choice among butterfly families *only where sampling opportunity for alternative substrates is documented*; do not report global puddling propensity from absence of field500.
+3. Separately test whether observed **source-specific receiving-water nutrient/Na/organic-solute** concentrations and outfall-direction geography predict substrate-use within matched riparian sites; H7 geographical W index alone is not nutrient dose, and original 2022 fine-site butterfly study remains source-gated.
+4. Keep larval HNS positive macro association and adult annotated resource use as **distinct testable paths**, not a causal path analysis without joint measurement.
+
+This full census is explicitly **exploratory original-data annotation/source-quality work**, not a new confirmatory ecological test. All previous HNS and other null results remain untouched, and there is no sewage/biomass/ecosystem-services causal conclusion. Keep Draft PR #95; no new PR/branch, no merge to main/chocho, no eBird/TinyFish.
