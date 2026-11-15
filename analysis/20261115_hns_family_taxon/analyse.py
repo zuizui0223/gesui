@@ -29,6 +29,7 @@ from multilayer import cv_add_value, _matrix
 FAMS = ["Hesperiidae", "Lycaenidae", "Nymphalidae", "Papilionidae", "Pieridae"]
 SCORES_SHA256 = "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb"
 SOURCE_ZIP_SHA256 = "4b37c741d1bd28c178b0cef61c9457af0dd30797c173f9384ebe1d1d0036d07c"
+SOURCE_JSON_SHA256 = "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4"
 ORIGINAL_MEMBER = "GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json"
 MIN_SCORED_RECORDS = 10
 MIN_SCORED_SPECIES = 2
@@ -56,8 +57,8 @@ def find_source(folder: Path):
         raise RuntimeError("Expected one source JSON in original archived artifact, found " +
                            str([(str(x[0]), x[1]) for x in found]))
     p, member, data, digest = found[0]
-    if member and digest != SOURCE_ZIP_SHA256:
-        raise RuntimeError("Original field-facet archive SHA256 mismatch: " + digest)
+    if digest != (SOURCE_ZIP_SHA256 if member else SOURCE_JSON_SHA256):
+        raise RuntimeError("Original source-frozen field-facet bytes SHA256 mismatch: " + digest)
     if len(data) != 2808 or any(x.get("source_status") != "ok" for x in data):
         raise RuntimeError("Original 234×2×6 facet counts/statuses invalid")
     return p, member, data, digest
@@ -353,6 +354,8 @@ def main(args):
                                    "gain":out["family_within_means"][f].get("record_mean_"+f,{}).get("H6_holdout_W_added_value",{}).get("H6_equal_MSE_gain_percent")}
                                 for f in FAMS},
          "top5_species":species[:5]},allow_nan=False),flush=True)
+    print("FULL_H7_FAMILY_TAXON_JSON="+json.dumps(out,ensure_ascii=False,allow_nan=False,separators=(',',':')),flush=True)
+    print("FULL_H7_SPECIES_ATTRIBUTION_CSV="+(args.output/"SPECIES_W_SLOPE_ATTRIBUTION.csv").read_text().replace("\n","\\n"),flush=True)
     return out
 
 
