@@ -1,0 +1,48 @@
+{
+  "original_UID": 1094,
+  "HUC8": 693,
+  "states": 47,
+  "run_id": 43710412210,
+  "artifact_id": 14160322071,
+  "original_action_success": true,
+  "geo_np_MSE": 0.04337501390606837,
+  "plus_phab_MSE": 0.03953389973141079,
+  "plus_biofilm_MSE": 0.03952381585692964,
+  "PHAB_extra_MSE_gain_percent": 8.855591799868424,
+  "PHAB_fixed95": [
+    4.65355345476109,
+    12.812399394580634
+  ],
+  "Chla_AFDM_extra_MSE_gain_percent": 0.025506905591548067,
+  "Chla_AFDM_fixed95": [
+    -0.8556831170475024,
+    0.8462486767131405
+  ],
+  "TN_Chla_a": 0.21244631170714445,
+  "TN_Chla_95": [
+    0.07914779633428967,
+    0.3457448270799969
+  ],
+  "Chla_EPT_b": 0.0015612405732774726,
+  "Chla_EPT_95": [
+    -0.020547715225053696,
+    0.023670196371608405
+  ],
+  "AFDM_EPT_b": -0.014227470109927184,
+  "AFDM_EPT_95": [
+    -0.03749315312342805,
+    0.009038212903574176
+  ],
+  "TN_product_sum": -0.0006519399023153529,
+  "TN_product_500HUC95": [
+    -0.005085524678396826,
+    0.0031244840662632183
+  ],
+  "TP_product_sum": 0.0003802717877866707,
+  "TP_product_500HUC95": [
+    -0.001057851493907307,
+    0.0024583026575501227
+  ],
+  "label": "exploratory observational statistical coefficient products not causal mediation",
+  "sewage_exposure_identified": false
+}
