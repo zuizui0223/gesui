@@ -1,0 +1,113 @@
+{
+  "all_original_photo_pixels_NOT_DOWNLOADED_OR_VIEWED": true,
+  "all_tagged_distinct_observer_days": 473,
+  "baseline_746_original_JSON_git_blob": "6fbc3358dc21b466afd2edbcd6a1182bb3797bbf",
+  "carrion_candidate_annotated_observations": 3,
+  "carrion_candidate_distinct_observer_days": 2,
+  "carrion_candidate_distinct_observers": 2,
+  "carrion_candidate_rows": [
+    {
+      "original_observation_url": "https://www.inaturalist.org/observations/150764924",
+      "original_value": "animal remains",
+      "photo_count_metadata": 1,
+      "photo_pixel_review_status": "NOT_INSPECTED",
+      "proboscis_contact_status": "NOT_INSPECTED",
+      "same_observer_same_day_as_other_two": true,
+      "shares_identical_photos_with_other_two": false,
+      "year": "2015"
+    },
+    {
+      "original_observation_url": "https://www.inaturalist.org/observations/150764928",
+      "original_value": "animal remains",
+      "photo_count_metadata": 2,
+      "photo_pixel_review_status": "NOT_INSPECTED",
+      "proboscis_contact_status": "NOT_INSPECTED",
+      "same_observer_same_day_as_other_two": true,
+      "shares_identical_photos_with_other_two": false,
+      "year": "2015"
+    },
+    {
+      "original_observation_url": "https://www.inaturalist.org/observations/367297297",
+      "original_value": "carcass of amphibian",
+      "photo_count_metadata": 1,
+      "photo_pixel_review_status": "NOT_INSPECTED",
+      "proboscis_contact_status": "NOT_INSPECTED",
+      "same_observer_same_day_as_other_two": false,
+      "shares_identical_photos_with_other_two": false,
+      "year": "2026"
+    }
+  ],
+  "inverse_simpson_effective_observation_owners": 13.965,
+  "n_both_fam_observers_equal_ly_nymph": 10,
+  "n_both_fam_observers_negative_ly_minus_nymph": 8,
+  "n_both_fam_observers_positive_ly_minus_nymph": 0,
+  "n_full_original_field500_observations": 746,
+  "n_observations_with_at_least_one_reused_photo_id": 6,
+  "n_organic_original_tagged_observations": 78,
+  "n_original_owners_with_both_Lyca_Nymph": 18,
+  "n_original_owners_with_both_families_and_organic_mineral": 8,
+  "n_owners_with_any_organic_field_record": 35,
+  "n_photo_ids_including_secondary_photos": 1642,
+  "n_shared_photo_ids_across_distinct_original_observations": 3,
+  "no_original_HNS_WWTP_or_nutrient_exposure_assessed": true,
+  "no_personal_id_or_coordinates_in_output": true,
+  "observation_day_clusters_without_location_not_independent_resource_events": true,
+  "observer_equal_leave_one_owner_out_range": [
+    -0.103648,
+    -0.074236
+  ],
+  "observer_equal_mean_Ly_minus_Nymph_organic_ANNOTATION_share": -0.09789,
+  "organic_annotated_distinct_observer_days": 62,
+  "original_78_photo_queue_git_blob": "fb1be650a70283513203f96ebd260ab2619a7d92",
+  "original_HTTP_response_SHA256_by_page": [
+    {
+      "items": 100,
+      "page": 1,
+      "source_response_SHA256": "ac4889aaab1e46370261986ee8b5d10faef2fd9048d9c9cace88de37649fa0af"
+    },
+    {
+      "items": 100,
+      "page": 2,
+      "source_response_SHA256": "b0bf3e7da74c8f3977e9c94e5117e5a002bb9349e93b3fae686233bf0cf1f42c"
+    },
+    {
+      "items": 100,
+      "page": 3,
+      "source_response_SHA256": "86d353ab3045673851bcaeb15c8ed3309913c62fdef07b5fbc27adeeaa829642"
+    },
+    {
+      "items": 100,
+      "page": 4,
+      "source_response_SHA256": "c42b40a4f9cabf4118e5fc6a9ac259432e5c3165c8231fe45a3c9837111fec51"
+    },
+    {
+      "items": 100,
+      "page": 5,
+      "source_response_SHA256": "fc2b2e072c6d36f6c384725f78d2efe83160a7ecb85659a4eb429bcd80eaead6"
+    },
+    {
+      "items": 100,
+      "page": 6,
+      "source_response_SHA256": "5819a6ee53967c80476e202aaf2ff4b52b2e98d1a6957c59b0715295864da769"
+    },
+    {
+      "items": 100,
+      "page": 7,
+      "source_response_SHA256": "a70e441bc8c1afb4ec21d84beabbb0352045f88085d92aff50c3b11f3d7d64d2"
+    },
+    {
+      "items": 46,
+      "page": 8,
+      "source_response_SHA256": "61764072e9c7422d3b03efa2d731bed66d7834ca3495524f0e6025154625edc3"
+    }
+  ],
+  "original_carrion_from_text_not_visually_verified": true,
+  "original_photo_link_healthy_not_tested": true,
+  "owner_stratified_label_association_NOT_preference_or_wastewater_effect": true,
+  "photo_ID_reuse_proves_observation_images_reused_not_same_individual": true,
+  "schema": "GESUI_20261115_FIELD500_746_ORIGINAL_PHOTO_AND_OBSERVERDAY_NONINDEPENDENCE_V1",
+  "source_owner_n_records_top1": 154,
+  "source_unique_observation_owners": 181,
+  "sparse_original_API": "https://api.inaturalist.org/v2/observations",
+  "status": "EXPLORATORY_SOURCE_DATA_INDEPENDENCE_AND_OBSERVER_QA_ONLY"
+}
