@@ -1,0 +1,64 @@
+name: GESUI archive verified 2022 country-source metadata results
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - .github/workflows/gesui-20261115-archive-other-countries-source-results.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  save-original-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43695886459
+          name: gesui-2022-additional-country-GBIF-dataset-registry-sourceonly
+          repository: zuizui0223/gesui
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-2022-GBIF-registry
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43696277771
+          name: gesui-2022-DK-BE-original-event-source-only
+          repository: zuizui0223/gesui
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-2022-event-gate
+      - name: Byte-identical QA, then copy original source-only numerical results
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "61129d75639fe7976ee6814b8d73010298da03af164b461998247b34493d08bd  /tmp/gesui-2022-GBIF-registry/GBIF_2022_OTHER_COUNTRY_DATASET_REGISTRY_SOURCE_ONLY.json" | sha256sum -c -
+          echo "67833bc0d29fc966df7b77913a23279c50cc9e2a452dd8df3edf5e6124110e22  /tmp/gesui-2022-event-gate/DK_BE_2022_ORIGINAL_EVENT_ONLY_GATE.json" | sha256sum -c -
+          mkdir -p results/20261115_riparian_source_only
+          cp /tmp/gesui-2022-GBIF-registry/GBIF_2022_OTHER_COUNTRY_DATASET_REGISTRY_SOURCE_ONLY.json results/20261115_riparian_source_only/
+          cp /tmp/gesui-2022-event-gate/DK_BE_2022_ORIGINAL_EVENT_ONLY_GATE.json results/20261115_riparian_source_only/
+          python - <<'PY'
+          import json
+          a=json.load(open("results/20261115_riparian_source_only/GBIF_2022_OTHER_COUNTRY_DATASET_REGISTRY_SOURCE_ONLY.json"))
+          b=json.load(open("results/20261115_riparian_source_only/DK_BE_2022_ORIGINAL_EVENT_ONLY_GATE.json"))
+          assert a["n_registry_metadata_available"]==11 and not a["GBIF_event_occurrence_or_species_results_queried"]
+          assert len(b["results"])==2 and not b["primary_HNS_test_ran"]
+          assert b["frozen_primary_status"]=="STOP_SOURCE_OPPORTUNITY_NOT_VERIFIED"
+          PY
+      - name: Commit only verified source records to existing PR95 branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261115_riparian_source_only/GBIF_2022_OTHER_COUNTRY_DATASET_REGISTRY_SOURCE_ONLY.json \
+                  results/20261115_riparian_source_only/DK_BE_2022_ORIGINAL_EVENT_ONLY_GATE.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive SHA-checked 11 GBIF dataset metadata and DK/BE 2022 source-only event QC"
+          git fetch origin analysis/gesui-hns-family-taxon-attribution-20261115
+          git rebase origin/analysis/gesui-hns-family-taxon-attribution-20261115
+          git push origin HEAD:analysis/gesui-hns-family-taxon-attribution-20261115
