@@ -1,0 +1,50 @@
+name: gesui five paired same-plant source NUTRI-vs-nonnutrient EIV coverage gates
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-eiv-specificity-20261115
+    paths:
+      - 'analysis/20261115_eiv_specificity/assemble_pairwise.py'
+      - '.github/workflows/gesui-eiv-five-pair-source-only-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  authentic-five-pair-opportunity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet numpy pandas requests
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_v2
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_facets
+      - name: All five source-only pair-shared score support gates, original 454 H7periods
+        run: |
+          python -m py_compile analysis/20261115_eiv_specificity/assemble_pairwise.py
+          python -u analysis/20261115_eiv_specificity/assemble_pairwise.py \
+            --v2 '${{ runner.temp }}/source_v2' \
+            --facets '${{ runner.temp }}/original_facets' \
+            --output '${{ runner.temp }}/five_pairs_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-EU454-EIV-NUTRI-five-pairs-source-opportunity-only
+          path: ${{ runner.temp }}/five_pairs_source/
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,31 @@
+name: gesui 20261115 exact original European EIV six-indicator source-header gate
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-eiv-specificity-20261115
+    paths:
+      - 'analysis/20261115_eiv_specificity/eiv_header_gate.py'
+      - '.github/workflows/gesui-eiv-sixtrait-source-header-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-eiv-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet pandas requests
+      - name: Report published EIV sha and all six actual header names, no biological data
+        run: |
+          python -m py_compile analysis/20261115_eiv_specificity/eiv_header_gate.py
+          python -u analysis/20261115_eiv_specificity/eiv_header_gate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-European-EIV-six-original-raw-column-source-only
+          path: /tmp/eiv_six_source/
+          retention-days: 90
+          if-no-files-found: error
