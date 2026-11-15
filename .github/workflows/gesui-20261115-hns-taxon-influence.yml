@@ -1,0 +1,55 @@
+name: gesui source-locked HNS taxon influence and independent recordwise audit
+on:
+  push:
+    paths:
+      - 'analysis/20261115_taxon_influence/**'
+      - '.github/workflows/gesui-20261115-hns-taxon-influence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-hns-influence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical input dependencies
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2.0' 'scikit-learn>=1.4' 'scipy>=1.11'
+      - name: Unit tests on taxon exclusion and original source grain
+        run: python -m unittest discover -s analysis/20261115_taxon_influence/tests -p 'test_*.py' -v
+      - name: Recalculate original 454 H7-period indices, heldout H6 validation and source frozen controls
+        run: |
+          python analysis/20261115_taxon_influence/scripts/taxon_influence.py \
+          --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+          --trait analysis/20261115_taxon_influence/inputs/trait_matrices.npz \
+          --decomp analysis/20261115_taxon_influence/inputs/species_slope_decomposition.csv \
+          --geo analysis/20261115_taxon_influence/inputs/source_polygon_centroids.csv \
+          --model-scripts analysis/20261115_hns/scripts \
+          --out "$RUNNER_TEMP/gesui_taxon_influence"
+      - name: Independent original source per-species long-record HNS QA
+        run: |
+          python analysis/20261115_taxon_influence/scripts/independent_recordwise_qa.py \
+          --species analysis/20261115_taxon_influence/inputs/species_records_with_HNS.csv.gz \
+          --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+          --report "$RUNNER_TEMP/gesui_taxon_influence/RESULTS.json" \
+          --out "$RUNNER_TEMP/gesui_taxon_influence/INDEPENDENT_LONGFORMAT_QA.json"
+      - name: Original fixed-source SHA and numeric out-of-H6 result verification
+        run: |
+          python analysis/20261115_taxon_influence/scripts/validate_results.py \
+          --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+          --results "$RUNNER_TEMP/gesui_taxon_influence/RESULTS.json" \
+          --independent "$RUNNER_TEMP/gesui_taxon_influence/INDEPENDENT_LONGFORMAT_QA.json"
+      - name: Preserve original source receipts and noncausal sensitivity outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-original-h7-HNS-top-taxon-sensitivity-20261115
+          path: ${{ runner.temp }}/gesui_taxon_influence/
+          if-no-files-found: warn
+          retention-days: 90

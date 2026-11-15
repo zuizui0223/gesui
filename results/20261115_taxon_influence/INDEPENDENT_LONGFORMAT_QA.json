@@ -1,0 +1,45 @@
+{
+  "source": "authentic long-format scored butterfly species records \u00d7 each H7 historical period",
+  "models_checked": 6,
+  "grains": 454,
+  "all_pass": true,
+  "checks": [
+    {
+      "drop": 0,
+      "n_original_rows": 454,
+      "independent_mean_HNS": 4.913524214162672,
+      "original_no_drop_max_abs_diff": 1.7763568394002505e-15
+    },
+    {
+      "drop": 1,
+      "n_original_rows": 454,
+      "independent_mean_HNS": 4.798953952994926,
+      "original_no_drop_max_abs_diff": null
+    },
+    {
+      "drop": 5,
+      "n_original_rows": 454,
+      "independent_mean_HNS": 4.7423256036532395,
+      "original_no_drop_max_abs_diff": null
+    },
+    {
+      "drop": 10,
+      "n_original_rows": 454,
+      "independent_mean_HNS": 4.607920958669252,
+      "original_no_drop_max_abs_diff": null
+    },
+    {
+      "drop": 20,
+      "n_original_rows": 454,
+      "independent_mean_HNS": 4.348852750739021,
+      "original_no_drop_max_abs_diff": null
+    },
+    {
+      "drop": 30,
+      "n_original_rows": 454,
+      "independent_mean_HNS": 4.247615593336502,
+      "original_no_drop_max_abs_diff": null
+    }
+  ],
+  "not_independent_field_data": true
+}
