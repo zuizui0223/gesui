@@ -1,0 +1,39 @@
+name: GESUI 3 iNaturalist animal-remains source photo licence and original metadata QA
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_adult_resource_behavior/audit_three_carrion_photo_provenance.py
+      - .github/workflows/gesui-20261115-three-original-carrion-photo-provenance.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-photo-license-metadata-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Fetch original three iNat observation/photo rights metadata without image bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_adult_resource_behavior/audit_three_carrion_photo_provenance.py \
+            --baseline results/20261115_adult_resource_behavior/INAT_FIELD500_OBSERVER_DAY_PHOTO_DUPLICATE_SOURCE_QA.json \
+            --output results/20261115_adult_resource_behavior/INAT_3_CARRION_ORIGINAL_PHOTO_METADATA_SOURCE_QA.json
+          python - <<'PY'
+          import json
+          x=json.load(open("results/20261115_adult_resource_behavior/INAT_3_CARRION_ORIGINAL_PHOTO_METADATA_SOURCE_QA.json"))
+          assert x['n_original_carrion_field_text_annotations']==3
+          assert x['n_distinct_observer_days']==2
+          assert x['no_photographic_pixels_downloaded_or_viewed']
+          assert x['no_original_HNS_or_WWTP_or_nutrient_exposure_tested']
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-carrion-three-original-photo-rights-sourceonly
+          path: results/20261115_adult_resource_behavior/INAT_3_CARRION_ORIGINAL_PHOTO_METADATA_SOURCE_QA.json
+          if-no-files-found: error

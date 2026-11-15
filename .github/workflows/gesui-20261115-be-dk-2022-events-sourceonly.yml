@@ -1,0 +1,42 @@
+name: GESUI 2022 DK BE original butterfly event source-only year/precision gate
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_riparian_source_only/audit_dk_be_2022_original_event_only.py
+      - .github/workflows/gesui-20261115-be-dk-2022-events-sourceonly.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  no-butterfly-outcomes-two-original-archives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Verify frozen protocol and publisher-original DK/BE 2022 Event core only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_riparian_source_only/audit_dk_be_2022_original_event_only.py \
+            --freeze docs/FROZEN_PROTOCOL_20261115_WITHIN_H7_RIPARIAN_HNS_ONE_SHOT.md \
+            --output results/20261115_riparian_source_only/DK_BE_2022_ORIGINAL_EVENT_ONLY_GATE.json
+          python - <<'PY'
+          import json
+          p="results/20261115_riparian_source_only/DK_BE_2022_ORIGINAL_EVENT_ONLY_GATE.json"
+          r=json.load(open(p))
+          assert r["candidate_dataset_count"]==2
+          assert r["no_occurrence_extension_loaded"]
+          assert not r["primary_HNS_test_ran"]
+          assert r["frozen_primary_status"]=="STOP_SOURCE_OPPORTUNITY_NOT_VERIFIED"
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2022-DK-BE-original-event-source-only
+          path: results/20261115_riparian_source_only/DK_BE_2022_ORIGINAL_EVENT_ONLY_GATE.json
+          if-no-files-found: error

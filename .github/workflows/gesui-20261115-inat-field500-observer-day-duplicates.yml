@@ -1,0 +1,42 @@
+name: GESUI 746 puddling annotations observer-day and duplicate photo source QA
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_adult_resource_behavior/audit_field500_observer_day_independence.py
+      - .github/workflows/gesui-20261115-inat-field500-observer-day-duplicates.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-only-duplicate-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Source-only original 746 iNat observations, no images or sewage effects
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_adult_resource_behavior/audit_field500_observer_day_independence.py \
+            --baseline results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json \
+            --review results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv \
+            --output results/20261115_adult_resource_behavior/INAT_FIELD500_OBSERVER_DAY_PHOTO_DUPLICATE_SOURCE_QA.json
+          python - <<'PY'
+          import json
+          p='results/20261115_adult_resource_behavior/INAT_FIELD500_OBSERVER_DAY_PHOTO_DUPLICATE_SOURCE_QA.json'
+          z=json.load(open(p))
+          assert z['n_full_original_field500_observations']==746
+          assert z['carrion_candidate_annotated_observations']==3
+          assert z['n_original_owners_with_both_Lyca_Nymph']==18
+          assert z['all_original_photo_pixels_NOT_DOWNLOADED_OR_VIEWED']
+          assert z['no_original_HNS_WWTP_or_nutrient_exposure_assessed']
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-inat-746-original-observer-day-duplicate-photo-sourceonly
+          path: results/20261115_adult_resource_behavior/INAT_FIELD500_OBSERVER_DAY_PHOTO_DUPLICATE_SOURCE_QA.json
+          if-no-files-found: error

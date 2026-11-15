@@ -1,0 +1,56 @@
+name: GESUI archive SHA-pinned two original 2018 cattle manure source pairs
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - .github/workflows/gesui-20261115-archive-two-2018-dung-clusters.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  archive-original-numeric-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43711773520
+          name: gesui-dung-original-2018-two-licensed-scene-pairs-sourceonly
+          repository: zuizui0223/gesui
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-original-cowmanure2018
+      - name: Verify SHA256 and missing licensed images
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "ed553974777e95c4a6b2c047b2d2c6d7ea54de87a6692a8dca79f6b29a8b7832  /tmp/gesui-original-cowmanure2018/INAT_2018_LYCA_PAPILIO_COWMANURE_PAIR_SOURCE_QA.json" | sha256sum -c -
+          mkdir -p results/20261115_adult_resource_behavior
+          cp /tmp/gesui-original-cowmanure2018/INAT_2018_LYCA_PAPILIO_COWMANURE_PAIR_SOURCE_QA.json results/20261115_adult_resource_behavior/
+          python - <<'PY'
+          import json
+          q=json.load(open("results/20261115_adult_resource_behavior/INAT_2018_LYCA_PAPILIO_COWMANURE_PAIR_SOURCE_QA.json"))
+          a=q["family_source_only_pairs"]
+          assert a["Lycaenidae"]["photo_pixels_downloaded"] is False
+          assert a["Lycaenidae"]["original_public_coordinate_separation_km"]==6.12855
+          assert a["Papilionidae"]["original_public_coordinate_separation_km"]==0.
+          assert a["Papilionidae"]["source_allowed_cc_by_nc_images_processed_in_memory_only"]==21
+          assert q["all_original_photo_pixels_absent_from_results"]
+          assert q["no_proboscis_or_feeding_visual_confirmation"]
+          PY
+      - name: Commit original numeric metadata only to existing unmerged Draft PR95
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261115_adult_resource_behavior/INAT_2018_LYCA_PAPILIO_COWMANURE_PAIR_SOURCE_QA.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive 2018 source bovine dung site/observer photo scene duplicates, license gates"
+          git fetch origin analysis/gesui-hns-family-taxon-attribution-20261115
+          git rebase origin/analysis/gesui-hns-family-taxon-attribution-20261115
+          git push origin HEAD:analysis/gesui-hns-family-taxon-attribution-20261115

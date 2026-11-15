@@ -1,0 +1,38 @@
+name: GESUI SeBMS v1.13 2022 event-only original source QA (no HNS)
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_riparian_source_only/audit_sebms_2026_113.py
+      - .github/workflows/gesui-20261115-sebms-event-only-source.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publisher-verbatim-dwca-event-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check frozen protocol SHA and source archive 2022 event/coordinate availability only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_riparian_source_only/audit_sebms_2026_113.py \
+            --freeze docs/FROZEN_PROTOCOL_20261115_WITHIN_H7_RIPARIAN_HNS_ONE_SHOT.md \
+            --output results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json \
+            --point-sites-output results/20261115_riparian_source_only/SEBMS_2022_POINT_SITE_LOCATIONS_SOURCE_ONLY.csv
+          python -c "import json; z=json.load(open('results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json')); assert z['frozen_primary_outcome_test_ran'] is False and z['source_event_core_only_occurrence_extension_not_read'] is True"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-SeBMS-v113-2022-event-core-source-only
+          path: |
+            results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json
+            results/20261115_riparian_source_only/SEBMS_2022_POINT_SITE_LOCATIONS_SOURCE_ONLY.csv
+          if-no-files-found: error

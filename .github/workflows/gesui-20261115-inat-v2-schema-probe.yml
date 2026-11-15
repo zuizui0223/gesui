@@ -1,0 +1,20 @@
+name: GESUI iNaturalist v2 sparse original observation field schema probe
+on:
+  push:
+    branches: [analysis/gesui-hns-family-taxon-attribution-20261115]
+    paths:
+      - analysis/20261115_adult_resource_behavior/probe_inat_v2_schema.py
+      - .github/workflows/gesui-20261115-inat-v2-schema-probe.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-schema-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Probe sparse field 500 observations v2 and print schema only
+        run: python analysis/20261115_adult_resource_behavior/probe_inat_v2_schema.py

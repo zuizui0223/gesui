@@ -1,0 +1,86 @@
+{
+  "H7_H6_parent_assignment_NOT_PERFORMED": true,
+  "biological_primary_run": false,
+  "frozen_24pair_3country_primary_stage": "STOP_NOT_QUALIFIED",
+  "no_observed_species_counts_or_HNS_read": true,
+  "not_yet_source_reference_matched_8cells": true,
+  "older_PR21_nearest_14_2022_outfall_distance_independent_replay": {
+    "n_current_sites": 264,
+    "n_matched_previous_repeat2_geographies": 225,
+    "n_new_or_unmatched_geographies": 39,
+    "old_nearest_source_haversine_max_absolute_difference_km": 0.0,
+    "source_analysis_derived_without_any_butterfly_outcome": true
+  },
+  "registered2022_outfall_not_confirmed2022_receiving_water_concentration": true,
+  "schema": "GESUI_SW_SEBMS_2022_POINTS_EEA_SE369_HYDRORIVERS_AUTHENTIC_DIRECTION_SOURCE_ONLY_V1",
+  "site_near_river_does_NOT_prove_larval_host_or_adult_puddling": true,
+  "source_original_eea2022": {
+    "EEA2022_source_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD/TreatmentPlants_2022/MapServer/0",
+    "individual_annual_NP_year_not_independently_verified": true,
+    "original_EEA_api_receipts": {
+      "discharge": [
+        {
+          "n": 430,
+          "sha256": "47be4ffdf21ecc48af32fc57c800bd1220812ba9afc4aa3d79c3cd65712b00a7",
+          "type": "count"
+        },
+        {
+          "n": 430,
+          "offset": 0,
+          "sha256": "4ece8d42911f08cb5edb3067a5ac611abbbd0c5f360bcfe182c92579acb55208",
+          "type": "page"
+        }
+      ],
+      "plants": [
+        {
+          "n": 25,
+          "sha256": "d79e56c6f5cdd06304e4d430c72c4929de1c1231cdc6a25d9ef3d87280df906a",
+          "type": "count"
+        },
+        {
+          "n": 25,
+          "offset": 0,
+          "sha256": "5d5cd6765b8c01deeb287a2889824f855d4f1b51ac49a9df209619ac0bef0a31",
+          "type": "page"
+        }
+      ]
+    },
+    "outfalls_all_reported_SE369": 430,
+    "plants_from_SE369": 25,
+    "qualified_single_freshwater_outfalls": 14,
+    "year2022_EEA_layer_not_measured_receiver_dose": true
+  },
+  "source_original_rivers": {
+    "original_geodata_file": "HydroRIVERS_v10_eu_shp/HydroRIVERS_v10_eu.shp",
+    "original_geom_licensed_not_republished": true,
+    "original_zip_SHA256": "500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5",
+    "original_zip_url": "https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip"
+  },
+  "source_sha": {
+    "Swedish_2022_points_git_blob": "a56d143a3474027092a438399e6c2e59066d911f",
+    "frozen_protocol_git_blob": "b9ce415c36d398eee77d8318a20aef4873e0bf44",
+    "old_PR21_2022_EEA_proximity_site_table_git_blob": "bbc1c423dd95eeddda224d8326caba13e61af06f"
+  },
+  "spatial_scope": "Preliminary source only. Approximate NEXT_DOWN full reach length, original 25m event footprints, geographic bbox subset, no actual effluent dilution.",
+  "study": {
+    "n_2022_5visit_site_source_relations_within_7p5km_and_source_snap": 6,
+    "n_2022_point_site_locations": 264,
+    "n_distinct_2022_5visit_sites_source_relation_within_7p5km": 6,
+    "n_distinct_registered_outfalls_with_any_relation": 4,
+    "n_distinct_registered_outfalls_with_downstream1to5km_candidate": 0,
+    "n_point_sites_with_5_dates": 127,
+    "nearest_river_2022_5date_site_distribution": {
+      "BOUNDARY_OR_INTERMEDIATE_DISTANCE": 34,
+      "INLAND_500_TO_1500M_ENTIRE_25M_RADIUS": 38,
+      "NEAR_0_TO_200M_ENTIRE_25M_RADIUS": 13,
+      "NO_VALID_RIVER_WITHIN_1700M": 42
+    },
+    "original_authentic_river_reach_count_expanded_Sweden": 79439,
+    "source_outfalls_with_native_river_snap_le500m": 12,
+    "source_reported_singleFW_positive_NP_outfalls": 14,
+    "source_site_direction_class_counts": {
+      "ROUTE_OUTSIDE_1TO5_OR_UNRESOLVED": 6
+    },
+    "true_native_river_order_not_assumed_polyline_vertex": true
+  }
+}

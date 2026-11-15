@@ -1,0 +1,170 @@
+{
+  "candidate_dataset_count": 2,
+  "frozen_primary_status": "STOP_SOURCE_OPPORTUNITY_NOT_VERIFIED",
+  "frozen_protocol_git_blob": "b9ce415c36d398eee77d8318a20aef4873e0bf44",
+  "no_2022_eightcell_pairs_qualified": true,
+  "no_occurrence_extension_loaded": true,
+  "no_registered_WWTP_outfall_exposure_tested": true,
+  "no_taxon_or_HNS_scored": true,
+  "primary_HNS_test_ran": false,
+  "results": [
+    {
+      "country": "DK",
+      "eligible_2022_exact_100m_river_8cell_pairs": 0,
+      "event_core": {
+        "all_event_rows": 15606,
+        "archive_member_count": 4,
+        "event_core_available_columns": [
+          "_coreID",
+          "coordinateUncertaintyInMeters",
+          "decimalLatitude",
+          "decimalLongitude",
+          "eventDate",
+          "eventID",
+          "eventRemarks",
+          "locality",
+          "parentEventID"
+        ],
+        "event_core_source_SHA256": "06b582ac3e640e4e18b81a45423713703d7524788f75b6dcfae70a74e2ad8da7",
+        "event_member": "event.txt",
+        "event_meta": "meta.xml",
+        "events_2022_May_Sep": 125,
+        "events_2022_full_year": 125,
+        "frozen_source_year_2022": true,
+        "occurrence_extension_was_NOT_opened": true,
+        "parsed_year_row_counts": {
+          "2011": 711,
+          "2018": 380,
+          "2019": 5,
+          "2020": 9,
+          "2021": 33,
+          "2022": 125,
+          "2023": 3100,
+          "2024": 4461,
+          "2025": 6782
+        },
+        "source_event_short_rows": 0
+      },
+      "gbif_dataset": "caa38f94-ddeb-43e7-9a27-1ac46d7ddc5c",
+      "label": "Danish eBMS transects v1.4",
+      "licence": "CC-BY-NC-4.0",
+      "source_archive_bytes": 1314210,
+      "source_only_event_quality": {
+        "approx_coordinate_location_groups_all_methods": 22,
+        "approx_coordinate_location_groups_with_5days": 14,
+        "approx_coordinate_location_groups_with_5days_and_explicit_uncertainty_le100": 14,
+        "generalization_flags": {},
+        "location_quality_counts": {
+          "coordinates_valid": 125,
+          "uncertainty_le100": 125
+        },
+        "no_species_or_five_family_counts_opened": true,
+        "protocol_counts": {
+          "__MISSING__": 125
+        },
+        "sampling_event_fields_populated": {
+          "eventID_present": 125
+        },
+        "site_groups_are_not_confirmed_original_transect_section_positions": true,
+        "uncertainty_m_values": {
+          "50": 125
+        }
+      },
+      "source_original_zip_SHA256": "2cc64ec352754223db06a92eef5b01803968eac94bae34057c17f1abdb6da79b",
+      "status": "ORIGINAL_ARCHIVE_EVENT_ONLY_VERIFIED",
+      "url": "https://ipt.brc.ac.uk/archive.do?r=ebms_denmark_transects&v=1.4",
+      "zero_pairs_means_NOT_YET_GEOMETRICALLY_CONFIRMED": true
+    },
+    {
+      "country": "BE",
+      "eligible_2022_exact_100m_river_8cell_pairs": 0,
+      "event_core": {
+        "all_event_rows": 40233,
+        "archive_member_count": 5,
+        "event_core_available_columns": [
+          "_coreID",
+          "accessRights",
+          "continent",
+          "coordinateUncertaintyInMeters",
+          "countryCode",
+          "dataGeneralizations",
+          "datasetID",
+          "datasetName",
+          "decimalLatitude",
+          "decimalLongitude",
+          "dynamicProperties",
+          "eventDate",
+          "eventID",
+          "eventRemarks",
+          "geodeticDatum",
+          "georeferenceRemarks",
+          "informationWithheld",
+          "institutionCode",
+          "language",
+          "license",
+          "locality",
+          "locationID",
+          "parentEventID",
+          "rightsHolder",
+          "samplingProtocol",
+          "type"
+        ],
+        "event_core_source_SHA256": "425cd46663d139895c202bdd73c17dfb410b1d316443e500080d27fff1653996",
+        "event_member": "event.txt",
+        "event_meta": "meta.xml",
+        "events_2022_May_Sep": 3491,
+        "events_2022_full_year": 3573,
+        "frozen_source_year_2022": true,
+        "occurrence_extension_was_NOT_opened": true,
+        "parsed_year_row_counts": {
+          "2016": 3583,
+          "2017": 4229,
+          "2018": 3833,
+          "2019": 4306,
+          "2020": 4533,
+          "2021": 4239,
+          "2022": 3573,
+          "2023": 4436,
+          "2024": 3863,
+          "2025": 3638
+        },
+        "source_event_short_rows": 0
+      },
+      "gbif_dataset": "63938753-1fec-4c08-ae39-e9f8a6576521",
+      "label": "Flanders priority butterfly monitoring event archive",
+      "licence": "GBIF registry CC0-1.0; original archive coordinate generalization caution",
+      "source_archive_bytes": 1898954,
+      "source_only_event_quality": {
+        "approx_coordinate_location_groups_all_methods": 59,
+        "approx_coordinate_location_groups_with_5days": 16,
+        "approx_coordinate_location_groups_with_5days_and_explicit_uncertainty_le100": 0,
+        "generalization_flags": {
+          "dataGeneralizations_present": 3491,
+          "informationWithheld_present": 3491
+        },
+        "location_quality_counts": {
+          "coordinates_valid": 3491,
+          "uncertainty_over100_or_invalid": 3491
+        },
+        "no_species_or_five_family_counts_opened": true,
+        "protocol_counts": {
+          "butterfly transects": 3491
+        },
+        "sampling_event_fields_populated": {
+          "eventID_present": 3491
+        },
+        "site_groups_are_not_confirmed_original_transect_section_positions": true,
+        "uncertainty_m_values": {
+          "3536": 917,
+          "707": 2038,
+          "7071": 536
+        }
+      },
+      "source_original_zip_SHA256": "e0563615e6fa90dbfcdaeed5400fe87a11a6f30fb6ad9365b3c4a7e7ea803a34",
+      "status": "ORIGINAL_ARCHIVE_EVENT_ONLY_VERIFIED",
+      "url": "https://ipt.inbo.be/archive.do?r=meetnetten-butterflies-occurrences",
+      "zero_pairs_means_NOT_YET_GEOMETRICALLY_CONFIRMED": true
+    }
+  ],
+  "schema": "GESUI_SOURCEONLY_DK_BE_2022_ARCHIVE_EVENT_GATE_V1"
+}

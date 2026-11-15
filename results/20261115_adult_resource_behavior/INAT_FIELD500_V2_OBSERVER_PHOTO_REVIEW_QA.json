@@ -1,0 +1,672 @@
+{
+  "family_by_revised_raw_text_bins": {
+    "Hesperiidae": {
+      "dung_feces": 5,
+      "mixed_mud_soil_sand+rock_gravel": 2,
+      "mud_soil_sand": 23,
+      "plant_fruit_sap": 1,
+      "rock_gravel": 8,
+      "unclassified": 7,
+      "urine_sweat_salt": 1,
+      "water_only": 1
+    },
+    "Lycaenidae": {
+      "dung_feces": 9,
+      "mixed_mud_soil_sand+rock_gravel": 14,
+      "mixed_plant_fruit_sap+mud_soil_sand": 2,
+      "mud_soil_sand": 140,
+      "rock_gravel": 16,
+      "unclassified": 14,
+      "water_only": 5
+    },
+    "Nymphalidae": {
+      "animal_carrion_candidate": 3,
+      "dung_feces": 24,
+      "mixed_dung_feces+mud_soil_sand": 1,
+      "mixed_mud_soil_sand+rock_gravel": 15,
+      "mixed_plant_fruit_sap+urine_sweat_salt": 1,
+      "mud_soil_sand": 147,
+      "plant_fruit_sap": 22,
+      "rock_gravel": 31,
+      "unclassified": 47,
+      "urine_sweat_salt": 3,
+      "water_only": 6
+    },
+    "OTHER_OR_UNCLASSIFIED": {
+      "dung_feces": 2,
+      "mud_soil_sand": 8,
+      "rock_gravel": 1,
+      "unclassified": 2
+    },
+    "Papilionidae": {
+      "dung_feces": 6,
+      "mixed_dung_feces+mud_soil_sand": 2,
+      "mixed_mud_soil_sand+rock_gravel": 5,
+      "mud_soil_sand": 66,
+      "rock_gravel": 12,
+      "unclassified": 19,
+      "water_only": 5
+    },
+    "Pieridae": {
+      "mud_soil_sand": 55,
+      "rock_gravel": 1,
+      "unclassified": 7,
+      "water_only": 1
+    },
+    "Riodinidae": {
+      "mixed_mud_soil_sand+rock_gravel": 1,
+      "mud_soil_sand": 4,
+      "rock_gravel": 1
+    }
+  },
+  "n_Lycaenidae_owners": {
+    "n_distinct_original_observers_with_tagged_family": 45,
+    "n_observers_with_organic_annotation": 8
+  },
+  "n_Nymphalidae_owners": {
+    "n_distinct_original_observers_with_tagged_family": 85,
+    "n_observers_with_organic_annotation": 22
+  },
+  "n_informative_observers_with_both_families_mud_and_organic_annotations": 8,
+  "n_observation_owner_ids": 181,
+  "n_observers_with_both_Lycaenidae_and_Nymphalidae_annotations": 18,
+  "n_original_field500_observations": 746,
+  "n_original_organic_candidate_annotations_for_photo_review": 78,
+  "n_original_organic_candidate_annotations_with_original_photos": 78,
+  "n_original_organic_candidate_annotations_without_original_photos": 0,
+  "n_raw_records_reassigned_by_vocabulary": 182,
+  "no_WWTP_or_HNS_joint_model_run": true,
+  "no_family_puddling_propensity_estimated": true,
+  "old_raw_substrate_bins": {
+    "AMBIGUOUS_MULTIPLE_SUBSTRATES": 41,
+    "UNCLASSIFIED_TEXT": 134,
+    "carrion_or_dead_organism": 3,
+    "dung_feces": 46,
+    "mud_soil_sand": 426,
+    "rock_gravel": 73,
+    "urine_sweat_salt": 5,
+    "water_only": 18
+  },
+  "original_field500_family_census_exactly_reproduced": true,
+  "original_old_regex_category_census_exactly_reproduced": true,
+  "original_source_reported_count": 746,
+  "original_v1_full_census_git_blob": "6fbc3358dc21b466afd2edbcd6a1182bb3797bbf",
+  "original_value_reclassification_source_examples": [
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "road",
+      "revised_bin": "unclassified",
+      "source_frequency": 12
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "mud/ rock",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 12
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "tree sap - shivan tree",
+      "revised_bin": "plant_fruit_sap",
+      "source_frequency": 7
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "wet dirt",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 5
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "wet floor",
+      "revised_bin": "unclassified",
+      "source_frequency": 5
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "gravelly mud",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 4
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "bird dropping",
+      "revised_bin": "unclassified",
+      "source_frequency": 4
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "leaf",
+      "revised_bin": "unclassified",
+      "source_frequency": 4
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "moist rocky soil",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "rock_gravel",
+      "original_value": "damp, gravelly dirt",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "rotting banana",
+      "revised_bin": "plant_fruit_sap",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "concrete",
+      "revised_bin": "unclassified",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "fruit",
+      "revised_bin": "plant_fruit_sap",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "tree sap",
+      "revised_bin": "plant_fruit_sap",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "disturbed ground",
+      "revised_bin": "unclassified",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "fruits",
+      "revised_bin": "plant_fruit_sap",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "drying water",
+      "revised_bin": "unclassified",
+      "source_frequency": 3
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "floor",
+      "revised_bin": "unclassified",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "moist sand and gravel",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "wet, rocky soil",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "muddy soil mixed with horse dung",
+      "revised_bin": "mixed_dung_feces+mud_soil_sand",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "creek minerals",
+      "revised_bin": "unclassified",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "creek",
+      "revised_bin": "unclassified",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "crater pond's decaying vegetation and mud",
+      "revised_bin": "mixed_plant_fruit_sap+mud_soil_sand",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "damp ground",
+      "revised_bin": "unclassified",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "mud and decaying organic matter",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "wet bare ground",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "animal remains",
+      "revised_bin": "animal_carrion_candidate",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "bare ground",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "wet brick",
+      "revised_bin": "unclassified",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "soil and gravel",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "gravel and soil",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "fallen tree roots",
+      "revised_bin": "unclassified",
+      "source_frequency": 2
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "ground moistened with agricultural water.",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "wood fragments",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "dirt",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "moist dirt",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "dry dirt",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "wood mulch",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "stream bank",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "sandy gravels mixed together wet mud",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "stream bed",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "algae in tiny stream",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "wet, grassy dirt",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "carrion_or_dead_organism",
+      "original_value": "rotten fruit",
+      "revised_bin": "plant_fruit_sap",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "rocky soil",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "damp forest floor",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "ground",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "graveled soil",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "peanuts' wrappings (plastic)",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "sandy soil and gravel mixed",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "turtle eyes",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "carrion_or_dead_organism",
+      "original_value": "\"crater pond\" decaying vegetation",
+      "revised_bin": "plant_fruit_sap",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "damn ground",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "AMBIGUOUS_MULTIPLE_SUBSTRATES",
+      "original_value": "wet gravel and sand",
+      "revised_bin": "mixed_mud_soil_sand+rock_gravel",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "vernal pool",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "snake",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "avian excretion",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "pinapple",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "frass",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "moss",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "over-ripe apple mash",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "ash",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "bare ground wet after rain",
+      "revised_bin": "mud_soil_sand",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "stream shallows",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "animal waste on path",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "drainage from water tanks on concrete",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "dry flowers",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "worm",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    },
+    {
+      "old_bin": "UNCLASSIFIED_TEXT",
+      "original_value": "dog excreament",
+      "revised_bin": "unclassified",
+      "source_frequency": 1
+    }
+  ],
+  "review_manifest_does_not_include_hidden_coordinates_or_observer_ids": true,
+  "revised_raw_text_bins": {
+    "animal_carrion_candidate": 3,
+    "dung_feces": 46,
+    "mixed_dung_feces+mud_soil_sand": 3,
+    "mixed_mud_soil_sand+rock_gravel": 37,
+    "mixed_plant_fruit_sap+mud_soil_sand": 2,
+    "mixed_plant_fruit_sap+urine_sweat_salt": 1,
+    "mud_soil_sand": 443,
+    "plant_fruit_sap": 23,
+    "rock_gravel": 70,
+    "unclassified": 96,
+    "urine_sweat_salt": 4,
+    "water_only": 18
+  },
+  "schema": "GESUI_INAT_V2_FIELD500_746_PHOTO_REVIEW_AND_OBSERVER_SOURCE_QA_V1",
+  "source_HTTP_SHA256_page_receipts": [
+    {
+      "matching_valid_field500": 100,
+      "page": 1,
+      "returned": 100,
+      "source_page_SHA256": "caf0f06e1fa2c20fdd2aec1b8d925dc37023ce9a82e367390fc452dc4b2ccdb2"
+    },
+    {
+      "matching_valid_field500": 100,
+      "page": 2,
+      "returned": 100,
+      "source_page_SHA256": "0cc0fd37254fc85e7600ec74002696c167b3db0779e0c60566dade20cce9270b"
+    },
+    {
+      "matching_valid_field500": 100,
+      "page": 3,
+      "returned": 100,
+      "source_page_SHA256": "783b00711f020555aaccd74dd4e09631927babeea5c37e60981be908fb3ebe6e"
+    },
+    {
+      "matching_valid_field500": 100,
+      "page": 4,
+      "returned": 100,
+      "source_page_SHA256": "5767e9dc302d0a582412fd23dfc621198d6b14cb26ce9a966261f42478d8b604"
+    },
+    {
+      "matching_valid_field500": 100,
+      "page": 5,
+      "returned": 100,
+      "source_page_SHA256": "c2d9e3037553d54ffd70e1f15c951432c4e35c82087ce690da32b9f304ad23ba"
+    },
+    {
+      "matching_valid_field500": 100,
+      "page": 6,
+      "returned": 100,
+      "source_page_SHA256": "ac4ccd830a8d40689ae901f2b2bdc61c556a4f1ba5c0480238a81fe1f3e417f6"
+    },
+    {
+      "matching_valid_field500": 100,
+      "page": 7,
+      "returned": 100,
+      "source_page_SHA256": "06d5a67d06d0e3df274523a205f07e18cfb0211cc0f7ef13bdd22e0246b67e5e"
+    },
+    {
+      "matching_valid_field500": 46,
+      "page": 8,
+      "returned": 46,
+      "source_page_SHA256": "50fdb8c8a506922c11b4368334b1e29f111777f5e029e60ea80522c3de2a0a02"
+    }
+  ],
+  "source_level_decision": "ANNOTATION_TAXON_OBSERVER_PHOTO_REVIEW_READY_NOT_BIOLOGICAL_SELECTIVITY",
+  "source_records_do_not_establish_sewage_or_nutrient_assimilation": true,
+  "top1_observer_share": 0.2064343163538874,
+  "top5_observer_share": 0.5026809651474531,
+  "top_owner_sensitivity_descriptive_ONLY": {
+    "all": {
+      "Hesperiidae": {
+        "annotated_n": 48,
+        "organic_candidate_n": 6,
+        "organic_candidate_share_among_tagged": 0.125
+      },
+      "Lycaenidae": {
+        "annotated_n": 200,
+        "organic_candidate_n": 11,
+        "organic_candidate_share_among_tagged": 0.055
+      },
+      "Nymphalidae": {
+        "annotated_n": 300,
+        "organic_candidate_n": 51,
+        "organic_candidate_share_among_tagged": 0.17
+      },
+      "Papilionidae": {
+        "annotated_n": 115,
+        "organic_candidate_n": 8,
+        "organic_candidate_share_among_tagged": 0.06956521739130435
+      },
+      "Pieridae": {
+        "annotated_n": 64,
+        "organic_candidate_n": 0,
+        "organic_candidate_share_among_tagged": 0.0
+      }
+    },
+    "exclude_top1": {
+      "Hesperiidae": {
+        "annotated_n": 47,
+        "organic_candidate_n": 6,
+        "organic_candidate_share_among_tagged": 0.1276595744680851
+      },
+      "Lycaenidae": {
+        "annotated_n": 141,
+        "organic_candidate_n": 9,
+        "organic_candidate_share_among_tagged": 0.06382978723404255
+      },
+      "Nymphalidae": {
+        "annotated_n": 227,
+        "organic_candidate_n": 32,
+        "organic_candidate_share_among_tagged": 0.14096916299559473
+      },
+      "Papilionidae": {
+        "annotated_n": 109,
+        "organic_candidate_n": 8,
+        "organic_candidate_share_among_tagged": 0.07339449541284404
+      },
+      "Pieridae": {
+        "annotated_n": 53,
+        "organic_candidate_n": 0,
+        "organic_candidate_share_among_tagged": 0.0
+      }
+    },
+    "exclude_top5": {
+      "Hesperiidae": {
+        "annotated_n": 36,
+        "organic_candidate_n": 2,
+        "organic_candidate_share_among_tagged": 0.05555555555555555
+      },
+      "Lycaenidae": {
+        "annotated_n": 70,
+        "organic_candidate_n": 7,
+        "organic_candidate_share_among_tagged": 0.1
+      },
+      "Nymphalidae": {
+        "annotated_n": 138,
+        "organic_candidate_n": 25,
+        "organic_candidate_share_among_tagged": 0.18115942028985507
+      },
+      "Papilionidae": {
+        "annotated_n": 75,
+        "organic_candidate_n": 6,
+        "organic_candidate_share_among_tagged": 0.08
+      },
+      "Pieridae": {
+        "annotated_n": 41,
+        "organic_candidate_n": 0,
+        "organic_candidate_share_among_tagged": 0.0
+      }
+    }
+  },
+  "unreviewed_original_photo_urls_are_NOT_verified_behavior": true,
+  "v2_endpoint": "https://api.inaturalist.org/v2/observations",
+  "v2_sparse_fields": "id,user.id,taxon.id,taxon.ancestor_ids,taxon.name,taxon.rank,ofvs.id,ofvs.name,ofvs.value,photos.url,observed_on,quality_grade"
+}

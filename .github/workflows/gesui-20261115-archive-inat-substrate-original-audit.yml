@@ -1,0 +1,66 @@
+name: GESUI archive exact iNaturalist field500 original adult substrate audit on Draft
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - .github/workflows/gesui-20261115-archive-inat-substrate-original-audit.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  save-verified-purely-aggregated-originals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43702388311
+          name: gesui-inaturalist-adult-behavior-field-original-sourceonly
+          repository: zuizui0223/gesui
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-original-inat-definitions
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43703011984
+          name: gesui-inat-puddling-substrate-field500-original-annotation-audit
+          repository: zuizui0223/gesui
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-original-inat-annotations
+      - name: Verify source-byte identities, full 746 fields and no ecological outcome claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "b0395c2096e98a55833c1cb2d41465dfb8b29103d1c6468f10997dc0295cdb34  /tmp/gesui-original-inat-definitions/INAT_ADULT_FIELD_DEFINITIONS_SOURCE_ONLY.json" | sha256sum -c -
+          echo "8117873f9cc6875f3221870f2500aad8b77252646f4dfa1a0d27450198cab250  /tmp/gesui-original-inat-annotations/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json" | sha256sum -c -
+          mkdir -p results/20261115_adult_resource_behavior
+          cp /tmp/gesui-original-inat-definitions/INAT_ADULT_FIELD_DEFINITIONS_SOURCE_ONLY.json results/20261115_adult_resource_behavior/
+          cp /tmp/gesui-original-inat-annotations/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json results/20261115_adult_resource_behavior/
+          python - <<'PY'
+          import json
+          a=json.load(open("results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json"))
+          b=json.load(open("results/20261115_adult_resource_behavior/INAT_ADULT_FIELD_DEFINITIONS_SOURCE_ONLY.json"))
+          x=a["fields"]["substrate500"]
+          assert x["source_total_results"]==746 and x["fetch_complete"] and x["fetched_distinct_observations"]==746
+          assert sum(x["family_ancestor_counts_among_selected_tagged_observations"].values())==746
+          assert sum(x["substrate_text_class_counts_if_field500"].values())==746
+          assert not a["no_HNS_or_nutrient_assimilation_or_biological_wastewater_effect"] is False
+          assert b["mixed_field_17428_cannot_claim_puddling_ingestion"]
+          assert len(b["candidate_fields"])>=69
+          PY
+      - name: Commit original aggregated metadata only to existing Draft PR95 branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261115_adult_resource_behavior/INAT_ADULT_FIELD_DEFINITIONS_SOURCE_ONLY.json \
+                  results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive iNat original 746 annotated substrate records and source field definitions (no W effects)"
+          git fetch origin analysis/gesui-hns-family-taxon-attribution-20261115
+          git rebase origin/analysis/gesui-hns-family-taxon-attribution-20261115
+          git push origin HEAD:analysis/gesui-hns-family-taxon-attribution-20261115

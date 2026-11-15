@@ -1,0 +1,112 @@
+{
+  "distinct_dung_photo_id_count": 113,
+  "dung_count_photo_license_codes": {
+    "None": 32,
+    "cc-by": 19,
+    "cc-by-nc": 62
+  },
+  "dung_inverse_simpson_effective_owners": 23.0,
+  "dung_original_substrate_classification_source_maintained": true,
+  "dung_top5_owner_fraction": 0.3696,
+  "dung_top_owner_fraction": 0.087,
+  "family": {
+    "Hesperiidae": {
+      "annotations": 5,
+      "n_owners_with_two_or_more_tagged_dung_obs": 1,
+      "owner_days": 5,
+      "owners": 4,
+      "photos_distinct": 9
+    },
+    "Lycaenidae": {
+      "annotations": 9,
+      "n_owners_with_two_or_more_tagged_dung_obs": 2,
+      "owner_days": 8,
+      "owners": 7,
+      "photos_distinct": 14
+    },
+    "Nymphalidae": {
+      "annotations": 24,
+      "n_owners_with_two_or_more_tagged_dung_obs": 4,
+      "owner_days": 24,
+      "owners": 20,
+      "photos_distinct": 62
+    },
+    "Papilionidae": {
+      "annotations": 6,
+      "n_owners_with_two_or_more_tagged_dung_obs": 1,
+      "owner_days": 5,
+      "owners": 5,
+      "photos_distinct": 26
+    },
+    "Pieridae": {
+      "annotations": 0,
+      "n_owners_with_two_or_more_tagged_dung_obs": 0,
+      "owner_days": 0,
+      "owners": 0,
+      "photos_distinct": 0
+    }
+  },
+  "n_all_original_source_field500_records": 746,
+  "n_distinct_dung_owner_days": 44,
+  "n_dung_annotation_owners_in_both_Lycaenidae_and_Nymphalidae": 2,
+  "n_dung_description_mentions_feeding_keyword": 6,
+  "n_dung_observations_with_reused_photo_ids": 0,
+  "n_dung_original_records_with_description": 16,
+  "n_dung_records_in_multiple_obs_owner_day_clusters": 4,
+  "n_owner_day_clusters_with_multiple_dung_annotations": 2,
+  "n_reused_original_photo_ids_across_dung_annotations": 0,
+  "no_causal_sewage_or_NaN_nutrient_measured": true,
+  "no_independent_proboscis_contact_event_confirmed": true,
+  "no_photo_pixels_viewed_or_downloaded": true,
+  "no_representative_observation_opportunity_denominator": true,
+  "observed_family_dung_ANNOTATION_COUNTS_NOT_FEEDING_RATES": true,
+  "original_v2_746_source_git_blob": "d23eeb6e1b2fdf9b285e8af6ad5391b366139aa9",
+  "schema": "GESUI_I_NAT_DUNG46_COMPLETE_746_SOURCE_INDEPENDENCE_NOT_FEEDING_V1",
+  "source_decision": "PHOTO_REVIEW_REQUIRED_NONINDEPENDENT_USER_GENERATED_DUNG_TAGGED_OBSERVATIONS",
+  "source_descriptions_not_direct_visual_proboscis_confirmation": true,
+  "source_dung_text_only_record_count": 46,
+  "source_mixed_dung_and_mud_text_record_count": 3,
+  "source_original_iNat_v2_SHA256_pages": [
+    {
+      "n": 100,
+      "page": 1,
+      "source_sha256": "9468e489746b6767016404b4cf7becb8cfa98ac62f259275d18ef35f8987a9f7"
+    },
+    {
+      "n": 100,
+      "page": 2,
+      "source_sha256": "2d049dd88480704c62c92cfce5564ce7114ec816e65a5a305c5bbd7ec6843341"
+    },
+    {
+      "n": 100,
+      "page": 3,
+      "source_sha256": "16f8fa2d5680f6510a45072a21917ce2c16bb0f15094fa63bc67c4d8061171c3"
+    },
+    {
+      "n": 100,
+      "page": 4,
+      "source_sha256": "7a3ac8c7f55fba1c837568403f99705a45f67bee802f55270f9e5b34577678ed"
+    },
+    {
+      "n": 100,
+      "page": 5,
+      "source_sha256": "33f50e1a900839b571b458d86114dd03812da94b1b26c55dbc7caf1cc7eec122"
+    },
+    {
+      "n": 100,
+      "page": 6,
+      "source_sha256": "157d4d3b1b9266099fa54f7158684b5e93a13d322ab3442e1ca35527c07b5cf7"
+    },
+    {
+      "n": 100,
+      "page": 7,
+      "source_sha256": "948544064e2e164f5436fe63ba8cb2afdcdbf60dba5b0a32a3c0bfa6d92c740b"
+    },
+    {
+      "n": 46,
+      "page": 8,
+      "source_sha256": "09a62237d70fd392567d0016fb8b78106deed7accb645c1aec9a252cba545dbf"
+    }
+  ],
+  "total_distinct_dung_observation_owners": 33
+}

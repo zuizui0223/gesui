@@ -1,0 +1,60 @@
+name: GESUI archive SHA-checked original dung46 observer-day source audit
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - .github/workflows/gesui-20261115-archive-inat-original-dung46.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  archive-original-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43712123823
+          name: gesui-inat-original-dung46-ownerday-photo-no-behavior-assertion
+          repository: zuizui0223/gesui
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-original-dung46
+      - name: Verify original source QA hashes and no photo/proboscis false claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "b81574bdca3b34f3ddc24e6d4baba2c918d16703fc51ecf024ac52d3d2207296  /tmp/gesui-original-dung46/INAT_DUNG46_ORIGINAL_INDEPENDENCE_QA.json" | sha256sum -c -
+          echo "5601e191ce48e9f5832a62f93b0b456ba9aa858e5b492d80814a876694e7a79b  /tmp/gesui-original-dung46/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv" | sha256sum -c -
+          mkdir -p results/20261115_adult_resource_behavior
+          cp /tmp/gesui-original-dung46/INAT_DUNG46_ORIGINAL_INDEPENDENCE_QA.json results/20261115_adult_resource_behavior/
+          cp /tmp/gesui-original-dung46/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv results/20261115_adult_resource_behavior/
+          python - <<'PY'
+          import csv,json
+          a=json.load(open("results/20261115_adult_resource_behavior/INAT_DUNG46_ORIGINAL_INDEPENDENCE_QA.json"))
+          assert a["source_dung_text_only_record_count"]==46
+          assert a["n_distinct_dung_owner_days"]==44
+          assert a["total_distinct_dung_observation_owners"]==33
+          assert a["n_dung_annotation_owners_in_both_Lycaenidae_and_Nymphalidae"]==2
+          assert a["no_photo_pixels_viewed_or_downloaded"] and a["no_independent_proboscis_contact_event_confirmed"]
+          q=list(csv.DictReader(open("results/20261115_adult_resource_behavior/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv")))
+          assert len(q)==46
+          assert all(x["ecological_feeding_event_confirmed"]=="NOT_REVIEWED" for x in q)
+          PY
+      - name: Commit source-only aggregates and public original observation links
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261115_adult_resource_behavior/INAT_DUNG46_ORIGINAL_INDEPENDENCE_QA.json \
+                  results/20261115_adult_resource_behavior/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive original iNaturalist dung46 owner-day source and public photo review queue (no photos)"
+          git fetch origin analysis/gesui-hns-family-taxon-attribution-20261115
+          git rebase origin/analysis/gesui-hns-family-taxon-attribution-20261115
+          git push origin HEAD:analysis/gesui-hns-family-taxon-attribution-20261115

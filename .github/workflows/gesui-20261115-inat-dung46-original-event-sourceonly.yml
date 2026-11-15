@@ -1,0 +1,47 @@
+name: GESUI original iNaturalist field500 dung46 owner-day and photo-source QA
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_adult_resource_behavior/audit_dung46_source_independence.py
+      - .github/workflows/gesui-20261115-inat-dung46-original-event-sourceonly.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-tagged-records-not-proboscis-feeding:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Census all 746 original iNat annotations and 46 dung-only owner/day/photo metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_adult_resource_behavior/audit_dung46_source_independence.py \
+            --baseline results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json \
+            --old-census results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json \
+            --output results/20261115_adult_resource_behavior/INAT_DUNG46_ORIGINAL_INDEPENDENCE_QA.json \
+            --review results/20261115_adult_resource_behavior/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv
+          python - <<'PY'
+          import json,csv
+          q=json.load(open('results/20261115_adult_resource_behavior/INAT_DUNG46_ORIGINAL_INDEPENDENCE_QA.json'))
+          assert q['n_all_original_source_field500_records']==746 and q['source_dung_text_only_record_count']==46
+          assert q['source_mixed_dung_and_mud_text_record_count']==3
+          assert q['no_photo_pixels_viewed_or_downloaded']
+          assert q['no_causal_sewage_or_NaN_nutrient_measured']
+          assert q['no_independent_proboscis_contact_event_confirmed']
+          x=list(csv.DictReader(open('results/20261115_adult_resource_behavior/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv')))
+          assert len(x)==46 and all(v['original_substrate_visually_verified']=='NOT_REVIEWED' and v['ecological_feeding_event_confirmed']=='NOT_REVIEWED' for v in x)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-inat-original-dung46-ownerday-photo-no-behavior-assertion
+          path: |
+            results/20261115_adult_resource_behavior/INAT_DUNG46_ORIGINAL_INDEPENDENCE_QA.json
+            results/20261115_adult_resource_behavior/INAT_DUNG46_POTENTIAL_PHOTO_REVIEW_QUEUE.csv
+          if-no-files-found: error

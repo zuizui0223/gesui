@@ -1,0 +1,83 @@
+{
+  "biological_outcome_test_executed": false,
+  "date_window": "2022-05-01/2022-09-30",
+  "decision": "STOP_DATA_OPPORTUNITY_NOT_YET_DEMONSTRATED",
+  "frozen_protocol_git_blob": "b9ce415c36d398eee77d8318a20aef4873e0bf44",
+  "locked_bands_m": [
+    "0-200",
+    "500-1500"
+  ],
+  "locked_primary": "Lycaenidae incidence-equal larval-host HNS, 47 scored species",
+  "min_scored_lycaenid_record_fraction_each_cell": 0.7,
+  "min_scored_lycaenid_species_each_cell": 2,
+  "minimum_complete_8cell_matched_source_reference_pairs": 24,
+  "minimum_countries": 3,
+  "minimum_distinct_H6": 12,
+  "necessary_local_cell_observer_date_opportunities_min": 960,
+  "necessary_total_5family_occurrence_opportunities_min": 3840,
+  "no_inference_about_presence_absence_of_wastewater_to_land_impact": true,
+  "no_local_HNS_response_computed_or_fit": true,
+  "qualified_8cell_source_reference_pairs_currently_verified": 0,
+  "qualifying_2022_8cell_point_cohort_assembled": false,
+  "raw_source_sha_reverified": {
+    "H7_aggregate_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "de_git_blob": "1c1af1b5be5d061e8d7d2ca901f09156f7cc40e1",
+    "de_stop_git_blob": "ec76f9a33f4021650c0a1af4cb0b8ddf971b8acf",
+    "dk_git_blob": "16a89e29f6bfe4aa6c39542b28f06e85c3880823"
+  },
+  "reason_codes": [
+    "NO_VERIFIED_2022_EIGHT_CELL_SOURCE_REFERENCE_PAIR_COHORT",
+    "DK_2025_BUTTERFLY_YEAR_MISMATCH_AND_TWO_INDEPENDENT_OUTFALLS",
+    "DE_2022_LEGACY_GEOMETRY_EFFORT_GATE_FAILED_NOT_SAME_NEW_DISTANCE_BANDS",
+    "H7_PANEL_SPECIESKEY_AGGREGATES_NO_POINT_COORDINATES",
+    "REQUIRED_OBSERVER_DAYS_AND_WITHIN_H7_MATCHED_SOURCE_REFERENCE_UNAVAILABLE"
+  ],
+  "replayed_preexisting_source_support": {
+    "H7_454_aggregate": {
+      "H6": 90,
+      "H7": 232,
+      "cannot_assign_near_inland_or_2022_summer": true,
+      "n_columns": 169,
+      "no_occurrence_coordinates_or_observer_events": true,
+      "rows": 454
+    },
+    "denmark_2025_survey_year_not_primary": {
+      "compatible_with_frozen_primary_2022_year": false,
+      "original_centroid_500m_snap_NOT_0_200m_occurrence_coordinate": true,
+      "original_public_survey_site_centroids": 286,
+      "relation_rows": 92,
+      "reported_source_year": 2022,
+      "same_reach_order_ambiguous": 4,
+      "site_reach_not_snapped": 69,
+      "site_snap_le500m": 60,
+      "source_reported_outfalls": 203,
+      "strict_downstream": {
+        "distinct_monitor_reaches": 2,
+        "distinct_reported_outfall_SHA256": 2,
+        "distinct_site_SHA256": 10,
+        "site_uncertainty_classification_not_standalone_occurrences": true,
+        "source_site_relations": 10
+      },
+      "strict_upstream": {
+        "distinct_monitor_reaches": 2,
+        "distinct_reported_outfall_SHA256": 2,
+        "distinct_site_SHA256": 4,
+        "site_uncertainty_classification_not_standalone_occurrences": true,
+        "source_site_relations": 4
+      },
+      "survey_year": 2025
+    },
+    "germany_2022_legacy_2km_5km_proxy_not_primary_0_200m_500_1500m": {
+      "5km_legacy_outcome_api_queries": 0,
+      "5km_legacy_photo_opportunity_supported_pairs": 35,
+      "5km_legacy_photo_supported_independent_quartets": 5,
+      "not_verified_as_2022_8cell_design": true,
+      "orig_pairs": 73,
+      "orig_site_points": 100,
+      "original_2km_and_5km_preoutcome_gates_failed": true
+    }
+  },
+  "required_local_cells_min": 192,
+  "schema": "GESUI_FROZEN_WITHIN_H7_RIPARIAN_HNS_SOURCE_ONLY_AUDIT_V1",
+  "zero_means_no_source_qualified_complete_pair_documented_NOT_ecological_zero": true
+}

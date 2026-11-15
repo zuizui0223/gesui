@@ -1,0 +1,60 @@
+name: GESUI frozen within-H7 riparian HNS source-only STOP audit
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_riparian_source_only/**
+      - .github/workflows/gesui-20261115-riparian-source-only-qa.yml
+  pull_request:
+    branches:
+      - analysis/gesui-hns-family-decomposition-20261115
+    paths:
+      - analysis/20261115_riparian_source_only/**
+      - .github/workflows/gesui-20261115-riparian-source-only-qa.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay-only-no-butterfly-outcomes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch prior frozen source-only records by exact historical commits
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p analysis/20261115_riparian_source_only/prior_inputs
+          cd analysis/20261115_riparian_source_only/prior_inputs
+          curl -fLsS --retry 3 --max-time 120 \
+            "https://raw.githubusercontent.com/zuizui0223/gesui/029d28ff259739d8a576a7d40af3350aabd8661d/results/ebms_denmark_2023_2024_WWTP_source_only/DK2025_NEW399_286SITE_203WWTP_SHA_LOCKED_HYDRORIVERS_DIRECTED_SOURCE_FEASIBILITY.json" \
+            -o dk.json
+          curl -fLsS --retry 3 --max-time 120 \
+            "https://raw.githubusercontent.com/zuizui0223/gesui/c666f9d18c8cf17da8679c69dff07d60d5dcf69e/results/lycaenidae_2022_DE_national_73pair_sourceonly/INDEPENDENT_OFFLINE_NATIONAL73_ORIGINAL_PLANT_OPPORTUNITY_QC.json" \
+            -o de.json
+          curl -fLsS --retry 3 --max-time 120 \
+            "https://raw.githubusercontent.com/zuizui0223/gesui/c666f9d18c8cf17da8679c69dff07d60d5dcf69e/results/lycaenidae_2022_DE_national_73pair_sourceonly/2022_BUTTERFLY_OUTCOME_STOP_BECAUSE_PRIOR_EFFORT_SOURCE_GATES_FAILED.json" \
+            -o de_stop.json
+      - name: Replay original source-only river and observer opportunity restrictions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_riparian_source_only/audit_frozen_gate.py \
+            --dk analysis/20261115_riparian_source_only/prior_inputs/dk.json \
+            --de analysis/20261115_riparian_source_only/prior_inputs/de.json \
+            --de-stop analysis/20261115_riparian_source_only/prior_inputs/de_stop.json \
+            --h7 results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --freeze docs/FROZEN_PROTOCOL_20261115_WITHIN_H7_RIPARIAN_HNS_ONE_SHOT.md \
+            --output results/20261115_riparian_source_only/FROZEN_GATE_SOURCE_ONLY_RESULTS.json
+          python -c "import json; p='results/20261115_riparian_source_only/FROZEN_GATE_SOURCE_ONLY_RESULTS.json'; s=json.load(open(p)); assert s['decision']=='STOP_DATA_OPPORTUNITY_NOT_YET_DEMONSTRATED' and not s['biological_outcome_test_executed']"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-riparian-source-only-opportunity-stop
+          path: results/20261115_riparian_source_only/FROZEN_GATE_SOURCE_ONLY_RESULTS.json
+          if-no-files-found: error

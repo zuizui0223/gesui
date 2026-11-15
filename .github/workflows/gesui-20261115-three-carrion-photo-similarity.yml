@@ -1,0 +1,45 @@
+name: GESUI iNaturalist CC BY NC three animal remains transient pixel similarity QA
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_adult_resource_behavior/audit_three_carrion_photo_similarity.py
+      - .github/workflows/gesui-20261115-three-carrion-photo-similarity.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-licensed-transient-image-analysis-no-pixel-artifact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install in-memory image feature matching tools
+        run: python -m pip install --quiet "numpy>=1.26,<3" "opencv-python-headless>=4.9,<5" "Pillow>=10,<12"
+      - name: Fetch only four original CC BY NC source photos into temporary memory; output only geometry and numeric similarity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python analysis/20261115_adult_resource_behavior/audit_three_carrion_photo_similarity.py \
+            --out results/20261115_adult_resource_behavior/INAT_3_CARRION_ORIGINAL_TRANSIENT_PHOTO_FEATURE_QA.json
+          python - <<'PY'
+          import json
+          x=json.load(open("results/20261115_adult_resource_behavior/INAT_3_CARRION_ORIGINAL_TRANSIENT_PHOTO_FEATURE_QA.json"))
+          assert x["n_observations"] == 3 and x["n_distinct_observer_days"] == 2
+          assert x["no_original_photo_pixel_bytes_stored_in_GitHub_results"]
+          assert x["no_manual_visual_photograph_review"]
+          assert x["no_visible_proboscis_or_carcase_identity_confirmed"]
+          assert x["no_HNS_WWTP_or_measured_nutrient_exposure"]
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-three-carrion-only-original-photo-metadata-feature-distances
+          path: results/20261115_adult_resource_behavior/INAT_3_CARRION_ORIGINAL_TRANSIENT_PHOTO_FEATURE_QA.json
+          if-no-files-found: error
+          retention-days: 30
