@@ -227,10 +227,50 @@ def audit_events(events,meta,archive_sha,mime):
     }
 
 
+def point_site_inventory(events):
+    """Source-only publicly licensed 2022 point-count visit centers for later river joins.
+
+    A locationID + exact coordinate site key prevents changes in reported coordinates
+    being mistakenly treated as repeated samples at the same physical point.
+    No occurrence extensions or biological composition.
+    """
+    sites={}
+    for e in events:
+        d=datekey(e.get("eventDate",""))
+        if d is None or d.year!=2022 or not 5<=d.month<=9:
+            continue
+        if (e.get("samplingProtocol") or "").strip()!="Point site count":
+            continue
+        lat=num(e.get("decimalLatitude"))
+        lon=num(e.get("decimalLongitude"))
+        uncertainty=num(e.get("coordinateUncertaintyInMeters"))
+        if lat is None or lon is None or uncertainty is None:
+            continue
+        if not -90<=lat<=90 or not -180<=lon<=180 or uncertainty>100 or uncertainty<0:
+            continue
+        key=(str(e.get("locationID","")).strip(),f"{lat:.9f}",f"{lon:.9f}")
+        item=sites.setdefault(key,{
+            "site_location_sha256_16":hashlib.sha256("|".join(key).encode()).hexdigest()[:16],
+            "latitude":lat,"longitude":lon,"published_uncertainty_m":uncertainty,
+            "method":"Point site count","n_events":0,"visit_dates":set()})
+        item["n_events"]+=1
+        item["visit_dates"].add(d.isoformat())
+    rows=[]
+    for obj in sites.values():
+        r={k:v for k,v in obj.items() if k!="visit_dates"}
+        r["n_distinct_2022_may_sep_visit_dates"]=len(obj["visit_dates"])
+        r["five_or_more_dates"]=len(obj["visit_dates"])>=5
+        r["no_local_HNS_read"]=True
+        r["is_site_center_not_butterfly_location"]=True
+        rows.append(r)
+    return sorted(rows,key=lambda x:x["site_location_sha256_16"])
+
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--freeze",type=Path,required=True)
     p.add_argument("--output",type=Path,required=True)
+    p.add_argument("--point-sites-output",type=Path,required=True)
     a=p.parse_args()
     if git_blob(a.freeze.read_bytes())!=FROZEN_PROTOCOL_GIT_BLOB:
         raise ValueError("Frozen 2026-11-15 protocol Git blob changed")
@@ -240,6 +280,21 @@ def main():
         raise ValueError("Published frozen SeBMS version 1.13 source SHA drift: "+archive_sha)
     events,meta=parse_event_core(blob)
     result=audit_events(events,meta,archive_sha,mime)
+    inventory=point_site_inventory(events)
+    original_n=result["original_summer_site_count_by_protocol"]["Point site count"]
+    original_five=result["original_summer_site_count_with_5_dates_by_protocol"]["Point site count"]
+    if len(inventory)!=original_n or sum(x["five_or_more_dates"] for x in inventory)!=original_five:
+        raise ValueError("Original site ID/coordinate mismatch: stop before river matching")
+    if sum(x["n_events"] for x in inventory)!=result["original_summer_event_samplingProtocol_counts"]["Point site count"]:
+        raise ValueError("Original point event count mismatch")
+    result["coordinate_stable_point_site_registry_rows"]=len(inventory)
+    result["coordinate_stable_point_site_registry_5visit_sites"]=original_five
+    result["source_only_site_registry_created"]=True
+    a.point_sites_output.parent.mkdir(parents=True,exist_ok=True)
+    with a.point_sites_output.open("w",encoding="utf-8",newline="") as fp:
+        writer=csv.DictWriter(fp,fieldnames=list(inventory[0]))
+        writer.writeheader()
+        writer.writerows(inventory)
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(result,indent=2,sort_keys=True,ensure_ascii=False,allow_nan=False)+"\n",encoding="utf-8")
     print("GESUI_SEBMS_SOURCE_ONLY="+json.dumps(result,sort_keys=True,ensure_ascii=False,separators=(",",":")),flush=True)
