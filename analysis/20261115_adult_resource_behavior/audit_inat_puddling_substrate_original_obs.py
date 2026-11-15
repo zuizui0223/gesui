@@ -20,8 +20,8 @@ INAT_QUERY={
 }
 FAMILIES=("Lycaenidae","Nymphalidae","Pieridae","Papilionidae","Hesperiidae","Riodinidae")
 MAX_FIELD_FETCH=1000
-CAP_BY_FIELD={500:1000,17428:650,16376:120,18609:120}
-SOURCE_PAGE_SIZE=40
+CAP_BY_FIELD={500:80,17428:30,16376:20,18609:20}
+SOURCE_PAGE_SIZE=5
 REQUEST_TIMEOUT=55
 def request(path,params):
     if path not in ("observations","taxa/autocomplete"):
@@ -32,7 +32,7 @@ def request(path,params):
             req=urllib.request.Request(url,headers={"User-Agent":"gesui-adult-puddling-source-record-audit/1.0","Accept":"application/json"})
             with urllib.request.urlopen(req,timeout=REQUEST_TIMEOUT) as s:
                 raw=s.read(5_000_000)
-                if len(raw)>=5_000_000:raise RuntimeError("iNat oversized API response: STOP")
+                if len(raw)>=5_000_000:raise RuntimeError("iNat oversized API response even with 5 records: STOP")
             d=json.loads(raw)
             if not isinstance(d,dict):raise ValueError("Not iNat v1 JSON object")
             return d,hashlib.sha256(raw).hexdigest()
@@ -96,7 +96,7 @@ def audit(args):
         found={}
         pages=[]
         first=True;total=None
-        for page in range(1,26):
+        for page in range(1,17):
             # Cap at 1000. No "missing field" means absence of behavior.
             d,digest=request("observations",{key:"","per_page":SOURCE_PAGE_SIZE,"page":page,"verifiable":"any",
                                                "order_by":"id","order":"asc"})
