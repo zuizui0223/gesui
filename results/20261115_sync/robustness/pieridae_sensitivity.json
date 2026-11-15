@@ -1,0 +1,906 @@
+[
+  {
+    "test": "original",
+    "cohort": "coverage80",
+    "n_rows": 390,
+    "H7": 217,
+    "H6": 83,
+    "H6_gain_pct": 12.9552305763153,
+    "H6_ci": [
+      3.4053049660958643,
+      20.1493384739373
+    ],
+    "W_beta_perSD": 0.03359675332050929,
+    "W_cluster95": [
+      0.014564961731045514,
+      0.05262854490997307
+    ],
+    "max_sklearn_diff": 2.2037927038809357e-14,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 333,
+        "train_H6": 67,
+        "test_rows": 57,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 317,
+        "train_H6": 69,
+        "test_rows": 73,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 281,
+        "train_H6": 64,
+        "test_rows": 109,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 302,
+        "train_H6": 66,
+        "test_rows": 88,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 327,
+        "train_H6": 66,
+        "test_rows": 63,
+        "zero_shared_H6": true
+      }
+    ],
+    "country_equal_gain_pct": 2.7698938436305798,
+    "country_fixed_error_bootstrap95": [
+      -7.317614369411189,
+      8.234133026388262
+    ],
+    "n_supported_countries": 6,
+    "country_results": [
+      {
+        "country": "FR",
+        "n": 253,
+        "m0": 0.006689154347587388,
+        "m1": 0.0068342026923478285
+      },
+      {
+        "country": "HR",
+        "n": 14,
+        "m0": 0.01861445130560607,
+        "m1": 0.016792499484826754
+      },
+      {
+        "country": "IT",
+        "n": 46,
+        "m0": 0.006308963461395561,
+        "m1": 0.007326139955155048
+      },
+      {
+        "country": "LT",
+        "n": 29,
+        "m0": 0.03199755399626646,
+        "m1": 0.029482497516173788
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "m0": 0.016246370098105308,
+        "m1": 0.01796612620659416
+      },
+      {
+        "country": "NO",
+        "n": 15,
+        "m0": 0.01038510815199778,
+        "m1": 0.00934053894537016
+      }
+    ],
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 382,
+        "train_H6": 80,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "BE",
+        "train_rows": 378,
+        "train_H6": 81,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "FR",
+        "train_rows": 137,
+        "train_H6": 49,
+        "test_rows": 253,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HR",
+        "train_rows": 372,
+        "train_H6": 75,
+        "test_rows": 14,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HU",
+        "train_rows": 387,
+        "train_H6": 82,
+        "test_rows": 1,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "IT",
+        "train_rows": 342,
+        "train_H6": 69,
+        "test_rows": 46,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "LT",
+        "train_rows": 361,
+        "train_H6": 74,
+        "test_rows": 29,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NL",
+        "train_rows": 374,
+        "train_H6": 79,
+        "test_rows": 12,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NO",
+        "train_rows": 375,
+        "train_H6": 75,
+        "test_rows": 15,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "SE",
+        "train_rows": 382,
+        "train_H6": 79,
+        "test_rows": 8,
+        "zero_shared_H6": true
+      }
+    ]
+  },
+  {
+    "test": "family_recording_coverage",
+    "cohort": "coverage80",
+    "n_rows": 390,
+    "H7": 217,
+    "H6": 83,
+    "H6_gain_pct": 14.553658359898641,
+    "H6_ci": [
+      3.8644131114684432,
+      22.44832954948138
+    ],
+    "W_beta_perSD": 0.03210549018613473,
+    "W_cluster95": [
+      0.013832094868069144,
+      0.05037888550420032
+    ],
+    "max_sklearn_diff": 2.225997164373439e-14,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 333,
+        "train_H6": 67,
+        "test_rows": 57,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 317,
+        "train_H6": 69,
+        "test_rows": 73,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 281,
+        "train_H6": 64,
+        "test_rows": 109,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 302,
+        "train_H6": 66,
+        "test_rows": 88,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 327,
+        "train_H6": 66,
+        "test_rows": 63,
+        "zero_shared_H6": true
+      }
+    ],
+    "country_equal_gain_pct": 11.731700729865159,
+    "country_fixed_error_bootstrap95": [
+      0.8386369423686183,
+      19.76603238350728
+    ],
+    "n_supported_countries": 6,
+    "country_results": [
+      {
+        "country": "FR",
+        "n": 253,
+        "m0": 0.006692124533426599,
+        "m1": 0.006726527935360391
+      },
+      {
+        "country": "HR",
+        "n": 14,
+        "m0": 0.016346730793024348,
+        "m1": 0.014401332363251668
+      },
+      {
+        "country": "IT",
+        "n": 46,
+        "m0": 0.007732226481755126,
+        "m1": 0.005258727508701276
+      },
+      {
+        "country": "LT",
+        "n": 29,
+        "m0": 0.033920876051141954,
+        "m1": 0.02848544753862306
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "m0": 0.01394924898794758,
+        "m1": 0.015236095137282203
+      },
+      {
+        "country": "NO",
+        "n": 15,
+        "m0": 0.011020653404763997,
+        "m1": 0.009034868655239465
+      }
+    ],
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 382,
+        "train_H6": 80,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "BE",
+        "train_rows": 378,
+        "train_H6": 81,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "FR",
+        "train_rows": 137,
+        "train_H6": 49,
+        "test_rows": 253,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HR",
+        "train_rows": 372,
+        "train_H6": 75,
+        "test_rows": 14,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HU",
+        "train_rows": 387,
+        "train_H6": 82,
+        "test_rows": 1,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "IT",
+        "train_rows": 342,
+        "train_H6": 69,
+        "test_rows": 46,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "LT",
+        "train_rows": 361,
+        "train_H6": 74,
+        "test_rows": 29,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NL",
+        "train_rows": 374,
+        "train_H6": 79,
+        "test_rows": 12,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NO",
+        "train_rows": 375,
+        "train_H6": 75,
+        "test_rows": 15,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "SE",
+        "train_rows": 382,
+        "train_H6": 79,
+        "test_rows": 8,
+        "zero_shared_H6": true
+      }
+    ]
+  },
+  {
+    "test": "species_composition_adjusted",
+    "cohort": "coverage80",
+    "n_rows": 390,
+    "H7": 217,
+    "H6": 83,
+    "H6_gain_pct": 12.174793644423032,
+    "H6_ci": [
+      3.895699865504966,
+      17.787701503765422
+    ],
+    "W_beta_perSD": 0.03087702884981038,
+    "W_cluster95": [
+      0.011577876562617523,
+      0.050176181137003235
+    ],
+    "max_sklearn_diff": 3.2307490016592055e-14,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 333,
+        "train_H6": 67,
+        "test_rows": 57,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 317,
+        "train_H6": 69,
+        "test_rows": 73,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 281,
+        "train_H6": 64,
+        "test_rows": 109,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 302,
+        "train_H6": 66,
+        "test_rows": 88,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 327,
+        "train_H6": 66,
+        "test_rows": 63,
+        "zero_shared_H6": true
+      }
+    ],
+    "country_equal_gain_pct": 0.9351726503740014,
+    "country_fixed_error_bootstrap95": [
+      -9.866181035701922,
+      9.758118720077233
+    ],
+    "n_supported_countries": 6,
+    "country_results": [
+      {
+        "country": "FR",
+        "n": 253,
+        "m0": 0.015138601565351871,
+        "m1": 0.012974616398482642
+      },
+      {
+        "country": "HR",
+        "n": 14,
+        "m0": 0.02542436803023479,
+        "m1": 0.02480837469464303
+      },
+      {
+        "country": "IT",
+        "n": 46,
+        "m0": 0.019597592494574084,
+        "m1": 0.024545161755054355
+      },
+      {
+        "country": "LT",
+        "n": 29,
+        "m0": 0.02633007973275182,
+        "m1": 0.02402946569343626
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "m0": 0.01727250001716124,
+        "m1": 0.017868432904403934
+      },
+      {
+        "country": "NO",
+        "n": 15,
+        "m0": 0.014995845757634572,
+        "m1": 0.013422334579813329
+      }
+    ],
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 382,
+        "train_H6": 80,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "BE",
+        "train_rows": 378,
+        "train_H6": 81,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "FR",
+        "train_rows": 137,
+        "train_H6": 49,
+        "test_rows": 253,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HR",
+        "train_rows": 372,
+        "train_H6": 75,
+        "test_rows": 14,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HU",
+        "train_rows": 387,
+        "train_H6": 82,
+        "test_rows": 1,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "IT",
+        "train_rows": 342,
+        "train_H6": 69,
+        "test_rows": 46,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "LT",
+        "train_rows": 361,
+        "train_H6": 74,
+        "test_rows": 29,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NL",
+        "train_rows": 374,
+        "train_H6": 79,
+        "test_rows": 12,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NO",
+        "train_rows": 375,
+        "train_H6": 75,
+        "test_rows": 15,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "SE",
+        "train_rows": 382,
+        "train_H6": 79,
+        "test_rows": 8,
+        "zero_shared_H6": true
+      }
+    ]
+  },
+  {
+    "test": "fixed_butterfly_mix_plant_opportunity",
+    "cohort": "coverage80",
+    "n_rows": 390,
+    "H7": 217,
+    "H6": 83,
+    "H6_gain_pct": 9.272976644984517,
+    "H6_ci": [
+      -1.2063580153097755,
+      18.157353651370503
+    ],
+    "W_beta_perSD": 0.023813734570614028,
+    "W_cluster95": [
+      0.00898245044555664,
+      0.03864501869567141
+    ],
+    "max_sklearn_diff": 1.8762769116165146e-14,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 333,
+        "train_H6": 67,
+        "test_rows": 57,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 317,
+        "train_H6": 69,
+        "test_rows": 73,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 281,
+        "train_H6": 64,
+        "test_rows": 109,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 302,
+        "train_H6": 66,
+        "test_rows": 88,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 327,
+        "train_H6": 66,
+        "test_rows": 63,
+        "zero_shared_H6": true
+      }
+    ],
+    "country_equal_gain_pct": 7.068381692170325,
+    "country_fixed_error_bootstrap95": [
+      -8.803066196025657,
+      14.436685085984466
+    ],
+    "n_supported_countries": 6,
+    "country_results": [
+      {
+        "country": "FR",
+        "n": 253,
+        "m0": 0.005002300017676323,
+        "m1": 0.005646503468676992
+      },
+      {
+        "country": "HR",
+        "n": 14,
+        "m0": 0.007928982759274752,
+        "m1": 0.007275797192991914
+      },
+      {
+        "country": "IT",
+        "n": 46,
+        "m0": 0.0033312887403912634,
+        "m1": 0.0036849787706391196
+      },
+      {
+        "country": "LT",
+        "n": 29,
+        "m0": 0.02394418768676582,
+        "m1": 0.021065705352948598
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "m0": 0.004428978699369978,
+        "m1": 0.005260389301963972
+      },
+      {
+        "country": "NO",
+        "n": 15,
+        "m0": 0.008221756436249398,
+        "m1": 0.006187950799657662
+      }
+    ],
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 382,
+        "train_H6": 80,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "BE",
+        "train_rows": 378,
+        "train_H6": 81,
+        "test_rows": 6,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "FR",
+        "train_rows": 137,
+        "train_H6": 49,
+        "test_rows": 253,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HR",
+        "train_rows": 372,
+        "train_H6": 75,
+        "test_rows": 14,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "HU",
+        "train_rows": 387,
+        "train_H6": 82,
+        "test_rows": 1,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "IT",
+        "train_rows": 342,
+        "train_H6": 69,
+        "test_rows": 46,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "LT",
+        "train_rows": 361,
+        "train_H6": 74,
+        "test_rows": 29,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NL",
+        "train_rows": 374,
+        "train_H6": 79,
+        "test_rows": 12,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "NO",
+        "train_rows": 375,
+        "train_H6": 75,
+        "test_rows": 15,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "SE",
+        "train_rows": 382,
+        "train_H6": 79,
+        "test_rows": 8,
+        "zero_shared_H6": true
+      }
+    ]
+  },
+  {
+    "test": "species_composition_adjusted",
+    "cohort": "period2017_2019",
+    "n_rows": 208,
+    "H7": 208,
+    "H6": 78,
+    "H6_gain_pct": 23.81781903031968,
+    "H6_ci": [
+      -3.1351220386655245,
+      37.063675302905324
+    ],
+    "W_beta_perSD": 0.0155583826122196,
+    "W_cluster95": [
+      -0.0023692394503162274,
+      0.03348600467475543
+    ],
+    "max_sklearn_diff": 4.8627768478581856e-14,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 180,
+        "train_H6": 62,
+        "test_rows": 28,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 167,
+        "train_H6": 64,
+        "test_rows": 41,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 150,
+        "train_H6": 60,
+        "test_rows": 58,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 160,
+        "train_H6": 62,
+        "test_rows": 48,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 175,
+        "train_H6": 64,
+        "test_rows": 33,
+        "zero_shared_H6": true
+      }
+    ]
+  },
+  {
+    "test": "species_composition_adjusted",
+    "cohort": "period2020_2022",
+    "n_rows": 182,
+    "H7": 182,
+    "H6": 82,
+    "H6_gain_pct": 11.664371062930877,
+    "H6_ci": [
+      0.39288881463544767,
+      20.640560920845
+    ],
+    "W_beta_perSD": 0.04250627985863156,
+    "W_cluster95": [
+      0.020072588053237053,
+      0.06493997166402607
+    ],
+    "max_sklearn_diff": 1.2989609388114332e-14,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 153,
+        "train_H6": 66,
+        "test_rows": 29,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 150,
+        "train_H6": 68,
+        "test_rows": 32,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 131,
+        "train_H6": 63,
+        "test_rows": 51,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 142,
+        "train_H6": 66,
+        "test_rows": 40,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 152,
+        "train_H6": 65,
+        "test_rows": 30,
+        "zero_shared_H6": true
+      }
+    ]
+  },
+  {
+    "test": "species_composition_adjusted",
+    "cohort": "France",
+    "n_rows": 253,
+    "H7": 144,
+    "H6": 35,
+    "H6_gain_pct": 0.16653221854608313,
+    "H6_ci": [
+      -1.235738978373884,
+      1.694043096007199
+    ],
+    "W_beta_perSD": -0.004005252796686273,
+    "W_cluster95": [
+      -0.015447565188976005,
+      0.007437059595603458
+    ],
+    "max_sklearn_diff": 6.9111383282915995e-15,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 230,
+        "train_H6": 31,
+        "test_rows": 23,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 205,
+        "train_H6": 29,
+        "test_rows": 48,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 172,
+        "train_H6": 24,
+        "test_rows": 81,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 189,
+        "train_H6": 26,
+        "test_rows": 64,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 216,
+        "train_H6": 30,
+        "test_rows": 37,
+        "zero_shared_H6": true
+      }
+    ]
+  },
+  {
+    "test": "species_composition_adjusted",
+    "cohort": "outside_France",
+    "n_rows": 137,
+    "H7": 75,
+    "H6": 50,
+    "H6_gain_pct": 12.553381068435895,
+    "H6_ci": [
+      1.1848223422031692,
+      20.488697383349113
+    ],
+    "W_beta_perSD": 0.10629367892710226,
+    "W_cluster95": [
+      0.03860761404739593,
+      0.17397974380680858
+    ],
+    "max_sklearn_diff": 5.828670879282072e-15,
+    "splits": [
+      {
+        "group": "0",
+        "train_rows": 103,
+        "train_H6": 37,
+        "test_rows": 34,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "1",
+        "train_rows": 112,
+        "train_H6": 42,
+        "test_rows": 25,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "2",
+        "train_rows": 109,
+        "train_H6": 42,
+        "test_rows": 28,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "3",
+        "train_rows": 113,
+        "train_H6": 41,
+        "test_rows": 24,
+        "zero_shared_H6": true
+      },
+      {
+        "group": "4",
+        "train_rows": 111,
+        "train_H6": 38,
+        "test_rows": 26,
+        "zero_shared_H6": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "previous_sha_verified_responses": 1630,
+  "original_graph_reproduced": true,
+  "max_independent_scipy_sparse_expected_links_error": 8.506484405756964e-10,
+  "max_model_sklearn_prediction_error": 5.517808432387028e-14,
+  "previous_null_reproduced": {
+    "fixed_clusters": 6,
+    "draws": 499,
+    "movable_host_keys": 826,
+    "host_keys_total": 990,
+    "observed_H6_equal_expected_links": 5.439283246915138,
+    "null_H6_equal_mean": 4.656822526656729,
+    "null_H6_equal95": [
+      4.325853941368159,
+      5.0135049393632105
+    ],
+    "relative_excess_percent": 16.802459526413614,
+    "null_at_least_observed_plus1": 0.002,
+    "posthoc_not_causal": true
+  },
+  "removal_meta": [
+    {
+      "remove_top_hosts": 0,
+      "removed_names": [],
+      "remaining_host_keys": 990,
+      "movable_keys": 826,
+      "observed_mass_in_movable_strata_fraction": 0.9156207061269858,
+      "fraction_original_index_removed": 0.0
+    },
+    {
+      "remove_top_hosts": 1,
+      "removed_names": [
+        "Urtica dioica"
+      ],
+      "remaining_host_keys": 989,
+      "movable_keys": 824,
+      "observed_mass_in_movable_strata_fraction": 0.904107528342099,
+      "fraction_original_index_removed": 0.09606025414142105
+    },
+    {
+      "remove_top_hosts": 5,
+      "removed_names": [
+        "Urtica dioica",
+        "Dactylis glomerata",
+        "Humulus lupulus",
+        "Alliaria petiolata",
+        "Prunus spinosa"
+      ],
+      "remaining_host_keys": 985,
+      "movable_keys": 821,
+      "observed_mass_in_movable_strata_fraction": 0.9310042531130276,
+      "fraction_original_index_removed": 0.24807240528144436
+    },
+    {
+      "remove_top_hosts": 20,
+      "removed_names": [
+        "Urtica dioica",
+        "Dactylis glomerata",
+        "Humulus lupulus",
+        "Alliaria petiolata",
+        "Prunus spinosa",
+        "Cardamine pratensis",
+        "Lotus corniculatus",
+        "Poa annua",
+        "Plantago lanceolata",
+        "Crataegus monogyna",
+        "Trifolium pratense",
+        "Medicago sativa",
+        "Poa trivialis",
+        "Plantago major",
+        "Corylus avellana",
+        "Vaccinium uliginosum",
+        "Trifolium repens",
+        "Rubus idaeus",
+        "Capsella bursa-pastoris",
+        "Vicia cracca"
+      ],
+      "remaining_host_keys": 970,
+      "movable_keys": 806,
+      "observed_mass_in_movable_strata_fraction": 0.8953886787731691,
+      "fraction_original_index_removed": 0.5040708271904961
+    }
+  ],
+  "source_europe_rows_acquired": false,
+  "source_window_and_sites_unchanged": true,
+  "original_tests_passed": 7,
+  "new_tests_passed": 8
+}
