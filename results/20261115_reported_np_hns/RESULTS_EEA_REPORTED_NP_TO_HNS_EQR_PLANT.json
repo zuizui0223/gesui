@@ -1,0 +1,1014 @@
+{
+  "N_P_source_index_not_actual_received_nutrient_dose": true,
+  "cv_group": "authentic H6 parent; original H7 periods never cross folds",
+  "join_qa": {
+    "country_mode_mismatch_n": 11,
+    "flow_value_max_abs_diff": 1.1368683772161603e-13,
+    "original_H6": 90,
+    "original_H7": 232,
+    "original_joint_rows": 454,
+    "positive_reported_source_not_confirmed_no_source_controls": true,
+    "report_not_proof_of_actual_zero": true,
+    "same_field_site_EEA_EQR_but_butterfly_records_are_basinwide": true,
+    "source_N_and_P_are_mass_to_modelled_flow_not_measured_water_concentration": true
+  },
+  "models": {
+    "EQR": {
+      "baseline_MSE_H6equal": 0.028834311235961634,
+      "baseline_features": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "W"
+      ],
+      "comparisons": {
+        "B1_plus_matched_source_presence": {
+          "H6_equal_MSE_gain_percent": 1.9201377106748647,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.4863847637003085,
+            5.163711980012581
+          ],
+          "added_H6equal_MSE": 0.028280652752306575,
+          "added_predictors": [
+            "reported_positive"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 0.028834311235961634,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 1.619207801819666,
+          "target": "EQR_original_site_equal_basin_period_mean"
+        },
+        "B2_plus_N_report_index": {
+          "H6_equal_MSE_gain_percent": -0.009091025101184988,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -4.185291330296361,
+            3.7990603461919967
+          ],
+          "added_H6equal_MSE": 0.02883693257043385,
+          "added_predictors": [
+            "log_reported_N_mgL_equivalent"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 0.028834311235961634,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 0.6649613246204574,
+          "target": "EQR_original_site_equal_basin_period_mean"
+        },
+        "B3_plus_P_report_index": {
+          "H6_equal_MSE_gain_percent": 1.8722747726388167,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.2023460917690172,
+            5.516888161270051
+          ],
+          "added_H6equal_MSE": 0.028294453700826564,
+          "added_predictors": [
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 0.028834311235961634,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 1.6239462097597241,
+          "target": "EQR_original_site_equal_basin_period_mean"
+        },
+        "B4_plus_presence_and_N": {
+          "H6_equal_MSE_gain_percent": -0.9742964153926467,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -4.496762279232769,
+            1.7826493435399982
+          ],
+          "added_H6equal_MSE": 0.02855619013832194,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_N_mgL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 0.028280652752306575,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.17141671218171614,
+          "target": "EQR_original_site_equal_basin_period_mean"
+        },
+        "B5_plus_presence_and_P": {
+          "H6_equal_MSE_gain_percent": -0.20735140430065152,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -2.219586236077882,
+            1.6686386632153052
+          ],
+          "added_H6equal_MSE": 0.028339293082933873,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 0.028280652752306575,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 0.06022080382274102,
+          "target": "EQR_original_site_equal_basin_period_mean"
+        },
+        "B6_plus_presence_and_N_and_P": {
+          "H6_equal_MSE_gain_percent": -2.280669992306353,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -6.723213157897054,
+            0.9833937700647106
+          ],
+          "added_H6equal_MSE": 0.02892564111325679,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_N_mgL_equivalent",
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 0.028280652752306575,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.879606774161479,
+          "target": "EQR_original_site_equal_basin_period_mean"
+        }
+      },
+      "observational_partials": {
+        "B1_plus_matched_source_presence": {
+          "associations": {
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.026968710823402835,
+                0.008480207355216884
+              ],
+              "beta_per_plus_one_source_SD": -0.009244251734092976
+            }
+          },
+          "design_rank": 31,
+          "n_design_columns": 31,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+        },
+        "B4_plus_presence_and_N": {
+          "associations": {
+            "log_reported_N_mgL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.0174218939709639,
+                0.0011046404159973152
+              ],
+              "beta_per_plus_one_source_SD": -0.008158626777483293
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.025759649136938942,
+                0.0108191565580442
+              ],
+              "beta_per_plus_one_source_SD": -0.00747024628944737
+            }
+          },
+          "design_rank": 32,
+          "n_design_columns": 32,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+        },
+        "B5_plus_presence_and_P": {
+          "associations": {
+            "log_reported_P_ugL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.018219883449301595,
+                0.020157508507319385
+              ],
+              "beta_per_plus_one_source_SD": 0.0009688125290088941
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.032615900696907285,
+                0.013177036520268939
+              ],
+              "beta_per_plus_one_source_SD": -0.009719432088319175
+            }
+          },
+          "design_rank": 32,
+          "n_design_columns": 32,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+        },
+        "B6_plus_presence_and_N_and_P": {
+          "associations": {
+            "log_reported_N_mgL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.04918501061484504,
+                -0.0028984403148900398
+              ],
+              "beta_per_plus_one_source_SD": -0.02604172546486754
+            },
+            "log_reported_P_ugL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.006594186874264486,
+                0.06291264270043995
+              ],
+              "beta_per_plus_one_source_SD": 0.02815922791308773
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.043458605604956554,
+                0.008672174520329173
+              ],
+              "beta_per_plus_one_source_SD": -0.01739321554231369
+            }
+          },
+          "design_rank": 33,
+          "n_design_columns": 33,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+        }
+      },
+      "target": "EQR_original_site_equal_basin_period_mean"
+    },
+    "HNS": {
+      "baseline_MSE_H6equal": 0.11242391742008952,
+      "baseline_features": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "primary_rf_Lycaenidae",
+        "primary_rf_Pieridae",
+        "primary_rf_Papilionidae",
+        "primary_rf_Hesperiidae",
+        "W"
+      ],
+      "comparisons": {
+        "B1_plus_matched_source_presence": {
+          "H6_equal_MSE_gain_percent": 3.2758526791146383,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -0.8933571457129464,
+            6.303889617324149
+          ],
+          "added_H6equal_MSE": 0.10874107550931789,
+          "added_predictors": [
+            "reported_positive"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 0.11242391742008952,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 3.669041179979168,
+          "target": "primary_record_mean"
+        },
+        "B2_plus_N_report_index": {
+          "H6_equal_MSE_gain_percent": 0.5301670773278954,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.4030849233016478,
+            2.070716003608069
+          ],
+          "added_H6equal_MSE": 0.1118278828228859,
+          "added_predictors": [
+            "log_reported_N_mgL_equivalent"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 0.11242391742008952,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 0.8047180370759943,
+          "target": "primary_record_mean"
+        },
+        "B3_plus_P_report_index": {
+          "H6_equal_MSE_gain_percent": 1.3078628635714085,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -0.8816970809535686,
+            3.3890511127913117
+          ],
+          "added_H6equal_MSE": 0.11095356675437998,
+          "added_predictors": [
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 0.11242391742008952,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 1.4308853658010834,
+          "target": "primary_record_mean"
+        },
+        "B4_plus_presence_and_N": {
+          "H6_equal_MSE_gain_percent": -0.3290060359899626,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.3215116801526483,
+            0.5088238829011985
+          ],
+          "added_H6equal_MSE": 0.10909884021134394,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_N_mgL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 0.10874107550931789,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.20107626222311203,
+          "target": "primary_record_mean"
+        },
+        "B5_plus_presence_and_P": {
+          "H6_equal_MSE_gain_percent": -0.8361966032016693,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.7275947965961356,
+            -0.0036911591278555307
+          ],
+          "added_H6equal_MSE": 0.10965036468901176,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 0.10874107550931789,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.7431707191750417,
+          "target": "primary_record_mean"
+        },
+        "B6_plus_presence_and_N_and_P": {
+          "H6_equal_MSE_gain_percent": -2.5587905677338894,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -5.42793604586453,
+            -0.6550932162444023
+          ],
+          "added_H6equal_MSE": 0.1115235318927027,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_N_mgL_equivalent",
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 0.10874107550931789,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -2.340373524397762,
+          "target": "primary_record_mean"
+        }
+      },
+      "country_transfer": {
+        "N_gradient_after_presence": {
+          "all_training_target_H6_disjoint": true,
+          "country_details": {
+            "AT": {
+              "gain_percent": 12.153299159249219,
+              "test_H6": 3,
+              "test_rows": 4,
+              "train_rows": 445
+            },
+            "BE": {
+              "gain_percent": -7.050577006858429,
+              "test_H6": 2,
+              "test_rows": 5,
+              "train_rows": 442
+            },
+            "FR": {
+              "gain_percent": 0.424196725818243,
+              "test_H6": 36,
+              "test_rows": 299,
+              "train_rows": 145
+            },
+            "HR": {
+              "gain_percent": -9.662962227421026,
+              "test_H6": 8,
+              "test_rows": 10,
+              "train_rows": 434
+            },
+            "HU": {
+              "gain_percent": -3.8539512271650462,
+              "test_H6": 5,
+              "test_rows": 6,
+              "train_rows": 441
+            },
+            "IE": {
+              "gain_percent": -15.609231750137035,
+              "test_H6": 3,
+              "test_rows": 6,
+              "train_rows": 448
+            },
+            "IT": {
+              "gain_percent": -0.05842780881018938,
+              "test_H6": 15,
+              "test_rows": 46,
+              "train_rows": 404
+            },
+            "LT": {
+              "gain_percent": -7.2464091223388465,
+              "test_H6": 9,
+              "test_rows": 28,
+              "train_rows": 424
+            },
+            "LU": {
+              "gain_percent": -338.5239052298872,
+              "test_H6": 1,
+              "test_rows": 1,
+              "train_rows": 440
+            },
+            "LV": {
+              "gain_percent": -0.5923474902817412,
+              "test_H6": 1,
+              "test_rows": 1,
+              "train_rows": 447
+            },
+            "NL": {
+              "gain_percent": 2.477393810390445,
+              "test_H6": 4,
+              "test_rows": 12,
+              "train_rows": 438
+            },
+            "NO": {
+              "gain_percent": -0.028506006384923607,
+              "test_H6": 10,
+              "test_rows": 22,
+              "train_rows": 432
+            },
+            "PL": {
+              "gain_percent": -4.579140728217072,
+              "test_H6": 1,
+              "test_rows": 1,
+              "train_rows": 450
+            },
+            "SE": {
+              "gain_percent": 2.7327658155123693,
+              "test_H6": 4,
+              "test_rows": 8,
+              "train_rows": 446
+            },
+            "SI": {
+              "gain_percent": 3.990289122142012,
+              "test_H6": 5,
+              "test_rows": 5,
+              "train_rows": 440
+            }
+          },
+          "n_rows": 454,
+          "row_weighted_gain_percent": -1.5271324579130268,
+          "status": "complete",
+          "supported_countries": [
+            "FR",
+            "HR",
+            "IT",
+            "LT",
+            "NO"
+          ],
+          "supported_countries_equal_gain_percent": -4.816311308197265
+        },
+        "report_presence_vs_staticW": {
+          "all_training_target_H6_disjoint": true,
+          "country_details": {
+            "AT": {
+              "gain_percent": 50.22669344884804,
+              "test_H6": 3,
+              "test_rows": 4,
+              "train_rows": 445
+            },
+            "BE": {
+              "gain_percent": -55.28510732427053,
+              "test_H6": 2,
+              "test_rows": 5,
+              "train_rows": 442
+            },
+            "FR": {
+              "gain_percent": 9.144242543843557,
+              "test_H6": 36,
+              "test_rows": 299,
+              "train_rows": 145
+            },
+            "HR": {
+              "gain_percent": 4.3087440412420674,
+              "test_H6": 8,
+              "test_rows": 10,
+              "train_rows": 434
+            },
+            "HU": {
+              "gain_percent": 10.55374791849629,
+              "test_H6": 5,
+              "test_rows": 6,
+              "train_rows": 441
+            },
+            "IE": {
+              "gain_percent": -43.03351683526997,
+              "test_H6": 3,
+              "test_rows": 6,
+              "train_rows": 448
+            },
+            "IT": {
+              "gain_percent": 13.154375122075146,
+              "test_H6": 15,
+              "test_rows": 46,
+              "train_rows": 404
+            },
+            "LT": {
+              "gain_percent": 12.673245598958584,
+              "test_H6": 9,
+              "test_rows": 28,
+              "train_rows": 424
+            },
+            "LU": {
+              "gain_percent": -91.31551494563931,
+              "test_H6": 1,
+              "test_rows": 1,
+              "train_rows": 440
+            },
+            "LV": {
+              "gain_percent": 10.966152720149076,
+              "test_H6": 1,
+              "test_rows": 1,
+              "train_rows": 447
+            },
+            "NL": {
+              "gain_percent": 29.873585684959348,
+              "test_H6": 4,
+              "test_rows": 12,
+              "train_rows": 438
+            },
+            "NO": {
+              "gain_percent": 4.306878024592892,
+              "test_H6": 10,
+              "test_rows": 22,
+              "train_rows": 432
+            },
+            "PL": {
+              "gain_percent": -8443.116989142627,
+              "test_H6": 1,
+              "test_rows": 1,
+              "train_rows": 450
+            },
+            "SE": {
+              "gain_percent": 6.783390638327073,
+              "test_H6": 4,
+              "test_rows": 8,
+              "train_rows": 446
+            },
+            "SI": {
+              "gain_percent": -10.91415752363554,
+              "test_H6": 5,
+              "test_rows": 5,
+              "train_rows": 440
+            }
+          },
+          "n_rows": 454,
+          "row_weighted_gain_percent": 8.506297425804853,
+          "status": "complete",
+          "supported_countries": [
+            "FR",
+            "HR",
+            "IT",
+            "LT",
+            "NO"
+          ],
+          "supported_countries_equal_gain_percent": 6.522437252753778
+        }
+      },
+      "observational_partials": {
+        "B1_plus_matched_source_presence": {
+          "associations": {
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.0045724146734318,
+                0.0678571656505694
+              ],
+              "beta_per_plus_one_source_SD": 0.0316423754885688
+            }
+          },
+          "design_rank": 37,
+          "n_design_columns": 37,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of primary_record_mean"
+        },
+        "B4_plus_presence_and_N": {
+          "associations": {
+            "log_reported_N_mgL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.005305077532389554,
+                0.036630351615387705
+              ],
+              "beta_per_plus_one_source_SD": 0.015662637041499075
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.008679471994600459,
+                0.06462799198440478
+              ],
+              "beta_per_plus_one_source_SD": 0.027974259994902155
+            }
+          },
+          "design_rank": 38,
+          "n_design_columns": 38,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of primary_record_mean"
+        },
+        "B5_plus_presence_and_P": {
+          "associations": {
+            "log_reported_P_ugL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.05188176137425149,
+                0.041069535554455486
+              ],
+              "beta_per_plus_one_source_SD": -0.005406112909898
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.012063119505855091,
+                0.08084857517204472
+              ],
+              "beta_per_plus_one_source_SD": 0.03439272783309481
+            }
+          },
+          "design_rank": 38,
+          "n_design_columns": 38,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of primary_record_mean"
+        },
+        "B6_plus_presence_and_N_and_P": {
+          "associations": {
+            "log_reported_N_mgL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.007874713482631107,
+                0.11687715774331803
+              ],
+              "beta_per_plus_one_source_SD": 0.05450122213034346
+            },
+            "log_reported_P_ugL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.15644841681745564,
+                0.03279232192866226
+              ],
+              "beta_per_plus_one_source_SD": -0.06182804744439668
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.007920111897171754,
+                0.10858687060351693
+              ],
+              "beta_per_plus_one_source_SD": 0.050333379353172586
+            }
+          },
+          "design_rank": 39,
+          "n_design_columns": 39,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of primary_record_mean"
+        }
+      },
+      "target": "primary_record_mean"
+    },
+    "PlantS50": {
+      "baseline_MSE_H6equal": 4.055294135897244,
+      "baseline_features": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "W"
+      ],
+      "comparisons": {
+        "B1_plus_matched_source_presence": {
+          "H6_equal_MSE_gain_percent": -0.338721263926323,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -0.6694128270196978,
+            0.056757068967618673
+          ],
+          "added_H6equal_MSE": 4.069030279450285,
+          "added_predictors": [
+            "reported_positive"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 4.055294135897244,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.3450493702821262,
+          "target": "plant_S50"
+        },
+        "B2_plus_N_report_index": {
+          "H6_equal_MSE_gain_percent": 0.19201135935118127,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -0.7974919048420376,
+            1.4634747338158682
+          ],
+          "added_H6equal_MSE": 4.047507510501219,
+          "added_predictors": [
+            "log_reported_N_mgL_equivalent"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 4.055294135897244,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.26709310226975846,
+          "target": "plant_S50"
+        },
+        "B3_plus_P_report_index": {
+          "H6_equal_MSE_gain_percent": -0.15946141248581336,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.6689888730839357,
+            1.0673753452406838
+          ],
+          "added_H6equal_MSE": 4.0617607652068,
+          "added_predictors": [
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B0_static_W_only",
+          "baseline_H6equal_MSE": 4.055294135897244,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.6540649961331031,
+          "target": "plant_S50"
+        },
+        "B4_plus_presence_and_N": {
+          "H6_equal_MSE_gain_percent": 0.3811333383657725,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -0.553766845234656,
+            1.7563841769722142
+          ],
+          "added_H6equal_MSE": 4.053521848507102,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_N_mgL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 4.069030279450285,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": 0.03392457891277921,
+          "target": "plant_S50"
+        },
+        "B5_plus_presence_and_P": {
+          "H6_equal_MSE_gain_percent": 0.24071739368879957,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.1199800026699844,
+            1.7702275296119063
+          ],
+          "added_H6equal_MSE": 4.059235415813184,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 4.069030279450285,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.005579191977199296,
+          "target": "plant_S50"
+        },
+        "B6_plus_presence_and_N_and_P": {
+          "H6_equal_MSE_gain_percent": -0.030448873956495166,
+          "H6_fixed_heldout_errors_bootstrap95": [
+            -1.3992510993084504,
+            1.3385756657694625
+          ],
+          "added_H6equal_MSE": 4.070269253351326,
+          "added_predictors": [
+            "reported_positive",
+            "log_reported_N_mgL_equivalent",
+            "log_reported_P_ugL_equivalent"
+          ],
+          "baseline": "B1_plus_matched_source_presence",
+          "baseline_H6equal_MSE": 4.069030279450285,
+          "n_H6": 90,
+          "n_rows": 454,
+          "not_causal_effect": true,
+          "row_weighted_gain_percent": -0.10853944201990173,
+          "target": "plant_S50"
+        }
+      },
+      "observational_partials": {
+        "B1_plus_matched_source_presence": {
+          "associations": {
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.17869743998944565,
+                0.22590894124704858
+              ],
+              "beta_per_plus_one_source_SD": 0.02360575062880145
+            }
+          },
+          "design_rank": 31,
+          "n_design_columns": 31,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of plant_S50"
+        },
+        "B4_plus_presence_and_N": {
+          "associations": {
+            "log_reported_N_mgL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.09362926154375836,
+                0.2763771442837928
+              ],
+              "beta_per_plus_one_source_SD": 0.0913739413700172
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.19186569678275953,
+                0.19934064091866335
+              ],
+              "beta_per_plus_one_source_SD": 0.0037374720679519136
+            }
+          },
+          "design_rank": 32,
+          "n_design_columns": 32,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of plant_S50"
+        },
+        "B5_plus_presence_and_P": {
+          "associations": {
+            "log_reported_P_ugL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.06730908881907935,
+                0.526697459198289
+              ],
+              "beta_per_plus_one_source_SD": 0.22969418518960485
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.29297524691854193,
+                0.11486727508125565
+              ],
+              "beta_per_plus_one_source_SD": -0.08905398591864315
+            }
+          },
+          "design_rank": 32,
+          "n_design_columns": 32,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of plant_S50"
+        },
+        "B6_plus_presence_and_N_and_P": {
+          "associations": {
+            "log_reported_N_mgL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.44528186454914886,
+                0.1217710583198447
+              ],
+              "beta_per_plus_one_source_SD": -0.16175540311465209
+            },
+            "log_reported_P_ugL_equivalent": {
+              "H6_cluster_descriptive95": [
+                -0.11048796980683767,
+                0.9076570765077916
+              ],
+              "beta_per_plus_one_source_SD": 0.398584553350477
+            },
+            "reported_positive": {
+              "H6_cluster_descriptive95": [
+                -0.3722605707512583,
+                0.09882282226843697
+              ],
+              "beta_per_plus_one_source_SD": -0.13671887424141066
+            }
+          },
+          "design_rank": 33,
+          "n_design_columns": 33,
+          "observational_not_causal_mediation": true,
+          "outcome_scale": "original units of plant_S50"
+        }
+      },
+      "target": "plant_S50"
+    }
+  },
+  "original_HNS_panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "original_prior_static_W_baseline_replication": {
+    "EQR": 6.724969789376491,
+    "HNS": 10.014323780152122
+  },
+  "outcome_type": "EEA method-dependent EQR, GBIF plant rarefied S50, butterfly occurrence-weighted HNS",
+  "paired_report_status": {
+    "n_pairs": 222,
+    "not_equivalent_to_WWTP_opening_or_shutdown": true,
+    "report_status_transitions": {
+      "0_to_0": 185,
+      "0_to_1": 10,
+      "1_to_0": 9,
+      "1_to_1": 18
+    }
+  },
+  "schema": "GESUI_20261115_REAL_REPORTED_NP_TO_HNS_EQR_PLANT_H7_SOURCE_GATED_POSTHOC_v1",
+  "source_no_matched_report_not_a_clean_control": true,
+  "source_positive_only_descriptive_rank": {
+    "EQR_vs_N_source_equiv": {
+      "H6_cluster_bootstrap95": [
+        -0.5196818122374546,
+        -0.04041316678052567
+      ],
+      "n_H6": 31,
+      "n_positive": 56,
+      "selected_report_positive_and_not_adjusted": true,
+      "spearman_r": -0.2976076555023923
+    },
+    "EQR_vs_P_source_equiv": {
+      "H6_cluster_bootstrap95": [
+        -0.5011042674654634,
+        0.0343055619273396
+      ],
+      "n_H6": 31,
+      "n_positive": 56,
+      "selected_report_positive_and_not_adjusted": true,
+      "spearman_r": -0.2666438824333561
+    },
+    "HNS_vs_N_source_equiv": {
+      "H6_cluster_bootstrap95": [
+        -0.07124768168942347,
+        0.5053869340646634
+      ],
+      "n_H6": 31,
+      "n_positive": 56,
+      "selected_report_positive_and_not_adjusted": true,
+      "spearman_r": 0.22344497607655503
+    },
+    "HNS_vs_P_source_equiv": {
+      "H6_cluster_bootstrap95": [
+        -0.04140515338691486,
+        0.5484818501486477
+      ],
+      "n_H6": 31,
+      "n_positive": 56,
+      "selected_report_positive_and_not_adjusted": true,
+      "spearman_r": 0.2757347915242653
+    },
+    "PlantS50_vs_N_source_equiv": {
+      "H6_cluster_bootstrap95": [
+        0.1507515598257669,
+        0.6409333586498698
+      ],
+      "n_H6": 31,
+      "n_positive": 56,
+      "selected_report_positive_and_not_adjusted": true,
+      "spearman_r": 0.4174982911825017
+    },
+    "PlantS50_vs_P_source_equiv": {
+      "H6_cluster_bootstrap95": [
+        0.09015730580514511,
+        0.6099598956000587
+      ],
+      "n_H6": 31,
+      "n_positive": 56,
+      "selected_report_positive_and_not_adjusted": true,
+      "spearman_r": 0.3710184552289816
+    }
+  },
+  "source_qa": {
+    "N_P_pearson_source_all": 0.9265001364970359,
+    "N_P_pearson_source_positive": 0.9092979434488312,
+    "exploratory_support_gate_pass": true,
+    "n_positive_periods": {
+      "2017-2019": 28,
+      "2020-2022": 28
+    },
+    "positive_H6": 31,
+    "positive_H7": 38,
+    "positive_both_NP": 56,
+    "positive_country_counts": {
+      "AT": 4,
+      "BE": 2,
+      "FR": 4,
+      "HR": 4,
+      "HU": 5,
+      "IT": 11,
+      "LT": 5,
+      "LU": 1,
+      "NL": 11,
+      "NO": 4,
+      "PL": 1,
+      "SI": 4
+    },
+    "positive_rows": 56,
+    "positive_source_country_FR": 4,
+    "rows": 454,
+    "uncertain_source_no_matched_positive_report_rows": 398
+  },
+  "source_reconciled_index": {
+    "source_rows": 454,
+    "source_schema": "GESUI_454_EU_H7_ONE_WATERSHED_TWO_PERIOD_YEAR_SPECIFIC_REPORTED_NP_SOURCE_ONLY_v1",
+    "source_sha256": "012ad79feabc8c11e0d74f803730b5b7913b96a64a6af26fb0c97263d9aa7c26",
+    "source_signed_zip_sha256": "f8244b514b19cbed7da36207a6664b7a452c0d8238370bffeb179026d4a1db6f"
+  },
+  "study": "posthoc observational predictive check, no causal wastewater effect or SEM"
+}
