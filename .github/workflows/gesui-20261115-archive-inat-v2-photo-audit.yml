@@ -1,0 +1,64 @@
+name: GESUI archive exact iNat v2 source observer photo review (no images)
+on:
+  push:
+    branches: [analysis/gesui-hns-family-taxon-attribution-20261115]
+    paths:
+      - .github/workflows/gesui-20261115-archive-inat-v2-photo-audit.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  archive-source-only-no-media-bytes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43704447819
+          repository: zuizui0223/gesui
+          name: gesui-iNat-full746-observer-photo-review-sourceonly
+          github-token: "${{ github.token }}"
+          path: /tmp/gesui-inat-v2-source-audit
+      - name: Enforce original SHA and privacy/biology gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/gesui-inat-v2-source-audit
+          echo "00a46bd1d241ab2e7b2c09a3f72463cbd6888305407872681246b0689e3bd500  INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json" | sha256sum -c -
+          echo "2b8bb6c08861f362181a1b2bfbbc04efb9220ef7e22a75372eda97c799bb9102  INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv" | sha256sum -c -
+          cd "${{ github.workspace }}"
+          mkdir -p results/20261115_adult_resource_behavior
+          cp /tmp/gesui-inat-v2-source-audit/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json results/20261115_adult_resource_behavior/
+          cp /tmp/gesui-inat-v2-source-audit/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv results/20261115_adult_resource_behavior/
+          python - <<'PY'
+          import json,csv
+          r=json.load(open('results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json'))
+          a=list(csv.DictReader(open('results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv')))
+          assert r['n_original_field500_observations']==746
+          assert r['original_old_regex_category_census_exactly_reproduced']
+          assert len(a)==r['n_original_organic_candidate_annotations_for_photo_review']==78
+          assert r['n_observers_with_both_Lycaenidae_and_Nymphalidae_annotations']==18
+          assert r['n_informative_observers_with_both_families_mud_and_organic_annotations']==8
+          assert all(not row.get('human_actual_feeding_confirmed') for row in a)
+          assert all('https://www.inaturalist.org/observations/' in row['original_observation_url'] for row in a)
+          assert r['no_WWTP_or_HNS_joint_model_run']
+          PY
+      - name: Commit only derived source QA and links, no original photo bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json \
+                  results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Archive original iNaturalist 746-observation observer/source-reclassified photo review, not behavior effect"
+          git fetch origin analysis/gesui-hns-family-taxon-attribution-20261115
+          git rebase origin/analysis/gesui-hns-family-taxon-attribution-20261115
+          git push origin HEAD:analysis/gesui-hns-family-taxon-attribution-20261115
