@@ -116,9 +116,9 @@ def main(a):
         if sd<=1e-12:raise RuntimeError("Original common source numeric constant "+k)
         scales[k]=(mu,sd)
     group=d.groupby("h6")
-    n_wvar=sum((g.W.max()-g.W.min())>1e-10 for _,g in group)
-    n_wpositive=sum(g.W.max()>0 for _,g in group)
-    n_wallzero=sum(g.W.max()==0 for _,g in group)
+    n_wvar=int(sum(bool((g.W.max()-g.W.min())>1e-10) for _,g in group))
+    n_wpositive=int(sum(bool(g.W.max()>0) for _,g in group))
+    n_wallzero=int(sum(bool(g.W.max()==0) for _,g in group))
     # Primary prior coefficient reproduction in the same source prior frozen
     # model, before adding posthoc tests.
     prior=model(d,BUTTERFLY,PLANT,CONTROLS,scales,source=False,blocked=False)
@@ -169,7 +169,7 @@ def main(a):
               "concordant_direction":bool(delta_n*delta_b>0)})
     if len(ten)!=10:raise RuntimeError("Original ten true H6 source new-old pairs missing")
     results["source_new_10_H6_original_paired_direction_only"]={
-       "n_true_H6":len(ten),"concordant_direction_n":sum(q["concordant_direction"] for q in ten),
+       "n_true_H6":len(ten),"concordant_direction_n":int(sum(q["concordant_direction"] for q in ten)),
        "new_vs_old_paired_mean_DeltaPlantN":float(np.mean([q["new_minus_old_Plant_N"] for q in ten])),
        "new_vs_old_paired_mean_DeltaButterflyHNS":float(np.mean([q["new_minus_old_Butterfly_HNS"] for q in ten])),
        "source_ten_pair_not_a_full_adjusted_or_experimental_test":True,
@@ -193,7 +193,7 @@ def main(a):
           "focal_weighted_VIF":z["source_residualized_focal_VIF"],
           "condition_number":z["source_weighted_condition_number"]}
     origonly=results["old_only_below_primary_40H6_support"]["test"]
-    short["original_only_below40_H6"]={"n_H7":old.shape[0],"n_H6":old.h6.nunique(),
+    short["original_only_below40_H6"]={"n_H7":old.shape[0],"n_H6":int(old.h6.nunique()),
         "beta":origonly["beta_per_original_full_183_H7_1SD"],
         "cluster95":origonly["source_H6_cluster_descriptive95"]}
     print("GESUI_WITHIN_H6_W_AND_SOURCE_BIAS_POSTHOC="+json.dumps(short,ensure_ascii=False,sort_keys=True),flush=True)
