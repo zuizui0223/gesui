@@ -26,10 +26,13 @@ jobs:
           set -euo pipefail
           python analysis/20261115_riparian_source_only/audit_sebms_2026_113.py \
             --freeze docs/FROZEN_PROTOCOL_20261115_WITHIN_H7_RIPARIAN_HNS_ONE_SHOT.md \
-            --output results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json
+            --output results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json \
+            --point-sites-output results/20261115_riparian_source_only/SEBMS_2022_POINT_SITE_LOCATIONS_SOURCE_ONLY.csv
           python -c "import json; z=json.load(open('results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json')); assert z['frozen_primary_outcome_test_ran'] is False and z['source_event_core_only_occurrence_extension_not_read'] is True"
       - uses: actions/upload-artifact@v4
         with:
           name: gesui-SeBMS-v113-2022-event-core-source-only
-          path: results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json
+          path: |
+            results/20261115_riparian_source_only/SEBMS_2026_V113_EVENT_SOURCE_ONLY.json
+            results/20261115_riparian_source_only/SEBMS_2022_POINT_SITE_LOCATIONS_SOURCE_ONLY.csv
           if-no-files-found: error
