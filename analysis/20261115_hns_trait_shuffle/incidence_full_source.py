@@ -46,7 +46,7 @@ def main(args):
     t=pd.read_csv(roster,dtype={"butterflyKey":str},encoding="utf-8-sig")
     if len(t)!=303 or t.butterflyKey.duplicated().any():raise RuntimeError("Source roster invalid")
     families=t.family.astype(str).to_numpy()
-    scores=t.host_nutrient_mean.to_numpy(float)
+    scores=t.host_nutrient_mean.to_numpy(dtype=float,copy=True)
     bad_alias=t.actual_used_alias_conflict.astype(str).str.lower().isin(["true","1","yes"]).to_numpy()
     scores[(t.taxon_status.astype(str).to_numpy()!="ACCEPTED")|bad_alias]=np.nan
     known=np.isfinite(scores)
