@@ -71,6 +71,17 @@
 
 コード `analysis/20261115_eu454_plant_nutri/paired_temporal_cochange.py`。[Actions #43718897604](https://github.com/zuizui0223/gesui/actions/runs/43718897604)。
 
+
+## 数値の別実装検証（完了）
+
+WLSの主効果βを**元のstatsmodelsとは別のFrisch–Waugh–Lovell重み付き残差化**で、真正H6を完全留保するRidge予測を**元の正規方程式とは別の拡張行列least-squares**で独立再構成した。元451 H7期間／90 H6・固定元NUTRI4,011種・源source gate v2を再照合し、主な4モデル（W→植物種均等N、W→植物記録重みN、植物N→蝶種均等HNS、植物N→蝶記録重みHNS）に対し以下を確認した。
+
+- **4/4主モデル再計算がPASS**
+- 回帰係数の最大絶対再現誤差 **8.33×10⁻¹⁶**
+- H6留保MSE改善百分率の最大絶対再現誤差 **1.14×10⁻¹²**
+
+[独立数値QA GitHub Actions #43719165808 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43719165808)。コード `analysis/20261115_eu454_plant_nutri/independent_numerical_QA.py`、結果とsource receiptは専用artifactに保存。ただし**別実装による計算再現は独立データ・外的妥当性・因果媒介の立証ではない**。
+
 ## 科学的結論と投稿方針
 
 **言えること：** 水の物理環境に対するEPT clinger（別の米国riverbed系）とは別に、欧州同一H7で**排水関連地理Wに沿う植物群集の好栄養性と、蝶の幼虫寄主栄養嗜好との空間的対応**が測定可能である。主な信号は蝶の種均等指標でH6留保でも再現し、同じ期間単位・地域の植物指数が地理的な説明力を追加する。
