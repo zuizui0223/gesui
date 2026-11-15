@@ -1,0 +1,46 @@
+name: gesui 183-H7 within 40-H6 posthoc W and old-new source-bias adversarial falsifiers
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/posthoc_w_source_bias_falsifier.py'
+      - '.github/workflows/gesui-20261115-183H7-withinH6-W-source-bias-falsifiers.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  genuine-W-and-catalogue-source-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43726596337
+          name: gesui-20261115-genuine-183H7-40H6-terrestrial-EIV-HNS-source-replayed
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_old_new_183_H7
+      - name: Existing-source W→plantN, W→HNS after N and source-cohort effect within true H6
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/posthoc_w_source_bias_falsifier.py
+          python -u analysis/20261115_h6_source_expansion/posthoc_w_source_bias_falsifier.py \
+            --source '${{ runner.temp }}/genuine_old_new_183_H7' \
+            --output '${{ runner.temp }}/posthoc_diagnostics'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-183H7-40H6-source-W-PlantN-HNS-adversarial-9999
+          path: ${{ runner.temp }}/posthoc_diagnostics/
+          retention-days: 90
+          if-no-files-found: warn
