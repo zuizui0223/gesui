@@ -229,7 +229,7 @@ def self_test():
 
 if __name__=="__main__":
     a=argparse.ArgumentParser()
-    a.add_argument("--output",type=Path,default=ROOT/"gesui_ept_state_transfer"/"STATE_AND_PENALTY_RESULTS.json")
+    a.add_argument("--output",type=Path,default=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"gesui_ept_state_transfer"/"STATE_AND_PENALTY_RESULTS.json")
     a.add_argument("--self-test",action="store_true")
     args=a.parse_args()
     if args.self_test:self_test()
