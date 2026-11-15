@@ -2,7 +2,7 @@
 """One original iNat v2 observation source shape probe, no outcomes or raw ids in logs."""
 import json,urllib.parse,urllib.request,urllib.error
 BASE="https://api.inaturalist.org/v2/observations"
-FIELDS="id,user.id,taxon.id,ofvs.id,ofvs.name,ofvs.value,photos.url,observed_on"
+FIELDS="id,user.id,taxon.id,taxon.ancestor_ids,taxon.name,taxon.rank,ofvs.id,ofvs.name,ofvs.value,photos.url,observed_on,quality_grade"
 q={"field:Butterfly Puddling Substrate":"","per_page":3,"page":1,"fields":FIELDS,"order":"asc","order_by":"id"}
 url=BASE+"?"+urllib.parse.urlencode(q)
 req=urllib.request.Request(url,headers={"User-Agent":"gesui-sourceonly-v2-schema-probe/1.0","Accept":"application/json"})
