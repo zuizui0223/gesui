@@ -40,7 +40,7 @@ FROZEN_KEYWORDS = [
     ">=2 accepted Lycaenidae",
     ">=70% Lycaenidae",
     ">=5 distinct observer-dates",
-    "not a retrospective preregistration",
+    "retrospective preregistration",
 ]
 
 
