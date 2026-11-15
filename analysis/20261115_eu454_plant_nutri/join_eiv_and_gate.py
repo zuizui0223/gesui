@@ -81,8 +81,8 @@ def source_inputs(args):
         raise RuntimeError("Original H7 source facet status/count changed")
     plants={(str(x["HYBAS_ID_L07"]),str(x["period"])):x for x in facets if x.get("group")=="Plantae"}
     if len(plants)!=468:raise RuntimeError("Not 234x2 source Plantae facets")
-    allkeys={str(k) for r in plants.values() for k,v in r["source_speciesKey_counts"].items() if int(v)>0}
-    if len(allkeys)!=TOTAL_UNION:raise RuntimeError("Union 11511 source plant speciesKey drift")
+    # All 468 original Plant facets include 14 outside-cohort rows. Restrict
+    # to 454 analysis H7-periods BEFORE building the target 11511-key union.
     if sha(args.panel)!=PANEL_SHA:raise RuntimeError("Original 454-panel SHA changed")
     with args.panel.open(encoding="utf-8-sig",newline="") as f:
         fullpanel=list(csv.DictReader(f))
@@ -90,6 +90,13 @@ def source_inputs(args):
         raise RuntimeError("Original 454 H7-period sources missing/duplicated")
     if len({x["h"] for x in fullpanel})!=232 or len({x["h6"] for x in fullpanel})!=90:
         raise RuntimeError("Original H7/H6 mapping changed")
+    target={(str(x["h"]),str(x["period"])) for x in fullpanel}
+    selected=[r for k,r in plants.items() if k in target]
+    if len(selected)!=454:
+        raise RuntimeError("Cannot select exactly 454 genuine Plante facets")
+    allkeys={str(k) for r in selected for k,v in r["source_speciesKey_counts"].items() if int(v)>0}
+    if len(allkeys)!=TOTAL_UNION:
+        raise RuntimeError("Original 454-cohort union changed (468-source extras prohibited)")
     return plants, allkeys, fullpanel
 
 def load_shards(dir):
