@@ -1,0 +1,52 @@
+name: GESUI source-locked H7 family-specific HNS and species attribution
+on:
+  push:
+    branches:
+      - analysis/gesui-hns-family-taxon-attribution-20261115
+    paths:
+      - analysis/20261115_hns_family_taxon/**
+      - .github/workflows/gesui-20261115-hns-family-taxon-source.yml
+  pull_request:
+    branches:
+      - analysis/gesui-hns-family-decomposition-20261115
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-h7-family-species:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore exact original EEA-linked GBIF H7 family facets, not an API rescrape
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          run-id: 43593227162
+          github-token: "${{ github.token }}"
+          path: analysis/20261115_hns_family_taxon/download
+      - name: Examine original downloaded archive filenames
+        run: find analysis/20261115_hns_family_taxon/download -maxdepth 4 -type f -print
+      - name: Install scientific numerical libraries (ecology source offline)
+        run: python -m pip install --quiet "numpy>=1.26,<3" "scipy>=1.11,<2" "pandas>=2.1,<3" "statsmodels>=0.14,<0.16"
+      - name: Verify original SHA and rerun 454 H7 x five families with group holdouts
+        run: |
+          export OPENBLAS_NUM_THREADS=1
+          export OMP_NUM_THREADS=1
+          python analysis/20261115_hns_family_taxon/analyse.py \
+            --inputdir analysis/20261115_hns_family_taxon/download \
+            --output results/20261115_hns_family_taxon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-h7-family-species-attribution-20261115
+          path: |
+            results/20261115_hns_family_taxon/FAMILY_HNS_ATTRIBUTION_RESULTS.json
+            results/20261115_hns_family_taxon/FAMILY_HNS_ATTRIBUTION_SUMMARY.csv
+            results/20261115_hns_family_taxon/SPECIES_W_SLOPE_ATTRIBUTION.csv
+          if-no-files-found: error
