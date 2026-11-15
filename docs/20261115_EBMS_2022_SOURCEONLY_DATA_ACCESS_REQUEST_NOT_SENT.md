@@ -71,3 +71,23 @@ The following is based on *current official text*, not an assumption that a reci
 8. Nothing in this official access policy relaxes the one-shot source gate or authorizes a biological HNS test. Previous 2022 Swedish original checks and original Danish/Flemish Event-only audits remain data-source feasibility results, not treatment effects.
 
 **Operational stop:** if no secured authorized source geometry is available in the required 2022/3-country/8-arm design, report **DATA_ACCESS_PENDING_OR_SOURCE_GATE_FAIL** and do not estimate the main effect. Do not treat a lack of permission as an ecological no-effect finding.
+
+
+## Official eBMS technical intake fields and verified public contact (2026-11-15)
+
+Official [eBMS database schema](https://butterfly-monitoring.net/index.php/ja/ebms-database) explicitly specifies **three linked tables** from national BMS:
+- **site coordinates table**: original section geometry, site/section IDs and coordinate reference system;
+- **visit table**: all completed transect/section visits, times and weather, including zero-detection visits where genuinely recorded;
+- **butterfly counting table**: species/count by transect section and dated visit.
+
+**For the initial source-only tranche request the first TWO tables, not butterfly counts.** The source-only analysis needs original CRS, accurate section geometry or sampled point, year-2022 date, duration, stable matched section/site/event keys, completeness and legally permitted handling of recorded null visits. Original eBMS submission methods accept CSV/TXT/RDS/XLS; asking for site/visit tables matches the network's original architecture rather than inventing a new instrument.
+
+The official eBMS [My data page](https://butterfly-monitoring.net/mydata) lists the public **general eBMS support email ebms@ceh.ac.uk**. This may be used for a preliminary administrative enquiry, but the [data access form](https://butterfly-monitoring.net/ebms-data%20access) has a protected link to the destination for **personally signed official licence documents**. Confirm that specific licence-submission recipient on the live webpage rather than assuming the general support address is the final licence inbox. **No message was sent or signed** in this work.
+
+A first administrative enquiry should ask whether original 2022 site coordinates and visit tables can be released after national scheme approval, where exactly to submit the personally signed licence and whether custodians can first return a non-identifying gate summary instead of revealing sensitive fine-scale coordinates.
+
+The [official eBMS licence](https://butterfly-monitoring.net/sites/default/files/eBMS%20Licence%20%3D%20Annex%20A%20v%202022%2002%2002.pdf) requires explicit mention of proposed GIS processing and possible authorized database entry as the stated research use, and future analyses outside approved use need permission. The [policy](https://butterfly-monitoring.net/sites/default/files/eBMS%20DATA%20REQUEST%20POLICY%20%3D%20Annex%20B%20v2019%2004%2001.pdf) requires national scheme coordination and offers of co-authorship. Never upload restricted coordinates, observations, observer identities or unapproved derived positions to public GitHub Actions or repository.
+
+## One additional 2022 national survey source: Ireland
+
+The National Biodiversity Data Centre confirms that [Irish BMS](https://biodiversityireland.ie/surveys/butterfly-monitoring-scheme/) was active in 2022, with weekly fixed-route transects divided into 5–15 sections. The public portal's original [Irish Butterfly Monitoring Scheme dataset 316](https://maps.biodiversityireland.ie/Dataset/316) only contains **older observations through 2020**, despite continued national monitoring in 2022. The open [Butterflies of Ireland post 2021](https://maps.biodiversityireland.ie/Dataset/364) comprises casual records, not a standardized visit/zero-observation Event table. Neither public dataset proves exact 2022 Irish section geometry is accessible; Ireland is a **custodian request candidate**, not a source-qualified third country.
