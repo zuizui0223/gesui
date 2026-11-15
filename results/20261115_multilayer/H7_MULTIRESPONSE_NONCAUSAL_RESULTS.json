@@ -1,0 +1,470 @@
+{
+  "HNS_is_GBIF_record_weighted_host_habitat_N_affinity_not_butterfly_count": true,
+  "W_is_modelled_static_basin_outlet_geography_not_measured_effluent_dose": true,
+  "aquatic_EQR_is_not_insect_emergence_biomass": true,
+  "causal_SEM_or_mediation_fitted": false,
+  "models": {
+    "EQR_after_W_to_HNS": {
+      "added_numeric": [
+        "EQR_original_site_equal_basin_period_mean"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "primary_rf_Lycaenidae",
+        "primary_rf_Pieridae",
+        "primary_rf_Papilionidae",
+        "primary_rf_Hesperiidae",
+        "W"
+      ],
+      "outcome": "primary_record_mean",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": 5.078783567017654,
+        "H6_equal_added_MSE": 0.10671414997676051,
+        "H6_equal_baseline_MSE": 0.11242391742008952,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -0.22753077666743754,
+          10.523541285611099
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 1.771768970065417
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "EQR_original_site_equal_basin_period_mean": {
+            "H6_cluster_descriptive95": [
+              -0.09197657209090584,
+              -0.0156771839624448
+            ],
+            "beta_per_plus_one_source_SD": -0.05382687802667532
+          }
+        },
+        "design_rank": 37,
+        "n_design_columns": 37,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of primary_record_mean"
+      }
+    },
+    "EQRaquatic_after_W_to_PlantS50": {
+      "added_numeric": [
+        "EQR_original_site_equal_basin_period_mean"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "W"
+      ],
+      "outcome": "plant_S50",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": 0.4822559143669536,
+        "H6_equal_added_MSE": 4.035737240081903,
+        "H6_equal_baseline_MSE": 4.055294135897244,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -1.9522870683996432,
+          2.607931964886993
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 0.06780529485362456
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "EQR_original_site_equal_basin_period_mean": {
+            "H6_cluster_descriptive95": [
+              -0.08968380272401988,
+              0.5630369097824997
+            ],
+            "beta_per_plus_one_source_SD": 0.23667655352923989
+          }
+        },
+        "design_rank": 31,
+        "n_design_columns": 31,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of plant_S50"
+      }
+    },
+    "Plant_after_W_to_HNS": {
+      "added_numeric": [
+        "plant_S50"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "primary_rf_Lycaenidae",
+        "primary_rf_Pieridae",
+        "primary_rf_Papilionidae",
+        "primary_rf_Hesperiidae",
+        "W"
+      ],
+      "outcome": "primary_record_mean",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": 4.306041146360169,
+        "H6_equal_added_MSE": 0.10758289727763048,
+        "H6_equal_baseline_MSE": 0.11242391742008952,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -2.242476582818984,
+          10.739387781453367
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": -0.1550464697587544
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "plant_S50": {
+            "H6_cluster_descriptive95": [
+              -0.10351821810715905,
+              -0.025970446566838744
+            ],
+            "beta_per_plus_one_source_SD": -0.0647443323369989
+          }
+        },
+        "design_rank": 37,
+        "n_design_columns": 37,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of primary_record_mean"
+      }
+    },
+    "Plant_and_EQR_after_W_to_HNS": {
+      "added_numeric": [
+        "plant_S50",
+        "EQR_original_site_equal_basin_period_mean"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "primary_rf_Lycaenidae",
+        "primary_rf_Pieridae",
+        "primary_rf_Papilionidae",
+        "primary_rf_Hesperiidae",
+        "W"
+      ],
+      "outcome": "primary_record_mean",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": 7.941011050123354,
+        "H6_equal_added_MSE": 0.10349632171477866,
+        "H6_equal_baseline_MSE": 0.11242391742008952,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -0.8108725537422008,
+          16.318040968766624
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 1.2181998292108678
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "EQR_original_site_equal_basin_period_mean": {
+            "H6_cluster_descriptive95": [
+              -0.08363436301953749,
+              -0.010957256745993973
+            ],
+            "beta_per_plus_one_source_SD": -0.04729580988276573
+          },
+          "plant_S50": {
+            "H6_cluster_descriptive95": [
+              -0.09906880476755517,
+              -0.023243556808352737
+            ],
+            "beta_per_plus_one_source_SD": -0.061156180787953957
+          }
+        },
+        "design_rank": 38,
+        "n_design_columns": 38,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of primary_record_mean"
+      }
+    },
+    "W_after_Plant_and_EQR_to_HNS": {
+      "added_numeric": [
+        "W"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "primary_rf_Lycaenidae",
+        "primary_rf_Pieridae",
+        "primary_rf_Papilionidae",
+        "primary_rf_Hesperiidae",
+        "plant_S50",
+        "EQR_original_site_equal_basin_period_mean"
+      ],
+      "outcome": "primary_record_mean",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": 5.696582815017332,
+        "H6_equal_added_MSE": 0.10349632171477861,
+        "H6_equal_baseline_MSE": 0.10974821995237291,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -9.031565797174066,
+          17.001983551460324
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 3.6222679225956864
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "W": {
+            "H6_cluster_descriptive95": [
+              0.03785660120281495,
+              0.1969087470927329
+            ],
+            "beta_per_plus_one_source_SD": 0.11738267414777392
+          }
+        },
+        "design_rank": 38,
+        "n_design_columns": 38,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of primary_record_mean"
+      }
+    },
+    "W_to_EQR": {
+      "added_numeric": [
+        "W"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly"
+      ],
+      "outcome": "EQR_original_site_equal_basin_period_mean",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": 6.724969789376491,
+        "H6_equal_added_MSE": 0.028834311235961634,
+        "H6_equal_baseline_MSE": 0.030913215649302,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -2.4528061991735055,
+          13.967635433160945
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 9.284263963988602
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "W": {
+            "H6_cluster_descriptive95": [
+              -0.1133005609188833,
+              -0.03668877327531359
+            ],
+            "beta_per_plus_one_source_SD": -0.07499466709709844
+          }
+        },
+        "design_rank": 30,
+        "n_design_columns": 30,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+      }
+    },
+    "W_to_HNS": {
+      "added_numeric": [
+        "W"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "primary_rf_Lycaenidae",
+        "primary_rf_Pieridae",
+        "primary_rf_Papilionidae",
+        "primary_rf_Hesperiidae"
+      ],
+      "outcome": "primary_record_mean",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": 10.014323780152122,
+        "H6_equal_added_MSE": 0.11242391742008952,
+        "H6_equal_baseline_MSE": 0.12493534764957681,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -3.4463645249271146,
+          20.979256011516753
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 8.78930573377002
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "W": {
+            "H6_cluster_descriptive95": [
+              0.06496551807290753,
+              0.22468195940923869
+            ],
+            "beta_per_plus_one_source_SD": 0.1448237387410731
+          }
+        },
+        "design_rank": 36,
+        "n_design_columns": 36,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of primary_record_mean"
+      }
+    },
+    "W_to_PlantS50": {
+      "added_numeric": [
+        "W"
+      ],
+      "baseline_numeric": [
+        "crop",
+        "urban",
+        "riverflow",
+        "naturalout",
+        "area",
+        "nEEA",
+        "nAnimal",
+        "nPlant",
+        "nButterfly"
+      ],
+      "outcome": "plant_S50",
+      "predictive_added_value": {
+        "H6_equal_MSE_gain_percent": -1.3581253244027647,
+        "H6_equal_added_MSE": 4.055294135897244,
+        "H6_equal_baseline_MSE": 4.000956137377276,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -3.6473918943307573,
+          1.6302769643035302
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": -0.6232222360885656
+      },
+      "source_observational_partial_coefficients": {
+        "associations": {
+          "W": {
+            "H6_cluster_descriptive95": [
+              -0.7134871726970979,
+              0.37316919566531026
+            ],
+            "beta_per_plus_one_source_SD": -0.17015898851589384
+          }
+        },
+        "design_rank": 30,
+        "n_design_columns": 30,
+        "observational_not_causal_mediation": true,
+        "outcome_scale": "original units of plant_S50"
+      }
+    }
+  },
+  "models_are_exploratory_posthoc": true,
+  "n_H6": 90,
+  "n_H7": 232,
+  "n_countries": 15,
+  "n_rows": 454,
+  "original_panel_sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "paired_H7": {
+    "W_static_in_all_222": true,
+    "correlations": {
+      "all222_d_EQR_vs_dHNS": {
+        "H6_bootstrap_descriptive95": [
+          -0.12382239119025011,
+          0.14724734742447684
+        ],
+        "n_H6": 89,
+        "n_pairs": 222,
+        "not_temporal_wastewater_change": true,
+        "rho": -2.6871857980601524e-05
+      },
+      "all222_d_plant_S50_vs_dHNS": {
+        "H6_bootstrap_descriptive95": [
+          -0.08212510550867405,
+          0.20110070304483751
+        ],
+        "n_H6": 89,
+        "n_pairs": 222,
+        "not_temporal_wastewater_change": true,
+        "rho": 0.06140322494846368
+      },
+      "same_method172_d_EQR_vs_dHNS": {
+        "H6_bootstrap_descriptive95": [
+          -0.1659014040665163,
+          0.11760331527314266
+        ],
+        "n_H6": 55,
+        "n_pairs": 172,
+        "not_temporal_wastewater_change": true,
+        "rho": -0.032061940036271615
+      },
+      "same_method172_d_plant_S50_vs_dHNS": {
+        "H6_bootstrap_descriptive95": [
+          -0.05110846011205185,
+          0.2890408892825117
+        ],
+        "n_H6": 55,
+        "n_pairs": 172,
+        "not_temporal_wastewater_change": true,
+        "rho": 0.1300471908363461
+      }
+    },
+    "different_majority_method": 50,
+    "mean_delta_HNS": -0.017250645550849895,
+    "n_HNS_fall": 110,
+    "n_HNS_rise": 112,
+    "same_majority_method": 172,
+    "total": 222
+  },
+  "schema": "GESUI_20261115_SAME_H7_MULTIRESPONSE_NONCAUSAL_V1"
+}

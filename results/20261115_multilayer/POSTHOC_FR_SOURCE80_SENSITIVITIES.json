@@ -1,0 +1,410 @@
+{
+  "causal_mediation": false,
+  "modelled_static_outlet_W_only": true,
+  "results": {
+    "FR_only": {
+      "H6": 36,
+      "H7": 152,
+      "models": {
+        "Plant_and_EQR_after_W_to_HNS": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": 6.012085584785667,
+            "H6_equal_added_MSE": 0.04779564580040367,
+            "H6_equal_baseline_MSE": 0.05085296987148247,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -0.7469704035357394,
+              10.647736539039396
+            ],
+            "n_H6": 36,
+            "n_H7": 152,
+            "n_rows": 299,
+            "row_weighted_MSE_gain_percent": 3.4052827393751435
+          },
+          "within_sample_associations": {
+            "associations": {
+              "EQR_original_site_equal_basin_period_mean": {
+                "H6_cluster_descriptive95": [
+                  -0.051808859305386444,
+                  0.013313513250238863
+                ],
+                "beta_per_plus_one_source_SD": -0.01924767302757379
+              },
+              "plant_S50": {
+                "H6_cluster_descriptive95": [
+                  -0.0734647966228622,
+                  -0.005393576222932607
+                ],
+                "beta_per_plus_one_source_SD": -0.0394291864228974
+              }
+            },
+            "design_rank": 20,
+            "n_design_columns": 20,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of primary_record_mean"
+          }
+        },
+        "W_to_EQR": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": 0.5549376542651603,
+            "H6_equal_added_MSE": 0.03753991210108859,
+            "H6_equal_baseline_MSE": 0.03774939772331357,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -7.5468072917768225,
+              8.204014134379891
+            ],
+            "n_H6": 36,
+            "n_H7": 152,
+            "n_rows": 299,
+            "row_weighted_MSE_gain_percent": 7.814656186358109
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  -0.13886877771608097,
+                  0.007885081410351519
+                ],
+                "beta_per_plus_one_source_SD": -0.06549184815286473
+              }
+            },
+            "design_rank": 12,
+            "n_design_columns": 12,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+          }
+        },
+        "W_to_HNS": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": -5.411834663548423,
+            "H6_equal_added_MSE": 0.05085296987148247,
+            "H6_equal_baseline_MSE": 0.04824218270538033,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -10.879583319542883,
+              0.7206465567690925
+            ],
+            "n_H6": 36,
+            "n_H7": 152,
+            "n_rows": 299,
+            "row_weighted_MSE_gain_percent": -3.5518009632082723
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  -0.023760178281602103,
+                  0.09560401816305311
+                ],
+                "beta_per_plus_one_source_SD": 0.03592191994072551
+              }
+            },
+            "design_rank": 18,
+            "n_design_columns": 18,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of primary_record_mean"
+          }
+        },
+        "W_to_PlantS50": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": -0.7516888045264635,
+            "H6_equal_added_MSE": 3.037975076407993,
+            "H6_equal_baseline_MSE": 3.0153093337245442,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -8.499557545982585,
+              3.9053336871889566
+            ],
+            "n_H6": 36,
+            "n_H7": 152,
+            "n_rows": 299,
+            "row_weighted_MSE_gain_percent": 0.4626490936316406
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  -0.9500003820768403,
+                  0.041043828300990404
+                ],
+                "beta_per_plus_one_source_SD": -0.45447827688792497
+              }
+            },
+            "design_rank": 12,
+            "n_design_columns": 12,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of plant_S50"
+          }
+        }
+      },
+      "n": 299
+    },
+    "outside_FR": {
+      "H6": 56,
+      "H7": 82,
+      "models": {
+        "Plant_and_EQR_after_W_to_HNS": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": 7.357209786873461,
+            "H6_equal_added_MSE": 0.15528770942641204,
+            "H6_equal_baseline_MSE": 0.1676198537081727,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -5.241876697437203,
+              16.580531809408267
+            ],
+            "n_H6": 56,
+            "n_H7": 82,
+            "n_rows": 155,
+            "row_weighted_MSE_gain_percent": 7.877590945591032
+          },
+          "within_sample_associations": {
+            "associations": {
+              "EQR_original_site_equal_basin_period_mean": {
+                "H6_cluster_descriptive95": [
+                  -0.13157242989541781,
+                  0.04638886078784867
+                ],
+                "beta_per_plus_one_source_SD": -0.042591784553784574
+              },
+              "plant_S50": {
+                "H6_cluster_descriptive95": [
+                  -0.15004810022959358,
+                  -0.019894501116971608
+                ],
+                "beta_per_plus_one_source_SD": -0.0849713006732826
+              }
+            },
+            "design_rank": 37,
+            "n_design_columns": 37,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of primary_record_mean"
+          }
+        },
+        "W_to_EQR": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": -1.3310940791683599,
+            "H6_equal_added_MSE": 0.029489892251997107,
+            "H6_equal_baseline_MSE": 0.029102510458396045,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -14.41250370548272,
+              8.834854244275913
+            ],
+            "n_H6": 56,
+            "n_H7": 82,
+            "n_rows": 155,
+            "row_weighted_MSE_gain_percent": -0.307282440515285
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  -0.15056230128639342,
+                  -0.03418987970302672
+                ],
+                "beta_per_plus_one_source_SD": -0.09237609049471007
+              }
+            },
+            "design_rank": 29,
+            "n_design_columns": 29,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+          }
+        },
+        "W_to_HNS": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": 6.074989638921659,
+            "H6_equal_added_MSE": 0.1676198537081727,
+            "H6_equal_baseline_MSE": 0.17846136302118826,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -14.668185920421932,
+              20.350324018218792
+            ],
+            "n_H6": 56,
+            "n_H7": 82,
+            "n_rows": 155,
+            "row_weighted_MSE_gain_percent": 5.716874156598036
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  0.058638867562460256,
+                  0.4486498730141816
+                ],
+                "beta_per_plus_one_source_SD": 0.25364437028832093
+              }
+            },
+            "design_rank": 35,
+            "n_design_columns": 35,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of primary_record_mean"
+          }
+        },
+        "W_to_PlantS50": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": -1.267942355638881,
+            "H6_equal_added_MSE": 4.998923137330076,
+            "H6_equal_baseline_MSE": 4.9363332768968045,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -4.106271324461175,
+              1.9109444719067037
+            ],
+            "n_H6": 56,
+            "n_H7": 82,
+            "n_rows": 155,
+            "row_weighted_MSE_gain_percent": -1.3512194797819372
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  -0.8989813330144245,
+                  1.2946076661825416
+                ],
+                "beta_per_plus_one_source_SD": 0.19781316658405862
+              }
+            },
+            "design_rank": 29,
+            "n_design_columns": 29,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of plant_S50"
+          }
+        }
+      },
+      "n": 155
+    },
+    "taxon_coverage80": {
+      "H6": 83,
+      "H7": 217,
+      "models": {
+        "Plant_and_EQR_after_W_to_HNS": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": 9.872369479170342,
+            "H6_equal_added_MSE": 0.0956993309993946,
+            "H6_equal_baseline_MSE": 0.10618201149455188,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              2.779372134648637,
+              16.457376496217034
+            ],
+            "n_H6": 83,
+            "n_H7": 217,
+            "n_rows": 390,
+            "row_weighted_MSE_gain_percent": 4.935650285786245
+          },
+          "within_sample_associations": {
+            "associations": {
+              "EQR_original_site_equal_basin_period_mean": {
+                "H6_cluster_descriptive95": [
+                  -0.08725292623128633,
+                  -0.021238351321238406
+                ],
+                "beta_per_plus_one_source_SD": -0.054245638776262366
+              },
+              "plant_S50": {
+                "H6_cluster_descriptive95": [
+                  -0.07495220320224699,
+                  -0.008650524098020147
+                ],
+                "beta_per_plus_one_source_SD": -0.041801363650133566
+              }
+            },
+            "design_rank": 37,
+            "n_design_columns": 37,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of primary_record_mean"
+          }
+        },
+        "W_to_EQR": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": 5.630335083494087,
+            "H6_equal_added_MSE": 0.02977084358506774,
+            "H6_equal_baseline_MSE": 0.03154704810217103,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -3.39536596661608,
+              13.134247278328758
+            ],
+            "n_H6": 83,
+            "n_H7": 217,
+            "n_rows": 390,
+            "row_weighted_MSE_gain_percent": 7.018311615775666
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  -0.10156808330883596,
+                  -0.018759121751580572
+                ],
+                "beta_per_plus_one_source_SD": -0.06016360253020827
+              }
+            },
+            "design_rank": 29,
+            "n_design_columns": 29,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of EQR_original_site_equal_basin_period_mean"
+          }
+        },
+        "W_to_HNS": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": 16.909459927472426,
+            "H6_equal_added_MSE": 0.10618201149455188,
+            "H6_equal_baseline_MSE": 0.12779073454314818,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              9.000577877641291,
+              26.58287342499134
+            ],
+            "n_H6": 83,
+            "n_H7": 217,
+            "n_rows": 390,
+            "row_weighted_MSE_gain_percent": 7.757701636496773
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  0.09532809785329763,
+                  0.23863265451032453
+                ],
+                "beta_per_plus_one_source_SD": 0.16698037618181108
+              }
+            },
+            "design_rank": 35,
+            "n_design_columns": 35,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of primary_record_mean"
+          }
+        },
+        "W_to_PlantS50": {
+          "predictive": {
+            "H6_equal_MSE_gain_percent": -1.571748523497164,
+            "H6_equal_added_MSE": 3.9419965979218157,
+            "H6_equal_baseline_MSE": 3.8809970835639316,
+            "H6_heldout_fixed_errors_bootstrap95_percent": [
+              -3.284819160831265,
+              1.1188573879598083
+            ],
+            "n_H6": 83,
+            "n_H7": 217,
+            "n_rows": 390,
+            "row_weighted_MSE_gain_percent": -1.544121785143492
+          },
+          "within_sample_associations": {
+            "associations": {
+              "W": {
+                "H6_cluster_descriptive95": [
+                  -0.6808022396560891,
+                  0.39023376127342607
+                ],
+                "beta_per_plus_one_source_SD": -0.14528423919133154
+              }
+            },
+            "design_rank": 29,
+            "n_design_columns": 29,
+            "observational_not_causal_mediation": true,
+            "outcome_scale": "original units of plant_S50"
+          }
+        }
+      },
+      "n": 390
+    }
+  },
+  "source_sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "stage": "posthoc after main model"
+}
