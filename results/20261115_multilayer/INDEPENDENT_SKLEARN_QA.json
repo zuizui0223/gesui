@@ -1,0 +1,31 @@
+{
+  "method": "independent sklearn StandardScaler/OneHotEncoder/Ridge/ H6 equal OOF",
+  "models": {
+    "Plant_and_EQR_after_W_to_HNS": {
+      "archived_gain": 7.941011050123354,
+      "difference": 1.3091749906379846e-12,
+      "n_test_rows": 454,
+      "new_gain": 7.941011050122045
+    },
+    "W_to_EQR": {
+      "archived_gain": 6.724969789376491,
+      "difference": 7.993605777301127e-15,
+      "n_test_rows": 454,
+      "new_gain": 6.724969789376483
+    },
+    "W_to_HNS": {
+      "archived_gain": 10.014323780152122,
+      "difference": 8.704148513061227e-13,
+      "n_test_rows": 454,
+      "new_gain": 10.014323780151251
+    },
+    "W_to_PlantS50": {
+      "archived_gain": -1.3581253244027647,
+      "difference": 4.889422200449189e-13,
+      "n_test_rows": 454,
+      "new_gain": -1.3581253244032536
+    }
+  },
+  "passed": true,
+  "source_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca"
+}

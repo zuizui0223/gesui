@@ -1,0 +1,44 @@
+name: gesui 454-H7 aquatic plant butterfly HNS same-grain noncausal analysis
+on:
+  push:
+    paths:
+      - 'analysis/20261115_multilayer/**'
+      - 'results/20261115_multilayer/**'
+      - 'docs/RESULTS_20261115_H7_MULTIRESPONSE_PATH_DIAGNOSTICS.md'
+      - '.github/workflows/gesui-20261115-multilayer-path.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-locked-diagnostics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install independent numerical libraries
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2' 'scipy>=1.11' 'scikit-learn>=1.3' 'statsmodels>=0.14'
+      - name: Run source and H6 blocking unit tests
+        run: python -m unittest discover -s analysis/20261115_multilayer/tests -p 'test_*.py' -v
+      - name: Recompute original same-H7 four-biota geography diagnostics
+        run: |
+          python analysis/20261115_multilayer/scripts/multilayer.py --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv --output "$RUNNER_TEMP/gesui_multilayer"
+      - name: Independent sklearn Ridge out-of-H6 numerical QA
+        run: |
+          python analysis/20261115_multilayer/scripts/independent_qa.py --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv --results "$RUNNER_TEMP/gesui_multilayer/H7_MULTIRESPONSE_NONCAUSAL_RESULTS.json" --out "$RUNNER_TEMP/gesui_multilayer/INDEPENDENT_SKLEARN_QA.json"
+      - name: Recompute France and source-completeness posthoc sensitivities
+        run: |
+          python analysis/20261115_multilayer/scripts/posthoc_sensitivities.py --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv --out "$RUNNER_TEMP/gesui_multilayer"
+      - name: Check numeric values and original source grain
+        run: |
+          python analysis/20261115_multilayer/scripts/validate_output.py --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv --out "$RUNNER_TEMP/gesui_multilayer"
+      - name: Preserve source numerical values, nulls and unknowns
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261115-H7-454-noncausal-multilayer-reproduction
+          path: ${{ runner.temp }}/gesui_multilayer/
+          if-no-files-found: warn
+          retention-days: 90
