@@ -1,0 +1,51 @@
+{
+  "schema": "GESUI_20261115_LOCAL_ARCHIVE_VERIFICATION_V1",
+  "result": "verified_with_caveats",
+  "fresh_run_date": "2026-11-15",
+  "module_manifest_entries": {
+    "hns_macro": 81,
+    "host_scores": 35,
+    "network": 1683,
+    "robustness": 1709,
+    "total": 3508
+  },
+  "sha_mismatches": 0,
+  "manifest_missing_files": 0,
+  "unit_tests": {
+    "host_scores": {
+      "pass": 13,
+      "fail": 0
+    },
+    "candidate_network": {
+      "pass": 7,
+      "fail": 0
+    },
+    "robustness": {
+      "pass": 8,
+      "fail": 0
+    },
+    "hns_macro": {
+      "pass": 14,
+      "fail": 0
+    },
+    "total_pass": 42,
+    "total_fail": 0
+  },
+  "source_grain": {
+    "H7_period_rows": 454,
+    "distinct_H7": 232,
+    "distinct_H6": 90,
+    "paired_H7": 222,
+    "duplicate_H7_period": 0
+  },
+  "statsmodels_and_sklearn_QA": "existing HNS independent calculation 20 model specs locally rerun, largest saved absolute diff 5.40e-13; not independent ecology",
+  "provenance": "Locally reran 4 unittest suites and SHA verification; source data values same as existing archived output",
+  "critical_qualifications": [
+    "External original catalogues and binary ZIPs not added as Git blobs",
+    "HNS host trait missingness can reverse coefficient under adversarial assignment",
+    "Modelled HydroWASTE outlet geography not received wastewater dose",
+    "No same-reach simultaneous observed aquatic emergence/predator/butterfly behavior; SEM mediation NOT estimated",
+    "Many family tests and geography diagnostics posthoc",
+    "All original negative results preserved"
+  ]
+}
