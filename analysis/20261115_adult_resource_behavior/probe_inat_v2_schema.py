@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """One original iNat v2 observation source shape probe, no outcomes or raw ids in logs."""
-import json,urllib.parse,urllib.request
+import json,urllib.parse,urllib.request,urllib.error
 BASE="https://api.inaturalist.org/v2/observations"
-FIELDS="id,user.id,taxon.id,taxon.ancestor_ids,taxon.name,taxon.rank,ofvs.id,ofvs.name,ofvs.value,photos.url,photos.license_code,photos.attribution,observed_on,quality_grade"
+FIELDS="id,user.id,taxon.id,ofvs.id,ofvs.name,ofvs.value,photos.url,observed_on"
 q={"field:Butterfly Puddling Substrate":"","per_page":3,"page":1,"fields":FIELDS,"order":"asc","order_by":"id","verifiable":"any"}
 url=BASE+"?"+urllib.parse.urlencode(q)
 req=urllib.request.Request(url,headers={"User-Agent":"gesui-sourceonly-v2-schema-probe/1.0","Accept":"application/json"})
-with urllib.request.urlopen(req,timeout=65) as s:
-    raw=s.read(1000000)
+try:
+    with urllib.request.urlopen(req,timeout=65) as s:
+        raw=s.read(1000000)
+except urllib.error.HTTPError as e:
+    print("GESUI_INAT_V2_REJECT="+str(e.code)+":"+e.read(3000).decode("utf8","replace"))
+    raise
 d=json.loads(raw)
 if not isinstance(d,dict) or not isinstance(d.get("results"),list):raise ValueError("v2 not observation response")
 sample=d["results"][0] if d["results"] else {}
