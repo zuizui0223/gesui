@@ -1,0 +1,65 @@
+name: gesui strict original 1219-H7 W and HydroATLAS covariate replay for 232 old and 29 extra
+on:
+  push:
+    branches:
+      - analysis/gesui-h6-multih7-source-expansion-20261115
+    paths:
+      - 'analysis/20261115_h6_source_expansion/verify_original_1219_covariate_replay.py'
+      - '.github/workflows/gesui-20261115-1219-original-W-environment-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-only-original-covariate-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43202839926
+          name: gesui-H7-1219-x2-GBIF-PLANTAE-LYCAENIDAE-ANIMALIA-HYDROWASTE-MASTER
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219_allwater
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43225986249
+          name: gesui-hydroatlas-1219-native-L07-cropland-artificial-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_1219_atlas
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43725154865
+          name: gesui-20261115-30-newH7-2era-original-EIV4011-HNS186-source-quality-gate
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_extra29_trait_gate
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43723429521
+          name: gesui-20261115-source-only-501-EEA-H7-official-H6-singleton-GIS-gate
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_geo40
+      - name: Replay original W/area/crop/urban/naturalout from genuine 1219 source at all 232 prior H7 before new candidate means
+        run: |
+          python -m py_compile analysis/20261115_h6_source_expansion/verify_original_1219_covariate_replay.py
+          python -u analysis/20261115_h6_source_expansion/verify_original_1219_covariate_replay.py \
+            --master '${{ runner.temp }}/original_1219_allwater' \
+            --atlas '${{ runner.temp }}/original_1219_atlas' \
+            --traits '${{ runner.temp }}/original_extra29_trait_gate' \
+            --geography '${{ runner.temp }}/original_geo40' \
+            --output '${{ runner.temp }}/replay'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-original-1219-H7-W-env-replay-old232-new29-strict
+          path: ${{ runner.temp }}/replay/
+          retention-days: 90
+          if-no-files-found: warn
