@@ -120,11 +120,11 @@ def main(args):
             "description_mentions_feeding_keyword":any(k in r["description"].lower() for k in known_keywords),
             "same_owner_date_dung_annotations":len(owner_days[r["owner"],r["date"]]),
             "same_owner_date_same_family_dung_annotations":len(owner_day_fam[r["owner"],r["date"],r["family"]]),
-            "original_photo_pixels_viewed":"NO",
-            "original_substrate_visually_verified":"NO",
-            "proboscis_contact_visually_verified":"NO",
+            "original_photo_pixels_viewed":"NOT_VIEWED",
+            "original_substrate_visually_verified":"NOT_REVIEWED",
+            "proboscis_contact_visually_verified":"NOT_REVIEWED",
             "two_independent_reviewers_agree":"NOT_REVIEWED",
-            "ecological_feeding_event_confirmed":"NO"})
+            "ecological_feeding_event_confirmed":"NOT_REVIEWED"})
     owner_counts=sorted((len(x) for x in by_owner.values()),reverse=True)
     n_eff=len(dung)**2/sum(x*x for x in owner_counts)
     n_multicluster=sum(len(v)>1 for v in owner_days.values())
