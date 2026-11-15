@@ -1,0 +1,55 @@
+name: gesui EU454 EIV and butterfly HNS four-model independent original-source numeric QA
+on:
+  push:
+    branches:
+      - analysis/gesui-eu454-full-plant-nutri-20261115
+    paths:
+      - 'analysis/20261115_eu454_plant_nutri/independent_numerical_QA.py'
+      - '.github/workflows/gesui-eu454-four-model-numerical-qa-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  independent-FWL-and-augmented-LS:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install only source array and taxonomy table dependencies
+        run: python -m pip install --quiet pandas numpy
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/verified_source_nutri
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718197720
+          name: gesui-20261115-EU454-NUTRI-HNS-genuine-H6-out-observational-model
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_four_models
+      - name: Verify full-rank weighted Frisch-Waugh-Lovell slope and augmented-LS country/H6-disjoint ridge holdout
+        run: |
+          python -m py_compile analysis/20261115_eu454_plant_nutri/independent_numerical_QA.py
+          python -u analysis/20261115_eu454_plant_nutri/independent_numerical_QA.py \
+            --source '${{ runner.temp }}/verified_source_nutri' \
+            --main '${{ runner.temp }}/original_four_models' \
+            --output '${{ runner.temp }}/verified_qa'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261115-EU454-four-original-models-independent-FWL-augLS-numeric-QA
+          path: ${{ runner.temp }}/verified_qa/
+          retention-days: 90
+          if-no-files-found: warn
