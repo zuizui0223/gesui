@@ -20,6 +20,8 @@ INAT_QUERY={
 }
 FAMILIES=("Lycaenidae","Nymphalidae","Pieridae","Papilionidae","Hesperiidae","Riodinidae")
 MAX_FIELD_FETCH=1000
+CAP_BY_FIELD={500:1000,17428:650,16376:120,18609:120}
+SOURCE_PAGE_SIZE=40
 REQUEST_TIMEOUT=55
 def request(path,params):
     if path not in ("observations","taxa/autocomplete"):
@@ -94,9 +96,9 @@ def audit(args):
         found={}
         pages=[]
         first=True;total=None
-        for page in range(1,7):
+        for page in range(1,26):
             # Cap at 1000. No "missing field" means absence of behavior.
-            d,digest=request("observations",{key:"","per_page":200,"page":page,"verifiable":"any",
+            d,digest=request("observations",{key:"","per_page":SOURCE_PAGE_SIZE,"page":page,"verifiable":"any",
                                                "order_by":"id","order":"asc"})
             if total is None:total=int(d.get("total_results",0))
             obs=d.get("results")
@@ -120,7 +122,7 @@ def audit(args):
                           "original_HTTP_SHA256":digest})
             if valid<len(obs)//2:
                 raise RuntimeError("iNaturalist field filter seems not applied correctly "+tag+": "+str(valid)+"/"+str(len(obs)))
-            if len(found)>=MAX_FIELD_FETCH or page*200>=total or len(obs)<200:break
+            if len(found)>=CAP_BY_FIELD[target] or page*SOURCE_PAGE_SIZE>=total or len(obs)<SOURCE_PAGE_SIZE:break
         if total is None:raise RuntimeError("Source iNat field query returned no total")
         arr=list(found.values())
         family_n=collections.Counter(x["family"] for x in arr)
