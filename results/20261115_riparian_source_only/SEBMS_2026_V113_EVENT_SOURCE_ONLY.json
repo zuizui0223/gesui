@@ -1,0 +1,122 @@
+{
+  "coord_uncertainty_numeric_min_max": [
+    25,
+    1000
+  ],
+  "date_2022_May_to_September_in_frozen_window": true,
+  "downloaded_mime": "application/zip",
+  "frozen_primary_outcome_test_ran": false,
+  "frozen_primary_stage": "STOP_NOT_YET_SOURCE_QUALIFIED",
+  "n_2022_May_to_September_event_rows": 2440,
+  "n_2022_full_year_event_rows": 2677,
+  "n_all_event_rows": 39466,
+  "n_events_with_parsed_date_by_year": {
+    "2006": 9,
+    "2007": 15,
+    "2008": 10,
+    "2009": 10,
+    "2010": 1007,
+    "2011": 1778,
+    "2012": 1987,
+    "2013": 2188,
+    "2014": 2372,
+    "2015": 2529,
+    "2016": 2454,
+    "2017": 2406,
+    "2018": 2430,
+    "2019": 2925,
+    "2020": 2935,
+    "2021": 2949,
+    "2022": 2677,
+    "2023": 2595,
+    "2024": 2808,
+    "2025": 3382
+  },
+  "no_8cell_source_reference_pairs_verified": true,
+  "no_lycaenid_HNS_calculated": true,
+  "no_outfall_exposure_assigned": true,
+  "no_river_directions_matched": true,
+  "no_taxon_or_species_scores_read": true,
+  "official_source_archive_sha256": "384a2e5145df29268fe2de79fde9e196fc113e68adfc922a81acd58069437348",
+  "original_summer_event_samplingProtocol_counts": {
+    "Fixed route Pollard walk transect": 805,
+    "Point site count": 1635
+  },
+  "original_summer_event_source_field_status": {
+    "coords_valid": 2440,
+    "eventTime_present": 2440,
+    "footprintWKT_missing": 2440,
+    "uncertainty_gt100m": 805,
+    "uncertainty_known_nonnegative": 2440,
+    "uncertainty_le100m": 1635
+  },
+  "original_summer_site_count_by_protocol": {
+    "Fixed route Pollard walk transect": 178,
+    "Point site count": 264
+  },
+  "original_summer_site_count_with_5_dates_by_protocol": {
+    "Fixed route Pollard walk transect": 68,
+    "Point site count": 127
+  },
+  "original_summer_uncertainty_m_by_protocol": {
+    "Fixed route Pollard walk transect": {
+      "1000": 805
+    },
+    "Point site count": {
+      "25": 1635
+    }
+  },
+  "point_count_25m_sampling_radius_not_identical_to_uncertainty": true,
+  "publisher_archive_url": "https://www.gbif.se/ipt/archive.do?r=lu_sebms&v=1.13",
+  "schema": "GESUI_SEBMS_2026_113_2022_EVENT_CORE_SOURCE_ONLY_V1",
+  "site_id_fallback_coordinates_not_proof_location_unit": true,
+  "source_dataset": "be77e203-486c-4651-91b9-8347968b728c",
+  "source_event_core_only_occurrence_extension_not_read": true,
+  "source_meta": {
+    "encoding": "UTF-8",
+    "event_core_only": true,
+    "field_names": [
+      "_coreID",
+      "accessRights",
+      "continent",
+      "coordinateUncertaintyInMeters",
+      "country",
+      "countryCode",
+      "county",
+      "datasetID",
+      "datasetName",
+      "decimalLatitude",
+      "decimalLongitude",
+      "endDayOfYear",
+      "eventDate",
+      "eventID",
+      "eventRemarks",
+      "eventTime",
+      "geodeticDatum",
+      "informationWithheld",
+      "institutionCode",
+      "language",
+      "locality",
+      "locationID",
+      "locationRemarks",
+      "modified",
+      "municipality",
+      "ownerInstitutionCode",
+      "samplingProtocol",
+      "startDayOfYear",
+      "stateProvince",
+      "verbatimLocality",
+      "verbatimSRS"
+    ],
+    "file_sha256": "422b06fdb13c77d25ec96471aa348b7c357692622d87ad4af7215a975578c6bc",
+    "member": "event.txt",
+    "meta_xml_path": "meta.xml",
+    "n_original_zip_members": 5
+  },
+  "source_metadata_2026_version_not_assumed_same_as_2025_index": true,
+  "source_version": "1.13",
+  "status": "2022_EVENT_OPPORTUNITY_ONLY_NOT_RIPARIAN_8CELL_QUALIFICATION",
+  "summer_distinct_event_site_ids_with_valid_coords": 442,
+  "summer_sites_at_least_5_distinct_event_dates": 195,
+  "transect_centroids_do_not_locate_species": true
+}
