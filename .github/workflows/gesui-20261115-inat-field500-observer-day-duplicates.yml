@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           python analysis/20261115_adult_resource_behavior/audit_field500_observer_day_independence.py \
-            --baseline results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json \
+            --baseline results/20261115_adult_resource_behavior/INAT_ORIGINAL_SUBSTRATE500_FIELD_SOURCE_AUDIT.json \
             --review results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv \
             --output results/20261115_adult_resource_behavior/INAT_FIELD500_OBSERVER_DAY_PHOTO_DUPLICATE_SOURCE_QA.json
           python - <<'PY'
