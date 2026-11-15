@@ -1,0 +1,91 @@
+{
+  "all_four_are_original_2018_cattle_manure_annotations": true,
+  "all_original_photo_pixels_absent_from_results": true,
+  "family_source_only_pairs": {
+    "Lycaenidae": {
+      "adult_proboscis_contact_visually_confirmed": false,
+      "both_field500_cattle_manure_text": true,
+      "independent_dung_pile_or_individual_count_NOT_established": true,
+      "original_photo_counts": [
+        1,
+        1
+      ],
+      "original_public_coordinate_separation_km": 6.12855,
+      "photo_licence_code_counts": {
+        "None": 2
+      },
+      "photo_pixels_downloaded": false,
+      "reason": "Original photo licence_code None for both observations, so images not downloaded",
+      "same_original_observation_day": true,
+      "same_original_observation_owner": true,
+      "shared_identical_original_photo_ids": 0,
+      "source_original_observation_links": [
+        "https://www.inaturalist.org/observations/16195221",
+        "https://www.inaturalist.org/observations/16195223"
+      ],
+      "source_photo_pixels_visually_reviewed": false
+    },
+    "Papilionidae": {
+      "adult_proboscis_contact_visually_confirmed": false,
+      "both_field500_cattle_manure_text": true,
+      "highest_original_cross_observation_photo_feature_alignment": [
+        {
+          "hamming": 30,
+          "inliers": 63,
+          "photo_pair_ids": [
+            28581592,
+            28581681
+          ],
+          "ratio07_matches": 63
+        },
+        {
+          "hamming": 30,
+          "inliers": 34,
+          "photo_pair_ids": [
+            28581651,
+            28581681
+          ],
+          "ratio07_matches": 34
+        },
+        {
+          "hamming": 30,
+          "inliers": 32,
+          "photo_pair_ids": [
+            28581647,
+            28581681
+          ],
+          "ratio07_matches": 37
+        }
+      ],
+      "independent_dung_pile_or_individual_count_NOT_established": true,
+      "n_original_photo_pixels_committed_to_GitHub": 0,
+      "n_photo_pair_comparisons_with_geometric_8plus_inliers": 16,
+      "original_photo_counts": [
+        7,
+        14
+      ],
+      "original_public_coordinate_separation_km": 0.0,
+      "photo_licence_code_counts": {
+        "cc-by-nc": 21
+      },
+      "same_cow_manure_pile_identity_not_proven": true,
+      "same_original_observation_day": true,
+      "same_original_observation_owner": true,
+      "shared_identical_original_photo_ids": 0,
+      "source_allowed_cc_by_nc_images_processed_in_memory_only": 21,
+      "source_original_observation_links": [
+        "https://www.inaturalist.org/observations/18670197",
+        "https://www.inaturalist.org/observations/18670234"
+      ],
+      "source_photo_pixels_visually_reviewed": false,
+      "source_photos_rejected_or_unavailable": 0
+    }
+  },
+  "n_original_annotated_observations": 4,
+  "n_original_owner_day_clusters": 2,
+  "no_proboscis_or_feeding_visual_confirmation": true,
+  "no_sewage_exposure_or_nutrient_concentrations": true,
+  "number_of_truly_independent_dung_resources_NOT_KNOWN": true,
+  "schema": "GESUI_I_NAT_2018_LYCA_PAPILIO_DUNG_2PAIRS_SOURCE_LICENSE_GATED_GEOGRAPHY_ORB_V1",
+  "source_iNaturalist_v2_response_SHA256": "941509c1aec51babf84aa5cfb0484d2a965497883f4d314eff72cc92c400b4ac"
+}
