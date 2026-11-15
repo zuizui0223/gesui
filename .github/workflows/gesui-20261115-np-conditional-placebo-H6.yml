@@ -1,0 +1,71 @@
+name: EEA 454 H7 upstream conditional on downstream annual N/P source placebo
+on:
+  push:
+    paths:
+      - '.github/workflows/gesui-20261115-np-conditional-placebo-H6.yml'
+      - 'analysis/20261115_np_conditional/**'
+      - 'results/20261115_np_conditional/**'
+      - 'docs/RESULTS_20261115_NP_CONDITIONAL_UP_DOWN_NEGATIVE_CONTROL.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  conditional-source-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GESUI_PR90_SCRIPTS: analysis/20261115_reported_np_hns/scripts
+      GESUI_PR92_SCRIPTS: analysis/20261115_np_direction/scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical QA requirements
+        run: python -m pip install --quiet numpy pandas scipy scikit-learn statsmodels
+      - name: Restore SHA-frozen original annual upstream source reports
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43222864099
+          name: gesui-H7-454-reported-2018-2022-NP-to-site-flow-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/upstream
+      - name: Restore SHA-frozen original annual downstream negative-control source reports
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43679382449
+          name: gesui-454-H7-annual-NP-upstream-downstream-source-only-negative-control
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/downstream
+      - name: Verify original source-unit and nested-MSE synthetic tests
+        run: python -m unittest discover -s analysis/20261115_np_conditional/tests -v
+      - name: Refit original H6-fold 30 source direction combinations and independent sklearn QA
+        run: |
+          python analysis/20261115_np_conditional/scripts/conditional_source.py \
+            --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --source '${{ runner.temp }}/upstream/EEA2018_EEA2022_454_H7_ORIGINAL_REPORTED_NP_SITE_FLOW_EQUIVALENT_SOURCE_ONLY.json' \
+            --placebo '${{ runner.temp }}/downstream' \
+            --model analysis/20261115_multilayer/scripts/multilayer.py \
+            --out '${{ runner.temp }}/conditional_rerun'
+      - name: Independently audit 45 nested MSE gains against original saved PR92 H6 model errors
+        run: |
+          python analysis/20261115_np_conditional/scripts/verify_against_original.py \
+            --previous results/20261115_np_direction/DIRECTIONAL_NEGATIVE_CONTROL_RESULTS.json \
+            --current '${{ runner.temp }}/conditional_rerun/CONDITIONAL_NEGATIVE_CONTROL_RESULTS.json' \
+            --out '${{ runner.temp }}/conditional_rerun/INDEPENDENT_ARCHIVED_MSE_AUDIT.json'
+      - name: Verify exact saved historical original-cohort derived numeric results
+        run: |
+          python analysis/20261115_np_conditional/scripts/validate_saved.py \
+            --saved results/20261115_np_conditional/CONDITIONAL_NEGATIVE_CONTROL_RESULTS.json \
+            --rerun '${{ runner.temp }}/conditional_rerun/CONDITIONAL_NEGATIVE_CONTROL_RESULTS.json'
+      - name: Preserve source-locked conditional/null results and independent QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-454-H7-conditional-upstream-given-downstream-np-source-placebo
+          path: ${{ runner.temp }}/conditional_rerun/
+          if-no-files-found: warn
+          retention-days: 90
