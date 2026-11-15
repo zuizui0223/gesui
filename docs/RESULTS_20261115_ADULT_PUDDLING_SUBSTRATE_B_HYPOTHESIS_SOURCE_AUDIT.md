@@ -98,3 +98,62 @@ A defensible next independent macro analysis would:
 4. Keep larval HNS positive macro association and adult annotated resource use as **distinct testable paths**, not a causal path analysis without joint measurement.
 
 This full census is explicitly **exploratory original-data annotation/source-quality work**, not a new confirmatory ecological test. All previous HNS and other null results remain untouched, and there is no sewage/biomass/ecosystem-services causal conclusion. Keep Draft PR #95; no new PR/branch, no merge to main/chocho, no eBird/TinyFish.
+
+
+## Independent sparse v2 re-audit, same 746 original records — observer matching and photo eligibility
+
+**2026-11-15 original data SUCCESS:** [iNaturalist v2 sparse 746-source audit](https://github.com/zuizui0223/gesui/actions/runs/43704447819), [exact SHA-verified source archive GH Actions](https://github.com/zuizui0223/gesui/actions/runs/43704784922). Original full source 746 distinct observations were re-fetched through the *separate* iNaturalist v2 sparse-field interface using only original field500 values, accepted taxon ancestor IDs, owner IDs in transient memory, observed year and native photo URL. The **previous v1 complete 746 family and original regex category counts were EXACTLY reproduced**, so this is genuine source validation, not 746 new observations.
+
+The [complete inspectable v2-source QA JSON](../results/20261115_adult_resource_behavior/INAT_FIELD500_V2_OBSERVER_PHOTO_REVIEW_QA.json) records per-family revised field-text classes, source count and SHA receipts, observer-concentration sensitivities; [the **78-row publicly linked original-photo REVIEW QUEUE**](../results/20261115_adult_resource_behavior/INAT_FIELD500_ORGANIC_SUBSTRATE_PHOTO_REVIEW_QUEUE.csv) contains direct links back to each original iNat record/photo plus explicitly empty **human substrate**, **proboscis contact** and **independent second reader** columns. No images, geolocations, owner names or hidden original observation data were redistributed. **All 78 are NOT human reviewed.**
+
+### Corrected free-text vocabulary (not biological confirmations)
+
+The original "carrion=3" regex category had **false classifications**: labels such as "rotten fruit" and "decaying vegetation" were assigned to carrion or ambiguous mixed animal/mud classes, while "animal remains" (two source records) was missed. A refined, biologically explicit text distinction now separates:
+
+| Revised source text category | Field-tagged observations | Interpretation |
+|---|---:|---|
+| Soil/mud/sand | **443** | Substrate; not chemical salt concentration |
+| Rock/gravel | **70** | Substrate only |
+| Dung/feces only | **46** | Possible animal-derived resource; no intake confirmed |
+| **Animal-remains/carrion candidate** | **3** | **Two "animal remains" + one "carcass of amphibian"**; no verified adult feeding and *no explicit fish carcass in this set* |
+| Fruit / sap / decaying plant material | **23** | Plant sugars/exudates/debris, **NOT animal carrion** |
+| Mixed feces+soil | 3 | Both mentioned; do not force one source |
+| Mixed fruit/sap+soil | 2 | Mixed substrate |
+| Mixed fruit/sap+sweat/urine | 1 | Mixed resource, not safe single assignment |
+| Mixed soil+gravel | 37 | Physical substrate mixture |
+| Sweat/urine/explicitly saline only | 4 | Label only, no solute measurements |
+| Water only | 18 | No chemical composition |
+| Unknown/unclassified | 96 | Free text insufficient |
+| **Total** | **746** | Original annotated records, not ecological prevalence |
+
+Note: the revised number "3 carrion candidates" happens to equal the old "3 carrion" *by coincidence*; the **identities and classification logic are different**. "Animal remains" can be an ambiguous visual label; photographs must establish actual carcass and proboscis contact before promoting it. The full raw-to-revised source vocabulary is retained in the JSON. Revisions to 182 source-record classifications are an **exploratory text recoding**, not 182 newly discovered behavior events.
+
+### An observer-conditioned limit on family differences
+
+Across all 746 source-tagged public observations, **181 distinct public observation owner IDs** were found in transient memory; top one contributed **20.64%** and top five **50.27%**. **Only 18 owners recorded *both* Lycaenidae and Nymphalidae in the same field500 census, and only 8 owners had both family names plus at least one "organic candidate" and one mineral substrate tag**. Even those eight do not necessarily have a within-owner, within-site, within-season substrate choice experiment, so **a matched preference coefficient would be severely unsupported**. Do not interpret the source cross-table as taxon-specific organic nutrient uptake.
+
+Descriptive sensitivity, **conditional on voluntary annotations only**:
+
+| Family | Any revised organic candidate label, all tagged records | Exclude single most frequent tagger | Exclude five most frequent taggers |
+|---|---:|---:|---:|
+| Lycaenidae | **11/200 (5.5%)** | **9/141 (6.4%)** | **7/70 (10.0%)** |
+| Nymphalidae | **51/300 (17.0%)** | **32/227 (14.1%)** | **25/138 (18.1%)** |
+| Hesperiidae | **6/48 (12.5%)** | 6/47 (12.8%) | 2/36 (5.6%) |
+| Papilionidae | **8/115 (7.0%)** | 8/109 (7.3%) | 6/75 (8.0%) |
+| Pieridae | **0/64 (0%)** | 0/53 (0%) | 0/41 (0%) |
+
+**These percentages are not ecological proportions of puddling, sex-specific feeding propensity, nor substrate-choice preference.** They are a diagnostic for contributor imbalance within source-annotated observations only. Excluding top contributors is also posthoc and does not create representative negative controls. No p-values, family biological effect estimates, nutrient assimilation or WWTP association are claimed.
+
+### Photo verification gate, not completed in this step
+
+All **78** amended organic candidate annotation records return at least one public original photo URL, including **3 ambiguous carrion candidates, 46 dung-only labels, 23 plant sap/fruit, and six mixed organic labels**. A human or visually verified two-reader review must separate:
+1. substrate plainly visible / uncertain / off-screen;
+2. butterfly alive/adult and taxon identification credible;
+3. **proboscis tip visible and touching named substrate** (versus mere perching/resting);
+4. source class actually animal scat, animal remains, plants, soil, or ambiguous;
+5. relevant duplicate photographs, one individual reported more than once, shared observer/location;
+6. site exposure only if independently measured/verified source chemistry and spatial direction become available.
+
+The 78 original iNat links are a **review queue, not 78 confirmed feeding observations**. Do not download and republish users' copyrighted photos in the public GitHub repository. No original sewage water quality, source-to-river incidence, host plant quality, or biomass measurement is present. In particular **zero text-labelled fish carcass candidates does not establish absence of fish-carcass feeding** in nature.
+
+The former 2022 eight-arm Lycaenidae-HNS primary remains separately STOP-gated, original H7 macro positive stays observational, and no claim of adult wastewater resource dependency has been established.
