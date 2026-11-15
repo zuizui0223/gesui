@@ -1,0 +1,327 @@
+{
+  "all_source_covariates_and_family_share_frozen": true,
+  "models": [
+    {
+      "HNS_response_max": 6.362344785408824,
+      "HNS_response_min": 3.09614784874989,
+      "W_added_MSE_gain_percent": 5.37403565815292,
+      "W_beta": 0.10802204501635172,
+      "W_beta_H6_descriptive95_high": 0.17716776349066016,
+      "W_beta_H6_descriptive95_low": 0.0388763265420433,
+      "W_gain_fixed_error95_high": 14.779529328780523,
+      "W_gain_fixed_error95_low": -5.901117058487826,
+      "drop_keys": [],
+      "dropped_top_absolute_previous_contributions": 0,
+      "n_H6": 90,
+      "n_H7": 232,
+      "new_source_rows": 454,
+      "original_source_denominator_not_zero": true
+    },
+    {
+      "HNS_response_max": 6.146024228423099,
+      "HNS_response_min": 3.09614784874989,
+      "W_added_MSE_gain_percent": 4.033600409242444,
+      "W_beta": 0.11149071287132045,
+      "W_beta_H6_descriptive95_high": 0.17629651365831991,
+      "W_beta_H6_descriptive95_low": 0.04668491208432099,
+      "W_gain_fixed_error95_high": 15.578225874824179,
+      "W_gain_fixed_error95_low": -10.768608894698666,
+      "drop_keys": [
+        "4535827"
+      ],
+      "dropped_top_absolute_previous_contributions": 1,
+      "n_H6": 90,
+      "n_H7": 232,
+      "new_source_rows": 454,
+      "original_source_denominator_not_zero": true
+    },
+    {
+      "HNS_response_max": 6.415055882438036,
+      "HNS_response_min": 3.1064174142009193,
+      "W_added_MSE_gain_percent": 2.9616294760602346,
+      "W_beta": 0.09947635761512583,
+      "W_beta_H6_descriptive95_high": 0.15965162765483443,
+      "W_beta_H6_descriptive95_low": 0.03930108757541723,
+      "W_gain_fixed_error95_high": 16.148077167752415,
+      "W_gain_fixed_error95_low": -13.560648431950865,
+      "drop_keys": [
+        "4535827",
+        "1902533",
+        "8049830",
+        "1920496",
+        "6221746"
+      ],
+      "dropped_top_absolute_previous_contributions": 5,
+      "n_H6": 90,
+      "n_H7": 232,
+      "new_source_rows": 454,
+      "original_source_denominator_not_zero": true
+    },
+    {
+      "HNS_response_max": 6.385935313040577,
+      "HNS_response_min": 3.003238259630665,
+      "W_added_MSE_gain_percent": -1.8763780880944658,
+      "W_beta": 0.07117639040717524,
+      "W_beta_H6_descriptive95_high": 0.13131136696940007,
+      "W_beta_H6_descriptive95_low": 0.011041413844950415,
+      "W_gain_fixed_error95_high": 8.255655496989874,
+      "W_gain_fixed_error95_low": -15.03677493957388,
+      "drop_keys": [
+        "4535827",
+        "1902533",
+        "8049830",
+        "1920496",
+        "6221746",
+        "1898286",
+        "1912325",
+        "1932752",
+        "5134682",
+        "1932960"
+      ],
+      "dropped_top_absolute_previous_contributions": 10,
+      "n_H6": 90,
+      "n_H7": 232,
+      "new_source_rows": 454,
+      "original_source_denominator_not_zero": true
+    },
+    {
+      "HNS_response_max": 5.74593412042503,
+      "HNS_response_min": 3.163670878670878,
+      "W_added_MSE_gain_percent": -2.427729211208396,
+      "W_beta": 0.044395412813850905,
+      "W_beta_H6_descriptive95_high": 0.08850269080443146,
+      "W_beta_H6_descriptive95_low": 0.0002881348232703501,
+      "W_gain_fixed_error95_high": 6.018990970555514,
+      "W_gain_fixed_error95_low": -14.680583355400511,
+      "drop_keys": [
+        "4535827",
+        "1902533",
+        "8049830",
+        "1920496",
+        "6221746",
+        "1898286",
+        "1912325",
+        "1932752",
+        "5134682",
+        "1932960",
+        "1920506",
+        "5137582",
+        "5135513",
+        "1894840",
+        "1894268",
+        "1896841",
+        "1938810",
+        "4535510",
+        "4299368",
+        "1926861"
+      ],
+      "dropped_top_absolute_previous_contributions": 20,
+      "n_H6": 90,
+      "n_H7": 232,
+      "new_source_rows": 454,
+      "original_source_denominator_not_zero": true
+    },
+    {
+      "HNS_response_max": 5.792558158352551,
+      "HNS_response_min": 2.4022329545454544,
+      "W_added_MSE_gain_percent": 11.135361482614158,
+      "W_beta": 0.04761073240295205,
+      "W_beta_H6_descriptive95_high": 0.08789943651553203,
+      "W_beta_H6_descriptive95_low": 0.007322028290372075,
+      "W_gain_fixed_error95_high": 18.106597300152202,
+      "W_gain_fixed_error95_low": 2.8117964028976936,
+      "drop_keys": [
+        "4535827",
+        "1902533",
+        "8049830",
+        "1920496",
+        "6221746",
+        "1898286",
+        "1912325",
+        "1932752",
+        "5134682",
+        "1932960",
+        "1920506",
+        "5137582",
+        "5135513",
+        "1894840",
+        "1894268",
+        "1896841",
+        "1938810",
+        "4535510",
+        "4299368",
+        "1926861",
+        "1919712",
+        "5135191",
+        "1920494",
+        "5140214",
+        "1929270",
+        "1933793",
+        "1938520",
+        "1925233",
+        "1929659",
+        "8277078"
+      ],
+      "dropped_top_absolute_previous_contributions": 30,
+      "n_H6": 90,
+      "n_H7": 232,
+      "new_source_rows": 454,
+      "original_source_denominator_not_zero": true
+    }
+  ],
+  "n_H6": 90,
+  "n_H7": 232,
+  "n_H7_period": 454,
+  "schema": "GESUI_20261115_HNS_TAXON_ABLATION_POSTHOC_V1",
+  "selection": "Ablate taxa ranked by |their posthoc original HNS W slope contribution|; can overstate sensitivity",
+  "source_SHA256": {
+    "H7_panel": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "geography": "e490e110011b99830e31fff680a3482f6535d8010d989f2da4872aedd0557e24",
+    "original_species_contribution": "daf4904f043eb3785142e507168f038177e799f588bc04a0b748a4ec1607b866",
+    "trait_matrix": "051895bcc416ae6387ce5a16c3f0e0babf51a37fa62f5245267015fcb2fb1e03"
+  },
+  "source_record_weighting_not_individual_abundance": true,
+  "statistical_meaning": "Outcome-index sensitivity only; NOT ecological species removal or wastewater exposure",
+  "top20_species": [
+    {
+      "HNS": 7.9,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0147643144848884,
+      "source_total_records": 213434,
+      "taxonKey": "4535827"
+    },
+    {
+      "HNS": 8.2,
+      "family": "Nymphalidae",
+      "original_contribution": 0.013532173637541,
+      "source_total_records": 63533,
+      "taxonKey": "1902533"
+    },
+    {
+      "HNS": 4.871428571428572,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0092436519234836,
+      "source_total_records": 198361,
+      "taxonKey": "8049830"
+    },
+    {
+      "HNS": 6.011111111111111,
+      "family": "Pieridae",
+      "original_contribution": 0.0070455630798151,
+      "source_total_records": 172395,
+      "taxonKey": "1920496"
+    },
+    {
+      "HNS": 2.1,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0066403878485237,
+      "source_total_records": 20944,
+      "taxonKey": "6221746"
+    },
+    {
+      "HNS": 7.1000000000000005,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0066027234692609,
+      "source_total_records": 235554,
+      "taxonKey": "1898286"
+    },
+    {
+      "HNS": 2.1666666666666665,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0065187921915286,
+      "source_total_records": 10172,
+      "taxonKey": "1912325"
+    },
+    {
+      "HNS": 6.7,
+      "family": "Lycaenidae",
+      "original_contribution": 0.0064732980354407,
+      "source_total_records": 6845,
+      "taxonKey": "1932752"
+    },
+    {
+      "HNS": 5.1,
+      "family": "Nymphalidae",
+      "original_contribution": -0.0064653431366184,
+      "source_total_records": 9019,
+      "taxonKey": "5134682"
+    },
+    {
+      "HNS": 2.0,
+      "family": "Lycaenidae",
+      "original_contribution": 0.0063147529322401,
+      "source_total_records": 468,
+      "taxonKey": "1932960"
+    },
+    {
+      "HNS": 5.934615384615385,
+      "family": "Pieridae",
+      "original_contribution": 0.0056935935054038,
+      "source_total_records": 79964,
+      "taxonKey": "1920506"
+    },
+    {
+      "HNS": 2.3,
+      "family": "Pieridae",
+      "original_contribution": 0.0051407236994994,
+      "source_total_records": 2563,
+      "taxonKey": "5137582"
+    },
+    {
+      "HNS": 4.8,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0051211084418284,
+      "source_total_records": 246007,
+      "taxonKey": "5135513"
+    },
+    {
+      "HNS": 8.2,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0048849598101292,
+      "source_total_records": 117180,
+      "taxonKey": "1894840"
+    },
+    {
+      "HNS": 2.1666666666666665,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0048648412297882,
+      "source_total_records": 9468,
+      "taxonKey": "1894268"
+    },
+    {
+      "HNS": 5.35,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0045885143929744,
+      "source_total_records": 57389,
+      "taxonKey": "1896841"
+    },
+    {
+      "HNS": 1.95,
+      "family": "Papilionidae",
+      "original_contribution": 0.0039125744735462,
+      "source_total_records": 8465,
+      "taxonKey": "1938810"
+    },
+    {
+      "HNS": 6.8,
+      "family": "Nymphalidae",
+      "original_contribution": -0.0037870557874713,
+      "source_total_records": 10318,
+      "taxonKey": "4535510"
+    },
+    {
+      "HNS": 6.665789473684211,
+      "family": "Nymphalidae",
+      "original_contribution": 0.0036894298666982,
+      "source_total_records": 98864,
+      "taxonKey": "4299368"
+    },
+    {
+      "HNS": 2.45,
+      "family": "Lycaenidae",
+      "original_contribution": 0.0034743017455213,
+      "source_total_records": 4080,
+      "taxonKey": "1926861"
+    }
+  ]
+}
