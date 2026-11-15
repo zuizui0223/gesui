@@ -1,0 +1,27 @@
+name: gesui European EIV v2 original source for butterfly host nutrient scores
+on:
+  push:
+    paths:
+      - '.github/workflows/gesui-europe-eiv-zenodo-source-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-eiv-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Download exact published Zenodo v2 file and verify publisher MD5
+        run: |
+          mkdir -p "$RUNNER_TEMP/eiv_source"
+          cd "$RUNNER_TEMP/eiv_source"
+          curl --fail --location --retry 3 --retry-delay 5 --max-time 180 'https://zenodo.org/records/7427088/files/Indicator.values-tables-2022-11-07-Zenodo.v2.xlsx?download=1' -o EIV_Europe_Tichy_v2.xlsx
+          echo '3519d41639647dde8d80042fc98b2ef5  EIV_Europe_Tichy_v2.xlsx' | md5sum --check
+          sha256sum EIV_Europe_Tichy_v2.xlsx > SHA256SUMS.txt
+          printf '%s\n' 'Source: https://doi.org/10.5281/zenodo.7427088' 'Tichy et al. (2023), Journal of Vegetation Science 34:e13168; https://doi.org/10.1111/jvs.13168' 'Publisher record licence: CC BY 4.0; attribution required.' 'N indicator measures habitat nutrient affinity, NOT measured leaf nitrogen or wastewater exposure.' 'Source acquisition only; no butterfly or wastewater response models.' > SOURCE.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-europe-eiv-v2-zenodo-source-20261115
+          path: ${{ runner.temp }}/eiv_source/
+          retention-days: 90
+          if-no-files-found: error
