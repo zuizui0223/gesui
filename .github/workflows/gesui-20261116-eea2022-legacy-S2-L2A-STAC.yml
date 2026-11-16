@@ -1,0 +1,43 @@
+name: gesui alternate legacy S2 L2A 2018 2022 scene source after C1 2022 archive gap
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-measured-uwwtd-sentinel-riparian-sourcefirst
+    paths:
+      - 'analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_stac_legacy_source.py'
+      - '.github/workflows/gesui-20261116-eea2022-legacy-S2-L2A-STAC.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_same_collection_legacy_L2A_2018_2022_scene_coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original STAC GeoJSON and source HTTP client
+        run: python -m pip install --quiet requests "shapely>=2,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43850677284
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_outfall_river_site_geography
+      - name: Verify same legacy Sentinel-2 collection two-era field-scene and COG source opportunity
+        run: |
+          python -m py_compile analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_stac_legacy_source.py
+          python -u analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_stac_legacy_source.py \
+            --source '${{ runner.temp }}/original_source_outfall_river_site_geography' \
+            --output '${{ runner.temp }}/original_S2_L2A_same_collection'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-48-EEA2022-measured-NP-outfalls-legacy-S2-2018-2022-STAC-source
+          path: ${{ runner.temp }}/original_S2_L2A_same_collection/
+          retention-days: 90
+          if-no-files-found: warn
