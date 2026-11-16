@@ -120,8 +120,9 @@ def main(a):
                     })
     # Strict replay of previous unconditional all-original-geometry opportunity
     # before interpreting now verified same native basin subset.
-    if {str(c):len(raw_counter[int(c)]) for c in CUTOFFS}!=EXPECTED_RAW_NEAR_SITE:
-        raise RuntimeError("Old 2485 original site-only nearest-WQ pre-H7 counts not reproduced")
+    raw_counts={str(int(c)):len(raw_counter[int(c)]) for c in CUTOFFS}
+    if raw_counts!=EXPECTED_RAW_NEAR_SITE:
+        raise RuntimeError("Old 2485 original site-only nearest-WQ pre-H7 counts not reproduced: "+repr(raw_counts)+ " previous "+repr(EXPECTED_RAW_NEAR_SITE))
     if all_exact_geo!=2485:
         raise RuntimeError("Genuine 2485 same-identifiers official WQ spatial source geolocations changed")
     by={}
