@@ -1,0 +1,49 @@
+name: gesui 2026 chemistry-first WQ source availability on original EU232 H7
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-chemistry-first-EU232-watershed
+    paths:
+      - 'analysis/20261116_chemistry_first_eu232/**'
+      - 'docs/PROTOCOL_20261116_EEA_WQ_CHEMISTRY_FIRST_EU232_H7_SOURCE_GATE.md'
+      - '.github/workflows/gesui-20261116-chemistry-first-EU232-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chemistry-first-original-source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 38
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official native HydroBASINS/EEA source geometry and CSV tools
+        run: python -m pip install --quiet numpy scipy "shapely>=2,<3" "pyshp>=2.3,<3" requests
+      - name: Geometry-only freeze before chemistry or biodiversity traits
+        run: |
+          python -m py_compile analysis/20261116_chemistry_first_eu232/source_first_h7_wq_geography.py
+          python -u analysis/20261116_chemistry_first_eu232/source_first_h7_wq_geography.py \
+            --output '${{ runner.temp }}/original_chemistry_first_source'
+      - name: Official 2026 WQ Part2 6.45m-row strict same-site-year TN and TP source opportunity
+        run: |
+          python -m py_compile analysis/20261116_chemistry_first_eu232/source_first_part2_TNTP.py
+          python -u analysis/20261116_chemistry_first_eu232/source_first_part2_TNTP.py \
+            --geography '${{ runner.temp }}/original_chemistry_first_source' \
+            --output '${{ runner.temp }}/original_chemistry_first_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-chemistry-first-original-EU232-H7-WQ-source-gates
+          path: |
+            ${{ runner.temp }}/original_chemistry_first_source/CHEMISTRY_FIRST_232H7_WQ_GEOGRAPHY_GATE.json
+            ${{ runner.temp }}/original_chemistry_first_source/ORIGINAL_2026_EEA_WQ_STATIONS_IN_ORIGINAL_232_H7_SOURCE_ONLY.csv
+            ${{ runner.temp }}/original_chemistry_first_source/CHEMISTRY_FIRST_EU232_PART2_SOURCE_GATE.json
+            ${{ runner.temp }}/original_chemistry_first_source/CHEMISTRY_FIRST_EU232_H7_PERIOD_AMBIENT_TNTP_PART2.csv
+          retention-days: 90
+          if-no-files-found: warn
