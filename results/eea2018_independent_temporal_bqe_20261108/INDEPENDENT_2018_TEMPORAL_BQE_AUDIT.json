@@ -1,0 +1,1732 @@
+{
+  "2018_frozen_preoutcome_registry_SHA256": "5a074f5182711c4ab74ef9bdacfa3918e9fcb434dd0b75c67072a0f06459c3e1",
+  "2018_model_result_SHA256": "29403cb73fe23c1e39703bba1c04f334c79866e3cb9455a454672f0c6ed3a7d5",
+  "2018_original_five_fold_spatial_assignments_reused": true,
+  "2022_outcomes_or_2022_reported_WWTP_loads_used_in_2018_model": false,
+  "audited_result_groups": {
+    "benthic_invertebrates": {
+      "nutrients": {
+        "N": {
+          "MSE_downstream_improvement_pct": 0.03215102180845418,
+          "MSE_upstream_improvement_pct": 1.1901631878948329,
+          "all_original_predeclared_models_MSE_reproduced": {
+            "M0_country_method_hydrogeo": {
+              "MSE_replay_absolute_error": 1.4690918137549858e-07,
+              "independent_MSE": 0.05291497149501672,
+              "original_MSE": 0.052914824585835345
+            },
+            "M1_plus_2018_upstream_measured_mass": {
+              "MSE_replay_absolute_error": 1.8766694765554037e-07,
+              "independent_MSE": 0.05228519698339799,
+              "original_MSE": 0.05228500931645033
+            },
+            "M2_plus_2018_downstream_source_placebo": {
+              "MSE_replay_absolute_error": 2.530939056943904e-08,
+              "independent_MSE": 0.05289795879099142,
+              "original_MSE": 0.05289798410038199
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_replay_absolute_error": 3.0290992207582246e-08,
+              "independent_MSE": 0.052420609867622654,
+              "original_MSE": 0.05242064015861486
+            }
+          },
+          "countries_with_positive_upstream_MSE_reduction": 7,
+          "original_country_count": 15,
+          "original_source_only_region_block_count": 52,
+          "per_3degree_block_2018_heldout_MSE_diagnostics": [
+            {
+              "3deg_block": "14_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 23,
+              "source_minus_baseline_MSE_reduction": 0.00103113541171268
+            },
+            {
+              "3deg_block": "14_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 98,
+              "source_minus_baseline_MSE_reduction": -0.00029610494276765165
+            },
+            {
+              "3deg_block": "14_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 100,
+              "source_minus_baseline_MSE_reduction": -0.0006770948027187706
+            },
+            {
+              "3deg_block": "14_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 61,
+              "source_minus_baseline_MSE_reduction": 0.0003548535934992197
+            },
+            {
+              "3deg_block": "14_3",
+              "positive_original_2018_upstream_source_n": 3,
+              "sites": 37,
+              "source_minus_baseline_MSE_reduction": 0.0003821230010797535
+            },
+            {
+              "3deg_block": "14_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 4,
+              "source_minus_baseline_MSE_reduction": 0.0002955744290493237
+            },
+            {
+              "3deg_block": "15_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 215,
+              "source_minus_baseline_MSE_reduction": 0.0016091871323749328
+            },
+            {
+              "3deg_block": "15_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 11,
+              "source_minus_baseline_MSE_reduction": 5.7326765206922355e-05
+            },
+            {
+              "3deg_block": "15_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 315,
+              "source_minus_baseline_MSE_reduction": 0.00010821636069193629
+            },
+            {
+              "3deg_block": "15_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 315,
+              "source_minus_baseline_MSE_reduction": 0.0002717085931804138
+            },
+            {
+              "3deg_block": "15_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 124,
+              "source_minus_baseline_MSE_reduction": 0.0001987683429436488
+            },
+            {
+              "3deg_block": "15_3",
+              "positive_original_2018_upstream_source_n": 6,
+              "sites": 22,
+              "source_minus_baseline_MSE_reduction": -0.0037143268184166886
+            },
+            {
+              "3deg_block": "15_4",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 15,
+              "source_minus_baseline_MSE_reduction": -0.0031776823025054524
+            },
+            {
+              "3deg_block": "15_5",
+              "positive_original_2018_upstream_source_n": 38,
+              "sites": 100,
+              "source_minus_baseline_MSE_reduction": -0.004736857368676444
+            },
+            {
+              "3deg_block": "15_6",
+              "positive_original_2018_upstream_source_n": 44,
+              "sites": 117,
+              "source_minus_baseline_MSE_reduction": 0.005966724455025111
+            },
+            {
+              "3deg_block": "15_7",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 28,
+              "source_minus_baseline_MSE_reduction": 0.004312934378631424
+            },
+            {
+              "3deg_block": "16_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 96,
+              "source_minus_baseline_MSE_reduction": 0.0008540846145294972
+            },
+            {
+              "3deg_block": "16_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 48,
+              "source_minus_baseline_MSE_reduction": 0.0003131144857247095
+            },
+            {
+              "3deg_block": "16_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 27,
+              "source_minus_baseline_MSE_reduction": 0.000389951103156255
+            },
+            {
+              "3deg_block": "16_1",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 105,
+              "source_minus_baseline_MSE_reduction": -0.0004709337593338607
+            },
+            {
+              "3deg_block": "16_2",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 113,
+              "source_minus_baseline_MSE_reduction": 0.0008007133703564703
+            },
+            {
+              "3deg_block": "16_4",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.007586753419104276
+            },
+            {
+              "3deg_block": "16_5",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 27,
+              "source_minus_baseline_MSE_reduction": 0.0026490895685691938
+            },
+            {
+              "3deg_block": "16_6",
+              "positive_original_2018_upstream_source_n": 8,
+              "sites": 31,
+              "source_minus_baseline_MSE_reduction": 0.0025556649307131
+            },
+            {
+              "3deg_block": "16_7",
+              "positive_original_2018_upstream_source_n": 13,
+              "sites": 53,
+              "source_minus_baseline_MSE_reduction": -0.002799929387981035
+            },
+            {
+              "3deg_block": "16_8",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": -0.000131502269234324
+            },
+            {
+              "3deg_block": "17_-3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 34,
+              "source_minus_baseline_MSE_reduction": -0.0017746907302103338
+            },
+            {
+              "3deg_block": "17_-4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 17,
+              "source_minus_baseline_MSE_reduction": 0.0003706514404137983
+            },
+            {
+              "3deg_block": "17_1",
+              "positive_original_2018_upstream_source_n": 8,
+              "sites": 14,
+              "source_minus_baseline_MSE_reduction": 0.01096911379228087
+            },
+            {
+              "3deg_block": "17_2",
+              "positive_original_2018_upstream_source_n": 5,
+              "sites": 16,
+              "source_minus_baseline_MSE_reduction": 0.00039123917580378596
+            },
+            {
+              "3deg_block": "17_4",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 6,
+              "source_minus_baseline_MSE_reduction": -0.00021974870945153788
+            },
+            {
+              "3deg_block": "17_5",
+              "positive_original_2018_upstream_source_n": 17,
+              "sites": 60,
+              "source_minus_baseline_MSE_reduction": 3.9588048148529124e-05
+            },
+            {
+              "3deg_block": "17_6",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 49,
+              "source_minus_baseline_MSE_reduction": -0.0028812166214416102
+            },
+            {
+              "3deg_block": "17_7",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 24,
+              "source_minus_baseline_MSE_reduction": -0.004113866217290617
+            },
+            {
+              "3deg_block": "18_-3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 14,
+              "source_minus_baseline_MSE_reduction": 4.863985580804314e-05
+            },
+            {
+              "3deg_block": "18_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": 0.0023375816391493984
+            },
+            {
+              "3deg_block": "18_5",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 13,
+              "source_minus_baseline_MSE_reduction": 0.000666744573661392
+            },
+            {
+              "3deg_block": "18_6",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": -0.0003358113172042974
+            },
+            {
+              "3deg_block": "18_7",
+              "positive_original_2018_upstream_source_n": 5,
+              "sites": 69,
+              "source_minus_baseline_MSE_reduction": -2.007708470894653e-06
+            },
+            {
+              "3deg_block": "18_8",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 48,
+              "source_minus_baseline_MSE_reduction": 0.0006064970344142167
+            },
+            {
+              "3deg_block": "19_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 21,
+              "source_minus_baseline_MSE_reduction": 0.00026812978006429314
+            },
+            {
+              "3deg_block": "19_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 12,
+              "source_minus_baseline_MSE_reduction": 0.0007670022424704645
+            },
+            {
+              "3deg_block": "19_3",
+              "positive_original_2018_upstream_source_n": 9,
+              "sites": 48,
+              "source_minus_baseline_MSE_reduction": 0.013067658691994355
+            },
+            {
+              "3deg_block": "19_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.005377355298730943
+            },
+            {
+              "3deg_block": "19_7",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": -6.104152995884405e-05
+            },
+            {
+              "3deg_block": "19_8",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": 0.0002999274909771872
+            },
+            {
+              "3deg_block": "20_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": -0.0004597955095467638
+            },
+            {
+              "3deg_block": "20_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 8,
+              "source_minus_baseline_MSE_reduction": 0.0036218071098499272
+            },
+            {
+              "3deg_block": "20_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 32,
+              "source_minus_baseline_MSE_reduction": 0.00047350484895461686
+            },
+            {
+              "3deg_block": "20_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 7,
+              "source_minus_baseline_MSE_reduction": 0.004259809768070338
+            },
+            {
+              "3deg_block": "20_5",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.0010759731925487417
+            },
+            {
+              "3deg_block": "21_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 17,
+              "source_minus_baseline_MSE_reduction": 0.01122823213243507
+            }
+          ],
+          "per_country_2018_heldout_MSE_diagnostics": [
+            {
+              "MSE_reduction_with_upstream_mass": 0.01975493127717353,
+              "country": "AT",
+              "positive_source_sites": 1,
+              "sites": 1
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0031550568866244924,
+              "country": "BE",
+              "positive_source_sites": 0,
+              "sites": 53
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.00046447970754673876,
+              "country": "FR",
+              "positive_source_sites": 1,
+              "sites": 1507
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.004329000073711931,
+              "country": "HR",
+              "positive_source_sites": 4,
+              "sites": 8
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0020609131084757533,
+              "country": "HU",
+              "positive_source_sites": 90,
+              "sites": 258
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0008208838824431408,
+              "country": "IE",
+              "positive_source_sites": 0,
+              "sites": 65
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.00020743869767927235,
+              "country": "IT",
+              "positive_source_sites": 9,
+              "sites": 156
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0006844913312170957,
+              "country": "LT",
+              "positive_source_sites": 2,
+              "sites": 83
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.015127535259052437,
+              "country": "LU",
+              "positive_source_sites": 1,
+              "sites": 1
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0003131388302711654,
+              "country": "LV",
+              "positive_source_sites": 4,
+              "sites": 51
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.005136310083751403,
+              "country": "NL",
+              "positive_source_sites": 13,
+              "sites": 36
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.006210420897702617,
+              "country": "NO",
+              "positive_source_sites": 9,
+              "sites": 145
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0010485124995953236,
+              "country": "PL",
+              "positive_source_sites": 60,
+              "sites": 253
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0029155490063416992,
+              "country": "SE",
+              "positive_source_sites": 0,
+              "sites": 6
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.015309132169642909,
+              "country": "SI",
+              "positive_source_sites": 8,
+              "sites": 11
+            }
+          ],
+          "posthoc_country_and_block_diagnostics_not_preregistered": true,
+          "source_EQR_rank_rho_verified": -0.13197457375982907,
+          "source_positive_only_MSE_reduction_pct": 12.645423418438213,
+          "source_specific_temporal_replication_predeclared_pass": true,
+          "source_zero_only_MSE_reduction_pct": 0.362819839819538,
+          "upstream_regional_blocks_with_positive_MSE_reduction": 35
+        },
+        "P": {
+          "MSE_downstream_improvement_pct": 0.3129041548722002,
+          "MSE_upstream_improvement_pct": 0.981793079259297,
+          "all_original_predeclared_models_MSE_reproduced": {
+            "M0_country_method_hydrogeo": {
+              "MSE_replay_absolute_error": 1.4690918137549858e-07,
+              "independent_MSE": 0.05291497149501672,
+              "original_MSE": 0.052914824585835345
+            },
+            "M1_plus_2018_upstream_measured_mass": {
+              "MSE_replay_absolute_error": 4.877935364661079e-08,
+              "independent_MSE": 0.052395455966986616,
+              "original_MSE": 0.05239540718763297
+            },
+            "M2_plus_2018_downstream_source_placebo": {
+              "MSE_replay_absolute_error": 5.481560511055861e-09,
+              "independent_MSE": 0.05274939835065937,
+              "original_MSE": 0.052749403832219884
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_replay_absolute_error": 4.922085128367115e-08,
+              "independent_MSE": 0.052437527017140016,
+              "original_MSE": 0.05243747779628873
+            }
+          },
+          "countries_with_positive_upstream_MSE_reduction": 7,
+          "original_country_count": 15,
+          "original_source_only_region_block_count": 52,
+          "per_3degree_block_2018_heldout_MSE_diagnostics": [
+            {
+              "3deg_block": "14_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 23,
+              "source_minus_baseline_MSE_reduction": 0.0007847425247549929
+            },
+            {
+              "3deg_block": "14_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 98,
+              "source_minus_baseline_MSE_reduction": -0.00018973588968503583
+            },
+            {
+              "3deg_block": "14_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 100,
+              "source_minus_baseline_MSE_reduction": -0.0005487155293185714
+            },
+            {
+              "3deg_block": "14_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 61,
+              "source_minus_baseline_MSE_reduction": 0.00048291509613593634
+            },
+            {
+              "3deg_block": "14_3",
+              "positive_original_2018_upstream_source_n": 3,
+              "sites": 37,
+              "source_minus_baseline_MSE_reduction": 0.0005216331672197857
+            },
+            {
+              "3deg_block": "14_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 4,
+              "source_minus_baseline_MSE_reduction": 0.000656861574506536
+            },
+            {
+              "3deg_block": "15_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 215,
+              "source_minus_baseline_MSE_reduction": 0.0012944196805442353
+            },
+            {
+              "3deg_block": "15_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 11,
+              "source_minus_baseline_MSE_reduction": 0.0003245442291814989
+            },
+            {
+              "3deg_block": "15_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 315,
+              "source_minus_baseline_MSE_reduction": 3.6198179835635554e-05
+            },
+            {
+              "3deg_block": "15_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 315,
+              "source_minus_baseline_MSE_reduction": 0.0003040026561540049
+            },
+            {
+              "3deg_block": "15_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 124,
+              "source_minus_baseline_MSE_reduction": 0.00033904525158563926
+            },
+            {
+              "3deg_block": "15_3",
+              "positive_original_2018_upstream_source_n": 6,
+              "sites": 22,
+              "source_minus_baseline_MSE_reduction": -0.004170967614304132
+            },
+            {
+              "3deg_block": "15_4",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 15,
+              "source_minus_baseline_MSE_reduction": -0.004235182826972786
+            },
+            {
+              "3deg_block": "15_5",
+              "positive_original_2018_upstream_source_n": 38,
+              "sites": 100,
+              "source_minus_baseline_MSE_reduction": -0.004004199019528353
+            },
+            {
+              "3deg_block": "15_6",
+              "positive_original_2018_upstream_source_n": 44,
+              "sites": 117,
+              "source_minus_baseline_MSE_reduction": 0.007387579582628994
+            },
+            {
+              "3deg_block": "15_7",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 28,
+              "source_minus_baseline_MSE_reduction": 0.004304576821524729
+            },
+            {
+              "3deg_block": "16_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 96,
+              "source_minus_baseline_MSE_reduction": 0.0006290059917710343
+            },
+            {
+              "3deg_block": "16_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 48,
+              "source_minus_baseline_MSE_reduction": 0.00040073056272840946
+            },
+            {
+              "3deg_block": "16_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 27,
+              "source_minus_baseline_MSE_reduction": 0.0003368498291952599
+            },
+            {
+              "3deg_block": "16_1",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 105,
+              "source_minus_baseline_MSE_reduction": -0.00037862682682907126
+            },
+            {
+              "3deg_block": "16_2",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 113,
+              "source_minus_baseline_MSE_reduction": 0.0007445062820517736
+            },
+            {
+              "3deg_block": "16_4",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.0032605738655700333
+            },
+            {
+              "3deg_block": "16_5",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 27,
+              "source_minus_baseline_MSE_reduction": 0.0018293005973314357
+            },
+            {
+              "3deg_block": "16_6",
+              "positive_original_2018_upstream_source_n": 8,
+              "sites": 31,
+              "source_minus_baseline_MSE_reduction": 3.443848521489659e-05
+            },
+            {
+              "3deg_block": "16_7",
+              "positive_original_2018_upstream_source_n": 13,
+              "sites": 53,
+              "source_minus_baseline_MSE_reduction": -0.0015507985725076345
+            },
+            {
+              "3deg_block": "16_8",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": -0.00027081786737039645
+            },
+            {
+              "3deg_block": "17_-3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 34,
+              "source_minus_baseline_MSE_reduction": -0.0013666061247775588
+            },
+            {
+              "3deg_block": "17_-4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 17,
+              "source_minus_baseline_MSE_reduction": 0.0004191636470710638
+            },
+            {
+              "3deg_block": "17_1",
+              "positive_original_2018_upstream_source_n": 8,
+              "sites": 14,
+              "source_minus_baseline_MSE_reduction": 0.012128698688023309
+            },
+            {
+              "3deg_block": "17_2",
+              "positive_original_2018_upstream_source_n": 5,
+              "sites": 16,
+              "source_minus_baseline_MSE_reduction": -0.0005042246055868794
+            },
+            {
+              "3deg_block": "17_4",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 6,
+              "source_minus_baseline_MSE_reduction": 0.0002368457244251627
+            },
+            {
+              "3deg_block": "17_5",
+              "positive_original_2018_upstream_source_n": 17,
+              "sites": 60,
+              "source_minus_baseline_MSE_reduction": 1.802576099677034e-05
+            },
+            {
+              "3deg_block": "17_6",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 49,
+              "source_minus_baseline_MSE_reduction": -0.0016838623410820872
+            },
+            {
+              "3deg_block": "17_7",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 24,
+              "source_minus_baseline_MSE_reduction": -0.0030331914913406684
+            },
+            {
+              "3deg_block": "18_-3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 14,
+              "source_minus_baseline_MSE_reduction": 0.00010176196674136333
+            },
+            {
+              "3deg_block": "18_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": 0.0018084513253113499
+            },
+            {
+              "3deg_block": "18_5",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 13,
+              "source_minus_baseline_MSE_reduction": 0.0014905089363656079
+            },
+            {
+              "3deg_block": "18_6",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": -0.0008107426295170438
+            },
+            {
+              "3deg_block": "18_7",
+              "positive_original_2018_upstream_source_n": 5,
+              "sites": 69,
+              "source_minus_baseline_MSE_reduction": 5.0454925338926504e-05
+            },
+            {
+              "3deg_block": "18_8",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 48,
+              "source_minus_baseline_MSE_reduction": 0.0006582313403696062
+            },
+            {
+              "3deg_block": "19_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 21,
+              "source_minus_baseline_MSE_reduction": 0.00015914634124513158
+            },
+            {
+              "3deg_block": "19_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 12,
+              "source_minus_baseline_MSE_reduction": 0.00022588817311496945
+            },
+            {
+              "3deg_block": "19_3",
+              "positive_original_2018_upstream_source_n": 9,
+              "sites": 48,
+              "source_minus_baseline_MSE_reduction": 0.004393604132620075
+            },
+            {
+              "3deg_block": "19_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.004422314960175195
+            },
+            {
+              "3deg_block": "19_7",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": -1.2425157305038895e-05
+            },
+            {
+              "3deg_block": "19_8",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": 0.0002683665859285439
+            },
+            {
+              "3deg_block": "20_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": -0.0007297866381960247
+            },
+            {
+              "3deg_block": "20_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 8,
+              "source_minus_baseline_MSE_reduction": 0.0009887333568865753
+            },
+            {
+              "3deg_block": "20_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 32,
+              "source_minus_baseline_MSE_reduction": 0.00013693489042321396
+            },
+            {
+              "3deg_block": "20_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 7,
+              "source_minus_baseline_MSE_reduction": 0.0028835217822533316
+            },
+            {
+              "3deg_block": "20_5",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.0014207621041278581
+            },
+            {
+              "3deg_block": "21_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 17,
+              "source_minus_baseline_MSE_reduction": 0.007514293528926114
+            }
+          ],
+          "per_country_2018_heldout_MSE_diagnostics": [
+            {
+              "MSE_reduction_with_upstream_mass": 0.009369694773667253,
+              "country": "AT",
+              "positive_source_sites": 1,
+              "sites": 1
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0027249540166339637,
+              "country": "BE",
+              "positive_source_sites": 0,
+              "sites": 53
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0003990046370181518,
+              "country": "FR",
+              "positive_source_sites": 1,
+              "sites": 1507
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.003473709814643051,
+              "country": "HR",
+              "positive_source_sites": 4,
+              "sites": 8
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.002938831469788194,
+              "country": "HU",
+              "positive_source_sites": 90,
+              "sites": 258
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0005832947493515359,
+              "country": "IE",
+              "positive_source_sites": 0,
+              "sites": 65
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.00012178011944001772,
+              "country": "IT",
+              "positive_source_sites": 9,
+              "sites": 156
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0006230262686423817,
+              "country": "LT",
+              "positive_source_sites": 2,
+              "sites": 83
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.008829863541632874,
+              "country": "LU",
+              "positive_source_sites": 1,
+              "sites": 1
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -2.51403541291733e-05,
+              "country": "LV",
+              "positive_source_sites": 4,
+              "sites": 51
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.005280480367557221,
+              "country": "NL",
+              "positive_source_sites": 13,
+              "sites": 36
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0025531803625772954,
+              "country": "NO",
+              "positive_source_sites": 9,
+              "sites": 145
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0007630970406682777,
+              "country": "PL",
+              "positive_source_sites": 60,
+              "sites": 253
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0024544581194796277,
+              "country": "SE",
+              "positive_source_sites": 0,
+              "sites": 6
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.017721000393047227,
+              "country": "SI",
+              "positive_source_sites": 8,
+              "sites": 11
+            }
+          ],
+          "posthoc_country_and_block_diagnostics_not_preregistered": true,
+          "source_EQR_rank_rho_verified": -0.1314354249246941,
+          "source_positive_only_MSE_reduction_pct": 11.205388427550126,
+          "source_specific_temporal_replication_predeclared_pass": true,
+          "source_zero_only_MSE_reduction_pct": 0.24340534868038474,
+          "upstream_regional_blocks_with_positive_MSE_reduction": 36
+        }
+      },
+      "source_data_integrity": {
+        "2018_original_numeric_EQR_sites": 2634,
+        "pre2018_source_site_count": 2639,
+        "source_positive_site_EQR_missing_count": 2,
+        "source_positive_site_after_numeric_EQR": 202,
+        "source_positive_site_before_EQR": 204
+      },
+      "source_reported_2018_N_P_mass_collinearity_exposed": 0.7669663002162656
+    },
+    "phytobenthos": {
+      "nutrients": {
+        "N": {
+          "MSE_downstream_improvement_pct": 0.4089336321458925,
+          "MSE_upstream_improvement_pct": 0.12530766057108708,
+          "all_original_predeclared_models_MSE_reproduced": {
+            "M0_country_method_hydrogeo": {
+              "MSE_replay_absolute_error": 2.9653037678101235e-08,
+              "independent_MSE": 0.037548801519431706,
+              "original_MSE": 0.03754877186639403
+            },
+            "M1_plus_2018_upstream_measured_mass": {
+              "MSE_replay_absolute_error": 7.389151711334474e-08,
+              "independent_MSE": 0.037501749994675225,
+              "original_MSE": 0.03750167610315811
+            },
+            "M2_plus_2018_downstream_source_placebo": {
+              "MSE_replay_absolute_error": 6.351041945823477e-08,
+              "independent_MSE": 0.03739525184155104,
+              "original_MSE": 0.0373953153519705
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_replay_absolute_error": 8.721716321380413e-08,
+              "independent_MSE": 0.03740099693797912,
+              "original_MSE": 0.0374009097208159
+            }
+          },
+          "countries_with_positive_upstream_MSE_reduction": 4,
+          "original_country_count": 12,
+          "original_source_only_region_block_count": 47,
+          "per_3degree_block_2018_heldout_MSE_diagnostics": [
+            {
+              "3deg_block": "14_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 26,
+              "source_minus_baseline_MSE_reduction": -0.00017827426892415863
+            },
+            {
+              "3deg_block": "14_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 129,
+              "source_minus_baseline_MSE_reduction": -0.0003191588600851801
+            },
+            {
+              "3deg_block": "14_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 111,
+              "source_minus_baseline_MSE_reduction": -4.3949928705114184e-05
+            },
+            {
+              "3deg_block": "14_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 53,
+              "source_minus_baseline_MSE_reduction": 0.00016308760083947907
+            },
+            {
+              "3deg_block": "14_3",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 33,
+              "source_minus_baseline_MSE_reduction": 0.0004959572582001518
+            },
+            {
+              "3deg_block": "14_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 3,
+              "source_minus_baseline_MSE_reduction": 0.0006111347478263395
+            },
+            {
+              "3deg_block": "14_6",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.002001907142802864
+            },
+            {
+              "3deg_block": "15_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 214,
+              "source_minus_baseline_MSE_reduction": 2.5998615439283948e-05
+            },
+            {
+              "3deg_block": "15_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": -0.0004196701836974164
+            },
+            {
+              "3deg_block": "15_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 324,
+              "source_minus_baseline_MSE_reduction": 7.555539356961945e-07
+            },
+            {
+              "3deg_block": "15_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 354,
+              "source_minus_baseline_MSE_reduction": -0.00016888983347246076
+            },
+            {
+              "3deg_block": "15_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 151,
+              "source_minus_baseline_MSE_reduction": -2.924151297226193e-05
+            },
+            {
+              "3deg_block": "15_3",
+              "positive_original_2018_upstream_source_n": 22,
+              "sites": 49,
+              "source_minus_baseline_MSE_reduction": -0.001072617086370094
+            },
+            {
+              "3deg_block": "15_4",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 9,
+              "source_minus_baseline_MSE_reduction": -0.000854382674350651
+            },
+            {
+              "3deg_block": "15_5",
+              "positive_original_2018_upstream_source_n": 39,
+              "sites": 83,
+              "source_minus_baseline_MSE_reduction": -0.00046558628765651827
+            },
+            {
+              "3deg_block": "15_6",
+              "positive_original_2018_upstream_source_n": 43,
+              "sites": 104,
+              "source_minus_baseline_MSE_reduction": -0.00043402818334402127
+            },
+            {
+              "3deg_block": "15_7",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 28,
+              "source_minus_baseline_MSE_reduction": 0.0003521426848226034
+            },
+            {
+              "3deg_block": "16_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 85,
+              "source_minus_baseline_MSE_reduction": -4.527301749210527e-05
+            },
+            {
+              "3deg_block": "16_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 43,
+              "source_minus_baseline_MSE_reduction": -4.285540802592221e-05
+            },
+            {
+              "3deg_block": "16_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 24,
+              "source_minus_baseline_MSE_reduction": 1.2995709716797938e-05
+            },
+            {
+              "3deg_block": "16_1",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 98,
+              "source_minus_baseline_MSE_reduction": -0.00023452401858186573
+            },
+            {
+              "3deg_block": "16_2",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 162,
+              "source_minus_baseline_MSE_reduction": -5.374662030381899e-05
+            },
+            {
+              "3deg_block": "16_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.002915974630238641
+            },
+            {
+              "3deg_block": "16_5",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 28,
+              "source_minus_baseline_MSE_reduction": 0.001186150776803033
+            },
+            {
+              "3deg_block": "16_6",
+              "positive_original_2018_upstream_source_n": 16,
+              "sites": 63,
+              "source_minus_baseline_MSE_reduction": 0.0009821028759570756
+            },
+            {
+              "3deg_block": "16_7",
+              "positive_original_2018_upstream_source_n": 13,
+              "sites": 58,
+              "source_minus_baseline_MSE_reduction": 0.0004186904852678438
+            },
+            {
+              "3deg_block": "17_4",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 7,
+              "source_minus_baseline_MSE_reduction": 0.002025973589884364
+            },
+            {
+              "3deg_block": "17_5",
+              "positive_original_2018_upstream_source_n": 16,
+              "sites": 70,
+              "source_minus_baseline_MSE_reduction": -0.0007000580495260516
+            },
+            {
+              "3deg_block": "17_6",
+              "positive_original_2018_upstream_source_n": 14,
+              "sites": 73,
+              "source_minus_baseline_MSE_reduction": -0.0002984566898454577
+            },
+            {
+              "3deg_block": "17_7",
+              "positive_original_2018_upstream_source_n": 8,
+              "sites": 33,
+              "source_minus_baseline_MSE_reduction": 0.0013230257204267203
+            },
+            {
+              "3deg_block": "18_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 4,
+              "source_minus_baseline_MSE_reduction": -0.0003218955387957628
+            },
+            {
+              "3deg_block": "18_5",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 18,
+              "source_minus_baseline_MSE_reduction": 0.0005816678451144578
+            },
+            {
+              "3deg_block": "18_6",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": 0.0001401827808106479
+            },
+            {
+              "3deg_block": "18_7",
+              "positive_original_2018_upstream_source_n": 4,
+              "sites": 53,
+              "source_minus_baseline_MSE_reduction": -0.00046557968048006437
+            },
+            {
+              "3deg_block": "18_8",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 40,
+              "source_minus_baseline_MSE_reduction": -0.00011329241467429043
+            },
+            {
+              "3deg_block": "19_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 7,
+              "source_minus_baseline_MSE_reduction": 0.00095536875808895
+            },
+            {
+              "3deg_block": "19_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 4,
+              "source_minus_baseline_MSE_reduction": 0.001725035463447079
+            },
+            {
+              "3deg_block": "19_3",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 44,
+              "source_minus_baseline_MSE_reduction": 0.0040978001301554675
+            },
+            {
+              "3deg_block": "19_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 6,
+              "source_minus_baseline_MSE_reduction": 0.002059339584516919
+            },
+            {
+              "3deg_block": "19_5",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.000558293709630636
+            },
+            {
+              "3deg_block": "19_7",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.0015715016513377165
+            },
+            {
+              "3deg_block": "20_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.00042012725928946334
+            },
+            {
+              "3deg_block": "20_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 13,
+              "source_minus_baseline_MSE_reduction": 0.0009810845765836243
+            },
+            {
+              "3deg_block": "20_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 18,
+              "source_minus_baseline_MSE_reduction": 0.0010304844419747844
+            },
+            {
+              "3deg_block": "20_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 6,
+              "source_minus_baseline_MSE_reduction": 0.0025670242978375023
+            },
+            {
+              "3deg_block": "20_5",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.0009597110808585163
+            },
+            {
+              "3deg_block": "21_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 14,
+              "source_minus_baseline_MSE_reduction": 0.0031849773894291325
+            }
+          ],
+          "per_country_2018_heldout_MSE_diagnostics": [
+            {
+              "MSE_reduction_with_upstream_mass": -0.0005072625590924637,
+              "country": "BE",
+              "positive_source_sites": 0,
+              "sites": 48
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -6.965765319913099e-05,
+              "country": "FR",
+              "positive_source_sites": 3,
+              "sites": 1676
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0015339763826161376,
+              "country": "HR",
+              "positive_source_sites": 6,
+              "sites": 15
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0001220479377276298,
+              "country": "HU",
+              "positive_source_sites": 88,
+              "sites": 218
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.00029357046250939585,
+              "country": "IT",
+              "positive_source_sites": 29,
+              "sites": 148
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -9.590569805587014e-05,
+              "country": "LT",
+              "positive_source_sites": 2,
+              "sites": 84
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.007884391157694737,
+              "country": "LU",
+              "positive_source_sites": 1,
+              "sites": 1
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.001586812958613559,
+              "country": "LV",
+              "positive_source_sites": 1,
+              "sites": 6
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0027080934057858662,
+              "country": "NO",
+              "positive_source_sites": 10,
+              "sites": 105
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0002971660075163876,
+              "country": "PL",
+              "positive_source_sites": 72,
+              "sites": 343
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0007760649600622271,
+              "country": "SE",
+              "positive_source_sites": 0,
+              "sites": 15
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.002585384731150257,
+              "country": "SI",
+              "positive_source_sites": 8,
+              "sites": 11
+            }
+          ],
+          "posthoc_country_and_block_diagnostics_not_preregistered": true,
+          "source_EQR_rank_rho_verified": 0.005233547084149463,
+          "source_positive_only_MSE_reduction_pct": 1.996711132519987,
+          "source_specific_temporal_replication_predeclared_pass": false,
+          "source_zero_only_MSE_reduction_pct": 0.0038627211845355643,
+          "upstream_regional_blocks_with_positive_MSE_reduction": 24
+        },
+        "P": {
+          "MSE_downstream_improvement_pct": 0.6739870618348699,
+          "MSE_upstream_improvement_pct": 0.008509658288909623,
+          "all_original_predeclared_models_MSE_reproduced": {
+            "M0_country_method_hydrogeo": {
+              "MSE_replay_absolute_error": 2.9653037678101235e-08,
+              "independent_MSE": 0.037548801519431706,
+              "original_MSE": 0.03754877186639403
+            },
+            "M1_plus_2018_upstream_measured_mass": {
+              "MSE_replay_absolute_error": 1.8162773500474128e-08,
+              "independent_MSE": 0.03754560624473082,
+              "original_MSE": 0.03754558808195732
+            },
+            "M2_plus_2018_downstream_source_placebo": {
+              "MSE_replay_absolute_error": 7.015503841051318e-08,
+              "independent_MSE": 0.03729572745531668,
+              "original_MSE": 0.03729579761035509
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_replay_absolute_error": 1.4062757701382989e-08,
+              "independent_MSE": 0.037305532979203665,
+              "original_MSE": 0.037305547041961366
+            }
+          },
+          "countries_with_positive_upstream_MSE_reduction": 5,
+          "original_country_count": 12,
+          "original_source_only_region_block_count": 47,
+          "per_3degree_block_2018_heldout_MSE_diagnostics": [
+            {
+              "3deg_block": "14_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 26,
+              "source_minus_baseline_MSE_reduction": -0.00014076951528856576
+            },
+            {
+              "3deg_block": "14_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 129,
+              "source_minus_baseline_MSE_reduction": -0.00027104208406378153
+            },
+            {
+              "3deg_block": "14_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 111,
+              "source_minus_baseline_MSE_reduction": -2.18695969866701e-05
+            },
+            {
+              "3deg_block": "14_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 53,
+              "source_minus_baseline_MSE_reduction": 5.194448901492829e-05
+            },
+            {
+              "3deg_block": "14_3",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 33,
+              "source_minus_baseline_MSE_reduction": 0.00018842177039194295
+            },
+            {
+              "3deg_block": "14_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 3,
+              "source_minus_baseline_MSE_reduction": 0.0004516480469607665
+            },
+            {
+              "3deg_block": "14_6",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.0009715616988658568
+            },
+            {
+              "3deg_block": "15_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 214,
+              "source_minus_baseline_MSE_reduction": 1.1229814101731942e-05
+            },
+            {
+              "3deg_block": "15_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": -0.00015643900401323736
+            },
+            {
+              "3deg_block": "15_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 324,
+              "source_minus_baseline_MSE_reduction": 8.093908189509176e-06
+            },
+            {
+              "3deg_block": "15_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 354,
+              "source_minus_baseline_MSE_reduction": -6.23250013504443e-05
+            },
+            {
+              "3deg_block": "15_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 151,
+              "source_minus_baseline_MSE_reduction": -7.910111229376374e-06
+            },
+            {
+              "3deg_block": "15_3",
+              "positive_original_2018_upstream_source_n": 22,
+              "sites": 49,
+              "source_minus_baseline_MSE_reduction": -0.0006575016184229464
+            },
+            {
+              "3deg_block": "15_4",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 9,
+              "source_minus_baseline_MSE_reduction": -0.000472774685247745
+            },
+            {
+              "3deg_block": "15_5",
+              "positive_original_2018_upstream_source_n": 39,
+              "sites": 83,
+              "source_minus_baseline_MSE_reduction": -0.00024662777204078674
+            },
+            {
+              "3deg_block": "15_6",
+              "positive_original_2018_upstream_source_n": 43,
+              "sites": 104,
+              "source_minus_baseline_MSE_reduction": -6.801076020466896e-05
+            },
+            {
+              "3deg_block": "15_7",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 28,
+              "source_minus_baseline_MSE_reduction": 9.077461849123866e-05
+            },
+            {
+              "3deg_block": "16_-1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 85,
+              "source_minus_baseline_MSE_reduction": -2.4026615290987644e-05
+            },
+            {
+              "3deg_block": "16_-2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 43,
+              "source_minus_baseline_MSE_reduction": -3.041936252481255e-06
+            },
+            {
+              "3deg_block": "16_0",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 24,
+              "source_minus_baseline_MSE_reduction": 4.999570317619716e-06
+            },
+            {
+              "3deg_block": "16_1",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 98,
+              "source_minus_baseline_MSE_reduction": -4.0439435499046124e-05
+            },
+            {
+              "3deg_block": "16_2",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 162,
+              "source_minus_baseline_MSE_reduction": -6.231964308344302e-05
+            },
+            {
+              "3deg_block": "16_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.000802515689647898
+            },
+            {
+              "3deg_block": "16_5",
+              "positive_original_2018_upstream_source_n": 7,
+              "sites": 28,
+              "source_minus_baseline_MSE_reduction": 0.00034652767231713947
+            },
+            {
+              "3deg_block": "16_6",
+              "positive_original_2018_upstream_source_n": 16,
+              "sites": 63,
+              "source_minus_baseline_MSE_reduction": 0.0002464360128311098
+            },
+            {
+              "3deg_block": "16_7",
+              "positive_original_2018_upstream_source_n": 13,
+              "sites": 58,
+              "source_minus_baseline_MSE_reduction": 0.00023525725401295905
+            },
+            {
+              "3deg_block": "17_4",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 7,
+              "source_minus_baseline_MSE_reduction": 0.0006518814746842752
+            },
+            {
+              "3deg_block": "17_5",
+              "positive_original_2018_upstream_source_n": 16,
+              "sites": 70,
+              "source_minus_baseline_MSE_reduction": -7.039432457623455e-05
+            },
+            {
+              "3deg_block": "17_6",
+              "positive_original_2018_upstream_source_n": 14,
+              "sites": 73,
+              "source_minus_baseline_MSE_reduction": -5.4537248454767336e-05
+            },
+            {
+              "3deg_block": "17_7",
+              "positive_original_2018_upstream_source_n": 8,
+              "sites": 33,
+              "source_minus_baseline_MSE_reduction": 0.00035889644243713254
+            },
+            {
+              "3deg_block": "18_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 4,
+              "source_minus_baseline_MSE_reduction": -5.4761393263854166e-05
+            },
+            {
+              "3deg_block": "18_5",
+              "positive_original_2018_upstream_source_n": 2,
+              "sites": 18,
+              "source_minus_baseline_MSE_reduction": 0.0004825489075227288
+            },
+            {
+              "3deg_block": "18_6",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 10,
+              "source_minus_baseline_MSE_reduction": 6.998063700476247e-05
+            },
+            {
+              "3deg_block": "18_7",
+              "positive_original_2018_upstream_source_n": 4,
+              "sites": 53,
+              "source_minus_baseline_MSE_reduction": -0.00011736793762025993
+            },
+            {
+              "3deg_block": "18_8",
+              "positive_original_2018_upstream_source_n": 1,
+              "sites": 40,
+              "source_minus_baseline_MSE_reduction": -8.996277194929072e-05
+            },
+            {
+              "3deg_block": "19_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 7,
+              "source_minus_baseline_MSE_reduction": 0.0006577941323964372
+            },
+            {
+              "3deg_block": "19_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 4,
+              "source_minus_baseline_MSE_reduction": 0.000274154113468567
+            },
+            {
+              "3deg_block": "19_3",
+              "positive_original_2018_upstream_source_n": 10,
+              "sites": 44,
+              "source_minus_baseline_MSE_reduction": 0.0013096621276911526
+            },
+            {
+              "3deg_block": "19_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 6,
+              "source_minus_baseline_MSE_reduction": 0.0011138786826388931
+            },
+            {
+              "3deg_block": "19_5",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.0004143658699161841
+            },
+            {
+              "3deg_block": "19_7",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 2,
+              "source_minus_baseline_MSE_reduction": 0.00035850717277530414
+            },
+            {
+              "3deg_block": "20_1",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.00025815718686324034
+            },
+            {
+              "3deg_block": "20_2",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 13,
+              "source_minus_baseline_MSE_reduction": 0.00013219271333186016
+            },
+            {
+              "3deg_block": "20_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 18,
+              "source_minus_baseline_MSE_reduction": 0.00014859709621046775
+            },
+            {
+              "3deg_block": "20_4",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 6,
+              "source_minus_baseline_MSE_reduction": 0.0006273516940285585
+            },
+            {
+              "3deg_block": "20_5",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 1,
+              "source_minus_baseline_MSE_reduction": -0.00043663075754375724
+            },
+            {
+              "3deg_block": "21_3",
+              "positive_original_2018_upstream_source_n": 0,
+              "sites": 14,
+              "source_minus_baseline_MSE_reduction": 0.000976938880933357
+            }
+          ],
+          "per_country_2018_heldout_MSE_diagnostics": [
+            {
+              "MSE_reduction_with_upstream_mass": -0.00011818699209295099,
+              "country": "BE",
+              "positive_source_sites": 0,
+              "sites": 48
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -4.219194113606764e-05,
+              "country": "FR",
+              "positive_source_sites": 3,
+              "sites": 1676
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.000512775283103485,
+              "country": "HR",
+              "positive_source_sites": 6,
+              "sites": 15
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 2.8357572357411496e-05,
+              "country": "HU",
+              "positive_source_sites": 88,
+              "sites": 218
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.00018028581248426913,
+              "country": "IT",
+              "positive_source_sites": 29,
+              "sites": 148
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -5.547879325430956e-05,
+              "country": "LT",
+              "positive_source_sites": 2,
+              "sites": 84
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.004104055262534323,
+              "country": "LU",
+              "positive_source_sites": 1,
+              "sites": 1
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.000516708625866441,
+              "country": "LV",
+              "positive_source_sites": 1,
+              "sites": 6
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.0008073950518698205,
+              "country": "NO",
+              "positive_source_sites": 10,
+              "sites": 105
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.00013459697407697073,
+              "country": "PL",
+              "positive_source_sites": 72,
+              "sites": 343
+            },
+            {
+              "MSE_reduction_with_upstream_mass": 0.00046550042488487743,
+              "country": "SE",
+              "positive_source_sites": 0,
+              "sites": 15
+            },
+            {
+              "MSE_reduction_with_upstream_mass": -0.0019235729696176547,
+              "country": "SI",
+              "positive_source_sites": 8,
+              "sites": 11
+            }
+          ],
+          "posthoc_country_and_block_diagnostics_not_preregistered": true,
+          "source_EQR_rank_rho_verified": 0.006438181677993017,
+          "source_positive_only_MSE_reduction_pct": 0.012449575456481305,
+          "source_specific_temporal_replication_predeclared_pass": false,
+          "source_zero_only_MSE_reduction_pct": 0.008253976919943097,
+          "upstream_regional_blocks_with_positive_MSE_reduction": 24
+        }
+      },
+      "source_data_integrity": {
+        "2018_original_numeric_EQR_sites": 2670,
+        "pre2018_source_site_count": 2676,
+        "source_positive_site_EQR_missing_count": 2,
+        "source_positive_site_after_numeric_EQR": 220,
+        "source_positive_site_before_EQR": 222
+      },
+      "source_reported_2018_N_P_mass_collinearity_exposed": 0.7784640022933256
+    }
+  },
+  "fish_2018_failed_original_source_geo_support": true,
+  "limitations": [
+    "2018 and 2022 share EEA Biology2026 source release; sites may overlap and national ecological indicator methods may change",
+    "Source year is independent, but no randomized change in local WWTP nutrient loading",
+    "Original 2018 and 2022 exposed/zero reporting country mix differ",
+    "Original 2018 2017-18 v07 national report measured mass has undercoverage and potential operational-state biases",
+    "Geographical block/country result dispersion is a posthoc diagnostic not a confirmatory error interval",
+    "N and P reported 2018 source loads are correlated and source-specific biochemical effects cannot be separated",
+    "HydroRIVERS EU v1 graph is third-party derived and source-geometry identity not independently official reproduced",
+    "Independent catchment-year measured agricultural and urban load still unavailable",
+    "Model predictability is not evidence WWTP emissions improved or degraded biological quality"
+  ],
+  "observational_time_replication_not_causal_intervention": true,
+  "original_2018_EEA_Biology_outcome_run": 42442266935,
+  "original_2018_benthic_temporal_replication_predeclared_pass": true,
+  "original_2018_model_csv_SHA256": {
+    "benthic_invertebrates": "2a1a72d43656aca588a832dfae13860054c01a651e76bf25f984c5a374709b02",
+    "phytobenthos": "8302daf2afa3f3556debc5ca769ee667bd06816d0de2e63afd4cb6b538587ad7"
+  },
+  "original_2018_source_only_run": 42441999786,
+  "original_all_four_models_P_and_N_replayed": true,
+  "original_source_data_retained_before_reading_2018_numeric_EQR": true,
+  "phytobenthos_2018_temporal_replication_predeclared_pass": false,
+  "schema": "gesui_2018_independent_temporal_BQE_year_2018_measured_WWTP_NP_replay_v01",
+  "status": "PASS_INDEPENDENT_2018_SOURCE_ONLY_SHA_5FOLD_REGIONAL_MSE_REPRODUCTION",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "python": "3.11.18",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.1"
+  }
+}

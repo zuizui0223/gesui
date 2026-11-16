@@ -1,0 +1,99 @@
+{
+  "2018_source_only_method_table_SHA256": "5a074f5182711c4ab74ef9bdacfa3918e9fcb434dd0b75c67072a0f06459c3e1",
+  "2020_numeric_EQR_values_read": false,
+  "2022_source_only_method_table_SHA256": "e12df511d64c4c580ef2422dccdbbd11a1309c84d29d467fd4527206e41fa636",
+  "HydroRIVERS_EU_SHA256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "bqe_by_group": {
+    "benthic_invertebrates": {
+      "2020_compatible_site_total": 3175,
+      "2020_original_site_elements_preoutcome": 3533,
+      "2020_sites_500m_nearest_river": 3175,
+      "countries_total": 14,
+      "predeclared_2020_basic_EQR_model_coverage_gate": false,
+      "predeclared_generalization_gate_50_source_positive_and_5_countries": false,
+      "regional_3deg_blocks": 55,
+      "registered_source_positive_countries": 3,
+      "reported_2020_both_NP_upstream_source_sites": 17,
+      "source_positive_by_country": {
+        "AT": 12,
+        "HU": 4,
+        "SI": 1
+      },
+      "source_positive_compatible_countries_either": 3,
+      "source_positive_exact_country_method_in_2018": 17,
+      "source_positive_exact_country_method_in_2022": 1,
+      "source_positive_exact_country_method_in_both": 1,
+      "source_positive_exact_country_method_in_either": 17
+    },
+    "fish": {
+      "2020_compatible_site_total": 1009,
+      "2020_original_site_elements_preoutcome": 1067,
+      "2020_sites_500m_nearest_river": 1017,
+      "countries_total": 3,
+      "predeclared_2020_basic_EQR_model_coverage_gate": false,
+      "predeclared_generalization_gate_50_source_positive_and_5_countries": false,
+      "regional_3deg_blocks": 19,
+      "registered_source_positive_countries": 1,
+      "reported_2020_both_NP_upstream_source_sites": 4,
+      "source_positive_by_country": {
+        "AT": 4
+      },
+      "source_positive_compatible_countries_either": 1,
+      "source_positive_exact_country_method_in_2018": 4,
+      "source_positive_exact_country_method_in_2022": 0,
+      "source_positive_exact_country_method_in_both": 0,
+      "source_positive_exact_country_method_in_either": 4
+    },
+    "phytobenthos": {
+      "2020_compatible_site_total": 3537,
+      "2020_original_site_elements_preoutcome": 4024,
+      "2020_sites_500m_nearest_river": 3645,
+      "countries_total": 13,
+      "predeclared_2020_basic_EQR_model_coverage_gate": false,
+      "predeclared_generalization_gate_50_source_positive_and_5_countries": false,
+      "regional_3deg_blocks": 50,
+      "registered_source_positive_countries": 3,
+      "reported_2020_both_NP_upstream_source_sites": 18,
+      "source_positive_by_country": {
+        "AT": 11,
+        "HU": 6,
+        "SI": 1
+      },
+      "source_positive_compatible_countries_either": 3,
+      "source_positive_exact_country_method_in_2018": 18,
+      "source_positive_exact_country_method_in_2022": 12,
+      "source_positive_exact_country_method_in_both": 12,
+      "source_positive_exact_country_method_in_either": 18
+    }
+  },
+  "causal_not_identified": true,
+  "caveats": [
+    "WWTP annual discharge masses are reported measured fields, individual collection dates not provided",
+    "Different report-source inventories by country and year; 2020 means official reporter code suffix, not proven identical date of laboratory sample",
+    "HydroRIVERS EU public third-party mirror not original official byte-equivalent proven",
+    "Upstream river graph assumes connectivity and 50km cutoff, no within-reach ordering",
+    "Missing registered source != confirmed sewage-free control",
+    "No 2020 numeric biological EQR opened before source-site selection and fold freeze"
+  ],
+  "frozen_2020_biology_site_QC_SHA256": "55ee841e823271216681dd8198bf621bace9adcd66985d0e1bca10934cb7c395",
+  "frozen_2020_biology_site_metadata_SHA256": "330417dd17c2c288a1e5f39ad04940434e63609a8f489bc6fb3e3fec8a4af3e5",
+  "individual_WWTP_measurement_dates_not_available": true,
+  "registered_no_source_does_not_mean_no_sewage": true,
+  "schema": "gesui_2020_reporter_year_source_only_BQE_graph_v01",
+  "source_2020_outlet_within_50km_downstream_graph_link_count": 6402,
+  "source_2020_reporter_code_verified": true,
+  "source_QC_SHA256": "033bd8023c11ece9b97fc310d05face3f577f1298a814755ac693776e494e0b9",
+  "source_and_biology_site_cohorts_frozen_without_2020_numeric_EQR": true,
+  "source_candidate_SHA256": "f2e4e96d2c4d21e1036100ef458f3d0c1185abdecdb60d5093e691d238948cc7",
+  "source_only_2020_FW_both_NP_eligible_GPKG_plant_n": 582,
+  "source_only_2020_distinct_biological_sites_snapped_to_river": 4282,
+  "source_only_biological_site_element_rows": 7837,
+  "source_only_receptor_CSV_SHA256": "5de0905f1e75262a84c7a38a3f1931f192dff502d9dd23dfa203189b8dcdcecc",
+  "source_original_public_GPKG_SHA256": {
+    "DCP": "1b8b20e0ba9d106f659b0fd9716013b680a16a0e7ab2a779dac2bfb53a33d9a1",
+    "WWTP": "13060c88a8d1d06f81b61b0a6886279db6051645a2b8d1f7d578ae8ee4e59300"
+  },
+  "source_snapped_to_HydroRIVERS_500m": 521,
+  "source_snapping_median_m": 111.2495359660048,
+  "year": "2020"
+}

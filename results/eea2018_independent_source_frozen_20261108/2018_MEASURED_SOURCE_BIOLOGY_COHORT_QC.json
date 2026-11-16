@@ -1,0 +1,125 @@
+{
+  "2018_EEA_Biology_normalized_EQR_values_read": false,
+  "2018_annual_WWTP_measured_both_NP_source": {
+    "2018_FW_direct_freshwater_unique_outlets_in_bbox": 1889,
+    "2018_all_30_report_years_explicitly_verified": true,
+    "2018_discharge_surfacewater_flag_counts": {
+      "1": 1889
+    },
+    "2018_original_both_positive_NP_measured_plant_n": 2507,
+    "2018_original_reporter_code_counts": {
+      "AT_UWWTD_2019_1": 179,
+      "BE-2018": 7,
+      "DE_UWWT_2018": 293,
+      "DK2018": 48,
+      "HR_Art15_2018": 2,
+      "HU-91271CQ-2020c": 233,
+      "IT007": 242,
+      "LT-2018": 22,
+      "LU100": 23,
+      "LV007": 10,
+      "NL2020": 262,
+      "NO_UWWTD_2018": 15,
+      "PL03": 399,
+      "RO07": 86,
+      "SE369": 13,
+      "SI-2020": 43,
+      "SK7": 12
+    },
+    "2018_plant_outlet_status_counts": {
+      "1": 1889
+    },
+    "2018_source_measured_mass_not_calculated_or_estimated": true
+  },
+  "2018_original_WWTP_measured_mass_units": "tons per year (verify original EEA Art15 measured field documentation)",
+  "caveats": [
+    "WWTP measured annual source mass is not an independently measured delivered pollutant dose at BQE monitoring station",
+    "Old archived UWWTD full 2018 annual reporting differs by nation and source selection from 2022",
+    "Only one FW outlet per reporting plant; other reported source load kinds and multiple-outlet plants omitted",
+    "2018 biological sites differ from 2022 in country coverage, data quality and river-reach geometry",
+    "Third-party HydroRIVERS Europe v1 derived GeoParquet retains original 2022 study quality limits",
+    "No 2018 measured EQR numeric data accessed or used in spatial site/exposure selection"
+  ],
+  "official_source_HydroRIVERS_independent_validation": false,
+  "original_2018_BQE_source_only_run": 42441464939,
+  "original_2018_UWWTD_report_qc_run": 42441852933,
+  "original_fixed_2018_BQE_source_csv_sha256": "58ad1c8b1bf6b34e9ee27fd628fabf23c57779d84cc38649afaaea24832884e4",
+  "original_fixed_2018_biology_source_metadata_sha256": "9442544a23692bb0a4cd1dd43a87bc33eb2e3ef357e02bf1bc7e7de50c44e4d8",
+  "schema": "gesui_2018_independent_year_real_measured_UWWTD_WWTP_Biology_River_Source_v01",
+  "source_2018_BQE": {
+    "benthic_invertebrates": {
+      "2018_BQE_monitoring_sites_snap_to_river_500m": 2639,
+      "3degree_geographic_blocks": 52,
+      "all_monitoring_countries": 15,
+      "official_2018_BQE_pre_outcome_geolocated_sites": 2944,
+      "source_positive_countries": 12,
+      "source_positive_countries_counts": {
+        "AT": 2,
+        "FR": 1,
+        "HR": 4,
+        "HU": 90,
+        "IT": 10,
+        "LT": 2,
+        "LU": 1,
+        "LV": 4,
+        "NL": 13,
+        "NO": 9,
+        "PL": 60,
+        "SI": 8
+      },
+      "source_sufficient_before_opening_2018_EQR": true,
+      "source_zero_unregistered_50km_sites": 2435,
+      "upstream_2018_true_measured_both_NP_source_sites": 204
+    },
+    "fish": {
+      "2018_BQE_monitoring_sites_snap_to_river_500m": 1049,
+      "3degree_geographic_blocks": 15,
+      "all_monitoring_countries": 3,
+      "official_2018_BQE_pre_outcome_geolocated_sites": 1119,
+      "source_positive_countries": 2,
+      "source_positive_countries_counts": {
+        "AT": 1,
+        "FR": 2
+      },
+      "source_sufficient_before_opening_2018_EQR": false,
+      "source_zero_unregistered_50km_sites": 1046,
+      "upstream_2018_true_measured_both_NP_source_sites": 3
+    },
+    "phytobenthos": {
+      "2018_BQE_monitoring_sites_snap_to_river_500m": 2676,
+      "3degree_geographic_blocks": 47,
+      "all_monitoring_countries": 13,
+      "official_2018_BQE_pre_outcome_geolocated_sites": 2971,
+      "source_positive_countries": 11,
+      "source_positive_countries_counts": {
+        "AT": 2,
+        "FR": 3,
+        "HR": 6,
+        "HU": 88,
+        "IT": 29,
+        "LT": 2,
+        "LU": 1,
+        "LV": 1,
+        "NO": 10,
+        "PL": 72,
+        "SI": 8
+      },
+      "source_sufficient_before_opening_2018_EQR": true,
+      "source_zero_unregistered_50km_sites": 2454,
+      "upstream_2018_true_measured_both_NP_source_sites": 222
+    }
+  },
+  "source_2018_BQE_site_element_rows_after_river_graph": 6364,
+  "source_2018_WWTP_reported_load_directional_graph_links": 14963,
+  "source_2018_unique_biological_site_keys_snapped_500m": 3458,
+  "source_EEA_Fw_2018_outfalls_snapped_500m": 1422,
+  "source_Europe_HydroRIVERS_SHA256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "source_original_archive_data_sha256": {
+    "DischargePoints.csv": "fe96e70df6b169222b4aaab78201f687ecfadfe8bec2bfe8554a93784ee112da",
+    "ReportPeriod.csv": "30bed8a962218c1a2c772ba1bd151fc16d058874f77a4aef263ba2d83dfeb9fd",
+    "UWWTPS.csv": "bfd60e8ecc1539d4e4c31ea1182eafef2653e8ac46680e09f268f1a889d7fa48"
+  },
+  "source_state": "SOURCE_FROZEN_BEFORE_2018_NUMERIC_EQR_OUTCOMES",
+  "source_zero_only_registered_2018_qualifying_WWTPs": true,
+  "timestamp_utc": "2026-11-08T03:16:46.297947+00:00"
+}

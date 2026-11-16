@@ -1,0 +1,583 @@
+{
+  "WWTP_measured_positive_P_and_N_unique_source_keys_count": 2789,
+  "created_utc": "2026-11-08T04:07:13.632284+00:00",
+  "datasets": {
+    "DCP": {
+      "feature_layers": {
+        "UWWTD_DischargePoints": {
+          "column_info": [
+            {
+              "name": "fid",
+              "type": "INTEGER"
+            },
+            {
+              "name": "geom",
+              "type": "POINT"
+            },
+            {
+              "name": "OBJECTID",
+              "type": "INTEGER"
+            },
+            {
+              "name": "dcpState",
+              "type": "REAL"
+            },
+            {
+              "name": "repCode",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCode",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpCode",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpName",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpNuts",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpLatitude",
+              "type": "REAL"
+            },
+            {
+              "name": "dcpLongitude",
+              "type": "REAL"
+            },
+            {
+              "name": "dcpWaterBodyType",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpIrrigation",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpTypeOfReceivingArea",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "rcaCode",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpSurfaceWaters",
+              "type": "REAL"
+            },
+            {
+              "name": "dcpWaterbodyID",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpNotAffect",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpMSProvide",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpCOMAccept",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpGroundWater",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpReceivingWater",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpWFDSubUnit",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpWFDRBD",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpWaterBodyReferenceDate",
+              "type": "DATETIME"
+            },
+            {
+              "name": "dcpGroundWaterReferenceDate",
+              "type": "DATETIME"
+            },
+            {
+              "name": "dcpReceivingWaterReferenceDate",
+              "type": "DATETIME"
+            },
+            {
+              "name": "dcpWFDSubUnitReferenceDate",
+              "type": "DATETIME"
+            },
+            {
+              "name": "dcpWFDRBDReferenceDate",
+              "type": "DATETIME"
+            },
+            {
+              "name": "dcpBeginLife",
+              "type": "DATETIME"
+            },
+            {
+              "name": "dcpEndLife",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "dcpRemarks",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "rptMStateKey",
+              "type": "TEXT(255)"
+            }
+          ],
+          "features_n": 23965
+        }
+      },
+      "quality": {
+        "distinct_valid_full_keys": 23638,
+        "duplicate_full_key_groups": 169,
+        "features_n": 23965,
+        "joining_fields": [
+          "repCode",
+          "uwwCode"
+        ],
+        "latitude_field": "dcpLatitude",
+        "longitude_field": "dcpLongitude",
+        "model_year_reference_field_candidates": [
+          "dcpState",
+          "dcpLatitude",
+          "dcpLongitude",
+          "dcpWaterBodyType",
+          "dcpWaterbodyID",
+          "dcpWaterBodyReferenceDate",
+          "dcpBeginLife",
+          "rptMStateKey"
+        ],
+        "observed_measured_N_field": null,
+        "observed_measured_P_field": null,
+        "official_reporter_code_year_suffix_2020_n": 10186,
+        "official_reporter_code_year_suffix_counts": {
+          "2020": 10186,
+          "2022": 1030,
+          "OTHER": 12253
+        },
+        "unique_joinable_full_keys": 23469,
+        "unique_source_coords_in_original_Europe_study_bbox": 15873,
+        "waterbody_field": "dcpWaterBodyType",
+        "waterbody_type_counts": {
+          "CW": 1330,
+          "ES": 252,
+          "FW": 21175,
+          "LC": 32,
+          "LF": 680
+        }
+      },
+      "source": {
+        "download_bytes": 7073792,
+        "public_original_path": "https://sdi.eea.europa.eu/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-disc-pts_p_2019-2020_v08_r00/GPKG/UWWTD_DischargePoints.gpkg",
+        "public_reporting_period": "2019-2020",
+        "public_version": "v08_r00",
+        "source_SHA256": "1b8b20e0ba9d106f659b0fd9716013b680a16a0e7ab2a779dac2bfb53a33d9a1"
+      },
+      "tables": [
+        "gpkg_spatial_ref_sys",
+        "gpkg_contents",
+        "gpkg_ogr_contents",
+        "gpkg_geometry_columns",
+        "gpkg_tile_matrix_set",
+        "gpkg_tile_matrix",
+        "UWWTD_DischargePoints",
+        "gpkg_extensions",
+        "rtree_UWWTD_DischargePoints_geom",
+        "rtree_UWWTD_DischargePoints_geom_rowid",
+        "rtree_UWWTD_DischargePoints_geom_node",
+        "rtree_UWWTD_DischargePoints_geom_parent",
+        "gpkg_metadata",
+        "gpkg_metadata_reference"
+      ]
+    },
+    "WWTP": {
+      "feature_layers": {
+        "UWWTD_TreatmentPlants": {
+          "column_info": [
+            {
+              "name": "fid",
+              "type": "INTEGER"
+            },
+            {
+              "name": "geom",
+              "type": "POINT"
+            },
+            {
+              "name": "OBJECTID",
+              "type": "INTEGER"
+            },
+            {
+              "name": "uwwState",
+              "type": "REAL"
+            },
+            {
+              "name": "repCode",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "aggCode",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCode",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwName",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCollectingSystem",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwDateClosing",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwHistorie",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwLatitude",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwLongitude",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwNUTS",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwLoadEnteringUWWTP",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwCapacity",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwPrimaryTreatment",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwSecondaryTreatment",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwOtherTreatment",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwNRemoval",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwPRemoval",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwUV",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwChlorination",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwOzonation",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwSandFiltration",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwMicroFiltration",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwOther",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwSpecification",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBOD5Perf",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCODPerf",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwTSSPerf",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwNTotPerf",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwPTotPerf",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwOtherPerf",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBadPerformance",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwAccidents",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBadDesign",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwInformation",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBODIncomingMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwBODIncomingCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBODIncomingEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCODIncomingMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwCODIncomingCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCODIncomingEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwNIncomingMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwNIncomingCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwNIncomingEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwPIncomingMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwPIncomingCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwPIncomingEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBODDischargeMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwBODDischargeCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBODDischargeEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCODDischargeMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwCODDischargeCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwCODDischargeEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwNDischargeMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwNDischargeCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwNDischargeEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwPDischargeMeasured",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwPDischargeCalculated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwPDischargeEstimated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwWasteWaterTreated",
+              "type": "REAL"
+            },
+            {
+              "name": "uwwMethodWasteWaterTreated",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwBeginLife",
+              "type": "DATETIME"
+            },
+            {
+              "name": "uwwEndLife",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwHyperlink",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwWasteWaterReuse",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwInspireIDFacility",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "uwwRemarks",
+              "type": "TEXT(255)"
+            },
+            {
+              "name": "rptMStateKey",
+              "type": "TEXT(255)"
+            }
+          ],
+          "features_n": 21448
+        }
+      },
+      "quality": {
+        "distinct_valid_full_keys": 21448,
+        "duplicate_full_key_groups": 0,
+        "features_n": 21448,
+        "joining_fields": [
+          "repCode",
+          "uwwCode"
+        ],
+        "latitude_field": "uwwLatitude",
+        "longitude_field": "uwwLongitude",
+        "model_year_reference_field_candidates": [
+          "uwwState",
+          "uwwLatitude",
+          "uwwLongitude",
+          "uwwBODIncomingMeasured",
+          "uwwCODIncomingMeasured",
+          "uwwNIncomingMeasured",
+          "uwwPIncomingMeasured",
+          "uwwBODDischargeMeasured",
+          "uwwBODDischargeCalculated",
+          "uwwBODDischargeEstimated",
+          "uwwCODDischargeMeasured",
+          "uwwCODDischargeCalculated",
+          "uwwCODDischargeEstimated",
+          "uwwNDischargeMeasured",
+          "uwwNDischargeCalculated",
+          "uwwNDischargeEstimated",
+          "uwwPDischargeMeasured",
+          "uwwPDischargeCalculated",
+          "uwwPDischargeEstimated",
+          "uwwBeginLife",
+          "rptMStateKey"
+        ],
+        "observed_measured_N_field": "uwwNDischargeMeasured",
+        "observed_measured_P_field": "uwwPDischargeMeasured",
+        "official_reporter_code_year_suffix_2020_n": 10090,
+        "official_reporter_code_year_suffix_counts": {
+          "2020": 10090,
+          "2022": 837,
+          "OTHER": 10521
+        },
+        "reported_values_not_yet_verified_same_calendar_year": true,
+        "unique_joinable_full_keys": 21448,
+        "unique_plant_both_positive_reported_P_N": 2789,
+        "unique_plant_positive_reported_N": 4710,
+        "unique_plant_positive_reported_P": 2969,
+        "unique_source_coords_in_original_Europe_study_bbox": 14919,
+        "waterbody_field": null
+      },
+      "source": {
+        "download_bytes": 7159808,
+        "public_original_path": "https://sdi.eea.europa.eu/datashare/public.php/webdav/eea_v_4258_100_m_uwwtd-tp_p_2019-2020_v08_r00/GPKG/UWWTD_TreatmentPlants.gpkg",
+        "public_reporting_period": "2019-2020",
+        "public_version": "v08_r00",
+        "source_SHA256": "13060c88a8d1d06f81b61b0a6886279db6051645a2b8d1f7d578ae8ee4e59300"
+      },
+      "tables": [
+        "gpkg_spatial_ref_sys",
+        "gpkg_contents",
+        "gpkg_ogr_contents",
+        "gpkg_geometry_columns",
+        "gpkg_tile_matrix_set",
+        "gpkg_tile_matrix",
+        "UWWTD_TreatmentPlants",
+        "gpkg_extensions",
+        "rtree_UWWTD_TreatmentPlants_geom",
+        "rtree_UWWTD_TreatmentPlants_geom_rowid",
+        "rtree_UWWTD_TreatmentPlants_geom_node",
+        "rtree_UWWTD_TreatmentPlants_geom_parent",
+        "gpkg_metadata",
+        "gpkg_metadata_reference"
+      ]
+    }
+  },
+  "no_2020_biological_EQR_opened": true,
+  "official_2020_reporter_code_yyyy_ref_not_individual_measurement_date": true,
+  "official_2020_reporter_suffix_enforced_in_candidate_CSV": true,
+  "official_both_measured_positive_NP_unique_FW_outlets_in_study_bbox": 582,
+  "same_calendar_2020_reported_mass_year_not_yet_verified": true,
+  "schema": "gesui_EEA_public_2019_2020_GPKG_reported_NP_source_only_v01",
+  "source_candidate_file_path": "2020_PUBLIC_CYCLE_BOTH_MEASURED_NP_UNIQUE_FW_OUTFALLS.csv",
+  "source_candidate_file_sha256": "f2e4e96d2c4d21e1036100ef458f3d0c1185abdecdb60d5093e691d238948cc7",
+  "source_candidate_original_2020_reporting_period_not_precise_measurement_date": true
+}

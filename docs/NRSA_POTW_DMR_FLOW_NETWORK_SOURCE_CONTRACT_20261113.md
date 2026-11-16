@@ -1,0 +1,22 @@
+# Source-only plan: real municipal wastewater N/P and directed receiving-river NRSA measurements
+
+**Draft posthoc extension of [PR #73](https://github.com/zuizui0223/gesui/pull/73).** Earlier river nutrient/EPT/Chla/AFDM outcome signs were already seen. These NEW source-only choices are frozen before any 2018/19 or 2023/24 DMR values are read and before any new WWTP regression.
+
+## Scientific unit and exposure, in order
+
+1. EPA NRSA native UID first: 2018/19 precisely 1,221 pre-nutrient source-frozen visit IDs from [PR #58](https://github.com/zuizui0223/gesui/pull/58); 2023/24 original pre-biomass-source combined site+chem+periphyton availability list 2,129 from [PR #73](https://github.com/zuizui0223/gesui/pull/73). Keep all source attempts, no ecological outcome-based sampling.
+2. Source-only EPA ECHO weekly national NPDES *External Outfall* coordinates. Require **PERMITTED FEATURE** location, NAICS 221320 or SIC 4952, unambiguous PERMIT+FEATURE+coordinates and nonempty permit number; contemporaneous dates must be *plausible* against each original survey window (2018–19 or 2023–24). The current register is NOT an exhaustive historical census or proof of any discharge in the historical years.
+3. Fixed inexpensive geographic screening: candidate outfall within **25 km straight-line** of NRSA native source site. Preserve 5/10/25 km counts. Near screening is ONLY to prioritize hydrological investigation; not an exposure assignment, and far source does NOT mean untreated.
+4. USGS NLDI authentic NHDPlusV2: require independent source site's COMID/hydrolocation and true **UT** (upstream tributary) NPDES features within **50 km along the flow network**; physically same COMID ordering is UNRESOLVED unless source reference measures support order. Report all API errors separately from source absence, verify candidate NPDES permit identity against ECHO *external outfall*. Equal-distance downstream **DM/DD** features are diagnostic controls, not independent equivalent negative controls.
+5. Historical measured EPA DMR for actual survey periods (2018/19 vs 2023/24) and EXACT pair `EXTERNAL_PERMIT_NMBR` + `PERM_FEATURE_NMBR`, external effluent monitoring location and total N (00600)/total P (00665). Do not pool `VALUE_TYPE_CODE` or units; no `NODI` treated as zero. Annual mass `t/y` and concentration `mg/L` are different: convert only if unambiguously load units and period; no historical extrapolation. For 2018 calendar year annual DMR spans FY2018 + FY2019; for 2019 FY2019 + FY2020, etc. Insufficient data stops at source without ecological fitting.
+6. **Eligibility to fit** (frozen before DMR): at least 40 distinct verified upstream actual-reported outfall-exposed NRSA site-visits, 25 distinct independent outfall features, 10 distinct HUC8, 5 states, at least 40 non-exposed *source-reported/verified* valid comparator site-visits, and each biological endpoint must independently retain at least 30 positive source-dose true measurements. If gate fails, source-only STOP without synthetic zeros or re-tuning.
+7. Only after source gate, biological outcomes: actual same-UID water TN/TP, 2018/19 counted EPT fraction and areal Chla, 2023/24 areal AFDM and Chla. Pre-specified state, ecoregion, river size, season, conductivity, HUC8-block heldout. Fit per-response separately; no causal chain, no actual primary production or ecosystem services inferred from proxies.
+
+## Competing hypotheses
+- Resource subsidy can increase algae/AFDM but contaminants and selective filtering can reduce EPT or reassemble communities. **Signs are unknown.**
+- Registered WWTP catchment density may simply predict urbanization or broader source geography. True flow-directed source N/P is required to test a uniquely wastewater-linked hypothesis.
+- Same-NP mass and measured in-stream N/P alone are not a causal intervention. Mediation is explicitly NOT estimated unless complete same year, same receiving reach, and adequate counterfactual support are shown.
+
+Source: official [EPA ECHO discharge points](https://echo.epa.gov/tools/data-downloads/icis-npdes-discharge-points-download-summary), [EPA ICIS DMR](https://echo.epa.gov/tools/data-downloads/icis-npdes-dmr-summary), [USGS NLDI](https://api.water.usgs.gov/docs/nldi/), original [EPA NRSA survey data](https://www.epa.gov/national-aquatic-resource-surveys/data-national-aquatic-resource-surveys).
+
+**No eBird. Do not overwrite earlier PR #73 or gesui/main. Do not claim wastewater-specific biodiversity effects on a failed source gate.**
