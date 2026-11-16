@@ -1,0 +1,43 @@
+name: gesui 48 genuinely measured N/P EEA2022 outfalls Sentinel2 2018 2022 STAC source only
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-measured-uwwtd-sentinel-riparian-sourcefirst
+    paths:
+      - 'analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_stac_source_opportunity.py'
+      - '.github/workflows/gesui-20261116-eea2022-S2-STAC-riparian-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  genuine_S2_2018_2022_red_nir_scl_cloud_scene_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original public STAC scene geometry and HTTP client
+        run: python -m pip install --quiet requests "shapely>=2,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43850677284
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/true_original_EEA2022_source_river_geometry
+      - name: Verify original Sentinel2 original 2018/2022 growing-season STAC scene availability for BOTH real bank buffers
+        run: |
+          python -m py_compile analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_stac_source_opportunity.py
+          python -u analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_stac_source_opportunity.py \
+            --source '${{ runner.temp }}/true_original_EEA2022_source_river_geometry' \
+            --output '${{ runner.temp }}/original_Sentinel_source_only'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-48-original-EEA2022-NP-outfalls-2018-2022-S2-STAC-source
+          path: ${{ runner.temp }}/original_Sentinel_source_only/
+          retention-days: 90
+          if-no-files-found: warn

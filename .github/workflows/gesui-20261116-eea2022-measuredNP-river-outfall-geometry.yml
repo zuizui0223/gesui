@@ -1,0 +1,56 @@
+name: gesui 2022 truly reported EEA nitrogen/phosphorus outfall river path source feasibility
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-measured-uwwtd-sentinel-riparian-sourcefirst
+    paths:
+      - 'analysis/20261116_uwwtd_annual_riparian_sentinel/real_river_route_helper.py'
+      - 'analysis/20261116_uwwtd_annual_riparian_sentinel/eea2022_sourcefirst_realriver_geometry.py'
+      - '.github/workflows/gesui-20261116-eea2022-measuredNP-river-outfall-geometry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_EEA2022_annual_reported_NP_to_same_river_local_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original published river shape and geometry source dependencies
+        run: python -m pip install --quiet numpy pandas geopandas "shapely>=2,<3" pyproj pyarrow
+      - name: Recover original source-pinned 1156 actually reported measured 2022 N/P EEA outfalls
+        run: |
+          mkdir -p '${{ runner.temp }}/EEA_source'
+          curl --fail --location --silent --show-error --retry 2 --max-time 120 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/c92c6755e2328c149df8dfd105eee4212d4caec0/results/lycaenidae_de_at_2022_source_only/EEA2022_DE_AT_PUBLIC_BOTH_NP_MEASURED_ONE_FW_OUTFALLS.csv \
+            -o '${{ runner.temp }}/EEA_source/EEA2022_source.csv'
+          test "$(git hash-object '${{ runner.temp }}/EEA_source/EEA2022_source.csv')" = "1b4fbdfd8516e4040615a6cc1737febb1b6a33f0"
+      - name: Recover original source-pinned HydroRIVERS v1 Europe real river geometries
+        run: |
+          mkdir -p '${{ runner.temp }}/Hydro'
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o '${{ runner.temp }}/Hydro/HydroRIVERS_v10_eu.geoparquet'
+          echo '5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  ${{ runner.temp }}/Hydro/HydroRIVERS_v10_eu.geoparquet' | sha256sum -c -
+      - name: True original nearest river snap and directed NEXT_DOWN 1500m source geometry (no ecology)
+        run: |
+          python -m py_compile analysis/20261116_uwwtd_annual_riparian_sentinel/eea2022_sourcefirst_realriver_geometry.py
+          python -u analysis/20261116_uwwtd_annual_riparian_sentinel/eea2022_sourcefirst_realriver_geometry.py \
+            --eea '${{ runner.temp }}/EEA_source/EEA2022_source.csv' \
+            --rivers '${{ runner.temp }}/Hydro/HydroRIVERS_v10_eu.geoparquet' \
+            --output '${{ runner.temp }}/source_EEA2022_outfall_river'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          path: '${{ runner.temp }}/source_EEA2022_outfall_river/'
+          retention-days: 90
+          if-no-files-found: warn
