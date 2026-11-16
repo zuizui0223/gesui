@@ -1,0 +1,61 @@
+name: gesui final EU454 fixed-record rarefaction and W-vs-urban falsifiers
+on:
+  push:
+    branches:
+      - analysis/gesui-terminal-rarefaction-urban-20261116
+    paths:
+      - 'analysis/20261116_terminal_falsifiers/**'
+      - '.github/workflows/gesui-20261116-terminal-urban-rarefaction.yml'
+  pull_request:
+    paths:
+      - 'analysis/20261116_terminal_falsifiers/**'
+      - '.github/workflows/gesui-20261116-terminal-urban-rarefaction.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-source-posthoc-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical dependencies
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - name: Recover exact original EU454 trait source v2, without republishing third-party EIV
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_eiv_v2
+      - name: Recover original 2,808 GBIF plant and five-butterfly-family source facets
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif_facets
+      - name: Compute only remaining two terminal falsifiers; STOP unsupported depth
+        run: |
+          python -m py_compile analysis/20261116_terminal_falsifiers/fixed_record_and_urban.py
+          python -u analysis/20261116_terminal_falsifiers/fixed_record_and_urban.py \
+            --facets '${{ runner.temp }}/original_gbif_facets' \
+            --source '${{ runner.temp }}/original_eiv_v2' \
+            --output '${{ runner.temp }}/original_source_terminal_results'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-final-source-verified-fixed-record-rarefaction-W-versus-urban
+          path: ${{ runner.temp }}/original_source_terminal_results/
+          retention-days: 90
+          if-no-files-found: warn
