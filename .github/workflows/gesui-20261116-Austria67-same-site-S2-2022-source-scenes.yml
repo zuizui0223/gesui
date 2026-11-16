@@ -1,0 +1,37 @@
+name: gesui Austria67 real 2022 river TP EQR field stations 2022 Sentinel-2 bank source scenes
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-AT67-same-riverbank-S2-landgreenness
+    paths:
+      - 'analysis/20261116_AT67_riparian_satellite/source_2022_same67_waterstation_stac.py'
+      - '.github/workflows/gesui-20261116-Austria67-same-site-S2-2022-source-scenes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_2022_S2_at_actual_aquatic_benthic_stations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original public STAC scene geometry and source HTTP libraries
+        run: python -m pip install --quiet requests "shapely>=2,<3"
+      - name: Source-verified genuine 2022 Sentinel-2 at 67 actual same-river EEA BQE/TP stations, 2022 May-Sept, no NDVI response yet
+        run: |
+          python -m py_compile analysis/20261116_AT67_riparian_satellite/source_2022_same67_waterstation_stac.py
+          python -u analysis/20261116_AT67_riparian_satellite/source_2022_same67_waterstation_stac.py \
+            --output '${{ runner.temp }}/AT67_riverbank_2022_S2_scene_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-original-Austria67-waterstation-2022-summer-S2-source-scenes
+          path: '${{ runner.temp }}/AT67_riverbank_2022_S2_scene_source/'
+          retention-days: 90
+          if-no-files-found: warn

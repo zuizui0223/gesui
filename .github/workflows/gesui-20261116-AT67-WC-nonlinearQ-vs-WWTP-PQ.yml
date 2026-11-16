@@ -1,0 +1,41 @@
+name: gesui 2022 Austrian 67 wastewater P over Q against nonlinear Q hydrologic habitat confounders
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-AT67-same-riverbank-S2-landgreenness
+    paths:
+      - 'analysis/20261116_AT67_riparian_satellite/WorldCover_AT67_upPdivQ_vs_Qnonlinear_stress.py'
+      - '.github/workflows/gesui-20261116-AT67-WC-nonlinearQ-vs-WWTP-PQ.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual_river_2022_reported_PQ_vs_only_river_flow_nonlinear_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original BMLUK river source, ESA WorldCover 2021 and numerical CV dependencies
+        run: python -m pip install --quiet numpy scipy requests "rasterio>=1.4,<2" "pyproj>=3,<4"
+      - name: Verify original same 67 stations and compare source 2022 P divided by river flow against nonlinear physical river Q only across all 5 heldout geographic regions
+        run: |
+          python -m py_compile analysis/20261116_AT67_riparian_satellite/WorldCover_AT67_upPdivQ_vs_Qnonlinear_stress.py
+          python -u analysis/20261116_AT67_riparian_satellite/WorldCover_AT67_upPdivQ_vs_Qnonlinear_stress.py \
+            --output '${{ runner.temp }}/AT67_PQ_report_mass_vs_Qnonlinear_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-AT67-WC2021-WWTP-source-PQ-versus-nonlinear-Q-falsification
+          path: '${{ runner.temp }}/AT67_PQ_report_mass_vs_Qnonlinear_source/'
+          retention-days: 90
+          if-no-files-found: warn
