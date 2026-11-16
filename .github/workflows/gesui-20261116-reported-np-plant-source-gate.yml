@@ -1,0 +1,43 @@
+name: gesui 20261116 genuine reported 2018/2022 WWTP up/down EIV source support only
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-reported-np-direction-plant-hns
+    paths:
+      - 'analysis/20261116_directional_reported_np/source_gate.py'
+      - '.github/workflows/gesui-20261116-reported-np-plant-source-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  genuine-454-source-gate-before-biology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install only source-cohort dataframe library
+        run: python -m pip install --quiet pandas
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_eiv_451
+      - name: Audit 454 H7/90 true H6 annual WWTP upstream/downstream reported N/P and EIV trait support
+        run: |
+          python -m py_compile analysis/20261116_directional_reported_np/source_gate.py
+          python -u analysis/20261116_directional_reported_np/source_gate.py \
+            --eiv '${{ runner.temp }}/original_eiv_451' \
+            --out '${{ runner.temp }}/source_gate'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-updown-2018-2022-reported-NP-plant-HNS-sourceonly-454
+          path: ${{ runner.temp }}/source_gate/
+          retention-days: 90
+          if-no-files-found: warn
