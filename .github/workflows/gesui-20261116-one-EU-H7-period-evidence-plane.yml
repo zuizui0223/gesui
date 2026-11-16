@@ -1,0 +1,73 @@
+name: gesui 20261116 one EU H7-period water-plant-butterfly reported-WWTP evidence plane
+on:
+  push:
+    branches:
+      - analysis/gesui-all-evidence-one-plane-20261116
+    paths:
+      - 'analysis/20261116_evidence_plane/build_eu_h7_common_plane.py'
+      - '.github/workflows/gesui-20261116-one-EU-H7-period-evidence-plane.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: gesui-20261116-one-plane-source-writes
+  cancel-in-progress: false
+jobs:
+  same_native_H7_period_original_SOURCE_plane:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-only original table reader
+        run: python -m pip install --quiet numpy pandas
+      - name: Restore fixed 11,511 original plant-species-key accepted EIV source-v2 (451 site-periods)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/eiv_4011_source_v2
+      - name: Restore original 6330 exact native EEA/EPA site-H7 geometry source (only IDs/periods)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_station_h7
+      - name: Assemble one exact 454 original H7-period unit plane with 451 valid EIV and true EEA benthic site-year source
+        run: |
+          python -m py_compile analysis/20261116_evidence_plane/build_eu_h7_common_plane.py
+          python -u analysis/20261116_evidence_plane/build_eu_h7_common_plane.py \
+             --eiv '${{ runner.temp }}/eiv_4011_source_v2' \
+             --stations '${{ runner.temp }}/original_station_h7' \
+             --output 'results/20261116_evidence_plane'
+      - name: Preserve one-plane H7-period source artifact separately
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-EU454-H7-period-threebiotic-EQR-EIV-HNS-source-plane
+          path: results/20261116_evidence_plane/
+          retention-days: 90
+          if-no-files-found: error
+      - name: Commit derived source-joined original H7-period plane (never original publisher archives)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261116_evidence_plane/EU_H7_PERIOD_454_WATER_PLANT_BUTTERFLY_WWTP_COMMON_PLANE.csv \
+                  results/20261116_evidence_plane/EU_H7_PERIOD_454_COMMON_PLANE_SOURCE_QA.json
+          if git diff --cached --quiet; then
+            echo "Source plane unchanged; no new commit"
+          else
+            git commit -m "data: source-verify 454 true H7-period EU water-plant-butterfly common analysis plane"
+            git push origin "HEAD:refs/heads/analysis/gesui-all-evidence-one-plane-20261116"
+          fi
