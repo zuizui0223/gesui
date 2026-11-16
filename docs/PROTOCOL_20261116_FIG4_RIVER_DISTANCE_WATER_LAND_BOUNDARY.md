@@ -67,3 +67,14 @@
 - **データ不足**：「HydroRIVERS distance test not identifiable under coordinate quality and spatial source support」。残りの陸域・水生結果は論文でそれぞれの推定母集団をラベル付き比較、直接の境界減衰の断言を避ける。
 
 **実務：** 元PR #112が2026-11-16にmainへマージ済み。新規解析はmain起点のDraftブランチのみで、main・chocho・既存PR #110,#111を変更しない。最初に真正source-only feasibility（GBIF個別座標再取得・HydroRIVERS本物の線・H7地理/努力）を実施。元GBIF facet aggregateだけでモデルを走らせない。停止を不利な結果として隠さない。
+
+
+## 第1波のsource-only実測（固定仕様後、結果を見る前の確認）
+
+2026-11-16付け **Actions #43825788157 SUCCESS**：original source facet `251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4`から真H6・元country_holdoutが各8群異なる8 H7×両期間（計16 source query）を、GBIF生物アウトカムを見ずにSHA選定。現行GBIFへ原ソースのWKT/年/taxon6/座標あり/geospatial問題なし/在を再発行し、**16/16 GET成功**。各query先頭最大300件、実際に計**4,654個別植物GBIF records**の元sourceフィールドschemaを確認、WGS84緯度経度4,654、coordinateUncertainty≤100m**2,991（64.27%）**。**先頭ページの質監査**であり、元sourceの全植物speciesKey facet、11,511種、4百万全記録における構成割合ではない。元索引作成時点と今のGBIF生息地record indexが完全に同じと断言できない。EIV NUTRI・蝶HNS・EQR・Wの数値応答は開いていない。
+
+2026-11-16付け **Actions #43826262099 SUCCESS**：HydroSHEDS公式 [HydroRIVERS v1 Europe / Middle East Shapefile](https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip) のソースZIP **67,648,957B**, SHA256 **`500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5`**。線データ**938,544 reach**、元 native `HYRIV_ID`, `NEXT_DOWN`, `HYBAS_L12`, `ORD_STRA`, `DIS_AV_CMS` が含まれる。WGS84 line geometryで河川距離と流下方向のsource実装が可能となった。原本zipも全ライン座標も本リポへ転載せず、短い署名付きsource QAだけを保存。**まだGBIF個体pointを線へ投影した距離帯やEIV平均、EQRとの偏相関を計算したわけではない。**
+
+**HydroRIVERS v1の観測対象制限**：公式仕様上、河道は集水面積概ね10km²以上、または推定自然流量0.1m³/s以上のネットワークが基本。小さな支流・排水溝・都市暗渠まで列挙した流路ではないため、実際の水際距離より**遠く推定する方向の誤差**が起こりうる。主解析とともに水系密度／小支流欠損の地域差を記述しなければならない。
+
+**次のsource-onlyゲート**は、元8 H7×2期で「個別GBIF source point + 真のHydroRIVERS reach」から距離帯の記録数・受理EIV得点種数**だけ**を算出し、近傍/遠方の≥50得点記録・≥10得点種・≥40%対応が各地域で可能かを確認。その後、元全451母集団のsource completenessを調べる。現在は`RIVER_DISTANCE_MODEL_GATE=NOT_FITTED`。
