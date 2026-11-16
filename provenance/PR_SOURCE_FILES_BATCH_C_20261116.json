@@ -1,0 +1,537 @@
+[
+  {
+    "pr_number": 97,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261115-nrsa1314-piecewise-path.yml",
+        "status": "added",
+        "sha": "097dd3e8d006a2bec33fd12b7e6f654d91ee1f0e",
+        "changes": 53
+      },
+      {
+        "path": "analysis/20261115_piecewise_path/observational_paths.py",
+        "status": "added",
+        "sha": "34b8fc8041b412354b4952bbaedbe095f90c968f",
+        "changes": 170
+      },
+      {
+        "path": "docs/PROTOCOL_20261115_NRSA1314_STATISTICAL_PATH_INTEGRATION.md",
+        "status": "added",
+        "sha": "04b760f52cdb72ef6d3f449461a23ce8fb9f1a2b",
+        "changes": 61
+      },
+      {
+        "path": "docs/RESULTS_20261115_NRSA1314_PIECEWISE_PATH_VS_PHAB.md",
+        "status": "added",
+        "sha": "b2293b6eb61df96097d045ecdc79702194c25e0e",
+        "changes": 55
+      },
+      {
+        "path": "results/20261115_piecewise_path/SOURCE_LOCKED_SUMMARY.json",
+        "status": "added",
+        "sha": "221dd32ac77bb55ff09f7f47cc9795c00bf4ad03",
+        "changes": 48
+      }
+    ]
+  },
+  {
+    "pr_number": 107,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261116-EEA-2026-correct-public-dav-v4.yml",
+        "status": "added",
+        "sha": "834817fbbbd976b98a442df50b2c73d7feacc2bb",
+        "changes": 32
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA-ICM2026-public-file-index-v3.yml",
+        "status": "added",
+        "sha": "5771a01975b5056c39daca470b430b17df3bb5e8",
+        "changes": 32
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-Part1-Part2-exact-native-TNTP-union.yml",
+        "status": "added",
+        "sha": "6c6e79acc525d6b983a78b41b15843c154d5b7cb",
+        "changes": 51
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-Part1-exact-native-station-TNTP.yml",
+        "status": "added",
+        "sha": "a1b4cd27c263d4ca26d7c11f17e0bdd547268c1d",
+        "changes": 48
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-Part1-zip-header-only.yml",
+        "status": "added",
+        "sha": "499c48047768447ea9ae0323876ec0c89291f76f",
+        "changes": 32
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-Part2-3525-source-diagnostic.yml",
+        "status": "added",
+        "sha": "12461ab07ae841c5a63e34b8e1f8b439924fc411",
+        "changes": 40
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-Part2-exact-native-station-TNTP.yml",
+        "status": "added",
+        "sha": "eb9f92bb7d38ad2877cda3e23b89f10968ad14ef",
+        "changes": 49
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-TN-TP-separate-source-gate.yml",
+        "status": "added",
+        "sha": "7ae31052780731e549f2e7623379a77ee74c9635",
+        "changes": 41
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-WQ-spatial-source-schema.yml",
+        "status": "added",
+        "sha": "fafe516daa6b9f68d4d76a0f7bfa1da3bc46fc6e",
+        "changes": 32
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-nearby-sameH7-Part2-chemistry.yml",
+        "status": "added",
+        "sha": "6fd1b35efa80dc5c665276e90e23d1ab917aeef0",
+        "changes": 55
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-EEA2026-official-H7-WQ-nearby-geometry.yml",
+        "status": "added",
+        "sha": "1f1a953d60cd813840360d057b999a441816582b",
+        "changes": 46
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-biology-WQ-spatial-source-only.yml",
+        "status": "added",
+        "sha": "eaf9dddca8d176252b1bed80704b17414e9e1127",
+        "changes": 48
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-nearby-WQ-source-upperbound.yml",
+        "status": "added",
+        "sha": "3f5b16c3445a7eb45e6ea3c3aa9d633652a8a720",
+        "changes": 50
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-official-EEA-ICM-2026-public-part2-source-probe.yml",
+        "status": "added",
+        "sha": "1c23d5889b39343c211a2a91afeafd006a1c1537",
+        "changes": 33
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-official-WISE6-TNTP-access.yml",
+        "status": "added",
+        "sha": "674a3f41227128a530320588da70d9cc91cf678c",
+        "changes": 33
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-reported-NP-183H7-source.yml",
+        "status": "added",
+        "sha": "235ce75a05bc773754c7e86c92cb5651d49396a9",
+        "changes": 45
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/acquire_eea_2026_part1_exact_site.py",
+        "status": "added",
+        "sha": "10f7471b91bf64a09793491b8ddc15234b2b5c0d",
+        "changes": 313
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/acquire_eea_2026_part2_exact_site.py",
+        "status": "added",
+        "sha": "88831fca8cde5c84b4b6fe4e9046940eb0107f67",
+        "changes": 353
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/audit_biology_wq_spatial_source_v1.py",
+        "status": "added",
+        "sha": "fadf1bbc411563146b22033429c352400da500d9",
+        "changes": 304
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/audit_official_2026_part1part2_union.py",
+        "status": "added",
+        "sha": "b8f0af937e54320b592913ef95212224bc9c1f94",
+        "changes": 132
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/audit_official_2026_wq_spatial_schema.py",
+        "status": "added",
+        "sha": "4db3210a8f001a881d227b79b6584cc3a1ec7954",
+        "changes": 93
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/audit_official_H7_biology_wq_geometry_v2.py",
+        "status": "added",
+        "sha": "e07da9289e98e2291163ca8de1035e58427a388b",
+        "changes": 196
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/audit_totalN_totalP_individually.py",
+        "status": "added",
+        "sha": "865e18902e84c9152bd8851ff791431f1f1940b2",
+        "changes": 114
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/diagnose_official_2026_part2_matched_qa.py",
+        "status": "added",
+        "sha": "69627ca6885002529ae07c91a558c58f21b1b3a4",
+        "changes": 73
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/inspect_official_publisher_file_index_v3.py",
+        "status": "added",
+        "sha": "75ea9f02e8d389252cc3c571e425a61ece21a6e0",
+        "changes": 119
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/nearby_WQ_reported_positive_upperbound_sourceonly.py",
+        "status": "added",
+        "sha": "1bd706e3bddd7fb06bd42c6d85b20d94efecef18",
+        "changes": 72
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/probe_eea_2026_access_v2.py",
+        "status": "added",
+        "sha": "f800e5dd023c108e6741917332fb9ebeb9434568",
+        "changes": 215
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/probe_eea_datashare_correct_dav_v4.py",
+        "status": "added",
+        "sha": "7ee070566ddbf388b9a283690419ef596d56d9e5",
+        "changes": 137
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/probe_official_eea_2026_wise6_sql.py",
+        "status": "added",
+        "sha": "e6bad0acce830716f71c2c5d56e092296611cc7d",
+        "changes": 124
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/probe_part1_zip_compression.py",
+        "status": "added",
+        "sha": "96a1bec7ae321776221ef1f00bff4ef8678beab7",
+        "changes": 46
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/scan_eea2026_part2_nearby_sameH7_TNTP.py",
+        "status": "added",
+        "sha": "81e80b2c077f25bf89753341d906e047c2d3a5de",
+        "changes": 251
+      },
+      {
+        "path": "analysis/20261116_reported_np_source/source_only_gate.py",
+        "status": "added",
+        "sha": "a6b93d10bc84663eea797c1d9f8f8d3dab68267e",
+        "changes": 195
+      },
+      {
+        "path": "docs/PROTOCOL_20261116_EEA2026_BIOLOGY_WQ_SPATIAL_MATCH_SOURCE_ONLY.md",
+        "status": "added",
+        "sha": "cf757ba3cea9224ff936c3c39179c5a7dca4e023",
+        "changes": 20
+      },
+      {
+        "path": "docs/PROTOCOL_20261116_EEA2026_PART1_PART2_EXACT_STATION_TNTP_UNION_GATE.md",
+        "status": "added",
+        "sha": "6c7392e50d199e258830f034f9e5cb78fee0b9c1",
+        "changes": 32
+      },
+      {
+        "path": "docs/PROTOCOL_20261116_EEA2026_SINGLE_TN_TP_SOURCE_REPLICATION_POSTHOC.md",
+        "status": "added",
+        "sha": "a442f46e03acf142c14bb0683bed7eb0b1091e51",
+        "changes": 19
+      },
+      {
+        "path": "docs/PROTOCOL_20261116_EEA2026_WQ_SPATIAL_STATION_METADATA_GATE.md",
+        "status": "added",
+        "sha": "6ab9748cd5ea6435d1aeb7fda0837319abec2b47",
+        "changes": 14
+      },
+      {
+        "path": "docs/PROTOCOL_20261116_OFFICIAL_H7_WQ_NEARBY_SITE_SOURCE_GATE.md",
+        "status": "added",
+        "sha": "8bab5562cd8f034fce5f248cf20bdd4bfd5a433d",
+        "changes": 37
+      },
+      {
+        "path": "docs/PROTOCOL_20261116_TRUE_H6_EEA_REPORTED_NP_SOURCE_GATE.md",
+        "status": "added",
+        "sha": "7309bc7271c7a58aeeba12c28e8445c32817549b",
+        "changes": 36
+      },
+      {
+        "path": "docs/RESULTS_20261116_EEA2026_OFFICIAL_PART1_PART2_FINAL_SOURCE.md",
+        "status": "added",
+        "sha": "9601271efa58f363c7086dd896cf16b83820be93",
+        "changes": 82
+      },
+      {
+        "path": "docs/RESULTS_20261116_EEA2026_OFFICIAL_PART2_TNTP_SOURCE_QA.md",
+        "status": "added",
+        "sha": "17cfbbfbb0a5b0429f54ef67b776247cef301881",
+        "changes": 42
+      },
+      {
+        "path": "docs/RESULTS_20261116_EEA2026_WQ_NEARBY_H7_WWTP_REPORT_HARD_CEILING.md",
+        "status": "added",
+        "sha": "84c490eb95364e26ba2337cd5e7aa082b6891c47",
+        "changes": 71
+      },
+      {
+        "path": "docs/RESULTS_20261116_EEA_REPORTED_NP_183H7_40H6_SOURCE_GATE.md",
+        "status": "added",
+        "sha": "2a9c14c63e8efaac23ae53c042cf149c158bfcf7",
+        "changes": 64
+      },
+      {
+        "path": "results/20261115_np_direction/H7_454_DIRECTIONAL_SOURCE_AUDIT_PANEL.csv",
+        "status": "added",
+        "sha": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+        "changes": 455
+      },
+      {
+        "path": "results/20261115_reported_np_hns/H7_454_REPORTED_SOURCE_INDEX_HNS_EQR_PLANT.csv",
+        "status": "added",
+        "sha": "45979613c1bc079f1c2346461eb7bdd31ac17e6a",
+        "changes": 455
+      },
+      {
+        "path": "results/20261115_reported_np_hns/SOURCE_QA_AND_EXPOSURE.json",
+        "status": "added",
+        "sha": "dd283aef32eaa52a197bf70bd3bdf49c87a156aa",
+        "changes": 59
+      },
+      {
+        "path": "results/20261116_reported_np_source/183H7_40H6_REPORTED_NP_SOURCE_ONLY_GATE.json",
+        "status": "added",
+        "sha": "d0591ac698a290af20734c1e164c2577d48595f8",
+        "changes": 48
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_BIO_WQ_SPATIAL_SITE_QA.json",
+        "status": "added",
+        "sha": "60b346ec38cf1a80fb2b8f59b7707c75b407fc69",
+        "changes": 104
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_NEARBY_1KM_REPORTED_SOURCE_HARD_UPPERBOUND.json",
+        "status": "added",
+        "sha": "268b44c824cc78149682fd8d324afcfcb2efe63c",
+        "changes": 52
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_NEARBY_SAMEH7_PART2_TNTP_SOURCE_BRIEF.json",
+        "status": "added",
+        "sha": "f48caae115d1f9e5c84a81b3aad6437445ebd57c",
+        "changes": 71
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_PART1_3525_SITE_YEAR_BRIEF_QA.json",
+        "status": "added",
+        "sha": "ba71bc1a08e8d5fa10958813b1d0a83c3c1fd1fb",
+        "changes": 31
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_PART1_PART2_3525_SOURCE_UNION_GATE.json",
+        "status": "added",
+        "sha": "bacddc47f3d14ea97b34c8745787d5682802e787",
+        "changes": 39
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_PART2_3525_SITE_YEAR_BRIEF_QA.json",
+        "status": "added",
+        "sha": "1b0c7cc6df65283f41e5fcb3b0f1da184120093c",
+        "changes": 62
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_WQ_SPATIAL_METADATA_BRIEF.json",
+        "status": "added",
+        "sha": "c64772a5e01c817366299ae5abc448169d5e599b",
+        "changes": 45
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_SAME_NATIVE_H7_NEAR_WQ_CANDIDATES_BRIEF.json",
+        "status": "added",
+        "sha": "4a81e86923a5ccdfd4a69d20701afaf4ba0a236f",
+        "changes": 81
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA2026_SEPARATE_TOTALN_TOTALP_SOURCE_GATE.json",
+        "status": "added",
+        "sha": "1086dbb2836d7e67d81d70e071b0146fcfcbbd9f",
+        "changes": 87
+      },
+      {
+        "path": "results/20261116_reported_np_source/EEA_2026_WISE6_TNTP_BOUNDED_API_PROBE.json",
+        "status": "added",
+        "sha": "70e85f9e3d16c8f3948ef4351d354624386f2d3d",
+        "changes": 135
+      }
+    ]
+  },
+  {
+    "pr_number": 108,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261116-reported-np-direction-plant-hns.yml",
+        "status": "added",
+        "sha": "8b441f2564ba5b86c51da25bf367e229f895cf01",
+        "changes": 57
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-reported-np-independent-qa.yml",
+        "status": "added",
+        "sha": "3db20abc8dabe43be6eb72c2a904bfd1f9d9de7e",
+        "changes": 55
+      },
+      {
+        "path": ".github/workflows/gesui-20261116-reported-np-plant-source-gate.yml",
+        "status": "added",
+        "sha": "e2b6e84da21c5af48a216c60199fd0daf96a2fdd",
+        "changes": 43
+      },
+      {
+        "path": "analysis/20261116_directional_reported_np/conditional_models.py",
+        "status": "added",
+        "sha": "f0ffd38954ffb3d28246972334f5f71a92fc484b",
+        "changes": 208
+      },
+      {
+        "path": "analysis/20261116_directional_reported_np/independent_numerical_qa.py",
+        "status": "added",
+        "sha": "804d7d4f2b5e03ed2569f10cadeec1832c4e69ca",
+        "changes": 145
+      },
+      {
+        "path": "analysis/20261116_directional_reported_np/source_gate.py",
+        "status": "added",
+        "sha": "ad0fb632e0862e95e9645aef45862318fe956b30",
+        "changes": 115
+      },
+      {
+        "path": "docs/PROTOCOL_20261116_DIRECTIONAL_REPORTED_NP_PLANT_NUTRI_BUTTERFLY_HNS.md",
+        "status": "added",
+        "sha": "f1631f3454f75b63db25036f856662beb8b715f5",
+        "changes": 36
+      },
+      {
+        "path": "docs/RESULTS_20261116_DIRECTIONAL_REPORTED_NP_PLANT_NUTRI_BUTTERFLY_HNS.md",
+        "status": "added",
+        "sha": "b9c3d78b3752fe0fc573a5bdc25bab27e22a19f0",
+        "changes": 62
+      },
+      {
+        "path": "results/20261115_np_direction/DIRECTIONAL_NEGATIVE_CONTROL_RESULTS.json",
+        "status": "added",
+        "sha": "bbfa9a3fcd26f6f5fca2402f795322426e8309f3",
+        "changes": 426
+      },
+      {
+        "path": "results/20261115_np_direction/H7_454_DIRECTIONAL_SOURCE_AUDIT_PANEL.csv",
+        "status": "added",
+        "sha": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+        "changes": 455
+      },
+      {
+        "path": "results/20261116_directional_reported_np/INDEPENDENT_12_DIRECTIONAL_NUMERICAL_QA_RECEIPT.json",
+        "status": "added",
+        "sha": "ed95832a2621245337fe08e38cd0aecff01d574d",
+        "changes": 16
+      },
+      {
+        "path": "results/20261116_directional_reported_np/ORIGINAL_UPDOWN_SOURCE_GATE_VERIFIED.json",
+        "status": "added",
+        "sha": "4adc0104941b5c0ece030375e271b887deb3c53f",
+        "changes": 53
+      },
+      {
+        "path": "results/20261116_directional_reported_np/UPDOWN_NP_PLANT_BUTTERFLY_VERIFIED_RESULTS.json",
+        "status": "added",
+        "sha": "0593d1492ed8e6c12c39867c2371c2f698649211",
+        "changes": 390
+      }
+    ]
+  },
+  {
+    "pr_number": 109,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261116-terminal-urban-rarefaction.yml",
+        "status": "added",
+        "sha": "640e9b0fd21672e4239f669fdbded87d39e33f29",
+        "changes": 61
+      },
+      {
+        "path": "analysis/20261116_terminal_falsifiers/fixed_record_and_urban.py",
+        "status": "added",
+        "sha": "fbe09ab010b39c34c7a2c868b6be5542de6c7721",
+        "changes": 263
+      },
+      {
+        "path": "docs/RESULTS_20261116_TERMINAL_THREE_FALSIFIERS_AND_MANUSCRIPT_SPLIT.md",
+        "status": "added",
+        "sha": "a45238545f6ec37e0c9dc40c8d7e74f55f1b42ad",
+        "changes": 54
+      }
+    ]
+  },
+  {
+    "pr_number": 110,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261116-aquatic-plantN-h7-bridge.yml",
+        "status": "added",
+        "sha": "ab41d8303e5294159a4d7fe07bf9bf204003017b",
+        "changes": 66
+      },
+      {
+        "path": "analysis/20261116_aquatic_plant_n_bridge/independent_numeric_qa.py",
+        "status": "added",
+        "sha": "ac52394323a42e37976f5a7db8e38d15c1de0989",
+        "changes": 134
+      },
+      {
+        "path": "analysis/20261116_aquatic_plant_n_bridge/paired_h7_EQR_plantN_temporal.py",
+        "status": "added",
+        "sha": "88ae39e4e2cb5523162cc5eb28a2d981a620b2ba",
+        "changes": 157
+      },
+      {
+        "path": "analysis/20261116_aquatic_plant_n_bridge/same_H7_EQR_plantN.py",
+        "status": "added",
+        "sha": "9d01c69a6b669610fe7f068a8bce4363caeb7ed3",
+        "changes": 165
+      },
+      {
+        "path": "analysis/20261116_aquatic_plant_n_bridge/source_report_direction_controls.py",
+        "status": "added",
+        "sha": "b1b890f6ca632bc2f1da945dfcf79f401232b961",
+        "changes": 139
+      },
+      {
+        "path": "docs/RESULTS_20261116_EU451_WATER_LAND_NUTRI_BRIDGE.md",
+        "status": "added",
+        "sha": "82dbad4b126832409d92b6203763e1d2ec4669a3",
+        "changes": 48
+      },
+      {
+        "path": "docs/RESULTS_20261116_WATER_LAND_TEMPORAL_AND_NP_DIRECTIONAL_FALSIFIERS.md",
+        "status": "added",
+        "sha": "e988903b9f0adbdaa682369f2de53c80f78c2ea4",
+        "changes": 60
+      },
+      {
+        "path": "results/20261115_np_direction/H7_454_DIRECTIONAL_SOURCE_AUDIT_PANEL.csv",
+        "status": "added",
+        "sha": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+        "changes": 455
+      }
+    ]
+  }
+]
