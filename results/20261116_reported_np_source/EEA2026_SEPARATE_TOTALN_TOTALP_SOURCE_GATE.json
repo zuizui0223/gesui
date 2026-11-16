@@ -1,0 +1,87 @@
+{
+  "schema": "GESUI_EEA2026_SEPARATE_TN_TP_SITE_SOURCE_VERIFIED_BRIEF_V1",
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43801308202",
+  "source_run_conclusion": "success",
+  "source_dataset_part1_SHA256": "ff779521749b40b952cce35a4671240c3b6c47d87f32a8fef9240a4ac503a082",
+  "source_dataset_part2_SHA256": "315396800d76e46db415164851fb4f99765b7ec2654828fc42782d902e679a7a",
+  "original_EEA_biology_native_station_years": 3525,
+  "posthoc_not_original_joint_TNTP_preregistration": true,
+  "same_native_H6_positive_reported_TN_only_source_OPPORTUNITY": {
+    "general_source_site_gate_pass": false,
+    "original_report_positive_year_site_counts": {
+      "2018": 2,
+      "2022": 10
+    },
+    "original_same_source_replication_minimum": {
+      "H6": 10,
+      "H7": 20,
+      "H7period": 30,
+      "countries": 3
+    },
+    "original_true_H6_multiH7_source_minimum": 10,
+    "positive_report_H7period_H7_H6_countries": {
+      "H6": 8,
+      "H7": 8,
+      "H7period": 9,
+      "countries": 3
+    },
+    "same_true_H6_parent_with_two_distinct_positive_measured_H7": 0,
+    "source_only_not_direct_WWTP_effect": true,
+    "strict_all_EEA_biology_native_station_years_with_chemical": 186,
+    "strict_with_upstream_positive_annual_source_report_station_years": 12,
+    "true_parent_positive_vs_positive_gate_pass": false
+  },
+  "same_native_H6_positive_reported_TP_only_source_OPPORTUNITY": {
+    "general_source_site_gate_pass": false,
+    "original_report_positive_year_site_counts": {
+      "2018": 2,
+      "2022": 10
+    },
+    "original_same_source_replication_minimum": {
+      "H6": 10,
+      "H7": 20,
+      "H7period": 30,
+      "countries": 3
+    },
+    "original_true_H6_multiH7_source_minimum": 10,
+    "positive_report_H7period_H7_H6_countries": {
+      "H6": 8,
+      "H7": 8,
+      "H7period": 9,
+      "countries": 3
+    },
+    "same_true_H6_parent_with_two_distinct_positive_measured_H7": 0,
+    "source_only_not_direct_WWTP_effect": true,
+    "strict_all_EEA_biology_native_station_years_with_chemical": 262,
+    "strict_with_upstream_positive_annual_source_report_station_years": 12,
+    "true_parent_positive_vs_positive_gate_pass": false
+  },
+  "original_joint_TNTP_preserved": {
+    "general_source_site_gate_pass": false,
+    "original_report_positive_year_site_counts": {
+      "2018": 2,
+      "2022": 10
+    },
+    "original_same_source_replication_minimum": {
+      "H6": 10,
+      "H7": 20,
+      "H7period": 30,
+      "countries": 3
+    },
+    "original_true_H6_multiH7_source_minimum": 10,
+    "positive_report_H7period_H7_H6_countries": {
+      "H6": 8,
+      "H7": 8,
+      "H7period": 9,
+      "countries": 3
+    },
+    "same_true_H6_parent_with_two_distinct_positive_measured_H7": 0,
+    "source_only_not_direct_WWTP_effect": true,
+    "strict_all_EEA_biology_native_station_years_with_chemical": 101,
+    "strict_with_upstream_positive_annual_source_report_station_years": 12,
+    "true_parent_positive_vs_positive_gate_pass": false
+  },
+  "same_wastewater_report_positive_12_site_years_for_all_three": true,
+  "any_within_H6_two_distinct_reported_positive_H7_for_each_nutrient": false,
+  "no_effects_estimated": true
+}

@@ -1,0 +1,11 @@
+# True-source direction negative control for annual EEA wastewater reports (2026-11-15)
+
+**Original-source verification, no additional ecological coefficient yet.** This is deliberately separate from full 2026 water-quality data access. The EEA WISE6 2026 Part 2 same-2018/2022 measured TN/TP is still unverified for original biology sites (see Draft PR #91); do not substitute modeled data as actual receiving-water measurements.
+
+Use the *same original EEA 2018/2022 biological monitoring station IDs*, exact same 454 H7×period and the two frozen upstream municipal WWTP N/P annual-source fields and the **downstream** annual N/P placebo columns that occur in the original EEA source. Verify Git blob hashes, year, station denominators, valid source modeled river discharge >0 and original prior upstream intensity exactly. The downstream indicator is a falsification **of directional specificity at the site**; it is not a randomized negative-control treatment and may share urban and reporting biases. For the basin-wide GBIF butterfly HNS it is even weaker than for station EQR because butterfly occurrence coordinates are not local to that upstream monitoring reach.
+
+Stage 0: quantify 3525 sites, upstream-positive source station-years 132, upstream-positive H7×period 56, downstream-positive counts and their overlap. Retain zero reported positives as *no matched positive reported WWTP source*, not absence of sewage.
+
+Stage 1 only if source integrity passes: on exactly fixed 454 H7×period (232 H7, 90 true H6), compare adding upstream vs downstream annual reported N/P **separately** to same frozen PR90 baseline model for EQR, plant rarefied S50, and butterfly occurrence-weighted host nutrient-affinity HNS. Use same H6-disjoint split and heldout error unit; show both delta-MSE gain and source positive cohort sparsity. Do not make a causal wastewater claim. A downstream-control predictive signal as strong as upstream would undermine directional specificity; a null placebo alone does not prove upstream causation.
+
+Never claim measured river TN, TP, discharge fraction, adult puddling, larval feeding, emergence dry mass, predator assimilation, plant nitrogen uptake or food-web SEM. No `main` or `chocho` merge and no automatic publication of third-party source rows beyond derived source masks. This is an exploratory methodological stress-test.

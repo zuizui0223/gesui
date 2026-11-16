@@ -1,0 +1,31 @@
+{
+  "downstream_negative_control_already_fixed": true,
+  "frozen_before_any_independent_2018_EQR_outcome_fitted": true,
+  "historical_2018_UWWTD_v07r01_source_original_run": 42440990345,
+  "no_2018_EQR_or_GBIF_biological_values_in_current_source_files": true,
+  "not_a_causal_WWTP_effect": true,
+  "original_2018_Biology_EQR_data_not_opened": true,
+  "original_2018_Biology_source_only_site_run": 42441464939,
+  "original_2018_measured_NP_source_QC_run": 42441852933,
+  "original_2018_source_file_SHA256": {
+    "DischargePoints.csv": "fe96e70df6b169222b4aaab78201f687ecfadfe8bec2bfe8554a93784ee112da",
+    "ReportPeriod.csv": "30bed8a962218c1a2c772ba1bd151fc16d058874f77a4aef263ba2d83dfeb9fd",
+    "UWWTPS.csv": "bfd60e8ecc1539d4e4c31ea1182eafef2653e8ac46680e09f268f1a889d7fa48"
+  },
+  "original_historic_NP_report_year": 2018,
+  "original_source_snapshot_files": [
+    {
+      "bytes": 1166033,
+      "name": "2018_SOURCE_ONLY_BQE_WWTP_NP_UPSTREAM_AND_NEGATIVE_CONTROL.csv",
+      "sha256": "5a074f5182711c4ab74ef9bdacfa3918e9fcb434dd0b75c67072a0f06459c3e1"
+    },
+    {
+      "bytes": 4979,
+      "name": "2018_MEASURED_SOURCE_BIOLOGY_COHORT_QC.json",
+      "sha256": "eda4c23b44bb2e5e840ba663c87e225da16df80d44903e26c948f28df8cee53d"
+    }
+  ],
+  "physical_2018_nutrient_to_BQE_station_year_source_only_run": 42441999786,
+  "river_GeoParquet_SHA256": "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+  "source_2018_NP_annual_mass_units": "reported measured tonnes/year"
+}

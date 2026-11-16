@@ -1,0 +1,544 @@
+{
+  "actual_year_specific_WWTP_discharge_mass_used": true,
+  "all_heldout_test_sites_exclude_source_training_year_EEA_monitoring_site_keys": true,
+  "date_utc": "2026-11-08T03:31:35.270488+00:00",
+  "limitations": [
+    "Posthoc exploratory cross-year transport after seeing original 2018 and 2022 prediction signals; not a new confirmatory test",
+    "All original EQR scores are from a single EEA Biology 2026 harmonized release and can share country classification methods",
+    "Changing reporting countries/method classes causes country and one-hot source-covariate mismatch; explicitly reported",
+    "2018 historical reporting of WWTP N/P measured loads differs in coverage from 2022, zero-registered not zero-sewage",
+    "Other agricultural loads, urban runoff and topology/geometry errors are not causally controlled",
+    "Year-specific source positive groups may have different sample/site populations; this is NOT a before-after treatment design"
+  ],
+  "no_2018_2022_hyperparameter_search": true,
+  "no_2018_2022_same_site_training_data_leakage": true,
+  "not_sewage_treatment_causal_inference": true,
+  "original_2018_measured_source_and_EQR_run": 42442266935,
+  "original_2022_measured_source_and_EQR_run": 42432384196,
+  "original_monitoring_source_sha256": {
+    "benthic_invertebrates_2018": "2a1a72d43656aca588a832dfae13860054c01a651e76bf25f984c5a374709b02",
+    "benthic_invertebrates_2022": "5e1f3c31b389d0bd769984ab055d3e2c54b63ccaa4f5eedfb2d82bcdc83c28e6",
+    "phytobenthos_2018": "8302daf2afa3f3556debc5ca769ee667bd06816d0de2e63afd4cb6b538587ad7",
+    "phytobenthos_2022": "7fa5dfff9023337ac0a62a87fe406eb71783979858d9d924ab97019c6e4e5fc3"
+  },
+  "predictive_model_not_predeclared_before_2018_outcomes": true,
+  "results": {
+    "benthic_invertebrates": {
+      "2018_training_to_2022_NEW_SITES": {
+        "N": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.1904347683003492,
+              "test_MSE": 0.057714171038951434
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.18946838329057727,
+              "test_MSE": 0.056926593468662474
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.19022616154025643,
+              "test_MSE": 0.05741490811717647
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.189489465612348,
+              "test_MSE": 0.056861890550332514
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": 1.364617313410638,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": true
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": 0.5185258947460064,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": 1.4767265530743114,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2022",
+          "heldout_other_year_disjoint_site_n": 1308,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 20.272134512478498,
+            "baseline_MSE": 0.06337292833445866,
+            "sites": 123,
+            "upstream_MSE": 0.050525883058000605
+          },
+          "source_positive_test_n": 123,
+          "source_positive_training_n": 202,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -0.8125163594958507,
+            "baseline_MSE": 0.05712680635764563,
+            "sites": 1185,
+            "upstream_MSE": 0.05759097100495902
+          },
+          "test_countries_not_in_training": [
+            "SK"
+          ],
+          "test_country_count": 12,
+          "test_sites_unknown_country_method_n": 553,
+          "test_sites_unknown_country_n": 4,
+          "training_site_n": 2634,
+          "training_year": "2018"
+        },
+        "P": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.1904347683003492,
+              "test_MSE": 0.057714171038951434
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.18991077336608622,
+              "test_MSE": 0.05706557600881117
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.1903187413620172,
+              "test_MSE": 0.057400335181254106
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.18994552566090642,
+              "test_MSE": 0.0569591681646786
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": 1.1238055029890817,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": true
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": 0.5437760814159831,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": 1.3081758962859904,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2022",
+          "heldout_other_year_disjoint_site_n": 1308,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 16.24998499555054,
+            "baseline_MSE": 0.06337292833445866,
+            "sites": 123,
+            "upstream_MSE": 0.05307483698886813
+          },
+          "source_positive_test_n": 123,
+          "source_positive_training_n": 202,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -0.6179205189397476,
+            "baseline_MSE": 0.05712680635764563,
+            "sites": 1185,
+            "upstream_MSE": 0.0574798046159445
+          },
+          "test_countries_not_in_training": [
+            "SK"
+          ],
+          "test_country_count": 12,
+          "test_sites_unknown_country_method_n": 553,
+          "test_sites_unknown_country_n": 4,
+          "training_site_n": 2634,
+          "training_year": "2018"
+        }
+      },
+      "2022_training_to_2018_NEW_SITES": {
+        "N": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.18331068816967602,
+              "test_MSE": 0.05272494065345306
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.18245245917306113,
+              "test_MSE": 0.05162030922270358
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.18299288878947031,
+              "test_MSE": 0.05253421601501393
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.18244387395960224,
+              "test_MSE": 0.05161601215202541
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": 2.0950833079356626,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": true
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": 0.36173514104589183,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": 2.103233285204325,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2018",
+          "heldout_other_year_disjoint_site_n": 1467,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 21.11491416767994,
+            "baseline_MSE": 0.06270448256404593,
+            "sites": 181,
+            "upstream_MSE": 0.049464484891359795
+          },
+          "source_positive_test_n": 181,
+          "source_positive_training_n": 147,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -1.1757106958201913,
+            "baseline_MSE": 0.051320355050173655,
+            "sites": 1286,
+            "upstream_MSE": 0.051923733953631444
+          },
+          "test_countries_not_in_training": [
+            "HU",
+            "LV",
+            "PL"
+          ],
+          "test_country_count": 13,
+          "test_sites_unknown_country_method_n": 791,
+          "test_sites_unknown_country_n": 562,
+          "training_site_n": 2475,
+          "training_year": "2022"
+        },
+        "P": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.18331068816967602,
+              "test_MSE": 0.05272494065345306
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.1820077491422598,
+              "test_MSE": 0.05136562202693823
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.18288546012108042,
+              "test_MSE": 0.05240648613318923
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.18191469215412984,
+              "test_MSE": 0.051314376389333866
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": 2.578132112939243,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": true
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": 0.6039921834278473,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": 2.6753264140977544,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2018",
+          "heldout_other_year_disjoint_site_n": 1467,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 21.39796496100906,
+            "baseline_MSE": 0.06270448256404593,
+            "sites": 181,
+            "upstream_MSE": 0.049286999356009345
+          },
+          "source_positive_test_n": 181,
+          "source_positive_training_n": 147,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -0.6582687197010216,
+            "baseline_MSE": 0.051320355050173655,
+            "sites": 1286,
+            "upstream_MSE": 0.05165818089430845
+          },
+          "test_countries_not_in_training": [
+            "HU",
+            "LV",
+            "PL"
+          ],
+          "test_country_count": 13,
+          "test_sites_unknown_country_method_n": 791,
+          "test_sites_unknown_country_n": 562,
+          "training_site_n": 2475,
+          "training_year": "2022"
+        }
+      },
+      "site_disjoint_test2018_n": 1467,
+      "site_disjoint_test2022_n": 1308,
+      "site_year_original_overlap": 1167
+    },
+    "phytobenthos": {
+      "2018_training_to_2022_NEW_SITES": {
+        "N": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.13784712471866176,
+              "test_MSE": 0.03309201990859671
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.13761118689793536,
+              "test_MSE": 0.03313431162121362
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.1377188379019906,
+              "test_MSE": 0.03317592730940034
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.13752058142796048,
+              "test_MSE": 0.033214364997194774
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": -0.1278003359532706,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": -0.2535578095123468,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": -0.3697117581096319,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2022",
+          "heldout_other_year_disjoint_site_n": 1372,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 7.544328622165849,
+            "baseline_MSE": 0.035383867843212936,
+            "sites": 85,
+            "upstream_MSE": 0.032714392573888085
+          },
+          "source_positive_test_n": 85,
+          "source_positive_training_n": 220,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -0.6720890775261554,
+            "baseline_MSE": 0.032940654660389736,
+            "sites": 1287,
+            "upstream_MSE": 0.033162045202427826
+          },
+          "test_countries_not_in_training": [
+            "IE",
+            "SK"
+          ],
+          "test_country_count": 12,
+          "test_sites_unknown_country_method_n": 640,
+          "test_sites_unknown_country_n": 154,
+          "training_site_n": 2670,
+          "training_year": "2018"
+        },
+        "P": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.13784712471866176,
+              "test_MSE": 0.03309201990859671
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.13770030600044622,
+              "test_MSE": 0.03310595182156435
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.137747155296009,
+              "test_MSE": 0.03318577972948665
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.13770365240365084,
+              "test_MSE": 0.03319236542838545
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": -0.042100521533958934,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": -0.2833306070433647,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": -0.30323177631918025,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2022",
+          "heldout_other_year_disjoint_site_n": 1372,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 3.6100623953570876,
+            "baseline_MSE": 0.035383867843212936,
+            "sites": 85,
+            "upstream_MSE": 0.03410648813618226
+          },
+          "source_positive_test_n": 85,
+          "source_positive_training_n": 220,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -0.30119824641644827,
+            "baseline_MSE": 0.032940654660389736,
+            "sites": 1287,
+            "upstream_MSE": 0.03303987133458493
+          },
+          "test_countries_not_in_training": [
+            "IE",
+            "SK"
+          ],
+          "test_country_count": 12,
+          "test_sites_unknown_country_method_n": 640,
+          "test_sites_unknown_country_n": 154,
+          "training_site_n": 2670,
+          "training_year": "2018"
+        }
+      },
+      "2022_training_to_2018_NEW_SITES": {
+        "N": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.1497333377187425,
+              "test_MSE": 0.035148322706097475
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.14837218798538945,
+              "test_MSE": 0.03473605633944316
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.14961533048653672,
+              "test_MSE": 0.035097629836226746
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.14861984640730475,
+              "test_MSE": 0.03484942547525229
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": 1.1729332580151632,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": true
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": 0.14422557313648113,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": 0.8503883196489783,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2018",
+          "heldout_other_year_disjoint_site_n": 1258,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 8.038256278326351,
+            "baseline_MSE": 0.03585448123032061,
+            "sites": 204,
+            "upstream_MSE": 0.03297240614176302
+          },
+          "source_positive_test_n": 204,
+          "source_positive_training_n": 110,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -0.18782643434483184,
+            "baseline_MSE": 0.035011646862699454,
+            "sites": 1054,
+            "upstream_MSE": 0.03507740799060707
+          },
+          "test_countries_not_in_training": [
+            "HU",
+            "PL"
+          ],
+          "test_country_count": 10,
+          "test_sites_unknown_country_method_n": 761,
+          "test_sites_unknown_country_n": 561,
+          "training_site_n": 2784,
+          "training_year": "2022"
+        },
+        "P": {
+          "MSE_and_MAE_by_model": {
+            "M0_baseline": {
+              "test_MAE": 0.1497333377187425,
+              "test_MSE": 0.035148322706097475
+            },
+            "M1_upstream_reported_mass": {
+              "test_MAE": 0.1486323367734379,
+              "test_MSE": 0.034862067662060986
+            },
+            "M2_downstream_negative_control": {
+              "test_MAE": 0.14956928067318287,
+              "test_MSE": 0.03507988616219811
+            },
+            "M3_upstream_and_downstream": {
+              "test_MAE": 0.14889796140929168,
+              "test_MSE": 0.034985657520450734
+            }
+          },
+          "MSE_changes": {
+            "M1_upstream_reported_mass": {
+              "MSE_improvement_vs_M0_percent": 0.8144202112575626,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": true
+            },
+            "M2_downstream_negative_control": {
+              "MSE_improvement_vs_M0_percent": 0.1947078512725042,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            },
+            "M3_upstream_and_downstream": {
+              "MSE_improvement_vs_M0_percent": 0.4627964384158834,
+              "predeclared_direction_upstream_outperforms_M0_and_placebo": false
+            }
+          },
+          "all_test_EQR_scores_site_disjoint_from_training": true,
+          "cross_year_reported_NP_mass_is_year_matched_not_constant": true,
+          "evaluation_year": "2018",
+          "heldout_other_year_disjoint_site_n": 1258,
+          "method_calibration_and_country_coding_are_not_identical_in_years": true,
+          "source_positive_only_posthoc_QC": {
+            "MSE_improvement_pct": 5.265046870053626,
+            "baseline_MSE": 0.03585448123032061,
+            "sites": 204,
+            "upstream_MSE": 0.03396672598852965
+          },
+          "source_positive_test_n": 204,
+          "source_positive_training_n": 110,
+          "source_zero_only_posthoc_QC": {
+            "MSE_improvement_pct": -0.06772813705975773,
+            "baseline_MSE": 0.035011646862699454,
+            "sites": 1054,
+            "upstream_MSE": 0.0350353595988735
+          },
+          "test_countries_not_in_training": [
+            "HU",
+            "PL"
+          ],
+          "test_country_count": 10,
+          "test_sites_unknown_country_method_n": 761,
+          "test_sites_unknown_country_n": 561,
+          "training_site_n": 2784,
+          "training_year": "2022"
+        }
+      },
+      "site_disjoint_test2018_n": 1258,
+      "site_disjoint_test2022_n": 1372,
+      "site_year_original_overlap": 1412
+    }
+  },
+  "schema": "gesui_two_year_site_disjoint_temporal_model_transport_posthoc_v01",
+  "scientific_status": "POSTHOC_TRANSFER_STRESS_TEST__NOT_NEW_PREREGISTERED_REPLICATION",
+  "source_model_Ridge_alpha_fixed": 10.0
+}

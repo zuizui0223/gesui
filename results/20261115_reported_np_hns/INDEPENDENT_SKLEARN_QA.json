@@ -1,0 +1,108 @@
+{
+  "max_absolute_MSE_gain_deviation": 1.3091819295318885e-12,
+  "method": "separate sklearn StandardScaler,OneHotEncoder,Ridge with H6 train-only fits, group-equal MSE",
+  "n_H6": 90,
+  "n_source_rows": 454,
+  "original_panel_SHA": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "results": {
+    "EQR": {
+      "B1_plus_matched_source_presence": {
+        "absolute_difference": 3.3306690738754696e-14,
+        "gain_pct": 1.9201377106748314,
+        "manual_original_pct": 1.9201377106748647
+      },
+      "B2_plus_N_report_index": {
+        "absolute_difference": 1.2042450370230995e-13,
+        "gain_pct": -0.009091025101064564,
+        "manual_original_pct": -0.009091025101184988
+      },
+      "B3_plus_P_report_index": {
+        "absolute_difference": 2.799982468104645e-13,
+        "gain_pct": 1.8722747726390967,
+        "manual_original_pct": 1.8722747726388167
+      },
+      "B4_plus_presence_and_N": {
+        "absolute_difference": 1.092459456231154e-13,
+        "gain_pct": -0.9742964153925374,
+        "manual_original_pct": -0.9742964153926467
+      },
+      "B5_plus_presence_and_P": {
+        "absolute_difference": 1.8637869025894815e-13,
+        "gain_pct": -0.20735140430046514,
+        "manual_original_pct": -0.20735140430065152
+      },
+      "B6_plus_presence_and_N_and_P": {
+        "absolute_difference": 1.7763568394002505e-15,
+        "gain_pct": -2.2806699923063514,
+        "manual_original_pct": -2.280669992306353
+      }
+    },
+    "HNS": {
+      "B1_plus_matched_source_presence": {
+        "absolute_difference": 7.513989430663059e-13,
+        "gain_pct": 3.275852679113887,
+        "manual_original_pct": 3.2758526791146383
+      },
+      "B2_plus_N_report_index": {
+        "absolute_difference": 4.234390615920347e-13,
+        "gain_pct": 0.5301670773274719,
+        "manual_original_pct": 0.5301670773278954
+      },
+      "B3_plus_P_report_index": {
+        "absolute_difference": 9.843237336326638e-13,
+        "gain_pct": 1.3078628635704241,
+        "manual_original_pct": 1.3078628635714085
+      },
+      "B4_plus_presence_and_N": {
+        "absolute_difference": 1.0696998842263383e-13,
+        "gain_pct": -0.3290060359898556,
+        "manual_original_pct": -0.3290060359899626
+      },
+      "B5_plus_presence_and_P": {
+        "absolute_difference": 1.1457501614131615e-13,
+        "gain_pct": -0.8361966032015548,
+        "manual_original_pct": -0.8361966032016693
+      },
+      "B6_plus_presence_and_N_and_P": {
+        "absolute_difference": 1.1737277816337155e-12,
+        "gain_pct": -2.5587905677327156,
+        "manual_original_pct": -2.5587905677338894
+      }
+    },
+    "PlantS50": {
+      "B1_plus_matched_source_presence": {
+        "absolute_difference": 4.888867088936877e-13,
+        "gain_pct": -0.3387212639258341,
+        "manual_original_pct": -0.338721263926323
+      },
+      "B2_plus_N_report_index": {
+        "absolute_difference": 7.924494394018211e-13,
+        "gain_pct": 0.19201135935038882,
+        "manual_original_pct": 0.19201135935118127
+      },
+      "B3_plus_P_report_index": {
+        "absolute_difference": 7.851497230149107e-13,
+        "gain_pct": -0.1594614124865985,
+        "manual_original_pct": -0.15946141248581336
+      },
+      "B4_plus_presence_and_N": {
+        "absolute_difference": 5.299094496535872e-13,
+        "gain_pct": 0.3811333383652426,
+        "manual_original_pct": 0.3811333383657725
+      },
+      "B5_plus_presence_and_P": {
+        "absolute_difference": 5.931921620572211e-13,
+        "gain_pct": 0.24071739368820638,
+        "manual_original_pct": 0.24071739368879957
+      },
+      "B6_plus_presence_and_N_and_P": {
+        "absolute_difference": 1.3091819295318885e-12,
+        "gain_pct": -0.030448873957804348,
+        "manual_original_pct": -0.030448873956495166
+      }
+    }
+  },
+  "schema": "GESUI_20261115_EEA_NP_H7_INDEPENDENT_SKLEARN_QA_v1",
+  "source_SHA": "012ad79feabc8c11e0d74f803730b5b7913b96a64a6af26fb0c97263d9aa7c26",
+  "success": true
+}
