@@ -1,0 +1,14 @@
+{
+  "schema": "GESUI_REAL_ALL_PR_RESULT_DOC_REGISTRY_AND_MAIN_GAPS_V1",
+  "num_PRs_with_actual_original_metadata": 105,
+  "num_PR_changed_file_lists_read": 105,
+  "known_verdicts": 23,
+  "unreviewed_verdicts_left_blank": 82,
+  "different_PR_result_document_paths": 102,
+  "different_PR_result_document_paths_not_exact_in_main": 88,
+  "different_PR_result_document_paths_exact_in_staged_branch": 32,
+  "GitHub_main_file_sha_exact_matching_only": true,
+  "no_title_based_scientific_verdict_inference": true,
+  "not_all_historical_PR_source_files_moved_into_main": true,
+  "original_PR_head_snapshot_SHA_preserved": true
+}
