@@ -112,7 +112,7 @@ def table_source(zip_path,target):
             expected=["countryCode","monitoringSiteIdentifier","monitoringSiteIdentifierScheme",
                 "parameterWaterBodyCategory","observedPropertyDeterminandCode",
                 "procedureAnalysedMatrix","resultUom","phenomenonTimeSamplingDate",
-                "phenomenonTimeReferenceYear","sampleIdentifier","resultObservedValue",
+                "sampleIdentifier","resultObservedValue",
                 "resultQualityObservedValueBelowLOQ"]
             missing=[s for s in expected if s not in header]
             if missing:
@@ -122,7 +122,11 @@ def table_source(zip_path,target):
             total=0
             for row in reader:
                 total+=1
-                y=parseyear(row[I["phenomenonTimeReferenceYear"]])
+                if total%5000000==0:
+                    print("EEA2026_PART1_FULL_CSV_ROWS_PARSED="+str(total),flush=True)
+                # Part1 original publisher uses exact sample date, not annual
+                # phenomenonTimeReferenceYear (a distinct Part2 field).
+                y=parseyear(row[I["phenomenonTimeSamplingDate"]][:4])
                 if y not in SELECTION_YEARS:continue
                 years[str(y)]+=1
                 k=(row[I["monitoringSiteIdentifier"]],
