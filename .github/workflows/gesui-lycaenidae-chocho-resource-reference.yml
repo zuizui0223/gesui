@@ -1,0 +1,46 @@
+name: gesui Lycaenidae preexisting chocho resource SHA-audit (NO WWTP effect)
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-wastewater-stage-contrast-20261108"
+    paths:
+      - "scripts/audit_lycaenidae_chocho_frozen_reference.py"
+      - ".github/workflows/gesui-lycaenidae-chocho-resource-reference.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  source-locked-reference-not-new-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Recompute known chocho resource numbers from exact Git-blob pinned frozen files
+        run: |
+          python -m py_compile scripts/audit_lycaenidae_chocho_frozen_reference.py
+          python -u scripts/audit_lycaenidae_chocho_frozen_reference.py \
+            --out results/lycaenidae_chocho_frozen_reference_20261108
+      - name: Preserve derived source audit, never overwrite chocho data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_chocho_frozen_reference_20261108/
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve SHA-matched legacy 22/25 lycaenid host-resource evidence and taxonomy caution"
+          git fetch origin analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git rebase origin/analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git push origin HEAD:analysis/lycaenidae-wastewater-stage-contrast-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Lycaenidae-chocho-source-locked-existing-resource-results
+          path: results/lycaenidae_chocho_frozen_reference_20261108/
+          retention-days: 90
+          if-no-files-found: warn

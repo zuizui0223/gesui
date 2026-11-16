@@ -1,0 +1,46 @@
+name: gesui 2022 source-frozen river pair iNat butterfly photo count feasibility
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-wastewater-stage-contrast-20261108"
+    paths:
+      - "scripts/gesui_2022_public_inat_photo_counts_at_source_only_river_pairs.py"
+      - ".github/workflows/gesui-lycaenidae-2022-paired-inat-photo-counts.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  opportunity-not-puddling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Official iNat 2022 georeferenced research-grade photo counts in fixed public WWTP river matched pairs
+        run: |
+          python -m py_compile scripts/gesui_2022_public_inat_photo_counts_at_source_only_river_pairs.py
+          python -u scripts/gesui_2022_public_inat_photo_counts_at_source_only_river_pairs.py \
+            --paired-sites results/lycaenidae_2022_source_matched_river_pairs/2022_PREPHOTO_EEA_BQE_SOURCE_MATCHED_RIVER_SITE_PAIRS.csv \
+            --source-qc results/lycaenidae_2022_source_matched_river_pairs/2022_PREPHOTO_SOURCE_MATCH_QC.json \
+            --out results/lycaenidae_2022_source_matched_river_pairs/2022_BUTTERFLY_PUBLIC_PHOTO_OPPORTUNITY_PAIR_QC.json
+      - name: Archive original source IDs and photo opportunity counts only (not photos, observer personal data or inference)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_source_matched_river_pairs/2022_BUTTERFLY_PUBLIC_PHOTO_OPPORTUNITY_PAIR_QC.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record source-frozen EEA WWTP river sites and public butterfly photo opportunity coverage gate"
+          git fetch origin analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git rebase origin/analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git push origin HEAD:analysis/lycaenidae-wastewater-stage-contrast-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-2022-EEA-frozen-sites-iNaturalist-lycaenid-photo-coverage
+          path: results/lycaenidae_2022_source_matched_river_pairs/2022_BUTTERFLY_PUBLIC_PHOTO_OPPORTUNITY_PAIR_QC.json
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,82 @@
+{
+  "Lycaenidae": {
+    "comparison_not_significant_tested": true,
+    "expanded_n": 22,
+    "expanded_pct": 88,
+    "median_added_region_units": 73,
+    "median_host_family_count": 3,
+    "species_n": 25
+  },
+  "all_butterfly_resource_expanding_species_n": 206,
+  "all_butterfly_species_n": 239,
+  "examples": {
+    "Brephidium exilis": {
+      "additional_region_units": 25,
+      "illustrative_species_chosen_posthoc": true,
+      "including_introduced_host_resource_region_units": 267,
+      "native_only_resource_region_units": 242,
+      "not_butterfly_population_or_wwtp_exposure": true,
+      "original_host_taxonomy_lower_bound_adequate": true,
+      "percentage_added_vs_native_only": 10.330578512396695,
+      "ratio": 1.103305785123967,
+      "resolved_host_species": 21
+    },
+    "Lycaena phlaeas": {
+      "additional_region_units": 84,
+      "illustrative_species_chosen_posthoc": true,
+      "including_introduced_host_resource_region_units": 224,
+      "native_only_resource_region_units": 140,
+      "not_butterfly_population_or_wwtp_exposure": true,
+      "original_host_taxonomy_lower_bound_adequate": true,
+      "percentage_added_vs_native_only": 60.0,
+      "ratio": 1.6,
+      "resolved_host_species": 5
+    },
+    "Polyommatus icarus": {
+      "additional_region_units": 79,
+      "illustrative_species_chosen_posthoc": true,
+      "including_introduced_host_resource_region_units": 207,
+      "native_only_resource_region_units": 128,
+      "not_butterfly_population_or_wwtp_exposure": true,
+      "original_host_taxonomy_lower_bound_adequate": true,
+      "percentage_added_vs_native_only": 61.71875,
+      "ratio": 1.6171875,
+      "resolved_host_species": 6
+    },
+    "Pseudozizeeria maha": {
+      "additional_region_units": 259,
+      "illustrative_species_chosen_posthoc": true,
+      "including_introduced_host_resource_region_units": 275,
+      "native_only_resource_region_units": 16,
+      "not_butterfly_population_or_wwtp_exposure": true,
+      "original_host_taxonomy_lower_bound_adequate": false,
+      "percentage_added_vs_native_only": 1618.75,
+      "ratio": 17.1875,
+      "resolved_host_species": 1
+    }
+  },
+  "interpretation_constraints": [
+    "Potential larval host resource geography is not larval performance, abundance or colonization",
+    "Lycaenidae family 22/25 expansion is not distinct from other major butterfly families",
+    "Pseudozizeeria maha has host_taxonomy_lower_bound_adequate=False and must not anchor primary quantitative inference",
+    "None of these results measure WWTP location, sewage effluent, nitrogen concentration, salt, albumin, or butterfly puddling",
+    "Species illustrations selected after observing results; not a predeclared confirmatory case study"
+  ],
+  "publication_status": "EXISTING_CHOCHO_DATA__NOT_NEW_WASTEWATER_ANALYSIS",
+  "schema": "gesui_lycaenid_preexisting_chocho_resource_readonly_audit_v01",
+  "source_original_commit": "e8b8f86c7a889b6a3224a4ef69ffe5e0c7738660",
+  "sources": {
+    "family": {
+      "original_git_commit": "e8b8f86c7a889b6a3224a4ef69ffe5e0c7738660",
+      "original_github_blob_sha1": "95443e82e0c2ecb8e8a835e2c07ab8b62e7af27f",
+      "source_bytes_sha256": "b0638c776182e6ab18384dc87debf504e25b9d778fe8cde39cd61ea65d649e05",
+      "source_url": "https://raw.githubusercontent.com/zuizui0223/chocho/e8b8f86c7a889b6a3224a4ef69ffe5e0c7738660/provenance/reviewer_defenses/results/butterfly_taxonomic_family_expansion_v0.1.json"
+    },
+    "species": {
+      "original_git_commit": "e8b8f86c7a889b6a3224a4ef69ffe5e0c7738660",
+      "original_github_blob_sha1": "9f83d2d9ac8e46f1cfd4ded572c7a023273503dd",
+      "source_bytes_sha256": "7b2a20387d656dbfcd7b3c38ec6a7fe2505474ad51f783dd1f201eb6b7eabd30",
+      "source_url": "https://raw.githubusercontent.com/zuizui0223/chocho/e8b8f86c7a889b6a3224a4ef69ffe5e0c7738660/data/frozen/figure_sources/anthropogenic_species_metrics.csv"
+    }
+  }
+}

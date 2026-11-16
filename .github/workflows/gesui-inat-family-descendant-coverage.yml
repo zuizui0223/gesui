@@ -1,0 +1,44 @@
+name: gesui iNaturalist butterfly family descendant photo and behavior metadata gate
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-wastewater-stage-contrast-20261108"
+    paths:
+      - "scripts/gesui_probe_inat_taxon_descendants.py"
+      - ".github/workflows/gesui-inat-family-descendant-coverage.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  public-descendant-photo-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Correct family-to-descendant source API coverage; retain zero/NA separate
+        run: |
+          python -m py_compile scripts/gesui_probe_inat_taxon_descendants.py
+          python -u scripts/gesui_probe_inat_taxon_descendants.py \
+            --out results/lycaenidae_inat_source_gate_20261108/I_NAT_EU_2018_2022_DESCENDANT_SPECIES_BEHAVIOR_FEASIBILITY.json
+      - name: Commit publicly inspectable API count/source-only quality record
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_inat_source_gate_20261108/
+          git diff --cached --quiet && exit 0
+          git commit -m "Correct butterfly photo source denominator with validated taxon IDs and species descendants"
+          git fetch origin analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git rebase origin/analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git push origin HEAD:analysis/lycaenidae-wastewater-stage-contrast-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-lycaenidae-iNat-source-descendant-photos
+          path: results/lycaenidae_inat_source_gate_20261108/I_NAT_EU_2018_2022_DESCENDANT_SPECIES_BEHAVIOR_FEASIBILITY.json
+          retention-days: 90
+          if-no-files-found: warn

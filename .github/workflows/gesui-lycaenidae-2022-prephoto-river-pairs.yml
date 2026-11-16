@@ -1,0 +1,51 @@
+name: gesui fixed 2022 WWTP source-only river pairs BEFORE iNaturalist photo outcomes
+on:
+  push:
+    branches:
+      - "analysis/lycaenidae-wastewater-stage-contrast-20261108"
+    paths:
+      - "scripts/gesui_build_2022_lycaenid_river_photo_match_source_only.py"
+      - ".github/workflows/gesui-lycaenidae-2022-prephoto-river-pairs.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  no-butterfly-results-source-pairs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Restore original no-EQR 2022 EEA BQE source-only registry from pinned PR14 source commit
+        run: |
+          mkdir -p /tmp/gesui-lycaenid-2022
+          curl --fail --location --silent --show-error --retry 2 --max-time 120 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/625af95fc12e01e9c796230ca4709be72225ab50/results/eea2022_biology_bqe_20261108/SOURCE_ONLY_BQE_SITE_REGISTRY.csv \
+            -o /tmp/gesui-lycaenid-2022/SOURCE_ONLY_BQE_SITE_REGISTRY.csv
+      - name: Source-only paired design (no EQR, butterfly, host or puddling outcomes used)
+        run: |
+          python -m py_compile scripts/gesui_build_2022_lycaenid_river_photo_match_source_only.py
+          python -u scripts/gesui_build_2022_lycaenid_river_photo_match_source_only.py \
+            --source /tmp/gesui-lycaenid-2022/SOURCE_ONLY_BQE_SITE_REGISTRY.csv \
+            --out results/lycaenidae_2022_source_matched_river_pairs
+      - name: Archive outcome-blind source pairing and report all unmatched support
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/lycaenidae_2022_source_matched_river_pairs/
+          git diff --cached --quiet && exit 0
+          git commit -m "Source-freeze WWTP vs no-registered-source river site pairs before butterfly photo opportunity counts"
+          git fetch origin analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git rebase origin/analysis/lycaenidae-wastewater-stage-contrast-20261108
+          git push origin HEAD:analysis/lycaenidae-wastewater-stage-contrast-20261108
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-Lycaenidae-2022-sourceonly-matched-river-pairs
+          path: results/lycaenidae_2022_source_matched_river_pairs/
+          retention-days: 90
+          if-no-files-found: warn
