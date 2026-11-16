@@ -58,8 +58,8 @@
       "region_equal_gain_pct": -2.5514756977975512,
       "site_count_weighted_gain_pct": -2.020864103549469
     },
-    "P_over_Q_after_N_over_Q_original_country_equal_gain_pct": -1.3165624712812602,
-    "N_over_Q_after_P_over_Q_original_country_equal_gain_pct": 2.8978999587918883
+    "P_over_Q_after_N_over_Q_original_region_equal_gain_pct": -1.3165624712812602,
+    "N_over_Q_after_P_over_Q_original_region_equal_gain_pct": 2.8978999587918883
   },
   "caveat": "No biological model retrained, no new original source, no new confidence intervals. All downstream placebo deterioration dominated by region16_5; N/Q and P/Q cannot be individually interpreted due multicollinearity. Original 67 water sites do not have verified concurrent terrestrial responses; S2 near/outer source smoke 5/10 STOP."
 }
