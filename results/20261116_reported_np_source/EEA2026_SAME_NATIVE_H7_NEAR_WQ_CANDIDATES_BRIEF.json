@@ -1,0 +1,81 @@
+{
+  "schema": "GESUI_20261116_ORIGINAL_EEA_BIO_WQ_SOURCE_ONLY_SUCCESS_LOG_RECEIPT_V1",
+  "source_workflow_url": "https://github.com/zuizui0223/gesui/actions/runs/43804933915",
+  "source_workflow_result": "success",
+  "data": {
+    "any_near_WQ_ID_with_year_specific_TNTP_UNKNOWN": true,
+    "n_original_bio_sites_outside_original_native_H7": 0,
+    "n_original_eea_biology_physical_sites": 2485,
+    "n_original_eea_biology_site_year": 3525,
+    "n_original_site_years_outside_H7_geometry": 0,
+    "n_original_target_H7": 232,
+    "no_causal_or_biodiversity_conclusion": true,
+    "no_original_W_EQR_NUTRI_HNS_results_accessed": true,
+    "not_source_same_river_reach_or_outfall_exposure": true,
+    "not_spatial_reassignment_of_original_H7": true,
+    "original_bio_outside_H7_diagnostic_examples": [],
+    "raw_unconditional_other_water_station_250_1000_5000": {
+      "1000.0": 327,
+      "250.0": 86,
+      "5000.0": 1770
+    },
+    "same_original_2485_station_IDs_in_WQ_spatial": 2485,
+    "schema": "GESUI_20261116_EEA2026_ORIGINAL_NATIVE_H7_GEOMETRIC_WQ_NEAR_SITE_OPPORTUNITY_V1",
+    "source_candidate_alias_dist_le25m_n_h7_year_pairs": 42,
+    "source_candidate_original_bio_year_times_near_WQ_ids_1000m": 575,
+    "source_official_HydroBASINS_Level7": {
+      "sha256": "b9b810f4db271f0fa6b39fecf01784041b948944b3c3f296a393766388e86b44",
+      "size_bytes": 20992584,
+      "url": "https://data.hydrosheds.org/file/hydrobasins/standard/hybas_eu_lev07_v1c.zip"
+    },
+    "source_official_polygon_qa": {
+      "HYBAS_ID_column": true,
+      "n_invalid": 0,
+      "n_original_source_geometries_after_repair": 232,
+      "n_repaired_L6_only": 0,
+      "n_unusable": 0
+    },
+    "source_original_2026_WQ_spatial_ZIP_SHA256": "aa505be6f85d06c675e0d0fcb148a9148f80162f8e9590740a887cc95a3e349d",
+    "source_original_Biology_station_SHA256": "a396eaed1c0b406eb3bbb7178e04ba91989ab5964c4f0175fc1193673d624d89",
+    "source_verified_same_NATIVE_H7_opportunity_by_distance": {
+      "1000m": {
+        "distinct_official_WQ_station_IDs": 429,
+        "not_chemistry_observed": true,
+        "not_river_reach_hydrologically_aligned": true,
+        "original_H7_periods_with_near_other_WQ_station": 167,
+        "original_H7_unique_with_near_other_WQ_station": 99,
+        "original_biology_sites_with_other_WQ_same_country_and_H7": 326,
+        "original_biology_station_years_with_other_WQ_same_H7": 402,
+        "original_country_groups": 10,
+        "original_true_H6_unique_with_near_other_WQ_station": 59,
+        "source_candidates_not_same_EEA_Biology_station": true
+      },
+      "250m": {
+        "distinct_official_WQ_station_IDs": 94,
+        "not_chemistry_observed": true,
+        "not_river_reach_hydrologically_aligned": true,
+        "original_H7_periods_with_near_other_WQ_station": 59,
+        "original_H7_unique_with_near_other_WQ_station": 40,
+        "original_biology_sites_with_other_WQ_same_country_and_H7": 86,
+        "original_biology_station_years_with_other_WQ_same_H7": 110,
+        "original_country_groups": 8,
+        "original_true_H6_unique_with_near_other_WQ_station": 31,
+        "source_candidates_not_same_EEA_Biology_station": true
+      },
+      "5000m": {
+        "distinct_official_WQ_station_IDs": 3745,
+        "not_chemistry_observed": true,
+        "not_river_reach_hydrologically_aligned": true,
+        "original_H7_periods_with_near_other_WQ_station": 386,
+        "original_H7_unique_with_near_other_WQ_station": 205,
+        "original_biology_sites_with_other_WQ_same_country_and_H7": 1738,
+        "original_biology_station_years_with_other_WQ_same_H7": 2343,
+        "original_country_groups": 15,
+        "original_true_H6_unique_with_near_other_WQ_station": 83,
+        "source_candidates_not_same_EEA_Biology_station": true
+      }
+    },
+    "strict_same_Biology_site_and_year_TNTP_support_original_STILL_9_H7period": true
+  },
+  "not_causal_or_direct_site_nutrient_delivery": true
+}
