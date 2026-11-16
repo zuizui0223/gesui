@@ -1,0 +1,55 @@
+name: gesui 20261116 independent numerical replay of UP/DOWN WWTP N/P plant and butterfly reported-source falsification
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-reported-np-direction-plant-hns
+    paths:
+      - 'analysis/20261116_directional_reported_np/independent_numerical_qa.py'
+      - '.github/workflows/gesui-20261116-reported-np-independent-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  independent-original-451-h7-12-contrasts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated numeric source adapters
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_eiv_451
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43789733828
+          name: gesui-20261116-updown-2018-2022-reported-NP-plant-HNS-sourceonly-454
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/sourcegate
+      - name: Validate twelve frozen up/down comparisons using independent weighted FWL and augmented H6 ridge
+        run: |
+          python -m py_compile analysis/20261116_directional_reported_np/independent_numerical_qa.py
+          python -u analysis/20261116_directional_reported_np/independent_numerical_qa.py \
+            --eiv '${{ runner.temp }}/genuine_eiv_451' \
+            --gate '${{ runner.temp }}/sourcegate' \
+            --output '${{ runner.temp }}/replay'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-reported-NP-updown-451H7-12-contrasts-independent-QA
+          path: ${{ runner.temp }}/replay/
+          retention-days: 90
+          if-no-files-found: warn
