@@ -67,9 +67,9 @@ def main(args):
     for wqkey,coord in sorted(water.items()):
         if len(wqkey)!=3 or not all(wqkey):
             raise RuntimeError("Water Quality source ID missing country/site/scheme")
-        # Shapely 2 STRtree indexes geometries, predicate covers includes polygon boundary.
+        # STRtree predicate operates as Point.covered_by(polygon), includes boundaries.
         p=Point(coord[1],coord[0])
-        candidates=[int(i) for i in tree.query(p,predicate="covers")]
+        candidates=[int(i) for i in tree.query(p,predicate="covered_by")]
         if len(candidates)>1:
             invalid_border+=1
             continue
