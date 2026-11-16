@@ -56,3 +56,7 @@
 - 解析：`analysis/20261116_directional_reported_np/conditional_models.py`、[真正計算Actions #43790119834 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43790119834)。
 - 全5応答×報告源方向・N/P強度×双方向の数値は`results/20261116_directional_reported_np/UPDOWN_NP_PLANT_BUTTERFLY_VERIFIED_RESULTS.json`、sourceゲートは同所`ORIGINAL_UPDOWN_SOURCE_GATE_VERIFIED.json`、対応する元workflow artifactの完全JSONもActionsに保持する。
 - この検証は統合済み`main`から**別のDraftブランチ**に追加したもの。前のsource blob98・CI・main・chochoは未変更。解析の強度選別や否定結果を消すための閾値変更はしない。
+
+## 独立数値再計算（完了）
+
+元のstatsmodels WLS/H6固定ridge正規方程式とは別に、加重Frisch–Waugh–Lovellで係数、拡張行列least squaresで真のH6留保予測増分を再計算した。元451 H7×期間・90 H6から、植物種均等NUTRIと蝶種均等HNS（植物N調整）の2目的×上流/下流方向×報告源有無・報告N・報告Pの**12事後対照**を全件再現。調整後係数の最大誤差 **1.99×10⁻¹⁵**、H6留保MSE増分（百分率）の最大誤差 **5.48×10⁻¹²**。**12/12 PASS**。[GitHub Actions #43790618831 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43790618831)、コード `analysis/20261116_directional_reported_np/independent_numerical_qa.py`、原数値の結果・receipt `results/20261116_directional_reported_np/INDEPENDENT_12_DIRECTIONAL_NUMERICAL_QA_RECEIPT.json`。これは同一原本・同一母集団の数値再現であって、外部野外研究の独立再現や放流由来因果効果の検定ではない。
