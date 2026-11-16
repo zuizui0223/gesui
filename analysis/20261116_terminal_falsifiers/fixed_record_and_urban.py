@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20261115_eu454_plant_nutri"))
 from adversarial_host_exclusion_country import prepare, source_records
 from h6_model_if_gate import (
     B_GEOG, P_GEOG, SEED, N_BOOT, fold_index, predict_ridge,
