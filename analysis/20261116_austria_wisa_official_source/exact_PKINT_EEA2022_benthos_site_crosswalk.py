@@ -96,8 +96,8 @@ def main(a):
             "GZUEV_BEOB_ART_source_value_not_interpreted":str(gdf["BEOB_ART"].iloc[i]),
             "does_not_prove_original_2022_TNTP_same_station":True})
     sourceout,originalgeo=originals(a.outfalls)
-    all_lat=np.array([q.geometry.y for q in gdf.itertuples()],float)
-    all_lon=np.array([q.geometry.x for q in gdf.itertuples()],float)
+    all_lat=gdf.geometry.y.to_numpy(dtype=float)
+    all_lon=gdf.geometry.x.to_numpy(dtype=float)
     EEA2022_pkint={x["original_EEA_station_code"] for x in sites}
     sourceall={}
     for dist in RADIUS_M:
