@@ -54,6 +54,10 @@ def scan(archive,selection):
     found=collections.defaultdict(lambda:{"TN":[],"TP":[]})
     stats=collections.Counter()
     schemes=collections.Counter()
+    alias_source=collections.Counter()
+    source_prefix=collections.Counter()
+    at2022_original_site_ids=set()
+    national_alias={q["original_official_GZUEV_PK"]:pid for pid,q in selection.items()}
     with zipfile.ZipFile(archive) as z:
         members=[x.filename for x in z.infolist() if x.filename.lower().endswith(".csv")]
         if len(members)!=1:
@@ -74,6 +78,14 @@ def scan(archive,selection):
             if row["countryCode"]!="AT" or row["phenomenonTimeReferenceYear"]!="2022":
                 continue
             key=row["monitoringSiteIdentifier"]
+            at2022_original_site_ids.add(key)
+            if key.startswith("ATFW"):bucket="ATFW"
+            elif key.startswith("FW"):bucket="FW"
+            elif key.startswith("AT"):bucket="AT_other"
+            else:bucket="other"
+            source_prefix[bucket]+=1
+            if key in national_alias:
+                alias_source[row["monitoringSiteIdentifierScheme"]]+=1
             if key not in selection:continue
             stats["original_AT2022_exact_PKINT_any_parameter_rows"]+=1
             scheme=row["monitoringSiteIdentifierScheme"]
@@ -102,8 +114,13 @@ def scan(archive,selection):
                    "source_quality_eligible_numeric_mean_not_saved":True})
             stats[nu+"_qualified_annual_source_records"]+=1
         if n!=EXPECTED_ROWS:raise RuntimeError("Actual EEA Part2 original rowcount differs")
-    return found,{"original_full_source_CSV_rows":n,"original_2022_AT_PKINT_scheme_counts":dict(schemes),
-                  "original_target_2022_source_stage_counts":dict(stats)}
+    return found,{"original_full_source_CSV_rows":n,
+                  "original_2022_AT_PKINT_scheme_counts":dict(schemes),
+                  "original_target_2022_source_stage_counts":dict(stats),
+                  "original_AT_2022_any_report_unique_station_identifiers":len(at2022_original_site_ids),
+                  "original_AT_2022_identifier_prefix_original_record_counts":dict(source_prefix),
+                  "original_AT_2022_national_PK_alias_225_original_rows_by_scheme":dict(alias_source),
+                  "original_AT_2022_exact_PKINT_zero_does_not_certify_no_national_station_values":True}
 
 def main(a):
     a.output.mkdir(parents=True,exist_ok=True)
