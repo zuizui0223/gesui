@@ -36,7 +36,7 @@ SOURCE_SCHEMA="GESUI_20261116_EEA2026_ORIGINAL_NATIVE_H7_GEOMETRIC_WQ_NEAR_SITE_
 
 def main(a):
     a.output.mkdir(parents=True,exist_ok=True)
-    biological,siteyears,bsrc=source_sites(a.station_dir)
+    biological,siteyears,bsrc=source_sites(a)
     water,wsrc=wq_sites(a.output)
     if (len(biological),len(siteyears))!=(2485,3525):
         raise RuntimeError("Original exact EEA Biology source site/years changed")
