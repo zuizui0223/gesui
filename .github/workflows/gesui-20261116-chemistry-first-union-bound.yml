@@ -1,0 +1,57 @@
+name: gesui corrected Part1 Part2 strict nutrient-wise union upper-bound source
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-chemistry-first-EU232-watershed
+    paths:
+      - 'analysis/20261116_chemistry_first_eu232/part2_any_nutrient_union_bound.py'
+      - 'docs/PROTOCOL_20261116_WQ_PART1_PART2_CROSS_NUTRIENT_UNION_SOURCE_BOUND.md'
+      - '.github/workflows/gesui-20261116-chemistry-first-union-bound.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact_part2_any_nutrient_source_bound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 38
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official 2026 source retrieval and frozen geography import dependencies
+        run: python -m pip install --quiet requests numpy scipy "shapely>=2,<3" "pyshp>=2.3,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43816554985
+          name: gesui-20261116-chemistry-first-original-EU232-H7-WQ-source-gates
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_pre_chemistry_geography
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43817344055
+          name: gesui-20261116-chemistry-first-full96m-Part1-EU232-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_part1_source_counts
+      - name: Read original Part2 any qualifying TN or TP and derive rigorous union potential limit
+        run: |
+          python -m py_compile analysis/20261116_chemistry_first_eu232/part2_any_nutrient_union_bound.py
+          python -u analysis/20261116_chemistry_first_eu232/part2_any_nutrient_union_bound.py \
+            --geography '${{ runner.temp }}/original_pre_chemistry_geography' \
+            --part1 '${{ runner.temp }}/original_part1_source_counts' \
+            --output '${{ runner.temp }}/corrected_union_source_bound'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-correct-original-Part1-Part2-any-nutrient-source-ceiling
+          path: |
+            ${{ runner.temp }}/corrected_union_source_bound/CHEMISTRY_FIRST_EU232_PART2_ANY_NUTRIENT_UNION_UPPER_BOUND.json
+            ${{ runner.temp }}/corrected_union_source_bound/CHEMISTRY_FIRST_PART2_ANY_NUTRIENT_H7_SOURCE_KEYS.csv
+          retention-days: 90
+          if-no-files-found: warn

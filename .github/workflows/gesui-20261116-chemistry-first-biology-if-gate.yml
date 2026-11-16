@@ -1,0 +1,56 @@
+name: gesui chemistry-first true EIV HNS science gate and conditional models
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-chemistry-first-EU232-watershed
+    paths:
+      - 'analysis/20261116_chemistry_first_eu232/ecology_if_source_pass.py'
+      - 'docs/PROTOCOL_20261116_CHEMISTRY_FIRST_TNTP_EIV_HNS_MODEL_IF_GATE.md'
+      - '.github/workflows/gesui-20261116-chemistry-first-biology-if-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  strict_ecology_opportunity_before_beta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the original H6 numerical dependencies
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43817344055
+          name: gesui-20261116-chemistry-first-full96m-Part1-EU232-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_WQ_annual_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_vascular_EIV_source
+      - name: Test source and strict scientific opportunity, NO biology effects below frozen support
+        run: |
+          python -m py_compile analysis/20261116_chemistry_first_eu232/ecology_if_source_pass.py
+          python -u analysis/20261116_chemistry_first_eu232/ecology_if_source_pass.py \
+            --chemistry '${{ runner.temp }}/genuine_WQ_annual_source' \
+            --eiv '${{ runner.temp }}/original_vascular_EIV_source' \
+            --output '${{ runner.temp }}/original_chemistry_first_science'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-chemistry-first-original-WQ-part1-EIV-HNS-science-gate
+          path: ${{ runner.temp }}/original_chemistry_first_science/
+          retention-days: 90
+          if-no-files-found: warn
