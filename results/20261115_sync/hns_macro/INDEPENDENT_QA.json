@@ -1,0 +1,152 @@
+{
+  "all454_aggregate_max_error_record": 1.7763568394002505e-15,
+  "all454_aggregate_max_error_incidence": 1.7763568394002505e-15,
+  "independent_sklearn_design_SVD_predictions_max_error": 5.39124300757976e-13,
+  "independent_statsmodels_WLS_beta_max_error": 5.8772431366094224e-15,
+  "independent_cluster_interval_max_error": 7.140121827120538e-14,
+  "model_specifications_checked": 20,
+  "uniform_missing_score_identity_max_error": 3.1086244689504383e-15,
+  "no_new_independent_ecological_sampling": true,
+  "specifications": [
+    {
+      "analysis": "primary_record",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "no_family_adjust_record",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "primary_incidence",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "no_family_adjust_incidence",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "source80",
+      "rows": 390,
+      "H6": 83,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "period_2017-2019",
+      "rows": 227,
+      "H6": 89,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "period_2020-2022",
+      "rows": 227,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "FR",
+      "rows": 299,
+      "H6": 36,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "nonFR",
+      "rows": 155,
+      "H6": 56,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "host80",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "strict_names",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "no_wikipedia",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "drop_Aglais_io",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "missing_hosts_low",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "missing_hosts_high",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "geography_record",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "geography_incidence",
+      "rows": 454,
+      "H6": 90,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "geography_source80",
+      "rows": 390,
+      "H6": 83,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "temporal_record",
+      "rows": 222,
+      "H6": 89,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    },
+    {
+      "analysis": "temporal_incidence",
+      "rows": 222,
+      "H6": 89,
+      "independent_prediction_checked": true,
+      "WLS_cluster_checked": true
+    }
+  ]
+}

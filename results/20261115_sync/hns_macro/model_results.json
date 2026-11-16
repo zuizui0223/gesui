@@ -1,0 +1,5286 @@
+{
+  "primary_record": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness",
+      "primary_rf_Hesperiidae",
+      "primary_rf_Lycaenidae",
+      "primary_rf_Nymphalidae",
+      "primary_rf_Papilionidae"
+    ],
+    "outcome": "primary_record_mean",
+    "variant": "primary",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 7.620798873579238,
+      "fixed_error_bootstrap95": [
+        -6.299733167772645,
+        19.2449211582399
+      ],
+      "baseline_MSE": 0.11273363265682743,
+      "with_W_MSE": 0.10414242924917097,
+      "row_weighted_gain_pct": 7.620176794249733,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.1300624446205031,
+      "W_beta_cluster95": [
+        0.06260977002170037,
+        0.1975151192193058
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 39,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 2.851052727237402e-13,
+    "country": {
+      "gain_pct": 14.729856950187049,
+      "fixed_error_bootstrap95": [
+        7.730734396969352,
+        17.389688874296873
+      ],
+      "baseline_MSE": 0.21548892948919987,
+      "with_W_MSE": 0.18374771843195128,
+      "row_weighted_gain_pct": 13.976228445861793,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.09255524753854688,
+        "with_W_MSE": 0.06868457237875474
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.07957890806716697,
+        "with_W_MSE": 0.06250491177802815
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.05959198995420423,
+        "with_W_MSE": 0.05349117806209931
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.5116763079412487,
+        "with_W_MSE": 0.4335467168868693
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.0669475493496139,
+        "with_W_MSE": 0.0722564813315647
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.04399380604238195,
+        "with_W_MSE": 0.009672958014116651
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.12691369125660176,
+        "with_W_MSE": 0.1211725254162417
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.19499771024237267,
+        "with_W_MSE": 0.16009642327771267
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.021307121204905105,
+        "with_W_MSE": 0.026249952379099523
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.3784467563358669,
+        "with_W_MSE": 0.30792951456968526
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.11380017947280172,
+        "with_W_MSE": 0.053108557886639124
+      }
+    ]
+  },
+  "no_family_adjust_record": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness"
+    ],
+    "outcome": "primary_record_mean",
+    "variant": "primary",
+    "family_adjust": false,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 4.0840133246932915,
+      "fixed_error_bootstrap95": [
+        -10.738646483911337,
+        15.178722990005259
+      ],
+      "baseline_MSE": 0.15591690708134923,
+      "with_W_MSE": 0.14954923982069726,
+      "row_weighted_gain_pct": 5.329329198091948,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.13453036732218737,
+      "W_beta_cluster95": [
+        0.05786618775645809,
+        0.21119454688791667
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 35,
+      "n_parameters": 42,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 2.5490720645393594e-13,
+    "country": {
+      "gain_pct": 13.466402259679121,
+      "fixed_error_bootstrap95": [
+        -9.005060992285575,
+        21.378862926216296
+      ],
+      "baseline_MSE": 0.22584922410676356,
+      "with_W_MSE": 0.19543545908818258,
+      "row_weighted_gain_pct": 8.513841032144388,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.17868074820640278,
+        "with_W_MSE": 0.13002516868352254
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.1569410327724943,
+        "with_W_MSE": 0.08817536455356713
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.08523665301568636,
+        "with_W_MSE": 0.08445934082009758
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.4296328480521102,
+        "with_W_MSE": 0.32126015496516414
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.04629293179618563,
+        "with_W_MSE": 0.06676755794055325
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.16426942042332782,
+        "with_W_MSE": 0.08794907790309485
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.09416721359648828,
+        "with_W_MSE": 0.13325320716112687
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.19020398073926348,
+        "with_W_MSE": 0.16214107665383046
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.07746027795266062,
+        "with_W_MSE": 0.0853200042716407
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.47839437128437223,
+        "with_W_MSE": 0.38617897065723567
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.24135747003120894,
+        "with_W_MSE": 0.11435063437093915
+      }
+    ]
+  },
+  "primary_incidence": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness",
+      "primary_if_Hesperiidae",
+      "primary_if_Lycaenidae",
+      "primary_if_Nymphalidae",
+      "primary_if_Papilionidae"
+    ],
+    "outcome": "primary_incidence_mean",
+    "variant": "primary",
+    "family_adjust": true,
+    "kind": "incidence",
+    "H6": {
+      "gain_pct": 3.018597767522213,
+      "fixed_error_bootstrap95": [
+        -6.22424637253082,
+        9.406523754805526
+      ],
+      "baseline_MSE": 0.04561424212938094,
+      "with_W_MSE": 0.04423733163479127,
+      "row_weighted_gain_pct": 3.2040567592282687,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.052776151897120545,
+      "W_beta_cluster95": [
+        0.017452091623926066,
+        0.08810021217031502
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 39,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 2.2115642650533118e-13,
+    "country": {
+      "gain_pct": 10.339698797835805,
+      "fixed_error_bootstrap95": [
+        -3.641683653148231,
+        17.382665292102867
+      ],
+      "baseline_MSE": 0.11329549226834895,
+      "with_W_MSE": 0.10158107961627631,
+      "row_weighted_gain_pct": 1.7365981539370856,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.023808155593268415,
+        "with_W_MSE": 0.028403519748721896
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.041848168185222794,
+        "with_W_MSE": 0.08439787302038808
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.03132299601307147,
+        "with_W_MSE": 0.03564823909956253
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.2515857366403734,
+        "with_W_MSE": 0.22834625242079554
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.07010785894092261,
+        "with_W_MSE": 0.0919230876233752
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.15198240863134072,
+        "with_W_MSE": 0.10654453678984495
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.04699796435162389,
+        "with_W_MSE": 0.056420618628246655
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.0934408261603361,
+        "with_W_MSE": 0.0716613250582239
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.03091283433766444,
+        "with_W_MSE": 0.03532632574732323
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.22551259610702432,
+        "with_W_MSE": 0.1820837167435059
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.101565445770876,
+        "with_W_MSE": 0.06395154880405438
+      }
+    ]
+  },
+  "no_family_adjust_incidence": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness"
+    ],
+    "outcome": "primary_incidence_mean",
+    "variant": "primary",
+    "family_adjust": false,
+    "kind": "incidence",
+    "H6": {
+      "gain_pct": 1.0326750501193693,
+      "fixed_error_bootstrap95": [
+        -10.157246221270569,
+        8.705837152089567
+      ],
+      "baseline_MSE": 0.047432721837974076,
+      "with_W_MSE": 0.0469428959539608,
+      "row_weighted_gain_pct": 0.4211983585525658,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.05738354546625315,
+      "W_beta_cluster95": [
+        0.0192297794871819,
+        0.0955373114453244
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 35,
+      "n_parameters": 42,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 2.1938006966593093e-13,
+    "country": {
+      "gain_pct": 13.185829104209434,
+      "fixed_error_bootstrap95": [
+        -4.647958153911191,
+        19.529568067120284
+      ],
+      "baseline_MSE": 0.1339443131015363,
+      "with_W_MSE": 0.11628264488116051,
+      "row_weighted_gain_pct": 2.6115889896024647,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.03531474691621871,
+        "with_W_MSE": 0.03326703177913159
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.0532124401425258,
+        "with_W_MSE": 0.0937769449833099
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.03551151573542109,
+        "with_W_MSE": 0.04037202515859628
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.2852727534326618,
+        "with_W_MSE": 0.2450611615409047
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.08405239286337758,
+        "with_W_MSE": 0.09842557657209626
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.11539493495948198,
+        "with_W_MSE": 0.09935382089350304
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.03563048696169268,
+        "with_W_MSE": 0.053297015365526244
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.11685261855682753,
+        "with_W_MSE": 0.08773861275540912
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.05651598738227321,
+        "with_W_MSE": 0.05524731881617517
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.27388251654034135,
+        "with_W_MSE": 0.21597973565035147
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.14966618512222782,
+        "with_W_MSE": 0.09743785611892752
+      }
+    ]
+  },
+  "source80": {
+    "n_rows": 390,
+    "H7": 217,
+    "n_H6": 83,
+    "country_labels": 14,
+    "W_positive_rows": 379,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness",
+      "primary_rf_Hesperiidae",
+      "primary_rf_Lycaenidae",
+      "primary_rf_Nymphalidae",
+      "primary_rf_Papilionidae"
+    ],
+    "outcome": "primary_record_mean",
+    "variant": "primary",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 15.731775089548961,
+      "fixed_error_bootstrap95": [
+        7.284839690256926,
+        23.435555868781115
+      ],
+      "baseline_MSE": 0.12606769326080108,
+      "with_W_MSE": 0.10623500729642939,
+      "row_weighted_gain_pct": 8.64120647041904,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036340",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.14988261380992857,
+      "W_beta_cluster95": [
+        0.079286699712902,
+        0.22047852790695513
+      ],
+      "W_sd": 1.1865752181310958,
+      "design_rank": 38,
+      "n_parameters": 44,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 333,
+        "test_rows": 57,
+        "train_H6": 67,
+        "test_H6": 16,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 317,
+        "test_rows": 73,
+        "train_H6": 69,
+        "test_H6": 14,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 281,
+        "test_rows": 109,
+        "train_H6": 64,
+        "test_H6": 19,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 302,
+        "test_rows": 88,
+        "train_H6": 66,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 327,
+        "test_rows": 63,
+        "train_H6": 66,
+        "test_H6": 17,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 4.289901767151605e-13,
+    "country": {
+      "gain_pct": 16.257652683346425,
+      "fixed_error_bootstrap95": [
+        6.419320950117147,
+        21.462032380957343
+      ],
+      "baseline_MSE": 0.1906131966038571,
+      "with_W_MSE": 0.15962396513137772,
+      "row_weighted_gain_pct": 7.415116418110657,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 382,
+        "test_rows": 6,
+        "train_H6": 80,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 378,
+        "test_rows": 6,
+        "train_H6": 81,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 137,
+        "test_rows": 253,
+        "train_H6": 49,
+        "test_H6": 34,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 372,
+        "test_rows": 14,
+        "train_H6": 75,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 387,
+        "test_rows": 1,
+        "train_H6": 82,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 342,
+        "test_rows": 46,
+        "train_H6": 69,
+        "test_H6": 14,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 361,
+        "test_rows": 29,
+        "train_H6": 74,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 374,
+        "test_rows": 12,
+        "train_H6": 79,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 375,
+        "test_rows": 15,
+        "train_H6": 75,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 382,
+        "test_rows": 8,
+        "train_H6": 79,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.11994841086762346,
+        "with_W_MSE": 0.08906444119165564
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.08624117379499636,
+        "with_W_MSE": 0.062003287265303554
+      },
+      {
+        "country": "FR",
+        "n": 253,
+        "H6": 34,
+        "baseline_MSE": 0.05842451546428207,
+        "with_W_MSE": 0.06465854108917586
+      },
+      {
+        "country": "HR",
+        "n": 14,
+        "H6": 8,
+        "baseline_MSE": 0.45016231080973285,
+        "with_W_MSE": 0.37091065799571954
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.03994364111498046,
+        "with_W_MSE": 0.03677587701536023
+      },
+      {
+        "country": "IT",
+        "n": 46,
+        "H6": 14,
+        "baseline_MSE": 0.11722761029715455,
+        "with_W_MSE": 0.11261932221127675
+      },
+      {
+        "country": "LT",
+        "n": 29,
+        "H6": 9,
+        "baseline_MSE": 0.19889132977854623,
+        "with_W_MSE": 0.14274276804758954
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.021156159449186696,
+        "with_W_MSE": 0.027595835660183272
+      },
+      {
+        "country": "NO",
+        "n": 15,
+        "H6": 8,
+        "baseline_MSE": 0.29781725382424007,
+        "with_W_MSE": 0.23921666578432133
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.09686783009720823,
+        "with_W_MSE": 0.0487514197056569
+      }
+    ]
+  },
+  "period_2017-2019": {
+    "n_rows": 227,
+    "H7": 227,
+    "n_H6": 89,
+    "country_labels": 14,
+    "W_positive_rows": 220,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness",
+      "primary_rf_Hesperiidae",
+      "primary_rf_Lycaenidae",
+      "primary_rf_Nymphalidae",
+      "primary_rf_Papilionidae"
+    ],
+    "outcome": "primary_record_mean",
+    "variant": "primary",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 0.5637262977310487,
+      "fixed_error_bootstrap95": [
+        -15.099182002966694,
+        10.484543679807476
+      ],
+      "baseline_MSE": 0.12824011141476319,
+      "with_W_MSE": 0.12751718818247856,
+      "row_weighted_gain_pct": 2.8588685268612024,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.13411353946984153,
+      "W_beta_cluster95": [
+        0.05661281545653178,
+        0.21161426348315127
+      ],
+      "W_sd": 1.237347414536783,
+      "design_rank": 33,
+      "n_parameters": 42,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 197,
+        "test_rows": 30,
+        "train_H6": 72,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 182,
+        "test_rows": 45,
+        "train_H6": 74,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 166,
+        "test_rows": 61,
+        "train_H6": 70,
+        "test_H6": 19,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 174,
+        "test_rows": 53,
+        "train_H6": 69,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 189,
+        "test_rows": 38,
+        "train_H6": 71,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 6.128431095930864e-14,
+    "country": {
+      "gain_pct": 8.466842817852916,
+      "fixed_error_bootstrap95": [
+        -8.78088573257607,
+        18.41053826013246
+      ],
+      "baseline_MSE": 0.2183649935243303,
+      "with_W_MSE": 0.19987637275341055,
+      "row_weighted_gain_pct": 12.787797254168066,
+      "evaluation_groups": [
+        "FR",
+        "IT",
+        "LT",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 222,
+        "test_rows": 3,
+        "train_H6": 86,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 221,
+        "test_rows": 3,
+        "train_H6": 87,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 77,
+        "test_rows": 150,
+        "train_H6": 55,
+        "test_H6": 34,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 217,
+        "test_rows": 8,
+        "train_H6": 81,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 225,
+        "test_rows": 1,
+        "train_H6": 88,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 224,
+        "test_rows": 3,
+        "train_H6": 86,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 202,
+        "test_rows": 24,
+        "train_H6": 74,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 213,
+        "test_rows": 14,
+        "train_H6": 80,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 219,
+        "test_rows": 6,
+        "train_H6": 85,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 216,
+        "test_rows": 11,
+        "train_H6": 79,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 223,
+        "test_rows": 4,
+        "train_H6": 85,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 3,
+        "H6": 3,
+        "baseline_MSE": 0.0879276617118986,
+        "with_W_MSE": 0.07983140501521266
+      },
+      {
+        "country": "BE",
+        "n": 3,
+        "H6": 2,
+        "baseline_MSE": 0.037438241197055994,
+        "with_W_MSE": 0.045024630959835
+      },
+      {
+        "country": "FR",
+        "n": 150,
+        "H6": 34,
+        "baseline_MSE": 0.09059614979264435,
+        "with_W_MSE": 0.07160863539533231
+      },
+      {
+        "country": "HR",
+        "n": 8,
+        "H6": 8,
+        "baseline_MSE": 0.48623045664407205,
+        "with_W_MSE": 0.4415419619828403
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.12308593720075,
+        "with_W_MSE": 0.11557565829597188
+      },
+      {
+        "country": "IE",
+        "n": 3,
+        "H6": 3,
+        "baseline_MSE": 0.013753063214386447,
+        "with_W_MSE": 0.03448883880231265
+      },
+      {
+        "country": "IT",
+        "n": 24,
+        "H6": 15,
+        "baseline_MSE": 0.15224557371204284,
+        "with_W_MSE": 0.15257818762401962
+      },
+      {
+        "country": "LT",
+        "n": 14,
+        "H6": 9,
+        "baseline_MSE": 0.18208487306597645,
+        "with_W_MSE": 0.20705442396911192
+      },
+      {
+        "country": "NL",
+        "n": 6,
+        "H6": 4,
+        "baseline_MSE": 0.05145956448738135,
+        "with_W_MSE": 0.053650970141976596
+      },
+      {
+        "country": "NO",
+        "n": 11,
+        "H6": 10,
+        "baseline_MSE": 0.44853337752665756,
+        "with_W_MSE": 0.3682642440251783
+      },
+      {
+        "country": "SE",
+        "n": 4,
+        "H6": 4,
+        "baseline_MSE": 0.08382273948045701,
+        "with_W_MSE": 0.047290073755407704
+      }
+    ]
+  },
+  "period_2020-2022": {
+    "n_rows": 227,
+    "H7": 227,
+    "n_H6": 90,
+    "country_labels": 11,
+    "W_positive_rows": 219,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness",
+      "primary_rf_Hesperiidae",
+      "primary_rf_Lycaenidae",
+      "primary_rf_Nymphalidae",
+      "primary_rf_Papilionidae"
+    ],
+    "outcome": "primary_record_mean",
+    "variant": "primary",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 13.08686099369476,
+      "fixed_error_bootstrap95": [
+        1.7054115787522595,
+        25.118219918406332
+      ],
+      "baseline_MSE": 0.1240325656225442,
+      "with_W_MSE": 0.1078005961726086,
+      "row_weighted_gain_pct": 10.86049418525803,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.15660459581563427,
+      "W_beta_cluster95": [
+        0.07986515472010836,
+        0.23334403691116018
+      ],
+      "W_sd": 1.2457983048755905,
+      "design_rank": 30,
+      "n_parameters": 39,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 197,
+        "test_rows": 30,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 182,
+        "test_rows": 45,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 165,
+        "test_rows": 62,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 174,
+        "test_rows": 53,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 190,
+        "test_rows": 37,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 5.950795411990839e-14,
+    "country": {
+      "gain_pct": 18.312464525364103,
+      "fixed_error_bootstrap95": [
+        0.898167902218816,
+        26.004827040014924
+      ],
+      "baseline_MSE": 0.17656826481963916,
+      "with_W_MSE": 0.1442342639614918,
+      "row_weighted_gain_pct": 12.194484180050313,
+      "evaluation_groups": [
+        "FR",
+        "IT",
+        "LT",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 223,
+        "test_rows": 3,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 221,
+        "test_rows": 3,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 78,
+        "test_rows": 149,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 217,
+        "test_rows": 8,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 224,
+        "test_rows": 3,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 202,
+        "test_rows": 24,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 211,
+        "test_rows": 16,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 219,
+        "test_rows": 6,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 216,
+        "test_rows": 11,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 223,
+        "test_rows": 4,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 3,
+        "H6": 3,
+        "baseline_MSE": 0.1280820958251169,
+        "with_W_MSE": 0.08742438368596374
+      },
+      {
+        "country": "BE",
+        "n": 3,
+        "H6": 2,
+        "baseline_MSE": 0.12600225684865096,
+        "with_W_MSE": 0.08770017725554301
+      },
+      {
+        "country": "FR",
+        "n": 149,
+        "H6": 35,
+        "baseline_MSE": 0.05511636474117642,
+        "with_W_MSE": 0.05510805156924309
+      },
+      {
+        "country": "HR",
+        "n": 8,
+        "H6": 8,
+        "baseline_MSE": 0.512980009978902,
+        "with_W_MSE": 0.4340869526034079
+      },
+      {
+        "country": "IE",
+        "n": 3,
+        "H6": 3,
+        "baseline_MSE": 0.07791047036457256,
+        "with_W_MSE": 0.02194835851036445
+      },
+      {
+        "country": "IT",
+        "n": 24,
+        "H6": 15,
+        "baseline_MSE": 0.11773957123641281,
+        "with_W_MSE": 0.1161953478743155
+      },
+      {
+        "country": "LT",
+        "n": 16,
+        "H6": 9,
+        "baseline_MSE": 0.13516108729040027,
+        "with_W_MSE": 0.09454731360628763
+      },
+      {
+        "country": "NL",
+        "n": 6,
+        "H6": 4,
+        "baseline_MSE": 0.0849473644120694,
+        "with_W_MSE": 0.08572808766861321
+      },
+      {
+        "country": "NO",
+        "n": 11,
+        "H6": 10,
+        "baseline_MSE": 0.39825603601056714,
+        "with_W_MSE": 0.311086342796121
+      },
+      {
+        "country": "SE",
+        "n": 4,
+        "H6": 4,
+        "baseline_MSE": 0.1032753536177972,
+        "with_W_MSE": 0.05322925191871972
+      }
+    ]
+  },
+  "FR": {
+    "n_rows": 299,
+    "H7": 152,
+    "n_H6": 36,
+    "country_labels": 1,
+    "W_positive_rows": 291,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness",
+      "primary_rf_Hesperiidae",
+      "primary_rf_Lycaenidae",
+      "primary_rf_Nymphalidae",
+      "primary_rf_Papilionidae"
+    ],
+    "outcome": "primary_record_mean",
+    "variant": "primary",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": -7.285757145363148,
+      "fixed_error_bootstrap95": [
+        -13.08729859407249,
+        -1.2344761728263876
+      ],
+      "baseline_MSE": 0.03910882814588418,
+      "with_W_MSE": 0.04195820238699073,
+      "row_weighted_gain_pct": -4.4411619368058375,
+      "evaluation_groups": [
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022970",
+        "2060420240",
+        "2060441280",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060536360",
+        "2060536370",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.01753759994233623,
+      "W_beta_cluster95": [
+        -0.036678763679501465,
+        0.07175396356417393
+      ],
+      "W_sd": 1.0584372172561691,
+      "design_rank": 21,
+      "n_parameters": 24,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 276,
+        "test_rows": 23,
+        "train_H6": 32,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 236,
+        "test_rows": 63,
+        "train_H6": 30,
+        "test_H6": 6,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 206,
+        "test_rows": 93,
+        "train_H6": 25,
+        "test_H6": 11,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 223,
+        "test_rows": 76,
+        "train_H6": 26,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 255,
+        "test_rows": 44,
+        "train_H6": 31,
+        "test_H6": 5,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 4.085620730620576e-14
+  },
+  "nonFR": {
+    "n_rows": 155,
+    "H7": 82,
+    "n_H6": 56,
+    "country_labels": 14,
+    "W_positive_rows": 148,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "primary_record_coverage_raw",
+      "primary_species_coverage",
+      "primary_host_completeness",
+      "primary_rf_Hesperiidae",
+      "primary_rf_Lycaenidae",
+      "primary_rf_Nymphalidae",
+      "primary_rf_Papilionidae"
+    ],
+    "outcome": "primary_record_mean",
+    "variant": "primary",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 10.183233957587767,
+      "fixed_error_bootstrap95": [
+        -11.399094163762117,
+        26.833755777437663
+      ],
+      "baseline_MSE": 0.1645020884532251,
+      "with_W_MSE": 0.1477504559209152,
+      "row_weighted_gain_pct": 10.593815945232787,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060488360",
+        "2060523590",
+        "2060535610",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.26369037502974446,
+      "W_beta_cluster95": [
+        0.09972086942647998,
+        0.42765988063300897
+      ],
+      "W_sd": 1.4776696341566593,
+      "design_rank": 38,
+      "n_parameters": 44,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 118,
+        "test_rows": 37,
+        "train_H6": 42,
+        "test_H6": 14,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 128,
+        "test_rows": 27,
+        "train_H6": 47,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 125,
+        "test_rows": 30,
+        "train_H6": 47,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 125,
+        "test_rows": 30,
+        "train_H6": 45,
+        "test_H6": 11,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 124,
+        "test_rows": 31,
+        "train_H6": 43,
+        "test_H6": 13,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 3.375077994860476e-14,
+    "country": {
+      "gain_pct": 10.501184386424478,
+      "fixed_error_bootstrap95": [
+        -7.4846268091279144,
+        17.933593414258564
+      ],
+      "baseline_MSE": 0.25426182016939836,
+      "with_W_MSE": 0.22756131760913081,
+      "row_weighted_gain_pct": 9.31718305935545,
+      "evaluation_groups": [
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 146,
+        "test_rows": 6,
+        "train_H6": 53,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 144,
+        "test_rows": 5,
+        "train_H6": 54,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 154,
+        "test_rows": 1,
+        "train_H6": 55,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 135,
+        "test_rows": 16,
+        "train_H6": 48,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 152,
+        "test_rows": 1,
+        "train_H6": 55,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 149,
+        "test_rows": 6,
+        "train_H6": 53,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 105,
+        "test_rows": 48,
+        "train_H6": 41,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 125,
+        "test_rows": 30,
+        "train_H6": 47,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 140,
+        "test_rows": 12,
+        "train_H6": 52,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 133,
+        "test_rows": 22,
+        "train_H6": 46,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 147,
+        "test_rows": 8,
+        "train_H6": 52,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.07813035111041094,
+        "with_W_MSE": 0.06193461251948997
+      },
+      {
+        "country": "BE",
+        "n": 5,
+        "H6": 2,
+        "baseline_MSE": 0.06708552866552592,
+        "with_W_MSE": 0.05408499698019449
+      },
+      {
+        "country": "FR",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.018258939129645668,
+        "with_W_MSE": 0.001184734966051063
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.46563577236581827,
+        "with_W_MSE": 0.3860967712089918
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.05797929188606973,
+        "with_W_MSE": 0.045925460420687216
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.12060850129898155,
+        "with_W_MSE": 0.010991200056675523
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.20466546298495333,
+        "with_W_MSE": 0.2436352427718492
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.17703107007927393,
+        "with_W_MSE": 0.13859343291172496
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.026541543608201153,
+        "with_W_MSE": 0.03787355190462027
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.3974352518087451,
+        "with_W_MSE": 0.33160758924846784
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.11313373680425395,
+        "with_W_MSE": 0.05488787211594369
+      }
+    ]
+  },
+  "host80": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "host80_record_coverage_raw",
+      "host80_species_coverage",
+      "host80_host_completeness",
+      "host80_rf_Hesperiidae",
+      "host80_rf_Lycaenidae",
+      "host80_rf_Nymphalidae",
+      "host80_rf_Papilionidae"
+    ],
+    "outcome": "host80_record_mean",
+    "variant": "host80",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 9.49278804456678,
+      "fixed_error_bootstrap95": [
+        2.796403559285445,
+        15.448270831831685
+      ],
+      "baseline_MSE": 0.2475398687620704,
+      "with_W_MSE": 0.2240414336946883,
+      "row_weighted_gain_pct": 2.7310741895163915,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.2293562150405473,
+      "W_beta_cluster95": [
+        0.113187085150335,
+        0.3455253449307596
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 38,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 3.0375701953744283e-13,
+    "country": {
+      "gain_pct": 0.00634588677485004,
+      "fixed_error_bootstrap95": [
+        -23.000112297328013,
+        13.99637812823704
+      ],
+      "baseline_MSE": 0.22940857319102637,
+      "with_W_MSE": 0.22939401518271987,
+      "row_weighted_gain_pct": -4.571945678622624,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.29762733709783257,
+        "with_W_MSE": 0.22752429021848367
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.2175865007993624,
+        "with_W_MSE": 0.3381517965213506
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.14632984142172611,
+        "with_W_MSE": 0.14743766589204946
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.4892673632077337,
+        "with_W_MSE": 0.39471149283201734
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.0950952905160917,
+        "with_W_MSE": 0.07376296552038691
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.11128683610581203,
+        "with_W_MSE": 0.2546955952735471
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.14116979731439758,
+        "with_W_MSE": 0.21215731324801765
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.3459555503905609,
+        "with_W_MSE": 0.3472018086320695
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.05637494561711906,
+        "with_W_MSE": 0.042971928933686954
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.19735394119462094,
+        "with_W_MSE": 0.23188388155847822
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.7026127312050598,
+        "with_W_MSE": 0.6777795508629721
+      }
+    ]
+  },
+  "strict_names": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "strict_names_record_coverage_raw",
+      "strict_names_species_coverage",
+      "strict_names_host_completeness",
+      "strict_names_rf_Hesperiidae",
+      "strict_names_rf_Lycaenidae",
+      "strict_names_rf_Nymphalidae",
+      "strict_names_rf_Papilionidae"
+    ],
+    "outcome": "strict_names_record_mean",
+    "variant": "strict_names",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 7.603146622546597,
+      "fixed_error_bootstrap95": [
+        -6.324379238969646,
+        19.23239896067291
+      ],
+      "baseline_MSE": 0.11267991601285679,
+      "with_W_MSE": 0.10411269678423693,
+      "row_weighted_gain_pct": 7.590104375651907,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.12992765022035388,
+      "W_beta_cluster95": [
+        0.0625137907275536,
+        0.19734150971315417
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 39,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 2.637889906509372e-13,
+    "country": {
+      "gain_pct": 14.73614702811641,
+      "fixed_error_bootstrap95": [
+        7.820514238177845,
+        17.364608026116922
+      ],
+      "baseline_MSE": 0.21542373792717853,
+      "with_W_MSE": 0.18367857917276534,
+      "row_weighted_gain_pct": 13.965599859996402,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.09262148465515718,
+        "with_W_MSE": 0.06875883862034878
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.07958710372449367,
+        "with_W_MSE": 0.06237768295638041
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.05954941397088751,
+        "with_W_MSE": 0.05350097267503552
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.5118448975284084,
+        "with_W_MSE": 0.4337161241062171
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.06685622107921253,
+        "with_W_MSE": 0.07215848276682245
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.04437155166132484,
+        "with_W_MSE": 0.00967431878132575
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.1267355146188587,
+        "with_W_MSE": 0.12088703761709944
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.19493097218432162,
+        "with_W_MSE": 0.15994584092920885
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.021384022800718175,
+        "with_W_MSE": 0.02621473914821958
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.37809760645987683,
+        "with_W_MSE": 0.3078067605608116
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.11390676926427155,
+        "with_W_MSE": 0.05320379398953439
+      }
+    ]
+  },
+  "no_wikipedia": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "no_wikipedia_record_coverage_raw",
+      "no_wikipedia_species_coverage",
+      "no_wikipedia_host_completeness",
+      "no_wikipedia_rf_Hesperiidae",
+      "no_wikipedia_rf_Lycaenidae",
+      "no_wikipedia_rf_Nymphalidae",
+      "no_wikipedia_rf_Papilionidae"
+    ],
+    "outcome": "no_wikipedia_record_mean",
+    "variant": "no_wikipedia",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 6.743527207559197,
+      "fixed_error_bootstrap95": [
+        -5.944868878922038,
+        18.431563461800764
+      ],
+      "baseline_MSE": 0.12198904289965348,
+      "with_W_MSE": 0.11376267860147429,
+      "row_weighted_gain_pct": 7.504368421426555,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.13821788532287774,
+      "W_beta_cluster95": [
+        0.06901241368460163,
+        0.20742335696115383
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 39,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 2.5135449277513544e-13,
+    "country": {
+      "gain_pct": 8.35975116690808,
+      "fixed_error_bootstrap95": [
+        -1.5538070480028532,
+        12.603251921688322
+      ],
+      "baseline_MSE": 0.20041235191331996,
+      "with_W_MSE": 0.18365837798561827,
+      "row_weighted_gain_pct": 10.770167212199178,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.0948044585360616,
+        "with_W_MSE": 0.07582535409483358
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.06684862017476864,
+        "with_W_MSE": 0.05214702532459966
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.06811063314694463,
+        "with_W_MSE": 0.0580689453678729
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.4317845969477069,
+        "with_W_MSE": 0.3724124177355486
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.10225279684704011,
+        "with_W_MSE": 0.10559478124520258
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.042447181746159905,
+        "with_W_MSE": 0.011283118296211826
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.13185855017172557,
+        "with_W_MSE": 0.1370544639066784
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.18229778992080986,
+        "with_W_MSE": 0.1824880078847131
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.02262920738771504,
+        "with_W_MSE": 0.028442378768955123
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.36579333390501795,
+        "with_W_MSE": 0.3234840542499415
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.09950470581711593,
+        "with_W_MSE": 0.050926761896543826
+      }
+    ]
+  },
+  "drop_Aglais_io": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "drop_Aglais_io_record_coverage_raw",
+      "drop_Aglais_io_species_coverage",
+      "drop_Aglais_io_host_completeness",
+      "drop_Aglais_io_rf_Hesperiidae",
+      "drop_Aglais_io_rf_Lycaenidae",
+      "drop_Aglais_io_rf_Nymphalidae",
+      "drop_Aglais_io_rf_Papilionidae"
+    ],
+    "outcome": "drop_Aglais_io_record_mean",
+    "variant": "drop_Aglais_io",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 9.181498097538753,
+      "fixed_error_bootstrap95": [
+        -5.813606684461225,
+        22.287555736094692
+      ],
+      "baseline_MSE": 0.11820595953650474,
+      "with_W_MSE": 0.10735288161048313,
+      "row_weighted_gain_pct": 8.430875855491294,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.13447107557653398,
+      "W_beta_cluster95": [
+        0.06438383584740323,
+        0.20455831530566473
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 39,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 2.6911806116913795e-13,
+    "country": {
+      "gain_pct": 13.454424108011342,
+      "fixed_error_bootstrap95": [
+        7.984135924458913,
+        15.65304782269694
+      ],
+      "baseline_MSE": 0.22412100519199973,
+      "with_W_MSE": 0.19396681463832996,
+      "row_weighted_gain_pct": 15.460825790590626,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.11361353142897296,
+        "with_W_MSE": 0.08038650785672109
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.08647649366510544,
+        "with_W_MSE": 0.055956881899598555
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.06921217171566507,
+        "with_W_MSE": 0.05958473393932833
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.52559529727134,
+        "with_W_MSE": 0.44332281004443286
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.0457752691736658,
+        "with_W_MSE": 0.05280047987439908
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.20489750459032097,
+        "with_W_MSE": 0.06725447700770444
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.14160792156944454,
+        "with_W_MSE": 0.13833440634938385
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.1839955636347631,
+        "with_W_MSE": 0.15249412223803738
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.037142274494442885,
+        "with_W_MSE": 0.03660034580124607
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.3871728024663427,
+        "with_W_MSE": 0.33346446945755126
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.13689254062053618,
+        "with_W_MSE": 0.05496635777095507
+      }
+    ]
+  },
+  "missing_hosts_low": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "missing_hosts_low_record_coverage_raw",
+      "missing_hosts_low_species_coverage",
+      "missing_hosts_low_host_completeness",
+      "missing_hosts_low_rf_Hesperiidae",
+      "missing_hosts_low_rf_Lycaenidae",
+      "missing_hosts_low_rf_Nymphalidae",
+      "missing_hosts_low_rf_Papilionidae"
+    ],
+    "outcome": "missing_hosts_low_record_mean",
+    "variant": "missing_hosts_low",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 6.9180621308927766,
+      "fixed_error_bootstrap95": [
+        -3.552545471622647,
+        16.949905481431085
+      ],
+      "baseline_MSE": 0.0592875023333739,
+      "with_W_MSE": 0.05518595608609658,
+      "row_weighted_gain_pct": 6.822484328376987,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.0874515578167565,
+      "W_beta_cluster95": [
+        0.04175315762502411,
+        0.1331499580084889
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 39,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 1.8740564655672642e-13,
+    "country": {
+      "gain_pct": 11.13188625270195,
+      "fixed_error_bootstrap95": [
+        -0.609064231489739,
+        15.422569701926413
+      ],
+      "baseline_MSE": 0.08985861488173437,
+      "with_W_MSE": 0.0798556560848462,
+      "row_weighted_gain_pct": 11.619129627323444,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.041455142095531805,
+        "with_W_MSE": 0.03131155586571658
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.0516064416471451,
+        "with_W_MSE": 0.036736875896232556
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.034544455793197204,
+        "with_W_MSE": 0.0314810176628043
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.1699494619667069,
+        "with_W_MSE": 0.14546912926487354
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.04275881195519324,
+        "with_W_MSE": 0.04551375235776456
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.062261097145316774,
+        "with_W_MSE": 0.02473202662929257
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.05057250871539437,
+        "with_W_MSE": 0.04561362836238036
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.07168833474040373,
+        "with_W_MSE": 0.07429733199607476
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.013725023360634999,
+        "with_W_MSE": 0.017821924846667562
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.19867190471406893,
+        "with_W_MSE": 0.16445090437627666
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.05637687235601842,
+        "with_W_MSE": 0.031747818025116836
+      }
+    ]
+  },
+  "missing_hosts_high": {
+    "n_rows": 454,
+    "H7": 232,
+    "n_H6": 90,
+    "country_labels": 15,
+    "W_positive_rows": 439,
+    "baseline_numeric_fields": [
+      "area",
+      "nEEA",
+      "nAnimal",
+      "nPlant",
+      "nButterfly",
+      "riverflow",
+      "crop",
+      "urban",
+      "naturalout",
+      "butterfly_S20",
+      "plant_S50",
+      "missing_hosts_high_record_coverage_raw",
+      "missing_hosts_high_species_coverage",
+      "missing_hosts_high_host_completeness",
+      "missing_hosts_high_rf_Hesperiidae",
+      "missing_hosts_high_rf_Lycaenidae",
+      "missing_hosts_high_rf_Nymphalidae",
+      "missing_hosts_high_rf_Papilionidae"
+    ],
+    "outcome": "missing_hosts_high_record_mean",
+    "variant": "missing_hosts_high",
+    "family_adjust": true,
+    "kind": "record",
+    "H6": {
+      "gain_pct": 6.93480732303936,
+      "fixed_error_bootstrap95": [
+        -3.540125329446678,
+        16.908189246151462
+      ],
+      "baseline_MSE": 0.059483860415321124,
+      "with_W_MSE": 0.055358769307212924,
+      "row_weighted_gain_pct": 6.91922006687169,
+      "evaluation_groups": [
+        "2060012310",
+        "2060012690",
+        "2060012730",
+        "2060012960",
+        "2060012980",
+        "2060013010",
+        "2060013100",
+        "2060013110",
+        "2060016030",
+        "2060016510",
+        "2060016680",
+        "2060020330",
+        "2060020590",
+        "2060020620",
+        "2060020630",
+        "2060020730",
+        "2060020740",
+        "2060021030",
+        "2060021110",
+        "2060021220",
+        "2060021230",
+        "2060022770",
+        "2060022970",
+        "2060023010",
+        "2060023320",
+        "2060023330",
+        "2060026920",
+        "2060026940",
+        "2060026950",
+        "2060027120",
+        "2060027290",
+        "2060031410",
+        "2060031740",
+        "2060031960",
+        "2060032680",
+        "2060033490",
+        "2060033670",
+        "2060033770",
+        "2060036280",
+        "2060036340",
+        "2060036350",
+        "2060054250",
+        "2060054260",
+        "2060055610",
+        "2060207710",
+        "2060231900",
+        "2060248100",
+        "2060254330",
+        "2060311070",
+        "2060313170",
+        "2060313590",
+        "2060313670",
+        "2060420240",
+        "2060429890",
+        "2060441280",
+        "2060488360",
+        "2060497340",
+        "2060497450",
+        "2060498990",
+        "2060499090",
+        "2060502710",
+        "2060502920",
+        "2060509090",
+        "2060509200",
+        "2060510560",
+        "2060510690",
+        "2060523590",
+        "2060535610",
+        "2060536360",
+        "2060536370",
+        "2060539930",
+        "2060540100",
+        "2060541360",
+        "2060541470",
+        "2060548280",
+        "2060548430",
+        "2060548700",
+        "2060548920",
+        "2060551110",
+        "2060551820",
+        "2060551950",
+        "2060552460",
+        "2060552470",
+        "2060564730",
+        "2060564740",
+        "2060568970",
+        "2060569100",
+        "2060571930",
+        "2060572030",
+        "2060574220"
+      ]
+    },
+    "beta": {
+      "W_beta_per1SD": 0.0874515578167566,
+      "W_beta_cluster95": [
+        0.041753157625024254,
+        0.13314995800848894
+      ],
+      "W_sd": 1.2415993277012753,
+      "design_rank": 39,
+      "n_parameters": 46,
+      "fixed_traits_conditional_association_not_causal": true
+    },
+    "H6_splits": [
+      {
+        "group": "0",
+        "train_rows": 394,
+        "test_rows": 60,
+        "train_H6": 73,
+        "test_H6": 17,
+        "H6_overlap": 0
+      },
+      {
+        "group": "1",
+        "train_rows": 364,
+        "test_rows": 90,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "2",
+        "train_rows": 331,
+        "test_rows": 123,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "3",
+        "train_rows": 348,
+        "test_rows": 106,
+        "train_H6": 70,
+        "test_H6": 20,
+        "H6_overlap": 0
+      },
+      {
+        "group": "4",
+        "train_rows": 379,
+        "test_rows": 75,
+        "train_H6": 72,
+        "test_H6": 18,
+        "H6_overlap": 0
+      }
+    ],
+    "independent_prediction_max_absdiff": 3.810285420513537e-13,
+    "country": {
+      "gain_pct": 11.137494641935374,
+      "fixed_error_bootstrap95": [
+        0.07864413559128813,
+        15.463646493734263
+      ],
+      "baseline_MSE": 0.08961579676217941,
+      "with_W_MSE": 0.07963484219946398,
+      "row_weighted_gain_pct": 12.50849729732364,
+      "evaluation_groups": [
+        "FR",
+        "HR",
+        "IT",
+        "LT",
+        "NL",
+        "NO"
+      ]
+    },
+    "country_splits": [
+      {
+        "group": "AT",
+        "train_rows": 445,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "BE",
+        "train_rows": 442,
+        "test_rows": 6,
+        "train_H6": 88,
+        "test_H6": 2,
+        "H6_overlap": 0
+      },
+      {
+        "group": "FR",
+        "train_rows": 155,
+        "test_rows": 299,
+        "train_H6": 55,
+        "test_H6": 35,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HR",
+        "train_rows": 434,
+        "test_rows": 16,
+        "train_H6": 82,
+        "test_H6": 8,
+        "H6_overlap": 0
+      },
+      {
+        "group": "HU",
+        "train_rows": 451,
+        "test_rows": 1,
+        "train_H6": 89,
+        "test_H6": 1,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IE",
+        "train_rows": 448,
+        "test_rows": 6,
+        "train_H6": 87,
+        "test_H6": 3,
+        "H6_overlap": 0
+      },
+      {
+        "group": "IT",
+        "train_rows": 404,
+        "test_rows": 48,
+        "train_H6": 75,
+        "test_H6": 15,
+        "H6_overlap": 0
+      },
+      {
+        "group": "LT",
+        "train_rows": 424,
+        "test_rows": 30,
+        "train_H6": 81,
+        "test_H6": 9,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NL",
+        "train_rows": 438,
+        "test_rows": 12,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      },
+      {
+        "group": "NO",
+        "train_rows": 432,
+        "test_rows": 22,
+        "train_H6": 80,
+        "test_H6": 10,
+        "H6_overlap": 0
+      },
+      {
+        "group": "SE",
+        "train_rows": 446,
+        "test_rows": 8,
+        "train_H6": 86,
+        "test_H6": 4,
+        "H6_overlap": 0
+      }
+    ],
+    "country_results": [
+      {
+        "country": "AT",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.04096772936739455,
+        "with_W_MSE": 0.0309241758798126
+      },
+      {
+        "country": "BE",
+        "n": 6,
+        "H6": 2,
+        "baseline_MSE": 0.05121818132415792,
+        "with_W_MSE": 0.036987133828884376
+      },
+      {
+        "country": "FR",
+        "n": 299,
+        "H6": 35,
+        "baseline_MSE": 0.03441002498561268,
+        "with_W_MSE": 0.030517868706756168
+      },
+      {
+        "country": "HR",
+        "n": 16,
+        "H6": 8,
+        "baseline_MSE": 0.16890175031920313,
+        "with_W_MSE": 0.14448213614014216
+      },
+      {
+        "country": "HU",
+        "n": 1,
+        "H6": 1,
+        "baseline_MSE": 0.04086389639271511,
+        "with_W_MSE": 0.043548797872441064
+      },
+      {
+        "country": "IE",
+        "n": 6,
+        "H6": 3,
+        "baseline_MSE": 0.05605228533759234,
+        "with_W_MSE": 0.02133729306130826
+      },
+      {
+        "country": "IT",
+        "n": 48,
+        "H6": 15,
+        "baseline_MSE": 0.050552648800941014,
+        "with_W_MSE": 0.045695204041035394
+      },
+      {
+        "country": "LT",
+        "n": 30,
+        "H6": 9,
+        "baseline_MSE": 0.07130925721118887,
+        "with_W_MSE": 0.07433617696486323
+      },
+      {
+        "country": "NL",
+        "n": 12,
+        "H6": 4,
+        "baseline_MSE": 0.013398212980279817,
+        "with_W_MSE": 0.01757030196834256
+      },
+      {
+        "country": "NO",
+        "n": 22,
+        "H6": 10,
+        "baseline_MSE": 0.19912288627585098,
+        "with_W_MSE": 0.1652073653756444
+      },
+      {
+        "country": "SE",
+        "n": 8,
+        "H6": 4,
+        "baseline_MSE": 0.05716841928046394,
+        "with_W_MSE": 0.032969367653902175
+      }
+    ]
+  }
+}

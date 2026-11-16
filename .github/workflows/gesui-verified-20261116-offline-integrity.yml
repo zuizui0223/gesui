@@ -1,0 +1,45 @@
+name: gesui verified November 2026 research preservation and null-controls
+on:
+  pull_request:
+    paths:
+      - 'analysis/20261115_**'
+      - 'results/20261115_**'
+      - 'results/20261116_main_integration/**'
+      - 'docs/RESULTS_20261116_VERIFIED_MAIN_INTEGRATION.md'
+      - 'provenance/GESUI_VERIFIED_20261116_RESEARCH_BLOB_MANIFEST.json'
+      - 'scripts/verify_gesui_verified_results.py'
+      - '.github/workflows/gesui-verified-20261116-offline-integrity.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'analysis/20261115_**'
+      - 'results/20261115_**'
+      - 'results/20261116_main_integration/**'
+      - 'docs/RESULTS_20261116_VERIFIED_MAIN_INTEGRATION.md'
+      - 'provenance/GESUI_VERIFIED_20261116_RESEARCH_BLOB_MANIFEST.json'
+      - 'scripts/verify_gesui_verified_results.py'
+      - '.github/workflows/gesui-verified-20261116-offline-integrity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-original-blobs-and-positive-negative-scientific-boundaries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify 98 exact original research blobs and preserved positive/null/STOP claims
+        run: python scripts/verify_gesui_verified_results.py
+      - name: Reproduce 9,999 source-locked butterfly HNS label shuffles from original CSV
+        run: node analysis/20261115_hns_trait_shuffle/permute.js --verify
+      - name: Preserve previously existing gesui offline archival constraints
+        run: |
+          python scripts/verify_migration_integrity.py
+          python -m unittest discover -s tests -p 'test_gesui_*.py' -v

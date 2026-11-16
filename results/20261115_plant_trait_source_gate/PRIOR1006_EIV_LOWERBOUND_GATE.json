@@ -1,0 +1,28 @@
+{
+  "caution": "Lower bound using only previously independently classified 1006 original GBIF species keys, not a complete EU454 source taxonomy crosswalk. Passing sites have at least this many valid scores; failing sites are UNKNOWN until all original species are taxonomically matched. No coefficient, plant N community mean or mediation was fitted.",
+  "external_independent_PR12_matched_keys": 1006,
+  "external_independent_PR12_numeric_NUTRI_keys": 624,
+  "lowerbound_EIV_complete_40pct_10species_H6": 39,
+  "lowerbound_EIV_complete_40pct_10species_H7periods": 112,
+  "lowerbound_EIV_complete_40pct_10species_countries": 6,
+  "no_model_fitted": true,
+  "original_H7": 232,
+  "original_H7_period_count": 454,
+  "original_all_H7_union_species": 11511,
+  "original_true_H6": 90,
+  "prior_1006_crosswalk_H7_union_species_overlap": 1003,
+  "prior_1006_subset_alone_exceeds_min_required_100rows_40H6_5countries": false,
+  "prior_624_scored_H7_union_species_overlap": 624,
+  "schema": "GESUI_H7_EIV_PRIOR1006_LOWERBOUND_COVERAGE_V1",
+  "source_EIV_original_SHA256": "ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+  "source_H7_original_SHA256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+  "species_based_subset_EIV_coverage_fraction_median": 0.34670278112901065,
+  "species_based_subset_EIV_coverage_fraction_q05_q95": [
+    0.2095531898429615,
+    0.50406976744186
+  ],
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43716089094",
+  "source_run_conclusion": "success",
+  "source_script": "analysis/20261115_plant_trait_source_gate/cached_eiv_overlap.py",
+  "scope": "Independent 624 numeric EIV score keys from PRIOR 1006-key source only; coverage lower-bound, no new taxonomy resolution, no biological outcome model."
+}

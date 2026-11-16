@@ -1,0 +1,58 @@
+{
+  "schema": "GESUI_20261116_MAIN_SOURCE_VERIFIED_ACTIONS_RESULT_V1",
+  "date": "2026-11-16",
+  "source_run_id": 43726899432,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43726899432",
+  "source_job_id": 132850694049,
+  "source_job_conclusion": "success",
+  "origin": "verbatim structured result from successful original Actions job log; not a new model",
+  "original_source_logs_preserved": true,
+  "noncausal_observational": true,
+  "numerical_result": {
+    "controls": 13,
+    "n_H6": 40,
+    "n_H7": 183,
+    "primary": {
+      "H6_blocked_residual_perm_p": 0.0001,
+      "beta": 0.11807615189599471,
+      "beta95": [
+        0.058715150075549234,
+        0.1774371537164402
+      ],
+      "beta_nominal_p": 0.00009672046087403742,
+      "leave_H6_out_beta_range": [
+        0.10317334994875065,
+        0.13561180022132943
+      ],
+      "leave_H6_out_positive": 40,
+      "source_design_condition_number": 125.01031887817793,
+      "source_null95": [
+        -0.0635072370052801,
+        0.06518875826088144
+      ],
+      "source_null_extreme": 0,
+      "within_H6_in_sample_SSE_gain_pct": 19.935701753353705
+    },
+    "secondary_record_weighted": {
+      "H6_blocked_residual_perm_p": 0.0001,
+      "beta": 0.234925161038496,
+      "beta95": [
+        0.1181086387985099,
+        0.3517416832784821
+      ],
+      "beta_nominal_p": 0.00008091297718970407,
+      "leave_H6_out_beta_range": [
+        0.19157262864518176,
+        0.2551035095284675
+      ],
+      "leave_H6_out_positive": 40,
+      "source_design_condition_number": 125.01031887817793,
+      "source_null95": [
+        -0.13507634531439866,
+        0.13281580746657173
+      ],
+      "source_null_extreme": 0,
+      "within_H6_in_sample_SSE_gain_pct": 15.535378931305813
+    }
+  }
+}

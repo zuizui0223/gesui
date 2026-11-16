@@ -1,0 +1,88 @@
+{
+  "schema": "GESUI_20261115_SOURCE_REPLAYED_ADVERSARIAL_NUMERICAL_RECEIPT_V1",
+  "source_run_id": 43727753639,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43727753639",
+  "source_run_conclusion": "success",
+  "kind": "original30 and new10 source external paired transfer",
+  "source_native_183_H7_40_H6_panel_SHA256": "c0840b1c5c6e85342fea41d57dc40fa5ec295fabf6bcd6908a4072557db9a736",
+  "posthoc_observational_not_causal": true,
+  "derived_from_original_success_log": {
+    "collinearity": {
+      "original_design_condition": 125.01031887817793,
+      "post_H6_fixed_effect_source_VIF_for_plantN_after_13controls": 2.837787549598932,
+      "source_after_H6_plus13_x_variance": 15.518238683148061,
+      "source_within_H6_x_variance": 44.0374645267421,
+      "warning_VIF_gt10": false,
+      "warning_condition_gt100": true
+    },
+    "full_models": {
+      "H6_only": {
+        "beta": 0.23353831508776676,
+        "beta95": [
+          0.16848012416724034,
+          0.2985965060082932
+        ],
+        "status": "FIT"
+      },
+      "all_13": {
+        "beta": 0.11807615189599471,
+        "beta95": [
+          0.058715150075549234,
+          0.1774371537164402
+        ],
+        "status": "FIT"
+      },
+      "all_13_H7_equal": {
+        "beta": 0.1030195040621807,
+        "beta95": [
+          0.0463417595683718,
+          0.1596972485559896
+        ],
+        "status": "FIT"
+      },
+      "environment_three": {
+        "beta": 0.23715805816753496,
+        "beta95": [
+          0.17022640426037922,
+          0.3040897120746907
+        ],
+        "status": "FIT"
+      }
+    },
+    "genuine_H6": 40,
+    "new10_external": {
+      "hns_incidence": {
+        "gain": 36.80296005575049,
+        "gain95": [
+          -32.18773798908989,
+          61.28101106312748
+        ],
+        "n_source_pairs": 10,
+        "raw_r": 0.6471950479672627,
+        "residual_r": 0.4281788598982696,
+        "sign_concordance": 5
+      },
+      "hns_record": {
+        "gain": 26.54184957257738,
+        "gain95": [
+          18.575895050046967,
+          35.5588309630322
+        ],
+        "n_source_pairs": 10,
+        "raw_r": 0.7816567655864741,
+        "residual_r": 0.6109293270466786,
+        "sign_concordance": 6
+      }
+    },
+    "old30": {
+      "95": [
+        0.05450834484551782,
+        0.18370266000153346
+      ],
+      "beta": 0.11910550242352565,
+      "blocked_perm": 0.0001
+    },
+    "source_genuine_H7": 183,
+    "source_original_40H6_beta": 0.11807615189599471
+  }
+}

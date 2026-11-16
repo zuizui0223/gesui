@@ -1,0 +1,68 @@
+{
+  "schema": "GESUI_20261116_MAIN_SOURCE_VERIFIED_ACTIONS_RESULT_V1",
+  "date": "2026-11-16",
+  "source_run_id": 43718897604,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43718897604",
+  "source_job_id": 132826346821,
+  "source_job_conclusion": "success",
+  "origin": "verbatim structured result from successful original Actions job log; not a new model",
+  "original_source_logs_preserved": true,
+  "noncausal_observational": true,
+  "numerical_result": {
+    "cochanges": {
+      "d_plant_N_incidence__d_butterfly_HNS_incidence": {
+        "95": [
+          -0.022708315560244483,
+          0.030494148948239125
+        ],
+        "H6_mean_r": 0.1712719370680245,
+        "H6_mean_r95": [
+          -0.1417732473768982,
+          0.47933429807048233
+        ],
+        "beta": 0.003892916693997322,
+        "gain95": [
+          -4.158595790740981,
+          3.0966595587401873
+        ],
+        "h6_added_gain": -0.7027254938426721
+      },
+      "d_plant_N_incidence__d_butterfly_HNS_record": {
+        "95": [
+          -0.07170971923965176,
+          0.04184766150641166
+        ],
+        "H6_mean_r": 0.019441554335918834,
+        "H6_mean_r95": [
+          -0.271442198172489,
+          0.3369057830337732
+        ],
+        "beta": -0.014931028866620049,
+        "gain95": [
+          -10.793478451992838,
+          -0.0825645885116282
+        ],
+        "h6_added_gain": -4.7554659005293685
+      },
+      "d_plant_N_record__d_butterfly_HNS_incidence": {
+        "95": [
+          -0.02923213863405597,
+          0.014521583891840311
+        ],
+        "H6_mean_r": -0.014695629153466493,
+        "H6_mean_r95": [
+          -0.27325106672331123,
+          0.26087722597732865
+        ],
+        "beta": -0.007355277371107829,
+        "gain95": [
+          -1.588797121964915,
+          1.2720146257745282
+        ],
+        "h6_added_gain": -0.07125634692620848
+      }
+    },
+    "n_exact_twoperiod_H7": 219,
+    "n_true_H6": 86
+  }
+}

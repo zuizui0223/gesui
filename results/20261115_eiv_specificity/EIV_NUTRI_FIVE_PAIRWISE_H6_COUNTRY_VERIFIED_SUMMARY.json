@@ -1,0 +1,182 @@
+{
+  "schema": "GESUI_EU454_EIV_FIVEPAIR_SOURCE_VERIFIED_RESULTS_SUMMARY_V1",
+  "source_run_id": 43721208663,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43721208663",
+  "source_run_status": "success",
+  "original_EIV_SHA256": "ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+  "original_454_H7_panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "original_2808_facets_SHA256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+  "prior_full_six_trait_source_gate_stop": true,
+  "source_fixed_pair_gates_run": 43720948781,
+  "posthoc_secondary_not_preregistered": true,
+  "results": {
+    "comparison": {
+      "LIGHT": {
+        "NUTRI_VIF": 5.639671107506493,
+        "NUTRI_after_other_BH5_q": 5.449691716930081e-12,
+        "NUTRI_after_other_H6_MSE_gain": 29.385645543974274,
+        "NUTRI_after_other_H6_cluster95": [
+          0.13704110234781144,
+          0.24436089242678163
+        ],
+        "NUTRI_after_other_H6_gain95": [
+          9.529023642130834,
+          41.87081887835392
+        ],
+        "NUTRI_after_other_beta": 0.19070099738729654,
+        "NUTRI_after_other_country_gain": 43.29332448315545,
+        "NUTRI_after_other_country_gain95": [
+          4.462456234091908,
+          72.23080786775876
+        ],
+        "NUTRI_vs_other_CWM_r": -0.40909009966126125,
+        "n_H6": 90,
+        "n_H7period": 450,
+        "other_after_NUTRI_BH5_q": 0.7589449439721563,
+        "other_after_NUTRI_H6_MSE_gain": -0.5950303402643835,
+        "other_after_NUTRI_H6_cluster95": [
+          -0.041714226398648226,
+          0.030420486095554984
+        ],
+        "other_after_NUTRI_H6_gain95": [
+          -3.00305435938188,
+          1.2393765231762013
+        ],
+        "other_after_NUTRI_beta": -0.005646870151546621
+      },
+      "MOIST": {
+        "NUTRI_VIF": 4.843114175131714,
+        "NUTRI_after_other_BH5_q": 8.039321256814662e-11,
+        "NUTRI_after_other_H6_MSE_gain": 33.95081346815228,
+        "NUTRI_after_other_H6_cluster95": [
+          0.12745336243454336,
+          0.2366987015891709
+        ],
+        "NUTRI_after_other_H6_gain95": [
+          10.597033306419892,
+          46.83387441326015
+        ],
+        "NUTRI_after_other_beta": 0.18207603201185713,
+        "NUTRI_after_other_country_gain": 46.324240635405395,
+        "NUTRI_after_other_country_gain95": [
+          -7.8077734060008535,
+          70.58234871682623
+        ],
+        "NUTRI_vs_other_CWM_r": 0.20442832531626406,
+        "n_H6": 89,
+        "n_H7period": 447,
+        "other_after_NUTRI_BH5_q": 0.001114569695170004,
+        "other_after_NUTRI_H6_MSE_gain": 1.4550240999332378,
+        "other_after_NUTRI_H6_cluster95": [
+          0.03656847513975549,
+          0.1193558826615314
+        ],
+        "other_after_NUTRI_H6_gain95": [
+          -5.45563090484605,
+          10.198222116646194
+        ],
+        "other_after_NUTRI_beta": 0.07796217890064344
+      },
+      "REACT": {
+        "NUTRI_VIF": 5.281651695959661,
+        "NUTRI_after_other_BH5_q": 1.6797064842389956e-17,
+        "NUTRI_after_other_H6_MSE_gain": 41.3636391465133,
+        "NUTRI_after_other_H6_cluster95": [
+          0.1673060374061336,
+          0.26463153779412896
+        ],
+        "NUTRI_after_other_H6_gain95": [
+          24.073467460199527,
+          51.77521102148796
+        ],
+        "NUTRI_after_other_beta": 0.21596878760013127,
+        "NUTRI_after_other_country_gain": 50.607868800215876,
+        "NUTRI_after_other_country_gain95": [
+          15.363506331693406,
+          71.99184023035673
+        ],
+        "NUTRI_vs_other_CWM_r": 0.27126039438180377,
+        "n_H6": 90,
+        "n_H7period": 450,
+        "other_after_NUTRI_BH5_q": 0.0012215314480838466,
+        "other_after_NUTRI_H6_MSE_gain": 4.162498543087947,
+        "other_after_NUTRI_H6_cluster95": [
+          -0.08841706519064163,
+          -0.024785742470660045
+        ],
+        "other_after_NUTRI_H6_gain95": [
+          -3.2068910866958267,
+          11.949272739883888
+        ],
+        "other_after_NUTRI_beta": -0.056601403830650834
+      },
+      "SALIN": {
+        "NUTRI_VIF": 4.989826743840294,
+        "NUTRI_after_other_BH5_q": 2.454945135461705e-13,
+        "NUTRI_after_other_H6_MSE_gain": 38.072694474955085,
+        "NUTRI_after_other_H6_cluster95": [
+          0.14272715435489308,
+          0.24476243306639167
+        ],
+        "NUTRI_after_other_H6_gain95": [
+          18.387196714047437,
+          49.99768499182384
+        ],
+        "NUTRI_after_other_beta": 0.19374479371064238,
+        "NUTRI_after_other_country_gain": 47.969733811021754,
+        "NUTRI_after_other_country_gain95": [
+          7.405542516651987,
+          76.32739240412509
+        ],
+        "NUTRI_vs_other_CWM_r": 0.34249418149770045,
+        "n_H6": 90,
+        "n_H7period": 451,
+        "other_after_NUTRI_BH5_q": 0.7589449439721563,
+        "other_after_NUTRI_H6_MSE_gain": -1.837465385359703,
+        "other_after_NUTRI_H6_cluster95": [
+          -0.013779169884906687,
+          0.021070747508584373
+        ],
+        "other_after_NUTRI_H6_gain95": [
+          -6.519500525843384,
+          1.1406167151182562
+        ],
+        "other_after_NUTRI_beta": 0.003645788811838843
+      },
+      "TEMPE": {
+        "NUTRI_VIF": 5.843755502370469,
+        "NUTRI_after_other_BH5_q": 2.408399931973355e-8,
+        "NUTRI_after_other_H6_MSE_gain": 32.99972370848633,
+        "NUTRI_after_other_H6_cluster95": [
+          0.13412520409329742,
+          0.27937507681903573
+        ],
+        "NUTRI_after_other_H6_gain95": [
+          17.83966904717055,
+          42.16772839290411
+        ],
+        "NUTRI_after_other_beta": 0.20675014045616658,
+        "NUTRI_after_other_country_gain": 27.228129017682893,
+        "NUTRI_after_other_country_gain95": [
+          -64.84187241750945,
+          53.63511639252974
+        ],
+        "NUTRI_vs_other_CWM_r": 0.4723055555616401,
+        "n_H6": 75,
+        "n_H7period": 280,
+        "other_after_NUTRI_BH5_q": 0.4382609527621288,
+        "other_after_NUTRI_H6_MSE_gain": -4.165993699933227,
+        "other_after_NUTRI_H6_cluster95": [
+          -0.05712303690261597,
+          0.015592457917946584
+        ],
+        "other_after_NUTRI_H6_gain95": [
+          -8.341178354486562,
+          -1.5988406741374142
+        ],
+        "other_after_NUTRI_beta": -0.020765289492334693
+      }
+    },
+    "scope": "posthoc five separate pairwise same-scored-plant tests; six-trait joint-model STOP"
+  }
+}
