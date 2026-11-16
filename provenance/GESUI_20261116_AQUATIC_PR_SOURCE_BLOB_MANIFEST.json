@@ -1,7 +1,7 @@
 {
-  "schema": "GESUI_20261116_PR_REGISTER_AQUATIC_CURATED_SOURCE_BLOB_MANIFEST_V1",
-  "copied_git_blob_files": 188,
-  "copied_size_bytes": 9805186,
+  "schema": "GESUI_20261116_PR_REGISTER_AQUATIC_CURATED_SOURCE_BLOB_MANIFEST_V2",
+  "copied_git_blob_files": 218,
+  "copied_size_bytes": 15410864,
   "initial_main_sha": "8057236370c502e184e9580e8c6e84dc6fc65835",
   "original_asset_pr_branches": {
     "EU": {
@@ -32,7 +32,7 @@
   },
   "source_github_pr_registry": "docs/PR_RESEARCH_REGISTER_20261116.csv",
   "original_github_git_blob_shas_preserved": true,
-  "source_notes": "EU: real EEA2018/22 reported WWTP annual N/P to EQR; US: EPA NRSA multi-era physical/trait/nutrient; FR: measured TP same-station spatial and temporal null; 2020 EEA only source STOP; no unreviewed native workflow YAML or external raw ZIP rehosted",
+  "source_notes": "EU: real EEA2018/22 reported WWTP annual N/P to EQR; US: EPA NRSA multi-era physical/trait/nutrient; FR: measured TP same-station spatial and temporal null; 2020 EEA only source STOP; no unreviewed native workflow YAML or external raw ZIP rehosted; 2016 JRC GREEN source-year modeled point N/P is supplementary, not actual EEA2018/22 measured WWTP facility effluent",
   "not_meta_analysis_and_not_causal_wastewater_attribution": true,
   "files": [
     {
@@ -139,6 +139,13 @@
       "source_branch": "analysis/fr2018-22-matched-calendar-month-TP-I2M2-20261113",
       "source_pr_anchor": 72,
       "size_bytes": 4190
+    },
+    {
+      "path": "docs/JRC_GREEN_2014_18_NUTS2_TO_EEA2016_BENTHIC_EQR_PREOUTCOME_GATE.md",
+      "git_blob_sha1": "5a90f0e64dcecdad0a0ae0dbd71e06303e80b60e",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 5454
     },
     {
       "path": "docs/NRSA_3CYCLE_RARE100_SAMESITE_VS_EXPANDED_SOURCE_FREEZE_20261114.md",
@@ -400,11 +407,123 @@
       "size_bytes": 7836
     },
     {
+      "path": "docs/RESULTS_BENTHIC_REGIONAL_TEMPORAL_POSTHOC_20261111.md",
+      "git_blob_sha1": "55d7680ce7a1ef4bf4c0867201f84cb48704213f",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 57,
+      "size_bytes": 6920
+    },
+    {
+      "path": "docs/RESULTS_EEA2016_REAL_BENTHIC_EQR_JRC_GREEN_NUTS2_MACRO_20261111.md",
+      "git_blob_sha1": "1b82a6771266eaa1a1b821b47f85a6486ca90f63",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 11295
+    },
+    {
       "path": "results/20261115_piecewise_path/SOURCE_LOCKED_SUMMARY.json",
       "git_blob_sha1": "221dd32ac77bb55ff09f7f47cc9795c00bf4ad03",
       "source_branch": "analysis/gesui-nrsa1314-piecewise-statistical-path-20261115",
       "source_pr_anchor": 97,
       "size_bytes": 1254
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_BQE_PREOUTCOME_SOURCE_ONLY/2016_BQE_PREOUTCOME_SOURCE_QC.json",
+      "git_blob_sha1": "11aa8a9f014472bb5585dd53d9257a698a4b5f7a",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 5755
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_BQE_PREOUTCOME_SOURCE_ONLY/2016_FIXED_BQE_MONITORING_SITE_METADATA_NO_EQR.csv",
+      "git_blob_sha1": "cc6bf16316ca5e2e504e0a87b344d2a78b817f9c",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 811074
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_EEA_2020_ORIGINAL_GPKG_NP_REPORTER_RESIDUE_GATE.json",
+      "git_blob_sha1": "44a648e2ef66213dc479ca8f78bbdb756cadf778",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 1085
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_GISCO_NUTS2_GREEN_POINT_NP_SOURCE_GATE_BEFORE_EQR.json",
+      "git_blob_sha1": "874f71d25fd4a19905a6ce1dfb8b7c500c98a05a",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 4144433
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_NUTS2_FROZEN_5FOLDS_NO_EQR.json",
+      "git_blob_sha1": "17e2474b6cd73bcd602ef74df4589ee6596274de",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 70935
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_POINTNP_RAW_SOURCE_INDEPENDENT_NUMPY5FOLD_QA.json",
+      "git_blob_sha1": "a7891b3592ce7755a821d4a4732440a3933ea815",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 3299
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_EEA_ORIGINAL_UWWTD_PUBLIC_ACCESS_SOURCE_ONLY.json",
+      "git_blob_sha1": "38efb3c79814aa0a25a2b64e5acbd983fe87205c",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 8486
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_EEA_RIVER_BENTHIC_EQR_JRC_GREEN_MODEL_POINTNP_NUTS2_HELDOUT_RESULTS.json",
+      "git_blob_sha1": "108ac711022921af8cfb2b5477d046f386d43f17",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 104324
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/2016_REAL_BENTHIC_EQR_JRC_GREEN_NUTS2_INDEPENDENT_COUNTRY_FOLD_QA.json",
+      "git_blob_sha1": "6e837c7a3256339cadd517afe04ab1b6a4cfc308",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 20560
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/JRC_GREEN_2014TO2018_POINTSOURCE_NP_OFFICIAL_ARCGIS_SOURCE_LAYERS.json",
+      "git_blob_sha1": "8b8b8aa6335869a3a0652a16c05d07129f56676f",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 124109
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_ACTUAL_OFFICIAL_GDB_LAYER_SOURCE_GATE.json",
+      "git_blob_sha1": "566cc4a1b631b11db5f763531438c0178df6ebc1",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 2500
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/JRC_GREEN_2016_BASIN_POINT_SOURCE_OFFICIAL_FILE_METADATA_QA.json",
+      "git_blob_sha1": "13baa30a89bd3bc83178be4a0a811eac45aa6bdc",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 3814
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/JRC_GREEN_CDF_ORIGINAL_GDB_PUBLISHED_REST_SERVICE_PROBE.json",
+      "git_blob_sha1": "be314c74665b004323b64bd9c0a2d0028da967ca",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 13857
+    },
+    {
+      "path": "results/eea2016_thirdyear_source_20261111/JRC_GREEN_OFFICIAL_2014_18_MODELLED_POINT_NP_COUNTRY_NUTS2_BASIN_SOURCE.json",
+      "git_blob_sha1": "66b966b9eb49a549ab743e87c54c4f2ee3bef9a0",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 150855
     },
     {
       "path": "results/eea2018_independent_source_frozen_20261108/2018_MEASURED_SOURCE_BIOLOGY_COHORT_QC.json",
@@ -722,6 +841,13 @@
       "size_bytes": 12242
     },
     {
+      "path": "scripts/audit_benthic_three_year_posthoc_20261111.mjs",
+      "git_blob_sha1": "979d690aba8e1425e44881738a4355f4d3c3e9fb",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 57,
+      "size_bytes": 6381
+    },
+    {
       "path": "scripts/audit_bqe2022_original_missingness.py",
       "git_blob_sha1": "4214ec0dd8d29eeb8d2ff41ab1bd9ceb59d460e1",
       "source_branch": "analysis/uwwtd2018-independent-bqe-validation-20261108",
@@ -776,6 +902,20 @@
       "source_branch": "analysis/fr2018-22-matched-calendar-month-TP-I2M2-20261113",
       "source_pr_anchor": 72,
       "size_bytes": 11936
+    },
+    {
+      "path": "scripts/audit_gesui_EEA2016_JRC_green_NP_benthic_phytobenthos_region_CV_country_influence.py",
+      "git_blob_sha1": "d8f3cfc89854671f5263db1cd6017764f72020f3",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 9702
+    },
+    {
+      "path": "scripts/audit_gesui_EEA2016_JRC_green_NUTS2_rawEQR_manualNumPyCV.py",
+      "git_blob_sha1": "9b6872eb9b18fc0e4287a0a5a7c0eb89c4eddb8a",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 12103
     },
     {
       "path": "scripts/audit_NRSA_3cycle_EPT_ambientNP_PHab_manual_numpy.py",
@@ -876,6 +1016,34 @@
       "size_bytes": 11647
     },
     {
+      "path": "scripts/gesui_2016_2019to20_EEA_reporter2016_WWTP_original_residue_QA.py",
+      "git_blob_sha1": "d100998c56b9a02062864574ff2c779f651c1986",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 5121
+    },
+    {
+      "path": "scripts/gesui_2016_benthic_JRC_GREEN_NUTS2_region_folds_before_EQR.py",
+      "git_blob_sha1": "83268919d9eca33f724688315cf2452b45e37422",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 5996
+    },
+    {
+      "path": "scripts/gesui_2016_bqe_source_only_sites.py",
+      "git_blob_sha1": "7c36535e062d6de0ea39ff531e904af87344ce37",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 8719
+    },
+    {
+      "path": "scripts/gesui_2016_EEA_BQE_actual_EQR_vs_JRC_modelled_POINTNP_NUTS2CV.py",
+      "git_blob_sha1": "3e799bc7addfd76490eb3f10190c7fd88f6c3b3c",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 19625
+    },
+    {
       "path": "scripts/gesui_2018_bqe_source_only_sites.py",
       "git_blob_sha1": "68c377d7190d677882d4564f8a7f050e7e44797a",
       "source_branch": "analysis/uwwtd2018-independent-bqe-validation-20261108",
@@ -946,6 +1114,13 @@
       "size_bytes": 9854
     },
     {
+      "path": "scripts/gesui_EEA2016_source_sites_GISCO2016_NUTS2_JRC2014to18_NP_QA.py",
+      "git_blob_sha1": "a085ecb79139f1b2d1e9effe4b4de5690b716037",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 12239
+    },
+    {
       "path": "scripts/gesui_eea2022_bqe_source_river_join.py",
       "git_blob_sha1": "4d7f4275bffbf630eb2d68c231f45304c2306cef",
       "source_branch": "analysis/uwwtd2018-independent-bqe-validation-20261108",
@@ -1014,6 +1189,41 @@
       "source_branch": "analysis/fr2018-22-matched-calendar-month-TP-I2M2-20261113",
       "source_pr_anchor": 72,
       "size_bytes": 8289
+    },
+    {
+      "path": "scripts/gesui_JRC_GREEN_2016_basin_GDB_actual_source_layers.py",
+      "git_blob_sha1": "526e803a94dd85c072d57dfc815eb92ab1519b82",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 6306
+    },
+    {
+      "path": "scripts/gesui_JRC_GREEN_2016_basin_pointsource_original_access_only.py",
+      "git_blob_sha1": "367e2e7cf2b9786b6455468a87d5c253e4278814",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 3968
+    },
+    {
+      "path": "scripts/gesui_JRC_GREEN_CDF_official_hosted_REST_alternative.py",
+      "git_blob_sha1": "c292bd5750e7e6cb0e32ade9057b0efcbf4fe532",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 7830
+    },
+    {
+      "path": "scripts/gesui_JRC_GREEN_MIS_2014_2018_modelNP_ArcGIS_source_schema.py",
+      "git_blob_sha1": "4327a3203f6c65d091f3cfc6f4034d0d2a96894b",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 5919
+    },
+    {
+      "path": "scripts/gesui_JRC_GREEN2014to18_3scales_official_NP_source_download.py",
+      "git_blob_sha1": "be9bb120f53e322a00ece837ba4d9380c860820c",
+      "source_branch": "analysis/nrsa-threecycle-ept-rarefaction100-traits-source-20261114",
+      "source_pr_anchor": 56,
+      "size_bytes": 13014
     },
     {
       "path": "scripts/gesui_model_2022_eea_aquatic_EQR.py",
