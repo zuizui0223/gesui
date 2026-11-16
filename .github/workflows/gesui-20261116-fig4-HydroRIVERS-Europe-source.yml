@@ -1,0 +1,33 @@
+name: gesui FIG4 official HydroRIVERS Europe v1 river-network source-only QA
+on:
+  push:
+    branches:
+      - analysis/gesui-river-distance-unified-figure4-20261116
+    paths:
+      - 'analysis/20261116_fig4_river_distance/hydrorivers_source_audit.py'
+      - '.github/workflows/gesui-20261116-fig4-HydroRIVERS-Europe-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official_hydrorivers_metadata_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official vector ZIP source reading tools
+        run: python -m pip install --quiet requests pyshp
+      - name: Verify publisher original 68MB Europe HydroRIVERS vector network and native river reach fields
+        run: |
+          python -m py_compile analysis/20261116_fig4_river_distance/hydrorivers_source_audit.py
+          python -u analysis/20261116_fig4_river_distance/hydrorivers_source_audit.py \
+            --output '${{ runner.temp }}/fig4_hydrorivers_source'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-Fig4-official-HydroRIVERS-Europe-v1-source-metadata
+          path: ${{ runner.temp }}/fig4_hydrorivers_source/
+          retention-days: 90
+          if-no-files-found: error

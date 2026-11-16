@@ -1,0 +1,38 @@
+{
+  "schema": "GESUI_FIG4_SOURCE_ONLY_VERIFIED_GITHUB_ACTIONS_SUMMARY_V1",
+  "source_run_id": 43826262099,
+  "source_url": "https://github.com/zuizui0223/gesui/actions/runs/43826262099",
+  "source_run_success": true,
+  "derived_source_only_summary": {
+    "fields": [
+      "HYRIV_ID",
+      "NEXT_DOWN",
+      "MAIN_RIV",
+      "LENGTH_KM",
+      "DIST_DN_KM",
+      "DIST_UP_KM",
+      "CATCH_SKM",
+      "UPLAND_SKM",
+      "ENDORHEIC",
+      "DIS_AV_CMS",
+      "ORD_STRA",
+      "ORD_CLAS",
+      "ORD_FLOW",
+      "HYBAS_L12"
+    ],
+    "n_reaches": 938544,
+    "native_downstream": true,
+    "original_lower_HYBAS_link": true,
+    "shape_types_first100": [
+      "POLYLINE"
+    ],
+    "source": {
+      "original_bytes": 67648957,
+      "source_file_SHA256": "500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5",
+      "source_url": "https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip"
+    },
+    "source_ready_no_distance_band_model_run": true
+  },
+  "raw_occurrence_coordinates_and_river_line_geometries_not_republished": true,
+  "no_ecological_effect_model_fitted": true
+}

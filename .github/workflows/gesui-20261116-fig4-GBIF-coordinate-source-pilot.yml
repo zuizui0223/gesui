@@ -1,0 +1,44 @@
+name: gesui FIG4 original GBIF occurrence-coordinate source 8-H7 pilot, no ecology outcomes
+on:
+  push:
+    branches:
+      - analysis/gesui-river-distance-unified-figure4-20261116
+    paths:
+      - 'analysis/20261116_fig4_river_distance/gbif_coordinate_pilot.py'
+      - '.github/workflows/gesui-20261116-fig4-GBIF-coordinate-source-pilot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_only_gbif_original_polygons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install minimal source-only GBIF reader
+        run: python -m pip install --quiet requests
+      - name: Retrieve authentic 2808 original GBIF H7-year-speciesKey facets, frozen SHA256
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_GBIF_2808_facets
+      - name: Check 8 fixed source H7 across distinct H6/countries and <=300 original-filter occurrence records per year/window
+        run: |
+          python -m py_compile analysis/20261116_fig4_river_distance/gbif_coordinate_pilot.py
+          python -u analysis/20261116_fig4_river_distance/gbif_coordinate_pilot.py \
+            --facets '${{ runner.temp }}/original_GBIF_2808_facets' \
+            --output '${{ runner.temp }}/fig4_coordinate_source_pilot'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-fig4-original-GBIF-8-H7-coordinate-source-feasibility
+          path: ${{ runner.temp }}/fig4_coordinate_source_pilot/
+          retention-days: 90
+          if-no-files-found: warn
