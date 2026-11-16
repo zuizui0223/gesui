@@ -1,0 +1,57 @@
+name: gesui full48 original 2022 reported NP outfalls 2018 2022 Sentinel COG sensor source-only
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-measured-uwwtd-sentinel-riparian-sourcefirst
+    paths:
+      - 'analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_reflectance_pixel_qa_full48_posthoc.py'
+      - '.github/workflows/gesui-20261116-S2-2018-2022-all48-CLOUD-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_genuine_full48_two_country_sensor_metadata_quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 58
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source raster COG window reading and true original band calibrations
+        run: python -m pip install --quiet numpy "rasterio>=1.4,<2" "pyproj>=3,<4"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43850677284
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA2022_riveroutfall_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43851791936
+          name: gesui-20261116-48-EEA2022-measured-NP-outfalls-legacy-S2-2018-2022-STAC-source
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_S2_STAC_2years
+      - name: Source-only genuine red-NIR-SCL pixel/mask and scene calibration feasibility full48, do not fit sewage greenness outcome
+        run: |
+          python -m py_compile analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_reflectance_pixel_qa_full48_posthoc.py
+          python -u analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_reflectance_pixel_qa_full48_posthoc.py \
+            --geography '${{ runner.temp }}/original_EEA2022_riveroutfall_source' \
+            --stac '${{ runner.temp }}/original_S2_STAC_2years' \
+            --output '${{ runner.temp }}/original_full48_COG_source_only'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-original-full48-two-country-2022-reportNPSentinel-pixel-2018-2022
+          path: ${{ runner.temp }}/original_full48_COG_source_only/
+          retention-days: 90
+          if-no-files-found: warn
