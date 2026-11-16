@@ -1,0 +1,64 @@
+name: gesui physically same FR73 river TP EQ vs original plant and butterfly nutrient-affinity
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-fr73-measured-TP-EIV-HNS-unification
+    paths:
+      - 'analysis/20261116_fr73_direct_TP_EIV_HNS/**'
+      - '.github/workflows/gesui-20261116-FR73-TP-EIV-HNS-direct-waterland.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-locked-2018-2022-common-H7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original source numeric libraries
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - name: Retrieve signed previous 73 H7 actual 2018 and 2022 French river TP and EQR
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43373639391
+          name: gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_FR73_TP_EQR
+      - name: Retrieve unchanged 4011 numeric plant species EIV source v2
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EIV_v2
+      - name: Verify exact true FR73 two-period H7 H6 source cohort and test matched original ecological hypotheses only if quality gate passes
+        run: |
+          python -m py_compile analysis/20261116_fr73_direct_TP_EIV_HNS/same73_H7_water_land.py
+          python -u analysis/20261116_fr73_direct_TP_EIV_HNS/same73_H7_water_land.py \
+            --fr '${{ runner.temp }}/original_FR73_TP_EQR' \
+            --eiv '${{ runner.temp }}/original_EIV_v2' \
+            --output '${{ runner.temp }}/gesui_FR73_water_land_new'
+      - name: Independently audit source coefficients and 5fold and 24-parent leaveout predictions via FWL and augmented least-squares
+        run: |
+          python -m py_compile analysis/20261116_fr73_direct_TP_EIV_HNS/independent_FWL_24H6_holdout.py
+          python -u analysis/20261116_fr73_direct_TP_EIV_HNS/independent_FWL_24H6_holdout.py \
+            --fr '${{ runner.temp }}/original_FR73_TP_EQR' \
+            --eiv '${{ runner.temp }}/original_EIV_v2' \
+            --output '${{ runner.temp }}/gesui_FR73_water_land_new'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-FR73-2018-22-realTP-EQR-EIV-N-HNS-original-geography
+          path: ${{ runner.temp }}/gesui_FR73_water_land_new/
+          retention-days: 90
+          if-no-files-found: warn
