@@ -98,7 +98,7 @@ def scene_pair(scene,source):
     with rasterio.Env(GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR",
               CPL_VSIL_CURL_ALLOWED_EXTENSIONS=".tif",
               GDAL_HTTP_MAX_RETRY="2",GDAL_HTTP_RETRY_DELAY="1",
-              GDAL_CACHEMAX="64",VSI_CACHE="TRUE",VSI_CACHE_SIZE="1000000"):
+              GDAL_CACHEMAX=64,VSI_CACHE="TRUE",VSI_CACHE_SIZE=1000000):
       with ExitStack() as st:
         # Original provider STAC references COG asset; no external download or source rehost.
         a={k:st.enter_context(rasterio.open("/vsicurl/"+bands[k][0])) for k in bands}
