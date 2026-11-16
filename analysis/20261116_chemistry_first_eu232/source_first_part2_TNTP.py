@@ -108,7 +108,7 @@ def counts(rows):
             "distinct_H7":len({r["h"] for r in rows}),
             "true_H6":len({r["h6"] for r in rows}),
             "country_groups":len({r["country"] for r in rows}),
-            "qualified_original_WQ_station_years":sum(r["qualified_original_WQ_station_year_n"] for r in rows)}
+            "qualified_original_WQ_station_years":sum(r["n_source_valid_WQ_stations"] for r in rows)}
 
 def main(a):
     a.output.mkdir(parents=True,exist_ok=True)
