@@ -14,7 +14,8 @@ import numpy as np
 import rasterio
 from rasterio.errors import RasterioIOError
 from rasterio.windows import Window,from_bounds
-from rasterio.warp import reproject,Resampling
+from rasterio.warp import reproject
+from rasterio.enums import Resampling
 from pyproj import Transformer
 
 SCHEMA="GESUI_20261116_AT67_RIVER_FIELD_S2_2022_WORLD_COVER_CLASSMATCHED_PIXEL_SOURCE_V1"
