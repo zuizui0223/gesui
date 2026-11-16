@@ -39,6 +39,12 @@ jobs:
           python -u analysis/20261116_aquatic_plant_n_bridge/same_H7_EQR_plantN.py \
             --source '${{ runner.temp }}/original_source_plantEIV' \
             --output '${{ runner.temp }}/genuine_EU451_bridge'
+      - name: Validate same-H7 paired changes in water EQR and plant NUTRI, same EQR method only
+        run: |
+          python -m py_compile analysis/20261116_aquatic_plant_n_bridge/paired_h7_EQR_plantN_temporal.py
+          python -u analysis/20261116_aquatic_plant_n_bridge/paired_h7_EQR_plantN_temporal.py \
+            --source '${{ runner.temp }}/original_source_plantEIV' \
+            --output '${{ runner.temp }}/genuine_EU451_bridge'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
