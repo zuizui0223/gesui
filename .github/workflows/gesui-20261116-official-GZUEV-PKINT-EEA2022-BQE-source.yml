@@ -1,0 +1,46 @@
+name: gesui real Austria GZUEV PKINT IDs exact EEA2022 68 benthic field station source overlap
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - 'analysis/20261116_austria_wisa_official_source/exact_PKINT_EEA2022_benthos_site_crosswalk.py'
+      - '.github/workflows/gesui-20261116-official-GZUEV-PKINT-EEA2022-BQE-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact_official_national_EEA_station_ID_crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original station public geospatial source libraries
+        run: python -m pip install --quiet requests numpy geopandas pyogrio pyproj "shapely>=2,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43856642187
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_true_EEA_AT145_outfall_source
+      - name: Download public original official GZUEV GPKG and check exact PKINT to EEA2022 BQE station IDs without reading organism scores
+        run: |
+          python -m py_compile analysis/20261116_austria_wisa_official_source/exact_PKINT_EEA2022_benthos_site_crosswalk.py
+          python -u analysis/20261116_austria_wisa_official_source/exact_PKINT_EEA2022_benthos_site_crosswalk.py \
+            --outfalls '${{ runner.temp }}/original_true_EEA_AT145_outfall_source' \
+            --output '${{ runner.temp }}/original_PKINT_EEA2022_benthic_site_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-official-GZUEV-PKINT-EEA2022-benthic-station-exact-source-join
+          path: '${{ runner.temp }}/original_PKINT_EEA2022_benthic_site_QA/GZUEV_EEA2022_AT68_EXACT_PKINT_AT145_STATION_SOURCE_JOIN.json'
+          retention-days: 90
+          if-no-files-found: warn
