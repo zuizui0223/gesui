@@ -1,0 +1,45 @@
+{
+  "schema": "GESUI_EEA2026_OFFICIAL_SPATIAL_SITE_SCHEMA_SUCCESS_BRIEF",
+  "original_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43801720735",
+  "original_source_SHA256": "aa505be6f85d06c675e0d0fcb148a9148f80162f8e9590740a887cc95a3e349d",
+  "original_ZIP_bytes": 2797036,
+  "original_spatial_source": [
+    {
+      "original_column_names": [
+        "countryCode",
+        "thematicIdIdentifier",
+        "thematicIdIdentifierScheme",
+        "monitoringSiteIdentifier",
+        "monitoringSiteIdentifierScheme",
+        "monitoringSiteName",
+        "waterBodyIdentifier",
+        "waterBodyIdentifierScheme",
+        "waterBodyName",
+        "specialisedZoneType",
+        "naturalAWBHMWB",
+        "reservoir",
+        "surfaceWaterBodyTypeCode",
+        "subUnitIdentifier",
+        "subUnitIdentifierScheme",
+        "subUnitName",
+        "rbdIdentifier",
+        "rbdIdentifierScheme",
+        "rbdName",
+        "confidentialityStatus",
+        "lat",
+        "lon"
+      ],
+      "original_member_filename": "Waterbase_v2025_1_S_WISE6_SpatialObject_DerivedData.csv",
+      "original_source_csv_rows": 90859,
+      "real_coordinate_or_station_values_not_exported": true,
+      "selected_spatial_id_coordinate_field_nonempty_count": {
+        "lat": 71592,
+        "lon": 71592,
+        "monitoringSiteIdentifier": 88914,
+        "monitoringSiteIdentifierScheme": 88914
+      }
+    }
+  ],
+  "only_source_geography_coverage_not_exact_year_TNTP": true,
+  "no_effects_estimated": true
+}
