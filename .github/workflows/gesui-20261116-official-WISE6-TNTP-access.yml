@@ -1,0 +1,33 @@
+name: gesui 20261116 bounded official EEA Waterbase ICM WISE6 TNTP SQL source probe
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/probe_official_eea_2026_wise6_sql.py'
+      - '.github/workflows/gesui-20261116-official-WISE6-TNTP-access.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  EEA_2026_water_quality_public_api_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded requests only; no model libraries
+        run: python -m pip install --quiet requests
+      - name: Test official public 2026 ICM TN/TP JSON metadata with <=2 source records each
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/probe_official_eea_2026_wise6_sql.py
+          python -u analysis/20261116_reported_np_source/probe_official_eea_2026_wise6_sql.py \
+            --output '${{ runner.temp }}/wise6_probe'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-EEA-2026-waterquality-ICM-SQL-metadata-only
+          path: ${{ runner.temp }}/wise6_probe/
+          retention-days: 90
+          if-no-files-found: warn
