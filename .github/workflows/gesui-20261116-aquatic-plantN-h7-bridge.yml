@@ -1,0 +1,48 @@
+name: EU451 genuine same-H7 aquatic EQR and plant NUTRI coupling diagnostic
+on:
+  push:
+    branches:
+      - analysis/gesui-eu451-aquatic-plantnutri-bridge-20261116
+    paths:
+      - 'analysis/20261116_aquatic_plant_n_bridge/**'
+      - '.github/workflows/gesui-20261116-aquatic-plantN-h7-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-locked-EQR-plantN-original-H7:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install fixed numerical controls
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - name: Recover original EIV 11511-key source v2 and 4011 numeric plant scores
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source_plantEIV
+      - name: Evaluate same-H7 EQR vs PlantN, then EQR after PlantN for butterfly HNS
+        run: |
+          python -m py_compile analysis/20261116_aquatic_plant_n_bridge/same_H7_EQR_plantN.py
+          python -u analysis/20261116_aquatic_plant_n_bridge/same_H7_EQR_plantN.py \
+            --source '${{ runner.temp }}/original_source_plantEIV' \
+            --output '${{ runner.temp }}/genuine_EU451_bridge'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-eu451-source-locked-EQR-plantN-HNS-spatial-bridge
+          path: ${{ runner.temp }}/genuine_EU451_bridge/
+          retention-days: 90
+          if-no-files-found: warn
