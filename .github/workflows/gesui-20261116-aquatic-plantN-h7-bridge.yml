@@ -45,6 +45,12 @@ jobs:
           python -u analysis/20261116_aquatic_plant_n_bridge/paired_h7_EQR_plantN_temporal.py \
             --source '${{ runner.temp }}/original_source_plantEIV' \
             --output '${{ runner.temp }}/genuine_EU451_bridge'
+      - name: Test whether actual reported WWTP upstream-vs-downstream geography explains EQR and plant NUTRI association
+        run: |
+          python -m py_compile analysis/20261116_aquatic_plant_n_bridge/source_report_direction_controls.py
+          python -u analysis/20261116_aquatic_plant_n_bridge/source_report_direction_controls.py \
+            --source '${{ runner.temp }}/original_source_plantEIV' \
+            --output '${{ runner.temp }}/genuine_EU451_bridge'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
