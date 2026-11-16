@@ -139,3 +139,15 @@ The new [water-subsidy vs nutrient-enrichment vs contaminant-stress framework](d
 数値と正負の並列比較、原本ソース/Actions run、曝露尺度の相違は[更新版の証拠台帳](docs/EVIDENCE_LEDGER.md)を参照。**報告施設の年間排出質量／河川の実測栄養塩／モデル排水地理W／植物EIV栄養嗜好はそれぞれ異なる指標**であり、これらを単一「下水が生物多様性や生態系サービスを増やした」因果効果量へ変換しない。
 
 選択ファイルのバイト同一性・PR snapshotは `python scripts/verify_gesui_pr_registry_aquatic.py` で検査する。過去の原本Actions ZIP・EEA/EPA数百万行の第三者データ・過去の多数の解析用workflow YAMLを無差別にmainへ再導入していない。
+
+
+## 同一流域×期間で水・植物・蝶を比較（2026-11-16）
+
+[**水生EQR・植物NUTRI・蝶HNSを同じH7流域×期間で比較した統合証拠面**](docs/EVIDENCE_ONE_PLANE_WATER_PLANT_BUTTERFLY_20261116.md)。元454 H7×期間/232 H7/90真正H6、植物Nと3層が揃う451 H7×期間を保持し、原2018・2022年のEEA底生動物3,525観測局×年の元EQR集計を流域単位で数値再現。上流・下流WWTP報告N/P、標準化した3生物応答のH6留保比較、2018/22の年間排出質量→底生EQRの観測局解析と米国NRSA HUC8の別単位を、原本・停止判定とともに横並びで参照できる。
+
+- [454行の水・植物・蝶・WWTP統合CSV](results/20261116_evidence_plane/EU_H7_PERIOD_454_WATER_PLANT_BUTTERFLY_WWTP_COMMON_PLANE.csv)
+- [同じ451行の6つの標準化・H6留保比較CSV](results/20261116_evidence_plane/EU_H7_451_UNIFORM_W_AND_PAIRWISE_H6_COMPARISON.csv)
+- [異なる地理・曝露尺度の18研究結果クロスウォーク](results/20261116_evidence_plane/STUDY_LEVEL_EVIDENCE_CROSSWALK_NO_POOLING.csv)
+- [全104件PRの原本登録簿（PR #112で既にmainへ統合）](docs/PR_RESEARCH_REGISTER_20261116.csv)
+
+**下水の因果効果は未実証**：Wはモデル地理指標、年別N/Pは施設の報告排出質量、植物NUTRI/蝶HNSは記録された生息地嗜好。米国河床XEMBED、欧州施設N/P、実測河川TN/TPを一つの曝露効果として合算しない。真正H7内の空間対応が正であっても短期時間同調や直接の植物→蝶栄養フラックスは確認されていない。
