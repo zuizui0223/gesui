@@ -1,0 +1,69 @@
+{
+  "schema": "GESUI_20261116_MAIN_SOURCE_VERIFIED_ACTIONS_RESULT_V1",
+  "date": "2026-11-16",
+  "source_run_id": 43718197720,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43718197720",
+  "source_job_id": 132824208940,
+  "source_job_conclusion": "success",
+  "origin": "verbatim structured result from successful original Actions job log; not a new model",
+  "original_source_logs_preserved": true,
+  "noncausal_observational": true,
+  "numerical_result": {
+    "W_to_plant_N": {
+      "Plant_N_incidence": {
+        "H6_CI": [
+          0.11712431789476367,
+          0.3133604428590422
+        ],
+        "H6_MSE_gain": 18.511614763659818,
+        "beta": 0.21524238037690294,
+        "gain95": [
+          7.2758702057876095,
+          28.17047789553367
+        ]
+      },
+      "Plant_N_record": {
+        "H6_CI": [
+          0.17548407675728633,
+          0.4153254711000038
+        ],
+        "H6_MSE_gain": 22.538331229757777,
+        "beta": 0.29540477392864506,
+        "gain95": [
+          11.370565409080678,
+          32.717237904152135
+        ]
+      }
+    },
+    "n_analysis_H7period": 451,
+    "n_country_holdout_groups": 11,
+    "n_true_H6": 90,
+    "plant_N_added_to_butterfly_HNS": {
+      "primary_incidence_mean": {
+        "H6_CI": [
+          0.14457223853183312,
+          0.24653013265434584
+        ],
+        "H6_MSE_gain": 36.55787284760835,
+        "beta": 0.19555118559308948,
+        "gain95": [
+          15.33985185988966,
+          49.51290447381212
+        ]
+      },
+      "primary_record_mean": {
+        "H6_CI": [
+          0.13105316417727603,
+          0.3316559036934359
+        ],
+        "H6_MSE_gain": 8.306663619839126,
+        "beta": 0.23135453393535596,
+        "gain95": [
+          -5.902600110782319,
+          19.46752543912145
+        ]
+      }
+    },
+    "status": "SOURCE_QUALITY_GATE_PASS_POSTHOC_OBSERVATIONAL_ASSOCIATIONS"
+  }
+}
