@@ -1,0 +1,45 @@
+{
+  "2016_NP_BQE_model_P_value_not_fit": true,
+  "2016_modelled_point_source_is_NOT_measured_2016_POTW_annual_NP_outfall_mass": true,
+  "2022_2018_positive_BQE_EEA_observation_values_NOT_read": true,
+  "GDB_original_file_list_first15": [
+    "greenBasinLoad_vrsApr2024.gdb/",
+    "greenBasinLoad_vrsApr2024.gdb/a00000001.gdbindexes",
+    "greenBasinLoad_vrsApr2024.gdb/a00000001.gdbtable",
+    "greenBasinLoad_vrsApr2024.gdb/a00000001.gdbtablx",
+    "greenBasinLoad_vrsApr2024.gdb/a00000001.TablesByName.atx",
+    "greenBasinLoad_vrsApr2024.gdb/a00000002.gdbtable",
+    "greenBasinLoad_vrsApr2024.gdb/a00000002.gdbtablx",
+    "greenBasinLoad_vrsApr2024.gdb/a00000003.gdbindexes",
+    "greenBasinLoad_vrsApr2024.gdb/a00000003.gdbtable",
+    "greenBasinLoad_vrsApr2024.gdb/a00000003.gdbtablx",
+    "greenBasinLoad_vrsApr2024.gdb/a00000004.CatItemsByPhysicalName.atx",
+    "greenBasinLoad_vrsApr2024.gdb/a00000004.CatItemsByType.atx",
+    "greenBasinLoad_vrsApr2024.gdb/a00000004.FDO_UUID.atx",
+    "greenBasinLoad_vrsApr2024.gdb/a00000004.freelist",
+    "greenBasinLoad_vrsApr2024.gdb/a00000004.gdbindexes"
+  ],
+  "JRC_GREEN_NP_values_are_at_river_basin_SEA_OUTLETS_not_EEA_upstream_site": true,
+  "UTC": "2026-11-11T06:00:57.832454+00:00",
+  "ZIP_GDB_top_folder": "greenBasinLoad_vrsApr2024.gdb",
+  "ZIP_file_count": 67,
+  "ZIP_uncompressed_bytes": 89231091,
+  "official_OPEN_public_ArcGIS_GDB_layers": [],
+  "official_archive_SHA256": "a700e14eea562f3e667ae20567e3dc604f5fedb31dc3baabbac6cef80ac35b42",
+  "official_archive_bytes": 47068808,
+  "official_original_2026_JRC_BasinModel_GDB_url": "https://arcgis-maps.jrc.ec.europa.eu/portal/sharing/rest/content/items/8b105c72109243798913853ad9d05072/data",
+  "open_source_GDAL_layer_read_failures": [
+    {
+      "candidate": "OpenFileGDB auto",
+      "detail": "'/tmp/gesuiJRC2016/extracted/greenBasinLoad_vrsApr2024.gdb' not recognized as being in a supported file format.; It might help to specify the correct driver explicitly by prefixing the file path with '<DRIVER>:', e.g. 'CSV:path'.",
+      "error_type": "DataSourceError"
+    },
+    {
+      "candidate": "FileGDB explicit",
+      "detail": "FileGDB:/tmp/gesuiJRC2016/extracted/greenBasinLoad_vrsApr2024.gdb: No such file or directory",
+      "error_type": "DataSourceError"
+    }
+  ],
+  "schema": "gesui_original_JRC_GREEN_1990to2021_basin_pointsource_2016_GDB_schema_SOURCE_ONLY_v01",
+  "source_source_access_status": "SOURCE_FORMAT_BLOCKER_FILEGDB_CDF_not_readable_with_available_driver"
+}

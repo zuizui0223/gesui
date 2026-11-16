@@ -1,0 +1,456 @@
+{
+  "UTC": "2026-11-11T06:35:24.696798+00:00",
+  "never_call_2016_modelled_POINT_NP_a_2016_actual_WWTP_effluent": true,
+  "new_effects_are_posthoc_predictive_and_observational_not_causal": true,
+  "original_2016_EEA_NUTS2_disjoint_preoutcome_fold_SHA256": "48fcda7c2e23535e19ff519b140c964de7b051fa7ccff272309189cdbcbd7545",
+  "original_2016_actual_BQE_EQR_2014_18_JRC_source_result_SHA256": "60f6628757663b2fbe6dfd08f0d382c9ae3bace487cdb0dfa15ddca9f77966d3",
+  "schema": "gesui_EEA2016_JRC2014to18_GREEN_pointNP_79NUTS2_2016realBQE_independent_offline_region_country_influence_QA_v01",
+  "source_first_original_2016_EEA_BQE_GISCO_JRC_NP_SHA256": "ccebcb00dc935c27c8ead04690eaaf104eeda1d7c10a25bbdf5e4a67360b3c11",
+  "source_only_original_2016_BQE_correct_year_and_2014to18_JRC_modelled_source": true,
+  "source_results_AUDIT_independently_from_archived_region_OOS_error_data": {
+    "benthic_invertebrates": {
+      "N_predictor_LOO_country_positive_count": 12,
+      "N_predictor_country_with_positive_gain_count": 7,
+      "P_predictor_LOO_country_positive_count": 11,
+      "P_predictor_country_with_positive_gain_count": 7,
+      "country_2016_modelled_load_forecast_influence": {
+        "AT": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -4.0415216053651,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -2.3399490084620216,
+          "NUP_baseline_MSE": 0.030683153933019375,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 76,
+          "original_green_NUTS2_independent_region_count": 8
+        },
+        "BE": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 17.581512652964946,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 24.55538618803894,
+          "NUP_baseline_MSE": 0.07279906741087237,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 99,
+          "original_green_NUTS2_independent_region_count": 9
+        },
+        "FR": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -0.10314523401518035,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -1.5155690152743444,
+          "NUP_baseline_MSE": 0.057575311231929695,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 1461,
+          "original_green_NUTS2_independent_region_count": 17
+        },
+        "HR": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -40.876225732068285,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -44.40092137967926,
+          "NUP_baseline_MSE": 0.030486042532383788,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 18,
+          "original_green_NUTS2_independent_region_count": 2
+        },
+        "HU": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -0.6736663507209601,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -1.0781185674155196,
+          "NUP_baseline_MSE": 0.03256703360063341,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 158,
+          "original_green_NUTS2_independent_region_count": 6
+        },
+        "IT": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 8.383718870316018,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 3.282002904240241,
+          "NUP_baseline_MSE": 0.04393330205201174,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 250,
+          "original_green_NUTS2_independent_region_count": 8
+        },
+        "LT": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 23.868436894752698,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 20.04245907606854,
+          "NUP_baseline_MSE": 0.031022822058583033,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 98,
+          "original_green_NUTS2_independent_region_count": 2
+        },
+        "LU": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 53.68131137702346,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 89.16412246938984,
+          "NUP_baseline_MSE": 0.0006588657247649989,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 1,
+          "original_green_NUTS2_independent_region_count": 1
+        },
+        "LV": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -20.021616295548426,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -3.5997026476654663,
+          "NUP_baseline_MSE": 0.040200292203747906,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 30,
+          "original_green_NUTS2_independent_region_count": 1
+        },
+        "NL": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 1.3773762267370966,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 11.684667633447761,
+          "NUP_baseline_MSE": 0.010001901591688619,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 74,
+          "original_green_NUTS2_independent_region_count": 6
+        },
+        "NO": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 5.9691640814676505,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 6.3667567130879705,
+          "NUP_baseline_MSE": 0.05893930431977978,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 159,
+          "original_green_NUTS2_independent_region_count": 6
+        },
+        "SE": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 7.236999166562628,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 1.1509681039928183,
+          "NUP_baseline_MSE": 0.09168892659458953,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 11,
+          "original_green_NUTS2_independent_region_count": 7
+        }
+      },
+      "five_frozen_NUTS2_fold_honest_source_prediction_gains": {
+        "1": {
+          "N_gain_pct": -3.7137172002995453,
+          "P_gain_pct": -5.019847584131357,
+          "test_independent_NUTS2_regions": 14,
+          "test_sites": 488
+        },
+        "2": {
+          "N_gain_pct": 1.0162510265235056,
+          "P_gain_pct": 0.7600785372026251,
+          "test_independent_NUTS2_regions": 13,
+          "test_sites": 478
+        },
+        "3": {
+          "N_gain_pct": -2.4790322531748505,
+          "P_gain_pct": -2.1231160283099153,
+          "test_independent_NUTS2_regions": 15,
+          "test_sites": 485
+        },
+        "4": {
+          "N_gain_pct": 8.183306136071453,
+          "P_gain_pct": 6.913004536351533,
+          "test_independent_NUTS2_regions": 16,
+          "test_sites": 494
+        },
+        "5": {
+          "N_gain_pct": 8.406615143903352,
+          "P_gain_pct": 6.331644255874348,
+          "test_independent_NUTS2_regions": 15,
+          "test_sites": 490
+        }
+      },
+      "independent_siteequal_and_NUTS2equal_MSE": {
+        "baseline": {
+          "NUTS2_equal": 0.049622441135499185,
+          "site_equal": 0.05162266741711285
+        },
+        "upstream_modelPointN": {
+          "NUTS2_equal": 0.04791029498360524,
+          "site_equal": 0.050441938775188266
+        },
+        "upstream_modelPointP": {
+          "NUTS2_equal": 0.048231000459205094,
+          "site_equal": 0.050898679131210635
+        }
+      },
+      "leave_one_country_out_on_ALREADY_FROZEN_CV_PREDICTIONS_not_retrained": {
+        "AT": {
+          "N_source_prediction_gain_percent": 2.4068547621955707,
+          "P_source_prediction_gain_percent": 1.4732008445717164,
+          "remaining_site_n": 2359
+        },
+        "BE": {
+          "N_source_prediction_gain_percent": 1.356992344198316,
+          "P_source_prediction_gain_percent": -0.00575695060555011,
+          "remaining_site_n": 2336
+        },
+        "FR": {
+          "N_source_prediction_gain_percent": 7.122598342025017,
+          "P_source_prediction_gain_percent": 7.305201838114119,
+          "remaining_site_n": 974
+        },
+        "HR": {
+          "N_source_prediction_gain_percent": 2.476485371627253,
+          "P_source_prediction_gain_percent": 1.6032934568581139,
+          "remaining_site_n": 2417
+        },
+        "HU": {
+          "N_source_prediction_gain_percent": 2.413606889529371,
+          "P_source_prediction_gain_percent": 1.5083388854426694,
+          "remaining_site_n": 2277
+        },
+        "IT": {
+          "N_source_prediction_gain_percent": 1.7035385293211853,
+          "P_source_prediction_gain_percent": 1.2225108591714937,
+          "remaining_site_n": 2185
+        },
+        "LT": {
+          "N_source_prediction_gain_percent": 1.7523239035853602,
+          "P_source_prediction_gain_percent": 0.9404567848202939,
+          "remaining_site_n": 2337
+        },
+        "LU": {
+          "N_source_prediction_gain_percent": 2.286959658294392,
+          "P_source_prediction_gain_percent": 1.4020019772986643,
+          "remaining_site_n": 2434
+        },
+        "LV": {
+          "N_source_prediction_gain_percent": 2.5033391097154314,
+          "P_source_prediction_gain_percent": 1.4509189133883502,
+          "remaining_site_n": 2405
+        },
+        "NL": {
+          "N_source_prediction_gain_percent": 2.2926180749415965,
+          "P_source_prediction_gain_percent": 1.3415607772781166,
+          "remaining_site_n": 2361
+        },
+        "NO": {
+          "N_source_prediction_gain_percent": 1.9906181480204548,
+          "P_source_prediction_gain_percent": 1.0025462100633307,
+          "remaining_site_n": 2276
+        },
+        "SE": {
+          "N_source_prediction_gain_percent": 2.2471927495228545,
+          "P_source_prediction_gain_percent": 1.4044961966910638,
+          "remaining_site_n": 2424
+        }
+      },
+      "no_2016_measured_WWTP_load_or_causal_claim": true,
+      "original_2016_EEA_benthic_NUTS2_region_count": 73,
+      "original_2016_EEA_numeric_BQE_sites": 2435,
+      "original_EEA_COUNTRY_count": 12,
+      "original_NUTS2_frozen_folds_must_not_overlap": true,
+      "region_equal_raw_ecological_EQR_correlations_with_model_point_NP": {
+        "modelled_regionequal_N_EQR_spearman": -0.39017617494119883,
+        "modelled_regionequal_P_EQR_spearman": -0.4574989974717773
+      },
+      "regional_original_2014to18_JRC_modelled_PsN_vs_PsP_spearman_collinearity": 0.9130260397383687
+    },
+    "phytobenthos": {
+      "N_predictor_LOO_country_positive_count": 0,
+      "N_predictor_country_with_positive_gain_count": 4,
+      "P_predictor_LOO_country_positive_count": 0,
+      "P_predictor_country_with_positive_gain_count": 3,
+      "country_2016_modelled_load_forecast_influence": {
+        "AT": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -2.6386433534382117,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -4.218028269015462,
+          "NUP_baseline_MSE": 0.023837862547837353,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 4,
+          "original_green_NUTS2_independent_region_count": 1
+        },
+        "BE": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -3.526914982023112,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -6.0495673530608025,
+          "NUP_baseline_MSE": 0.0383160749798256,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 73,
+          "original_green_NUTS2_independent_region_count": 6
+        },
+        "EE": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 4.412998860155541,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 7.486825893189842,
+          "NUP_baseline_MSE": 0.04436305584717648,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 10,
+          "original_green_NUTS2_independent_region_count": 1
+        },
+        "FR": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -1.0531704789761764,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -1.0399687132173894,
+          "NUP_baseline_MSE": 0.03624197939068381,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 1446,
+          "original_green_NUTS2_independent_region_count": 17
+        },
+        "HR": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -2.4221324997683875,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -4.255128132182171,
+          "NUP_baseline_MSE": 0.026395942528304,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 15,
+          "original_green_NUTS2_independent_region_count": 2
+        },
+        "HU": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -1.135679137022909,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -0.4118268927251524,
+          "NUP_baseline_MSE": 0.021539749395118924,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 254,
+          "original_green_NUTS2_independent_region_count": 6
+        },
+        "IT": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -3.37604880806338,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -2.746072175834164,
+          "NUP_baseline_MSE": 0.032672100798098576,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 192,
+          "original_green_NUTS2_independent_region_count": 8
+        },
+        "LT": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -7.024624995238534,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -6.67298512283454,
+          "NUP_baseline_MSE": 0.006125818978238304,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 95,
+          "original_green_NUTS2_independent_region_count": 2
+        },
+        "LV": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": -4.177845875926748,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -5.198421928351865,
+          "NUP_baseline_MSE": 0.018690618260775074,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 18,
+          "original_green_NUTS2_independent_region_count": 1
+        },
+        "NO": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 0.9536075803995985,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 2.2935720569121956,
+          "NUP_baseline_MSE": 0.061896798060766624,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 34,
+          "original_green_NUTS2_independent_region_count": 5
+        },
+        "SE": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 0.14301807740650568,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": -1.0259078648532256,
+          "NUP_baseline_MSE": 0.05904612273574682,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 16,
+          "original_green_NUTS2_independent_region_count": 7
+        },
+        "SI": {
+          "NUP_N_2014to18_pointsource_OOS_gain_percent": 2.1779214435323886,
+          "NUP_P_2014to18_pointsource_OOS_gain_percent": 1.5161454175525517,
+          "NUP_baseline_MSE": 0.029331566107922268,
+          "not_country_randomized_WWTP_treatment": true,
+          "original_2016_EEA_benthic_numeric_sites_in_country": 4,
+          "original_green_NUTS2_independent_region_count": 2
+        }
+      },
+      "five_frozen_NUTS2_fold_honest_source_prediction_gains": {
+        "1": {
+          "N_gain_pct": 0.3388470570364755,
+          "P_gain_pct": 0.15640023327315095,
+          "test_independent_NUTS2_regions": 9,
+          "test_sites": 431
+        },
+        "2": {
+          "N_gain_pct": -1.2451733021612152,
+          "P_gain_pct": -1.4344184829687612,
+          "test_independent_NUTS2_regions": 11,
+          "test_sites": 418
+        },
+        "3": {
+          "N_gain_pct": 0.1836660744901602,
+          "P_gain_pct": -0.934427478878336,
+          "test_independent_NUTS2_regions": 13,
+          "test_sites": 448
+        },
+        "4": {
+          "N_gain_pct": -3.643330557517102,
+          "P_gain_pct": -2.6617807495361303,
+          "test_independent_NUTS2_regions": 14,
+          "test_sites": 450
+        },
+        "5": {
+          "N_gain_pct": -3.129665494029256,
+          "P_gain_pct": -2.0529669252411997,
+          "test_independent_NUTS2_regions": 11,
+          "test_sites": 414
+        }
+      },
+      "independent_siteequal_and_NUTS2equal_MSE": {
+        "baseline": {
+          "NUTS2_equal": 0.035522436963121476,
+          "site_equal": 0.033302626475027824
+        },
+        "upstream_modelPointN": {
+          "NUTS2_equal": 0.035233298577671705,
+          "site_equal": 0.033741302232844085
+        },
+        "upstream_modelPointP": {
+          "NUTS2_equal": 0.03567414781300659,
+          "site_equal": 0.03372494642556079
+        }
+      },
+      "leave_one_country_out_on_ALREADY_FROZEN_CV_PREDICTIONS_not_retrained": {
+        "AT": {
+          "N_source_prediction_gain_percent": -1.3154876299601441,
+          "P_source_prediction_gain_percent": -1.2642144518633984,
+          "remaining_site_n": 2157
+        },
+        "BE": {
+          "N_source_prediction_gain_percent": -1.2278865236533978,
+          "P_source_prediction_gain_percent": -1.074777532231441,
+          "remaining_site_n": 2088
+        },
+        "EE": {
+          "N_source_prediction_gain_percent": -1.3527830957747977,
+          "P_source_prediction_gain_percent": -1.3224315183576545,
+          "remaining_site_n": 2151
+        },
+        "FR": {
+          "N_source_prediction_gain_percent": -2.0247090178381693,
+          "P_source_prediction_gain_percent": -1.8793877760259163,
+          "remaining_site_n": 715
+        },
+        "HR": {
+          "N_source_prediction_gain_percent": -1.3111283358493702,
+          "P_source_prediction_gain_percent": -1.2516036333666112,
+          "remaining_site_n": 2146
+        },
+        "HU": {
+          "N_source_prediction_gain_percent": -1.3321791064053559,
+          "P_source_prediction_gain_percent": -1.3385821409780072,
+          "remaining_site_n": 1907
+        },
+        "IT": {
+          "N_source_prediction_gain_percent": -1.1206473409714628,
+          "P_source_prediction_gain_percent": -1.1270007552968595,
+          "remaining_site_n": 1969
+        },
+        "LT": {
+          "N_source_prediction_gain_percent": -1.2707123600192989,
+          "P_source_prediction_gain_percent": -1.2240659907366969,
+          "remaining_site_n": 2066
+        },
+        "LV": {
+          "N_source_prediction_gain_percent": -1.3038051612305304,
+          "P_source_prediction_gain_percent": -1.2496684305345314,
+          "remaining_site_n": 2143
+        },
+        "NO": {
+          "N_source_prediction_gain_percent": -1.385646250744601,
+          "P_source_prediction_gain_percent": -1.375418349512289,
+          "remaining_site_n": 2127
+        },
+        "SE": {
+          "N_source_prediction_gain_percent": -1.3366650889468783,
+          "P_source_prediction_gain_percent": -1.2713500720040232,
+          "remaining_site_n": 2145
+        },
+        "SI": {
+          "N_source_prediction_gain_percent": -1.3229481180371045,
+          "P_source_prediction_gain_percent": -1.2726746137728813,
+          "remaining_site_n": 2157
+        }
+      },
+      "no_2016_measured_WWTP_load_or_causal_claim": true,
+      "original_2016_EEA_benthic_NUTS2_region_count": 58,
+      "original_2016_EEA_numeric_BQE_sites": 2161,
+      "original_EEA_COUNTRY_count": 12,
+      "original_NUTS2_frozen_folds_must_not_overlap": true,
+      "region_equal_raw_ecological_EQR_correlations_with_model_point_NP": {
+        "modelled_regionequal_N_EQR_spearman": -0.25023839552124033,
+        "modelled_regionequal_P_EQR_spearman": -0.26752591590021224
+      },
+      "regional_original_2014to18_JRC_modelled_PsN_vs_PsP_spearman_collinearity": 0.9208219262358117
+    }
+  }
+}
