@@ -104,8 +104,25 @@ def reconstructed_original_gbif_community(root,panel,oldroster,score):
                 if B[j,ix[k]]:raise RuntimeError("Original one butterfly species counted more than once in basin")
                 B[j,ix[k]]=int(v)
         total.append(count)
-    if (int(B.sum()),sum(total))!=(4318269,4400147):
-        raise RuntimeError("Original butterfly GBIF 454 source reconstructed denominator not authentic")
+    # The paired-plant EIV source gate retains 447/454 original H7×periods.
+    # The total 4,318,269/4,400,147 source record identity is verified by
+    # genuine_original_data on the FULL 454 before this subset reconstruction.
+    if not (0<int(B.sum())<=4318269 and 0<sum(total)<=4400147):
+        raise RuntimeError("Original 447-source paired EIV GBIF butterflies exceed true 454 original")
+    original_clean=(oldroster.taxon_status.astype(str)=="ACCEPTED") & (
+        ~oldroster.actual_used_alias_conflict.astype(str).str.lower().isin(["true","1","yes"]))
+    originalN=oldroster.host_nutrient_mean.to_numpy(float)
+    originalMask=(original_clean.to_numpy() & np.isfinite(originalN))
+    if originalMask.sum()!=186:
+        raise RuntimeError("Original accepted HNS source scored set changed on paired 447 EIV cohort")
+    b_orig=B[:,originalMask]
+    original_record_score=(b_orig@originalN[originalMask])/b_orig.sum(axis=1)
+    original_incidence_score=((b_orig>0)@originalN[originalMask])/(b_orig>0).sum(axis=1)
+    source_maxabs=max(
+        float(np.max(np.abs(original_record_score-panel.primary_record_mean.to_numpy(float)))),
+        float(np.max(np.abs(original_incidence_score-panel.primary_incidence_mean.to_numpy(float)))))
+    if source_maxabs>1e-10:
+        raise RuntimeError("Original source 447 subcohort cannot reproduce source-verified 2022 HNS record/incidence scores "+str(source_maxabs))
     C=B[:,mask];P=(C>0);n=P.sum(axis=1);nr=C.sum(axis=1)
     with np.errstate(divide="ignore",invalid="ignore"):
         panel["Bfly_same_host_N_incidence"]=np.divide(P@N,n,
