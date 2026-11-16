@@ -1,0 +1,465 @@
+{
+  "schema": "GESUI_20261116_POST112_ONE_PLANE_CURATED_SOURCE_ORIGINAL_BLOBS_V1",
+  "source_main_after_PR112_merge": "6a0ebac1274f23cd202e2f515176b6d77d264b54",
+  "PR112_aquatic_original_218_assets_already_in_main": true,
+  "number_of_previous_historical_PR_original_blobs_newly_preserved": 83,
+  "source_sha_all_match_current_one_plane_branch": true,
+  "science_PRs_covered": [
+    90,
+    92,
+    93,
+    96,
+    107,
+    108,
+    109,
+    110
+  ],
+  "source_original_github_PR_changed_file_blobs": [
+    {
+      "path": "analysis/20261115_crosslayer_residuals/recompute.py",
+      "sha": "f44a94e10d530eefaa534454ebf99a73354b2dec",
+      "source_pr": 96
+    },
+    {
+      "path": "analysis/20261115_np_conditional/README.md",
+      "sha": "f06d1b7cc9219181684fdf6430aa4316fdde4f4c",
+      "source_pr": 93
+    },
+    {
+      "path": "analysis/20261115_np_conditional/scripts/conditional_source.py",
+      "sha": "746a4f336155751e78a013393c09b13b8ebb652b",
+      "source_pr": 93
+    },
+    {
+      "path": "analysis/20261115_np_conditional/scripts/source_transition_audit.py",
+      "sha": "6f14ca32a40b9a65d245a75c9ef598895829001a",
+      "source_pr": 93
+    },
+    {
+      "path": "analysis/20261115_np_conditional/scripts/validate_saved.py",
+      "sha": "e4f8143639718edf372843156a3b2792a493c0ab",
+      "source_pr": 93
+    },
+    {
+      "path": "analysis/20261115_np_conditional/scripts/verify_against_original.py",
+      "sha": "d997bb8b45fa06244285df0228e1696bd888d76a",
+      "source_pr": 93
+    },
+    {
+      "path": "analysis/20261115_np_conditional/tests/test_conditional.py",
+      "sha": "fec4f30b3d673c5ff52644a271d31b30e77adf32",
+      "source_pr": 93
+    },
+    {
+      "path": "analysis/20261115_np_conditional/tests/test_transition.py",
+      "sha": "59a123621f3a07bffa1aeb8bcdfa9936f0320a55",
+      "source_pr": 93
+    },
+    {
+      "path": "analysis/20261115_np_direction/REPRODUCE.md",
+      "sha": "70fe963b7149869757e6e74bf229a0882d112dbd",
+      "source_pr": 92
+    },
+    {
+      "path": "analysis/20261115_np_direction/scripts/analyze_placebo.py",
+      "sha": "de57598bc36ba875573748dc8d5486ba951509c9",
+      "source_pr": 92
+    },
+    {
+      "path": "analysis/20261115_np_direction/scripts/independent_sklearn_qa.py",
+      "sha": "18b288cc3f9035e8ca280fac679a7ef63bb928aa",
+      "source_pr": 92
+    },
+    {
+      "path": "analysis/20261115_np_direction/scripts/source_compare.py",
+      "sha": "5b416b53407bae76d300b836122ae3b2853ee106",
+      "source_pr": 92
+    },
+    {
+      "path": "analysis/20261115_np_direction/scripts/validate_results.py",
+      "sha": "84cf395022afc99b7e447b1fffa883f00403d5fe",
+      "source_pr": 92
+    },
+    {
+      "path": "analysis/20261115_np_direction/tests/test_analysis_placebo.py",
+      "sha": "abad56146becad071432c08b2287d25c721b42ac",
+      "source_pr": 92
+    },
+    {
+      "path": "analysis/20261115_np_direction/tests/test_source_compare.py",
+      "sha": "a9f3824b55159079a3fb0754f525a72b41ed181b",
+      "source_pr": 92
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/README.md",
+      "sha": "d7be9027118e9479184ab922ec338ad81bbc75dd",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/scripts/analyze_reported_np.py",
+      "sha": "8cf13c954114467fd6b91818336ba67d007516ad",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/scripts/compare_against_archive.py",
+      "sha": "65b4ec308e7170ae5362dc09dcb2f7cf97a3a412",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/scripts/independent_sklearn_qa.py",
+      "sha": "f76fdf9fe2697aa6888426707cf5f3bdec2f5974",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/scripts/selection_sensitivity.py",
+      "sha": "4ca6dfdef95cfeb1176ad63d96d88b8035104afc",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/scripts/source_join.py",
+      "sha": "92e0a6b582108178a5f37b25d6ed49124aca60f7",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/scripts/validate_results.py",
+      "sha": "dac9ca696a4f03e8dea10670cc91eccc2ce37254",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/tests/test_model.py",
+      "sha": "1733867a8597743ab2ee199200f63cecf95fb0f1",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261115_reported_np_hns/tests/test_source_join.py",
+      "sha": "ddf62cc549cce70fbfd1d6cd1669fe90e518e88c",
+      "source_pr": 90
+    },
+    {
+      "path": "analysis/20261116_aquatic_plant_n_bridge/independent_numeric_qa.py",
+      "sha": "ac52394323a42e37976f5a7db8e38d15c1de0989",
+      "source_pr": 110
+    },
+    {
+      "path": "analysis/20261116_aquatic_plant_n_bridge/paired_h7_EQR_plantN_temporal.py",
+      "sha": "88ae39e4e2cb5523162cc5eb28a2d981a620b2ba",
+      "source_pr": 110
+    },
+    {
+      "path": "analysis/20261116_aquatic_plant_n_bridge/same_H7_EQR_plantN.py",
+      "sha": "9d01c69a6b669610fe7f068a8bce4363caeb7ed3",
+      "source_pr": 110
+    },
+    {
+      "path": "analysis/20261116_aquatic_plant_n_bridge/source_report_direction_controls.py",
+      "sha": "b1b890f6ca632bc2f1da945dfcf79f401232b961",
+      "source_pr": 110
+    },
+    {
+      "path": "analysis/20261116_directional_reported_np/conditional_models.py",
+      "sha": "f0ffd38954ffb3d28246972334f5f71a92fc484b",
+      "source_pr": 108
+    },
+    {
+      "path": "analysis/20261116_directional_reported_np/independent_numerical_qa.py",
+      "sha": "804d7d4f2b5e03ed2569f10cadeec1832c4e69ca",
+      "source_pr": 108
+    },
+    {
+      "path": "analysis/20261116_directional_reported_np/source_gate.py",
+      "sha": "ad0fb632e0862e95e9645aef45862318fe956b30",
+      "source_pr": 108
+    },
+    {
+      "path": "analysis/20261116_terminal_falsifiers/fixed_record_and_urban.py",
+      "sha": "fbe09ab010b39c34c7a2c868b6be5542de6c7721",
+      "source_pr": 109
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_ANNUAL_NP_SOURCE_DIRECTION_NEGATIVE_CONTROL.md",
+      "sha": "19fa42546bbe69c8ea5b45d878cff6d6cd09af8c",
+      "source_pr": 92
+    },
+    {
+      "path": "docs/PROTOCOL_20261116_DIRECTIONAL_REPORTED_NP_PLANT_NUTRI_BUTTERFLY_HNS.md",
+      "sha": "f1631f3454f75b63db25036f856662beb8b715f5",
+      "source_pr": 108
+    },
+    {
+      "path": "docs/PROTOCOL_20261116_EEA2026_BIOLOGY_WQ_SPATIAL_MATCH_SOURCE_ONLY.md",
+      "sha": "cf757ba3cea9224ff936c3c39179c5a7dca4e023",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/PROTOCOL_20261116_EEA2026_PART1_PART2_EXACT_STATION_TNTP_UNION_GATE.md",
+      "sha": "6c7392e50d199e258830f034f9e5cb78fee0b9c1",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/PROTOCOL_20261116_EEA2026_SINGLE_TN_TP_SOURCE_REPLICATION_POSTHOC.md",
+      "sha": "a442f46e03acf142c14bb0683bed7eb0b1091e51",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/PROTOCOL_20261116_EEA2026_WQ_SPATIAL_STATION_METADATA_GATE.md",
+      "sha": "6ab9748cd5ea6435d1aeb7fda0837319abec2b47",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/PROTOCOL_20261116_OFFICIAL_H7_WQ_NEARBY_SITE_SOURCE_GATE.md",
+      "sha": "8bab5562cd8f034fce5f248cf20bdd4bfd5a433d",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/PROTOCOL_20261116_TRUE_H6_EEA_REPORTED_NP_SOURCE_GATE.md",
+      "sha": "7309bc7271c7a58aeeba12c28e8445c32817549b",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/RESULTS_20261115_CROSSLAYER_H6_RESIDUAL_NONCAUSAL.md",
+      "sha": "09cc9a20dad22a32488f637d51f5db40a1240bad",
+      "source_pr": 96
+    },
+    {
+      "path": "docs/RESULTS_20261115_EEA_WWTP_ANNUAL_UPDOWN_NEGATIVE_CONTROL.md",
+      "sha": "5ee9bb6e3fb90ba8dd678971e1630439b4eb0c94",
+      "source_pr": 92
+    },
+    {
+      "path": "docs/RESULTS_20261115_NP_CONDITIONAL_UP_DOWN_NEGATIVE_CONTROL.md",
+      "sha": "3ef080b646c0c83b5ad4a4655b600891af02540a",
+      "source_pr": 93
+    },
+    {
+      "path": "docs/RESULTS_20261116_DIRECTIONAL_REPORTED_NP_PLANT_NUTRI_BUTTERFLY_HNS.md",
+      "sha": "b9c3d78b3752fe0fc573a5bdc25bab27e22a19f0",
+      "source_pr": 108
+    },
+    {
+      "path": "docs/RESULTS_20261116_EEA_REPORTED_NP_183H7_40H6_SOURCE_GATE.md",
+      "sha": "2a9c14c63e8efaac23ae53c042cf149c158bfcf7",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/RESULTS_20261116_EEA2026_OFFICIAL_PART1_PART2_FINAL_SOURCE.md",
+      "sha": "9601271efa58f363c7086dd896cf16b83820be93",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/RESULTS_20261116_EEA2026_OFFICIAL_PART2_TNTP_SOURCE_QA.md",
+      "sha": "17cfbbfbb0a5b0429f54ef67b776247cef301881",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/RESULTS_20261116_EEA2026_WQ_NEARBY_H7_WWTP_REPORT_HARD_CEILING.md",
+      "sha": "84c490eb95364e26ba2337cd5e7aa082b6891c47",
+      "source_pr": 107
+    },
+    {
+      "path": "docs/RESULTS_20261116_EU451_WATER_LAND_NUTRI_BRIDGE.md",
+      "sha": "82dbad4b126832409d92b6203763e1d2ec4669a3",
+      "source_pr": 110
+    },
+    {
+      "path": "docs/RESULTS_20261116_TERMINAL_THREE_FALSIFIERS_AND_MANUSCRIPT_SPLIT.md",
+      "sha": "a45238545f6ec37e0c9dc40c8d7e74f55f1b42ad",
+      "source_pr": 109
+    },
+    {
+      "path": "docs/RESULTS_20261116_WATER_LAND_TEMPORAL_AND_NP_DIRECTIONAL_FALSIFIERS.md",
+      "sha": "e988903b9f0adbdaa682369f2de53c80f78c2ea4",
+      "source_pr": 110
+    },
+    {
+      "path": "results/20261115_crosslayer_residuals/ORIGINAL_JS_DIAGNOSTIC.json",
+      "sha": "96faa4555d10fbd40b36927d95161aeb51257ac1",
+      "source_pr": 96
+    },
+    {
+      "path": "results/20261115_np_conditional/CONDITIONAL_NEGATIVE_CONTROL_RESULTS.json",
+      "sha": "17b438cf07741ee2b03e9bcda7729fd8004d3ab4",
+      "source_pr": 93
+    },
+    {
+      "path": "results/20261115_np_conditional/CONDITIONAL_SOURCE_H6_COMPARISONS.csv",
+      "sha": "4fceb5c0bd2e4be2ca58565371e6d933f1bd5a08",
+      "source_pr": 93
+    },
+    {
+      "path": "results/20261115_np_conditional/INDEPENDENT_ARCHIVED_MSE_AUDIT.json",
+      "sha": "6d2e1369763b9cee6eba255a4d44191849402afd",
+      "source_pr": 93
+    },
+    {
+      "path": "results/20261115_np_conditional/INDEPENDENT_SKLEARN_QA.json",
+      "sha": "614a21f0101764b727574a23eda1cef37ae5307f",
+      "source_pr": 93
+    },
+    {
+      "path": "results/20261115_np_conditional/SOURCE_DIRECTION_COUNTRY_COUNTS.csv",
+      "sha": "7a3e11836f4bf4764376acefaed3826fc07e8cb5",
+      "source_pr": 93
+    },
+    {
+      "path": "results/20261115_np_conditional/SOURCE_REPORT_PAIRED_PERIOD_TRANSITIONS.json",
+      "sha": "68989bb6b8e2bc660413e8ab27bd9f2be66a5ad5",
+      "source_pr": 93
+    },
+    {
+      "path": "results/20261115_np_direction/DIRECTIONAL_NEGATIVE_CONTROL_MODEL_SUMMARY.csv",
+      "sha": "2da4c79a40db64f6672805c1eddb166660a51592",
+      "source_pr": 92
+    },
+    {
+      "path": "results/20261115_np_direction/DIRECTIONAL_NEGATIVE_CONTROL_RESULTS.json",
+      "sha": "bbfa9a3fcd26f6f5fca2402f795322426e8309f3",
+      "source_pr": 108
+    },
+    {
+      "path": "results/20261115_np_direction/H7_454_DIRECTIONAL_SOURCE_AUDIT_PANEL.csv",
+      "sha": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+      "source_pr": 110
+    },
+    {
+      "path": "results/20261115_np_direction/INDEPENDENT_NUMERICAL_QA.json",
+      "sha": "2fd0306045b374bf8355c45f6cb8509793831ca0",
+      "source_pr": 92
+    },
+    {
+      "path": "results/20261115_reported_np_hns/H7_454_REPORTED_SOURCE_INDEX_HNS_EQR_PLANT.csv",
+      "sha": "45979613c1bc079f1c2346461eb7bdd31ac17e6a",
+      "source_pr": 90
+    },
+    {
+      "path": "results/20261115_reported_np_hns/INDEPENDENT_SKLEARN_QA.json",
+      "sha": "f4c24cdccad4bb9871ad336526c9ef94b4acec9c",
+      "source_pr": 90
+    },
+    {
+      "path": "results/20261115_reported_np_hns/MODEL_COMPARISONS.csv",
+      "sha": "49e1942a6ca5606a6e8d0fc71f6b42e7f9703d7b",
+      "source_pr": 90
+    },
+    {
+      "path": "results/20261115_reported_np_hns/POSTHOC_SOURCE_COMPLETENESS_COUNTRY_ERA.csv",
+      "sha": "46cd403764c0661a0fe5fdee9664f5f3b0099d1e",
+      "source_pr": 90
+    },
+    {
+      "path": "results/20261115_reported_np_hns/POSTHOC_SOURCE_COMPLETENESS_COUNTRY_ERA.json",
+      "sha": "d7ed2dcddd5184f6ec9321cea0f6d1bba1b71079",
+      "source_pr": 90
+    },
+    {
+      "path": "results/20261115_reported_np_hns/RESULTS_EEA_REPORTED_NP_TO_HNS_EQR_PLANT.json",
+      "sha": "7d90b4d39e8ae56c63e24babfb3cf20966325d05",
+      "source_pr": 90
+    },
+    {
+      "path": "results/20261115_reported_np_hns/SOURCE_QA_AND_EXPOSURE.json",
+      "sha": "dd283aef32eaa52a197bf70bd3bdf49c87a156aa",
+      "source_pr": 90
+    },
+    {
+      "path": "results/20261116_directional_reported_np/INDEPENDENT_12_DIRECTIONAL_NUMERICAL_QA_RECEIPT.json",
+      "sha": "ed95832a2621245337fe08e38cd0aecff01d574d",
+      "source_pr": 108
+    },
+    {
+      "path": "results/20261116_directional_reported_np/ORIGINAL_UPDOWN_SOURCE_GATE_VERIFIED.json",
+      "sha": "4adc0104941b5c0ece030375e271b887deb3c53f",
+      "source_pr": 108
+    },
+    {
+      "path": "results/20261116_directional_reported_np/UPDOWN_NP_PLANT_BUTTERFLY_VERIFIED_RESULTS.json",
+      "sha": "0593d1492ed8e6c12c39867c2371c2f698649211",
+      "source_pr": 108
+    },
+    {
+      "path": "results/20261116_reported_np_source/183H7_40H6_REPORTED_NP_SOURCE_ONLY_GATE.json",
+      "sha": "d0591ac698a290af20734c1e164c2577d48595f8",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA_2026_WISE6_TNTP_BOUNDED_API_PROBE.json",
+      "sha": "70e85f9e3d16c8f3948ef4351d354624386f2d3d",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_BIO_WQ_SPATIAL_SITE_QA.json",
+      "sha": "60b346ec38cf1a80fb2b8f59b7707c75b407fc69",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_NEARBY_1KM_REPORTED_SOURCE_HARD_UPPERBOUND.json",
+      "sha": "268b44c824cc78149682fd8d324afcfcb2efe63c",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_NEARBY_SAMEH7_PART2_TNTP_SOURCE_BRIEF.json",
+      "sha": "f48caae115d1f9e5c84a81b3aad6437445ebd57c",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_PART1_3525_SITE_YEAR_BRIEF_QA.json",
+      "sha": "ba71bc1a08e8d5fa10958813b1d0a83c3c1fd1fb",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_PART1_PART2_3525_SOURCE_UNION_GATE.json",
+      "sha": "bacddc47f3d14ea97b34c8745787d5682802e787",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_PART2_3525_SITE_YEAR_BRIEF_QA.json",
+      "sha": "1b0c7cc6df65283f41e5fcb3b0f1da184120093c",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_OFFICIAL_WQ_SPATIAL_METADATA_BRIEF.json",
+      "sha": "c64772a5e01c817366299ae5abc448169d5e599b",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_SAME_NATIVE_H7_NEAR_WQ_CANDIDATES_BRIEF.json",
+      "sha": "4a81e86923a5ccdfd4a69d20701afaf4ba0a236f",
+      "source_pr": 107
+    },
+    {
+      "path": "results/20261116_reported_np_source/EEA2026_SEPARATE_TOTALN_TOTALP_SOURCE_GATE.json",
+      "sha": "1086dbb2836d7e67d81d70e071b0146fcfcbbd9f",
+      "source_pr": 107
+    }
+  ],
+  "new_common_plane_original_dataset_and_code": [
+    {
+      "path": "analysis/20261116_evidence_plane/build_eu_h7_common_plane.py",
+      "source_git_blob_sha1": "3866fe47c687cefb4f3138c9f603ff5549db2fa2"
+    },
+    {
+      "path": "results/20261116_evidence_plane/EU_H7_PERIOD_454_WATER_PLANT_BUTTERFLY_WWTP_COMMON_PLANE.csv",
+      "source_git_blob_sha1": "e79fa98d492a522f8d99e5cc6e3fc2a4aa82cae0"
+    },
+    {
+      "path": "results/20261116_evidence_plane/EU_H7_PERIOD_454_COMMON_PLANE_SOURCE_QA.json",
+      "source_git_blob_sha1": "15d3ce78fadc9d8bed7eff74b033209f1868c26e"
+    },
+    {
+      "path": "analysis/20261116_evidence_plane/uniform_h6_models.py",
+      "source_git_blob_sha1": "9cbcc2de4529b83c8d0d201dc053133811d4d30b"
+    },
+    {
+      "path": "results/20261116_evidence_plane/EU_H7_451_UNIFORM_W_AND_PAIRWISE_H6_COMPARISON.csv",
+      "source_git_blob_sha1": "3ad8b9a0455128b7af914b465e7c2e03fd5032a8"
+    },
+    {
+      "path": "results/20261116_evidence_plane/EU_H7_451_UNIFORM_W_AND_PAIRWISE_H6_COMPARISON.json",
+      "source_git_blob_sha1": "404faa842976be1421c425eb49c891d89fdd59e2"
+    }
+  ],
+  "new_original_CSV_454_rows_source_run": "https://github.com/zuizui0223/gesui/actions/runs/43817659699",
+  "new_standardized_same451_6models_source_run": "https://github.com/zuizui0223/gesui/actions/runs/43820715174",
+  "third_party_full_EEA_GBIF_EIV_raw_archives_not_rehosted": true,
+  "original_negative_and_STOP_results_preserved": true,
+  "no_new_causal_claim": true
+}
