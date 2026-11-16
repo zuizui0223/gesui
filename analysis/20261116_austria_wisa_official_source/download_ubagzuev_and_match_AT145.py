@@ -187,6 +187,7 @@ def main(args):
     source,orig=originals(args.outfalls)
     xs=np.asarray(stations.geometry.x,float);ys=np.asarray(stations.geometry.y,float)
     per=[]
+    matched_source_station_2km=[]
     for q in sorted(source,key=lambda x:x["original_EEA2022_plant_id"]):
         lat=float(q["original_source_outfall_lat"])
         lon=float(q["original_source_outfall_lon"])
@@ -204,6 +205,21 @@ def main(args):
             inrange=np.flatnonzero(d<=radius)
             record[f"source_official_GZUEV_station_location_within_{radius}m_n"]=len(inrange)
             record[f"source_official_GZUEV_station_id_within_{radius}m"]=[ids[i] for i in inrange[:50]]
+            if radius==2000:
+                for i in inrange:
+                    pk=ids[int(i)]
+                    pkint=str(stations["PKINT"].iloc[int(i)]).strip()
+                    if pkint!="AT"+pk:
+                        raise RuntimeError("Official national PK and PKINT source are not one-to-one for selected station")
+                    matched_source_station_2km.append({
+                        "source_2022_EEA_UWWTD_original_plant_ID":q["original_EEA2022_plant_id"],
+                        "original_official_GZUEV_PK":pk,
+                        "original_official_GZUEV_PKINT":pkint,
+                        "public_source_point_distance_to_outfall_m":float(d[int(i)]),
+                        "original_outfall_2022_reported_N_t_year":float(q["source_N_t_year_reported_measured_2022"]),
+                        "original_outfall_2022_reported_P_t_year":float(q["source_P_t_year_reported_measured_2022"]),
+                        "source_site_year_2022_actual_TNTP_and_benthos_NOT_VERIFIED":True,
+                        "distance_does_not_prove_downstream_receiving_river":True})
         per.append(record)
     totals={str(radius):{
         "original_source_2022_NP_report_positive_outfalls_with_any_official_GZUEV_station_within_radius":sum(
@@ -211,7 +227,20 @@ def main(args):
         "unique_source_GZUEV_station_IDs_near_original_outfalls":len({
               z for q in per for z in q[f"source_official_GZUEV_station_id_within_{radius}m"]})}
         for radius in RADIUS_M}
+    distinct_source_fac={x["source_2022_EEA_UWWTD_original_plant_ID"] for x in matched_source_station_2km}
+    distinct_station_PKINT={x["original_official_GZUEV_PKINT"] for x in matched_source_station_2km}
+    if len(distinct_source_fac)!=117 or len(distinct_station_PKINT)!=225:
+        raise RuntimeError("Original official AT145 2km source-station 117/225 result changed")
+    paired_file=args.output/"BMLUK_GZUEV_2022_AT145_2KM_SOURCE_STATION_PKINT_MATCHES.csv"
+    with paired_file.open("w",encoding="utf-8",newline="") as f:
+        w=csv.DictWriter(f,fieldnames=list(matched_source_station_2km[0]))
+        w.writeheader();w.writerows(sorted(matched_source_station_2km,
+           key=lambda z:(z["source_2022_EEA_UWWTD_original_plant_ID"],z["original_official_GZUEV_PKINT"])))
     result={"schema":SCHEMA,
+      "official_2km_outfall_station_crosswalk_derived_CSV_SHA256":sha(paired_file),
+      "official_2km_outfall_station_source_join_rows":len(matched_source_station_2km),
+      "official_2km_outfall_station_117_outfalls":len(distinct_source_fac),
+      "official_2km_outfall_station_225_real_PKINT":len(distinct_station_PKINT),
       "original_2022_EEA_nutrient_report_AT_true_outfall_n":len(source),
       "genuine_original_official_GZUEV_geodata_provenance":origin,
       "source_verified_original_GZUEV_station_geodata":qa,
