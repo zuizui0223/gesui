@@ -41,6 +41,8 @@ jobs:
         if: always()
         with:
           name: gesui-20261116-official-BMLUK-FWMST-GZUEV-GPKG-source-AT145-geospatial-check
-          path: '${{ runner.temp }}/original_GZUEV_AT145_source_geography/BMLUK_GZUEV_RIVER_GPKG_SOURCE_AT145_LOCALITY_AUDIT.json'
+          path: |
+            ${{ runner.temp }}/original_GZUEV_AT145_source_geography/BMLUK_GZUEV_RIVER_GPKG_SOURCE_AT145_LOCALITY_AUDIT.json
+            ${{ runner.temp }}/original_GZUEV_AT145_source_geography/BMLUK_GZUEV_2022_AT145_2KM_SOURCE_STATION_PKINT_MATCHES.csv
           retention-days: 90
           if-no-files-found: warn
