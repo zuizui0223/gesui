@@ -1,0 +1,30 @@
+{
+  "schema": "GESUI_FIG4_SOURCE_ONLY_VERIFIED_GITHUB_ACTIONS_SUMMARY_V1",
+  "source_run_id": 43825788157,
+  "source_url": "https://github.com/zuizui0223/gesui/actions/runs/43825788157",
+  "source_run_success": true,
+  "derived_source_only_summary": {
+    "current_GBIF_index_cannot_be_claimed_byte_identical_to_20261114_index": true,
+    "no_wastewater_effect_or_EQR_NUTRI_HNS_W_values_opened": true,
+    "not_enough_source_to_compute_any_river_buffer_or_EIV_HNS_effect": true,
+    "original_2808_speciesKey_facet_SHA256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+    "original_facet_lacks_individual_occurrence_coordinate": true,
+    "original_panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "original_same_454_H7period_population_unchanged": true,
+    "original_source_true_H6": 8,
+    "pilot_FIRST_PAGE_explicit_uncertainty_le_100m": 2991,
+    "pilot_FIRST_PAGE_le100m_fraction_among_first_page": 0.642672969488612,
+    "pilot_FIRST_PAGE_records_scanned": 4654,
+    "pilot_FIRST_PAGE_valid_WGS84_coordinate": 4654,
+    "pilot_source_query_missing": 0,
+    "pilot_source_query_success": 16,
+    "pilot_source_siteperiod_queries": 16,
+    "prespecified_source_H7": 8,
+    "sample_source_is_NOT_original_full_observation_population": true,
+    "schema": "GESUI_20261116_GBIF_ORIGINAL_QUERY_COORDINATE_FEASIBILITY_8H7_PILOT_V1",
+    "source_only_study_H7": 222,
+    "source_original_8_country_holdouts": 8
+  },
+  "raw_occurrence_coordinates_and_river_line_geometries_not_republished": true,
+  "no_ecological_effect_model_fitted": true
+}
