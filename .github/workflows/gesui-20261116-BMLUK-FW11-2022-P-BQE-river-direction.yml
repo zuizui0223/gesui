@@ -1,0 +1,55 @@
+name: gesui three true BMLUK 2022 annual total P GZUEV sites source river direction versus wastewater and EEA BQE
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - 'analysis/20261116_austria_wisa_official_source/FW11_2022_P_EEA_BQE_2022_hydrologic_route_3site.py'
+      - '.github/workflows/gesui-20261116-BMLUK-FW11-2022-P-BQE-river-direction.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  true_original_2022_water_P_and_BQE_downstream_source_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install genuine original river hydrology GeoParquet graph reader
+        run: python -m pip install --quiet numpy geopandas pyarrow "shapely>=2,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43856642187
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/true_original_282_EEA2022_outfall_riverline_source
+      - name: Acquire source-SHA-locked authentic HydroRIVERS reach graph NEXT_DOWN for true source-to-benthic hydraulic flow direction
+        run: |
+          mkdir -p '${{ runner.temp }}/true_original_river_graph'
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o '${{ runner.temp }}/true_original_river_graph/HydroRIVERS_v10_eu.geoparquet'
+          echo '5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  ${{ runner.temp }}/true_original_river_graph/HydroRIVERS_v10_eu.geoparquet' | sha256sum -c -
+      - name: Verify original 2022 TP/EEA benthic true site reach is hydrologically upstream or downstream of genuine 2022 positive-NP outlet; zero ecological fits
+        run: |
+          python -m py_compile analysis/20261116_austria_wisa_official_source/FW11_2022_P_EEA_BQE_2022_hydrologic_route_3site.py
+          python -u analysis/20261116_austria_wisa_official_source/FW11_2022_P_EEA_BQE_2022_hydrologic_route_3site.py \
+            --outfalls '${{ runner.temp }}/true_original_282_EEA2022_outfall_riverline_source' \
+            --rivers '${{ runner.temp }}/true_original_river_graph/HydroRIVERS_v10_eu.geoparquet' \
+            --output '${{ runner.temp }}/true_2022_fw11_P_benthic_WWTP_flow_relation'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-original-national2022-TP-EEA2022-BQE-WWTP-outfall-directed3site-source
+          path: '${{ runner.temp }}/true_2022_fw11_P_benthic_WWTP_flow_relation/'
+          retention-days: 90
+          if-no-files-found: warn
