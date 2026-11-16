@@ -134,6 +134,9 @@ def wq_sites(outfolder):
         raise RuntimeError("2026 publisher spatial source ZIP SHA/size mismatch")
     d=collections.defaultdict(list)
     raw_coord_nonempty=0
+    raw_lat_nonempty_all=0
+    raw_lon_nonempty_all=0
+    raw_pair_nonempty_all=0
     coordinate_failure=collections.Counter()
     with zipfile.ZipFile(p) as z:
         paths=[q.filename for q in z.infolist() if q.filename.endswith(".csv")]
@@ -145,11 +148,16 @@ def wq_sites(outfolder):
             n=0;goodcoord=0;keynonnull=0
             for row in reader:
                 n+=1
+                has_lat=bool(str(row["lat"]).strip())
+                has_lon=bool(str(row["lon"]).strip())
+                if has_lat:raw_lat_nonempty_all+=1
+                if has_lon:raw_lon_nonempty_all+=1
+                if has_lat and has_lon:raw_pair_nonempty_all+=1
                 key=(row["countryCode"],row["monitoringSiteIdentifier"],
                      row["monitoringSiteIdentifierScheme"])
                 if not all(key):continue
                 keynonnull+=1
-                raw_coord=bool(str(row["lat"]).strip()) and bool(str(row["lon"]).strip())
+                raw_coord=has_lat and has_lon
                 if raw_coord:raw_coord_nonempty+=1
                 location=coord(row["lat"],row["lon"])
                 if location is not None:goodcoord+=1
@@ -167,8 +175,8 @@ def wq_sites(outfolder):
                         coordinate_failure["source_unparseable"]+=1
                 d[key].append(location)
     p.unlink()
-    if n!=90859 or keynonnull!=88914 or raw_coord_nonempty!=71592:
-        raise RuntimeError(f"Original spatial source row or original nonempty coordinate count drift: {n}/{keynonnull}/{raw_coord_nonempty}")
+    if n!=90859 or keynonnull!=88914 or raw_lat_nonempty_all!=71592 or raw_lon_nonempty_all!=71592:
+        raise RuntimeError(f"Original spatial source row or raw lat/lon field count drift: {n}/{keynonnull}/{raw_lat_nonempty_all}/{raw_lon_nonempty_all}")
     if goodcoord>raw_coord_nonempty or sum(coordinate_failure.values())!=raw_coord_nonempty-goodcoord:
         raise RuntimeError("Malformed source coordinate validity or discrepancy audit")
     coords={}
@@ -183,7 +191,11 @@ def wq_sites(outfolder):
     return coords,{"EEA_official_2026_spatial_source_SHA256":dig.hexdigest(),
                    "EEA_WQ_spatial_raw_rows":n,
                    "original_usable_site_identifiers":keynonnull,
-                   "site_identifier_rows_with_original_nonempty_latlon":raw_coord_nonempty,
+                   "original_all_rows_nonempty_lat_field":raw_lat_nonempty_all,
+                   "original_all_rows_nonempty_lon_field":raw_lon_nonempty_all,
+                   "original_all_rows_both_lat_lon_nonempty":raw_pair_nonempty_all,
+                   "source_complete_identifier_rows_with_both_lat_lon":raw_coord_nonempty,
+                   "source_raw_geo_rows_excluded_due_to_missing_identifier":raw_pair_nonempty_all-raw_coord_nonempty,
                    "site_identifiers_with_valid_latlon_rows":goodcoord,
                    "source_nonempty_but_not_valid_coordinates_n":raw_coord_nonempty-goodcoord,
                    "source_nonempty_but_not_valid_reason_counts":dict(coordinate_failure),
