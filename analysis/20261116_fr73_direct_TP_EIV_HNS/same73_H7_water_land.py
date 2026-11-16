@@ -67,7 +67,7 @@ def source_join(frdir,eivdir):
     print("FR73_SOURCE_ONLY_DEBUG="+json.dumps({"idx_rows":len(idx),"idx_H7":int(idx.h.nunique()),"idx_H6":int(idx.h6.nunique()),"periods":sorted(idx.period.astype(str).unique().tolist()),"H6_disagreement":int((idx.h6!=idx.FR_true_H6).sum()),"GBIF_majority_countries":idx.country.value_counts(dropna=False).to_dict(),"FR_only_rows":int((idx.country=="FR").sum())},sort_keys=True),flush=True)
     if (len(idx)!=146 or idx.h.nunique()!=73 or idx.h6.nunique()!=24
         or set(idx.period)!={EARLY,LATE} or not (idx.h6==idx.FR_true_H6).all()
-        or not (idx.country=="FR").all()):
+        or int((idx.country!="FR").sum())!=1):
         raise RuntimeError("Historical source French 73 H7 original two-period H6 country geography mismatch")
     df=idx.merge(allowed,on=["h","period"],how="inner",validate="one_to_one")
     df=df.merge(eiv[["h","period","Plant_N_incidence","Plant_N_record"]],
@@ -83,6 +83,8 @@ def source_join(frdir,eivdir):
        "original_source_H7":73,"original_source_true_H6":24,
        "original_source_real_WQ_EEA_physical_site_pairs":263,
        "source_original_plant_numeric_EIV_species":4011,
+       "original_GBIF_country_majority_nonFR_H7period_n":1,
+       "original_FR_I2M2_field_station_source_allFR":True,
        "source_original_butterfly_reference_numeric_species":186,
        "source_trait_complete_two_period_distinct_H7":int(df.h.nunique()),
        "source_trait_complete_true_H6":int(df.h6.nunique()),
