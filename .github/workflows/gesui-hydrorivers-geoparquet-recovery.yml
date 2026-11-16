@@ -1,0 +1,59 @@
+name: gesui HydroRIVERS Europe v1 GeoParquet recovery (source locked)
+
+on:
+  push:
+    branches:
+      - "analysis/river-source-gate-20261107"
+    paths:
+      - ".github/workflows/gesui-hydrorivers-geoparquet-recovery.yml"
+      - "scripts/gesui_river_source_gate.py"
+      - "tests/test_gesui_river_source_gate.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hydro-river-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install geospatial source and Parquet dependencies
+        run: python -m pip install --quiet pytest numpy pandas scipy geopandas pyogrio shapely pyarrow
+      - name: Test the source-only topology gate
+        run: python -m pytest -q tests/test_gesui_river_source_gate.py
+      - name: Download source-locked real HydroWASTE and GeoParquet HydroRIVERS Europe mirror
+        run: |
+          mkdir -p /tmp/gesui-rivers
+          curl --fail --location --silent --show-error --retry 2 --max-time 140 \
+            https://raw.githubusercontent.com/rfordatascience/tidytuesday/774fb8cc81e563d6d30efdcb7b48a38565e923cc/data/2022/2022-09-20/HydroWASTE_v10.csv \
+            -o /tmp/gesui-rivers/HydroWASTE_v10.csv
+          test "$(git hash-object /tmp/gesui-rivers/HydroWASTE_v10.csv)" = "0506f873f6541c5f324478894a9731290d722bce"
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o /tmp/gesui-rivers/HydroRIVERS_v10_eu.geoparquet
+          echo "Downloaded HydroRIVERS source-bytes:"
+          wc -c /tmp/gesui-rivers/HydroRIVERS_v10_eu.geoparquet
+          echo "5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  /tmp/gesui-rivers/HydroRIVERS_v10_eu.geoparquet" | sha256sum -c -
+      - name: Real river topology and outfall coordinates without plant response
+        run: |
+          python -u scripts/gesui_river_source_gate.py \
+            --hydrowaste /tmp/gesui-rivers/HydroWASTE_v10.csv \
+            --hydrorivers-parquet /tmp/gesui-rivers/HydroRIVERS_v10_eu.geoparquet \
+            --work-dir /tmp/gesui-rivers/extracted \
+            --out-dir /tmp/gesui-rivers/source-results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-real-hydrorivers-eu-geometry-source-gate-v01
+          path: /tmp/gesui-rivers/source-results/
+          if-no-files-found: warn
+          retention-days: 30

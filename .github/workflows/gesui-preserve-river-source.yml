@@ -1,0 +1,78 @@
+name: gesui preserve validated river source-only preplant outfall sample
+
+on:
+  push:
+    branches:
+      - "analysis/river-source-gate-20261107"
+    paths:
+      - ".github/workflows/gesui-preserve-river-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch successful pinned real-source GIS geometry
+        run: |
+          mkdir -p /tmp/gesui-river-source
+          gh run download 42364866919 \
+            --repo zuizui0223/gesui \
+            --name gesui-real-hydrorivers-eu-geometry-source-gate-v01 \
+            --dir /tmp/gesui-river-source
+      - name: Verify original site gate and preserve exact JSON results
+        run: |
+          python - <<'PY'
+          import hashlib,json,shutil
+          from pathlib import Path
+          src=Path("/tmp/gesui-river-source")
+          files=("candidate_site_design.json","source_qc.json")
+          a={n:json.loads((src/n).read_text()) for n in files}
+          q=a["source_qc.json"]["quality"]
+          d=a["candidate_site_design.json"]
+          assert len(d["selected"])==q["selected_outfall_units"]==16
+          assert (q["hydrowaste_eligible_river_ids_found_in_europe_mirror"],q["topology_chains"],q["sites_meeting_nonoverlap_gate"])==(4713,4497,3569)
+          assert q["selected_outfall_to_matching_reach_km_max"]<0.05
+          assert a["source_qc.json"]["sources"]["third_party_geoparquet_version_verified_against_official"] is False
+          dest=Path("results/hydrorivers_eu_source_gate_20261107")
+          dest.mkdir(parents=True,exist_ok=True)
+          for n in files:shutil.copyfile(src/n,dest/n)
+          receipt={
+            "original_run_id":42364866919,
+            "original_head_sha":"2b8b5a3d13f29cd55b65aa0342145aee0579f9c4",
+            "source_artifact_id":13571261736,
+            "source_files_sha256":{n:hashlib.sha256((src/n).read_bytes()).hexdigest() for n in files},
+            "hydrowaste_git_blob":"0506f873f6541c5f324478894a9731290d722bce",
+            "hydrorivers_converted_geoparquet_sha256":"5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f",
+            "no_plant_records_queried":True,
+          }
+          (dest/"SOURCE_RECEIPT.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          report="""# Source-only directed stream connectivity recovery
+          
+          Original [GitHub Actions success](https://github.com/zuizui0223/gesui/actions/runs/42364866919) (2026-11-07). Official HydroRIVERS server denied access (403); an independently hosted v1 EU GeoParquet was SHA256-frozen and the original HydroWASTE 58,502 WWTP source was verified against its Git blob.
+          
+          - 4,713 eligible European outfall river IDs; **4,713 matched to the third-party HydroRIVERS v1-derived mirror**.
+          - 4,497 valid four-reach directed chains, 3,569 sites meeting pre-outcome spacing, 16 outfall units selected source-only (4 each AUT,CZE,DEU,DNK; 8 nominal high, 8 low wastewater-water-fraction).
+          - Selected outfall-to-matching-line offset median **0.02503 km**, maximum **0.04674 km**, verifying geographic agreement of the copied network and discharge points at these sites.
+          - No GBIF, plant community, nitrogen concentration or river quality was used to select these sites. Coordinates and river reach IDs are in candidate_site_design.json.
+          - **Critical validation limitation:** the third-party GeoParquet conversion has been hash-verified as distributed but NOT independently compared to the official HydroRIVERS original bytes/topology. This is a source-linked candidate network, not proof of environmental N exposure or insect/plant dispersal.
+          """
+          (dest/"RESULTS.md").write_text("\n".join(x.strip() for x in report.splitlines())+"\n")
+          print("GESUI_RIVER_SOURCE_PRESERVED",json.dumps(receipt,sort_keys=True))
+          PY
+      - name: Commit frozen source geometry on this analysis branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/hydrorivers_eu_source_gate_20261107
+          git commit -m "Freeze real 16-outfall directed-river source selection and source digests"
+          git push origin HEAD:analysis/river-source-gate-20261107
