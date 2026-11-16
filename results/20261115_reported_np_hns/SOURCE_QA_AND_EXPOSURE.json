@@ -1,0 +1,59 @@
+{
+  "eligibility": {
+    "N_P_pearson_source_all": 0.9265001364970359,
+    "N_P_pearson_source_positive": 0.9092979434488312,
+    "exploratory_support_gate_pass": true,
+    "n_positive_periods": {
+      "2017-2019": 28,
+      "2020-2022": 28
+    },
+    "positive_H6": 31,
+    "positive_H7": 38,
+    "positive_both_NP": 56,
+    "positive_country_counts": {
+      "AT": 4,
+      "BE": 2,
+      "FR": 4,
+      "HR": 4,
+      "HU": 5,
+      "IT": 11,
+      "LT": 5,
+      "LU": 1,
+      "NL": 11,
+      "NO": 4,
+      "PL": 1,
+      "SI": 4
+    },
+    "positive_rows": 56,
+    "positive_source_country_FR": 4,
+    "rows": 454,
+    "uncertain_source_no_matched_positive_report_rows": 398
+  },
+  "join": {
+    "country_mode_mismatch_n": 11,
+    "flow_value_max_abs_diff": 1.1368683772161603e-13,
+    "original_H6": 90,
+    "original_H7": 232,
+    "original_joint_rows": 454,
+    "positive_reported_source_not_confirmed_no_source_controls": true,
+    "report_not_proof_of_actual_zero": true,
+    "same_field_site_EEA_EQR_but_butterfly_records_are_basinwide": true,
+    "source_N_and_P_are_mass_to_modelled_flow_not_measured_water_concentration": true
+  },
+  "paired": {
+    "n_pairs": 222,
+    "not_equivalent_to_WWTP_opening_or_shutdown": true,
+    "report_status_transitions": {
+      "0_to_0": 185,
+      "0_to_1": 10,
+      "1_to_0": 9,
+      "1_to_1": 18
+    }
+  },
+  "source": {
+    "source_rows": 454,
+    "source_schema": "GESUI_454_EU_H7_ONE_WATERSHED_TWO_PERIOD_YEAR_SPECIFIC_REPORTED_NP_SOURCE_ONLY_v1",
+    "source_sha256": "012ad79feabc8c11e0d74f803730b5b7913b96a64a6af26fb0c97263d9aa7c26",
+    "source_signed_zip_sha256": "f8244b514b19cbed7da36207a6664b7a452c0d8238370bffeb179026d4a1db6f"
+  }
+}

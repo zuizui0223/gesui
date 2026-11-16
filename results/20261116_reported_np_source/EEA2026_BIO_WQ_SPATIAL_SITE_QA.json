@@ -1,0 +1,104 @@
+{
+  "schema": "GESUI_20261116_ORIGINAL_EEA_BIO_WQ_SOURCE_ONLY_SUCCESS_LOG_RECEIPT_V1",
+  "source_workflow_url": "https://github.com/zuizui0223/gesui/actions/runs/43804308185",
+  "source_workflow_result": "success",
+  "data": {
+    "bio_coordinate_source_counts": {
+      "original_EEA_Biology_coordinates": 2485
+    },
+    "distance_gate_source_only": {
+      "1000m": {
+        "n_country_groups": 10,
+        "n_original_Biology_site_with_at_least_one_other_WQ_station": 327,
+        "n_original_Biology_site_years_may_have_other_WQ_station": 403,
+        "n_original_H7_with_nearby_other_WQ_station": 100,
+        "n_true_H6_with_nearby_other_WQ_station": 59,
+        "same_official_H7_polygon_proven": false,
+        "same_river_reach_or_updown_proven": false,
+        "water_quality_TNTP_in_target_year_at_nearby_station_NOT_VERIFIED": true
+      },
+      "250m": {
+        "n_country_groups": 8,
+        "n_original_Biology_site_with_at_least_one_other_WQ_station": 86,
+        "n_original_Biology_site_years_may_have_other_WQ_station": 110,
+        "n_original_H7_with_nearby_other_WQ_station": 40,
+        "n_true_H6_with_nearby_other_WQ_station": 31,
+        "same_official_H7_polygon_proven": false,
+        "same_river_reach_or_updown_proven": false,
+        "water_quality_TNTP_in_target_year_at_nearby_station_NOT_VERIFIED": true
+      },
+      "5000m": {
+        "n_country_groups": 15,
+        "n_original_Biology_site_with_at_least_one_other_WQ_station": 1770,
+        "n_original_Biology_site_years_may_have_other_WQ_station": 2391,
+        "n_original_H7_with_nearby_other_WQ_station": 211,
+        "n_true_H6_with_nearby_other_WQ_station": 83,
+        "same_official_H7_polygon_proven": false,
+        "same_river_reach_or_updown_proven": false,
+        "water_quality_TNTP_in_target_year_at_nearby_station_NOT_VERIFIED": true
+      }
+    },
+    "exact_same_station_identifier_and_scheme_with_verified_WQ_geography": 2485,
+    "n_Biology_with_no_valid_geographic_coordinate": 0,
+    "no_butterfly_plant_EIV_HNS_W_or_EQR_effect_opened": true,
+    "no_causal_sewage_measured_nitrogen_effect": true,
+    "no_nearby_observational_chemistry_fitted": true,
+    "official_2026_WQ_SpatialObjects": {
+      "EEA_WQ_spatial_raw_rows": 90859,
+      "EEA_official_2026_spatial_source_SHA256": "aa505be6f85d06c675e0d0fcb148a9148f80162f8e9590740a887cc95a3e349d",
+      "keys_with_disagreeing_coords_excluded": 0,
+      "original_all_rows_both_lat_lon_nonempty": 71592,
+      "original_all_rows_nonempty_lat_field": 71592,
+      "original_all_rows_nonempty_lon_field": 71592,
+      "original_usable_site_identifiers": 88914,
+      "site_identifiers_with_valid_latlon_rows": 69820,
+      "site_original_source_coords_not_republished": true,
+      "source_complete_identifier_rows_with_both_lat_lon": 69821,
+      "source_nonempty_but_not_valid_coordinates_n": 1,
+      "source_nonempty_but_not_valid_reason_counts": {
+        "source_zero_zero_placeholder": 1
+      },
+      "source_raw_geo_rows_excluded_due_to_missing_identifier": 1771,
+      "unique_complete_keys_with_unambiguous_coords": 69820
+    },
+    "original_Biology_sites_with_any_valid_coords": 2485,
+    "original_EEA_Biology_source": {
+      "eligible_original_coord_field_pairs": [
+        [
+          "lat",
+          "lon"
+        ]
+      ],
+      "original_biology_native_site_n": 2485,
+      "original_biology_native_site_year_n": 3525,
+      "source_6330_geometry_SHA256": "a396eaed1c0b406eb3bbb7178e04ba91989ab5964c4f0175fc1193673d624d89",
+      "source_biology_sites_with_latlon": 2485,
+      "station_source_fields": [
+        "HYBAS_ID_L07",
+        "country",
+        "lat",
+        "lon",
+        "native_id",
+        "panel",
+        "period",
+        "physical_id",
+        "region",
+        "sub_area_km2",
+        "up_area_km2"
+      ]
+    },
+    "original_EEA_distinct_native_Biology_sites": 2485,
+    "original_EEA_native_site_years": 3525,
+    "original_same_station_year_TNTP_report_positive_minimum_H7periods": 30,
+    "original_union_part1_part2_report_positive_H7periods": 9,
+    "schema": "GESUI_EEA2026_BIOLOGY_WQ_SPATIAL_MATCH_SOURCE_ONLY_V1",
+    "source_250m_1000m_5000m_are_not_exposure_or_within_H7_proofs": true,
+    "source_candidate_nearby_distances_metres": [
+      250,
+      1000,
+      5000
+    ],
+    "strict_original_2026_same_station_year_TNTP_source_gate_still_STOP": true
+  },
+  "not_causal_or_direct_site_nutrient_delivery": true
+}

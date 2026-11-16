@@ -1,0 +1,31 @@
+{
+  "schema": "GESUI_OFFICIAL_2026_PART1_SOURCE_VERIFIED_BRIEF_V1",
+  "original_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43799818906",
+  "source_run_conclusion": "success",
+  "original_2026_part1_zip_sha256": "ff779521749b40b952cce35a4671240c3b6c47d87f32a8fef9240a4ac503a082",
+  "original_part1_CSV_rows": 96597294,
+  "source_original_2018_2022_rows": {
+    "2018": 5800109,
+    "2022": 9130406
+  },
+  "original_EEA_biology_native_stations_x_year": 3525,
+  "original_station_source_SHA256": "a396eaed1c0b406eb3bbb7178e04ba91989ab5964c4f0175fc1193673d624d89",
+  "strict_TN_site_years": 166,
+  "strict_TP_site_years": 242,
+  "strict_both_same_site_years": 81,
+  "strict_both_source_report_positive_site_years": 11,
+  "source_report_positive_true_H7period": 8,
+  "source_report_positive_true_H7": 7,
+  "source_report_positive_true_H6": 7,
+  "source_report_positive_country_groups": 2,
+  "gate_status": "STOP",
+  "gate_thresholds": {
+    "H7_period": 30,
+    "H7": 20,
+    "H6": 10,
+    "countries": 3
+  },
+  "no_external_28_GB_uncompressed_data_republished": true,
+  "no_biology_effects_fitted": true,
+  "Part1_and_Part2_not_two_independent_studies": true
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "GESUI_20261116_INDEPENDENT_DIRECTIONS_NUMERICAL_SOURCE_RECEIPT_V1",
+  "source_successful_job_id": 133047949565,
+  "source_actions_url": "https://github.com/zuizui0223/gesui/actions/runs/43790618831",
+  "source_job_conclusion": "success",
+  "independent_fwl_vs_statsmodels": true,
+  "independent_augmented_lstsq_vs_ridge_normal_equations": true,
+  "data": {
+    "all_tests_pass": true,
+    "max_absolute_H6_gain_percent_reproduction_difference": 5.482780895960104e-12,
+    "max_absolute_beta_reproduction_difference": 1.9897278269453977e-15,
+    "n_original_H7period": 451,
+    "n_true_H6": 90,
+    "n_verified_comparisons": 12
+  }
+}
