@@ -1,0 +1,43 @@
+name: gesui original 16 true local outlets fixed GBIF radius 500m and 1000m source sensitivity
+on:
+  push:
+    branches:
+      - analysis/gesui-outfall-local-riparian-trait-source-gate-20261116
+    paths:
+      - 'analysis/20261116_outfall_riparian_local_source/gbif_500m_1000m_source_sensitivity.py'
+      - '.github/workflows/gesui-20261116-original16-500m1000m-GBIF-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_only_local_gbif_radius_grid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source HTTP client
+        run: python -m pip install --quiet requests
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43846527119
+          name: gesui-20261116-source-authentic-local1500m-original16-outfalls-geospatial-QA
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_source16_outlet_geometry
+      - name: GBIF official 0.5km and 1km time-matched Plantae record opportunity with true spatial nonoverlap QA
+        run: |
+          python -m py_compile analysis/20261116_outfall_riparian_local_source/gbif_500m_1000m_source_sensitivity.py
+          python -u analysis/20261116_outfall_riparian_local_source/gbif_500m_1000m_source_sensitivity.py \
+            --geometry '${{ runner.temp }}/original_source16_outlet_geometry' \
+            --output '${{ runner.temp }}/local_radius_sourceonly'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-localWWTP-GBIF-0p5km-1km-source-opportunity
+          path: ${{ runner.temp }}/local_radius_sourceonly/
+          retention-days: 90
+          if-no-files-found: warn
