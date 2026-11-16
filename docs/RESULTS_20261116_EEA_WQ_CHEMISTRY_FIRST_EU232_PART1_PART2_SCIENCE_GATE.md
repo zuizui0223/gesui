@@ -50,7 +50,7 @@ source gateより厳しく **生態主モデルを開始する前に**最低100 
 - source geographyとtrait coverageは一致し欠落追加0。しかし**37/100 H7×期間、24/40 H6**で事前基準未達。
 - 結果コード **STOP_BIOLOGICAL_SAMPLE_SUPPORT**：事前の水質TN/TP→植物EIV NUTRI→蝶HNS解析で新しいβ・p・地域外予測改善を**１つも推定していない**。小さい標本で符号が正のモデルだけ探して選ばない。
 
-**Part1＋Part2の正しい扱い（要追加監査）**：Part1でTNだけ、Part2でTPだけという**同一観測局×同一年の補完**が生じ得るため、両表で『TNTPとも有効』だった流域数37＋5を足してunionの上限42とするのは数学的に誤りである。生態モデルは現在の**Part1単独**に対して37/100 H7×期間・24/40 H6の基準未達のため停止したが、完全な**各nutrient×station×yearのPart1優先・Part2補完union**が旧100/40の生態source gateを満たすかは未確認として残す。生態係数は今の段階で推定しない。
+**Part1＋Part2の上限を訂正・原本監査で確定**：[Actions #43819882515 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43819882515)で、同じ元source 2018/22・国一致H7×期間の公式Part2全6,450,192原行を再走査した。Part2で**TNかTPの少なくとも一方**が有効な国一致観測局×年は33件（TN33、TP32、両方とは限らない）、そのH7×期間は**5**、真正H6は**2**であった。したがって、各nutrientをPart1優先・Part2欠損補完する正しい同一station×year unionでTNTPが完成するH7×期間は、必ず **Part1でTNTP両方有効なH7×期間の集合**（37）または **Part2でTNかTPの少なくとも一方が有効な集合**（5）に入る。安全な上限は **37＋5＝42 H7×期間、24＋2＝26真正H6** であり、実際のunion件数を意味しない。元の100 H7period／40 H6という事前の生態ゲートには**いかなる同一元表Part1+2補完でも到達しない**。この数学的STOPはPART1の個別原本96.6M行を再取得せず確かめられたが、下水影響がゼロという生態結論ではない。元検証の詳細は docs/PROTOCOL_20261116_WQ_PART1_PART2_CROSS_NUTRIENT_UNION_SOURCE_BOUND.md と analysis/20261116_chemistry_first_eu232/part2_any_nutrient_union_bound.py。生態βやサービス量は推定していない。
 
 ## 6. 水域の肯定結果と陸域の肯定結果をつなぐ正しい解釈
 
