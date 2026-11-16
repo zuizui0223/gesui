@@ -105,8 +105,8 @@ def main(a):
         for q in sourceout:
             lat=float(q["original_source_outfall_lat"])
             lon=float(q["original_source_outfall_lon"])
-            a=haversine_distance_vector(lat,lon,all_lat,all_lon)
-            keep=np.flatnonzero(a<=dist)
+            distances=haversine_distance_vector(lat,lon,all_lat,all_lon)
+            keep=np.flatnonzero(distances<=dist)
             if len(keep):n_station_any+=1
             ids_all.update(PKINT.iloc[keep].tolist())
             observed=[pk for pk in PKINT.iloc[keep] if pk in EEA2022_pkint]
