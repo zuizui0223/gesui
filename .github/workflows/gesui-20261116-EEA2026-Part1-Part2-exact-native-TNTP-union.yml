@@ -5,6 +5,7 @@ on:
       - analysis/gesui-reported-np-40h6-source-gate-20261116
     paths:
       - 'analysis/20261116_reported_np_source/audit_official_2026_part1part2_union.py'
+      - 'results/20261116_reported_np_source/EEA2026_OFFICIAL_PART1_3525_SITE_YEAR_BRIEF_QA.json'
       - '.github/workflows/gesui-20261116-EEA2026-Part1-Part2-exact-native-TNTP-union.yml'
   workflow_dispatch:
 permissions:
