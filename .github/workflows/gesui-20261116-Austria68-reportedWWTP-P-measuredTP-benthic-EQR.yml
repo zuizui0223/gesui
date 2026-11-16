@@ -1,0 +1,38 @@
+name: gesui Austria real reported upstream WWTP P to actual 2022 stream TP to benthic EQR
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - 'analysis/20261116_austria_wisa_official_source/AT68_2022_real_WWTP_P_to_ambient_TP_to_benthic_EQR.py'
+      - '.github/workflows/gesui-20261116-Austria68-reportedWWTP-P-measuredTP-benthic-EQR.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real_upstream_reported_P_to_measured_TP_benthic_source_chain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install only original source HTTP and numerical test dependencies
+        run: python -m pip install --quiet requests numpy scipy
+      - name: Verify exact original national 2022 chemistry and EEA2022 source and fit all fixed five-region WWTP-source/riverTP/EQR and downstream-placebo models
+        run: |
+          python -m py_compile analysis/20261116_austria_wisa_official_source/AT68_2022_real_WWTP_P_to_ambient_TP_to_benthic_EQR.py
+          python -u analysis/20261116_austria_wisa_official_source/AT68_2022_real_WWTP_P_to_ambient_TP_to_benthic_EQR.py \
+            --output '${{ runner.temp }}/source_authentic_Austria68_WWTP_P_ambientP_EQR'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-Austria68-2022-source-reported-updown-P-realstreamTP-benthicEQ
+          path: '${{ runner.temp }}/source_authentic_Austria68_WWTP_P_ambientP_EQR/'
+          retention-days: 90
+          if-no-files-found: warn
