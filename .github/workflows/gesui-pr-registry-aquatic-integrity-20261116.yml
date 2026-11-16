@@ -1,0 +1,40 @@
+name: gesui 20261116 full PR registry and source-locked aquatic evidence
+on:
+  push:
+    branches:
+      - analysis/gesui-pr-registry-aquatic-europe-us-main-20261116
+    paths:
+      - 'docs/PR_RESEARCH_REGISTER_20261116.csv'
+      - 'docs/PR_RESEARCH_REGISTER_20261116.md'
+      - 'provenance/GESUI_20261116_AQUATIC_PR_SOURCE_BLOB_MANIFEST.json'
+      - 'scripts/verify_gesui_pr_registry_aquatic.py'
+      - 'results/**'
+      - 'analysis/**'
+      - 'scripts/**'
+      - 'docs/**'
+      - '.github/workflows/gesui-pr-registry-aquatic-integrity-20261116.yml'
+  pull_request:
+    paths:
+      - 'docs/PR_RESEARCH_REGISTER_20261116.csv'
+      - 'provenance/GESUI_20261116_AQUATIC_PR_SOURCE_BLOB_MANIFEST.json'
+      - 'scripts/verify_gesui_pr_registry_aquatic.py'
+      - 'results/**'
+      - 'analysis/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_source_blob_and_104_PR_contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Audit 218 exact original Git blobs, PR HEAD SHAs, and positive/negative/STOP
+        run: python -u scripts/verify_gesui_pr_registry_aquatic.py
+      - name: Check main original migration artifact baseline (no network)
+        run: python -u scripts/verify_migration_integrity.py
+      - name: Validate existing source-integrity synthetic tests
+        run: python -m unittest discover -s tests -p 'test_gesui_*.py' -v

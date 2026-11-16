@@ -1,0 +1,61 @@
+{
+  "independent_sklearn_and_statsmodels_free_NumPy_Ridge10_original_source_reproduction": {
+    "benthic_invertebrates": {
+      "independent_2016_numeric_EQR_country_count": 12,
+      "independent_original_EEA2016_biology_NUTS2_count": 73,
+      "independent_original_EEA2016_numeric_EQR_n": 2435,
+      "independent_spearman_original_2016_EQR_vs_modelled_JRC_N": -0.05193641717544726,
+      "independent_spearman_original_2016_EQR_vs_modelled_JRC_P": -0.042623678822404316,
+      "manual_separate_2016_year_NUTS2_source_predictor_Ridge10_reproductions": {
+        "N": {
+          "manual_numpy_MSE_equal_NUTS2": 0.04791029498360516,
+          "manual_numpy_MSE_site_equal": 0.05044193877518828
+        },
+        "P": {
+          "manual_numpy_MSE_equal_NUTS2": 0.04823100045920504,
+          "manual_numpy_MSE_site_equal": 0.050898679131210656
+        },
+        "baseline": {
+          "manual_numpy_MSE_equal_NUTS2": 0.04962244113549913,
+          "manual_numpy_MSE_site_equal": 0.051622667417112834
+        }
+      },
+      "no_2016_site_specific_WWTP_measured_LOAD_claimed": true,
+      "same_GISCO2016_site_metadata_and_original_NUTS2_source_IDs": true,
+      "strict_NUTS2_disjoint_SOURCE_ONLY_5fold_predicted": true
+    },
+    "phytobenthos": {
+      "independent_2016_numeric_EQR_country_count": 12,
+      "independent_original_EEA2016_biology_NUTS2_count": 58,
+      "independent_original_EEA2016_numeric_EQR_n": 2161,
+      "independent_spearman_original_2016_EQR_vs_modelled_JRC_N": 0.029212811047324577,
+      "independent_spearman_original_2016_EQR_vs_modelled_JRC_P": 0.015292837676757784,
+      "manual_separate_2016_year_NUTS2_source_predictor_Ridge10_reproductions": {
+        "N": {
+          "manual_numpy_MSE_equal_NUTS2": 0.035233298577671705,
+          "manual_numpy_MSE_site_equal": 0.03374130223284409
+        },
+        "P": {
+          "manual_numpy_MSE_equal_NUTS2": 0.03567414781300661,
+          "manual_numpy_MSE_site_equal": 0.033724946425560794
+        },
+        "baseline": {
+          "manual_numpy_MSE_equal_NUTS2": 0.03552243696312146,
+          "manual_numpy_MSE_site_equal": 0.033302626475027845
+        }
+      },
+      "no_2016_site_specific_WWTP_measured_LOAD_claimed": true,
+      "same_GISCO2016_site_metadata_and_original_NUTS2_source_IDs": true,
+      "strict_NUTS2_disjoint_SOURCE_ONLY_5fold_predicted": true
+    }
+  },
+  "not_2016_measured_WWTP_specific_loads": true,
+  "not_causal_or_confirmatory_claim": true,
+  "official_full_EEA_Biology2026_ZIP_SHA256": "438c91ce9a36148fbb5448488c7dca43a653f03a9bffbfc5342edb953afa2389",
+  "official_uncompressed_EEA2016_EQR_member_SHA256": "f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9",
+  "schema": "gesui_original_EEA2016_benthic_phytobenthos_EQR_manualNumPy_2014_18_GREEN_pointNP_79NUTS2_independent_CV_v01",
+  "source_2016_original_BQE_site_geography_SHA256": "43f3c94c43f5eec0fae09fe43166eada627ce644576d4cbc9dee201d2e551832",
+  "source_first_2016_EQR_observational_results_SHA256": "60f6628757663b2fbe6dfd08f0d382c9ae3bace487cdb0dfa15ddca9f77966d3",
+  "source_frozen2016_NUTS2_DISJOINT_CV_SHA256": "48fcda7c2e23535e19ff519b140c964de7b051fa7ccff272309189cdbcbd7545",
+  "source_geo_2016_GISCO_JRC2014to18_SHA256": "ccebcb00dc935c27c8ead04690eaaf104eeda1d7c10a25bbdf5e4a67360b3c11"
+}

@@ -1,0 +1,38 @@
+# Fixed month-matched TP source and longitudinal I2M2 test, 13 November 2026
+
+This analysis follows draft PR #71; all earlier numerical signals are KNOWN: repeated FR/2018–22 263 same WQ+EEA I2M2 physical site IDs, 73 original native H7, 24 original H6; 2018 and 2022 each show strong NEGATIVE spatial correlations (H7 Spearman -0.733/-0.697), yet raw annual 2018→22 **ΔTP vs ΔEQR is near-null** (H7 rho−0.126, H6 geographic CV MSE gain −0.409%). This is EXPLORATORY/POSTHOC; new source thresholds and algorithm fixed before viewing newly month-matched TP concentrations or ΔI2M2 model effects.
+
+## Original immutable source
+- Official Peters et al Figshare v5 `TP.2_-_Harmonised.zip` with per-station original `date,value` daily TP readings (file ID 70896288, size 25,003,722, MD5 `b596dbe9833c49426147a99f10f3fe31`, SHA256 `26f2af11f4972987ee6f7c3f497ad902820f145851f71919d4f45b589e1d809e`), DOI 10.25400/lincolnuninz.30546371.v5.
+- Original fixed outcome-UNSEEN pre-date source stage [#43373061409](https://github.com/zuizui0223/gesui/actions/runs/43373061409), file SHA256 `2190ac905326f4f2f4f278eb0debb4a7bfda7c4c71347d4941b54cc19d3de264`, 263 source original identical Peters WQ IDs / EEA2018 and EEA2022 physical station IDs, original I2M2 method, exact original 2018 and2022 measurement source eligibility ≥4 samples/3 distinct months per calendar year; original H7 n73 / H6 n24.
+- Original source-analysis results [#43373639391](https://github.com/zuizui0223/gesui/actions/runs/43373639391), true same 263 physical station EEA source EQR and raw annual TP; never change 2018/22 source EQR outcomes or previous full source effects. True H6 source-fold assignments from [#43370462196](https://github.com/zuizui0223/gesui/actions/runs/43370462196), SHA256 `294eb69b76cd4cf40f1022a5e83278529b1d2bbceac9a38931004610a23eb052`.
+
+## Stage 0: source-only calendar MONTH overlap, before any month-matched TP effect estimates
+
+Parse original published per-WQ `date` and `value` records. Ignore invalid dates, nonfinite, TP≤0; flag rather than impute. Use original 2018 and 2022 calendar years only (months 1–12). For each of original source-fixed 263 station WQ IDs, identify separately all calendar month numbers with ≥1 distinct ORIGINAL positive TP sampled date in **both** years. Report count of 0...12 shared months, sample-count and month coverage by year, duplicate-date reporting and first/last actual sample dates.
+
+**Primary month-matched source eligibility** (fixed now): original 2018 and 2022 must each have ≥4 positive samples across ≥3 original months (already passed), and **≥3 matched calendar months each having at least one original measured positive TP value in BOTH years**. There are no magnitude-based TP or EQR thresholds, no alternative years, no added stations. Require primary eligible ≥100 same physical monitoring stations, ≥30 original H7 basins, ≥10 original H6 parent regions. If fails, source gate STOP and preserve the full 263 annual result, without opportunistic switching to 1/2-month filtering. Source-only descriptive statistics for 1 or 2 common months are still allowed but no primary new biological model.
+
+For eligibility, original WQ ID and EEA site must be same true physical 2018 and 2022 stations. Each month-level original sample number and original observed dates may be saved in source-only derived artifact; DO NOT save actual TP value in eligibility report or inspect EQR magnitude to select sites. Freeze site+month membership, source gate counts and SHA256. A 2018 January and 2022 January pair is compared, but **NOT** the same day, flow regime or climatic conditions.
+
+## Stage 1, if and only if original source eligibility passes
+
+For each station's original common calendar months M, compute its historical monthly TP median for each year (`median(TP positive values on all distinct sample dates within month)`); define
+`ΔTP_matched_months = |M|^−1 Σ_{m∈M} [ln(median(TP_{2022,m})) − ln(median(TP_{2018,m}))]`.
+Each matched month has **equal weight** regardless of within-month sample count. Contrast this with the old annual `ln(median positive 2022 TP) − ln(median positive 2018 TP)` **on precisely the same source-eligible sites**; do not compare raw all263 model to a selected month-support model and call it a causal gain.
+
+EQR change = original exactly same 2018 EEA `numeric_EQR_2018` and 2022 `normalised_EQR`, both original `FR`, same `I2M2` procedure and same `HYRIV_ID`. Per original eligible H7 basin (one row), site-equal average each TP delta and I2M2 delta. 24 original H6 parent groups, same pre-source original H6 geographic folds retained for basin holdout; never fit repeated site records as independent H7.
+
+**Primary baseline**: same pre-declared original PR71 H7 `log H7 area`, HydroATLAS upstream cropland/urban, natural H7 modeled outlet discharge, original site modeled mean flow, `log1p(n source-eligible matched physical sites)`, actual `Δlog1p` TP observation count **restricted to matched months per station** and then averaged. Baseline B0 vs B0+month-matched ΔlnTP under fixed H6 5fold Ridge alpha10, train-only scaling, exact H6 cluster 2000 bootstrap descriptive95, true 24 H6 leave-one-parent-out. Source 2018 TP level may be added as a predeclared secondary baseline sensitivity (same sites/months). Baseline-on-same-eligible-sites B0 vs B0+raw-annual ΔTP is an explicit **counterfactual measurement definition comparison**, not independent validation.
+
+Report raw H7 Spearman Δmatched-month TP vs ΔI2M2; 263-site reduced eligible site level raw Spearman descriptive; site-demeaned within H7 slope for multiple matched stations; H6-cluster descriptive OLS β per 1SD matched-month TP change. **Do not reinterpret a null as no TP effect**, because detection/temporal lag/hydrology still unmeasured.
+
+Source-quality check in parallel: audit original EEA I2M2 2018/2022 score generation/normalization: both source columns could differ in transformation/data handling even when `procedureClassificationSystem` same; explicitly compare method labels and original `raw_EQR_2018` to 2018 numeric values and source 2022 `resultObservationStatus_observed`. Do not re-scale 2022 scores to force a temporal trend or substitute undocumented index conversion. If independently verified original EEA normalized EQRI2M2 source construction not recoverable, keep a limitation and describe results as within-original-source-index change.
+
+**Secondary GBIF comparisons**: same eligible original H7 source cohorts; original two-period rarefied Plant speciesKey S50 and Lycaenidae five-family index log-odds deltas under original GBIF record-effort changes, source H6 fold (not same physical field stations as TP/EQR); include all signed results regardless of sign. No actual flowering/pollination/host services measured.
+
+## Interpretation and safeguards
+
+Previously reported original 2022 WWTP actual P source-positive n4/273 across 2 H7/2 H6 cannot be treated as a causal source variable on the subset; zero matched reports are not verified absence of sewage or nutrient inputs. Strong 2018/2022 SPATIAL TP–EQR negative associations DO NOT imply annual within-site changes can be predicted. Month-matched ΔTP is a *measurement definition sensitivity*, not causal mediation, lag response, pan-European transfer or a measure of ecosystem services.
+
+Keep new Draft stacked on PR #71 and leave `gesui/main`, `chocho` and old positive/null PRs unchanged. No eBird.

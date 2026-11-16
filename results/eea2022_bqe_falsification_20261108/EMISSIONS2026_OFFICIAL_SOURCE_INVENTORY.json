@@ -1,0 +1,326 @@
+{
+  "EEA_exact_download": "https://sdi.eea.europa.eu/datashare/s/KkqFMjiif9eS7bn/download",
+  "EEA_public_dataset": "https://www.eea.europa.eu/en/datahub/datahubitem-view/5bd950b1-52b9-42f3-b0d7-bf51ff3056b7",
+  "EEA_version": "eea_t_waterbase-emissions_p_1977-2025_v01_r00",
+  "actual_2022_Emissions_agriculture_load_available_not_yet_verified": true,
+  "archive_container_sha256": "8765eea4b5a4d48fc8b34d7a05e2ba42a4af098013dbf992455009c4126252ef",
+  "biology_EQR_outcomes_or_model_residuals_accessed": false,
+  "candidate_emissions_and_spatial_members": [
+    {
+      "CRC32": "9f95fe5e",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/README.md",
+      "size_compressed": 690,
+      "size_uncompressed": 690
+    },
+    {
+      "CRC32": "89c9a5a1",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/waterbase-emission.png",
+      "size_compressed": 126775,
+      "size_uncompressed": 126775
+    },
+    {
+      "CRC32": "975f16f8",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_-_Emissions_2026_metadata_115940ff-51d1-42ac-ae14-699043b953ca.xml",
+      "size_compressed": 44808,
+      "size_uncompressed": 44808
+    },
+    {
+      "CRC32": "26da75c1",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2022_1_dataset_definition_S_WISE1_SpatialObject_DerivedData.csv",
+      "first_record_as_column_names": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "sample_32kb_SHA256": "3306d530d3b8570d3410ca7a41efee031033f0bd946a2e55fbe433daabfced3b",
+      "size_compressed": 3095,
+      "size_uncompressed": 3095,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "a1ffef42",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2022_1_dataset_definition_T_WISE1_Emissions.csv",
+      "first_record_as_column_names": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "sample_32kb_SHA256": "8793bf2c2f330187df06ebcab9c4412ba21414364ac6a88a0f31e8290d5dec14",
+      "size_compressed": 3976,
+      "size_uncompressed": 3976,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "fbe7ec87",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2022_1_dataset_definition_T_WISE1_RiverineInputLoads.csv",
+      "first_record_as_column_names": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "sample_32kb_SHA256": "583645922fe263650f1011e3c8e569f7e04cf5f14a974f792896461d3d3359e1",
+      "size_compressed": 3099,
+      "size_uncompressed": 3099,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "859ca49e",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_S_WISE6_SpatialObject_DerivedData.csv",
+      "first_record_as_column_names": [
+        "countryCode",
+        "thematicIdIdentifier",
+        "thematicIdIdentifierScheme",
+        "monitoringSiteIdentifier",
+        "monitoringSiteIdentifierScheme",
+        "monitoringSiteName",
+        "waterBodyIdentifier",
+        "waterBodyIdentifierScheme",
+        "waterBodyName",
+        "specialisedZoneType",
+        "naturalAWBHMWB",
+        "reservoir",
+        "surfaceWaterBodyTypeCode",
+        "subUnitIdentifier",
+        "subUnitIdentifierScheme",
+        "subUnitName",
+        "rbdIdentifier",
+        "rbdIdentifierScheme",
+        "rbdName",
+        "confidentialityStatus",
+        "lat",
+        "lon"
+      ],
+      "sample_32kb_SHA256": "596f2f69a4cf100354b1eda6d63a16a90c28338cd600bae8994360e33ca40350",
+      "size_compressed": 24038566,
+      "size_uncompressed": 24038566,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "fe66a930",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_T_WISE1_Emissions.csv",
+      "first_record_as_column_names": [
+        "countryCode",
+        "spatialUnitIdentifier",
+        "spatialUnitIdentifierScheme",
+        "phenomenonTimeReferencePeriod",
+        "observedPropertyDeterminandCode",
+        "observedPropertyDeterminandLabel",
+        "parameterEmissionsSourceCategory",
+        "parameterEPRTRfacilities",
+        "resultEmissionsValue",
+        "resultEmissionsUom",
+        "procedureEmissionsMethod",
+        "resultObservationStatus",
+        "Remarks",
+        "metadata_versionId",
+        "metadata_beginLifeSpanVersion",
+        "metadata_statusCode",
+        "metadata_observationStatus",
+        "metadata_statements",
+        "UID"
+      ],
+      "sample_32kb_SHA256": "dbfb800faee74cee77e8609b00c306cd7c6dcbb311b3560498dba6d17fd52488",
+      "size_compressed": 44245081,
+      "size_uncompressed": 44245081,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "6a36ee18",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_T_WISE1_RiverineInputLoads.csv",
+      "first_record_as_column_names": [
+        "countryCode",
+        "monitoringSiteIdentifier",
+        "monitoringSiteIdentifierScheme",
+        "phenomenonTimeReferenceYear",
+        "observedPropertyDeterminandCode",
+        "observedPropertyDeterminandLabel",
+        "resultEmissionsUom",
+        "resultEmissionsValue",
+        "procedureEstimateDetail",
+        "resultObservationStatus",
+        "Remarks",
+        "metadata_versionId",
+        "metadata_beginLifeSpanVersion",
+        "metadata_statusCode",
+        "metadata_observationStatus",
+        "metadata_statements",
+        "UID"
+      ],
+      "sample_32kb_SHA256": "a0538c69aa9ae999a706ee961930e5d439754ec8c8d37e3b8c0b48fbf93ea2ab",
+      "size_compressed": 5306691,
+      "size_uncompressed": 5306691,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "b8216943",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_WISE1.sqlite",
+      "size_compressed": 52457472,
+      "size_uncompressed": 52457472
+    }
+  ],
+  "limitations": [
+    "Waterbase Emissions source data can be annual country/catchment aggregates instead of individual receiving reaches",
+    "The source may have a subset of countries or no 2022 observations for some diffuse agriculture emissions",
+    "Diffuse source codes and measurement estimation techniques require original codebook verification",
+    "If agricultural emissions are assigned via ecological condition, conditioning on them can cause circularity",
+    "Do not label emissions as river-sampled measured TN/TP concentrations or fixed WWTP effluent contributions"
+  ],
+  "members": [
+    {
+      "CRC32": "9f95fe5e",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/README.md",
+      "size_compressed": 690,
+      "size_uncompressed": 690
+    },
+    {
+      "CRC32": "89c9a5a1",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/waterbase-emission.png",
+      "size_compressed": 126775,
+      "size_uncompressed": 126775
+    },
+    {
+      "CRC32": "975f16f8",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_-_Emissions_2026_metadata_115940ff-51d1-42ac-ae14-699043b953ca.xml",
+      "size_compressed": 44808,
+      "size_uncompressed": 44808
+    },
+    {
+      "CRC32": "26da75c1",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2022_1_dataset_definition_S_WISE1_SpatialObject_DerivedData.csv",
+      "first_record_as_column_names": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "sample_32kb_SHA256": "3306d530d3b8570d3410ca7a41efee031033f0bd946a2e55fbe433daabfced3b",
+      "size_compressed": 3095,
+      "size_uncompressed": 3095,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "a1ffef42",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2022_1_dataset_definition_T_WISE1_Emissions.csv",
+      "first_record_as_column_names": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "sample_32kb_SHA256": "8793bf2c2f330187df06ebcab9c4412ba21414364ac6a88a0f31e8290d5dec14",
+      "size_compressed": 3976,
+      "size_uncompressed": 3976,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "fbe7ec87",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2022_1_dataset_definition_T_WISE1_RiverineInputLoads.csv",
+      "first_record_as_column_names": [
+        "Element name",
+        "Element definition",
+        "Value definitions"
+      ],
+      "sample_32kb_SHA256": "583645922fe263650f1011e3c8e569f7e04cf5f14a974f792896461d3d3359e1",
+      "size_compressed": 3099,
+      "size_uncompressed": 3099,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "859ca49e",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_S_WISE6_SpatialObject_DerivedData.csv",
+      "first_record_as_column_names": [
+        "countryCode",
+        "thematicIdIdentifier",
+        "thematicIdIdentifierScheme",
+        "monitoringSiteIdentifier",
+        "monitoringSiteIdentifierScheme",
+        "monitoringSiteName",
+        "waterBodyIdentifier",
+        "waterBodyIdentifierScheme",
+        "waterBodyName",
+        "specialisedZoneType",
+        "naturalAWBHMWB",
+        "reservoir",
+        "surfaceWaterBodyTypeCode",
+        "subUnitIdentifier",
+        "subUnitIdentifierScheme",
+        "subUnitName",
+        "rbdIdentifier",
+        "rbdIdentifierScheme",
+        "rbdName",
+        "confidentialityStatus",
+        "lat",
+        "lon"
+      ],
+      "sample_32kb_SHA256": "596f2f69a4cf100354b1eda6d63a16a90c28338cd600bae8994360e33ca40350",
+      "size_compressed": 24038566,
+      "size_uncompressed": 24038566,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "fe66a930",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_T_WISE1_Emissions.csv",
+      "first_record_as_column_names": [
+        "countryCode",
+        "spatialUnitIdentifier",
+        "spatialUnitIdentifierScheme",
+        "phenomenonTimeReferencePeriod",
+        "observedPropertyDeterminandCode",
+        "observedPropertyDeterminandLabel",
+        "parameterEmissionsSourceCategory",
+        "parameterEPRTRfacilities",
+        "resultEmissionsValue",
+        "resultEmissionsUom",
+        "procedureEmissionsMethod",
+        "resultObservationStatus",
+        "Remarks",
+        "metadata_versionId",
+        "metadata_beginLifeSpanVersion",
+        "metadata_statusCode",
+        "metadata_observationStatus",
+        "metadata_statements",
+        "UID"
+      ],
+      "sample_32kb_SHA256": "dbfb800faee74cee77e8609b00c306cd7c6dcbb311b3560498dba6d17fd52488",
+      "size_compressed": 44245081,
+      "size_uncompressed": 44245081,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "6a36ee18",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_T_WISE1_RiverineInputLoads.csv",
+      "first_record_as_column_names": [
+        "countryCode",
+        "monitoringSiteIdentifier",
+        "monitoringSiteIdentifierScheme",
+        "phenomenonTimeReferenceYear",
+        "observedPropertyDeterminandCode",
+        "observedPropertyDeterminandLabel",
+        "resultEmissionsUom",
+        "resultEmissionsValue",
+        "procedureEstimateDetail",
+        "resultObservationStatus",
+        "Remarks",
+        "metadata_versionId",
+        "metadata_beginLifeSpanVersion",
+        "metadata_statusCode",
+        "metadata_observationStatus",
+        "metadata_statements",
+        "UID"
+      ],
+      "sample_32kb_SHA256": "a0538c69aa9ae999a706ee961930e5d439754ec8c8d37e3b8c0b48fbf93ea2ab",
+      "size_compressed": 5306691,
+      "size_uncompressed": 5306691,
+      "source_delimiter_inferred": ","
+    },
+    {
+      "CRC32": "b8216943",
+      "file": "eea_t_waterbase-emissions_p_1977-2025_v01_r00/Waterbase_v2025_1_WISE1.sqlite",
+      "size_compressed": 52457472,
+      "size_uncompressed": 52457472
+    }
+  ],
+  "original_EEA_full_archive_redistributed": false,
+  "original_archive_bytes": 126233239,
+  "retrieved_utc": "2026-11-08T02:26:00.717118+00:00",
+  "schema": "gesui_eea_Waterbase_Emissions_2026_source_inventory_v01",
+  "scientific_N_or_P_year2022_values_read": false
+}

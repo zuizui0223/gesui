@@ -1,0 +1,125 @@
+{
+  "agricultural_source_category_code": "NP1",
+  "ambiguous_source_to_waterbody_area_mapping": {
+    "rbdIdentifier": 0,
+    "subUnitIdentifier": 0
+  },
+  "duplicate_or_unverifiable_emissions_excluded": true,
+  "further_limits": [
+    "RBD/subunit source area grain is different from EEA WWTP receiving-water reach grain",
+    "Annual reported diffuse agricultural emissions may be modelled/estimated; method preserved",
+    "Source coverage selection can be nonrandom with respect to reporting country and 2022 aquatic EQR",
+    "A shared regional agricultural source value for many river sites does not give 1:1 local exposure",
+    "No biological source-to-EQR sign/causation claimed; first report source validity and geographic denominator",
+    "Spatial join uses source metadata exact country/waterBody/subunit/RBD, not nearest-neighbor pollution assumption"
+  ],
+  "no_2022_EQR_biological_outcome_read": true,
+  "no_missing_agriculture_data_imputed_as_zero": true,
+  "no_source_tonnes_added_across_hierarchical_RBD_and_subunit": true,
+  "official_code_list": "https://dd.eionet.europa.eu/datasets/3351",
+  "original_emissions_source": "https://www.eea.europa.eu/en/datahub/datahubitem-view/5bd950b1-52b9-42f3-b0d7-bf51ff3056b7",
+  "original_source_only_BQE_registry_SHA256": "e12df511d64c4c580ef2422dccdbbd11a1309c84d29d467fd4527206e41fa636",
+  "original_source_quality": {
+    "distinct_original_multi_report_duplicate_keys": 0,
+    "original_2022_NP1_NP2_NP4_totalN_totalP_rows_at_region_grain": 94,
+    "original_source_category_rows": {
+      "NP1": 50,
+      "NP2": 6,
+      "NP4": 38
+    },
+    "original_unit_counts": {
+      "t/a": 94
+    },
+    "original_valid_unambiguous_annual_mass_rows": 92,
+    "source_category_determinand_counts": {
+      "NP1:Total nitrogen": 25,
+      "NP1:Total phosphorus": 25,
+      "NP2:Total nitrogen": 6,
+      "NP4:Total nitrogen": 19,
+      "NP4:Total phosphorus": 19
+    },
+    "source_category_method_counts": {
+      "NP1:modelled": 50,
+      "NP2:modelled": 6,
+      "NP4:modelled": 38
+    },
+    "unusable_numeric_or_missing_unit": 2,
+    "valid_annual_source_countries": {
+      "BE": 6,
+      "LT": 74,
+      "NL": 12
+    }
+  },
+  "schema": "gesui_EEA2026_emissions_2022_NP1_diffuse_PN_source_only_BQE_coverage_v01",
+  "source_2022_diffuse_NP1_by_BQE": {
+    "benthic_invertebrates": {
+      "agricultural_N_reporting_countries": 2,
+      "agricultural_P_and_WWTP_positive_countries": 2,
+      "agricultural_P_reporting_countries": 2,
+      "agricultural_P_reporting_grain": {
+        "euRBDCode": 43,
+        "euSubUnitCode": 99
+      },
+      "agricultural_P_reporting_methods": {
+        "modelled": 142
+      },
+      "country_agricultural_P_and_WWTP_positive_source": {
+        "LT": 6,
+        "NL": 14
+      },
+      "source_2022_agricultural_N_reported_sites": 142,
+      "source_2022_agricultural_PN_both_reported_sites": 142,
+      "source_2022_agricultural_PN_plus_positive_WWTP_sites": 20,
+      "source_2022_agricultural_P_plus_positive_WWTP_sites": 20,
+      "source_2022_agricultural_P_reported_sites": 142,
+      "source_only_original_monitoring_site_n": 3282,
+      "source_upstream_WWTP_reported_NP_positive_sites": 394
+    },
+    "fish": {
+      "agricultural_N_reporting_countries": 1,
+      "agricultural_P_and_WWTP_positive_countries": 1,
+      "agricultural_P_reporting_countries": 1,
+      "agricultural_P_reporting_grain": {
+        "euSubUnitCode": 275
+      },
+      "agricultural_P_reporting_methods": {
+        "modelled": 275
+      },
+      "country_agricultural_P_and_WWTP_positive_source": {
+        "LT": 28
+      },
+      "source_2022_agricultural_N_reported_sites": 275,
+      "source_2022_agricultural_PN_both_reported_sites": 275,
+      "source_2022_agricultural_PN_plus_positive_WWTP_sites": 28,
+      "source_2022_agricultural_P_plus_positive_WWTP_sites": 28,
+      "source_2022_agricultural_P_reported_sites": 275,
+      "source_only_original_monitoring_site_n": 1300,
+      "source_upstream_WWTP_reported_NP_positive_sites": 98
+    },
+    "phytobenthos": {
+      "agricultural_N_reporting_countries": 1,
+      "agricultural_P_and_WWTP_positive_countries": 1,
+      "agricultural_P_reporting_countries": 1,
+      "agricultural_P_reporting_grain": {
+        "euSubUnitCode": 184
+      },
+      "agricultural_P_reporting_methods": {
+        "modelled": 184
+      },
+      "country_agricultural_P_and_WWTP_positive_source": {
+        "LT": 20
+      },
+      "source_2022_agricultural_N_reported_sites": 184,
+      "source_2022_agricultural_PN_both_reported_sites": 184,
+      "source_2022_agricultural_PN_plus_positive_WWTP_sites": 20,
+      "source_2022_agricultural_P_plus_positive_WWTP_sites": 20,
+      "source_2022_agricultural_P_reported_sites": 184,
+      "source_only_original_monitoring_site_n": 3663,
+      "source_upstream_WWTP_reported_NP_positive_sites": 403
+    }
+  },
+  "source_region_mapped_EEA_monitor_rows": 8245,
+  "spatial_2022_source_grain": "RBD or subunit, not local monitoring station reach",
+  "timestamp_utc": "2026-11-08T02:34:53.794845+00:00",
+  "unique_source_WISE_BQE_site_waterbody_records": 4337
+}

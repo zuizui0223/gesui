@@ -1,0 +1,1111 @@
+{
+  "Ridge_fixed_alpha": 10,
+  "country_leaveout_new_country_EQR_method_levels_unseen_in_training": true,
+  "independent_source_original_audit_run": 42436814278,
+  "limits": [
+    "All exposure-positive subsets evaluated only after observing primary overall MSE: exploratory, not a prospective test",
+    "Country leaveout holds out the country-specific EQR national method calibration, making transfer nonexchangeable",
+    "Nonlinear latitude/longitude is a geographic proxy, not independent agricultural or urban land cover",
+    "Site monitoring and national classification quality vary; source P and N are highly correlated",
+    "No 2022 measured river flow seasonality, adjacent other P/N agricultural loads or actual receiving reach transport"
+  ],
+  "models_refitted_only_to_test_preexisting_predictions_generalization": true,
+  "no_causal_effluent_pollution_effect_claimed": true,
+  "no_new_sites_or_source_variables_added": true,
+  "original_geographic_folds_unchanged": true,
+  "original_observed_BQE_run": 42432384196,
+  "original_source_only_run": 42432030617,
+  "posthoc_diagnostics_not_preregistered": true,
+  "results": {
+    "benthic_invertebrates": {
+      "N": {
+        "original_fixed_3degree_fold_exposure_split_diagnostic": {
+          "all_stations": {
+            "baseline_MSE": 0.058338079343617094,
+            "improvement_MSE_pct": 1.3966575301332862,
+            "n": 2475,
+            "source_MSE": 0.057523296165529335
+          },
+          "countries_with_positive_MSE_gain": 8,
+          "country_count": 13,
+          "country_specific_heldout_contributions": {
+            "AT": {
+              "MSE_improvement_pct": 23.502903907676576,
+              "all_station_n": 68,
+              "upstream_source_positive_n": 53
+            },
+            "BE": {
+              "MSE_improvement_pct": -8.252911286485146,
+              "all_station_n": 69,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 0.7331317900893971,
+              "all_station_n": 1592,
+              "upstream_source_positive_n": 7
+            },
+            "HR": {
+              "MSE_improvement_pct": -9.84074221287832,
+              "all_station_n": 29,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -2.0987018944362275,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": -3.4553133256849002,
+              "all_station_n": 358,
+              "upstream_source_positive_n": 36
+            },
+            "LT": {
+              "MSE_improvement_pct": -1.0618239628962378,
+              "all_station_n": 99,
+              "upstream_source_positive_n": 6
+            },
+            "LU": {
+              "MSE_improvement_pct": 20.300517335316353,
+              "all_station_n": 38,
+              "upstream_source_positive_n": 16
+            },
+            "NL": {
+              "MSE_improvement_pct": 14.015285362557137,
+              "all_station_n": 43,
+              "upstream_source_positive_n": 14
+            },
+            "NO": {
+              "MSE_improvement_pct": 7.614808626107759,
+              "all_station_n": 110,
+              "upstream_source_positive_n": 6
+            },
+            "SE": {
+              "MSE_improvement_pct": 5.784291385269261,
+              "all_station_n": 5,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": 88.53136322310793,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": 15.295133140989087,
+              "all_station_n": 4,
+              "upstream_source_positive_n": 1
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.05524802984117188,
+            "improvement_MSE_pct": 18.829827740084813,
+            "n": 147,
+            "source_MSE": 0.04484492099228856
+          },
+          "source": "N",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.05853319844879728,
+            "improvement_MSE_pct": 0.3576342730616108,
+            "n": 2328,
+            "source_MSE": 0.05832386367002521
+          }
+        },
+        "posthoc_fixed_fold_quadratic_latlon_sensitivity": {
+          "all_stations": {
+            "baseline_MSE": 0.05768964259458844,
+            "improvement_MSE_pct": 1.0032754901044723,
+            "n": 2475,
+            "source_MSE": 0.057110856550108065
+          },
+          "countries_with_positive_MSE_gain": 8,
+          "country_count": 13,
+          "country_specific_heldout_contributions": {
+            "AT": {
+              "MSE_improvement_pct": 23.058773369766648,
+              "all_station_n": 68,
+              "upstream_source_positive_n": 53
+            },
+            "BE": {
+              "MSE_improvement_pct": -14.819281571546586,
+              "all_station_n": 69,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 0.5118873512918783,
+              "all_station_n": 1592,
+              "upstream_source_positive_n": 7
+            },
+            "HR": {
+              "MSE_improvement_pct": -8.553517991856163,
+              "all_station_n": 29,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -0.12253181853326119,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": -2.779005353680338,
+              "all_station_n": 358,
+              "upstream_source_positive_n": 36
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.6804779215274432,
+              "all_station_n": 99,
+              "upstream_source_positive_n": 6
+            },
+            "LU": {
+              "MSE_improvement_pct": 17.623921209788474,
+              "all_station_n": 38,
+              "upstream_source_positive_n": 16
+            },
+            "NL": {
+              "MSE_improvement_pct": 12.278434368817049,
+              "all_station_n": 43,
+              "upstream_source_positive_n": 14
+            },
+            "NO": {
+              "MSE_improvement_pct": 5.135695738208288,
+              "all_station_n": 110,
+              "upstream_source_positive_n": 6
+            },
+            "SE": {
+              "MSE_improvement_pct": 4.68530982793285,
+              "all_station_n": 5,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": 81.77511414259226,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": 11.024452822745177,
+              "all_station_n": 4,
+              "upstream_source_positive_n": 1
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": true,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.05230385470932922,
+            "improvement_MSE_pct": 14.220755054317193,
+            "n": 147,
+            "source_MSE": 0.04486585164714956
+          },
+          "source": "N",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.058029724561570024,
+            "improvement_MSE_pct": 0.2510185657106501,
+            "n": 2328,
+            "source_MSE": 0.05788405917928973
+          }
+        },
+        "posthoc_leave_one_country_out_transfer_stress_test": {
+          "all_stations": {
+            "baseline_MSE": 0.07773591248900788,
+            "improvement_MSE_pct": 3.001188547554766,
+            "n": 2475,
+            "source_MSE": 0.07540291118605058
+          },
+          "countries_with_positive_MSE_gain": 9,
+          "country_count": 13,
+          "country_specific_heldout_contributions": {
+            "AT": {
+              "MSE_improvement_pct": 19.430433706210124,
+              "all_station_n": 68,
+              "upstream_source_positive_n": 53
+            },
+            "BE": {
+              "MSE_improvement_pct": -7.8735554587692285,
+              "all_station_n": 69,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 2.7914838473444945,
+              "all_station_n": 1592,
+              "upstream_source_positive_n": 7
+            },
+            "HR": {
+              "MSE_improvement_pct": -22.347725472851845,
+              "all_station_n": 29,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": 10.367111066332475,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": -4.53523014536117,
+              "all_station_n": 358,
+              "upstream_source_positive_n": 36
+            },
+            "LT": {
+              "MSE_improvement_pct": 10.270691540995978,
+              "all_station_n": 99,
+              "upstream_source_positive_n": 6
+            },
+            "LU": {
+              "MSE_improvement_pct": 19.037418949365847,
+              "all_station_n": 38,
+              "upstream_source_positive_n": 16
+            },
+            "NL": {
+              "MSE_improvement_pct": 22.034640094025015,
+              "all_station_n": 43,
+              "upstream_source_positive_n": 14
+            },
+            "NO": {
+              "MSE_improvement_pct": 9.797049479593042,
+              "all_station_n": 110,
+              "upstream_source_positive_n": 6
+            },
+            "SE": {
+              "MSE_improvement_pct": 7.800939254004342,
+              "all_station_n": 5,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": -41.89363220318597,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": 18.920648046942716,
+              "all_station_n": 4,
+              "upstream_source_positive_n": 1
+            }
+          },
+          "evaluation_scheme": "leave_one_reporting_country_out",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.06014053352031686,
+            "improvement_MSE_pct": 20.15977350722688,
+            "n": 147,
+            "source_MSE": 0.04801633817658312
+          },
+          "source": "N",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.07884696090326802,
+            "improvement_MSE_pct": 2.1747736332736984,
+            "n": 2328,
+            "source_MSE": 0.07713221798690613
+          }
+        }
+      },
+      "P": {
+        "original_fixed_3degree_fold_exposure_split_diagnostic": {
+          "all_stations": {
+            "baseline_MSE": 0.058338079343617094,
+            "improvement_MSE_pct": 1.1029634496553575,
+            "n": 2475,
+            "source_MSE": 0.057694631651226055
+          },
+          "countries_with_positive_MSE_gain": 8,
+          "country_count": 13,
+          "country_specific_heldout_contributions": {
+            "AT": {
+              "MSE_improvement_pct": 18.830955537662454,
+              "all_station_n": 68,
+              "upstream_source_positive_n": 53
+            },
+            "BE": {
+              "MSE_improvement_pct": -5.029438309096798,
+              "all_station_n": 69,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 0.6402032897033295,
+              "all_station_n": 1592,
+              "upstream_source_positive_n": 7
+            },
+            "HR": {
+              "MSE_improvement_pct": -8.799276191946044,
+              "all_station_n": 29,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -1.6323248806940613,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": -2.9346666948362636,
+              "all_station_n": 358,
+              "upstream_source_positive_n": 36
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.317982008244923,
+              "all_station_n": 99,
+              "upstream_source_positive_n": 6
+            },
+            "LU": {
+              "MSE_improvement_pct": 16.71687666703169,
+              "all_station_n": 38,
+              "upstream_source_positive_n": 16
+            },
+            "NL": {
+              "MSE_improvement_pct": 13.970591735397093,
+              "all_station_n": 43,
+              "upstream_source_positive_n": 14
+            },
+            "NO": {
+              "MSE_improvement_pct": 4.081796457919088,
+              "all_station_n": 110,
+              "upstream_source_positive_n": 6
+            },
+            "SE": {
+              "MSE_improvement_pct": 4.182343625394367,
+              "all_station_n": 5,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": 85.94446242409441,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": 14.343937492547875,
+              "all_station_n": 4,
+              "upstream_source_positive_n": 1
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.05524802984117188,
+            "improvement_MSE_pct": 14.411070851564777,
+            "n": 147,
+            "source_MSE": 0.04728619711666695
+          },
+          "source": "P",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.05853319844879728,
+            "improvement_MSE_pct": 0.30979542963005857,
+            "n": 2328,
+            "source_MSE": 0.05835186527518661
+          }
+        },
+        "posthoc_fixed_fold_quadratic_latlon_sensitivity": {
+          "all_stations": {
+            "baseline_MSE": 0.05768964259458844,
+            "improvement_MSE_pct": 0.7949188560770937,
+            "n": 2475,
+            "source_MSE": 0.057231056747600574
+          },
+          "countries_with_positive_MSE_gain": 8,
+          "country_count": 13,
+          "country_specific_heldout_contributions": {
+            "AT": {
+              "MSE_improvement_pct": 18.89380126611087,
+              "all_station_n": 68,
+              "upstream_source_positive_n": 53
+            },
+            "BE": {
+              "MSE_improvement_pct": -9.748298133459151,
+              "all_station_n": 69,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 0.47990554669378827,
+              "all_station_n": 1592,
+              "upstream_source_positive_n": 7
+            },
+            "HR": {
+              "MSE_improvement_pct": -7.7743700131814215,
+              "all_station_n": 29,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -0.011535799395375296,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": -2.5186205293996373,
+              "all_station_n": 358,
+              "upstream_source_positive_n": 36
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.28965553163528535,
+              "all_station_n": 99,
+              "upstream_source_positive_n": 6
+            },
+            "LU": {
+              "MSE_improvement_pct": 14.62543782646007,
+              "all_station_n": 38,
+              "upstream_source_positive_n": 16
+            },
+            "NL": {
+              "MSE_improvement_pct": 12.929801014737413,
+              "all_station_n": 43,
+              "upstream_source_positive_n": 14
+            },
+            "NO": {
+              "MSE_improvement_pct": 1.9237885131584334,
+              "all_station_n": 110,
+              "upstream_source_positive_n": 6
+            },
+            "SE": {
+              "MSE_improvement_pct": 2.833477875544334,
+              "all_station_n": 5,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": 86.76740363588897,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": 10.337867320296674,
+              "all_station_n": 4,
+              "upstream_source_positive_n": 1
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": true,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.05230385470932922,
+            "improvement_MSE_pct": 10.634335494434279,
+            "n": 147,
+            "source_MSE": 0.046741687323017686
+          },
+          "source": "P",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.058029724561570024,
+            "improvement_MSE_pct": 0.23492031306890027,
+            "n": 2328,
+            "source_MSE": 0.057893400950956964
+          }
+        },
+        "posthoc_leave_one_country_out_transfer_stress_test": {
+          "all_stations": {
+            "baseline_MSE": 0.07773591248900788,
+            "improvement_MSE_pct": 2.4717221879954856,
+            "n": 2475,
+            "source_MSE": 0.07581449669197632
+          },
+          "countries_with_positive_MSE_gain": 10,
+          "country_count": 13,
+          "country_specific_heldout_contributions": {
+            "AT": {
+              "MSE_improvement_pct": 19.006560414155864,
+              "all_station_n": 68,
+              "upstream_source_positive_n": 53
+            },
+            "BE": {
+              "MSE_improvement_pct": -4.999175213699934,
+              "all_station_n": 69,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 2.0576919713597834,
+              "all_station_n": 1592,
+              "upstream_source_positive_n": 7
+            },
+            "HR": {
+              "MSE_improvement_pct": -20.93127371907885,
+              "all_station_n": 29,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": 9.497640510238398,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": -3.3676210108856894,
+              "all_station_n": 358,
+              "upstream_source_positive_n": 36
+            },
+            "LT": {
+              "MSE_improvement_pct": 7.908203428338745,
+              "all_station_n": 99,
+              "upstream_source_positive_n": 6
+            },
+            "LU": {
+              "MSE_improvement_pct": 16.33594463405124,
+              "all_station_n": 38,
+              "upstream_source_positive_n": 16
+            },
+            "NL": {
+              "MSE_improvement_pct": 25.79950680325826,
+              "all_station_n": 43,
+              "upstream_source_positive_n": 14
+            },
+            "NO": {
+              "MSE_improvement_pct": 8.623616732229213,
+              "all_station_n": 110,
+              "upstream_source_positive_n": 6
+            },
+            "SE": {
+              "MSE_improvement_pct": 5.7797918497842105,
+              "all_station_n": 5,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": 2.3916708627046614,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": 17.526546592790844,
+              "all_station_n": 4,
+              "upstream_source_positive_n": 1
+            }
+          },
+          "evaluation_scheme": "leave_one_reporting_country_out",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.06014053352031686,
+            "improvement_MSE_pct": 19.388282018892436,
+            "n": 147,
+            "source_MSE": 0.04848031727373129
+          },
+          "source": "P",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.07884696090326802,
+            "improvement_MSE_pct": 1.65696401443753,
+            "n": 2328,
+            "source_MSE": 0.07754049513462324
+          }
+        }
+      }
+    },
+    "phytobenthos": {
+      "N": {
+        "original_fixed_3degree_fold_exposure_split_diagnostic": {
+          "all_stations": {
+            "baseline_MSE": 0.03593437628266662,
+            "improvement_MSE_pct": 0.17614475303038504,
+            "n": 2784,
+            "source_MSE": 0.03587107976431051
+          },
+          "countries_with_positive_MSE_gain": 5,
+          "country_count": 12,
+          "country_specific_heldout_contributions": {
+            "BE": {
+              "MSE_improvement_pct": -0.19784620133663003,
+              "all_station_n": 75,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 0.02758400486953847,
+              "all_station_n": 1845,
+              "upstream_source_positive_n": 12
+            },
+            "HR": {
+              "MSE_improvement_pct": -3.327538931782968,
+              "all_station_n": 31,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -0.08777524130046833,
+              "all_station_n": 152,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": 0.745470932036563,
+              "all_station_n": 337,
+              "upstream_source_positive_n": 42
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.9681739058314122,
+              "all_station_n": 184,
+              "upstream_source_positive_n": 20
+            },
+            "LU": {
+              "MSE_improvement_pct": 4.323813863913623,
+              "all_station_n": 46,
+              "upstream_source_positive_n": 20
+            },
+            "LV": {
+              "MSE_improvement_pct": -0.5458661048442028,
+              "all_station_n": 40,
+              "upstream_source_positive_n": 4
+            },
+            "NO": {
+              "MSE_improvement_pct": 0.9026965590942654,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 4
+            },
+            "SE": {
+              "MSE_improvement_pct": 1.1027506543025312,
+              "all_station_n": 12,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": -6.997983220114729,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": -1.7797371569669882,
+              "all_station_n": 2,
+              "upstream_source_positive_n": 0
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.02823525632433607,
+            "improvement_MSE_pct": 5.744041830559957,
+            "n": 110,
+            "source_MSE": 0.02661341139010038
+          },
+          "source": "N",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.03625109400720528,
+            "improvement_MSE_pct": -0.0022545273351155548,
+            "n": 2674,
+            "source_MSE": 0.03625191129802895
+          }
+        },
+        "posthoc_fixed_fold_quadratic_latlon_sensitivity": {
+          "all_stations": {
+            "baseline_MSE": 0.03607718145251948,
+            "improvement_MSE_pct": -0.009560089757537943,
+            "n": 2784,
+            "source_MSE": 0.03608063046344833
+          },
+          "countries_with_positive_MSE_gain": 3,
+          "country_count": 12,
+          "country_specific_heldout_contributions": {
+            "BE": {
+              "MSE_improvement_pct": -0.08670362008331088,
+              "all_station_n": 75,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": -0.014535751791779596,
+              "all_station_n": 1845,
+              "upstream_source_positive_n": 12
+            },
+            "HR": {
+              "MSE_improvement_pct": -2.7111854126621955,
+              "all_station_n": 31,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -0.014980166925479741,
+              "all_station_n": 152,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": 0.4056753579837392,
+              "all_station_n": 337,
+              "upstream_source_positive_n": 42
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.5220083053869978,
+              "all_station_n": 184,
+              "upstream_source_positive_n": 20
+            },
+            "LU": {
+              "MSE_improvement_pct": -3.276233683540114,
+              "all_station_n": 46,
+              "upstream_source_positive_n": 20
+            },
+            "LV": {
+              "MSE_improvement_pct": -0.35923497218925204,
+              "all_station_n": 40,
+              "upstream_source_positive_n": 4
+            },
+            "NO": {
+              "MSE_improvement_pct": 0.04777082317007001,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 4
+            },
+            "SE": {
+              "MSE_improvement_pct": 0.24236925283636543,
+              "all_station_n": 12,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": -6.644281157830904,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": -2.321535103790484,
+              "all_station_n": 2,
+              "upstream_source_positive_n": 0
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": true,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.02711484826699932,
+            "improvement_MSE_pct": 0.10293469723539343,
+            "n": 110,
+            "source_MSE": 0.027086937680029847
+          },
+          "source": "N",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.03644586381991187,
+            "improvement_MSE_pct": -0.013002975501082847,
+            "n": 2674,
+            "source_MSE": 0.03645060286665553
+          }
+        },
+        "posthoc_leave_one_country_out_transfer_stress_test": {
+          "all_stations": {
+            "baseline_MSE": 0.03813344445135009,
+            "improvement_MSE_pct": -0.19838840351616305,
+            "n": 2784,
+            "source_MSE": 0.03820909678300285
+          },
+          "countries_with_positive_MSE_gain": 7,
+          "country_count": 12,
+          "country_specific_heldout_contributions": {
+            "BE": {
+              "MSE_improvement_pct": 0.49257179693281455,
+              "all_station_n": 75,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": -0.5990760677929795,
+              "all_station_n": 1845,
+              "upstream_source_positive_n": 12
+            },
+            "HR": {
+              "MSE_improvement_pct": -3.3741825080144348,
+              "all_station_n": 31,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": 0.37092272644472285,
+              "all_station_n": 152,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": 0.5395891517100827,
+              "all_station_n": 337,
+              "upstream_source_positive_n": 42
+            },
+            "LT": {
+              "MSE_improvement_pct": -1.6523677499304037,
+              "all_station_n": 184,
+              "upstream_source_positive_n": 20
+            },
+            "LU": {
+              "MSE_improvement_pct": 6.724174586354649,
+              "all_station_n": 46,
+              "upstream_source_positive_n": 20
+            },
+            "LV": {
+              "MSE_improvement_pct": 1.838239290496728,
+              "all_station_n": 40,
+              "upstream_source_positive_n": 4
+            },
+            "NO": {
+              "MSE_improvement_pct": 0.008063863502488292,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 4
+            },
+            "SE": {
+              "MSE_improvement_pct": 1.1959342645873068,
+              "all_station_n": 12,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": -6.27808170608693,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": -1.532287609472585,
+              "all_station_n": 2,
+              "upstream_source_positive_n": 0
+            }
+          },
+          "evaluation_scheme": "leave_one_reporting_country_out",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.035078387976360745,
+            "improvement_MSE_pct": 5.349177501990292,
+            "n": 110,
+            "source_MSE": 0.03320198273866839
+          },
+          "source": "N",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.03825911992339528,
+            "improvement_MSE_pct": -0.4076253647507167,
+            "n": 2674,
+            "source_MSE": 0.03841507380053343
+          }
+        }
+      },
+      "P": {
+        "original_fixed_3degree_fold_exposure_split_diagnostic": {
+          "all_stations": {
+            "baseline_MSE": 0.03593437628266662,
+            "improvement_MSE_pct": 0.16259099275733857,
+            "n": 2784,
+            "source_MSE": 0.03587595022352748
+          },
+          "countries_with_positive_MSE_gain": 5,
+          "country_count": 12,
+          "country_specific_heldout_contributions": {
+            "BE": {
+              "MSE_improvement_pct": -0.2309649594577628,
+              "all_station_n": 75,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": 0.019488356947891184,
+              "all_station_n": 1845,
+              "upstream_source_positive_n": 12
+            },
+            "HR": {
+              "MSE_improvement_pct": -2.0093627305864086,
+              "all_station_n": 31,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -0.08331723933731101,
+              "all_station_n": 152,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": 0.7292713914202066,
+              "all_station_n": 337,
+              "upstream_source_positive_n": 42
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.34749364021419243,
+              "all_station_n": 184,
+              "upstream_source_positive_n": 20
+            },
+            "LU": {
+              "MSE_improvement_pct": 2.4254412327238297,
+              "all_station_n": 46,
+              "upstream_source_positive_n": 20
+            },
+            "LV": {
+              "MSE_improvement_pct": -1.275594906748062,
+              "all_station_n": 40,
+              "upstream_source_positive_n": 4
+            },
+            "NO": {
+              "MSE_improvement_pct": 0.9125138121617403,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 4
+            },
+            "SE": {
+              "MSE_improvement_pct": 0.8052293759245498,
+              "all_station_n": 12,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": -4.956308766525961,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": -1.150484511922149,
+              "all_station_n": 2,
+              "upstream_source_positive_n": 0
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.02823525632433607,
+            "improvement_MSE_pct": 4.533362058961836,
+            "n": 110,
+            "source_MSE": 0.026955249926877995
+          },
+          "source": "P",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.03625109400720528,
+            "improvement_MSE_pct": 0.022548459284510994,
+            "n": 2674,
+            "source_MSE": 0.03624291994403288
+          }
+        },
+        "posthoc_fixed_fold_quadratic_latlon_sensitivity": {
+          "all_stations": {
+            "baseline_MSE": 0.03607718145251948,
+            "improvement_MSE_pct": 0.0012446303316288776,
+            "n": 2784,
+            "source_MSE": 0.036076732424976325
+          },
+          "countries_with_positive_MSE_gain": 3,
+          "country_count": 12,
+          "country_specific_heldout_contributions": {
+            "BE": {
+              "MSE_improvement_pct": -0.2618504563247243,
+              "all_station_n": 75,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": -0.004172851658174872,
+              "all_station_n": 1845,
+              "upstream_source_positive_n": 12
+            },
+            "HR": {
+              "MSE_improvement_pct": -1.6284488169659905,
+              "all_station_n": 31,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": -0.03464345153080883,
+              "all_station_n": 152,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": 0.4267590201330973,
+              "all_station_n": 337,
+              "upstream_source_positive_n": 42
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.1942192773071183,
+              "all_station_n": 184,
+              "upstream_source_positive_n": 20
+            },
+            "LU": {
+              "MSE_improvement_pct": -4.815440059117754,
+              "all_station_n": 46,
+              "upstream_source_positive_n": 20
+            },
+            "LV": {
+              "MSE_improvement_pct": -0.8490748999685158,
+              "all_station_n": 40,
+              "upstream_source_positive_n": 4
+            },
+            "NO": {
+              "MSE_improvement_pct": 0.4294015287218667,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 4
+            },
+            "SE": {
+              "MSE_improvement_pct": 0.21042499155555727,
+              "all_station_n": 12,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": -4.8783166306845285,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": -1.71315425620773,
+              "all_station_n": 2,
+              "upstream_source_positive_n": 0
+            }
+          },
+          "evaluation_scheme": "fixed_geo_blocks",
+          "posthoc_nonlinear_geo": true,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.02711484826699932,
+            "improvement_MSE_pct": -0.47607844020469714,
+            "n": 110,
+            "source_MSE": 0.02724393621369272
+          },
+          "source": "P",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.03644586381991187,
+            "improvement_MSE_pct": 0.015853029872195327,
+            "n": 2674,
+            "source_MSE": 0.03644008604623332
+          }
+        },
+        "posthoc_leave_one_country_out_transfer_stress_test": {
+          "all_stations": {
+            "baseline_MSE": 0.03813344445135009,
+            "improvement_MSE_pct": -0.1324655368800004,
+            "n": 2784,
+            "source_MSE": 0.03818395812327341
+          },
+          "countries_with_positive_MSE_gain": 7,
+          "country_count": 12,
+          "country_specific_heldout_contributions": {
+            "BE": {
+              "MSE_improvement_pct": 0.39439982375242366,
+              "all_station_n": 75,
+              "upstream_source_positive_n": 3
+            },
+            "FR": {
+              "MSE_improvement_pct": -0.5528835197942582,
+              "all_station_n": 1845,
+              "upstream_source_positive_n": 12
+            },
+            "HR": {
+              "MSE_improvement_pct": -2.3816270145574774,
+              "all_station_n": 31,
+              "upstream_source_positive_n": 5
+            },
+            "IE": {
+              "MSE_improvement_pct": 0.3311317083897097,
+              "all_station_n": 152,
+              "upstream_source_positive_n": 0
+            },
+            "IT": {
+              "MSE_improvement_pct": 0.5247557683097126,
+              "all_station_n": 337,
+              "upstream_source_positive_n": 42
+            },
+            "LT": {
+              "MSE_improvement_pct": -0.3369619743691748,
+              "all_station_n": 184,
+              "upstream_source_positive_n": 20
+            },
+            "LU": {
+              "MSE_improvement_pct": 4.803352240014502,
+              "all_station_n": 46,
+              "upstream_source_positive_n": 20
+            },
+            "LV": {
+              "MSE_improvement_pct": 0.4967383764551972,
+              "all_station_n": 40,
+              "upstream_source_positive_n": 4
+            },
+            "NO": {
+              "MSE_improvement_pct": 0.7831301574686466,
+              "all_station_n": 57,
+              "upstream_source_positive_n": 4
+            },
+            "SE": {
+              "MSE_improvement_pct": 0.9460671525842688,
+              "all_station_n": 12,
+              "upstream_source_positive_n": 0
+            },
+            "SI": {
+              "MSE_improvement_pct": -4.62051851039517,
+              "all_station_n": 3,
+              "upstream_source_positive_n": 0
+            },
+            "SK": {
+              "MSE_improvement_pct": -1.0519650203701325,
+              "all_station_n": 2,
+              "upstream_source_positive_n": 0
+            }
+          },
+          "evaluation_scheme": "leave_one_reporting_country_out",
+          "posthoc_nonlinear_geo": false,
+          "registered_upstream_load_positive_stations": {
+            "baseline_MSE": 0.035078387976360745,
+            "improvement_MSE_pct": 5.436192766655116,
+            "n": 110,
+            "source_MSE": 0.033171459186530604
+          },
+          "source": "P",
+          "source_zero_registered_stations": {
+            "baseline_MSE": 0.03825911992339528,
+            "improvement_MSE_pct": -0.3424980378781024,
+            "n": 2674,
+            "source_MSE": 0.03839015665844234
+          }
+        }
+      }
+    }
+  },
+  "same_source_only_2022_EEA_N_and_P_facilities_collinear": true,
+  "schema": "gesui_2022_BQE_EEA_source_posthoc_country_and_exposure_specific_stress_tests_v01",
+  "scikit_learn_version": "1.9.1",
+  "status": "PASS_ORIGINAL_FIXED_MODELS_AND_EXPLORATORY_TRANSFER_STRESS_TESTS"
+}

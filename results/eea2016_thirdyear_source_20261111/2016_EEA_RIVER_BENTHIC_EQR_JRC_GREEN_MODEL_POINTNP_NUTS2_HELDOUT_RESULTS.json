@@ -1,0 +1,2397 @@
+{
+  "UTC": "2026-11-11T06:32:31.385007+00:00",
+  "actual_2016_EEA_BQE_EQR_is_normalized_biological_condition_not_species_abundance": true,
+  "full_individual_2016_EEA_BQE_EQR_observation_values_NOT_REPUBLISHED": true,
+  "new_results_are_POSTHOC_after_2018_2022_trueWWTP_positive_predictive_gains": true,
+  "no_2016_measured_UWWTD_plant_WWTP_NP_load_claimed": true,
+  "no_EEA2016_real_plant_species_richness_assessed": true,
+  "no_SEWAGE_CAUSAL_ECOLOGY_CONCLUSION": true,
+  "no_hyperparameter_alpha_search_Ridge10": true,
+  "official_EEA2016_original_member_SHA256": "f11001a57172b618bee95f58fd0ec51c8e71be7b9c01a70927dde21b7ca6e2a9",
+  "official_EEA_Biology2026_original_full_zip_SHA256": "5a84e28f62e15df6cd6c7a24e27a12e8ba804afdebd9d81863b258074a032499",
+  "original_2016_sites_GISCO2016_JRC_modelled_SOURCE_before_EQR_SHA256": "ccebcb00dc935c27c8ead04690eaaf104eeda1d7c10a25bbdf5e4a67360b3c11",
+  "original_original5fold_SOURCE_before_EQR_SHA256": "48fcda7c2e23535e19ff519b140c964de7b051fa7ccff272309189cdbcbd7545",
+  "results": {
+    "benthic_invertebrates": {
+      "observational_country_method_adjusted_OLS_NUTS2cluster": {
+        "both_N_and_P": {
+          "R2": 0.1614024273260508,
+          "distinct_source_region_n": 73,
+          "formula": "EQRest~logPointN+logPointP+logArea+lat+lon+C(country_method)",
+          "not_randomized_or_confirmatory": true,
+          "original_BQE_country_method_adjusted_source_log_magnitude_coefficient": {
+            "logPointN": {
+              "NUTS2_cluster_95": [
+                -0.5895069298071046,
+                0.05900341261082953
+              ],
+              "beta_per_source_log1p_tonnes_km2": -0.26525175859813754,
+              "exploratory_nominal_p": 0.1088646406509977
+            },
+            "logPointP": {
+              "NUTS2_cluster_95": [
+                -3.2289473849564576,
+                2.2322592208860668
+              ],
+              "beta_per_source_log1p_tonnes_km2": -0.49834408203519537,
+              "exploratory_nominal_p": 0.720567928695125
+            }
+          },
+          "source_site_n": 2435
+        },
+        "pointN": {
+          "R2": 0.1612243762497514,
+          "distinct_source_region_n": 73,
+          "formula": "EQRest~logPointN+logArea+lat+lon+C(country_method)",
+          "not_randomized_or_confirmatory": true,
+          "original_BQE_country_method_adjusted_source_log_magnitude_coefficient": {
+            "logPointN": {
+              "NUTS2_cluster_95": [
+                -0.5050770296141235,
+                -0.1535162010205645
+              ],
+              "beta_per_source_log1p_tonnes_km2": -0.329296615317344,
+              "exploratory_nominal_p": 0.0002409608753698542
+            }
+          },
+          "source_site_n": 2435
+        },
+        "pointP": {
+          "R2": 0.15902099456572416,
+          "distinct_source_region_n": 73,
+          "formula": "EQRest~logPointP+logArea+lat+lon+C(country_method)",
+          "not_randomized_or_confirmatory": true,
+          "original_BQE_country_method_adjusted_source_log_magnitude_coefficient": {
+            "logPointP": {
+              "NUTS2_cluster_95": [
+                -3.5540304975139625,
+                -0.6613466076643812
+              ],
+              "beta_per_source_log1p_tonnes_km2": -2.1076885525891718,
+              "exploratory_nominal_p": 0.004287899818939468
+            }
+          },
+          "source_site_n": 2435
+        }
+      },
+      "original_NUTS2_disjoint_holdout_Ridge10": {
+        "MAE_site_equal": {
+          "baseline": 0.18398140045634365,
+          "upstream_modelPointN": 0.1823789551214198,
+          "upstream_modelPointP": 0.183263096588537
+        },
+        "MSE_NUTS2_equal": {
+          "baseline": 0.049622441135499185,
+          "upstream_modelPointN": 0.047910294983605245,
+          "upstream_modelPointP": 0.0482310004592051
+        },
+        "MSE_country_equal": {
+          "baseline": 0.04171300193783369,
+          "upstream_modelPointN": 0.040671076166778224,
+          "upstream_modelPointP": 0.04044842991336671
+        },
+        "MSE_gain_pct_NUTS2_equal": {
+          "upstream_modelPointN": 3.450346481783813,
+          "upstream_modelPointP": 2.80405527107103
+        },
+        "MSE_gain_pct_country_equal": {
+          "upstream_modelPointN": 2.49784413168893,
+          "upstream_modelPointP": 3.0316015767736335
+        },
+        "MSE_gain_pct_site_equal": {
+          "upstream_modelPointN": 2.2872290429788174,
+          "upstream_modelPointP": 1.4024619844851436
+        },
+        "MSE_site_equal": {
+          "baseline": 0.05162266741711285,
+          "upstream_modelPointN": 0.05044193877518828,
+          "upstream_modelPointP": 0.05089867913121064
+        },
+        "added_modelled_source_predictors": "log1p(source tonnes per km2) of N or P, independently",
+        "baseline_predictors": "training-standardized lat+lon+log(NUTS2 area) and country|procedureClassificationSystem",
+        "descriptive_bootstrap_95gain_pct": {
+          "NUTS2": {
+            "upstream_modelPointN": {
+              "descriptive_percentile_95": [
+                -0.25810752764266104,
+                7.047034177511173
+              ],
+              "n_nonparametric_resamples": 999
+            },
+            "upstream_modelPointP": {
+              "descriptive_percentile_95": [
+                -1.0533185074813778,
+                6.9079141762922935
+              ],
+              "n_nonparametric_resamples": 999
+            }
+          },
+          "country": {
+            "upstream_modelPointN": {
+              "descriptive_percentile_95": [
+                -7.135228537239426,
+                9.68311873151417
+              ],
+              "n_nonparametric_resamples": 999
+            },
+            "upstream_modelPointP": {
+              "descriptive_percentile_95": [
+                -6.790327843020067,
+                11.105367034604086
+              ],
+              "n_nonparametric_resamples": 999
+            }
+          }
+        },
+        "forecast_validation": "5-fold source-frozen geographically disjoint NUTS2 regions, no source same-region train-test leakage",
+        "frozen_fold_case_counts": {
+          "1": 488,
+          "2": 478,
+          "3": 485,
+          "4": 494,
+          "5": 490
+        },
+        "model_grid": "NUTS2 2016 regional allocation",
+        "model_source_year": "2014\u20132018 averaged JRC GREEN point-source modeled",
+        "ridge_original_alpha": 10.0,
+        "same_source_magnitude_across_sites_in_NUTS2_NOT_site_independent_treatments": true,
+        "source_JRC_green_region_sampled_EEA_EQR_summary": [
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.03757997170373882,
+              "upstream_modelPointN": 0.04843149611538154,
+              "upstream_modelPointP": 0.04479280869178587
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.5962000000000001,
+            "mean_logPointN_modelled2014to18_density": 0.16777227879361178,
+            "mean_logPointP_modelled2014to18_density": 0.013426969287777962,
+            "n_original_2016_BQE_sites": 5,
+            "nuts2": "AT11",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.041586222853342576,
+              "upstream_modelPointN": 0.04435303169731907,
+              "upstream_modelPointP": 0.04429830582838344
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.5607857142857143,
+            "mean_logPointN_modelled2014to18_density": 0.18493585046822247,
+            "mean_logPointP_modelled2014to18_density": 0.013101831434632309,
+            "n_original_2016_BQE_sites": 14,
+            "nuts2": "AT12",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.0688205545430337,
+              "upstream_modelPointN": 0.05520794842885377,
+              "upstream_modelPointP": 0.060304243370532376
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.9199999999999999,
+            "mean_logPointN_modelled2014to18_density": 0.12209496023634199,
+            "mean_logPointP_modelled2014to18_density": 0.008276843467355915,
+            "n_original_2016_BQE_sites": 5,
+            "nuts2": "AT21",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.02346980134731007,
+              "upstream_modelPointN": 0.02691692586750093,
+              "upstream_modelPointP": 0.0255191655480676
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.6536428571428571,
+            "mean_logPointN_modelled2014to18_density": 0.11823267895894955,
+            "mean_logPointP_modelled2014to18_density": 0.009827907815421666,
+            "n_original_2016_BQE_sites": 14,
+            "nuts2": "AT22",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.022503118640218145,
+              "upstream_modelPointN": 0.024468249297347183,
+              "upstream_modelPointP": 0.0226395072079322
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.645,
+            "mean_logPointN_modelled2014to18_density": 0.2799741322471919,
+            "mean_logPointP_modelled2014to18_density": 0.01769084636135253,
+            "n_original_2016_BQE_sites": 12,
+            "nuts2": "AT31",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.018470867870684967,
+              "upstream_modelPointN": 0.015688390566075825,
+              "upstream_modelPointP": 0.016507391100096115
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.780125,
+            "mean_logPointN_modelled2014to18_density": 0.17993157228463966,
+            "mean_logPointP_modelled2014to18_density": 0.01629154452770607,
+            "n_original_2016_BQE_sites": 8,
+            "nuts2": "AT32",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.024552996441797603,
+              "upstream_modelPointN": 0.025933180093864517,
+              "upstream_modelPointP": 0.025315733650495897
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.6540999999999999,
+            "mean_logPointN_modelled2014to18_density": 0.1431713501739519,
+            "mean_logPointP_modelled2014to18_density": 0.010257773716686526,
+            "n_original_2016_BQE_sites": 10,
+            "nuts2": "AT33",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.028224799725049925,
+              "upstream_modelPointN": 0.028966273962073703,
+              "upstream_modelPointP": 0.028333127424926875
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.65875,
+            "mean_logPointN_modelled2014to18_density": 0.39896684624217704,
+            "mean_logPointP_modelled2014to18_density": 0.03212187864644043,
+            "n_original_2016_BQE_sites": 8,
+            "nuts2": "AT34",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04116901490126235,
+              "upstream_modelPointN": 0.0650548914584108,
+              "upstream_modelPointP": 0.05811625353347475
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.5166666666666667,
+            "mean_logPointN_modelled2014to18_density": 0.5178334262779825,
+            "mean_logPointP_modelled2014to18_density": 0.06333810774228506,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "BE21",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04020196921941857,
+              "upstream_modelPointN": 0.03828308745822238,
+              "upstream_modelPointP": 0.045712221448265596
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.37467532467532466,
+            "mean_logPointN_modelled2014to18_density": 0.2605849611296115,
+            "mean_logPointP_modelled2014to18_density": 0.027771504810119824,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "BE22",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.027426578440624783,
+              "upstream_modelPointN": 0.012081972714407266,
+              "upstream_modelPointP": 0.005184549352858554
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.2857142857142857,
+            "mean_logPointN_modelled2014to18_density": 0.40683790710124934,
+            "mean_logPointP_modelled2014to18_density": 0.08002147140718739,
+            "n_original_2016_BQE_sites": 7,
+            "nuts2": "BE23",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.042216441541516075,
+              "upstream_modelPointN": 0.04914093627483837,
+              "upstream_modelPointP": 0.05709513814527045
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.3333333333333333,
+            "mean_logPointN_modelled2014to18_density": 0.2882428105816787,
+            "mean_logPointP_modelled2014to18_density": 0.03364868215758484,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "BE24",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.0823833768787294,
+              "upstream_modelPointN": 0.07267983412572766,
+              "upstream_modelPointP": 0.06898749418055596
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.17800000000000002,
+            "mean_logPointN_modelled2014to18_density": 0.33377647555545736,
+            "mean_logPointP_modelled2014to18_density": 0.05237118860821111,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "BE25",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.01909124901041119,
+              "upstream_modelPointN": 0.01344071027263974,
+              "upstream_modelPointP": 0.014989677947967881
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.31440999999999997,
+            "mean_logPointN_modelled2014to18_density": 0.4162509248776476,
+            "mean_logPointP_modelled2014to18_density": 0.05968884666485294,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "BE32",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.06609788352195704,
+              "upstream_modelPointN": 0.04664279707501603,
+              "upstream_modelPointP": 0.03313813201770471
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.5120866888345149,
+            "mean_logPointN_modelled2014to18_density": 0.3121447593093194,
+            "mean_logPointP_modelled2014to18_density": 0.07063891709357407,
+            "n_original_2016_BQE_sites": 25,
+            "nuts2": "BE33",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.1329606210630893,
+              "upstream_modelPointN": 0.11177080375624542,
+              "upstream_modelPointP": 0.10953380461429826
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.8459627329192547,
+            "mean_logPointN_modelled2014to18_density": 0.09619172863576379,
+            "mean_logPointP_modelled2014to18_density": 0.016126286445474466,
+            "n_original_2016_BQE_sites": 13,
+            "nuts2": "BE34",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.07445228892698257,
+              "upstream_modelPointN": 0.06334918182279571,
+              "upstream_modelPointP": 0.060724431692505076
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.7212450233405175,
+            "mean_logPointN_modelled2014to18_density": 0.14176420504035378,
+            "mean_logPointP_modelled2014to18_density": 0.018838739249473876,
+            "n_original_2016_BQE_sites": 40,
+            "nuts2": "BE35",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05428577795401319,
+              "upstream_modelPointN": 0.05393781738661089,
+              "upstream_modelPointP": 0.054014073832414654
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6160711866768976,
+            "mean_logPointN_modelled2014to18_density": 0.0637571364347199,
+            "mean_logPointP_modelled2014to18_density": 0.005891154461959455,
+            "n_original_2016_BQE_sites": 101,
+            "nuts2": "FRB0",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.07744712342863355,
+              "upstream_modelPointN": 0.08521893849472591,
+              "upstream_modelPointP": 0.08424915453455677
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.5443963398291896,
+            "mean_logPointN_modelled2014to18_density": 0.05653939242112468,
+            "mean_logPointP_modelled2014to18_density": 0.005412930611153424,
+            "n_original_2016_BQE_sites": 76,
+            "nuts2": "FRC1",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04738314552331198,
+              "upstream_modelPointN": 0.04683521660849524,
+              "upstream_modelPointP": 0.047162741042531785
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.688204361226076,
+            "mean_logPointN_modelled2014to18_density": 0.10013194785858599,
+            "mean_logPointP_modelled2014to18_density": 0.01548862697976743,
+            "n_original_2016_BQE_sites": 108,
+            "nuts2": "FRC2",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.06215022118337349,
+              "upstream_modelPointN": 0.061376311757587586,
+              "upstream_modelPointP": 0.06303690720724954
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6522290364764854,
+            "mean_logPointN_modelled2014to18_density": 0.10566413186966654,
+            "mean_logPointP_modelled2014to18_density": 0.012645015339071482,
+            "n_original_2016_BQE_sites": 14,
+            "nuts2": "FRD1",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.058304454446054615,
+              "upstream_modelPointN": 0.05682276522768202,
+              "upstream_modelPointP": 0.05601020959359453
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6384590929224057,
+            "mean_logPointN_modelled2014to18_density": 0.4182280655452297,
+            "mean_logPointP_modelled2014to18_density": 0.033522441451521064,
+            "n_original_2016_BQE_sites": 60,
+            "nuts2": "FRF1",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.052968674578886835,
+              "upstream_modelPointN": 0.04947615121596212,
+              "upstream_modelPointP": 0.050766891376764114
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.7095885061613847,
+            "mean_logPointN_modelled2014to18_density": 0.04543724137134734,
+            "mean_logPointP_modelled2014to18_density": 0.005438885774820181,
+            "n_original_2016_BQE_sites": 16,
+            "nuts2": "FRF2",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.06408440312662922,
+              "upstream_modelPointN": 0.06395835727666785,
+              "upstream_modelPointP": 0.06392502664432662
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6290509040214483,
+            "mean_logPointN_modelled2014to18_density": 0.14009613327933412,
+            "mean_logPointP_modelled2014to18_density": 0.013186304990630579,
+            "n_original_2016_BQE_sites": 88,
+            "nuts2": "FRF3",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.08972314812928768,
+              "upstream_modelPointN": 0.08766896382784614,
+              "upstream_modelPointP": 0.0909599343637451
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.4557369519479364,
+            "mean_logPointN_modelled2014to18_density": 0.13746904197583293,
+            "mean_logPointP_modelled2014to18_density": 0.011696887457779269,
+            "n_original_2016_BQE_sites": 154,
+            "nuts2": "FRG0",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05548558776016203,
+              "upstream_modelPointN": 0.058628784301361696,
+              "upstream_modelPointP": 0.05832479629456677
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.598203395301092,
+            "mean_logPointN_modelled2014to18_density": 0.14193916152290725,
+            "mean_logPointP_modelled2014to18_density": 0.014266593391114033,
+            "n_original_2016_BQE_sites": 137,
+            "nuts2": "FRH0",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.08820247138850343,
+              "upstream_modelPointN": 0.0853109554397948,
+              "upstream_modelPointP": 0.0851508433319397
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.5316394068972009,
+            "mean_logPointN_modelled2014to18_density": 0.13546782257235124,
+            "mean_logPointP_modelled2014to18_density": 0.01769483906309894,
+            "n_original_2016_BQE_sites": 84,
+            "nuts2": "FRI1",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.036802850593183875,
+              "upstream_modelPointN": 0.03195062694495603,
+              "upstream_modelPointP": 0.033651712268996756
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.7467916380982174,
+            "mean_logPointN_modelled2014to18_density": 0.06693519512960025,
+            "mean_logPointP_modelled2014to18_density": 0.00812842318437414,
+            "n_original_2016_BQE_sites": 84,
+            "nuts2": "FRI2",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05074061309101442,
+              "upstream_modelPointN": 0.05112374210237662,
+              "upstream_modelPointP": 0.051282862146822594
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.5891394677784431,
+            "mean_logPointN_modelled2014to18_density": 0.09639560568411497,
+            "mean_logPointP_modelled2014to18_density": 0.008131720008477008,
+            "n_original_2016_BQE_sites": 93,
+            "nuts2": "FRI3",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.03847021750876392,
+              "upstream_modelPointN": 0.03817407774939803,
+              "upstream_modelPointP": 0.038216202900904335
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.8314407783150218,
+            "mean_logPointN_modelled2014to18_density": 0.17163555660803484,
+            "mean_logPointP_modelled2014to18_density": 0.023349090831325484,
+            "n_original_2016_BQE_sites": 38,
+            "nuts2": "FRJ1",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.040273724614098956,
+              "upstream_modelPointN": 0.0407885070964236,
+              "upstream_modelPointP": 0.04108507236377405
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.776260094761433,
+            "mean_logPointN_modelled2014to18_density": 0.08813914138812529,
+            "mean_logPointP_modelled2014to18_density": 0.010322927757868968,
+            "n_original_2016_BQE_sites": 67,
+            "nuts2": "FRJ2",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05047763120398867,
+              "upstream_modelPointN": 0.04580133618183561,
+              "upstream_modelPointP": 0.04688112514914821
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.72475793424342,
+            "mean_logPointN_modelled2014to18_density": 0.04877090873133314,
+            "mean_logPointP_modelled2014to18_density": 0.005928895691405805,
+            "n_original_2016_BQE_sites": 103,
+            "nuts2": "FRK1",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04596648883133387,
+              "upstream_modelPointN": 0.04971258140313917,
+              "upstream_modelPointP": 0.051954516155865174
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6311213539730397,
+            "mean_logPointN_modelled2014to18_density": 0.2773308076574356,
+            "mean_logPointP_modelled2014to18_density": 0.04328121347321358,
+            "n_original_2016_BQE_sites": 209,
+            "nuts2": "FRK2",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.040392897049936774,
+              "upstream_modelPointN": 0.03808915981879436,
+              "upstream_modelPointP": 0.038635884446735276
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6192314157786349,
+            "mean_logPointN_modelled2014to18_density": 0.30562156145535124,
+            "mean_logPointP_modelled2014to18_density": 0.042378289351957706,
+            "n_original_2016_BQE_sites": 29,
+            "nuts2": "FRL0",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.07380529269840194,
+              "upstream_modelPointN": 0.09816882968578332,
+              "upstream_modelPointP": 0.10038785109488997
+            },
+            "country": "HR",
+            "mean_EQR_original_numeric": 0.5208649999999999,
+            "mean_logPointN_modelled2014to18_density": 0.12037425280093447,
+            "mean_logPointP_modelled2014to18_density": 0.01685771840751713,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "HR03",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.025071136261631523,
+              "upstream_modelPointN": 0.03604493064580933,
+              "upstream_modelPointP": 0.03697641071072223
+            },
+            "country": "HR",
+            "mean_EQR_original_numeric": 0.6643750000000002,
+            "mean_logPointN_modelled2014to18_density": 0.08969981471977954,
+            "mean_logPointP_modelled2014to18_density": 0.012434998734854567,
+            "n_original_2016_BQE_sites": 16,
+            "nuts2": "HR04",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05677657060829037,
+              "upstream_modelPointN": 0.05493553590143741,
+              "upstream_modelPointP": 0.05712170268029357
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.36972222222222223,
+            "mean_logPointN_modelled2014to18_density": 0.1672435606343216,
+            "mean_logPointP_modelled2014to18_density": 0.01772037982872013,
+            "n_original_2016_BQE_sites": 18,
+            "nuts2": "HU21",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.0377642247782648,
+              "upstream_modelPointN": 0.03666161444319972,
+              "upstream_modelPointP": 0.03633221851281126
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.5932142857142858,
+            "mean_logPointN_modelled2014to18_density": 0.09896567523747407,
+            "mean_logPointP_modelled2014to18_density": 0.010874271529394079,
+            "n_original_2016_BQE_sites": 28,
+            "nuts2": "HU22",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.052022013809407235,
+              "upstream_modelPointN": 0.055088846834367,
+              "upstream_modelPointP": 0.054826654312730795
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.4019565217391305,
+            "mean_logPointN_modelled2014to18_density": 0.07322560898830201,
+            "mean_logPointP_modelled2014to18_density": 0.008760977883017525,
+            "n_original_2016_BQE_sites": 23,
+            "nuts2": "HU23",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.018490867923486903,
+              "upstream_modelPointN": 0.018863834597791996,
+              "upstream_modelPointP": 0.019011747882315997
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.501,
+            "mean_logPointN_modelled2014to18_density": 0.14740711612967894,
+            "mean_logPointP_modelled2014to18_density": 0.020143666606151068,
+            "n_original_2016_BQE_sites": 20,
+            "nuts2": "HU31",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.02438007635810514,
+              "upstream_modelPointN": 0.024814972678426604,
+              "upstream_modelPointP": 0.024549443672525907
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.4796875,
+            "mean_logPointN_modelled2014to18_density": 0.08709123884006523,
+            "mean_logPointP_modelled2014to18_density": 0.012666406298773017,
+            "n_original_2016_BQE_sites": 32,
+            "nuts2": "HU32",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.019452124989566742,
+              "upstream_modelPointN": 0.019634899475739567,
+              "upstream_modelPointP": 0.019695781438937666
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.489054054054054,
+            "mean_logPointN_modelled2014to18_density": 0.10513897529316284,
+            "mean_logPointP_modelled2014to18_density": 0.015182113748906448,
+            "n_original_2016_BQE_sites": 37,
+            "nuts2": "HU33",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.030017074973436197,
+              "upstream_modelPointN": 0.03225795715918692,
+              "upstream_modelPointP": 0.0307448524237179
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.6985741666666666,
+            "mean_logPointN_modelled2014to18_density": 0.17373524750141467,
+            "mean_logPointP_modelled2014to18_density": 0.024722415607852974,
+            "n_original_2016_BQE_sites": 36,
+            "nuts2": "ITC1",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.01850936074326055,
+              "upstream_modelPointN": 0.013161312427276882,
+              "upstream_modelPointP": 0.014731691158198865
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8708666666666667,
+            "mean_logPointN_modelled2014to18_density": 0.16892113365164652,
+            "mean_logPointP_modelled2014to18_density": 0.020087728259263596,
+            "n_original_2016_BQE_sites": 15,
+            "nuts2": "ITC2",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.01873586668971971,
+              "upstream_modelPointN": 0.030223520635889203,
+              "upstream_modelPointP": 0.03400549543906787
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8125555555555556,
+            "mean_logPointN_modelled2014to18_density": 0.5606440423637332,
+            "mean_logPointP_modelled2014to18_density": 0.09007752948830308,
+            "n_original_2016_BQE_sites": 27,
+            "nuts2": "ITC3",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.06326125387794505,
+              "upstream_modelPointN": 0.05536853700569296,
+              "upstream_modelPointP": 0.059568492871931146
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.6457437962962963,
+            "mean_logPointN_modelled2014to18_density": 0.4472165893044099,
+            "mean_logPointP_modelled2014to18_density": 0.04825360253385421,
+            "n_original_2016_BQE_sites": 108,
+            "nuts2": "ITC4",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05109551235129557,
+              "upstream_modelPointN": 0.04090364739803927,
+              "upstream_modelPointP": 0.04131044970382649
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8436250000000001,
+            "mean_logPointN_modelled2014to18_density": 0.17928130437292417,
+            "mean_logPointP_modelled2014to18_density": 0.013385568266786543,
+            "n_original_2016_BQE_sites": 20,
+            "nuts2": "ITH1",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.027105337834664907,
+              "upstream_modelPointN": 0.02109665987694734,
+              "upstream_modelPointP": 0.022326232863905934
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8330000000000001,
+            "mean_logPointN_modelled2014to18_density": 0.14773689082097663,
+            "mean_logPointP_modelled2014to18_density": 0.011418034425833407,
+            "n_original_2016_BQE_sites": 33,
+            "nuts2": "ITH2",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05871588197885419,
+              "upstream_modelPointN": 0.06251336492197301,
+              "upstream_modelPointP": 0.06210086412770668
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.677,
+            "mean_logPointN_modelled2014to18_density": 0.3027523507018439,
+            "mean_logPointP_modelled2014to18_density": 0.03600566019776011,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "ITH3",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.024306567732926276,
+              "upstream_modelPointN": 0.025771045348922186,
+              "upstream_modelPointP": 0.024279939758156045
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.700375,
+            "mean_logPointN_modelled2014to18_density": 0.2478253786946034,
+            "mean_logPointP_modelled2014to18_density": 0.035670376389491845,
+            "n_original_2016_BQE_sites": 8,
+            "nuts2": "ITI1",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.027034597188733703,
+              "upstream_modelPointN": 0.021940838360504804,
+              "upstream_modelPointP": 0.02198279685258537
+            },
+            "country": "LT",
+            "mean_EQR_original_numeric": 0.747763125,
+            "mean_logPointN_modelled2014to18_density": 0.09681246554209702,
+            "mean_logPointP_modelled2014to18_density": 0.007695640734716933,
+            "n_original_2016_BQE_sites": 16,
+            "nuts2": "LT01",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.031801012277090215,
+              "upstream_modelPointN": 0.02394544149734973,
+              "upstream_modelPointP": 0.025355776138989396
+            },
+            "country": "LT",
+            "mean_EQR_original_numeric": 0.638263780487805,
+            "mean_logPointN_modelled2014to18_density": 0.04104398416849674,
+            "mean_logPointP_modelled2014to18_density": 0.0036087544441001968,
+            "n_original_2016_BQE_sites": 82,
+            "nuts2": "LT02",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.0006588657247649989,
+              "upstream_modelPointN": 0.00030517796349741744,
+              "upstream_modelPointP": 7.139388302670235e-05
+            },
+            "country": "LU",
+            "mean_EQR_original_numeric": 0.65263,
+            "mean_logPointN_modelled2014to18_density": 0.27344875443181577,
+            "mean_logPointP_modelled2014to18_density": 0.02580923045809479,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "LU00",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.040200292203747906,
+              "upstream_modelPointN": 0.04824904045847158,
+              "upstream_modelPointP": 0.04164738318657547
+            },
+            "country": "LV",
+            "mean_EQR_original_numeric": 0.407691,
+            "mean_logPointN_modelled2014to18_density": 0.029307939299985687,
+            "mean_logPointP_modelled2014to18_density": 0.0028655659874019055,
+            "n_original_2016_BQE_sites": 30,
+            "nuts2": "LV00",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.007659318039234107,
+              "upstream_modelPointN": 0.00993600046957269,
+              "upstream_modelPointP": 0.007946814222198926
+            },
+            "country": "NL",
+            "mean_EQR_original_numeric": 0.4575,
+            "mean_logPointN_modelled2014to18_density": 0.17295272814135093,
+            "mean_logPointP_modelled2014to18_density": 0.01488720511692212,
+            "n_original_2016_BQE_sites": 4,
+            "nuts2": "NL13",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.004963348094017584,
+              "upstream_modelPointN": 0.007304506770378978,
+              "upstream_modelPointP": 0.005985518082644656
+            },
+            "country": "NL",
+            "mean_EQR_original_numeric": 0.46375000000000005,
+            "mean_logPointN_modelled2014to18_density": 0.3285883231747746,
+            "mean_logPointP_modelled2014to18_density": 0.02797665745573926,
+            "n_original_2016_BQE_sites": 24,
+            "nuts2": "NL21",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.014692816785602336,
+              "upstream_modelPointN": 0.014837671731845924,
+              "upstream_modelPointP": 0.01459629692401335
+            },
+            "country": "NL",
+            "mean_EQR_original_numeric": 0.4548571428571429,
+            "mean_logPointN_modelled2014to18_density": 0.29224122799487917,
+            "mean_logPointP_modelled2014to18_density": 0.023704590497581866,
+            "n_original_2016_BQE_sites": 7,
+            "nuts2": "NL22",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.02218137997956372,
+              "upstream_modelPointN": 0.005225780723961816,
+              "upstream_modelPointP": 0.007509654935204195
+            },
+            "country": "NL",
+            "mean_EQR_original_numeric": 0.3684285714285714,
+            "mean_logPointN_modelled2014to18_density": 0.6998822499537168,
+            "mean_logPointP_modelled2014to18_density": 0.06897612261374016,
+            "n_original_2016_BQE_sites": 7,
+            "nuts2": "NL31",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.010998663161592509,
+              "upstream_modelPointN": 0.01025521455733384,
+              "upstream_modelPointP": 0.010324212844052535
+            },
+            "country": "NL",
+            "mean_EQR_original_numeric": 0.4346666666666667,
+            "mean_logPointN_modelled2014to18_density": 0.49474816750149525,
+            "mean_logPointP_modelled2014to18_density": 0.04042216731195926,
+            "n_original_2016_BQE_sites": 18,
+            "nuts2": "NL41",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.009591984079055127,
+              "upstream_modelPointN": 0.013561142993124066,
+              "upstream_modelPointP": 0.00983146784373107
+            },
+            "country": "NL",
+            "mean_EQR_original_numeric": 0.49999999999999994,
+            "mean_logPointN_modelled2014to18_density": 0.586875114497936,
+            "mean_logPointP_modelled2014to18_density": 0.041654442275543206,
+            "n_original_2016_BQE_sites": 14,
+            "nuts2": "NL42",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.09625105560442082,
+              "upstream_modelPointN": 0.07282550930120206,
+              "upstream_modelPointP": 0.0665696388952829
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.3810952380952381,
+            "mean_logPointN_modelled2014to18_density": 0.2854198011098133,
+            "mean_logPointP_modelled2014to18_density": 0.05747668430723396,
+            "n_original_2016_BQE_sites": 21,
+            "nuts2": "NO01",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.13803657983095027,
+              "upstream_modelPointN": 0.12987944387866404,
+              "upstream_modelPointP": 0.13010902947197323
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.8140000000000001,
+            "mean_logPointN_modelled2014to18_density": 0.024513237813161608,
+            "mean_logPointP_modelled2014to18_density": 0.002741903747668624,
+            "n_original_2016_BQE_sites": 6,
+            "nuts2": "NO02",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05051211988473673,
+              "upstream_modelPointN": 0.05130657583971064,
+              "upstream_modelPointP": 0.05100431273484849
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.5065250000000001,
+            "mean_logPointN_modelled2014to18_density": 0.13057098484332275,
+            "mean_logPointP_modelled2014to18_density": 0.010978585479503802,
+            "n_original_2016_BQE_sites": 80,
+            "nuts2": "NO03",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.03904900174519769,
+              "upstream_modelPointN": 0.037932420698595745,
+              "upstream_modelPointP": 0.039595164229991285
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.5526500000000001,
+            "mean_logPointN_modelled2014to18_density": 0.13309466670856224,
+            "mean_logPointP_modelled2014to18_density": 0.032064431565362594,
+            "n_original_2016_BQE_sites": 40,
+            "nuts2": "NO04",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05861745874944421,
+              "upstream_modelPointN": 0.055470553681376385,
+              "upstream_modelPointP": 0.06003693440842882
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.6103333333333333,
+            "mean_logPointN_modelled2014to18_density": 0.058213164845863356,
+            "mean_logPointP_modelled2014to18_density": 0.011431344216029182,
+            "n_original_2016_BQE_sites": 9,
+            "nuts2": "NO05",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.13045698361153404,
+              "upstream_modelPointN": 0.1274293094820998,
+              "upstream_modelPointP": 0.1305325931183112
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.5973333333333334,
+            "mean_logPointN_modelled2014to18_density": 0.054185668364963656,
+            "mean_logPointP_modelled2014to18_density": 0.01132369780232503,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "NO06",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.09252100359418801,
+              "upstream_modelPointN": 0.08640683919259937,
+              "upstream_modelPointP": 0.08947029495529975
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.996,
+            "mean_logPointN_modelled2014to18_density": 0.06973254439673104,
+            "mean_logPointP_modelled2014to18_density": 0.006751635667840513,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "SE12",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.1000895835295432,
+              "upstream_modelPointN": 0.08233516122514008,
+              "upstream_modelPointP": 0.08931620062018938
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 1.0,
+            "mean_logPointN_modelled2014to18_density": 0.037326253046731914,
+            "mean_logPointP_modelled2014to18_density": 0.0023447095774825942,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "SE21",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.041009523269157924,
+              "upstream_modelPointN": 0.04239108422923193,
+              "upstream_modelPointP": 0.03884538272647753
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 1.0,
+            "mean_logPointN_modelled2014to18_density": 0.14518210977261273,
+            "mean_logPointP_modelled2014to18_density": 0.011191456635826283,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "SE22",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.07684611477112763,
+              "upstream_modelPointN": 0.07476946050743144,
+              "upstream_modelPointP": 0.07392342205633445
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 1.0,
+            "mean_logPointN_modelled2014to18_density": 0.07578923006301579,
+            "mean_logPointP_modelled2014to18_density": 0.00510686076136684,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "SE23",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.11730326155434587,
+              "upstream_modelPointN": 0.12041973392557104,
+              "upstream_modelPointP": 0.12351205351002174
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.966,
+            "mean_logPointN_modelled2014to18_density": 0.03935542068027367,
+            "mean_logPointP_modelled2014to18_density": 0.0015883172212314152,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "SE31",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.12167734944650761,
+              "upstream_modelPointN": 0.11007885245676692,
+              "upstream_modelPointP": 0.12514089226978162
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.9186666666666667,
+            "mean_logPointN_modelled2014to18_density": 0.020852199151053876,
+            "mean_logPointP_modelled2014to18_density": 0.0015738734541411847,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "SE32",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04640953911728363,
+              "upstream_modelPointN": 0.037852261001892255,
+              "upstream_modelPointP": 0.04308603155121473
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.8,
+            "mean_logPointN_modelled2014to18_density": 0.011781181538608363,
+            "mean_logPointP_modelled2014to18_density": 0.000672568940808731,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "SE33",
+            "source_frozen_test_fold": 4
+          }
+        ],
+        "source_test_EEA_BQE_site_count": 2435,
+        "source_test_countries": 12,
+        "source_test_independent_NUTS2_regions": 73,
+        "source_test_original_3deg_blocks": 47,
+        "year_of_original_EEA_BQE_observation": 2016
+      },
+      "precommitted_numeric_EQR_support_gate_PASS": true,
+      "precommitted_source_country_region_outcome_QC": {
+        "missing_or_invalid_by_country": {
+          "AT": 11,
+          "DK": 23
+        },
+        "missing_or_invalid_numeric_EQR": 34,
+        "number_valid_original_EQR_3deg_blocks": 47,
+        "number_valid_original_EQR_NUTS2_regions": 73,
+        "number_valid_original_EQR_countries": 12,
+        "numeric_EEA_BQE_not_species_richness_or_population_abundance": true,
+        "numeric_EQR_max": 1.0,
+        "numeric_EQR_median": 0.654054054054054,
+        "numeric_EQR_min": 0.0,
+        "original_EEA2016_numeric_EQR_valid_sites": 2435,
+        "original_source_sites_pre_EQR": 2469,
+        "original_status_of_missing_or_invalid": {
+          "M": 11,
+          "MISSING": 23
+        },
+        "sites_above_normalized_EQR_1_not_silently_clamped": 0,
+        "sites_negative_normalized_EQR_not_silently_zeroed": 0,
+        "valid_site_original_country_counts": {
+          "AT": 76,
+          "BE": 99,
+          "FR": 1461,
+          "HR": 18,
+          "HU": 158,
+          "IT": 250,
+          "LT": 98,
+          "LU": 1,
+          "LV": 30,
+          "NL": 74,
+          "NO": 159,
+          "SE": 11
+        }
+      },
+      "raw_group_EEA_BQE_EQR_vs_JRC_model_source_spearman": {
+        "not_independent_NUTS2_regions": true,
+        "rho_NP_2014to18_modelledN": -0.05193641717544726,
+        "rho_NP_2014to18_modelledP": -0.042623678822404316
+      }
+    },
+    "fish": {
+      "STOP_reason": "Source-only EQR numeric outcome or country/region gate not reached; no ecological model",
+      "precommitted_numeric_EQR_support_gate_PASS": false,
+      "precommitted_source_country_region_outcome_QC": {
+        "missing_or_invalid_by_country": {
+          "AT": 25
+        },
+        "missing_or_invalid_numeric_EQR": 25,
+        "number_valid_original_EQR_3deg_blocks": 14,
+        "number_valid_original_EQR_NUTS2_regions": 23,
+        "number_valid_original_EQR_countries": 2,
+        "numeric_EEA_BQE_not_species_richness_or_population_abundance": true,
+        "numeric_EQR_max": 1.0,
+        "numeric_EQR_median": 0.40612202888888904,
+        "numeric_EQR_min": 0.0505505,
+        "original_EEA2016_numeric_EQR_valid_sites": 1022,
+        "original_source_sites_pre_EQR": 1047,
+        "original_status_of_missing_or_invalid": {
+          "N": 25
+        },
+        "sites_above_normalized_EQR_1_not_silently_clamped": 0,
+        "sites_negative_normalized_EQR_not_silently_zeroed": 0,
+        "valid_site_original_country_counts": {
+          "BE": 20,
+          "FR": 1002
+        }
+      }
+    },
+    "phytobenthos": {
+      "observational_country_method_adjusted_OLS_NUTS2cluster": {
+        "both_N_and_P": {
+          "R2": 0.08708051363128311,
+          "distinct_source_region_n": 58,
+          "formula": "EQRest~logPointN+logPointP+logArea+lat+lon+C(country_method)",
+          "not_randomized_or_confirmatory": true,
+          "original_BQE_country_method_adjusted_source_log_magnitude_coefficient": {
+            "logPointN": {
+              "NUTS2_cluster_95": [
+                -0.608017881521664,
+                0.6870664815795754
+              ],
+              "beta_per_source_log1p_tonnes_km2": 0.03952430002895571,
+              "exploratory_nominal_p": 0.9047753565926175
+            },
+            "logPointP": {
+              "NUTS2_cluster_95": [
+                -4.7511144708482,
+                3.2241006635007725
+              ],
+              "beta_per_source_log1p_tonnes_km2": -0.7635069036737138,
+              "exploratory_nominal_p": 0.7074565903239108
+            }
+          },
+          "source_site_n": 2161
+        },
+        "pointN": {
+          "R2": 0.086678953228839,
+          "distinct_source_region_n": 58,
+          "formula": "EQRest~logPointN+logArea+lat+lon+C(country_method)",
+          "not_randomized_or_confirmatory": true,
+          "original_BQE_country_method_adjusted_source_log_magnitude_coefficient": {
+            "logPointN": {
+              "NUTS2_cluster_95": [
+                -0.30871456528239216,
+                0.16621800392634606
+              ],
+              "beta_per_source_log1p_tonnes_km2": -0.07124828067802304,
+              "exploratory_nominal_p": 0.5564930359076126
+            }
+          },
+          "source_site_n": 2161
+        },
+        "pointP": {
+          "R2": 0.08703693025069537,
+          "distinct_source_region_n": 58,
+          "formula": "EQRest~logPointP+logArea+lat+lon+C(country_method)",
+          "not_randomized_or_confirmatory": true,
+          "original_BQE_country_method_adjusted_source_log_magnitude_coefficient": {
+            "logPointP": {
+              "NUTS2_cluster_95": [
+                -2.010058136167346,
+                0.9475393713909667
+              ],
+              "beta_per_source_log1p_tonnes_km2": -0.5312593823881898,
+              "exploratory_nominal_p": 0.48135910818933925
+            }
+          },
+          "source_site_n": 2161
+        }
+      },
+      "original_NUTS2_disjoint_holdout_Ridge10": {
+        "MAE_site_equal": {
+          "baseline": 0.1418724501063159,
+          "upstream_modelPointN": 0.14245273111967796,
+          "upstream_modelPointP": 0.14263543015006452
+        },
+        "MSE_NUTS2_equal": {
+          "baseline": 0.035522436963121476,
+          "upstream_modelPointN": 0.03523329857767169,
+          "upstream_modelPointP": 0.03567414781300659
+        },
+        "MSE_country_equal": {
+          "baseline": 0.03320480746920782,
+          "upstream_modelPointN": 0.03339555553882869,
+          "upstream_modelPointP": 0.033422294661633524
+        },
+        "MSE_gain_pct_NUTS2_equal": {
+          "upstream_modelPointN": 0.813959880483315,
+          "upstream_modelPointP": -0.4270845776786528
+        },
+        "MSE_gain_pct_country_equal": {
+          "upstream_modelPointN": -0.5744591947950838,
+          "upstream_modelPointP": -0.6549870606158084
+        },
+        "MSE_gain_pct_site_equal": {
+          "upstream_modelPointN": -1.317240723175922,
+          "upstream_modelPointP": -1.2681280584569725
+        },
+        "MSE_site_equal": {
+          "baseline": 0.033302626475027845,
+          "upstream_modelPointN": 0.03374130223284408,
+          "upstream_modelPointP": 0.033724946425560794
+        },
+        "added_modelled_source_predictors": "log1p(source tonnes per km2) of N or P, independently",
+        "baseline_predictors": "training-standardized lat+lon+log(NUTS2 area) and country|procedureClassificationSystem",
+        "descriptive_bootstrap_95gain_pct": {
+          "NUTS2": {
+            "upstream_modelPointN": {
+              "descriptive_percentile_95": [
+                -1.020245959045158,
+                2.998522390388501
+              ],
+              "n_nonparametric_resamples": 999
+            },
+            "upstream_modelPointP": {
+              "descriptive_percentile_95": [
+                -2.1678062974482604,
+                1.3225039236723333
+              ],
+              "n_nonparametric_resamples": 999
+            }
+          },
+          "country": {
+            "upstream_modelPointN": {
+              "descriptive_percentile_95": [
+                -2.201811261504671,
+                0.8506411343412534
+              ],
+              "n_nonparametric_resamples": 999
+            },
+            "upstream_modelPointP": {
+              "descriptive_percentile_95": [
+                -3.090972783130865,
+                1.5918160146374631
+              ],
+              "n_nonparametric_resamples": 999
+            }
+          }
+        },
+        "forecast_validation": "5-fold source-frozen geographically disjoint NUTS2 regions, no source same-region train-test leakage",
+        "frozen_fold_case_counts": {
+          "1": 431,
+          "2": 418,
+          "3": 448,
+          "4": 450,
+          "5": 414
+        },
+        "model_grid": "NUTS2 2016 regional allocation",
+        "model_source_year": "2014\u20132018 averaged JRC GREEN point-source modeled",
+        "ridge_original_alpha": 10.0,
+        "same_source_magnitude_across_sites_in_NUTS2_NOT_site_independent_treatments": true,
+        "source_JRC_green_region_sampled_EEA_EQR_summary": [
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.023837862547837353,
+              "upstream_modelPointN": 0.0244668587235576,
+              "upstream_modelPointP": 0.024843350328834182
+            },
+            "country": "AT",
+            "mean_EQR_original_numeric": 0.76275,
+            "mean_logPointN_modelled2014to18_density": 0.12209496023634199,
+            "mean_logPointP_modelled2014to18_density": 0.008276843467355915,
+            "n_original_2016_BQE_sites": 4,
+            "nuts2": "AT21",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.024313444967045572,
+              "upstream_modelPointN": 0.019137808399130256,
+              "upstream_modelPointP": 0.023232186188544373
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.530634146341464,
+            "mean_logPointN_modelled2014to18_density": 0.2882428105816787,
+            "mean_logPointP_modelled2014to18_density": 0.03364868215758484,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "BE24",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.01858348051763899,
+              "upstream_modelPointN": 0.008607760867021873,
+              "upstream_modelPointP": 0.01826612238862145
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.5530731707317074,
+            "mean_logPointN_modelled2014to18_density": 0.47519678512707075,
+            "mean_logPointP_modelled2014to18_density": 0.029735993725797258,
+            "n_original_2016_BQE_sites": 5,
+            "nuts2": "BE31",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.001071266829099972,
+              "upstream_modelPointN": 0.0007422430717661065,
+              "upstream_modelPointP": 0.0007767457158394409
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.6470076784101176,
+            "mean_logPointN_modelled2014to18_density": 0.4162509248776476,
+            "mean_logPointP_modelled2014to18_density": 0.05968884666485294,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "BE32",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05323426346751354,
+              "upstream_modelPointN": 0.05422401860982343,
+              "upstream_modelPointP": 0.05979875949732843
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.5112438819085161,
+            "mean_logPointN_modelled2014to18_density": 0.3121447593093194,
+            "mean_logPointP_modelled2014to18_density": 0.07063891709357407,
+            "n_original_2016_BQE_sites": 22,
+            "nuts2": "BE33",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04057896449711428,
+              "upstream_modelPointN": 0.044333983673591225,
+              "upstream_modelPointP": 0.04163149817884527
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.770362804878049,
+            "mean_logPointN_modelled2014to18_density": 0.09619172863576379,
+            "mean_logPointP_modelled2014to18_density": 0.016126286445474466,
+            "n_original_2016_BQE_sites": 12,
+            "nuts2": "BE34",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.033950915174468646,
+              "upstream_modelPointN": 0.03687947738248495,
+              "upstream_modelPointP": 0.034474686495212
+            },
+            "country": "BE",
+            "mean_EQR_original_numeric": 0.7813888738331828,
+            "mean_logPointN_modelled2014to18_density": 0.14176420504035378,
+            "mean_logPointP_modelled2014to18_density": 0.018838739249473876,
+            "n_original_2016_BQE_sites": 30,
+            "nuts2": "BE35",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04436305584717648,
+              "upstream_modelPointN": 0.042405314698310416,
+              "upstream_modelPointP": 0.0410416710949998
+            },
+            "country": "EE",
+            "mean_EQR_original_numeric": 0.825376,
+            "mean_logPointN_modelled2014to18_density": 0.03097331638647393,
+            "mean_logPointP_modelled2014to18_density": 0.002714494285087097,
+            "n_original_2016_BQE_sites": 10,
+            "nuts2": "EE00",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.014935724004863824,
+              "upstream_modelPointN": 0.015126128365011312,
+              "upstream_modelPointP": 0.015239675180070076
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6170701389798655,
+            "mean_logPointN_modelled2014to18_density": 0.0637571364347199,
+            "mean_logPointP_modelled2014to18_density": 0.005891154461959455,
+            "n_original_2016_BQE_sites": 89,
+            "nuts2": "FRB0",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.034016431612265204,
+              "upstream_modelPointN": 0.03612322899593159,
+              "upstream_modelPointP": 0.03614562349573202
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.5831903267229939,
+            "mean_logPointN_modelled2014to18_density": 0.05653939242112468,
+            "mean_logPointP_modelled2014to18_density": 0.005412930611153424,
+            "n_original_2016_BQE_sites": 87,
+            "nuts2": "FRC1",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.029590559910328672,
+              "upstream_modelPointN": 0.030013846621943698,
+              "upstream_modelPointP": 0.02973817212591125
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6478674823892213,
+            "mean_logPointN_modelled2014to18_density": 0.10013194785858599,
+            "mean_logPointP_modelled2014to18_density": 0.01548862697976743,
+            "n_original_2016_BQE_sites": 111,
+            "nuts2": "FRC2",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.038789509731828146,
+              "upstream_modelPointN": 0.038778574090432026,
+              "upstream_modelPointP": 0.03877447480632178
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.5724286347718005,
+            "mean_logPointN_modelled2014to18_density": 0.10566413186966654,
+            "mean_logPointP_modelled2014to18_density": 0.012645015339071482,
+            "n_original_2016_BQE_sites": 14,
+            "nuts2": "FRD1",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04191098620495344,
+              "upstream_modelPointN": 0.031664083444219566,
+              "upstream_modelPointP": 0.03455317836579464
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.5003809796229706,
+            "mean_logPointN_modelled2014to18_density": 0.4182280655452297,
+            "mean_logPointP_modelled2014to18_density": 0.033522441451521064,
+            "n_original_2016_BQE_sites": 8,
+            "nuts2": "FRF1",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.030047597820671585,
+              "upstream_modelPointN": 0.028647603304891245,
+              "upstream_modelPointP": 0.028949272617618517
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.7108041852968109,
+            "mean_logPointN_modelled2014to18_density": 0.04543724137134734,
+            "mean_logPointP_modelled2014to18_density": 0.005438885774820181,
+            "n_original_2016_BQE_sites": 20,
+            "nuts2": "FRF2",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.027871376679143457,
+              "upstream_modelPointN": 0.027783731535808973,
+              "upstream_modelPointP": 0.0278615706326301
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6165129120903206,
+            "mean_logPointN_modelled2014to18_density": 0.14009613327933412,
+            "mean_logPointP_modelled2014to18_density": 0.013186304990630579,
+            "n_original_2016_BQE_sites": 29,
+            "nuts2": "FRF3",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.014708209139462516,
+              "upstream_modelPointN": 0.014255638226252022,
+              "upstream_modelPointP": 0.01487452885578136
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.5683700346132434,
+            "mean_logPointN_modelled2014to18_density": 0.13746904197583293,
+            "mean_logPointP_modelled2014to18_density": 0.011696887457779269,
+            "n_original_2016_BQE_sites": 141,
+            "nuts2": "FRG0",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.03237895231428005,
+              "upstream_modelPointN": 0.03304213866066857,
+              "upstream_modelPointP": 0.033357286633761904
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6472259718756064,
+            "mean_logPointN_modelled2014to18_density": 0.14193916152290725,
+            "mean_logPointP_modelled2014to18_density": 0.014266593391114033,
+            "n_original_2016_BQE_sites": 133,
+            "nuts2": "FRH0",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.03229861667033821,
+              "upstream_modelPointN": 0.032356329527787296,
+              "upstream_modelPointP": 0.0323523842066125
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6732892349648416,
+            "mean_logPointN_modelled2014to18_density": 0.13546782257235124,
+            "mean_logPointP_modelled2014to18_density": 0.01769483906309894,
+            "n_original_2016_BQE_sites": 114,
+            "nuts2": "FRI1",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04645320224160363,
+              "upstream_modelPointN": 0.04530751114527875,
+              "upstream_modelPointP": 0.04534761245869425
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.7127251950947603,
+            "mean_logPointN_modelled2014to18_density": 0.06693519512960025,
+            "mean_logPointP_modelled2014to18_density": 0.00812842318437414,
+            "n_original_2016_BQE_sites": 65,
+            "nuts2": "FRI2",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.013752283488094522,
+              "upstream_modelPointN": 0.014188700057451509,
+              "upstream_modelPointP": 0.01429143104888813
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6925981664253327,
+            "mean_logPointN_modelled2014to18_density": 0.09639560568411497,
+            "mean_logPointP_modelled2014to18_density": 0.008131720008477008,
+            "n_original_2016_BQE_sites": 97,
+            "nuts2": "FRI3",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05915034422830845,
+              "upstream_modelPointN": 0.05900113965812068,
+              "upstream_modelPointP": 0.05877453235669045
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.8029569578568434,
+            "mean_logPointN_modelled2014to18_density": 0.17163555660803484,
+            "mean_logPointP_modelled2014to18_density": 0.023349090831325484,
+            "n_original_2016_BQE_sites": 37,
+            "nuts2": "FRJ1",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.042051480791951076,
+              "upstream_modelPointN": 0.04112646637639231,
+              "upstream_modelPointP": 0.040774819692647235
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.7067231858886983,
+            "mean_logPointN_modelled2014to18_density": 0.08813914138812529,
+            "mean_logPointP_modelled2014to18_density": 0.010322927757868968,
+            "n_original_2016_BQE_sites": 76,
+            "nuts2": "FRJ2",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04199155061400481,
+              "upstream_modelPointN": 0.04417524574175996,
+              "upstream_modelPointP": 0.04345655920235122
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.607802913473543,
+            "mean_logPointN_modelled2014to18_density": 0.04877090873133314,
+            "mean_logPointP_modelled2014to18_density": 0.005928895691405805,
+            "n_original_2016_BQE_sites": 105,
+            "nuts2": "FRK1",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05289483572749373,
+              "upstream_modelPointN": 0.05264170629914374,
+              "upstream_modelPointP": 0.05278204845941094
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.6523481952974814,
+            "mean_logPointN_modelled2014to18_density": 0.2773308076574356,
+            "mean_logPointP_modelled2014to18_density": 0.04328121347321358,
+            "n_original_2016_BQE_sites": 271,
+            "nuts2": "FRK2",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.0816583569795943,
+              "upstream_modelPointN": 0.0884679476049385,
+              "upstream_modelPointP": 0.0866622390812203
+            },
+            "country": "FR",
+            "mean_EQR_original_numeric": 0.8632943630996779,
+            "mean_logPointN_modelled2014to18_density": 0.30562156145535124,
+            "mean_logPointP_modelled2014to18_density": 0.042378289351957706,
+            "n_original_2016_BQE_sites": 49,
+            "nuts2": "FRL0",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.021806125379744586,
+              "upstream_modelPointN": 0.022047458118409823,
+              "upstream_modelPointP": 0.022023352784455077
+            },
+            "country": "HR",
+            "mean_EQR_original_numeric": 0.8591150000000001,
+            "mean_logPointN_modelled2014to18_density": 0.12037425280093447,
+            "mean_logPointP_modelled2014to18_density": 0.01685771840751713,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "HR03",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.027102068243466986,
+              "upstream_modelPointN": 0.027802645555901066,
+              "upstream_modelPointP": 0.028364626923061336
+            },
+            "country": "HR",
+            "mean_EQR_original_numeric": 0.7802207692307691,
+            "mean_logPointN_modelled2014to18_density": 0.08969981471977954,
+            "mean_logPointP_modelled2014to18_density": 0.012434998734854567,
+            "n_original_2016_BQE_sites": 13,
+            "nuts2": "HR04",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.03258793875351014,
+              "upstream_modelPointN": 0.033544661512171635,
+              "upstream_modelPointP": 0.03301386444006687
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.671046511627907,
+            "mean_logPointN_modelled2014to18_density": 0.1672435606343216,
+            "mean_logPointP_modelled2014to18_density": 0.01772037982872013,
+            "n_original_2016_BQE_sites": 43,
+            "nuts2": "HU21",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.011491454108915826,
+              "upstream_modelPointN": 0.011498360914854889,
+              "upstream_modelPointP": 0.011468030516161812
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.6517391304347825,
+            "mean_logPointN_modelled2014to18_density": 0.09896567523747407,
+            "mean_logPointP_modelled2014to18_density": 0.010874271529394079,
+            "n_original_2016_BQE_sites": 46,
+            "nuts2": "HU22",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.020514981993198855,
+              "upstream_modelPointN": 0.020750768647016454,
+              "upstream_modelPointP": 0.02058505373165115
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.593867924528302,
+            "mean_logPointN_modelled2014to18_density": 0.07322560898830201,
+            "mean_logPointP_modelled2014to18_density": 0.008760977883017525,
+            "n_original_2016_BQE_sites": 53,
+            "nuts2": "HU23",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.028689817718016562,
+              "upstream_modelPointN": 0.02855480033552657,
+              "upstream_modelPointP": 0.028523147811858246
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.61625,
+            "mean_logPointN_modelled2014to18_density": 0.14740711612967894,
+            "mean_logPointP_modelled2014to18_density": 0.020143666606151068,
+            "n_original_2016_BQE_sites": 38,
+            "nuts2": "HU31",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.021023089220389184,
+              "upstream_modelPointN": 0.021080918951333634,
+              "upstream_modelPointP": 0.02103421647743108
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.6322368421052631,
+            "mean_logPointN_modelled2014to18_density": 0.08709123884006523,
+            "mean_logPointP_modelled2014to18_density": 0.012666406298773017,
+            "n_original_2016_BQE_sites": 38,
+            "nuts2": "HU32",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.015689543934727365,
+              "upstream_modelPointN": 0.015998259106471582,
+              "upstream_modelPointP": 0.015897625750127722
+            },
+            "country": "HU",
+            "mean_EQR_original_numeric": 0.5905092592592592,
+            "mean_logPointN_modelled2014to18_density": 0.10513897529316284,
+            "mean_logPointP_modelled2014to18_density": 0.015182113748906448,
+            "n_original_2016_BQE_sites": 36,
+            "nuts2": "HU33",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.025376109809815358,
+              "upstream_modelPointN": 0.022726703171020296,
+              "upstream_modelPointP": 0.023307807769834238
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8262693750000001,
+            "mean_logPointN_modelled2014to18_density": 0.17373524750141467,
+            "mean_logPointP_modelled2014to18_density": 0.024722415607852974,
+            "n_original_2016_BQE_sites": 16,
+            "nuts2": "ITC1",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.012270021655448018,
+              "upstream_modelPointN": 0.010036374247689942,
+              "upstream_modelPointP": 0.011217305731315356
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8384615384615385,
+            "mean_logPointN_modelled2014to18_density": 0.16892113365164652,
+            "mean_logPointP_modelled2014to18_density": 0.020087728259263596,
+            "n_original_2016_BQE_sites": 13,
+            "nuts2": "ITC2",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.023539271317060528,
+              "upstream_modelPointN": 0.027402696786742384,
+              "upstream_modelPointP": 0.032787187402200706
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8401918181818182,
+            "mean_logPointN_modelled2014to18_density": 0.5606440423637332,
+            "mean_logPointP_modelled2014to18_density": 0.09007752948830308,
+            "n_original_2016_BQE_sites": 22,
+            "nuts2": "ITC3",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04876706385459641,
+              "upstream_modelPointN": 0.052239615547166746,
+              "upstream_modelPointP": 0.04997583736976935
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.7077715294117647,
+            "mean_logPointN_modelled2014to18_density": 0.4472165893044099,
+            "mean_logPointP_modelled2014to18_density": 0.04825360253385421,
+            "n_original_2016_BQE_sites": 85,
+            "nuts2": "ITC4",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.013098322191815179,
+              "upstream_modelPointN": 0.012862497860385187,
+              "upstream_modelPointP": 0.013000299982391843
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.7945277777777776,
+            "mean_logPointN_modelled2014to18_density": 0.17928130437292417,
+            "mean_logPointP_modelled2014to18_density": 0.013385568266786543,
+            "n_original_2016_BQE_sites": 18,
+            "nuts2": "ITH1",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.020285065509000125,
+              "upstream_modelPointN": 0.01793384107633687,
+              "upstream_modelPointP": 0.018030732189881715
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.8110571428571428,
+            "mean_logPointN_modelled2014to18_density": 0.14773689082097663,
+            "mean_logPointP_modelled2014to18_density": 0.011418034425833407,
+            "n_original_2016_BQE_sites": 35,
+            "nuts2": "ITH2",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04007512591667857,
+              "upstream_modelPointN": 0.03743233220223601,
+              "upstream_modelPointP": 0.03828458141876618
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.9650000000000001,
+            "mean_logPointN_modelled2014to18_density": 0.3027523507018439,
+            "mean_logPointP_modelled2014to18_density": 0.03600566019776011,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "ITH3",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.01855357403999611,
+              "upstream_modelPointN": 0.013423528254117313,
+              "upstream_modelPointP": 0.015641264066422165
+            },
+            "country": "IT",
+            "mean_EQR_original_numeric": 0.908,
+            "mean_logPointN_modelled2014to18_density": 0.2478253786946034,
+            "mean_logPointP_modelled2014to18_density": 0.035670376389491845,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "ITI1",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.008112996839371675,
+              "upstream_modelPointN": 0.008374326510498296,
+              "upstream_modelPointP": 0.008539021511322844
+            },
+            "country": "LT",
+            "mean_EQR_original_numeric": 0.738,
+            "mean_logPointN_modelled2014to18_density": 0.09681246554209702,
+            "mean_logPointP_modelled2014to18_density": 0.007695640734716933,
+            "n_original_2016_BQE_sites": 15,
+            "nuts2": "LT01",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.005753223129275796,
+              "upstream_modelPointN": 0.006215223841630773,
+              "upstream_modelPointP": 0.006158763802805122
+            },
+            "country": "LT",
+            "mean_EQR_original_numeric": 0.7161624999999999,
+            "mean_logPointN_modelled2014to18_density": 0.04104398416849674,
+            "mean_logPointP_modelled2014to18_density": 0.0036087544441001968,
+            "n_original_2016_BQE_sites": 80,
+            "nuts2": "LT02",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.018690618260775074,
+              "upstream_modelPointN": 0.019471483484968077,
+              "upstream_modelPointP": 0.019662235458987744
+            },
+            "country": "LV",
+            "mean_EQR_original_numeric": 0.74463,
+            "mean_logPointN_modelled2014to18_density": 0.029307939299985687,
+            "mean_logPointP_modelled2014to18_density": 0.0028655659874019055,
+            "n_original_2016_BQE_sites": 18,
+            "nuts2": "LV00",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.0045021175290573786,
+              "upstream_modelPointN": 0.006797326439942654,
+              "upstream_modelPointP": 0.008063525994939891
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.507,
+            "mean_logPointN_modelled2014to18_density": 0.2854198011098133,
+            "mean_logPointP_modelled2014to18_density": 0.05747668430723396,
+            "n_original_2016_BQE_sites": 4,
+            "nuts2": "NO01",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.14312549290027823,
+              "upstream_modelPointN": 0.14414552033945657,
+              "upstream_modelPointP": 0.1449971779376982
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.8747142857142858,
+            "mean_logPointN_modelled2014to18_density": 0.024513237813161608,
+            "mean_logPointP_modelled2014to18_density": 0.002741903747668624,
+            "n_original_2016_BQE_sites": 7,
+            "nuts2": "NO02",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.050170874744687864,
+              "upstream_modelPointN": 0.04933094570897045,
+              "upstream_modelPointP": 0.050457722887949696
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.6575,
+            "mean_logPointN_modelled2014to18_density": 0.13057098484332275,
+            "mean_logPointP_modelled2014to18_density": 0.010978585479503802,
+            "n_original_2016_BQE_sites": 10,
+            "nuts2": "NO03",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.04413429877942951,
+              "upstream_modelPointN": 0.04161915627384006,
+              "upstream_modelPointP": 0.03699875700281069
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.5170909090909092,
+            "mean_logPointN_modelled2014to18_density": 0.13309466670856224,
+            "mean_logPointP_modelled2014to18_density": 0.032064431565362594,
+            "n_original_2016_BQE_sites": 11,
+            "nuts2": "NO04",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.048709089813642525,
+              "upstream_modelPointN": 0.04854721142243099,
+              "upstream_modelPointP": 0.048712604010434916
+            },
+            "country": "NO",
+            "mean_EQR_original_numeric": 0.6865,
+            "mean_logPointN_modelled2014to18_density": 0.054185668364963656,
+            "mean_logPointP_modelled2014to18_density": 0.01132369780232503,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "NO06",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.08584031938973151,
+              "upstream_modelPointN": 0.08643562561741384,
+              "upstream_modelPointP": 0.08670365858420359
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.6925,
+            "mean_logPointN_modelled2014to18_density": 0.06973254439673104,
+            "mean_logPointP_modelled2014to18_density": 0.006751635667840513,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "SE12",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05246839691013491,
+              "upstream_modelPointN": 0.05147288529578237,
+              "upstream_modelPointP": 0.05151245151379179
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.982,
+            "mean_logPointN_modelled2014to18_density": 0.037326253046731914,
+            "mean_logPointP_modelled2014to18_density": 0.0023447095774825942,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "SE21",
+            "source_frozen_test_fold": 3
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.01172061418116555,
+              "upstream_modelPointN": 0.01279461655681406,
+              "upstream_modelPointP": 0.012380647887703562
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.675,
+            "mean_logPointN_modelled2014to18_density": 0.14518210977261273,
+            "mean_logPointP_modelled2014to18_density": 0.011191456635826283,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "SE22",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.043713168455611885,
+              "upstream_modelPointN": 0.04362568731838933,
+              "upstream_modelPointP": 0.04376397140009831
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.7173333333333334,
+            "mean_logPointN_modelled2014to18_density": 0.07578923006301579,
+            "mean_logPointP_modelled2014to18_density": 0.00510686076136684,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "SE23",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.06022990183032231,
+              "upstream_modelPointN": 0.060160980546399546,
+              "upstream_modelPointP": 0.060237874917568185
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.8075,
+            "mean_logPointN_modelled2014to18_density": 0.03935542068027367,
+            "mean_logPointP_modelled2014to18_density": 0.0015883172212314152,
+            "n_original_2016_BQE_sites": 4,
+            "nuts2": "SE31",
+            "source_frozen_test_fold": 1
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.07796216690181916,
+              "upstream_modelPointN": 0.07680528920758672,
+              "upstream_modelPointP": 0.08026127178550817
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 0.988,
+            "mean_logPointN_modelled2014to18_density": 0.020852199151053876,
+            "mean_logPointP_modelled2014to18_density": 0.0015738734541411847,
+            "n_original_2016_BQE_sites": 3,
+            "nuts2": "SE32",
+            "source_frozen_test_fold": 2
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.09120208632643761,
+              "upstream_modelPointN": 0.09151659629186862,
+              "upstream_modelPointP": 0.09172181115984149
+            },
+            "country": "SE",
+            "mean_EQR_original_numeric": 1.0,
+            "mean_logPointN_modelled2014to18_density": 0.011781181538608363,
+            "mean_logPointP_modelled2014to18_density": 0.000672568940808731,
+            "n_original_2016_BQE_sites": 1,
+            "nuts2": "SE33",
+            "source_frozen_test_fold": 4
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.0014762849869427263,
+              "upstream_modelPointN": 0.0004147209157768123,
+              "upstream_modelPointP": 0.0005420527900128786
+            },
+            "country": "SI",
+            "mean_EQR_original_numeric": 0.795,
+            "mean_logPointN_modelled2014to18_density": 0.08702128983548729,
+            "mean_logPointP_modelled2014to18_density": 0.012559340314769307,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "SI03",
+            "source_frozen_test_fold": 5
+          },
+          {
+            "BQE_quality_mean_is_aggregate_not_individual_EEA_score": true,
+            "CV_region_MSE": {
+              "baseline": 0.05718684722890181,
+              "upstream_modelPointN": 0.05697077436409109,
+              "upstream_modelPointP": 0.05723166103494834
+            },
+            "country": "SI",
+            "mean_EQR_original_numeric": 0.58,
+            "mean_logPointN_modelled2014to18_density": 0.18399836285861185,
+            "mean_logPointP_modelled2014to18_density": 0.023490372338130585,
+            "n_original_2016_BQE_sites": 2,
+            "nuts2": "SI04",
+            "source_frozen_test_fold": 1
+          }
+        ],
+        "source_test_EEA_BQE_site_count": 2161,
+        "source_test_countries": 12,
+        "source_test_independent_NUTS2_regions": 58,
+        "source_test_original_3deg_blocks": 37,
+        "year_of_original_EEA_BQE_observation": 2016
+      },
+      "precommitted_numeric_EQR_support_gate_PASS": true,
+      "precommitted_source_country_region_outcome_QC": {
+        "missing_or_invalid_by_country": {
+          "AT": 88
+        },
+        "missing_or_invalid_numeric_EQR": 88,
+        "number_valid_original_EQR_3deg_blocks": 37,
+        "number_valid_original_EQR_NUTS2_regions": 58,
+        "number_valid_original_EQR_countries": 12,
+        "numeric_EEA_BQE_not_species_richness_or_population_abundance": true,
+        "numeric_EQR_max": 1.0,
+        "numeric_EQR_median": 0.648391812865497,
+        "numeric_EQR_min": 0.00952380952380954,
+        "original_EEA2016_numeric_EQR_valid_sites": 2161,
+        "original_source_sites_pre_EQR": 2249,
+        "original_status_of_missing_or_invalid": {
+          "MISSING": 88
+        },
+        "sites_above_normalized_EQR_1_not_silently_clamped": 0,
+        "sites_negative_normalized_EQR_not_silently_zeroed": 0,
+        "valid_site_original_country_counts": {
+          "AT": 4,
+          "BE": 73,
+          "EE": 10,
+          "FR": 1446,
+          "HR": 15,
+          "HU": 254,
+          "IT": 192,
+          "LT": 95,
+          "LV": 18,
+          "NO": 34,
+          "SE": 16,
+          "SI": 4
+        }
+      },
+      "raw_group_EEA_BQE_EQR_vs_JRC_model_source_spearman": {
+        "not_independent_NUTS2_regions": true,
+        "rho_NP_2014to18_modelledN": 0.029212811047324577,
+        "rho_NP_2014to18_modelledP": 0.015292837676757784
+      }
+    }
+  },
+  "schema": "gesui_EEA2016_official_benthic_EQR_JRC_GREEN_modelled_2014to18_POINT_NP_NUTS2016_source_locked_results_v01",
+  "source_JRC_green2014to18_domestic_AND_industrial_modelled_region_point_load_tonnes": true
+}
