@@ -254,6 +254,20 @@ def main(a):
         manifest["pilot_source_CSV_SHA256"]=sha(p)
         (a.output/"EEA2022_NP_SOURCEFIRST_LOCAL_DIRECTED_RIVER_GEOMETRY_GATE.json").write_text(
           json.dumps(manifest,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
+    # Audit the FULL unchanged source-qualified 282 receiving outfalls rather
+    # than only the 48 geography-balanced satellite pilot. Source-only.
+    # Keeping the full eligible denominator avoids falsely concluding
+    # that no aquatic monitoring exists based on the pilot sample alone.
+    if accepted:
+        p_all=a.output/"EEA2022_ALL_SOURCE_QUALIFIED_UWWTD_NP_LOCAL_RIVER_SITES.csv"
+        with p_all.open("w",encoding="utf-8",newline="") as f:
+            w=csv.DictWriter(f,fieldnames=list(accepted[0]))
+            w.writeheader()
+            w.writerows(sorted(accepted,key=lambda z:z["original_EEA2022_plant_id"]))
+        manifest["original_all_true_receiving_outfall_geo_rows"]=len(accepted)
+        manifest["original_all_source_valid_geography_CSV_SHA256"]=sha(p_all)
+        (a.output/"EEA2022_NP_SOURCEFIRST_LOCAL_DIRECTED_RIVER_GEOMETRY_GATE.json").write_text(
+            json.dumps(manifest,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
     print("GESUI_EEA2022_MEASURED_NP_LOCAL_RIVER_SOURCE_GATE="+json.dumps({
          "status":manifest["source_status"],"n_source_annual_measuredNP":len(source),
          "n_genuine_local_geometry_pass":len(accepted),
