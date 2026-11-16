@@ -1,0 +1,40 @@
+name: gesui EEA 2026 official Part2 exact source matched 3525 year diagnosis
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/diagnose_official_2026_part2_matched_qa.py'
+      - '.github/workflows/gesui-20261116-EEA2026-Part2-3525-source-diagnostic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  official_Part2_source_only_error_classes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43798318436
+          name: gesui-20261116-EEA2026-official-Part2-exact-3525-EQR-station-year-TNTP
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/part2_scored
+      - name: Audit why official 2026 aggregated chemistry is scarce at 3525 prior EEA EQR station-years
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/diagnose_official_2026_part2_matched_qa.py
+          python -u analysis/20261116_reported_np_source/diagnose_official_2026_part2_matched_qa.py \
+            --input '${{ runner.temp }}/part2_scored' \
+            --output '${{ runner.temp }}/source_diagnostic'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-official-EEA2026-Part2-3525-source-missingness-diagnostic
+          path: ${{ runner.temp }}/source_diagnostic/
+          retention-days: 90
+          if-no-files-found: warn
