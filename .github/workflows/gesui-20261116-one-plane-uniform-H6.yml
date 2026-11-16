@@ -1,0 +1,58 @@
+name: gesui 20261116 same-451-EU-H7 unified water plant butterfly H6 comparison
+on:
+  push:
+    branches:
+      - analysis/gesui-one-plane-after-112-20261116
+    paths:
+      - 'analysis/20261116_evidence_plane/uniform_h6_models.py'
+      - '.github/workflows/gesui-20261116-one-plane-uniform-H6.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: gesui-20261116-post112-oneplane-result-writes
+  cancel-in-progress: false
+jobs:
+  same451_three_compartment_h6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install true-cluster original-source WLS and Ridge numerical tools
+        run: python -m pip install --quiet numpy pandas scipy statsmodels
+      - name: Verify source SHA and fit six same-H7-period 451/90 H6-standardized descriptions with disjoint-group CV
+        run: |
+          python -m py_compile analysis/20261116_evidence_plane/uniform_h6_models.py
+          python -u analysis/20261116_evidence_plane/uniform_h6_models.py \
+             --output 'results/20261116_evidence_plane'
+      - name: Archive six H6 source comparative results
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-EU451-same-H7-three-response-standardized-H6-comparisons
+          path: |
+            results/20261116_evidence_plane/EU_H7_451_UNIFORM_W_AND_PAIRWISE_H6_COMPARISON.csv
+            results/20261116_evidence_plane/EU_H7_451_UNIFORM_W_AND_PAIRWISE_H6_COMPARISON.json
+          retention-days: 90
+          if-no-files-found: error
+      - name: Commit only derived standardized same-H7 comparison tables
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/20261116_evidence_plane/EU_H7_451_UNIFORM_W_AND_PAIRWISE_H6_COMPARISON.csv \
+                  results/20261116_evidence_plane/EU_H7_451_UNIFORM_W_AND_PAIRWISE_H6_COMPARISON.json
+          if git diff --cached --quiet; then
+            echo "Uniform source model results unchanged"
+          else
+            git commit -m "analysis: same-451-H7 three-ecology-standardized H6 disjoint observational comparisons"
+            git push origin "HEAD:refs/heads/analysis/gesui-one-plane-after-112-20261116"
+          fi
