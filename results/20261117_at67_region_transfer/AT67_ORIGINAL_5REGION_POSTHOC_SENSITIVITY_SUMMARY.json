@@ -1,0 +1,65 @@
+{
+  "status": "REAL_SHA_VERIFIED_ACTIONS_ARTIFACTS_POSTHOC_REGION_AGGREGATION_NO_NEW_ECOLOGY_FIT",
+  "source_actions": [
+    43890958636,
+    43888461430
+  ],
+  "original_artifact_ids": [
+    14237141308,
+    14236375421
+  ],
+  "original_signed_zip_sha256": {
+    "NvsP": "f92c7eb204bf86b83a4da9a1ec2cc37dd199a1eb324cdb176f175a5a6d2d732f",
+    "landcover": "09246a4b11cd638fcc5382c00cf6ced9b97668709b9374fd87f827102074837d"
+  },
+  "original_2022_water_monitoring_sites": 67,
+  "regions_n": {
+    "15_3": 9,
+    "15_4": 14,
+    "15_5": 21,
+    "16_4": 13,
+    "16_5": 10
+  },
+  "nq_pq_reported_source_Spearman": 0.945272,
+  "derived_original_holdout_region_error_aggregation": {
+    "up_P_over_Q_after_realTP_landcover": {
+      "region_equal_gain_pct": 8.388318614326595,
+      "site_count_weighted_gain_pct": 9.262843331871107,
+      "leave_one_region_out_site_weighted_min_pct": 5.6828,
+      "leave_one_region_out_site_weighted_max_pct": 11.7305,
+      "regions_original_positive": 5
+    },
+    "up_N_over_Q_after_realTP_landcover": {
+      "region_equal_gain_pct": 12.199087356754001,
+      "site_count_weighted_gain_pct": 13.332290684387793,
+      "leave_one_region_out_site_weighted_min_pct": 7.9142,
+      "leave_one_region_out_site_weighted_max_pct": 17.6352,
+      "regions_original_positive": 4
+    },
+    "up_P_over_Q_after_source_presence_and_realTP_landcover": {
+      "region_equal_gain_pct": 10.440453253361802,
+      "site_count_weighted_gain_pct": 11.725176257580284,
+      "leave_one_region_out_site_weighted_min_pct": 8.4381,
+      "leave_one_region_out_site_weighted_max_pct": 12.8346,
+      "regions_original_positive": 5
+    },
+    "up_source_presence_only": {
+      "region_equal_gain_pct": -3.418109921504029,
+      "site_count_weighted_gain_pct": -3.8857432869535025
+    },
+    "down_P_over_Q_placebo": {
+      "region_equal_gain_pct": -13.208367593985736,
+      "site_count_weighted_gain_pct": -9.912280838975128,
+      "source_region_16_5_original_gain_pct": -47.34999199250532,
+      "without_region_16_5_region_equal_gain_pct": -1.653885617145634,
+      "without_region_16_5_site_count_weighted_gain_pct": -0.5511
+    },
+    "down_N_over_Q_placebo": {
+      "region_equal_gain_pct": -2.5514756977975512,
+      "site_count_weighted_gain_pct": -2.020864103549469
+    },
+    "P_over_Q_after_N_over_Q_original_country_equal_gain_pct": -1.3165624712812602,
+    "N_over_Q_after_P_over_Q_original_country_equal_gain_pct": 2.8978999587918883
+  },
+  "caveat": "No biological model retrained, no new original source, no new confidence intervals. All downstream placebo deterioration dominated by region16_5; N/Q and P/Q cannot be individually interpreted due multicollinearity. Original 67 water sites do not have verified concurrent terrestrial responses; S2 near/outer source smoke 5/10 STOP."
+}
