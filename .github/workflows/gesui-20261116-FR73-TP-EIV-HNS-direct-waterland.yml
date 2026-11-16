@@ -48,6 +48,13 @@ jobs:
             --fr '${{ runner.temp }}/original_FR73_TP_EQR' \
             --eiv '${{ runner.temp }}/original_EIV_v2' \
             --output '${{ runner.temp }}/gesui_FR73_water_land_new'
+      - name: Independently audit source coefficients and 5fold and 24-parent leaveout predictions via FWL and augmented least-squares
+        run: |
+          python -m py_compile analysis/20261116_fr73_direct_TP_EIV_HNS/independent_FWL_24H6_holdout.py
+          python -u analysis/20261116_fr73_direct_TP_EIV_HNS/independent_FWL_24H6_holdout.py \
+            --fr '${{ runner.temp }}/original_FR73_TP_EQR' \
+            --eiv '${{ runner.temp }}/original_EIV_v2' \
+            --output '${{ runner.temp }}/gesui_FR73_water_land_new'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
