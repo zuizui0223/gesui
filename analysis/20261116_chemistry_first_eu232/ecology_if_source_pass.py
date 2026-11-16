@@ -143,6 +143,24 @@ def main(a):
                 "H6_out_fixed_error95":test["fixed_out_of_fold_error_H6_resampling95_pct"],
                 "n_H7period":len(d),"n_original_H6":int(d.h6.nunique()),
                 "not_wwtp_source_identified":True}
+    # Previously validated terrestrial-only plant–butterfly relationship
+    # must be restressed on this strictly chemistry-available geographic
+    # cohort, rather than assuming full-EU451 source transfer.
+    for label,extras in [
+        ("original_GBIF_sameH7_no_measured_chemistry",[]),
+        ("with_measured_ambient_TN",["log1p_ambient_TN"]),
+        ("with_measured_ambient_TP",["log1p_ambient_TP"])
+    ]:
+        base=PGEOG+B_EXTRA+extras
+        vals=source_cluster_regression(d,"primary_incidence_mean",
+                 base+["Plant_N_incidence"],"Plant_N_incidence")
+        pred=cv_h6(d,"primary_incidence_mean",base,"Plant_N_incidence")
+        status["regressions"]["plant_NUTRI_to_butterfly_HNS_"+label]={
+            "beta":vals["adjusted_beta_per_1SD_focal"],
+            "H6_cluster_beta95":vals["H6_cluster_descriptive95"],
+            "H6_out_added_MSE_gain_pct":pred["H6_equal_added_MSE_gain_pct"],
+            "H6_out_fixed_error95":pred["fixed_out_of_fold_error_H6_resampling95_pct"],
+            "no_real_larval_feeding_measured":True}
     status["any_positive_conditional_coeff_not_sewage_or_ecological_mediation"]=True
     (a.output/"CHEMISTRY_FIRST_H7_NUTRI_HNS_IF_GATE_RESULTS.json").write_text(
        json.dumps(status,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
