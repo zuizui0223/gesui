@@ -1,0 +1,58 @@
+name: gesui 12 original measured-NP outfalls local 2018 2022 Sentinel-2 COG pixel cloud radiometry QA
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-measured-uwwtd-sentinel-riparian-sourcefirst
+    paths:
+      - 'analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_reflectance_pixel_qa_12source.py'
+      - '.github/workflows/gesui-20261116-S2-L2A-12outfall-radiometry-pixel-QA.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  genuine_source_two_year_cloudscreen_and_band_reflectance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install COG window read/reflectance source QA and projected pixel dependencies
+        run: python -m pip install --quiet numpy "rasterio>=1.4,<2" "pyproj>=3,<4"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43850677284
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_measuredNP_GIS
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43851791936
+          name: gesui-20261116-48-EEA2022-measured-NP-outfalls-legacy-S2-2018-2022-STAC-source
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_two_year_STAC_scene_source
+      - name: Source-original 12 facility fixed pixel quality with correct 2018 vs 2022 reflectance scale offsets and local SCL mask
+        run: |
+          python -m py_compile analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_reflectance_pixel_qa_12source.py
+          python -u analysis/20261116_uwwtd_annual_riparian_sentinel/sentinel2_reflectance_pixel_qa_12source.py \
+            --geography '${{ runner.temp }}/source_measuredNP_GIS' \
+            --stac '${{ runner.temp }}/original_two_year_STAC_scene_source' \
+            --output '${{ runner.temp }}/S2_12outfall_source_sensor_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-12outfall-2018-2022-Sentinel-radiometry-SCL-pixels
+          path: ${{ runner.temp }}/S2_12outfall_source_sensor_QA/
+          retention-days: 90
+          if-no-files-found: warn
