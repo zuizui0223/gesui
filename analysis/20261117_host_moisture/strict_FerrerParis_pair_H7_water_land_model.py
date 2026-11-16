@@ -69,8 +69,8 @@ def load_original_2014_host_score(source_dir):
         raise RuntimeError("Original strictly matched same HOST source 162 butterfly roster changed")
     if collections.Counter(subset.original_butterfly_family)!=ORIGINAL_FAMILIES:
         raise RuntimeError("Original 5 family strictly scored butterfly quality changed")
-    if (subset.source_2014_host_taxa_with_BOTH_EIV_N_and_MOIST<1).any() or
-        (subset.source_2014_host_taxa_paired_trait_coverage<=0).any():
+    if ((subset.source_2014_host_taxa_with_BOTH_EIV_N_and_MOIST<1).any() or
+        (subset.source_2014_host_taxa_paired_trait_coverage<=0).any()):
         raise RuntimeError("Strict host pair denominator EIV species availability invalid")
     return scores,gate
 
