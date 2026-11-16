@@ -1,0 +1,61 @@
+{
+  "schema": "GESUI_20261116_MAIN_SOURCE_VERIFIED_ACTIONS_RESULT_V1",
+  "date": "2026-11-16",
+  "source_run_id": 43727453491,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43727453491",
+  "source_job_id": 132852393099,
+  "source_job_conclusion": "success",
+  "origin": "verbatim structured result from successful original Actions job log; not a new model",
+  "original_source_logs_preserved": true,
+  "noncausal_observational": true,
+  "numerical_result": {
+    "W_all_zero_H6": 0,
+    "W_some_positive_H6": 40,
+    "W_varying_H6": 40,
+    "modeled_W_to_butterfly_HNS_after_plantN_within_H6": {
+      "H6_blocked_perm_p": 0.0757,
+      "H6_cluster95": [
+        -0.011753859040618132,
+        0.07802680408670776
+      ],
+      "H6_nominal_p": 0.1479519829500863,
+      "beta": 0.033136472523044816,
+      "condition_number": 125.01031887817828,
+      "focal_weighted_VIF": 7.985197478066139
+    },
+    "modeled_W_to_plant_N_within_true_H6": {
+      "H6_blocked_perm_p": 0.1151,
+      "H6_cluster95": [
+        -0.018337237529743727,
+        0.12019738117725198
+      ],
+      "H6_nominal_p": 0.14954900658180617,
+      "beta": 0.05093007182375413,
+      "condition_number": 120.66258361296279,
+      "focal_weighted_VIF": 7.722996387742731
+    },
+    "original_183_H7_40_H6": true,
+    "original_NUTRI_residualized_VIF": 16.390575007589987,
+    "original_only_below40_H6": {
+      "beta": 0.11910550242352655,
+      "cluster95": [
+        0.054508344845518766,
+        0.18370266000153435
+      ],
+      "n_H6": 30,
+      "n_H7": 163
+    },
+    "plant_N_to_butterfly_HNS_with_old_new_source_indicator": {
+      "H6_blocked_perm_p": 0.0001,
+      "H6_cluster95": [
+        0.06678686942412179,
+        0.17768371887821025
+      ],
+      "H6_nominal_p": 0.00001554693265959739,
+      "beta": 0.12223529415116602,
+      "condition_number": 125.31913590880556,
+      "focal_weighted_VIF": 16.56330050353344
+    },
+    "ten_new_H6_paired_concordant_count": 6
+  }
+}
