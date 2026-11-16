@@ -1,0 +1,51 @@
+name: gesui Austria river 2022 same67 TP BQE sites Sentinel2 WorldCover 10-site source pixel smoke
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-AT67-same-riverbank-S2-landgreenness
+    paths:
+      - 'analysis/20261116_AT67_riparian_satellite/S2_2022_WorldCover_near250_outer500_pixel_source_QA.py'
+      - '.github/workflows/gesui-20261116-Austria67-same-site-S2-worldcover-pixel-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_original_2022_S2_and_2021_worldcover_10station_pixel_smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install COG window sample and original landcover reprojection
+        run: python -m pip install --quiet numpy "rasterio>=1.4,<2" "pyproj>=3,<4"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43884504952
+          name: gesui-20261116-original-Austria67-waterstation-2022-summer-S2-source-scenes
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_AT67_2022_STAC_scene_source
+      - name: True red nir scl optical source and ESA WorldCover 2021 natural land QA 2 PKINT per source region, no ecology inference
+        run: |
+          python -m py_compile analysis/20261116_AT67_riparian_satellite/S2_2022_WorldCover_near250_outer500_pixel_source_QA.py
+          python -u analysis/20261116_AT67_riparian_satellite/S2_2022_WorldCover_near250_outer500_pixel_source_QA.py \
+            --stac '${{ runner.temp }}/original_AT67_2022_STAC_scene_source' \
+            --subset smoke \
+            --output '${{ runner.temp }}/AT10_original_river_2022_S2_WC_pixel_sourceonly'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-Austria10-same-river-S2-2022-WorldCover-natural-land-pixel-smoke
+          path: '${{ runner.temp }}/AT10_original_river_2022_S2_WC_pixel_sourceonly/'
+          retention-days: 90
+          if-no-files-found: warn
