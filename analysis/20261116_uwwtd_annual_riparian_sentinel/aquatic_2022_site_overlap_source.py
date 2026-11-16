@@ -74,8 +74,8 @@ def original_WQ(path):
         j.get("source_original_date_eligible_DE_AT_by_country")!=EXPECTED_DATE_ELIGIBLE):
         raise RuntimeError("Original source TP sample year criteria or 342 date eligibility changed")
     rows=j["nationwide_original_source_2022_station_registry"]
-    if len(rows)!=342:
-        raise RuntimeError("Original 342 WQ source registry source row count changed")
+    if len(rows)!=301:
+        raise RuntimeError("Original national 342 date-eligible sites have 301 valid-geocoded station records; source registry changed")
     out=[]
     for q in rows:
         if not ("original_WISE6_WGS84_lat" in q and "original_WISE6_WGS84_lon" in q):continue
