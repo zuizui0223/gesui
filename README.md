@@ -17,6 +17,8 @@
 
 - [研究計画と事前の検定](docs/RESEARCH_PROGRAM.md)
 - [肯定結果・対照・限界の証拠台帳](docs/EVIDENCE_LEDGER.md)
+- [**全104 PRの原本SHA・判定・解析単位登録簿**](docs/PR_RESEARCH_REGISTER_20261116.md)（[1PR=1行のCSV](docs/PR_RESEARCH_REGISTER_20261116.csv)）
+- [**欧州2018/2022下水N/P実測報告×底生生物／米国NRSA3期の保存先**](docs/PR_RESEARCH_REGISTER_20261116.md#今回の統合選択水生側の2系統)
 - [データの意味と再現条件](docs/DATA_AND_REPRODUCIBILITY.md)
 - [chochoとの分業・移行記録](docs/MIGRATION.md)
 - [80ファイルの原本保存](archive/chocho_pr122)
@@ -122,3 +124,18 @@ The new [water-subsidy vs nutrient-enrichment vs contaminant-stress framework](d
 - **科学的境界**：Wは静的モデル下水関連地理の代理変数、植物NUTRIは生育環境への栄養嗜好、蝶HNSは潜在寄主の生育地嗜好、GBIFは記録種構成。実測放流口N/P・植物葉N・幼虫摂食・蝶の実個体数・生態系サービスの因果連鎖を示していない。米国EPT物理環境と欧州Wを単一の「下水効果」としてメタ解析しない。
 
 全成果の解析スクリプト・要約表・原本出所・失敗ゲートをバイト同一で選別した**98ファイル**を `provenance/GESUI_VERIFIED_20261116_RESEARCH_BLOB_MANIFEST.json`でSHA管理。元の大規模未マージDraft履歴を一括統合せず、成功済みActionsの原資料と第三者の完全なEIV/GBIF/EPA原本は元取得経路に保持。統合後のSHAと結論の整合性検証は `python scripts/verify_gesui_verified_results.py`、および `node analysis/20261115_hns_trait_shuffle/permute.js --verify`。
+
+
+## 2026-11-16：全PR研究登録簿と水生側主要原本の選択統合
+
+[全PR登録簿](docs/PR_RESEARCH_REGISTER_20261116.md)を設け、取得可能だった**104件の実在PR（#2〜#110、欠番あり）**の実HEADコミットSHA、PR状態、解析単位・主要判定・結果文書所在を保存。判定を裏付けられないものは空欄。**過去の全Draftをマージしたわけではない**。
+
+最優先の欧州 **2018/2022年に施設から報告された実測WWTP N/P年間排出質量×底生無脊椎動物EQR**の再現可能な原本・スクリプト・否定/欠測監査と、米国EPA NRSA **2008–09/2013–14/2018–19の3調査期**の河川TN/TP・EPT/Chla/AFDM/PHab実データ解析、フランス同一局の実測河川TPと底生EQR/時間変化の否定、2020年source-only停止、2016年の別尺度JRC**モデル**N/Pの注意を**218 original Git blobs**として選択コピー。Git blob SHAと原ブランチを [原本保存台帳](provenance/GESUI_20261116_AQUATIC_PR_SOURCE_BLOB_MANIFEST.json)で監査。
+
+- **下水に直接結びつく肯定的予測の芯**：2022年の底生EQRに上流処理場報告P・N年間質量を追加した地域外MSE改善 **+1.10%／+1.40%**。独立報告年2018年にも **+0.9816%／+1.1902%**。同じ地理で下流側報告源を入れる負の対照より上流側が良い。ただし年をまたぐ観測局の重複、源報告欠測、農業・都市化、真のN/P到達負荷とEQRの国別制度差が残る。
+- **別の物理環境研究**：NRSA3期の真正河川測定では、HUC8と別調査年を完全に留保してもPHab（河床・河岸・流路環境）を実測TN/TPに上乗せするとEPT個体数割合の地域外予測を2008/2013/2018年に **+7.45%／+7.98%／+11.19%** 改善する。しかしPHabは下水曝露でなく、Chla・AFDMを通じる因果媒介も確認していない。
+- **否定・STOPは消さない**：2022/2018年付着藻類の効果小/方向対照不支持、魚類の標本不足、2020年追加年のsource-only STOP、フランスの強い河川TP-EQR空間関連に対し同一地点の時間変化は再現しないこと、米国河川の単純な「N/P→生物膜→EPT」統計パス積は0を含むことを保存。
+
+数値と正負の並列比較、原本ソース/Actions run、曝露尺度の相違は[更新版の証拠台帳](docs/EVIDENCE_LEDGER.md)を参照。**報告施設の年間排出質量／河川の実測栄養塩／モデル排水地理W／植物EIV栄養嗜好はそれぞれ異なる指標**であり、これらを単一「下水が生物多様性や生態系サービスを増やした」因果効果量へ変換しない。
+
+選択ファイルのバイト同一性・PR snapshotは `python scripts/verify_gesui_pr_registry_aquatic.py` で検査する。過去の原本Actions ZIP・EEA/EPA数百万行の第三者データ・過去の多数の解析用workflow YAMLを無差別にmainへ再導入していない。
