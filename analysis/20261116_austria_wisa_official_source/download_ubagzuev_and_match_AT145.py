@@ -68,8 +68,9 @@ def original_public_download(session,out):
     # menu but stream the genuine single-file GeoPackage WITHOUT wrapping
     # it in a ZIP, even when its advertised URL includes ?accept=zip.
     # Determine format from authentic file magic; NEVER use a fake ZIP.
+    original_download_sha=sha(archive)
     rawmagic=archive.open("rb").read(16)
-    if rawmagic.startswith(b"SQLite format 3\\x00".replace(b"\\x00",b"\\x00".decode("unicode_escape").encode("latin1"))):
+    if rawmagic.startswith(b"SQLite format 3"):
         archive.replace(source)
         original_delivery="SQLite GeoPackage direct, not ZIP (source URL retained)"
     elif zipfile.is_zipfile(archive):
@@ -90,7 +91,7 @@ def original_public_download(session,out):
         "original_public_catalogue_distribution":SOURCE_SHARE,
         "original_public_page_HTML_SHA256":hashlib.sha256(s.content).hexdigest(),
         "original_public_menu_download_href_verbatim":url,
-        "original_public_zip_SHA256":sha(archive),
+        "original_public_download_SHA256":original_download_sha,
         "original_public_download_bytes":total,
         "original_source_response_delivery":original_delivery,
         "original_GZUEV_GeoPackage_source_SHA256":sha(source),
