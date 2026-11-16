@@ -146,7 +146,6 @@ def main(a):
     out={"schema":"GESUI_20261116_DIRECTIONAL_REPORTED_NP_NUTRI_BUTTERFLY_HNS_NESTED_H6_V1",
          "source_original_h7_sha256":ORIGINAL_PANEL_SHA,
          "source_original_direction_git_blob":DIRECTION_BLOB_SHA,
-         "source_411":False,
          "n_exact_H7period":len(d),"n_true_H6":d.h6.nunique(),"n_H7":d.h.nunique(),
          "n_upstream_positive_report":int(d.upstream_report_positive.sum()),
          "n_downstream_positive_report":int(d.downstream_report_positive.sum()),
