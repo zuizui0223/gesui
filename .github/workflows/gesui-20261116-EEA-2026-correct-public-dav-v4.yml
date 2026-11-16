@@ -10,7 +10,7 @@ on:
 permissions:
   contents: read
 jobs:
-  2026_official_nested_nextcloud_DAV:
+  official_2026_nested_nextcloud_DAV:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
