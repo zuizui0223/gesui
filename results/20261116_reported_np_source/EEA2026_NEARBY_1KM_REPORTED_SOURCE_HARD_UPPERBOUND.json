@@ -1,0 +1,52 @@
+{
+  "schema": "GESUI_20261116_ORIGINAL_EEA_BIO_WQ_SOURCE_ONLY_SUCCESS_LOG_RECEIPT_V1",
+  "source_workflow_url": "https://github.com/zuizui0223/gesui/actions/runs/43805542822",
+  "source_workflow_result": "success",
+  "data": {
+    "nearby_1km_still_cannot_reach_locked_positive_source_gate": true,
+    "nearby_WQ_2018_2022_measured_TNTP_NOT_USED": true,
+    "no_false_zero_for_no_matched_report": true,
+    "not_a_causal_sewage_exposure_or_foodweb_result": true,
+    "original_report_positive_biology_siteyears": 132,
+    "original_source_geometry_action": "https://github.com/zuizui0223/gesui/actions/runs/43804933915",
+    "prespecified_source_gate_threshold": {
+      "positive_H6": 10,
+      "positive_H7": 20,
+      "positive_H7periods": 30,
+      "positive_countries": 3
+    },
+    "same_exact_native_station_year_source_original_9_H7period_STILL_STOP": true,
+    "schema": "GESUI_EEA2026_NEARBY_1KM_GEO_WWTP_REPORT_PRECHEMISTRY_HARD_CEILING_V1",
+    "source_NUTRI_HNS_EQR_outcomes_NOT_used": true,
+    "source_UPSTREAM_report_status_is_NOT_proof_of_reaching_nearby_WQ_site": true,
+    "source_candidates_575_pairs_402_biology_years": true,
+    "source_only_upper_bounds": {
+      "all_1km_H7_source_opportunities_upperbound": {
+        "n_biology_source_siteyears": 402,
+        "n_report_positive_H6": 12,
+        "n_report_positive_H7": 13,
+        "n_report_positive_H7period": 16,
+        "n_report_positive_countries": 7,
+        "n_report_positive_siteyears": 47
+      },
+      "all_250m_H7_source_opportunities_upperbound": {
+        "n_biology_source_siteyears": 110,
+        "n_report_positive_H6": 8,
+        "n_report_positive_H7": 8,
+        "n_report_positive_H7period": 10,
+        "n_report_positive_countries": 6,
+        "n_report_positive_siteyears": 19
+      },
+      "exclude_co_located_25m_alias_possible_1km_H7_upperbound": {
+        "n_biology_source_siteyears": 374,
+        "n_report_positive_H6": 11,
+        "n_report_positive_H7": 12,
+        "n_report_positive_H7period": 14,
+        "n_report_positive_countries": 7,
+        "n_report_positive_siteyears": 41
+      }
+    },
+    "true_original_3525_EEA_Biology_years_in_original_part1part2_union": true
+  },
+  "not_causal_or_direct_site_nutrient_delivery": true
+}
