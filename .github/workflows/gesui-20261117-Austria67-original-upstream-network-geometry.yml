@@ -1,0 +1,45 @@
+name: gesui Austria67 genuine original HydroRIVERS 50km upstream branching land use source network gate
+on:
+  push:
+    branches:
+      - analysis/gesui-AT67-riveratlas-upstream-catchment-controls-20261117
+    paths:
+      - 'analysis/20261117_at67_upstream_landcover/HydroRIVERS_50km_upstream_branch_corridor_source_gate.py'
+      - '.github/workflows/gesui-20261117-Austria67-original-upstream-network-geometry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual_original_2022_Austria67_UPSTREAM_river_graph:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install immutable original HydroRIVERS Europe GeoParquet support
+        run: python -m pip install --quiet numpy geopandas pyarrow "shapely>=2,<3"
+      - name: Restore exact original HydroRIVERS v1 Europe 55MB SHA-pinned river graph
+        run: |
+          mkdir -p '${{ runner.temp }}/rivers'
+          curl --fail --location --silent --show-error --retry 2 --max-time 270 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o '${{ runner.temp }}/rivers/HydroRIVERS_v10_eu.geoparquet'
+          echo '5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  ${{ runner.temp }}/rivers/HydroRIVERS_v10_eu.geoparquet' | sha256sum -c -
+      - name: Audit 67 authentic 2022 river monitoring sites strictly upstream branching 50km graph source coverage without biology or vegetation
+        run: |
+          python -m py_compile analysis/20261117_at67_upstream_landcover/HydroRIVERS_50km_upstream_branch_corridor_source_gate.py
+          python -u analysis/20261117_at67_upstream_landcover/HydroRIVERS_50km_upstream_branch_corridor_source_gate.py \
+            --rivers '${{ runner.temp }}/rivers/HydroRIVERS_v10_eu.geoparquet' \
+            --output '${{ runner.temp }}/AT67_50km_original_network_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-Austria67-source-original-HydroRIVERS-upstream50km-network-gate
+          path: '${{ runner.temp }}/AT67_50km_original_network_source/'
+          retention-days: 90
+          if-no-files-found: warn
