@@ -1,0 +1,51 @@
+name: gesui 16 original outfall riparian plant trait coverage and local exposure source gate
+on:
+  push:
+    branches:
+      - analysis/gesui-outfall-local-riparian-trait-source-gate-20261116
+    paths:
+      - 'analysis/20261116_outfall_riparian_local_source/**'
+      - '.github/workflows/gesui-20261116-original16-outfall-EIV-local-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate_original_directed_site_EIV_and_local_source_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore original 16 outfalls and 48 river-centre GBIF plants, NOT new sampling
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 42365305227
+          name: gesui-16-river-outfall-all-Plantae-GBIF-2011-2024
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/GBIF_original_16_outfalls_48_sites
+      - name: Restore exact official GBIF vascular-plant EIV 11511 source, 4011 accepted species scores
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/EIV_original_exact_source
+      - name: Only test source EIV scoreability, original GIS distance and actual discharge N data; no biological trait effect fit
+        run: |
+          python -m py_compile analysis/20261116_outfall_riparian_local_source/verify_16_GBIF_EIV_local_source.py
+          python -u analysis/20261116_outfall_riparian_local_source/verify_16_GBIF_EIV_local_source.py \
+            --gbif '${{ runner.temp }}/GBIF_original_16_outfalls_48_sites' \
+            --eiv '${{ runner.temp }}/EIV_original_exact_source' \
+            --output '${{ runner.temp }}/gesui_local_outfall_trait_source_gate'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-original16-48site-EIV-local-source-verified-stop
+          path: ${{ runner.temp }}/gesui_local_outfall_trait_source_gate/
+          retention-days: 90
+          if-no-files-found: warn
