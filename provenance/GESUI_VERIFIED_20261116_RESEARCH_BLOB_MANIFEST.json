@@ -1,0 +1,606 @@
+{
+  "schema": "GESUI_MAIN_INTEGRATION_VERIFIED_20261116_GIT_BLOB_MANIFEST_V1",
+  "file_count": 98,
+  "total_bytes": 3166860,
+  "base_main_before_integration_commit": "62fcf03b3352f8af94feffb1b1bdc9e1fb3dbc44",
+  "original_branches": [
+    "analysis/gesui-40h6-withinparent-adversarial-20261115",
+    "analysis/gesui-fourthcorner-ept-dominance-20261115"
+  ],
+  "integration_type": "curated_copy_not_merge_full_historical_draft_lineage",
+  "source_byte_method": "git_blob_sha1_reused_unchanged_from_same_repository",
+  "external_raw_source_material_not_rehosted": true,
+  "source_original_action_runs_are_preserved_in_docs": true,
+  "negative_results_and_failed_source_gates_included": true,
+  "not_all_historical_unmerged_draft_branches_integrated": true,
+  "files": [
+    {
+      "path": "analysis/20261115_eiv_specificity/assemble_common_six.py",
+      "git_blob_sha1": "a04ebcbb6161cc0312d4263afdc7c7079703cb4a",
+      "size_bytes": 9747,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eiv_specificity/assemble_pairwise.py",
+      "git_blob_sha1": "1dcb34f74521158bb5797d6fa7b45fc9abd6fd84",
+      "size_bytes": 9506,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eiv_specificity/eiv_header_gate.py",
+      "git_blob_sha1": "aace71c4a9af50f03a663c5b491147d24765bbcb",
+      "size_bytes": 2148,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eiv_specificity/h6_multiH7_source_gate.py",
+      "git_blob_sha1": "d16f84d107be01001e21dcd9116612709b1bad9b",
+      "size_bytes": 4568,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eiv_specificity/pairwise_model.py",
+      "git_blob_sha1": "c8451f27a9894c7a7632865d678d72d1fcc4a6a6",
+      "size_bytes": 9886,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_ept_fourthcorner/fourthcorner.py",
+      "git_blob_sha1": "fbe6dddfaf92f4020c8c3f9fa0e55ff9ea0a3e5d",
+      "size_bytes": 19526,
+      "original_source_ref": "analysis/gesui-fourthcorner-ept-dominance-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/adversarial_host_exclusion_country.py",
+      "git_blob_sha1": "ac5a14b5a2b44916bd1974eb8c49e4dee8972dbc",
+      "size_bytes": 13578,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/diagnose_unresolved.py",
+      "git_blob_sha1": "51c85e8ac6da3ba997f768ad000a007741730398",
+      "size_bytes": 3659,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/gbif_taxonomy_shard.py",
+      "git_blob_sha1": "c126391ec9a18ae026aa8ef99e3860da4913371b",
+      "size_bytes": 9293,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/h6_model_if_gate.py",
+      "git_blob_sha1": "fe6f16775cc60d803cf9667e3c2a910d85d80f5a",
+      "size_bytes": 14205,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/independent_numerical_QA.py",
+      "git_blob_sha1": "70b31269caa0bf48e56e115338609c09464e37be",
+      "size_bytes": 8529,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/join_eiv_and_gate.py",
+      "git_blob_sha1": "97c0e47946615e762eff040b437e929d827e7a84",
+      "size_bytes": 14436,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/paired_temporal_cochange.py",
+      "git_blob_sha1": "a02492972accf67e3502ac3397307102571b6449",
+      "size_bytes": 8135,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_eu454_plant_nutri/refine_source_hybrid_status.py",
+      "git_blob_sha1": "3734b1fcda97898e87313eac6c0c100a4560d6ea",
+      "size_bytes": 10702,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/acquire_extra_h7_specieskey.py",
+      "git_blob_sha1": "2181010f7df2ab5705cc415be4e2800db4591a30",
+      "size_bytes": 7961,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/adversarial_old30_new10_transfer.py",
+      "git_blob_sha1": "4d0f40bf81a576bdaf4b4fbcc2319a6d9f00f5f6",
+      "size_bytes": 15118,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/audit_extra30_eiv_hns_source_coverage.py",
+      "git_blob_sha1": "9c266a208df29cb0733a47abbbbbc97cf206a5df",
+      "size_bytes": 14625,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/audit_prior_1219_gbif_count_opportunity.py",
+      "git_blob_sha1": "8bdb46032e700a977b2a169c484a25c60da087bb",
+      "size_bytes": 10735,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/build_genuine_183_H7_40_H6_terrestrial.py",
+      "git_blob_sha1": "f031241bef286ed8b7164504eba684c2391f0222",
+      "size_bytes": 14506,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/eea_bothperiod_ceiling.py",
+      "git_blob_sha1": "ca5aed9dff4d07741e9969a466110eb365b063f2",
+      "size_bytes": 8100,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/eiv_genus_between_within.py",
+      "git_blob_sha1": "891cfabcfd626e3f376168d06eefd10d8ba1ca1c",
+      "size_bytes": 10950,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/freeze_183_H7_40_H6_preoutcome.py",
+      "git_blob_sha1": "b4d59437324c472a272df9e1b187b20d9151cd5b",
+      "size_bytes": 6163,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/map_official_eu501_to_h6.py",
+      "git_blob_sha1": "a20b51f794906df9981550f6a498d3444b768685",
+      "size_bytes": 15377,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/plant_eiv_global_genus_label_null.py",
+      "git_blob_sha1": "bdd926c44d7e425057d12d3f28fd079feeaa3e67",
+      "size_bytes": 11277,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/posthoc_w_source_bias_falsifier.py",
+      "git_blob_sha1": "a2965b6dad6c0d1724854728cf665959afef70f5",
+      "size_bytes": 10951,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/retry_missing_papilio_1.py",
+      "git_blob_sha1": "29582f22ae6cd9d15a5ded75d4e638cc5e091ff3",
+      "size_bytes": 7554,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/test_183_40_within_H6.py",
+      "git_blob_sha1": "cb82301577ba9f7e714e60541eb7508d7f5d7856",
+      "size_bytes": 12123,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_h6_source_expansion/verify_original_1219_covariate_replay.py",
+      "git_blob_sha1": "1c88370358703529c6e6fd96f55998592f6bf0c9",
+      "size_bytes": 10352,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/analyse.py",
+      "git_blob_sha1": "ee7e7f1f55f87261c096db04b8da6f1110e978a8",
+      "size_bytes": 5658,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/build_panel.py",
+      "git_blob_sha1": "9b42702d3d5b94bab521a23df4c25f28a429d8dc",
+      "size_bytes": 8375,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/diagnostics.py",
+      "git_blob_sha1": "a4a1e3fd708f7b5ee190b617d246a5932738e76d",
+      "size_bytes": 5631,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/model_core.py",
+      "git_blob_sha1": "1a57f8ca4656d0e8faab4ad4d5fe269cc75a3a62",
+      "size_bytes": 6151,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/score_core.py",
+      "git_blob_sha1": "b5b7760ffcc18d42fbd01d7979a6cf898dd7c89a",
+      "size_bytes": 3042,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/validate.py",
+      "git_blob_sha1": "9a910153dee7309a26948ab2e2e4e60cb7a21daf",
+      "size_bytes": 6254,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/scripts/write_report.py",
+      "git_blob_sha1": "daf24262a19e09f3db09af2b740e496ff4048e94",
+      "size_bytes": 12530,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns/tests/test_core.py",
+      "git_blob_sha1": "3b19028e71087baa0c2ff0d800800a826b856792",
+      "size_bytes": 4009,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns_family_decomposition/analyse.py",
+      "git_blob_sha1": "16a0e2962060a60af53992bbf51cdd53424ed7a6",
+      "size_bytes": 8592,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns_family_taxon/analyse.py",
+      "git_blob_sha1": "2b5c0840e3b6ab31f83231f567e21d5a0946daed",
+      "size_bytes": 19639,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns_family_taxon/family_base.py",
+      "git_blob_sha1": "086d66b69f0bace342c408da875e597e041835d8",
+      "size_bytes": 774,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns_family_taxon/sensitivity.py",
+      "git_blob_sha1": "31936e0f98f5a6f225c4894eca3cbe720d325483",
+      "size_bytes": 11692,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns_trait_shuffle/incidence_full_source.py",
+      "git_blob_sha1": "6163ec10d7a5c9c43021c8a699a27cae1c70aa68",
+      "size_bytes": 9901,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_hns_trait_shuffle/permute.js",
+      "git_blob_sha1": "a9d52c6a031c904138b00a95624846f46d758b7b",
+      "size_bytes": 5627,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_multilayer/scripts/independent_qa.py",
+      "git_blob_sha1": "26247b12a35d72930651a8425754e1a9fb391a1b",
+      "size_bytes": 3695,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_multilayer/scripts/multilayer.py",
+      "git_blob_sha1": "18a64b6e5ada3401c6017e640bb34ea0d4e48296",
+      "size_bytes": 13416,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_multilayer/scripts/posthoc_sensitivities.py",
+      "git_blob_sha1": "ee12f3c771eab8ae4a2b7299997ad6e982877a60",
+      "size_bytes": 3086,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_multilayer/scripts/validate_output.py",
+      "git_blob_sha1": "8be93e2a5b3cb31f0cee9fabae09145f954f389a",
+      "size_bytes": 2791,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_plant_trait_source_gate/cached_eiv_overlap.py",
+      "git_blob_sha1": "70da1cf33699de5f44886a2937f677d58a463cff",
+      "size_bytes": 6623,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "analysis/20261115_plant_trait_source_gate/source_gate.py",
+      "git_blob_sha1": "73372ac4550a2700508ace66dbcfaf9f1ebbd837",
+      "size_bytes": 6327,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/EVIDENCE_INTEGRATION_20261115.md",
+      "git_blob_sha1": "88ebc19523aed8a843015f9c803d956862ec1066",
+      "size_bytes": 5816,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/FROZEN_PROTOCOL_20261115_EU454_FULL_PLANT_EIV_HNS.md",
+      "git_blob_sha1": "90d8f22d20d66b9db472787fe6c60ec1c4653a9c",
+      "size_bytes": 5981,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_183H7_40H6_ADVERSARIAL_10PAIR_TRANSFER.md",
+      "git_blob_sha1": "d1ae1d41682fe30c5373e997c13d74a35c3d1818",
+      "size_bytes": 5521,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_BETWEEN_WITHIN_GENUS_PLANT_NUTRI_183H7.md",
+      "git_blob_sha1": "52c20e91ba2d43381bc56e360286a2d729cf8522",
+      "size_bytes": 3708,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_EIV_PAIRWISE_SECONDARY_AFTER_SIX_STOP.md",
+      "git_blob_sha1": "827a956fc3354c0dc15704a64086fa2ef3d5c8ca",
+      "size_bytes": 2456,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_EIV_SIXTRAIT_NUTRIENT_SPECIFICITY.md",
+      "git_blob_sha1": "1511e692c32bdd82849549e30cc82d58dccd69bb",
+      "size_bytes": 5781,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_EPT_FOURTHCORNER_ABUNDANCE_INCIDENCE.md",
+      "git_blob_sha1": "7d99a3f018bdf0228e8ad9d74719fbd3f1962121",
+      "size_bytes": 5383,
+      "original_source_ref": "analysis/gesui-fourthcorner-ept-dominance-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_NEW_TERRESTRIAL_ONLY_WITHIN_H6_EIV_HNS_SOURCE_LOCK.md",
+      "git_blob_sha1": "996f325d72d101a755c63e6c84159688b0a4d9bd",
+      "size_bytes": 6424,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_OFFICIAL_H6_MAPPING_OF_SINGLEERA_EEA_H7.md",
+      "git_blob_sha1": "b294946d119ba57e5d027848867a603db0d094a9",
+      "size_bytes": 3473,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_PLANT_EIV_GENUS_AND_GLOBAL_LABEL_NULL_183H7.md",
+      "git_blob_sha1": "6e942c5ba312608da5b3fddd51ba63c1646d6023",
+      "size_bytes": 4320,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_POSTHOC_WITHIN_H6_W_PLANT_HNS_ADVERSARIAL.md",
+      "git_blob_sha1": "8199c986b7105fa31634f17eb67f5002942d4582",
+      "size_bytes": 4089,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_SOURCE_ONLY_EEA_H7_EXPANSION_CEILING.md",
+      "git_blob_sha1": "80ff4fb36c14560879aa30abb0529b5288237b81",
+      "size_bytes": 4049,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/PROTOCOL_20261115_WITHIN_TRUE_H6_DISTINCT_H7_SPATIAL_GATE.md",
+      "git_blob_sha1": "1a1ce234b26faa2ad7103b1d55fb3fd4190e1a78",
+      "size_bytes": 3520,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESEARCH_DESIGN_20261115_AQUATIC_EU_BUTTERFLY_PARALLEL_MODULES.md",
+      "git_blob_sha1": "ee9d35308c5d0a5f5db52f56aa97610d4b693065",
+      "size_bytes": 4324,
+      "original_source_ref": "analysis/gesui-fourthcorner-ept-dominance-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_183H7_40H6_NUTRI_GENUS_ADVERSARIAL.md",
+      "git_blob_sha1": "5bb974d2c734bb47afc22b1975fd90c65e565555",
+      "size_bytes": 8351,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_ACTUAL_REPORTED_EEA_NP_HNS_EQR_PLANT.md",
+      "git_blob_sha1": "8c43ceba64aeaa8be71066b5804ee49838e4ecf9",
+      "size_bytes": 7787,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_EIV_NUTRIENT_SPECIFICITY_FIVEPAIRS.md",
+      "git_blob_sha1": "1a8d693740d6642fbdd025c126dcb0d46cce6cb8",
+      "size_bytes": 6125,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_EPT_FOURTHCORNER_TRAIT_INCIDENCE.md",
+      "git_blob_sha1": "13e9e3aeafefe3b4b2fe101fcc87da548db21d59",
+      "size_bytes": 7575,
+      "original_source_ref": "analysis/gesui-fourthcorner-ept-dominance-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_EU454_PLANT_NUTRI_BUTTERFLY_HNS_SPATIAL_TEMPORAL.md",
+      "git_blob_sha1": "39bf2f58af49edc554f91ba3ee983a5d4be587ec",
+      "size_bytes": 11411,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_FAMILY_SPECIES_HNS_MACRO.md",
+      "git_blob_sha1": "b80d0cf0d2d4d6185a08a8e69a1328c40471fb77",
+      "size_bytes": 11525,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HNS_FAMILY_COMPOSITION_DECOMPOSITION.md",
+      "git_blob_sha1": "b6a8ebee45a38dc180462b211ae78d61f5bf35af",
+      "size_bytes": 8949,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HNS_LABEL_NULL_PLANT_SOURCE_GATE.md",
+      "git_blob_sha1": "d800da4977fdb5bda5d4ed079cd4477569041095",
+      "size_bytes": 8522,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HNS_MACRO_FULL.md",
+      "git_blob_sha1": "cfd3407da15ac4f07225e3a5a9945b7f712a29e0",
+      "size_bytes": 11734,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HNS_MACRO_SYNC.md",
+      "git_blob_sha1": "435472db6f23e76b4a254152153baeb34d4faaa2",
+      "size_bytes": 3874,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HNS_TAXON_INFLUENCE.md",
+      "git_blob_sha1": "0d929410a02efbdcc21f883f23f94ea5c18134c6",
+      "size_bytes": 5194,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_HOST_NUTRIENT_SCORES_FULL.md",
+      "git_blob_sha1": "26ab6dc0409a720d497e009b37f53296b1987f6b",
+      "size_bytes": 11053,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "docs/RESULTS_20261115_WITHIN_TRUE_H6_DISTINCT_H7_SOURCE_STOP.md",
+      "git_blob_sha1": "8bccee22aa1adb6c7c7eb077e3fa2f91e036dd06",
+      "size_bytes": 3284,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_eiv_specificity/EIV_NUTRI_FIVE_PAIRWISE_H6_COUNTRY_VERIFIED_SUMMARY.json",
+      "git_blob_sha1": "04e131af368abb39a237cbde675abc84c5bf9b75",
+      "size_bytes": 6522,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_eiv_specificity/SOURCE_ONLY_SIX_PAIRWISE_WITHINH6_GATES.json",
+      "git_blob_sha1": "f60570fed9a216e240d44c575f6378a473323bf7",
+      "size_bytes": 6457,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_h6_source_expansion/EXTRA30_GBIF360_EIV4011_HNS186_SOURCE_RECEIPTS.json",
+      "git_blob_sha1": "8f412862edd3670381825fd7748ff7c514fc9594",
+      "size_bytes": 4225,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_h6_source_expansion/OLD30_NEW10_EXTERNAL_TRANSFER_VERIFIED_SUMMARY.json",
+      "git_blob_sha1": "2f7c4839ce6dc5fd7da5df7f87ac70aee0e84172",
+      "size_bytes": 2520,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_h6_source_expansion/PLANT_EIV_GENUS_COMPONENTS_VERIFIED_SUMMARY.json",
+      "git_blob_sha1": "5c6a6a269df54e8a7fcb3aee390a353c98f7c0e6",
+      "size_bytes": 4128,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_h6_source_expansion/PLANT_EIV_GENUS_GLOBAL_LABEL_SHUFFLE_VERIFIED_SUMMARY.json",
+      "git_blob_sha1": "378b79d34f24ad0077cdbd47aa27849e6f70313d",
+      "size_bytes": 1621,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_hns_family_taxon/ALL_186_TAXON_LEAVE_ONE_OUT.csv",
+      "git_blob_sha1": "56d98103a3fc5bb0c5af8a196ca910f55b44e848",
+      "size_bytes": 24653,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_hns_family_taxon/FAMILY_HNS_ATTRIBUTION_RESULTS.json",
+      "git_blob_sha1": "8fbe419f8c09d36084998846cb732db275349da2",
+      "size_bytes": 36684,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_hns_family_taxon/FAMILY_HNS_ATTRIBUTION_SUMMARY.csv",
+      "git_blob_sha1": "7f3e0953785fd754b5df6a403c6ea7cef3b8ea9a",
+      "size_bytes": 1996,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_hns_family_taxon/FAMILY_TAXON_EFFORT_SENSITIVITY.json",
+      "git_blob_sha1": "2270d5dc22a8b7b1f1364de259dfcd374f55a4a0",
+      "size_bytes": 26576,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_hns_family_taxon/SPECIES_W_SLOPE_ATTRIBUTION.csv",
+      "git_blob_sha1": "02b0ade550c7cb2a7689757519a7fcf5c1f3703a",
+      "size_bytes": 22216,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_hns_trait_shuffle/INCIDENCE_VS_RECORD_SOURCE_VERIFIED_RESULTS.json",
+      "git_blob_sha1": "fe6eb12c2159c21d993a6a16b7881d52f894cd7d",
+      "size_bytes": 2003,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_hns_trait_shuffle/PERMUTATION_RESULTS.json",
+      "git_blob_sha1": "2fc12107b5b17945c90248ba2a311eeff3dabd36",
+      "size_bytes": 3759,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_plant_trait_source_gate/PRIOR1006_EIV_LOWERBOUND_GATE.json",
+      "git_blob_sha1": "64ed4a38504eb4e943b7335cb62848ad4295f521",
+      "size_bytes": 1789,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/GESUI_303_HOST_NUTRIENT_SCORES.csv",
+      "git_blob_sha1": "68972258774dfdf5c2c7f1a71803c4deff4c0db2",
+      "size_bytes": 256411,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/H7_454_HNS_panel.csv",
+      "git_blob_sha1": "ef11d33a942247d51fd11a19b3c8837631e895c6",
+      "size_bytes": 1235384,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/INDEPENDENT_QA.json",
+      "git_blob_sha1": "efb702a7ac3baace009d86fb630db4f9d0657312",
+      "size_bytes": 3826,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/SOURCE_QA.json",
+      "git_blob_sha1": "71a0bfa692301e59e65bca16de346f3fc18d7462",
+      "size_bytes": 3709,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/descriptive.json",
+      "git_blob_sha1": "9554912715e0c5a86990f6880a06766c76c12921",
+      "size_bytes": 432,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/diagnostic_results.json",
+      "git_blob_sha1": "b70c4aed74854e94235f7fb075a7b214e142df55",
+      "size_bytes": 46017,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/model_results.json",
+      "git_blob_sha1": "35469f6a8a84df2e9f5e06106a431684ffc9d30a",
+      "size_bytes": 117178,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/hns_macro/paired_222_H7_HNS_changes.csv",
+      "git_blob_sha1": "aa7fdaac8b27c212756577d3f49b9ed7155882e5",
+      "size_bytes": 694742,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    },
+    {
+      "path": "results/20261115_sync/network/host_plant_candidate_contributions.csv",
+      "git_blob_sha1": "6ee4dfa7b57137cc61966a5346eca63137dc9f05",
+      "size_bytes": 56260,
+      "original_source_ref": "analysis/gesui-40h6-withinparent-adversarial-20261115"
+    }
+  ]
+}
