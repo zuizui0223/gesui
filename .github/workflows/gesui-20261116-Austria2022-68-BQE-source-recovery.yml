@@ -1,0 +1,57 @@
+name: gesui original Austria 2022 68 same-source EEA benthic observation site-source extraction for independent national TP diagnostic
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - '.github/workflows/gesui-20261116-Austria2022-68-BQE-source-recovery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_AT68_BQE_same_site_2022_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify original 2475-site BQE national source gitblob and derive AT68 station-year only temporarily
+        run: |
+          set -eu
+          src='results/eea2022_biology_bqe_20261108/BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv'
+          test "$(git hash-object "$src")" = "325f199e985d9862ffee5b0edb205c61a7be3833"
+          mkdir -p '${{ runner.temp }}/AT68_source_QA'
+          python - <<'PY'
+          import csv,os,collections,hashlib,json
+          src='results/eea2022_biology_bqe_20261108/BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv'
+          dest=os.path.join(os.environ['RUNNER_TEMP'],'AT68_source_QA','EEA2022_BENTHIC_AT68_PRE_FROZEN_SOURCE.csv')
+          with open(src,encoding='utf-8-sig',newline='') as f:
+              data=list(csv.DictReader(f))
+          assert len(data)==2475
+          at=[q for q in data if q['countryCode']=='AT']
+          assert len(at)==68 and len({q['site_key'] for q in at})==68
+          for q in at:
+              assert q['procedureClassificationSystem']=='MI-RW-AT'
+              assert q['site_key'].startswith('AT|ATFW')
+              for k in ('normalised_EQR','DIS_AV_CMS','UPLAND_SKM','lat','lon'):
+                  assert q[k].strip()
+          with open(dest,'w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=list(data[0]))
+              w.writeheader();w.writerows(at)
+          count=collections.Counter(q['region_3deg_block'] for q in at)
+          print("GESUI_ORIGINAL_AUSTRIA2022_BQE68_SOURCE="+json.dumps({
+              "original_n_2475":len(data),"original_Austria_n_68":len(at),
+              "region_blocks":dict(count),
+              "source_SHA":hashlib.sha256(open(dest,'rb').read()).hexdigest(),
+              "numeric_BQE_fits_not_performed":True,
+              "year_2022_source_not_sewage_exposure":True
+          },sort_keys=True),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-original-Austria2022-AT68-benthic-source-for-FW11-TP-validation
+          path: '${{ runner.temp }}/AT68_source_QA/EEA2022_BENTHIC_AT68_PRE_FROZEN_SOURCE.csv'
+          retention-days: 2
+          if-no-files-found: error

@@ -1,0 +1,38 @@
+name: gesui Austria68 direct 2022 WWWTP reported P to stream TP and EQ same-Q downstream placebo and solver QA
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - 'analysis/20261116_austria_wisa_official_source/AT68_equal_Q_updown_mass_adversarial_qa.py'
+      - '.github/workflows/gesui-20261116-Austria68-updown-Q-placebo-independent-QA.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_source_UP_DOWN_identical_physical_ratio_placebo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original source HTTP + independent numerical diagnostics
+        run: python -m pip install --quiet requests numpy scipy
+      - name: Refit authentic 68 2022 river station UP/DOWN WWTP phosphorus using identical Q normalization, five geographic blocks, and independent augmented Ridge
+        run: |
+          python -m py_compile analysis/20261116_austria_wisa_official_source/AT68_equal_Q_updown_mass_adversarial_qa.py
+          python -u analysis/20261116_austria_wisa_official_source/AT68_equal_Q_updown_mass_adversarial_qa.py \
+            --output '${{ runner.temp }}/austria_68_orig_source_adversarial_Q_placebo'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-Austria68-reported-updown-equal-Qsource-same2022-water-TP-EQR-adversarial
+          path: '${{ runner.temp }}/austria_68_orig_source_adversarial_Q_placebo/'
+          retention-days: 90
+          if-no-files-found: warn

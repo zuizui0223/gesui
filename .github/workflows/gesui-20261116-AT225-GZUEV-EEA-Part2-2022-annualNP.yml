@@ -1,0 +1,43 @@
+name: gesui original EEA2026 2022 annual Part2 TNTP sites at 225 Austrian official GZUEV PKINT
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - 'analysis/20261116_austria_wisa_official_source/AT225_EEA2026_part2_2022_annualNP_source.py'
+      - '.github/workflows/gesui-20261116-AT225-GZUEV-EEA-Part2-2022-annualNP.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  official_eea_2026_original_2022_annual_225_PKINT:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original official Part2 public-source client
+        run: python -m pip install --quiet requests
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43865663130
+          name: gesui-20261116-official-BMLUK-FWMST-GZUEV-GPKG-source-AT145-geospatial-check
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_225_AT_Pkint_stationlist
+      - name: Verify all original 2026 EEA Part2 annual 6.45m source rows for 2022 TN+TP at exact original Austrian official 225 station IDs
+        run: |
+          python -m py_compile analysis/20261116_austria_wisa_official_source/AT225_EEA2026_part2_2022_annualNP_source.py
+          python -u analysis/20261116_austria_wisa_official_source/AT225_EEA2026_part2_2022_annualNP_source.py \
+            --crosswalk '${{ runner.temp }}/source_original_225_AT_Pkint_stationlist/BMLUK_GZUEV_2022_AT145_2KM_SOURCE_STATION_PKINT_MATCHES.csv' \
+            --output '${{ runner.temp }}/original_EEA_part2_AT225_annual2022'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-original-AT225-GZUEV-PKINT-EEA2026-Part2-2022-annual-TNTP
+          path: '${{ runner.temp }}/original_EEA_part2_AT225_annual2022/'
+          retention-days: 90
+          if-no-files-found: warn

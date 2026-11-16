@@ -1,0 +1,48 @@
+name: gesui original BMLUK GZUEV river station GPKG from public UBA share versus AT145 wastewater outfalls
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - 'analysis/20261116_austria_wisa_official_source/download_ubagzuev_and_match_AT145.py'
+      - '.github/workflows/gesui-20261116-BMLUK-GZUEV-FWMST-GPKG-AT145-geo-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify_public_GZUEV_official_gpkg_source_and_original_AT145_geography:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install genuine GeoPackage CRS and source numeric dependencies
+        run: python -m pip install --quiet requests numpy pandas geopandas pyogrio pyproj "shapely>=2,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43856642187
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_AT145_directed_EEA2022_reported_NP
+      - name: Verify original official public share menu, download actual GZUEV GPkg, and audit true AT145 outfall station proximities
+        run: |
+          python -m py_compile analysis/20261116_austria_wisa_official_source/download_ubagzuev_and_match_AT145.py
+          python -u analysis/20261116_austria_wisa_official_source/download_ubagzuev_and_match_AT145.py \
+            --outfalls '${{ runner.temp }}/source_AT145_directed_EEA2022_reported_NP' \
+            --output '${{ runner.temp }}/original_GZUEV_AT145_source_geography'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-official-BMLUK-FWMST-GZUEV-GPKG-source-AT145-geospatial-check
+          path: |
+            ${{ runner.temp }}/original_GZUEV_AT145_source_geography/BMLUK_GZUEV_RIVER_GPKG_SOURCE_AT145_LOCALITY_AUDIT.json
+            ${{ runner.temp }}/original_GZUEV_AT145_source_geography/BMLUK_GZUEV_2022_AT145_2KM_SOURCE_STATION_PKINT_MATCHES.csv
+          retention-days: 90
+          if-no-files-found: warn

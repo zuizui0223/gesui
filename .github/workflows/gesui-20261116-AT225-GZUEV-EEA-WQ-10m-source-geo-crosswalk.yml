@@ -1,0 +1,46 @@
+name: gesui original Austria GZUEV AT225 river PKINT to EEA2026 WISE6 WQ different-site-ID 10m coordinate crosswalk
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-wisa-gzuev-water-benthos-2022-source-access
+    paths:
+      - 'analysis/20261116_austria_wisa_official_source/AT225_GZUEV_EEA2026_WQ_spatial_ID_crosswalk.py'
+      - '.github/workflows/gesui-20261116-AT225-GZUEV-EEA-WQ-10m-source-geo-crosswalk.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  official_GZUEV_vs_EEA_WQ_coordinate_crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install genuine original GeoPackage and geodesic source QA libraries
+        run: python -m pip install --quiet requests numpy scipy geopandas pyogrio pyproj "shapely>=2,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43865663130
+          name: gesui-20261116-official-BMLUK-FWMST-GZUEV-GPKG-source-AT145-geospatial-check
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/AT225_original_GZUEV_PKINT_source_station_IDs
+      - name: Compare national official FWMST GZUEV PKINT to original EEA2026 WISE6 WQ station coordinates without numeric TNTP
+        run: |
+          python -m py_compile analysis/20261116_austria_wisa_official_source/AT225_GZUEV_EEA2026_WQ_spatial_ID_crosswalk.py
+          python -u analysis/20261116_austria_wisa_official_source/AT225_GZUEV_EEA2026_WQ_spatial_ID_crosswalk.py \
+            --crosswalk '${{ runner.temp }}/AT225_original_GZUEV_PKINT_source_station_IDs/BMLUK_GZUEV_2022_AT145_2KM_SOURCE_STATION_PKINT_MATCHES.csv' \
+            --output '${{ runner.temp }}/original_225_PKINT_to_EEA_WQ_coord_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-original-AT225-PKINT-to-EEA2026-WQ-station-source-10m-crosswalk
+          path: '${{ runner.temp }}/original_225_PKINT_to_EEA_WQ_coord_QA/'
+          retention-days: 90
+          if-no-files-found: warn
