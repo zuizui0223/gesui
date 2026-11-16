@@ -1,0 +1,58 @@
+name: gesui GLOBAL 42country WWp original WPI port all-Plantae SOURCE only pre-GBIF
+on:
+  push:
+    branches: ["analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110"]
+    paths:
+      - ".github/workflows/gesui-global-42country-allplantae-sourceONLY.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  freeze_source_only_allPlantae_42countries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Validate source estimator and dependencies without querying new plant occurrences
+        run: |
+          python -m pip install --quiet "numpy<3" pandas scipy statsmodels
+          python -m py_compile scripts/gesui_global_42country_allPlantae_original_WWp_source_freeze.py
+      - name: Reuse exact original successful public 2015 Jones+WPI and 2021 WorldCover source CSVs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui-allflora-source/{jones,world}
+          gh run download 41563940689 --name pangaea-jones2015-5arc-wpi1596-wastewater-wwtp \
+            --dir /tmp/gesui-allflora-source/jones --repo zuizui0223/chocho
+          gh run download 41562997326 --name hydroWASTE-WPI1596-WorldCover2021-urban \
+            --dir /tmp/gesui-allflora-source/world --repo zuizui0223/chocho
+          test -s /tmp/gesui-allflora-source/jones/Jones2015_WPI1596_port_grid_census.csv
+          test -s /tmp/gesui-allflora-source/world/WPI1596_worldcover2021_port_measurements.csv
+      - name: Archive original 42-country WWp-range stratified all-Plantae site sample BEFORE GBIF all-flora outcomes
+        run: |
+          python -u scripts/gesui_global_42country_allPlantae_original_WWp_source_freeze.py \
+            --jones /tmp/gesui-allflora-source/jones/Jones2015_WPI1596_port_grid_census.csv \
+            --worldcover /tmp/gesui-allflora-source/world/WPI1596_worldcover2021_port_measurements.csv \
+            --out results/global_all_Plantae_WWp2015_20261110/ORIGINAL_42COUNTRY_WWp_STRATIFIED_PORTS_PRE_GBIF_ALLFLORA_SOURCE.json
+      - name: Commit immutable new plant-free source frame before new all-Plantae facet requests
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/ORIGINAL_42COUNTRY_WWp_STRATIFIED_PORTS_PRE_GBIF_ALLFLORA_SOURCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 42country all-Plantae WWp source-stratified ports before novel 2011-24 GBIF plants"
+          git fetch origin analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git rebase origin/analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git push origin HEAD:analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-allPlantae-42country-source-ports-before-GBIF
+          path: results/global_all_Plantae_WWp2015_20261110/ORIGINAL_42COUNTRY_WWp_STRATIFIED_PORTS_PRE_GBIF_ALLFLORA_SOURCE.json
+          retention-days: 90

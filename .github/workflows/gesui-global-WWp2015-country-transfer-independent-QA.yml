@@ -1,0 +1,41 @@
+name: gesui global 2015 WWp n1055 42country NEW heldout country/2deg independent offline audit
+on:
+  push:
+    branches: ["analysis/global-2015-WWp-positive-country-transfer-20261110"]
+    paths:
+      - ".github/workflows/gesui-global-WWp2015-country-transfer-independent-QA.yml"
+      - "scripts/audit_gesui_global_WWp2015_country_2degree_transfer_offline.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  original_global_1055_country_transfer_independent_math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Independent country MSE/bootstrap arithmetic and fixed geospatial 2-degree fold SHA audit
+        run: |
+          python -m pip install --quiet "numpy<3"
+          python -m py_compile scripts/audit_gesui_global_WWp2015_country_2degree_transfer_offline.py
+          python -u scripts/audit_gesui_global_WWp2015_country_2degree_transfer_offline.py \
+            --out results/global_WWp2015_country_transfer_20261110/GLOBAL_1055PORT_42COUNTRY_WWp_INDEPENDENT_OFFLINE_HOLDOUT_QA.json
+      - name: Archive only original precommitted summary numeric audit and source file hashes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_WWp2015_country_transfer_20261110/GLOBAL_1055PORT_42COUNTRY_WWp_INDEPENDENT_OFFLINE_HOLDOUT_QA.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Verify global WWp positive n1055/42country 2degree heldout and unseen-country metrics independently"
+          git fetch origin analysis/global-2015-WWp-positive-country-transfer-20261110
+          git rebase origin/analysis/global-2015-WWp-positive-country-transfer-20261110
+          git push origin HEAD:analysis/global-2015-WWp-positive-country-transfer-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-WWp2015-1055port-country-geography-offline-QA
+          path: results/global_WWp2015_country_transfer_20261110/GLOBAL_1055PORT_42COUNTRY_WWp_INDEPENDENT_OFFLINE_HOLDOUT_QA.json
+          retention-days: 90

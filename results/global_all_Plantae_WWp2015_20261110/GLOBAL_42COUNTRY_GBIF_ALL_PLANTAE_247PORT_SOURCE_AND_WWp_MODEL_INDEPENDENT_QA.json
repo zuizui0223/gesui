@@ -1,0 +1,67 @@
+{
+  "GBIF_all_Plantae_faceted_speciesKey_query_options_verified_every_page": true,
+  "GBIF_all_Plantae_speciesKey_50record_rarefaction_exact_values_valid_range": true,
+  "GBIF_original_facet_query_response_SHA_pages_n": 247,
+  "GBIF_query_or_opportunity_missingness": {
+    "low_original_2011_24_GBIF_Plantae_species_records_or_coverage": 84
+  },
+  "GBIF_source_supported_pilot_sites": 163,
+  "all_macro_models_source_case_count_reconciled": true,
+  "exact247_original_port_and_all42_source_countries_preserved": true,
+  "four_new_ALL_Plantae_model_source_coefficients_and_country_cluster_CI_independently_reproduced": {
+    "log1p_50rarefied_allPlantae_main": {
+      "independent_beta": 0.008154193595739212,
+      "independent_cluster95": [
+        -0.01745712161938229,
+        0.03376550881086071
+      ],
+      "independent_country_FE_regressors": 41,
+      "independent_source_countries": 34,
+      "independent_source_sites": 161,
+      "nominal_cluster_SE": 0.013067237672294129
+    },
+    "log1p_50rarefied_allPlantae_plus_reporting_records_control": {
+      "independent_beta": 0.0017846027660361717,
+      "independent_cluster95": [
+        -0.022722783815473924,
+        0.026291989347546268
+      ],
+      "independent_country_FE_regressors": 42,
+      "independent_source_countries": 34,
+      "independent_source_sites": 161,
+      "nominal_cluster_SE": 0.012503998427941143
+    },
+    "log1p_Plantae_indexed_records_main": {
+      "independent_beta": 0.24211331660954705,
+      "independent_cluster95": [
+        0.036207175697171884,
+        0.4480194575219222
+      ],
+      "independent_country_FE_regressors": 41,
+      "independent_source_countries": 34,
+      "independent_source_sites": 161,
+      "nominal_cluster_SE": 0.10505608395691786
+    },
+    "log1p_raw_Plantae_speciesKey_main": {
+      "independent_beta": 0.15738363130713634,
+      "independent_cluster95": [
+        0.017535883188052465,
+        0.29723137942622024
+      ],
+      "independent_country_FE_regressors": 41,
+      "independent_source_countries": 34,
+      "independent_source_sites": 161,
+      "nominal_cluster_SE": 0.07135220301096606
+    }
+  },
+  "new_GBIF_Plantae_2011_24_dataset_NOT_candidate_host_only": true,
+  "not_proof_of_2015_direct_wastewater_discharge_or_NP_uptake": true,
+  "original_GBIF_source_supported_countries": 36,
+  "original_all_Plantae_source_gate_evaluated_independently": true,
+  "schema": "gesui_42country_247port_allPlantae_WWp2015_independent_GBIF_queries_and_model_QA_v01",
+  "source_sha256": {
+    "countryFE_50rarefied_allPlantae_model": "973bf6ed1229531f46281a0055c41e0c979c47c733022c841fbe922eba5180f5",
+    "original247port_2011_24_GBIF_allPlantae": "06fce2027873824355638e211cef763ef159e8decc3a11853f63dcbb9f621247",
+    "original42country_port_freeze": "e898d0bd05d00eccee6b5cd7565f5248cfff99f5227bfe8b9c569ca685268a30"
+  }
+}

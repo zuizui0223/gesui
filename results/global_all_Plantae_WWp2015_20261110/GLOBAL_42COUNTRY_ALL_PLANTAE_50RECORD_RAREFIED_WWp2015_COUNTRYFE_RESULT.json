@@ -1,0 +1,491 @@
+{
+  "2015_WWp_generated_model_not_effluent_or_NP_mass": true,
+  "GBIF_all_Plantae_taxonKey6_NOT_only_butterfly_candidate_hosts": true,
+  "UTC": "2026-11-10T11:29:32.472587+00:00",
+  "all_new_regressions_POSTHOC_after_original_candidate_host_positive": true,
+  "independent_GBIF_allPlantae_2011_24_247port_facet_summary_SHA256": "06fce2027873824355638e211cef763ef159e8decc3a11853f63dcbb9f621247",
+  "leave_one_original_country_out_influence": {
+    "all_country_influence_rows": [
+      {
+        "left_out_country": "AR",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008008116957811898
+      },
+      {
+        "left_out_country": "AU",
+        "n_train_countries": 33,
+        "n_train_ports": 156,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008722215474925354
+      },
+      {
+        "left_out_country": "BR",
+        "n_train_countries": 33,
+        "n_train_ports": 156,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.007189355836596162
+      },
+      {
+        "left_out_country": "CA",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.007397703931321902
+      },
+      {
+        "left_out_country": "CL",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.004414827286996088
+      },
+      {
+        "left_out_country": "CR",
+        "n_train_countries": 33,
+        "n_train_ports": 157,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008666629515680268
+      },
+      {
+        "left_out_country": "DE",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.0069139413079565525
+      },
+      {
+        "left_out_country": "DK",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008148649506374438
+      },
+      {
+        "left_out_country": "DZ",
+        "n_train_countries": 33,
+        "n_train_ports": 158,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.007976507117168491
+      },
+      {
+        "left_out_country": "EC",
+        "n_train_countries": 33,
+        "n_train_ports": 156,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.0074246256951227
+      },
+      {
+        "left_out_country": "ES",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.004409164025583428
+      },
+      {
+        "left_out_country": "FI",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.009905046062425907
+      },
+      {
+        "left_out_country": "FR",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008384858618925907
+      },
+      {
+        "left_out_country": "GB",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.0078099972693082415
+      },
+      {
+        "left_out_country": "GR",
+        "n_train_countries": 33,
+        "n_train_ports": 156,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.007987482911771593
+      },
+      {
+        "left_out_country": "IN",
+        "n_train_countries": 33,
+        "n_train_ports": 159,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.010181971708718344
+      },
+      {
+        "left_out_country": "IT",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.0076391925759940905
+      },
+      {
+        "left_out_country": "KR",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.01656818724693192
+      },
+      {
+        "left_out_country": "MA",
+        "n_train_countries": 33,
+        "n_train_ports": 158,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.00629371948759194
+      },
+      {
+        "left_out_country": "MX",
+        "n_train_countries": 33,
+        "n_train_ports": 157,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.004306153513521531
+      },
+      {
+        "left_out_country": "NZ",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.01048442522458596
+      },
+      {
+        "left_out_country": "PH",
+        "n_train_countries": 33,
+        "n_train_ports": 159,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.006912019340553348
+      },
+      {
+        "left_out_country": "PL",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.010587191326372536
+      },
+      {
+        "left_out_country": "PT",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008248614257770851
+      },
+      {
+        "left_out_country": "RO",
+        "n_train_countries": 33,
+        "n_train_ports": 156,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.007245411779160216
+      },
+      {
+        "left_out_country": "RU",
+        "n_train_countries": 33,
+        "n_train_ports": 156,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.007542924926937353
+      },
+      {
+        "left_out_country": "SE",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.006306593863210162
+      },
+      {
+        "left_out_country": "TH",
+        "n_train_countries": 33,
+        "n_train_ports": 159,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008111091201286039
+      },
+      {
+        "left_out_country": "TN",
+        "n_train_countries": 33,
+        "n_train_ports": 159,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.0070271210412873476
+      },
+      {
+        "left_out_country": "TR",
+        "n_train_countries": 33,
+        "n_train_ports": 158,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.008381857412286416
+      },
+      {
+        "left_out_country": "UA",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.009947437798560997
+      },
+      {
+        "left_out_country": "US",
+        "n_train_countries": 33,
+        "n_train_ports": 155,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.009240511987802758
+      },
+      {
+        "left_out_country": "VE",
+        "n_train_countries": 33,
+        "n_train_ports": 159,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.007894844203489635
+      },
+      {
+        "left_out_country": "VN",
+        "n_train_countries": 33,
+        "n_train_ports": 159,
+        "reestimated_new_all_Plantae_rarefied_WWp_coefficient": 0.010244042068406328
+      }
+    ],
+    "max_coefficient": 0.01656818724693192,
+    "min_coefficient": 0.004306153513521531,
+    "negative_count": 0,
+    "not_prediction_to_new_country": true,
+    "positive_count": 34,
+    "source_countries_left_out": 34
+  },
+  "macro_country_models": {
+    "log1p_50rarefied_allPlantae_main": {
+      "R2": 0.49385460985027985,
+      "beta_log_WWp": 0.008154193595739812,
+      "country_FE_not_unseen_country_forecast_model": true,
+      "country_cluster95": [
+        -0.017457121619381708,
+        0.033765508810861336
+      ],
+      "formula": "log1p_50rarefied_allPlantae~log1p_WWTP25+original_built_frac+original_crop_frac+abs_lat+sin_lon+cos_lon+C(country)+log1p_WWp2015",
+      "is_precisely_all_Plantae_not_original_butterfly_candidate_hosts": true,
+      "nominal_p": 0.5326156595276702,
+      "original_new_ALL_Plantae_countries_n": 34,
+      "original_new_ALL_Plantae_ports_n": 161,
+      "positive_coefficient": true
+    },
+    "log1p_50rarefied_allPlantae_plus_reporting_records_control": {
+      "R2": 0.5279032405776014,
+      "beta_log_WWp": 0.0017846027660354245,
+      "country_FE_not_unseen_country_forecast_model": true,
+      "country_cluster95": [
+        -0.022722783815475097,
+        0.02629198934754595
+      ],
+      "formula": "log1p_50rarefied_allPlantae~log1p_WWTP25+original_built_frac+original_crop_frac+abs_lat+sin_lon+cos_lon+C(country)+log1p_WWp2015+log1p_Plantae_indexed_records",
+      "is_precisely_all_Plantae_not_original_butterfly_candidate_hosts": true,
+      "nominal_p": 0.8865092924867329,
+      "original_new_ALL_Plantae_countries_n": 34,
+      "original_new_ALL_Plantae_ports_n": 161,
+      "positive_coefficient": true
+    },
+    "log1p_Plantae_indexed_records_main": {
+      "R2": 0.6835329379737529,
+      "beta_log_WWp": 0.24211331660954782,
+      "country_FE_not_unseen_country_forecast_model": true,
+      "country_cluster95": [
+        0.03620717569717177,
+        0.44801945752192385
+      ],
+      "formula": "log1p_Plantae_indexed_records~log1p_WWTP25+original_built_frac+original_crop_frac+abs_lat+sin_lon+cos_lon+C(country)+log1p_WWp2015",
+      "is_precisely_all_Plantae_not_original_butterfly_candidate_hosts": true,
+      "nominal_p": 0.02118841742993131,
+      "original_new_ALL_Plantae_countries_n": 34,
+      "original_new_ALL_Plantae_ports_n": 161,
+      "positive_coefficient": true
+    },
+    "log1p_raw_Plantae_speciesKey_main": {
+      "R2": 0.6655863962877181,
+      "beta_log_WWp": 0.15738363130713667,
+      "country_FE_not_unseen_country_forecast_model": true,
+      "country_cluster95": [
+        0.017535883188052576,
+        0.2972313794262208
+      ],
+      "formula": "log1p_raw_Plantae_speciesKey~log1p_WWTP25+original_built_frac+original_crop_frac+abs_lat+sin_lon+cos_lon+C(country)+log1p_WWp2015",
+      "is_precisely_all_Plantae_not_original_butterfly_candidate_hosts": true,
+      "nominal_p": 0.02740297236826908,
+      "original_new_ALL_Plantae_countries_n": 34,
+      "original_new_ALL_Plantae_ports_n": 161,
+      "positive_coefficient": true
+    }
+  },
+  "model_possible": true,
+  "model_stop_reason": null,
+  "new_all_Plantae_country_2015WWp_rank_direction": {
+    "all_reported_supported_country_ranks": [
+      {
+        "country": "AR",
+        "ports": 6,
+        "rho": -0.3714285714285715
+      },
+      {
+        "country": "AU",
+        "ports": 5,
+        "rho": 0.3
+      },
+      {
+        "country": "BR",
+        "ports": 5,
+        "rho": 0.6
+      },
+      {
+        "country": "CA",
+        "ports": 6,
+        "rho": 0.942857142857143
+      },
+      {
+        "country": "CL",
+        "ports": 6,
+        "rho": 0.8285714285714287
+      },
+      {
+        "country": "CR",
+        "ports": 4,
+        "rho": -0.7999999999999999
+      },
+      {
+        "country": "DE",
+        "ports": 6,
+        "rho": 0.6571428571428573
+      },
+      {
+        "country": "DK",
+        "ports": 6,
+        "rho": 0.2571428571428572
+      },
+      {
+        "country": "EC",
+        "ports": 5,
+        "rho": -0.09999999999999999
+      },
+      {
+        "country": "ES",
+        "ports": 6,
+        "rho": 0.3714285714285715
+      },
+      {
+        "country": "FI",
+        "ports": 6,
+        "rho": 0.4285714285714286
+      },
+      {
+        "country": "FR",
+        "ports": 6,
+        "rho": 0.48571428571428577
+      },
+      {
+        "country": "GB",
+        "ports": 6,
+        "rho": 0.3142857142857143
+      },
+      {
+        "country": "GR",
+        "ports": 5,
+        "rho": 0.7
+      },
+      {
+        "country": "IT",
+        "ports": 6,
+        "rho": 0.3142857142857143
+      },
+      {
+        "country": "KR",
+        "ports": 6,
+        "rho": -0.5428571428571429
+      },
+      {
+        "country": "MX",
+        "ports": 4,
+        "rho": 0.19999999999999998
+      },
+      {
+        "country": "NZ",
+        "ports": 6,
+        "rho": -0.6
+      },
+      {
+        "country": "PL",
+        "ports": 6,
+        "rho": 0.3142857142857143
+      },
+      {
+        "country": "PT",
+        "ports": 6,
+        "rho": 0.2571428571428572
+      },
+      {
+        "country": "RO",
+        "ports": 5,
+        "rho": -0.39999999999999997
+      },
+      {
+        "country": "RU",
+        "ports": 5,
+        "rho": -0.39999999999999997
+      },
+      {
+        "country": "SE",
+        "ports": 6,
+        "rho": 0.3142857142857143
+      },
+      {
+        "country": "UA",
+        "ports": 6,
+        "rho": -0.2
+      },
+      {
+        "country": "US",
+        "ports": 6,
+        "rho": 0.4285714285714286
+      }
+    ],
+    "country_n_under6_per_country_small_and_weak_power": true,
+    "eligible_countries_n": 25,
+    "exact_zero_rho_n": 0,
+    "negative_rho_n": 8,
+    "positive_rho_n": 17
+  },
+  "original_source_247_ports_42_countries_selected_before_new_GBIF": true,
+  "original_source_port_WWp_selection_SHA256": "e898d0bd05d00eccee6b5cd7565f5248cfff99f5227bfe8b9c569ca685268a30",
+  "predeclared_all_Plantae_record_support_gate": {
+    "ALL_PLANTAE_WWp_statistical_comparison_ALLOWED": true,
+    "min_all_Plantae_ports_w50_plant_speciesKey_records_and_10_species_coverage70": 120,
+    "min_countries_covered": 25,
+    "min_countries_with_2plus_plant_sites_and_distinct_WWp": 20
+  },
+  "recorded_2011_24_Plantae_species_keys_not_true_biodiversity_plant_abundance": true,
+  "sampling_effort_and_species_identity_limits": [
+    "GBIF taxonKey=6 includes all currently indexed Plantae, not exactly only vascular floristic taxa.",
+    "50-record hypergeometric rarefaction standardizes records but not observer site selection or GBIF data completeness.",
+    "GBIF 2011-24 occurrence records and 2015 modeled WWp production can covary with country, urbanization, plant indexing and uneven coastal reporting.",
+    "Even positive rarefied richness would not show nutrient enrichment, terrestrial disposal, establishment or real plant-population biomass.",
+    "Existing 1055 original candidate-host 2015 WWp positive beta is a DIFFERENT response, not a replication of this independent all-Plantae test."
+  ],
+  "schema": "gesui_global_2011_2024_all_Plantae_original_247port_42country_rarefied50_WWp_macro_pilot_v01",
+  "selected_countries_from_old_host_eligibility_not_globally_random": true,
+  "source_original_247port_42country_GBIF_allPlantae_response_QC": {
+    "countries_two_eligible_sites_and_WWp_varied": 34,
+    "fixed_ports": 247,
+    "original_country_count_with_qualifying_GBIF_allPlantae_sites": 36,
+    "original_query_failed_sites_not_zero": 0,
+    "original_query_success_sites": 247,
+    "source_qualifying_all_plantae_ports": 163
+  },
+  "source_per_country_WWp_variation_model_sample_n": {
+    "countries": 34,
+    "countries_with_distinct_WWp_sample_requirement": true,
+    "median_original_speciesKey": 235.0,
+    "median_rarefied50_speciesKey": 41.35720824125535,
+    "median_record_count": 713.0,
+    "median_record_coverage": 0.9805327868852459,
+    "min_record_coverage": 0.7264770240700219,
+    "port_sites": 161,
+    "source_model_input_country_sizes": {
+      "AR": 6,
+      "AU": 5,
+      "BR": 5,
+      "CA": 6,
+      "CL": 6,
+      "CR": 4,
+      "DE": 6,
+      "DK": 6,
+      "DZ": 3,
+      "EC": 5,
+      "ES": 6,
+      "FI": 6,
+      "FR": 6,
+      "GB": 6,
+      "GR": 5,
+      "IN": 2,
+      "IT": 6,
+      "KR": 6,
+      "MA": 3,
+      "MX": 4,
+      "NZ": 6,
+      "PH": 2,
+      "PL": 6,
+      "PT": 6,
+      "RO": 5,
+      "RU": 5,
+      "SE": 6,
+      "TH": 2,
+      "TN": 2,
+      "TR": 3,
+      "UA": 6,
+      "US": 6,
+      "VE": 2,
+      "VN": 2
+    }
+  }
+}

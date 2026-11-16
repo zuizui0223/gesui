@@ -1,0 +1,60 @@
+name: gesui GLOBAL 247 ports 42country 2011-24 GBIF all-Plantae independent source response
+on:
+  push:
+    branches: ["analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110"]
+    paths:
+      - ".github/workflows/gesui-global-42country-GBIF-allPlantae-2011-24.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  independently_measure_ALL_Plantae_2011_24_original247:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Validate independently committed 247 site and 42country source BEFORE new GBIF taxa
+        run: |
+          python -m py_compile scripts/gesui_global_42country_2011_24_allPlantae_GBIF_facet_census.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('results/global_all_Plantae_WWp2015_20261110/ORIGINAL_42COUNTRY_WWp_STRATIFIED_PORTS_PRE_GBIF_ALLFLORA_SOURCE.json')
+          x=json.loads(p.read_text())
+          assert x['schema']=='gesui_WPI2019_42country_WWp2015_selected6percountry_AllPlantae_2011_24_PREOUTCOME_FRAME_v01'
+          assert x['new_all_Plantae_GBIF_pilot_site_n']==247
+          assert x['countries_in_source_pilot']==42
+          assert x['GBIF_new_all_Plantae_requests_in_this_stage']==0
+          assert x['source_selection_is_independent_of_all_new_GBIF_Plantae_records'] is True
+          print('PASS: original 247 public ports across all 42 source countries frozen BEFORE independent all-Plantae queries')
+          PY
+      - name: Collect complete source-locked GBIF Plantae 2011-24 speciesKey facets, date-qualified 5km original 247 port neighborhoods
+        run: |
+          mkdir -p /tmp/gesui-global-allflora
+          python -u scripts/gesui_global_42country_2011_24_allPlantae_GBIF_facet_census.py \
+            --cache /tmp/gesui-global-allflora/ORIGINAL_GBIF_ALL_PLANTAE_247_PORTS_FULL_SPECIESKEY_FACET_CACHE.jsonl \
+            --out results/global_all_Plantae_WWp2015_20261110/ORIGINAL_247PORT_42COUNTRY_GBIF_ALL_PLANTAE_2011_24_RAREFACTION_SOURCE.json
+      - name: Preserve only privacy-safe all-Plantae original GBIF aggregate record and source SHA
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/global_all_Plantae_WWp2015_20261110/ORIGINAL_247PORT_42COUNTRY_GBIF_ALL_PLANTAE_2011_24_RAREFACTION_SOURCE.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Freeze 247 WPI sites worldwide 2011-24 all-Plantae independent original GBIF speciesKey facets and 50record rarefied richness"
+          git fetch origin analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git rebase origin/analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+          git push origin HEAD:analysis/global-allPlantae2011-24-WWp-sourcepilot-20261110
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-global-42country-247port-all-Plantae-GBIF-original-2011-24-facets
+          path: |
+            /tmp/gesui-global-allflora/ORIGINAL_GBIF_ALL_PLANTAE_247_PORTS_FULL_SPECIESKEY_FACET_CACHE.jsonl
+            results/global_all_Plantae_WWp2015_20261110/ORIGINAL_247PORT_42COUNTRY_GBIF_ALL_PLANTAE_2011_24_RAREFACTION_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 90
