@@ -1,0 +1,38 @@
+name: gesui 20261116 one-plane source integrity and post112 complete inherited registry checks
+on:
+  push:
+    branches:
+      - analysis/gesui-one-plane-after-112-20261116
+    paths:
+      - 'scripts/verify_gesui_one_plane_20261116.py'
+      - '.github/workflows/gesui-20261116-one-plane-offline-verification.yml'
+  pull_request:
+    paths:
+      - 'results/20261116_evidence_plane/**'
+      - 'analysis/20261116_evidence_plane/**'
+      - 'provenance/POST112_ONE_PLANE_83_ORIGINAL_SOURCE_BLOBS_20261116.json'
+      - 'scripts/verify_gesui_one_plane_20261116.py'
+      - '.github/workflows/gesui-20261116-one-plane-offline-verification.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  truly_same_H7_and_83_original_SOURCED_blobs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test original 454 H7, 451 common cases, two-year EQR source replay, six WLS H6 summaries, 83 Git blobs
+        run: |
+          python -m py_compile scripts/verify_gesui_one_plane_20261116.py
+          python scripts/verify_gesui_one_plane_20261116.py
+      - name: Verify prior PR112 original 218 aquatic study sources and full 104 PR registry remain intact
+        run: |
+          python scripts/verify_gesui_pr_registry_aquatic.py
+      - name: Preserve original chocho→gesui archival byte-equivalent sources and schema unit tests
+        run: |
+          python scripts/verify_migration_integrity.py
+          python -m unittest discover -s tests -p 'test_gesui_*.py' -v
