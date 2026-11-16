@@ -1,0 +1,39 @@
+{
+  "source_run": "https://github.com/zuizui0223/gesui/actions/runs/43800794527",
+  "source_job_conclusion": "success",
+  "recorded_run_id": 43800794527,
+  "verified_original_source_gate": {
+    "Part1_priority_per_source_nutrient": true,
+    "cross_part_diff_flag_not_used_for_after_outcome_selection": true,
+    "genuine_EEA_biology_native_station_years": 3525,
+    "measured_ambient_TNTP_does_not_identify_sewage_origin": true,
+    "no_new_EQR_NUTRI_HNS_or_mediation_effect_fitted": true,
+    "original_2026_publisher_part1_SHA256": "ff779521749b40b952cce35a4671240c3b6c47d87f32a8fef9240a4ac503a082",
+    "original_2026_publisher_part2_SHA256": "315396800d76e46db415164851fb4f99765b7ec2654828fc42782d902e679a7a",
+    "original_precommitted_source_gate_limits": {
+      "H6": 10,
+      "H7": 20,
+      "H7period": 30,
+      "country": 3
+    },
+    "original_station_year_source_positive": 132,
+    "report_unmatched_never_treated_as_undischarged": true,
+    "schema": "GESUI_20261116_EEA2026_PART1_PART2_ORIGINAL_3525_NATIVE_SITE_YEAR_TNTP_UNION_GATE_V1",
+    "source_disposition": "STOP_SAME_SITE_YEAR_REPORT_POSITIVE_MEASURED_TNTP_SUPPORT",
+    "source_gate_pass": false,
+    "source_part1_Part2_complementary_not_independent_biological_studies": true,
+    "strict_report_positive_both_source_support": {
+      "H6": 8,
+      "H7": 8,
+      "H7period": 9,
+      "country": 3
+    },
+    "strict_same_station_year_both_TNTP_H7periods_total": 27,
+    "valid_source_by_table_and_union_counts": {
+      "TNTP_and_report_positive": 12,
+      "TNTP_any_union": 101,
+      "TN_union_valid": 186,
+      "TP_union_valid": 262
+    }
+  }
+}
