@@ -61,3 +61,22 @@ EEA公式[Waterbase Water Quality ICM 2026](https://www.eea.europa.eu/en/datahub
 - 新ソース検査は別の [Draft PR #107](https://github.com/zuizui0223/gesui/pull/107)。元原本一致のscriptsとSOURCE receiptsを積んだが、**mainには未マージ**。
 - Part1 96.6百万行 [#43799818906](https://github.com/zuizui0223/gesui/actions/runs/43799818906)／Part2 645万行 [#43798318436](https://github.com/zuizui0223/gesui/actions/runs/43798318436)／Part1+2厳格union [#43800794527](https://github.com/zuizui0223/gesui/actions/runs/43800794527)。生物応答係数は新規に推定していない。
 - 原本公式ZIP2本（個別は1.64GB、年別は170MB）や完全な28GB解凍CSVはGitHubへ再配布していない。アップロードした原本一致の3,525局年分の限定抽出結果も、処理水施設の報告書の「ゼロ汚染」という誤解を誘う用語を使わない。
+
+
+## 6. TNだけ／TPだけの別の探索的source機会
+
+メインのTNTP同時site-year支持が未達と確定した**後**、別の「TN単独」「TP単独」の source-only gate を新規に固定した。先に固定した`docs/PROTOCOL_20261116_EEA2026_SINGLE_TN_TP_SOURCE_REPLICATION_POSTHOC.md`に従い、同じ元3,525 site×year、元Part1/2 source unionを、栄養塩の測定値の**有無のみ**で3通りすべて集計。生物応答/EQR/HNS/NUTRI/Wの数値を読まない。試料品質・国・報告源・H7/H6等は同一。
+
+| 厳格な条件 | TN単独 | TP単独 | TNTPとも |
+|---|---:|---:|---:|
+| 全EEA元site×yearで有効な観測 | 186 | 262 | 101 |
+| 上流WWTP N/P報告正と一致したsite×year | 12 | 12 | 12 |
+| 報告正のdistinct H7×period | 9 | 9 | 9 |
+| 報告正のdistinct H7 | 8 | 8 | 8 |
+| 報告正のgenuine H6 | 8 | 8 | 8 |
+| 報告正の国 | 3 | 3 | 3 |
+| **同じH6内で報告正かつ当該栄養実測のある異なる2 H7が共存** | **0 H6** | **0 H6** | **0 H6** |
+
+**結論：** TNかTPに別々にしても、実際に水質値と上流処理場報告が重なったsource populationは**12 site×yearから増えない**。メインゲート（30 H7×period/20 H7/10 H6/3か国）だけでなく、より厳密な同一H6内の正の報告源強度比較（2 H7以上のH6を10）も **0/10** でSTOP。TN-only/TP-onlyの効果推定を試みない。報告なしの地点を真の無放流対照にはできない。
+
+真正元source-only [Actions #43801308202 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43801308202)。コード`analysis/20261116_reported_np_source/audit_totalN_totalP_individually.py`、結果原本ログを`results/20261116_reported_np_source/EEA2026_SEPARATE_TOTALN_TOTALP_SOURCE_GATE.json`に保存。メインのTNTP同時のSTOPとPR #106のmain統合結果は変更していない。
