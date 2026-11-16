@@ -68,8 +68,8 @@ def source_site_landcover(lat,lon):
                     rows,cols=np.indices(data.shape)
                     X=trans.c+(cols+.5)*trans.a+(rows+.5)*trans.b
                     Y=trans.f+(cols+.5)*trans.d+(rows+.5)*trans.e
-                    d2=((X-lon)*111320*math.cos(math.radians(lat)))**2+
-                       ((Y-lat)*111132)**2
+                    d2=(((X-lon)*111320*math.cos(math.radians(lat)))**2
+                        + ((Y-lat)*111132)**2)
                     valid=data>0
                     inside=(d2<=R_M**2)&valid
                     near=(d2<=R_NEAR_M**2)&valid
@@ -116,7 +116,7 @@ def main(args):
     passed=len(good)>=MIN_VALID_STATIONS and len(blocks)==5 and min(blocks.values())>=5
     output={"schema":SCHEMA,
       "original_2022_Austria_genuine_benthic_2022_and_annual_total_P_sites":68,
-      "one_prior_field_coordinate_anomaly_removed_before_lancover":EXCLUDE_SITE,
+      "one_prior_field_coordinate_anomaly_removed_before_landcover":EXCLUDE_SITE,
       "original_study_TP_EQR_WWTP_source_sites":67,
       "source_original_WorldCover_2021_product_v200":"ESA_WorldCover_10m_2021_v200",
       "source_original_WorldCover_2021_license":"CC-BY-4.0",
