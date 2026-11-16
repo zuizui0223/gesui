@@ -1,0 +1,32 @@
+name: gesui official 303 butterfly original host EIV moisture vs nutrient source availability only
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-butterfly-host-moisture-source-gate
+    paths:
+      - 'analysis/20261117_host_moisture/source_gate.py'
+      - '.github/workflows/gesui-20261117-butterfly-host-moisture-source-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify_original_303_butterfly_EIV_N_and_MOIST_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source-locked exact accepted host moisture and nutrient score availability in original same 454 H7 study
+        run: |
+          python -m py_compile analysis/20261117_host_moisture/source_gate.py
+          python -u analysis/20261117_host_moisture/source_gate.py \
+            --output '${{ runner.temp }}/gesui_20261117_original_butterfly_host_moisture_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-original303-butterflies-host-MOIST-NUTRI-source-only
+          path: '${{ runner.temp }}/gesui_20261117_original_butterfly_host_moisture_source/'
+          retention-days: 90
+          if-no-files-found: warn

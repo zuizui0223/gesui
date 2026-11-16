@@ -1,0 +1,37 @@
+name: gesui original Ferrer-Paris exact larval host N F double-scored EIV 303 butterflies
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-butterfly-host-moisture-source-gate
+    paths:
+      - 'analysis/20261117_host_moisture/true_same_host_N_F_from_original_FerrerParis_EIV.py'
+      - '.github/workflows/gesui-20261117-FerrerParis-same-host-NF-source-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_pinned_published_2014_butterfly_host_same_plant_EIV_N_MOIST:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original public source read libs
+        run: python -m pip install --quiet numpy pandas requests
+      - name: Original Ferrer-Paris source exact accepted butterfly host plants and genuinely same-host-paired nutrient/moisture EIV traits, prior to ecology
+        run: |
+          python -m py_compile analysis/20261117_host_moisture/true_same_host_N_F_from_original_FerrerParis_EIV.py
+          python -u analysis/20261117_host_moisture/true_same_host_N_F_from_original_FerrerParis_EIV.py \
+            --output '${{ runner.temp }}/real_same_larval_host_EIV_NF_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-genuine-FerrerParis-same-larval-host-EIV-N-MOIST-303
+          path: '${{ runner.temp }}/real_same_larval_host_EIV_NF_source/'
+          retention-days: 90
+          if-no-files-found: warn
