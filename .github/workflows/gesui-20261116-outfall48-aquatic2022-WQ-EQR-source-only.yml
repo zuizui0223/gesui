@@ -1,0 +1,49 @@
+name: gesui same 48 2022 measured-UWWTD outlet aquatic EQR WISE6 TP site source opportunity
+on:
+  push:
+    branches:
+      - analysis/gesui-20261116-measured-uwwtd-sentinel-riparian-sourcefirst
+    paths:
+      - 'analysis/20261116_uwwtd_annual_riparian_sentinel/aquatic_2022_site_overlap_source.py'
+      - '.github/workflows/gesui-20261116-outfall48-aquatic2022-WQ-EQR-source-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_outfall_water_and_benthic_station_opportunity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43850677284
+          name: gesui-20261116-authentic-1156-EEA2022-reported-NP-river-source-geog
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_48_UWWTD_riverbank_sites
+      - name: Recover original dated water-total-phosphorus station geometry and source-only eligibility from fixed PR30
+        run: |
+          mkdir -p '${{ runner.temp }}/original_WQ_TP2022'
+          curl --fail --location --silent --show-error --retry 2 --max-time 120 \
+            https://raw.githubusercontent.com/zuizui0223/gesui/895ab6701e7f9e44278464c669adae91686a1d37/results/wise6_2022_national_DEAT_TP_sourceonly/NATIONAL_DE_AT_2022_WISE6_RIVER_TP_PUBLIC_STATION_SOURCE_ONLY_QC.json \
+            -o '${{ runner.temp }}/original_WQ_TP2022/2022_TP_monitor_source_only.json'
+          test "$(git hash-object '${{ runner.temp }}/original_WQ_TP2022/2022_TP_monitor_source_only.json')" = '0f00351e7d907663589ea7a77b0591a9e1efaf36'
+      - name: Validate same 48 outlets 2022 BQE and WISE6 TP monitoring station proximity, no biological/chemical effect values
+        run: |
+          python -m py_compile analysis/20261116_uwwtd_annual_riparian_sentinel/aquatic_2022_site_overlap_source.py
+          python -u analysis/20261116_uwwtd_annual_riparian_sentinel/aquatic_2022_site_overlap_source.py \
+            --source '${{ runner.temp }}/original_48_UWWTD_riverbank_sites' \
+            --water '${{ runner.temp }}/original_WQ_TP2022/2022_TP_monitor_source_only.json' \
+            --output '${{ runner.temp }}/same_outfall_aquatic_monitoring'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-48-EEA2022-trueNP-outfall-aquatic-EQR-TP-field-site-overlap
+          path: '${{ runner.temp }}/same_outfall_aquatic_monitoring/'
+          retention-days: 90
+          if-no-files-found: warn
