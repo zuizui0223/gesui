@@ -47,3 +47,18 @@
 - SOURCE GATE原本出力：`results/20261116_reported_np_source/183H7_40H6_REPORTED_NP_SOURCE_ONLY_GATE.json`
 - [GitHub Actions #43790162632 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43790162632)（元SHA・元346行・元40 H6・元report flag×direction正照合・数値を変更せず監査完了）
 - 元第三者の排出施設データ全体やH7×2期の蝶・植物の分布原画像を再配布しない。元PR105、main、chochoは変更していない。これは**次のsource-only検証Draft**であってmainの新肯定結果ではない。
+
+
+## 追加：公式 Waterbase Water Quality ICM 2026 の取得経路（2026-11-16）
+
+EEA公式Datahubは2026年7月7日公開の [Waterbase – Water Quality ICM 2026](https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1) を掲示し、データ製品全体は1900–2025年を対象とする。一方 [WISE SoE収集ページ](https://water.europa.eu/freshwater/resources/wise-soe-data-collection)には Discodata WISE-6 tables の更新に関する注意があり、SQLのlatestが2026本体と同一源という証明ではない。
+
+[新しい公式APIの小規模source test #43790940133 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43790940133)（**ソースアクセス監査のActions成功であり、同一観測局2018/2022 TN/TP取得成功ではない**）。直接の4.3GB全文を取得せず、各最大2レコード・原本の数値を転載しないSQL/HEADのみを実施。
+
+- `[WISE_SOE].[latest].[Waterbase_T_WISE6_AggregatedData]` と `[WISE_SOE].[latest].[Waterbase_T_WISE6_DisaggregatedData]` は `SELECT TOP 1 *` のschema確認でともにHTTP200・JSONのresults配列を返した。AggregatedDataには`monitoringSiteIdentifier`,`phenomenonTimeReferenceYear`, `observedPropertyDeterminandCode`,`resultMeanValue`、DisaggregatedDataには`phenomenonTimeSamplingDate`,`resultObservedValue`が存在する。
+- 2018または2022の `Total nitrogen`/`Total phosphorus` を同時に問い合わせた複合条件SQLは**HTTP403・HTML**だった。空の化学観測ではなく、**取得・問い合わせ条件が未解決**という判定。
+- 同じ公式2026データの直接配布リンクに対するHEADはHTTP200でも**Content-Type HTML**であり、4.3GB本体・Part2ファイル自体は未取得。
+- EEAの旧PR #91での単一条件SQL、同一EEA EQR観測局の2018/2022化学照合先行失敗を保持。新しいこの小規模access probeから同一station/yearの2018/2022 TN/TPが存在する／しないとは判断しない。
+- 出力: `results/20261116_reported_np_source/EEA_2026_WISE6_TNTP_BOUNDED_API_PROBE.json`。コード `analysis/20261116_reported_np_source/probe_official_eea_2026_wise6_sql.py`。
+
+**次の技術的ボトルネック：** 公式2026版の`AggregatedData` Part2を、実際の元source ZIP/SQLiteの一部あるいは観測局ID×2018/2022の小規模原本テーブルとして**正確に取得**できる手段が必要。取得可能性と同一ID/yearでの結合を先に成立させ、植物/蝶の結果を見ない。今の段階でSEMや下水に特有の栄養供給機構は推定しない。
