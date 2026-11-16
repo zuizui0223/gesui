@@ -1,0 +1,48 @@
+name: gesui EEA2026 exact native Biology and WQ station spatial source-only opportunity
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/audit_biology_wq_spatial_source_v1.py'
+      - '.github/workflows/gesui-20261116-biology-WQ-spatial-source-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_biology_wq_site_geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source coordinate indexing dependencies
+        run: python -m pip install --quiet numpy scipy requests
+      - name: Download original EEA biology 6330 station geography source manifest
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/station_source
+      - name: Compare original 2485 biological IDs with 2026 official 90859 water-quality spatial-site IDs and 250m/1km/5km geometry
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/audit_biology_wq_spatial_source_v1.py
+          python -u analysis/20261116_reported_np_source/audit_biology_wq_spatial_source_v1.py \
+            --station-dir '${{ runner.temp }}/station_source' \
+            --output '${{ runner.temp }}/spatial_source_only'
+      - name: Store only genuine source-geometry support counts and SHA provenance
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-EEA2026-Biology-WQ-native-station-spatial-source-only-gate
+          path: ${{ runner.temp }}/spatial_source_only/
+          retention-days: 90
+          if-no-files-found: warn
