@@ -1,0 +1,86 @@
+{
+  "schema": "gesui-20261115-hns-within-family-label-permutation-v1",
+  "generated_on": "2026-11-15",
+  "run_status": "independently_recomputed_from_frozen_git_species_slope_csv",
+  "original_source_git_blob_sha1": "02b0ade550c7cb2a7689757519a7fcf5c1f3703a",
+  "source_csv_path": "results/20261115_hns_family_taxon/SPECIES_W_SLOPE_ATTRIBUTION.csv",
+  "source_species_n": 186,
+  "seed": 20261115,
+  "rng": "xorshift32",
+  "iterations": 9999,
+  "original_beta_reconstruction_error": 1.0269562977782698e-15,
+  "primary": {
+    "observed_beta": 0.1270836749539087,
+    "extreme_permutations": 12,
+    "p_two_sided": 0.0013,
+    "permutation_null_mean": -0.00023211403349779607,
+    "permutation_null_sd": 0.04128906835472969,
+    "permutation_null_quantile_025": -0.08017146323907452,
+    "permutation_null_median": -0.0003849114091278678,
+    "permutation_null_quantile_975": 0.07970566278279044
+  },
+  "families": {
+    "Hesperiidae": {
+      "n_species": 23,
+      "observed_beta": 0.008509591671711912,
+      "extreme_permutations": 1595,
+      "p_two_sided": 0.1596,
+      "permutation_null_mean": -0.0000029063476916787393,
+      "permutation_null_sd": 0.005969686071558882,
+      "permutation_null_quantile_025": -0.011374945237462592,
+      "permutation_null_median": -0.00007547810647436312,
+      "permutation_null_quantile_975": 0.011564820565684336,
+      "q_BH_five_families": 0.19949999999999998
+    },
+    "Lycaenidae": {
+      "n_species": 47,
+      "observed_beta": 0.026363609767090318,
+      "extreme_permutations": 701,
+      "p_two_sided": 0.0702,
+      "permutation_null_mean": -0.00013322991865274047,
+      "permutation_null_sd": 0.01459927403885346,
+      "permutation_null_quantile_025": -0.028803823666778035,
+      "permutation_null_median": 0.00004320664258351288,
+      "permutation_null_quantile_975": 0.028098373704682423,
+      "q_BH_five_families": 0.1755
+    },
+    "Nymphalidae": {
+      "n_species": 87,
+      "observed_beta": 0.05067601834055281,
+      "extreme_permutations": 1320,
+      "p_two_sided": 0.1321,
+      "permutation_null_mean": -0.000037783908446747224,
+      "permutation_null_sd": 0.03319030465660329,
+      "permutation_null_quantile_025": -0.06441857889071405,
+      "permutation_null_median": 0.000011082564389645355,
+      "permutation_null_quantile_975": 0.06537004231482858,
+      "q_BH_five_families": 0.19949999999999998
+    },
+    "Papilionidae": {
+      "n_species": 10,
+      "observed_beta": 0.007832757494157946,
+      "extreme_permutations": 5315,
+      "p_two_sided": 0.5316,
+      "permutation_null_mean": -0.00008098009639328813,
+      "permutation_null_sd": 0.011519295374890274,
+      "permutation_null_quantile_025": -0.02141500189106344,
+      "permutation_null_median": -0.00024394750715595574,
+      "permutation_null_quantile_975": 0.022249849519314663,
+      "q_BH_five_families": 0.5316
+    },
+    "Pieridae": {
+      "n_species": 19,
+      "observed_beta": 0.033701697680395715,
+      "extreme_permutations": 180,
+      "p_two_sided": 0.0181,
+      "permutation_null_mean": 0.000022786237686658965,
+      "permutation_null_sd": 0.014971866438969314,
+      "permutation_null_quantile_025": -0.028919345851127872,
+      "permutation_null_median": 0.000016441155359504518,
+      "permutation_null_quantile_975": 0.02876592988550839,
+      "q_BH_five_families": 0.09050000000000001
+    }
+  },
+  "interpretation": "Permutation concerns trait assignment conditional on unchanged original residualized WLS design and species records. It does not test true wastewater delivery, phylogenetic exchangeability, opportunistic GBIF bias, prediction transfer or causal effect. Family q values BH adjusted across five posthoc secondary comparisons.",
+  "plant_nutrient_index_not_fitted": true
+}

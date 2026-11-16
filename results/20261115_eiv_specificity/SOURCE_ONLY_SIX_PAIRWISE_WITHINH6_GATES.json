@@ -1,0 +1,173 @@
+{
+  "schema": "GESUI_EIV_N_SOURCE_ONLY_GATES_PRESERVED_V1",
+  "date": "2026-11-15",
+  "original_source_sha256": "ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+  "origin": "GH source-only successful workflow logs (all source sha checked)",
+  "run_urls": [
+    "https://github.com/zuizui0223/gesui/actions/runs/43720593465",
+    "https://github.com/zuizui0223/gesui/actions/runs/43720948781",
+    "https://github.com/zuizui0223/gesui/actions/runs/43721770883"
+  ],
+  "strict_six_trait_complete_case_gate": {
+    "all_six_coverage_q05_q50_q95": [
+      0.2694840579710145,
+      0.32786797923942246,
+      0.41733187144691136
+    ],
+    "all_six_preoutcome_gate_pass": false,
+    "all_six_source_supported_H6": 16,
+    "all_six_source_supported_H7periods": 41,
+    "all_six_source_supported_country_groups": 5,
+    "no_W_or_HNS_model_opened": true,
+    "no_caused_sewage_nutrient_inference": true,
+    "no_missing_trait_substitution": true,
+    "original_2808_facets_SHA256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+    "original_451_NUTRI_supported_H7periods": 451,
+    "original_454_H7periods": 454,
+    "original_EIV_trait_exact_NUTRI_species": 4011,
+    "original_H7panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "original_same_univariate_scores_across_traits": true,
+    "original_six_complete_scored_speciesKeys": 2834,
+    "schema": "GESUI_EU454_EIV_SIXTRAIT_SAME_SPECIES_SOURCE_OPPORTUNITY_V1",
+    "score_source_compatible_with_original_4011_NUTRI": true,
+    "source_EIV": {
+      "names_excluded_for_any_ambiguous_duplicate": 0,
+      "original_header": [
+        "Unnamed: 0",
+        "LIGHT",
+        "TEMPE",
+        "MOIST",
+        "REACT",
+        "NUTRI",
+        "SALIN"
+      ],
+      "original_rows": 8908,
+      "original_sha256": "ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+      "original_species_pairing_is_only_exact_accepted_vascular_binomial": true,
+      "unambiguous_complete_six_trait_names": 5263
+    },
+    "support_conditions": {
+      "min_H6": 40,
+      "min_H7period": 100,
+      "min_country": 5,
+      "min_species_fraction": 0.4,
+      "min_unique_species": 10
+    }
+  },
+  "all_five_pairwise_source_gates": {
+    "all_five_controls_prespecified": [
+      "LIGHT",
+      "TEMPE",
+      "MOIST",
+      "REACT",
+      "SALIN"
+    ],
+    "ambiguous_source_names_excluded": 0,
+    "analysis_stage": "source_only_not_yet_ecological_regression",
+    "each_pair_on_exact_same_plants_for_both_N_and_other": true,
+    "joint_five_other_traits_not_tested": true,
+    "not_actual_river_or_plant_nutrient_measurement": true,
+    "original_2808_facets_SHA": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+    "original_454_panel_SHA": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "original_EIV_source_SHA": "ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+    "original_NUTRI_scored_species_4011_verified": 4011,
+    "original_six_alltrait_source_gate_STOP": true,
+    "pairwise_source": {
+      "LIGHT": {
+        "paired_coverage_q05_q50_q95": [
+          0.4651002920629706,
+          0.5933007772198913,
+          0.6798415083687567
+        ],
+        "paired_support_H7period": 450,
+        "paired_support_country_groups": 11,
+        "paired_support_true_H6": 90,
+        "scored_species_keys_original_11511_union": 3877,
+        "support_pass": true
+      },
+      "MOIST": {
+        "paired_coverage_q05_q50_q95": [
+          0.42735555555555554,
+          0.5442338453000799,
+          0.628032870559412
+        ],
+        "paired_support_H7period": 447,
+        "paired_support_country_groups": 11,
+        "paired_support_true_H6": 89,
+        "scored_species_keys_original_11511_union": 3722,
+        "support_pass": true
+      },
+      "REACT": {
+        "paired_coverage_q05_q50_q95": [
+          0.4748141186299081,
+          0.6070664357040962,
+          0.7008799932792875
+        ],
+        "paired_support_H7period": 450,
+        "paired_support_country_groups": 11,
+        "paired_support_true_H6": 90,
+        "scored_species_keys_original_11511_union": 3789,
+        "support_pass": true
+      },
+      "SALIN": {
+        "paired_coverage_q05_q50_q95": [
+          0.5107723147507017,
+          0.6551489740894758,
+          0.7437828418552198
+        ],
+        "paired_support_H7period": 451,
+        "paired_support_country_groups": 11,
+        "paired_support_true_H6": 90,
+        "scored_species_keys_original_11511_union": 3985,
+        "support_pass": true
+      },
+      "TEMPE": {
+        "paired_coverage_q05_q50_q95": [
+          0.3342303790074018,
+          0.41085925213240326,
+          0.5072389869246923
+        ],
+        "paired_support_H7period": 280,
+        "paired_support_country_groups": 7,
+        "paired_support_true_H6": 75,
+        "scored_species_keys_original_11511_union": 3196,
+        "support_pass": true
+      }
+    },
+    "schema": "GESUI_EIV_5_NUTRI_PAIRWISE_SAME_SCORED_SPECIES_SUPPORT_V1",
+    "stage_after_six_trait_stop_is_posthoc_secondary": true
+  },
+  "within_true_H6_geographic_replication_gate": {
+    "H6_with_at_least_two_distinct_H7": 30,
+    "distinct_H7_within_multiH7_H6": 163,
+    "exact_two_period_source_H7": 219,
+    "exact_two_period_source_true_H6": 86,
+    "false_independent_periods_not_counted": true,
+    "multiH7_H6_original_H7_count_distribution": {
+      "1": 56,
+      "2": 7,
+      "3": 3,
+      "5": 3,
+      "6": 5,
+      "7": 4,
+      "8": 5,
+      "9": 3
+    },
+    "no_plantN_or_HNS_observation_opened": true,
+    "not_independent_ecological_field_studies": true,
+    "original_panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "original_supported_source_H7period": 451,
+    "schema": "GESUI_EU454_TWO_PERIOD_TRUE_H6_MULTI_H7_SOURCE_OPPORTUNITY_V1",
+    "source_EIV_SHA256": "ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+    "source_country_groups_within_multiH7_H6": 8,
+    "source_gate_preoutcome_thresholds": {
+      "minimum_distinct_H7": 100,
+      "minimum_distinct_H7_within_parent_H6": 2,
+      "minimum_majority_country_groups": 5,
+      "minimum_true_H6": 40
+    },
+    "source_original_facets_SHA256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+    "within_H6_spatial_association_sample_gate_pass": false
+  },
+  "never_merge_eligibility_across_tests": true
+}

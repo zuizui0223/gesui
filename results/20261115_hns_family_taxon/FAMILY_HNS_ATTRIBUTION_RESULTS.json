@@ -1,0 +1,1010 @@
+{
+  "schema": "GESUI_H7_454_FAMILY_SPECIES_HNS_ATTRIBUTION_V1",
+  "source_receipts": {
+    "original_archive_name": "GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json",
+    "original_archive_member": null,
+    "source_archive_sha256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+    "score_table_sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+    "original_454_source_sum_speciesKey": 4318269,
+    "original_454_all_family_record_count": 4400147
+  },
+  "n_periods": 454,
+  "n_H7": 232,
+  "n_true_H6": 90,
+  "n_species_keys_all": 303,
+  "n_valid_fixed_score_keys": 186,
+  "n_original_untreated_basin_controls": 0,
+  "family_main_score_reference": {
+    "Hesperiidae": 4.122877846790891,
+    "Lycaenidae": 3.6477818458137623,
+    "Nymphalidae": 3.8857899538117318,
+    "Papilionidae": 4.209507575757575,
+    "Pieridae": 4.097100209731789
+  },
+  "family_support_gate": {
+    "min_scored_records": 10,
+    "min_scored_species": 2,
+    "min_scored_record_fraction": 0.7
+  },
+  "family_components": {
+    "Hesperiidae": {
+      "W_association": {
+        "beta_W_per_1sd_this_cohort": 0.008509591671711912,
+        "cluster95": [
+          0.0033197240583668812,
+          0.013699459285056944
+        ],
+        "cluster_se": 0.0026478916394617504,
+        "posthoc_nominal_p": 0.00131025766395982,
+        "H6": 90,
+        "n_H7_period": 454,
+        "W_source_SD": 1.2415993277012753,
+        "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+        "not_causal": true
+      },
+      "H6_holdout_W_added_value": {
+        "H6_equal_baseline_MSE": 0.0007244344364876795,
+        "H6_equal_added_MSE": 0.0007111786052561788,
+        "H6_equal_MSE_gain_percent": 1.8298179329753836,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -4.615050783682216,
+          7.114887748349881
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": -6.802441863167793
+      },
+      "n_orig_scored_species": 23,
+      "family_mean_HNS_reference": 4.122877846790891,
+      "source_records_all_periods": 230375,
+      "source_rows_with_scored_HNS": 447
+    },
+    "Lycaenidae": {
+      "W_association": {
+        "beta_W_per_1sd_this_cohort": 0.026363609767090346,
+        "cluster95": [
+          0.010374447401063823,
+          0.04235277213311687
+        ],
+        "cluster_se": 0.008157735901033941,
+        "posthoc_nominal_p": 0.0012304273375988645,
+        "H6": 90,
+        "n_H7_period": 454,
+        "W_source_SD": 1.2415993277012753,
+        "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+        "not_causal": true
+      },
+      "H6_holdout_W_added_value": {
+        "H6_equal_baseline_MSE": 0.00557800898290008,
+        "H6_equal_added_MSE": 0.005056370984037899,
+        "H6_equal_MSE_gain_percent": 9.351688038891867,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -0.6193955798811015,
+          18.039663413461714
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 5.8130461852968205
+      },
+      "n_orig_scored_species": 47,
+      "family_mean_HNS_reference": 3.6477818458137623,
+      "source_records_all_periods": 761026,
+      "source_rows_with_scored_HNS": 454
+    },
+    "Nymphalidae": {
+      "W_association": {
+        "beta_W_per_1sd_this_cohort": 0.05067601834055153,
+        "cluster95": [
+          -0.0334842568141328,
+          0.13483629349523585
+        ],
+        "cluster_se": 0.04293891589524711,
+        "posthoc_nominal_p": 0.23792521852796455,
+        "H6": 90,
+        "n_H7_period": 454,
+        "W_source_SD": 1.2415993277012753,
+        "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+        "not_causal": true
+      },
+      "H6_holdout_W_added_value": {
+        "H6_equal_baseline_MSE": 0.10916427573180978,
+        "H6_equal_added_MSE": 0.11087159426422606,
+        "H6_equal_MSE_gain_percent": -1.5639901615898095,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -11.91715859803278,
+          7.349434462314698
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 1.548861255504949
+      },
+      "n_orig_scored_species": 87,
+      "family_mean_HNS_reference": 3.8857899538117318,
+      "source_records_all_periods": 2353679,
+      "source_rows_with_scored_HNS": 454
+    },
+    "Papilionidae": {
+      "W_association": {
+        "beta_W_per_1sd_this_cohort": 0.007832757494157927,
+        "cluster95": [
+          -0.0006749284832411866,
+          0.01634044347155704
+        ],
+        "cluster_se": 0.0043406561109179155,
+        "posthoc_nominal_p": 0.07115138804169352,
+        "H6": 90,
+        "n_H7_period": 454,
+        "W_source_SD": 1.2415993277012753,
+        "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+        "not_causal": true
+      },
+      "H6_holdout_W_added_value": {
+        "H6_equal_baseline_MSE": 0.0011572879763721265,
+        "H6_equal_added_MSE": 0.001155927291989108,
+        "H6_equal_MSE_gain_percent": 0.11757526309778148,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -6.28209858772571,
+          5.010624569767199
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": -1.0266218039480501
+      },
+      "n_orig_scored_species": 10,
+      "family_mean_HNS_reference": 4.209507575757575,
+      "source_records_all_periods": 133412,
+      "source_rows_with_scored_HNS": 440
+    },
+    "Pieridae": {
+      "W_association": {
+        "beta_W_per_1sd_this_cohort": 0.03370169768039555,
+        "cluster95": [
+          0.015432194290616114,
+          0.051971201070174985
+        ],
+        "cluster_se": 0.009321175198867057,
+        "posthoc_nominal_p": 0.000299645742869626,
+        "H6": 90,
+        "n_H7_period": 454,
+        "W_source_SD": 1.2415993277012753,
+        "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+        "not_causal": true
+      },
+      "H6_holdout_W_added_value": {
+        "H6_equal_baseline_MSE": 0.010015049551118139,
+        "H6_equal_added_MSE": 0.009630784019912741,
+        "H6_equal_MSE_gain_percent": 3.8368809784120907,
+        "H6_heldout_fixed_errors_bootstrap95_percent": [
+          -4.512414580640888,
+          10.500618628029862
+        ],
+        "n_H6": 90,
+        "n_H7": 232,
+        "n_rows": 454,
+        "row_weighted_MSE_gain_percent": 2.1967560564366924
+      },
+      "n_orig_scored_species": 19,
+      "family_mean_HNS_reference": 4.097100209731789,
+      "source_records_all_periods": 921655,
+      "source_rows_with_scored_HNS": 454
+    }
+  },
+  "family_within_means": {
+    "Hesperiidae": {
+      "n_supported_H7period": 404,
+      "H7": 217,
+      "H6": 83,
+      "n_rows_with_any_scored_record": 447,
+      "median_score_coverage_supported": 0.9323192239858906,
+      "record_mean_Hesperiidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.20241489926680986,
+          "cluster95": [
+            0.07028170844613826,
+            0.33454809008748143
+          ],
+          "cluster_se": 0.06741489327585286,
+          "posthoc_nominal_p": 0.0026775002193624815,
+          "H6": 83,
+          "n_H7_period": 404,
+          "W_source_SD": 1.154203150993433,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.27288221221202796,
+          "H6_equal_added_MSE": 0.2380015133131275,
+          "H6_equal_MSE_gain_percent": 12.782327809552628,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -1.552357096819299,
+            19.85226074439266
+          ],
+          "n_H6": 83,
+          "n_H7": 217,
+          "n_rows": 404,
+          "row_weighted_MSE_gain_percent": -8.194196520226258
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": 4.293333007385917,
+          "fixed_error_country_bootstrap95": [
+            -43.67720430784165,
+            18.286308627244928
+          ],
+          "n_country_evaluation_groups": 5,
+          "country_groups": [
+            "FR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      },
+      "incidence_mean_Hesperiidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.08896231088273288,
+          "cluster95": [
+            0.013579684772882558,
+            0.16434493699258318
+          ],
+          "cluster_se": 0.03846052352543384,
+          "posthoc_nominal_p": 0.020718179465464462,
+          "H6": 83,
+          "n_H7_period": 404,
+          "W_source_SD": 1.154203150993433,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.11145918683600947,
+          "H6_equal_added_MSE": 0.10271721281089065,
+          "H6_equal_MSE_gain_percent": 7.8432063549691415,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -2.9903701979009094,
+            15.894682285531538
+          ],
+          "n_H6": 83,
+          "n_H7": 217,
+          "n_rows": 404,
+          "row_weighted_MSE_gain_percent": -4.93069902040258
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": 3.40047158711759,
+          "fixed_error_country_bootstrap95": [
+            -20.706671614583936,
+            18.477881176648406
+          ],
+          "n_country_evaluation_groups": 5,
+          "country_groups": [
+            "FR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      }
+    },
+    "Lycaenidae": {
+      "n_supported_H7period": 426,
+      "H7": 226,
+      "H6": 89,
+      "n_rows_with_any_scored_record": 454,
+      "median_score_coverage_supported": 0.9301734134514021,
+      "record_mean_Lycaenidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.12048440944132315,
+          "cluster95": [
+            0.046107861659013316,
+            0.19486095722363297
+          ],
+          "cluster_se": 0.03794721825628052,
+          "posthoc_nominal_p": 0.0014980940437457578,
+          "H6": 89,
+          "n_H7_period": 426,
+          "W_source_SD": 1.243849709561679,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.11773032995548938,
+          "H6_equal_added_MSE": 0.10051757735690145,
+          "H6_equal_MSE_gain_percent": 14.620491257516731,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            3.672580353101567,
+            23.98608046802888
+          ],
+          "n_H6": 89,
+          "n_H7": 226,
+          "n_rows": 426,
+          "row_weighted_MSE_gain_percent": 7.774166269776386
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": 10.347730273406395,
+          "fixed_error_country_bootstrap95": [
+            -13.37403753192004,
+            22.073394406793103
+          ],
+          "n_country_evaluation_groups": 6,
+          "country_groups": [
+            "FR",
+            "HR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      },
+      "incidence_mean_Lycaenidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.07883619434276898,
+          "cluster95": [
+            0.021815056109619244,
+            0.1358573325759187
+          ],
+          "cluster_se": 0.029092417465892723,
+          "posthoc_nominal_p": 0.006731289729390149,
+          "H6": 89,
+          "n_H7_period": 426,
+          "W_source_SD": 1.243849709561679,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.07482282811070355,
+          "H6_equal_added_MSE": 0.06951010079014705,
+          "H6_equal_MSE_gain_percent": 7.100409667349242,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -1.3942252256575491,
+            13.64640544815065
+          ],
+          "n_H6": 89,
+          "n_H7": 226,
+          "n_rows": 426,
+          "row_weighted_MSE_gain_percent": -0.676982257239661
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": 4.5691524187936565,
+          "fixed_error_country_bootstrap95": [
+            -18.53057593992578,
+            13.787853239664658
+          ],
+          "n_country_evaluation_groups": 6,
+          "country_groups": [
+            "FR",
+            "HR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      }
+    },
+    "Nymphalidae": {
+      "n_supported_H7period": 447,
+      "H7": 231,
+      "H6": 90,
+      "n_rows_with_any_scored_record": 454,
+      "median_score_coverage_supported": 0.881316098707403,
+      "record_mean_Nymphalidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.14227639565469824,
+          "cluster95": [
+            0.026461691324127526,
+            0.25809109998526897
+          ],
+          "cluster_se": 0.05908913486253608,
+          "posthoc_nominal_p": 0.016047797408495944,
+          "H6": 90,
+          "n_H7_period": 447,
+          "W_source_SD": 1.2432261471308137,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.22399092590623432,
+          "H6_equal_added_MSE": 0.21438351660912724,
+          "H6_equal_MSE_gain_percent": 4.289195760157207,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -6.405168755629058,
+            13.022511447201133
+          ],
+          "n_H6": 90,
+          "n_H7": 231,
+          "n_rows": 447,
+          "row_weighted_MSE_gain_percent": 5.173527735367761
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": -0.7030886125215405,
+          "fixed_error_country_bootstrap95": [
+            -31.102950023723693,
+            13.8109717276823
+          ],
+          "n_country_evaluation_groups": 6,
+          "country_groups": [
+            "FR",
+            "HR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      },
+      "incidence_mean_Nymphalidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.09558437337769243,
+          "cluster95": [
+            0.03367962304431234,
+            0.15748912371107254
+          ],
+          "cluster_se": 0.031584056292540866,
+          "posthoc_nominal_p": 0.002475265177044336,
+          "H6": 90,
+          "n_H7_period": 447,
+          "W_source_SD": 1.2432261471308137,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.09768602385755028,
+          "H6_equal_added_MSE": 0.09671154871274919,
+          "H6_equal_MSE_gain_percent": 0.9975584083779573,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -8.133540640885402,
+            9.268611539818552
+          ],
+          "n_H6": 90,
+          "n_H7": 231,
+          "n_rows": 447,
+          "row_weighted_MSE_gain_percent": 2.3687858730975737
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": 4.301882870044449,
+          "fixed_error_country_bootstrap95": [
+            -8.274131060480238,
+            16.835632200322713
+          ],
+          "n_country_evaluation_groups": 6,
+          "country_groups": [
+            "FR",
+            "HR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      }
+    },
+    "Papilionidae": {
+      "n_supported_H7period": 351,
+      "H7": 188,
+      "H6": 62,
+      "n_rows_with_any_scored_record": 440,
+      "median_score_coverage_supported": 1,
+      "record_mean_Papilionidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.06596137250978763,
+          "cluster95": [
+            -0.016300821952418817,
+            0.14822356697199407
+          ],
+          "cluster_se": 0.04197050737867676,
+          "posthoc_nominal_p": 0.11604045413597447,
+          "H6": 62,
+          "n_H7_period": 351,
+          "W_source_SD": 1.1309742935316984,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.15956531878469601,
+          "H6_equal_added_MSE": 0.16121875432596583,
+          "H6_equal_MSE_gain_percent": -1.036212351069108,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -2.1321298628455425,
+            -0.08832399359807962
+          ],
+          "n_H6": 62,
+          "n_H7": 188,
+          "n_rows": 351,
+          "row_weighted_MSE_gain_percent": -1.330570094818042
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": -5.802405503161585,
+          "fixed_error_country_bootstrap95": [
+            -40.32214555314116,
+            -1.5098009422031728
+          ],
+          "n_country_evaluation_groups": 3,
+          "country_groups": [
+            "FR",
+            "IT",
+            "LT"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      },
+      "incidence_mean_Papilionidae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.030682239349460752,
+          "cluster95": [
+            -0.027589325121933322,
+            0.08895380382085483
+          ],
+          "cluster_se": 0.02973039003642555,
+          "posthoc_nominal_p": 0.30206460414456593,
+          "H6": 62,
+          "n_H7_period": 351,
+          "W_source_SD": 1.1309742935316984,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.12309172085297278,
+          "H6_equal_added_MSE": 0.12401656113400604,
+          "H6_equal_MSE_gain_percent": -0.7513423929932218,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -2.5476227372910882,
+            0.7114447709513639
+          ],
+          "n_H6": 62,
+          "n_H7": 188,
+          "n_rows": 351,
+          "row_weighted_MSE_gain_percent": -0.7999578884502958
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": -4.190234823523403,
+          "fixed_error_country_bootstrap95": [
+            -20.12057518632657,
+            0.1058890814880391
+          ],
+          "n_country_evaluation_groups": 3,
+          "country_groups": [
+            "FR",
+            "IT",
+            "LT"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      }
+    },
+    "Pieridae": {
+      "n_supported_H7period": 364,
+      "H7": 206,
+      "H6": 77,
+      "n_rows_with_any_scored_record": 454,
+      "median_score_coverage_supported": 0.8346536422657692,
+      "record_mean_Pieridae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": 0.09369815966434453,
+          "cluster95": [
+            0.009553933161463773,
+            0.17784238616722528
+          ],
+          "cluster_se": 0.042930727807592224,
+          "posthoc_nominal_p": 0.029069480982980532,
+          "H6": 77,
+          "n_H7_period": 364,
+          "W_source_SD": 1.25810707764158,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.1929062949350285,
+          "H6_equal_added_MSE": 0.1824212359868515,
+          "H6_equal_MSE_gain_percent": 5.435311974504722,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -5.408570431326862,
+            14.694607392211354
+          ],
+          "n_H6": 77,
+          "n_H7": 206,
+          "n_rows": 364,
+          "row_weighted_MSE_gain_percent": 3.7312158605764627
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": 15.10152451291575,
+          "fixed_error_country_bootstrap95": [
+            6.280293288621434,
+            24.76017303143355
+          ],
+          "n_country_evaluation_groups": 5,
+          "country_groups": [
+            "FR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      },
+      "incidence_mean_Pieridae": {
+        "W_association": {
+          "beta_W_per_1sd_this_cohort": -0.005999934120123673,
+          "cluster95": [
+            -0.07839412909852074,
+            0.0663942608582734
+          ],
+          "cluster_se": 0.0369358137644883,
+          "posthoc_nominal_p": 0.8709576568107671,
+          "H6": 77,
+          "n_H7_period": 364,
+          "W_source_SD": 1.25810707764158,
+          "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+          "not_causal": true
+        },
+        "H6_holdout_W_added_value": {
+          "H6_equal_baseline_MSE": 0.0956358674563074,
+          "H6_equal_added_MSE": 0.09665984127689767,
+          "H6_equal_MSE_gain_percent": -1.070700614555612,
+          "H6_heldout_fixed_errors_bootstrap95_percent": [
+            -3.0767139292112975,
+            0.5040247423214943
+          ],
+          "n_H6": 77,
+          "n_H7": 206,
+          "n_rows": 364,
+          "row_weighted_MSE_gain_percent": -0.9511962571033894
+        },
+        "country_h6_purged_W_added_value": {
+          "country_equal_H6_purged_MSE_gain_pct": -3.48602955734784,
+          "fixed_error_country_bootstrap95": [
+            -12.06239411578159,
+            -0.05080944938786048
+          ],
+          "n_country_evaluation_groups": 5,
+          "country_groups": [
+            "FR",
+            "IT",
+            "LT",
+            "NL",
+            "NO"
+          ],
+          "no_country_or_H6_leakage": true,
+          "descriptive_fixed_errors_not_refit": true,
+          "not_independent_replicate_studies": true
+        },
+        "score_coverage_selection_posthoc": true
+      }
+    }
+  },
+  "posthoc_not_causal": true,
+  "family_facet_records_are_GBIF_occurrence_not_abundance": true,
+  "host_N_is_Ellenberg_habitat_affinity_not_leaf_N": true,
+  "within_total_original_W_association": {
+    "beta_W_per_1sd_this_cohort": 0.12708367495390724,
+    "cluster95": [
+      0.028272130260248052,
+      0.22589521964756643
+    ],
+    "cluster_se": 0.05041405341513224,
+    "posthoc_nominal_p": 0.011708884930078033,
+    "H6": 90,
+    "n_H7_period": 454,
+    "W_source_SD": 1.2415993277012753,
+    "adjusted_for": "PR94: original W, urban/crop, flow/area, effort, host score completeness, country×method, period",
+    "not_causal": true
+  },
+  "additivity_full_source_W_beta_maxabs_error": 2.7755575615628914e-17,
+  "top25_species_absolute_W_slope_contributors": [
+    {
+      "speciesKey": "4535827",
+      "accepted_name": "Aglais io",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 7.9,
+      "source_454_record_count": 213434,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": 0.004299146387009224,
+      "W_beta_component_algebraic": 0.017257676616766426,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1894840",
+      "accepted_name": "Aglais urticae",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 8.2,
+      "source_454_record_count": 117180,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": -0.0035019381631445088,
+      "W_beta_component_algebraic": -0.015108096804568127,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1902533",
+      "accepted_name": "Araschnia levana",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 8.2,
+      "source_454_record_count": 63533,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": 0.0034703759877669155,
+      "W_beta_component_algebraic": 0.01497193095047456,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1920496",
+      "accepted_name": "Pieris rapae",
+      "family": "Pieridae",
+      "host_N_fixed_score": 6.011111111111111,
+      "source_454_record_count": 172395,
+      "within_family_reference_HNS": 4.097100209731789,
+      "W_species_record_composition_slope_factor": 0.00573730771908528,
+      "W_beta_component_algebraic": 0.01098126951889696,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "5134682",
+      "accepted_name": "Erebia ligea",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 5.1,
+      "source_454_record_count": 9019,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": -0.008167314654756747,
+      "W_beta_component_algebraic": -0.009916835504186308,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "8049830",
+      "accepted_name": "Pararge aegeria",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 4.871428571428572,
+      "source_454_record_count": 198361,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": 0.009656028758469475,
+      "W_beta_component_algebraic": 0.009517354837166307,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "6221746",
+      "accepted_name": "Speyeria aglaja",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 2.1,
+      "source_454_record_count": 20944,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": -0.005235091739421564,
+      "W_beta_component_algebraic": 0.009348774235541812,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1912325",
+      "accepted_name": "Boloria selene",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 2.1666666666666665,
+      "source_454_record_count": 10172,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": -0.004824774831785725,
+      "W_beta_component_algebraic": 0.008294382768554254,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "5137582",
+      "accepted_name": "Colias palaeno",
+      "family": "Pieridae",
+      "host_N_fixed_score": 2.3,
+      "source_454_record_count": 2563,
+      "within_family_reference_HNS": 4.097100209731789,
+      "W_species_record_composition_slope_factor": -0.0044907282195757415,
+      "W_beta_component_algebraic": 0.008070288625248027,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1920506",
+      "accepted_name": "Pieris brassicae",
+      "family": "Pieridae",
+      "host_N_fixed_score": 5.934615384615385,
+      "source_454_record_count": 79964,
+      "within_family_reference_HNS": 4.097100209731789,
+      "W_species_record_composition_slope_factor": 0.0042499729643904,
+      "W_beta_component_algebraic": 0.007809389814912382,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1932752",
+      "accepted_name": "Cacyreus marshalli",
+      "family": "Lycaenidae",
+      "host_N_fixed_score": 6.7,
+      "source_454_record_count": 6845,
+      "within_family_reference_HNS": 3.6477818458137623,
+      "W_species_record_composition_slope_factor": 0.002410860800010873,
+      "W_beta_component_algebraic": 0.007358473101009144,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1932960",
+      "accepted_name": "Albulina orbitulus",
+      "family": "Lycaenidae",
+      "host_N_fixed_score": 2,
+      "source_454_record_count": 468,
+      "within_family_reference_HNS": 3.6477818458137623,
+      "W_species_record_composition_slope_factor": -0.004449792895538982,
+      "W_beta_component_algebraic": 0.007332287950900189,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1896841",
+      "accepted_name": "Aphantopus hyperantus",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 5.35,
+      "source_454_record_count": 57389,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": 0.00396119224959541,
+      "W_beta_component_algebraic": 0.005800017486740704,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1894268",
+      "accepted_name": "Clossiana euphrosyne",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 2.1666666666666665,
+      "source_454_record_count": 9468,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": -0.003224553075193553,
+      "W_beta_component_algebraic": 0.00554340428220047,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "8225376",
+      "accepted_name": "Papilio machaon",
+      "family": "Papilionidae",
+      "host_N_fixed_score": 5.390909090909091,
+      "source_454_record_count": 67579,
+      "within_family_reference_HNS": 4.209507575757575,
+      "W_species_record_composition_slope_factor": 0.004515173668947501,
+      "W_beta_component_algebraic": 0.005334233013666804,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1926861",
+      "accepted_name": "Lycaeides idas",
+      "family": "Lycaenidae",
+      "host_N_fixed_score": 2.45,
+      "source_454_record_count": 4080,
+      "within_family_reference_HNS": 3.6477818458137623,
+      "W_species_record_composition_slope_factor": -0.004061203508631833,
+      "W_beta_component_algebraic": 0.004864435834794364,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1919712",
+      "accepted_name": "Anthocharis cardamines",
+      "family": "Pieridae",
+      "host_N_fixed_score": 6.128571428571428,
+      "source_454_record_count": 114530,
+      "within_family_reference_HNS": 4.097100209731789,
+      "W_species_record_composition_slope_factor": 0.0023625669043973955,
+      "W_beta_component_algebraic": 0.0047994866688663715,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "4535510",
+      "accepted_name": "Minois dryas",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 6.8,
+      "source_454_record_count": 10318,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": -0.0015473366714890402,
+      "W_beta_component_algebraic": -0.004509264072888877,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1929270",
+      "accepted_name": "Lycaena dispar",
+      "family": "Lycaenidae",
+      "host_N_fixed_score": 7.15,
+      "source_454_record_count": 6988,
+      "within_family_reference_HNS": 3.6477818458137623,
+      "W_species_record_composition_slope_factor": -0.0011041691544003088,
+      "W_beta_component_algebraic": -0.003867041257833229,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "5135191",
+      "accepted_name": "Erebia aethiops",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 2.35,
+      "source_454_record_count": 13548,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": -0.0024879645309580796,
+      "W_beta_component_algebraic": 0.003820990932085336,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1898286",
+      "accepted_name": "Vanessa atalanta",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 7.1000000000000005,
+      "source_454_record_count": 235554,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": 0.0009557769788458415,
+      "W_beta_component_algebraic": 0.003072067967321776,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "8277078",
+      "accepted_name": "Carcharodus alceae",
+      "family": "Hesperiidae",
+      "host_N_fixed_score": 6.449999999999999,
+      "source_454_record_count": 13176,
+      "within_family_reference_HNS": 4.122877846790891,
+      "W_species_record_composition_slope_factor": 0.0011860134441916098,
+      "W_beta_component_algebraic": 0.00275999815998213,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "5135513",
+      "accepted_name": "Maniola jurtina",
+      "family": "Nymphalidae",
+      "host_N_fixed_score": 4.8,
+      "source_454_record_count": 246007,
+      "within_family_reference_HNS": 3.8857899538117318,
+      "W_species_record_composition_slope_factor": 0.002980535113384582,
+      "W_beta_component_algebraic": 0.0027248351436730735,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1925233",
+      "accepted_name": "Lysandra bellargus",
+      "family": "Lycaenidae",
+      "host_N_fixed_score": 2.25,
+      "source_454_record_count": 24425,
+      "within_family_reference_HNS": 3.6477818458137623,
+      "W_species_record_composition_slope_factor": -0.0019165303645406683,
+      "W_beta_component_algebraic": 0.002678891350505778,
+      "not_single_species_causal_slope": true
+    },
+    {
+      "speciesKey": "1938810",
+      "accepted_name": "Parnassius apollo",
+      "family": "Papilionidae",
+      "host_N_fixed_score": 1.95,
+      "source_454_record_count": 8465,
+      "within_family_reference_HNS": 4.209507575757575,
+      "W_species_record_composition_slope_factor": -0.0011073332052892045,
+      "W_beta_component_algebraic": 0.0025020277662388757,
+      "not_single_species_causal_slope": true
+    }
+  ],
+  "species_attribution_reconstruction_sum": 0.12708367495390874,
+  "all_species_attribution_is_posthoc_and_not_significance": true
+}

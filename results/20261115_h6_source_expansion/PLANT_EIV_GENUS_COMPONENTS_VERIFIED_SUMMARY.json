@@ -1,0 +1,94 @@
+{
+  "schema": "GESUI_20261115_SOURCE_REPLAYED_ADVERSARIAL_NUMERICAL_RECEIPT_V1",
+  "source_run_id": 43729087692,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43729087692",
+  "source_run_conclusion": "success",
+  "kind": "plant genus trait algebraic decomposition",
+  "source_native_183_H7_40_H6_panel_SHA256": "c0840b1c5c6e85342fea41d57dc40fa5ec295fabf6bcd6908a4072557db9a736",
+  "posthoc_observational_not_causal": true,
+  "derived_from_original_success_log": {
+    "genus_n": 981,
+    "n_H6": 40,
+    "n_H7": 183,
+    "original_n_scored_species": 4011,
+    "source_genus_corr": 0.8893064626954844,
+    "targets": {
+      "hns_incidence": {
+        "algebraic_between_genus_covariance_component_original_denominator": 0.09029553320999034,
+        "algebraic_within_genus_covariance_component_original_denominator": 0.027780618686003542,
+        "between_component_H6_in_sample_partial_SSE_gain_pct": 22.736045641265594,
+        "both_component_model_H6_cluster": {
+          "component_beta_scaling_is_DIFFERENT_not_additive": true,
+          "same_original_H7_and_H6_as_total": true,
+          "source_components": {
+            "between_genus": {
+              "H6_cluster_description95": [
+                0.05119978998371395,
+                0.20822403534757755
+              ],
+              "beta_per_component_1SD": 0.12971191266564575,
+              "nominal_p": 0.0012030045382221556
+            },
+            "within_genus": {
+              "H6_cluster_description95": [
+                -0.08513184163393249,
+                0.06078371703378553
+              ],
+              "beta_per_component_1SD": -0.012174062300073481,
+              "nominal_p": 0.7436267469431651
+            }
+          },
+          "status": "FIT",
+          "weighted_source_design_condition": 139.86618690163002
+        },
+        "both_genus_components_H6_in_sample_partial_SSE_gain_pct": 22.8851755838427,
+        "component_partial_r_after_original_H6_FE_and_13controls": {
+          "between_genus": 0.4768232968434496,
+          "total": 0.4464941405366226,
+          "within_genus": 0.2818268608937326
+        },
+        "original_full_source_plantN_beta_scaled_1SD": 0.11807615189599448,
+        "within_added_after_between_H6_in_sample_SSE_gain_pct": 0.19301360358117134,
+        "within_genus_given_between_component_partial_r": -0.043933313508217955
+      },
+      "hns_record": {
+        "algebraic_between_genus_covariance_component_original_denominator": 0.1687725749871883,
+        "algebraic_within_genus_covariance_component_original_denominator": 0.06615258605130589,
+        "between_component_H6_in_sample_partial_SSE_gain_pct": 15.636580689336494,
+        "both_component_model_H6_cluster": {
+          "component_beta_scaling_is_DIFFERENT_not_additive": true,
+          "same_original_H7_and_H6_as_total": true,
+          "source_components": {
+            "between_genus": {
+              "H6_cluster_description95": [
+                0.009811040036314528,
+                0.39169126888013117
+              ],
+              "beta_per_component_1SD": 0.20075115445822284,
+              "nominal_p": 0.03933068527066272
+            },
+            "within_genus": {
+              "H6_cluster_description95": [
+                -0.18117257071539342,
+                0.2557423096661751
+              ],
+              "beta_per_component_1SD": 0.03728486947539086,
+              "nominal_p": 0.7379873352243331
+            }
+          },
+          "status": "FIT",
+          "weighted_source_design_condition": 139.86618690163002
+        },
+        "both_genus_components_H6_in_sample_partial_SSE_gain_pct": 15.911949471340824,
+        "component_partial_r_after_original_H6_FE_and_13controls": {
+          "between_genus": 0.3954311658093796,
+          "total": 0.39414945047920413,
+          "within_genus": 0.297759149707041
+        },
+        "original_full_source_plantN_beta_scaled_1SD": 0.2349251610384949,
+        "within_added_after_between_H6_in_sample_SSE_gain_pct": 0.32640780121808777,
+        "within_genus_given_between_component_partial_r": 0.057132110167410974
+      }
+    }
+  }
+}
