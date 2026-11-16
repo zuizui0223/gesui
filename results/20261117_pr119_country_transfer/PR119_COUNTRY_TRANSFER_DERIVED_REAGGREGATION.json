@@ -1,0 +1,147 @@
+{
+  "status": "POSTHOC_VERIFIED_ORIGINAL_SAVED_COUNTRY_ERRORS_REAGGREGATION_NO_NEW_MODEL",
+  "source_action_run": 43901046421,
+  "source_artifact": 14240413667,
+  "source_zip_sha256": "a22ea230c8e6beb4533bc696504194879927e9fd6a553377fba5255ce1464bc2",
+  "original_source_siteperiods": 447,
+  "original_source_H6": 89,
+  "source_country_holdout_eligible_siteperiods": 424,
+  "source_country_holdout_H6": 81,
+  "source_six_countries": [
+    "FR",
+    "HR",
+    "IT",
+    "LT",
+    "NL",
+    "NO"
+  ],
+  "strict_butterfly_same_larval_host_species": 162,
+  "plant_moisture_after_N_and_hostN": {
+    "country_heldout_results": [
+      {
+        "country": "FR",
+        "n_H7period": 298,
+        "n_H6": 35,
+        "original_baseline_MSE": 0.01976760959872493,
+        "original_added_MSE": 0.015691982197145325,
+        "MSE_gain_percent": 20.617704842989692
+      },
+      {
+        "country": "HR",
+        "n_H7period": 16,
+        "n_H6": 8,
+        "original_baseline_MSE": 0.059445852347830154,
+        "original_added_MSE": 0.043474419325239405,
+        "MSE_gain_percent": 26.867194920746606
+      },
+      {
+        "country": "IT",
+        "n_H7period": 48,
+        "n_H6": 15,
+        "original_baseline_MSE": 0.01825664581425486,
+        "original_added_MSE": 0.009882043395291225,
+        "MSE_gain_percent": 45.87152812278755
+      },
+      {
+        "country": "LT",
+        "n_H7period": 30,
+        "n_H6": 9,
+        "original_baseline_MSE": 0.11630737845308703,
+        "original_added_MSE": 0.07027443154817441,
+        "MSE_gain_percent": 39.57869871813865
+      },
+      {
+        "country": "NL",
+        "n_H7period": 12,
+        "n_H6": 4,
+        "original_baseline_MSE": 0.014489097318183196,
+        "original_added_MSE": 0.00556017506932796,
+        "MSE_gain_percent": 61.62511061092689
+      },
+      {
+        "country": "NO",
+        "n_H7period": 20,
+        "n_H6": 10,
+        "original_baseline_MSE": 0.027063376131043877,
+        "original_added_MSE": 0.023411645897631318,
+        "MSE_gain_percent": 13.49325455822834
+      }
+    ],
+    "country_equal_MSE_gain_percent": 34.08736771240891,
+    "H7period_weighted_MSE_gain_percent": 28.79609217015757,
+    "H7period_weighted_leave_one_original_country_out": {
+      "FR": 36.78321553393037,
+      "HR": 28.963311934855117,
+      "IT": 27.441465633502858,
+      "LT": 24.334880544163074,
+      "NL": 28.310254641187537,
+      "NO": 29.523859269283903
+    }
+  },
+  "EQR_after_plant_moisture_N_and_hostN": {
+    "country_heldout_results": [
+      {
+        "country": "FR",
+        "n_H7period": 298,
+        "n_H6": 35,
+        "original_baseline_MSE": 0.015691982197145325,
+        "original_added_MSE": 0.015994880361489255,
+        "MSE_gain_percent": -1.9302734386165366
+      },
+      {
+        "country": "HR",
+        "n_H7period": 16,
+        "n_H6": 8,
+        "original_baseline_MSE": 0.043474419325239405,
+        "original_added_MSE": 0.04312423481267319,
+        "MSE_gain_percent": 0.8054955488799642
+      },
+      {
+        "country": "IT",
+        "n_H7period": 48,
+        "n_H6": 15,
+        "original_baseline_MSE": 0.009882043395291225,
+        "original_added_MSE": 0.009352006489431028,
+        "MSE_gain_percent": 5.363636695956608
+      },
+      {
+        "country": "LT",
+        "n_H7period": 30,
+        "n_H6": 9,
+        "original_baseline_MSE": 0.07027443154817441,
+        "original_added_MSE": 0.06922566102965542,
+        "MSE_gain_percent": 1.4923927457172415
+      },
+      {
+        "country": "NL",
+        "n_H7period": 12,
+        "n_H6": 4,
+        "original_baseline_MSE": 0.00556017506932796,
+        "original_added_MSE": 0.005754994517457337,
+        "MSE_gain_percent": -3.503836582485964
+      },
+      {
+        "country": "NO",
+        "n_H7period": 20,
+        "n_H6": 10,
+        "original_baseline_MSE": 0.023411645897631318,
+        "original_added_MSE": 0.02608880850823454,
+        "MSE_gain_percent": -11.435174708814833
+      }
+    ],
+    "country_equal_MSE_gain_percent": -0.740301569292523,
+    "H7period_weighted_MSE_gain_percent": -0.9852005332287916,
+    "H7period_weighted_leave_one_original_country_out": {
+      "FR": 0.17378837496720978,
+      "HR": -1.1450200907535013,
+      "IT": -1.3609334433664966,
+      "LT": -1.8037660275793233,
+      "NL": -0.9652484303547038,
+      "NO": -0.3751813045688168
+    }
+  },
+  "two_period_strict_H7_n": 216,
+  "delta_butterfly_host_moisture_vs_delta_plant_moisture_spearman": 0.0501553959918551,
+  "delta_butterfly_host_moisture_vs_delta_aquatic_EQR_spearman": -0.059375558175258095,
+  "interpretation": "Original predictions reweighted, no new ecological fitting, cross-domain causality or inferential uncertainty; EIV scores share trait-reference source"
+}
