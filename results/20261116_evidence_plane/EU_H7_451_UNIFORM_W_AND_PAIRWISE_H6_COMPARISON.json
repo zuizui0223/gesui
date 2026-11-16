@@ -1,0 +1,465 @@
+{
+  "schema": "GESUI_20261116_SAME451_UNIFORM_THREE_COMPARTMENT_H6_SCREEN_V1",
+  "source_input_SHA256": "56f8d80eaf6ac47ce3cc52ee27116be6f9e0bdd3c6bdc5e0b519e06090d1e085",
+  "source_QA_SHA256": "6126893766ffdabb4f51c9937688aee4a4961759894e95dd32de32b39d7121a7",
+  "n_exact_same_H7period": 451,
+  "n_original_H7": 232,
+  "n_true_H6": 90,
+  "original_WWTP_annual_positive_report_periods_in_full454": 56,
+  "all_models_exact_same_original_rows": true,
+  "unified_source_controls": [
+    "crop",
+    "urban",
+    "riverflow",
+    "nEEA",
+    "nPlant",
+    "nButterfly",
+    "nAnimal",
+    "primary_record_coverage_raw",
+    "primary_host_completeness",
+    "NUTRI_coverage_all_Plantae_speciesKeys",
+    "log1p_source_scored_plant_species"
+  ],
+  "categorical_controls": [
+    "country_method",
+    "period"
+  ],
+  "models": [
+    {
+      "id": "W_to_aquatic_EQR",
+      "outcome": "aquatic_EEA_original_EQR",
+      "focal_source": "modelled_static_wastewater_geography_W",
+      "baseline_predictors": [
+        "crop",
+        "urban",
+        "riverflow",
+        "nEEA",
+        "nPlant",
+        "nButterfly",
+        "nAnimal",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "NUTRI_coverage_all_Plantae_speciesKeys",
+        "log1p_source_scored_plant_species"
+      ],
+      "observational_H6_cluster_standardized": {
+        "beta_outcome_SD_per_predictor_SD": -0.46280211336708027,
+        "H6_cluster_descriptive95": [
+          -0.6389117568167512,
+          -0.2866924699174094
+        ],
+        "H6_cluster_nominal_p_exploratory": 2.5948300693216e-07,
+        "outcome_source_SD": 0.18616362556858543,
+        "predictor_source_SD": 1.2318501691325279,
+        "n_controls_and_dummy_columns": 30,
+        "WLS_H6_equal": true,
+        "joint_design_condition_number": 112.21602282581973
+      },
+      "heldout_H6_CV": {
+        "H6_equal_baseline_MSE": 0.031333551541903155,
+        "H6_equal_added_predictor_MSE": 0.028991717917789817,
+        "H6_out_Ridge10_MSE_gain_pct": 7.473885049326583,
+        "fixed_H6_error_bootstrap_descriptive95_pct": [
+          -1.1501947975207065,
+          14.886801439180369
+        ],
+        "H6_nonoverlap_fivefold_source_counts": [
+          {
+            "fold": 0,
+            "test_original_H7period": 59,
+            "test_distinct_H6": 17
+          },
+          {
+            "fold": 1,
+            "test_original_H7period": 90,
+            "test_distinct_H6": 15
+          },
+          {
+            "fold": 2,
+            "test_original_H7period": 123,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 3,
+            "test_original_H7period": 105,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 4,
+            "test_original_H7period": 74,
+            "test_distinct_H6": 18
+          }
+        ],
+        "n_real_H6": 90,
+        "no_model_refit_bootstrap": true,
+        "train_only_predictor_scaling": true
+      },
+      "not_causal_or_independent_confirmation": true
+    },
+    {
+      "id": "W_to_plant_NUTRI",
+      "outcome": "plant_EIV_NUTRI_equal_species",
+      "focal_source": "modelled_static_wastewater_geography_W",
+      "baseline_predictors": [
+        "crop",
+        "urban",
+        "riverflow",
+        "nEEA",
+        "nPlant",
+        "nButterfly",
+        "nAnimal",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "NUTRI_coverage_all_Plantae_speciesKeys",
+        "log1p_source_scored_plant_species"
+      ],
+      "observational_H6_cluster_standardized": {
+        "beta_outcome_SD_per_predictor_SD": 0.464908632102408,
+        "H6_cluster_descriptive95": [
+          0.3114455350941352,
+          0.6183717291106808
+        ],
+        "H6_cluster_nominal_p_exploratory": 2.8901286917855037e-09,
+        "outcome_source_SD": 0.38770931085897553,
+        "predictor_source_SD": 1.2318501691325279,
+        "n_controls_and_dummy_columns": 30,
+        "WLS_H6_equal": true,
+        "joint_design_condition_number": 112.21602282581973
+      },
+      "heldout_H6_CV": {
+        "H6_equal_baseline_MSE": 0.10461367162899508,
+        "H6_equal_added_predictor_MSE": 0.08535082814476233,
+        "H6_out_Ridge10_MSE_gain_pct": 18.41331365612236,
+        "fixed_H6_error_bootstrap_descriptive95_pct": [
+          10.536428848149928,
+          27.76463023085306
+        ],
+        "H6_nonoverlap_fivefold_source_counts": [
+          {
+            "fold": 0,
+            "test_original_H7period": 59,
+            "test_distinct_H6": 17
+          },
+          {
+            "fold": 1,
+            "test_original_H7period": 90,
+            "test_distinct_H6": 15
+          },
+          {
+            "fold": 2,
+            "test_original_H7period": 123,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 3,
+            "test_original_H7period": 105,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 4,
+            "test_original_H7period": 74,
+            "test_distinct_H6": 18
+          }
+        ],
+        "n_real_H6": 90,
+        "no_model_refit_bootstrap": true,
+        "train_only_predictor_scaling": true
+      },
+      "not_causal_or_independent_confirmation": true
+    },
+    {
+      "id": "W_to_butterfly_HNS",
+      "outcome": "butterfly_hostN_HNS_equal_species",
+      "focal_source": "modelled_static_wastewater_geography_W",
+      "baseline_predictors": [
+        "crop",
+        "urban",
+        "riverflow",
+        "nEEA",
+        "nPlant",
+        "nButterfly",
+        "nAnimal",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "NUTRI_coverage_all_Plantae_speciesKeys",
+        "log1p_source_scored_plant_species"
+      ],
+      "observational_H6_cluster_standardized": {
+        "beta_outcome_SD_per_predictor_SD": 0.25592845449185236,
+        "H6_cluster_descriptive95": [
+          0.12823838221935602,
+          0.3836185267643487
+        ],
+        "H6_cluster_nominal_p_exploratory": 8.550707368717003e-05,
+        "outcome_source_SD": 0.3335822526546583,
+        "predictor_source_SD": 1.2318501691325279,
+        "n_controls_and_dummy_columns": 30,
+        "WLS_H6_equal": true,
+        "joint_design_condition_number": 112.21602282581973
+      },
+      "heldout_H6_CV": {
+        "H6_equal_baseline_MSE": 0.0631134249327622,
+        "H6_equal_added_predictor_MSE": 0.05930537693144814,
+        "H6_out_Ridge10_MSE_gain_pct": 6.03365766533976,
+        "fixed_H6_error_bootstrap_descriptive95_pct": [
+          -1.9585818120920613,
+          12.500233284265704
+        ],
+        "H6_nonoverlap_fivefold_source_counts": [
+          {
+            "fold": 0,
+            "test_original_H7period": 59,
+            "test_distinct_H6": 17
+          },
+          {
+            "fold": 1,
+            "test_original_H7period": 90,
+            "test_distinct_H6": 15
+          },
+          {
+            "fold": 2,
+            "test_original_H7period": 123,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 3,
+            "test_original_H7period": 105,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 4,
+            "test_original_H7period": 74,
+            "test_distinct_H6": 18
+          }
+        ],
+        "n_real_H6": 90,
+        "no_model_refit_bootstrap": true,
+        "train_only_predictor_scaling": true
+      },
+      "not_causal_or_independent_confirmation": true
+    },
+    {
+      "id": "plant_NUTRI_added_to_EQR_after_W",
+      "outcome": "aquatic_EEA_original_EQR",
+      "focal_source": "plant_EIV_NUTRI_equal_species",
+      "baseline_predictors": [
+        "crop",
+        "urban",
+        "riverflow",
+        "nEEA",
+        "nPlant",
+        "nButterfly",
+        "nAnimal",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "NUTRI_coverage_all_Plantae_speciesKeys",
+        "log1p_source_scored_plant_species",
+        "modelled_static_wastewater_geography_W"
+      ],
+      "observational_H6_cluster_standardized": {
+        "beta_outcome_SD_per_predictor_SD": -0.32118231644324696,
+        "H6_cluster_descriptive95": [
+          -0.4766876925128165,
+          -0.16567694037367742
+        ],
+        "H6_cluster_nominal_p_exploratory": 5.161235876280303e-05,
+        "outcome_source_SD": 0.18616362556858543,
+        "predictor_source_SD": 0.38770931085897553,
+        "n_controls_and_dummy_columns": 31,
+        "WLS_H6_equal": true,
+        "joint_design_condition_number": 112.97207940861871
+      },
+      "heldout_H6_CV": {
+        "H6_equal_baseline_MSE": 0.028991717917789817,
+        "H6_equal_added_predictor_MSE": 0.027172952968850552,
+        "H6_out_Ridge10_MSE_gain_pct": 6.273394885037974,
+        "fixed_H6_error_bootstrap_descriptive95_pct": [
+          -0.21554666990217697,
+          12.69184558828002
+        ],
+        "H6_nonoverlap_fivefold_source_counts": [
+          {
+            "fold": 0,
+            "test_original_H7period": 59,
+            "test_distinct_H6": 17
+          },
+          {
+            "fold": 1,
+            "test_original_H7period": 90,
+            "test_distinct_H6": 15
+          },
+          {
+            "fold": 2,
+            "test_original_H7period": 123,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 3,
+            "test_original_H7period": 105,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 4,
+            "test_original_H7period": 74,
+            "test_distinct_H6": 18
+          }
+        ],
+        "n_real_H6": 90,
+        "no_model_refit_bootstrap": true,
+        "train_only_predictor_scaling": true
+      },
+      "not_causal_or_independent_confirmation": true
+    },
+    {
+      "id": "plant_NUTRI_added_to_butterfly_after_W",
+      "outcome": "butterfly_hostN_HNS_equal_species",
+      "focal_source": "plant_EIV_NUTRI_equal_species",
+      "baseline_predictors": [
+        "crop",
+        "urban",
+        "riverflow",
+        "nEEA",
+        "nPlant",
+        "nButterfly",
+        "nAnimal",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "NUTRI_coverage_all_Plantae_speciesKeys",
+        "log1p_source_scored_plant_species",
+        "modelled_static_wastewater_geography_W"
+      ],
+      "observational_H6_cluster_standardized": {
+        "beta_outcome_SD_per_predictor_SD": 0.6161482592862747,
+        "H6_cluster_descriptive95": [
+          0.45545562492262937,
+          0.77684089364992
+        ],
+        "H6_cluster_nominal_p_exploratory": 5.678805146361637e-14,
+        "outcome_source_SD": 0.3335822526546583,
+        "predictor_source_SD": 0.38770931085897553,
+        "n_controls_and_dummy_columns": 31,
+        "WLS_H6_equal": true,
+        "joint_design_condition_number": 112.97207940861871
+      },
+      "heldout_H6_CV": {
+        "H6_equal_baseline_MSE": 0.05930537693144814,
+        "H6_equal_added_predictor_MSE": 0.03505818464798556,
+        "H6_out_Ridge10_MSE_gain_pct": 40.885318563087836,
+        "fixed_H6_error_bootstrap_descriptive95_pct": [
+          20.0908586567611,
+          53.64973248162581
+        ],
+        "H6_nonoverlap_fivefold_source_counts": [
+          {
+            "fold": 0,
+            "test_original_H7period": 59,
+            "test_distinct_H6": 17
+          },
+          {
+            "fold": 1,
+            "test_original_H7period": 90,
+            "test_distinct_H6": 15
+          },
+          {
+            "fold": 2,
+            "test_original_H7period": 123,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 3,
+            "test_original_H7period": 105,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 4,
+            "test_original_H7period": 74,
+            "test_distinct_H6": 18
+          }
+        ],
+        "n_real_H6": 90,
+        "no_model_refit_bootstrap": true,
+        "train_only_predictor_scaling": true
+      },
+      "not_causal_or_independent_confirmation": true
+    },
+    {
+      "id": "aquatic_EQR_added_to_butterfly_after_plantN_and_W",
+      "outcome": "butterfly_hostN_HNS_equal_species",
+      "focal_source": "aquatic_EEA_original_EQR",
+      "baseline_predictors": [
+        "crop",
+        "urban",
+        "riverflow",
+        "nEEA",
+        "nPlant",
+        "nButterfly",
+        "nAnimal",
+        "primary_record_coverage_raw",
+        "primary_host_completeness",
+        "NUTRI_coverage_all_Plantae_speciesKeys",
+        "log1p_source_scored_plant_species",
+        "modelled_static_wastewater_geography_W",
+        "plant_EIV_NUTRI_equal_species"
+      ],
+      "observational_H6_cluster_standardized": {
+        "beta_outcome_SD_per_predictor_SD": -0.008674023096396408,
+        "H6_cluster_descriptive95": [
+          -0.08854658681617009,
+          0.07119854062337727
+        ],
+        "H6_cluster_nominal_p_exploratory": 0.831441911260623,
+        "outcome_source_SD": 0.3335822526546583,
+        "predictor_source_SD": 0.18616362556858543,
+        "n_controls_and_dummy_columns": 32,
+        "WLS_H6_equal": true,
+        "joint_design_condition_number": 113.83828547809573
+      },
+      "heldout_H6_CV": {
+        "H6_equal_baseline_MSE": 0.03505818464798556,
+        "H6_equal_added_predictor_MSE": 0.03551607115095013,
+        "H6_out_Ridge10_MSE_gain_pct": -1.3060759065597554,
+        "fixed_H6_error_bootstrap_descriptive95_pct": [
+          -6.181563108067662,
+          3.6113101075331446
+        ],
+        "H6_nonoverlap_fivefold_source_counts": [
+          {
+            "fold": 0,
+            "test_original_H7period": 59,
+            "test_distinct_H6": 17
+          },
+          {
+            "fold": 1,
+            "test_original_H7period": 90,
+            "test_distinct_H6": 15
+          },
+          {
+            "fold": 2,
+            "test_original_H7period": 123,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 3,
+            "test_original_H7period": 105,
+            "test_distinct_H6": 20
+          },
+          {
+            "fold": 4,
+            "test_original_H7period": 74,
+            "test_distinct_H6": 18
+          }
+        ],
+        "n_real_H6": 90,
+        "no_model_refit_bootstrap": true,
+        "train_only_predictor_scaling": true
+      },
+      "not_causal_or_independent_confirmation": true
+    }
+  ],
+  "posthoc_source_aligned_description_not_new_independent_field_data": true,
+  "W_is_static_modelled_wastewater_geography_NOT_river_N": true,
+  "source_EEA_actual_reported_NP_is_NOT_exposure_in_these_standardized_models": true,
+  "US_NRSA_is_NOT_included_as_if_H7": true,
+  "H6_holdout_not_year_independent": true,
+  "not_biotic_interaction_or_causal_mediation": true
+}
