@@ -1,0 +1,53 @@
+{
+  "schema": "GESUI_20261116_SOURCE_AUTHENTIC_UPDOWN_REPORTED_NP_RECEIPT_V1",
+  "source_run_id": 43789733828,
+  "source_run_url": "https://github.com/zuizui0223/gesui/actions/runs/43789733828",
+  "source_job_conclusion": "success",
+  "original_H7_panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "original_directional_source_git_blob": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+  "pre_outcome_source_gate_run_id": 43789733828,
+  "posthoc_exploratory_and_not_causal": true,
+  "reported_NP_load_not_received_water_NP_concentration": true,
+  "result": {
+    "NO_MATCHED_POSITIVE_REPORT_is_NOT_zero_sewage": true,
+    "eligible_downstream_positive_H7periods": 61,
+    "eligible_downstream_positive_true_H6": 32,
+    "eligible_source_H7periods": 451,
+    "eligible_source_fourcells": {
+      "0_0": 369,
+      "0_1": 26,
+      "1_0": 21,
+      "1_1": 35
+    },
+    "eligible_true_H6": 90,
+    "eligible_upstream_positive_H6": 31,
+    "eligible_upstream_positive_H7": 38,
+    "eligible_upstream_positive_H7periods": 56,
+    "eligible_upstream_positive_country_labels": 12,
+    "hard_thresholds": {
+      "down_positive_rows_min": 30,
+      "each_non_neither_report_cell_min": 10,
+      "up_positive_H6_min": 20,
+      "up_positive_countries_min": 3,
+      "up_positive_rows_min": 30
+    },
+    "no_biological_numeric_effect_fitted": true,
+    "original_EIV_accepted_numeric_species_n": 4011,
+    "original_H7panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+    "original_direction_country_mismatch_rows": 0,
+    "original_direction_fourcells_whole_original_454": {
+      "(0, 0)": 372,
+      "(0, 1)": 26,
+      "(1, 0)": 21,
+      "(1, 1)": 35
+    },
+    "original_direction_panel_git_blob": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+    "original_reported_annual_NP_load_not_measured_receptor_water_chemistry": true,
+    "original_source_H6": 90,
+    "original_source_H7": 232,
+    "original_source_rows": 454,
+    "result_outcome_not_opened_before_source_gate": true,
+    "schema": "GESUI_20261116_REPORT_POSITIVE_UPDOWN_EIV_PLANT_BUTTERFLY_SOURCE_GATE_V1",
+    "source_gate_support_pass": true
+  }
+}
