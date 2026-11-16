@@ -1,0 +1,49 @@
+name: gesui AT67 genuine native river structure WWTP N and P to measured TP and benthic EQR
+on:
+  push:
+    branches:
+      - analysis/gesui-AT67-riveratlas-upstream-catchment-controls-20261117
+    paths:
+      - 'analysis/20261117_at67_upstream_landcover/AT67_native_reach_morphology_WWTP_NP_TP_EQR_stress.py'
+      - '.github/workflows/gesui-20261117-Austria67-river-morphology-WWTP_NP_TP_EQR.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source_original_same67_hydromorphology_atlas_against_WWTP_reported_NP:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-locked ESA WorldCover and HydroRIVERS physical morphology and observational regression dependencies
+        run: python -m pip install --quiet numpy scipy requests geopandas pyarrow "shapely>=2,<3" "rasterio>=1.4,<2" "pyproj>=3,<4"
+      - name: Restore original SHA256-pinned 938k Europe native river reach actual network
+        run: |
+          mkdir -p '${{ runner.temp }}/original_HydroRIVERS_Europe'
+          curl --fail --location --silent --show-error --retry 2 --max-time 270 \
+            https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet \
+            -o '${{ runner.temp }}/original_HydroRIVERS_Europe/HydroRIVERS_v10_eu.geoparquet'
+          echo '5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  ${{ runner.temp }}/original_HydroRIVERS_Europe/HydroRIVERS_v10_eu.geoparquet' | sha256sum -c -
+      - name: Five geographic blocked source reported N and P Q signal vs real TP and benthic EQR controlling river structure and 2021 local ESA landcover
+        run: |
+          python -m py_compile analysis/20261117_at67_upstream_landcover/AT67_native_reach_morphology_WWTP_NP_TP_EQR_stress.py
+          python -u analysis/20261117_at67_upstream_landcover/AT67_native_reach_morphology_WWTP_NP_TP_EQR_stress.py \
+            --rivers '${{ runner.temp }}/original_HydroRIVERS_Europe/HydroRIVERS_v10_eu.geoparquet' \
+            --output '${{ runner.temp }}/source_AT67_morphology_NP_Q_actual_2022_TP_EQR'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-original-AT67-hydromorphology-WWTP-NP-Q-2022-TP-EQR-stress
+          path: '${{ runner.temp }}/source_AT67_morphology_NP_Q_actual_2022_TP_EQR/'
+          retention-days: 90
+          if-no-files-found: warn
