@@ -1,0 +1,55 @@
+name: gesui genuine H7 454 HNS and host moisture versus paired plants and same-H7 aquatic EQR
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-butterfly-host-moisture-source-gate
+    paths:
+      - 'analysis/20261117_host_moisture/rebuild_H7_hostN_F_and_water_land_provisional.py'
+      - '.github/workflows/gesui-20261117-host-moisture-EQR-plant-NF-H7-block.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_true_original_H7_bfly_host_moisture_plant_moisture_aquatic_eqr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source science estimate and independent original H6 geography regression libraries
+        run: python -m pip install --quiet numpy scipy pandas statsmodels
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_2808_GBIF_H7_species_facets
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43720948781
+          name: gesui-20261115-EU454-EIV-NUTRI-five-pairs-source-opportunity-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_paired_plant_NF_EIV
+      - name: Reconstruct 4.318m real GBIF butterfly species-source records and original HNS, with fixed 180 scored host N/F butterflies plus exact N/F shared plant species and observed EQR on same H7
+        run: |
+          python -m py_compile analysis/20261117_host_moisture/rebuild_H7_hostN_F_and_water_land_provisional.py
+          python -u analysis/20261117_host_moisture/rebuild_H7_hostN_F_and_water_land_provisional.py \
+            --facets '${{ runner.temp }}/original_2808_GBIF_H7_species_facets' \
+            --plants '${{ runner.temp }}/original_paired_plant_NF_EIV' \
+            --output '${{ runner.temp }}/original_realH7_host_moist_water_plant_source_model'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-original454-H7-hostF-pairedN-plantF-waterEQR-sourceH6
+          path: '${{ runner.temp }}/original_realH7_host_moist_water_plant_source_model/'
+          retention-days: 90
+          if-no-files-found: warn
