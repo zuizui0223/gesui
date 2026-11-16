@@ -1,0 +1,51 @@
+name: gesui official EEA 2026 Parts 1+2 exact native site-year TNTP source union
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/audit_official_2026_part1part2_union.py'
+      - 'results/20261116_reported_np_source/EEA2026_OFFICIAL_PART1_3525_SITE_YEAR_BRIEF_QA.json'
+      - '.github/workflows/gesui-20261116-EEA2026-Part1-Part2-exact-native-TNTP-union.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  original_3525_station_year_union:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore official 2026 Part1 true individual-sample station-year source output
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43799818906
+          name: gesui-20261116-EEA2026-official-Part1-exact-3525-EQR-station-year-TNTP
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/part1_source
+      - name: Restore official 2026 Part2 true annual-mean station-year source output
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43798318436
+          name: gesui-20261116-EEA2026-official-Part2-exact-3525-EQR-station-year-TNTP
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/part2_source
+      - name: Verify exact 3525 native station-year keys, source SHA, Part1 priority and noncausal source gate
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/audit_official_2026_part1part2_union.py
+          python -u analysis/20261116_reported_np_source/audit_official_2026_part1part2_union.py \
+             --part1 '${{ runner.temp }}/part1_source' \
+             --part2 '${{ runner.temp }}/part2_source' \
+             --output '${{ runner.temp }}/union_gate'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-EEA2026-original-Part1-Part2-3525-native-year-true-TNTP-union
+          path: ${{ runner.temp }}/union_gate/
+          retention-days: 90
+          if-no-files-found: warn

@@ -1,0 +1,32 @@
+name: gesui 20261116 EEA official 2026 Part2 public data nested Nextcloud WebDAV
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/probe_eea_datashare_correct_dav_v4.py'
+      - '.github/workflows/gesui-20261116-EEA-2026-correct-public-dav-v4.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official_2026_nested_nextcloud_DAV:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet requests
+      - name: Query official nested datashare public-file WebDAV Depth1 metadata, no raw TNTP
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/probe_eea_datashare_correct_dav_v4.py
+          python -u analysis/20261116_reported_np_source/probe_eea_datashare_correct_dav_v4.py \
+            --output '${{ runner.temp }}/correct_public_dav'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-EEA2026-ICM-official-nested-public-DAV-metadata
+          path: ${{ runner.temp }}/correct_public_dav/
+          retention-days: 90
+          if-no-files-found: warn

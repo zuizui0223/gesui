@@ -1,0 +1,55 @@
+name: gesui official EEA2026 Part2 measured TNTP at preselected nearby same-H7 WQ sites
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/scan_eea2026_part2_nearby_sameH7_TNTP.py'
+      - '.github/workflows/gesui-20261116-EEA2026-nearby-sameH7-Part2-chemistry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  genuine_source_first_nearby_Part2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install public original EEA source HTTP client only
+        run: python -m pip install --quiet requests
+      - name: Original 575 same-H7 geographic candidates frozen before TNTP lookup
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43804933915
+          name: gesui-20261116-original-H7-EEA-Biology-nearby-official-WQ-source-candidate-IDs
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/geographic_candidates
+      - name: Original EEA2026 exact native 3525 Biology station-year and report-positive metadata
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43800794527
+          name: gesui-20261116-EEA2026-original-Part1-Part2-3525-native-year-true-TNTP-union
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_reported_source
+      - name: Re-read only official publisher Part2 original SHA-fixed 170MB and scan annual TNTP WQ candidate IDs, no ecology
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/scan_eea2026_part2_nearby_sameH7_TNTP.py
+          python -u analysis/20261116_reported_np_source/scan_eea2026_part2_nearby_sameH7_TNTP.py \
+            --geo '${{ runner.temp }}/geographic_candidates' \
+            --union '${{ runner.temp }}/original_reported_source' \
+            --output '${{ runner.temp }}/nearby_part2'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-EEA2026-nearby-sameH7-WQ-Part2-TNTP-source-gate
+          path: ${{ runner.temp }}/nearby_part2/
+          retention-days: 90
+          if-no-files-found: warn

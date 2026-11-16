@@ -1,0 +1,41 @@
+name: gesui 2026 EEA exact-total-N and total-P separate posthoc source-only gate
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/audit_totalN_totalP_individually.py'
+      - '.github/workflows/gesui-20261116-EEA2026-TN-TP-separate-source-gate.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  exact_nutrients_separate_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Load original 2026 Part1 Part2 same native year/biological station source union
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43800794527
+          name: gesui-20261116-EEA2026-original-Part1-Part2-3525-native-year-true-TNTP-union
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/native_year_union
+      - name: Audit posthoc single total-N and single total-P independent reported-positive H7 source support
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/audit_totalN_totalP_individually.py
+          python -u analysis/20261116_reported_np_source/audit_totalN_totalP_individually.py \
+            --union '${{ runner.temp }}/native_year_union' \
+            --output '${{ runner.temp }}/TNTP_separate_source_gate'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-EEA2026-true-native-station-year-separate-total-NP-gate
+          path: ${{ runner.temp }}/TNTP_separate_source_gate/
+          retention-days: 90
+          if-no-files-found: warn

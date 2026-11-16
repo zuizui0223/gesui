@@ -1,0 +1,33 @@
+name: gesui 20261116 official 2026 EEA ICM publisher public file listings and bounded SQL predicates
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/probe_eea_2026_access_v2.py'
+      - '.github/workflows/gesui-20261116-official-EEA-ICM-2026-public-part2-source-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect_official_2026_source_access_without_chemistry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded HTTP source metadata probe
+        run: python -m pip install --quiet requests
+      - name: Query eight bounded public official SQL predicates and official publisher filelist metadata
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/probe_eea_2026_access_v2.py
+          python -u analysis/20261116_reported_np_source/probe_eea_2026_access_v2.py \
+             --output '${{ runner.temp }}/publisher_access_v2'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-EEA-2026-ICM-publisher-vs-stale-SQL-source-access-v2
+          path: ${{ runner.temp }}/publisher_access_v2/
+          retention-days: 90
+          if-no-files-found: warn

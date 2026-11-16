@@ -1,0 +1,71 @@
+{
+  "schema": "GESUI_20261116_ORIGINAL_EEA_BIO_WQ_SOURCE_ONLY_SUCCESS_LOG_RECEIPT_V1",
+  "source_workflow_url": "https://github.com/zuizui0223/gesui/actions/runs/43805349153",
+  "source_workflow_result": "success",
+  "data": {
+    "Part2_original_2026_candidate_station_years_with_either_valid_TN_or_TP": 1,
+    "all_Biology_WQ_year_candidate_pairs": 575,
+    "all_candidate_WQ_station_year_keys": 531,
+    "biology_original_siteyear_with_at_least_one_nearby_official_WQ_station": 402,
+    "individual_nutrient_and_dup_source_quality_counts": {
+      "any_nearWQ_valid_TN_at_2018or2022": 1,
+      "any_nearWQ_valid_TP_at_2018or2022": 1
+    },
+    "no_ecological_effect_or_mediation_fitted": true,
+    "no_original_EEA_EQR_or_EIV_or_HNS_outcomes_opened": true,
+    "official_publisher_Part2_source_receipt": {
+      "official_2026_original_part2_ZIP_SHA256": "315396800d76e46db415164851fb4f99765b7ec2654828fc42782d902e679a7a",
+      "original_publisher_url": "https://sdi.eea.europa.eu/datashare/public.php/dav/files/ZcJ37WK6oaWonFJ/WISE6_AggregatedData-csv.zip",
+      "original_verified_download_bytes": 170422309,
+      "public_source_listed_bytes": 170422309,
+      "publisher_public_share_file": "WISE6_AggregatedData-csv.zip",
+      "source_access_mode": "anonymous",
+      "source_checked_byte_length": true
+    },
+    "original_candidate_site_selection_did_NOT_use_chemical_values": true,
+    "original_distinct_nearby_WQ_station_IDs": 429,
+    "original_true_H7_geography_source_SHA256": "b9b810f4db271f0fa6b39fecf01784041b948944b3c3f296a393766388e86b44",
+    "same_original_EEA_Biology_native_station_year_TNTP_original_GATE_STOP_preserved": true,
+    "schema": "GESUI_20261116_EEA2026_NEARBY_OFFICIAL_SAME_H7_PART2_TNTP_SOURCE_GATE_V1",
+    "selected_new_WQ_different_monitoringSiteIdentifier_or_scheme": true,
+    "selected_new_WQ_same_original_true_H7_polygon_proved": true,
+    "selected_new_WQ_same_true_HydroRIVERS_segment_NOT_YET_VERIFIED": true,
+    "source_TNTP_concentrations_are_AMBIENT_river_not_WWTP_source_fraction": true,
+    "source_nearby_site_year_eligibility": {
+      "ANY_nearby_WQ_ID_morethan25m_alias_excluded": {
+        "all_H7_periods": 1,
+        "positive_H6": 0,
+        "positive_H7": 0,
+        "positive_H7period": 0,
+        "positive_country": 0,
+        "reported_positive_station_years": 0,
+        "source_support_if_near_sites_treated_as_proxies_only": false,
+        "station_years": 1
+      },
+      "ANY_nearby_WQ_ID_upperbound_source_only": {
+        "all_H7_periods": 1,
+        "positive_H6": 0,
+        "positive_H7": 0,
+        "positive_H7period": 0,
+        "positive_country": 0,
+        "reported_positive_station_years": 0,
+        "source_support_if_near_sites_treated_as_proxies_only": false,
+        "station_years": 1
+      },
+      "nearest_WQ_ID_frozen_before_chemistry": {
+        "all_H7_periods": 1,
+        "positive_H6": 0,
+        "positive_H7": 0,
+        "positive_H7period": 0,
+        "positive_country": 0,
+        "reported_positive_station_years": 0,
+        "source_support_if_near_sites_treated_as_proxies_only": false,
+        "station_years": 1
+      }
+    },
+    "source_pre_chemistry_candidate_provenance": "https://github.com/zuizui0223/gesui/actions/runs/43804933915",
+    "source_report_not_matched_DOES_NOT_mean_unexposed": true,
+    "source_years_are_2018_2022_not_full_biology_3year_windows": true
+  },
+  "not_causal_or_direct_site_nutrient_delivery": true
+}

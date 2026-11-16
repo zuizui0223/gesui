@@ -1,0 +1,49 @@
+name: gesui 20261116 official 2026 Waterbase Part2 exact 2018/22 native EEA TNTP station
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/acquire_eea_2026_part2_exact_site.py'
+      - '.github/workflows/gesui-20261116-EEA2026-Part2-exact-native-station-TNTP.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  exact_2026_part2_source_station_chemistry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official public ZIP streaming network dependency
+        run: python -m pip install --quiet requests
+      - name: Restore only original immutable 6330 station-to-H7 geographic source
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_station_geography
+      - name: Download official EEA 2026 Part2 170MB source, verify size SHA and exact 3525 EEA EQR site-year measured TNTP
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/acquire_eea_2026_part2_exact_site.py
+          python -u analysis/20261116_reported_np_source/acquire_eea_2026_part2_exact_site.py \
+            --stations '${{ runner.temp }}/original_station_geography' \
+            --github-token "$GITHUB_TOKEN" \
+            --output '${{ runner.temp }}/EEA2026_Part2_exact_station'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-EEA2026-official-Part2-exact-3525-EQR-station-year-TNTP
+          path: |
+            ${{ runner.temp }}/EEA2026_Part2_exact_station/EEA2026_EXACT_STATION_YEAR_TNTP_SOURCE_QA.json
+            ${{ runner.temp }}/EEA2026_Part2_exact_station/EEA2026_ONLY_MATCHED_3525_STATION_YEAR_TNTP_SOURCE.csv
+          retention-days: 90
+          if-no-files-found: warn

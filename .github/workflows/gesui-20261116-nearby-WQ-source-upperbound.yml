@@ -1,0 +1,50 @@
+name: gesui EEA2026 strict 1km same-H7 WQ reported-positive source-only ceiling
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/nearby_WQ_reported_positive_upperbound_sourceonly.py'
+      - '.github/workflows/gesui-20261116-nearby-WQ-source-upperbound.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_report_positive_ceiling_before_chemistry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original source read only tools
+        run: python -m pip install --quiet pandas requests
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43804933915
+          name: gesui-20261116-original-H7-EEA-Biology-nearby-official-WQ-source-candidate-IDs
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_geo
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43800794527
+          name: gesui-20261116-EEA2026-original-Part1-Part2-3525-native-year-true-TNTP-union
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_report_metadata
+      - name: Compute source only WWTP report-positive 1km eligible H7-period maximum without opening water-chemistry outcomes
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/nearby_WQ_reported_positive_upperbound_sourceonly.py
+          python -u analysis/20261116_reported_np_source/nearby_WQ_reported_positive_upperbound_sourceonly.py \
+            --geo '${{ runner.temp }}/original_geo' \
+            --union '${{ runner.temp }}/original_EEA_report_metadata' \
+            --output '${{ runner.temp }}/upperbound'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-sameH7-1km-nearby-WQ-EEA-WWTP-reported-positive-upperbound
+          path: ${{ runner.temp }}/upperbound/
+          retention-days: 90
+          if-no-files-found: warn

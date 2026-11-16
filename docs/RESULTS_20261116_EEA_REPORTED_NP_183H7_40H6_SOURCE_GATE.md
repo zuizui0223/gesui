@@ -1,0 +1,64 @@
+# 2026-11-16：真正183 H7／40 H6に年別EEA処理場報告N/Pを重ねた原本機会監査
+
+**Source-only / 元生物応答を開かない / GitHub Actions #43790162632 SUCCESS / 効果モデルSTOP / 非因果・事後探索**
+
+## 背景
+
+2026-11-16に、元研究の肯定結果と否定・STOPの根拠を **gesui/mainへPR #106で統合**（main commit `8057236370c502e184e9580e8c6e84dc6fc65835`、GitHub Actions mainで2つのCI成功）。次は下水による植物―蝶への実際の栄養流入を検証したい。従来のWは静的なモデル排水関連地理であり処理水N/Pではないため、まず実際に報告された上流処理場N/P負荷と生物空間の重なりを調べた。
+
+- 元183 native H7/40 true H6: frozen original source output SHA256 `c0840b1c5c6e85342fea41d57dc40fa5ec295fabf6bcd6908a4072557db9a736`。二期間の真正植物種NUTRIと蝶HNSを元にするが、今回は読み込んだのはH7/H6/source新旧識別子だけ。
+- 元のEEA 2018年・2022年処理場**報告上流**N/P負荷のH7×期間source index: original Git blob `45979613c1bc079f1c2346461eb7bdd31ac17e6a`、取得元の源JSON SHA256 `012ad79feabc8c11e0d74f803730b5b7913b96a64a6af26fb0c97263d9aa7c26`。元454 H7×期間、232 H7/90 H6、report positive56期間/38 H7/31 H6、両年28ずつ。
+- 下流側に報告された放流源という独立の報告地理の負の対照 Git blob `702131afc7d1a7bfb15e80357a506754cae7a70a`。元454行すべてでPR90 positive flagとPR92 upstream flagが完全一致、元2018/22 year statusも一致。
+- これらのN/P値は**処理場の年間報告質量／河川のモデル平均流量**に基づく仮想 mg/L 等価指標で、実測河川水質のTN/TPではない。報告負荷が照合されなかった場合も無放流・無栄養・清浄を意味しない。
+
+## 元183 H7/40 H6で実際に得られる対照機会
+
+| 同一原本で確認した対象 | 数 |
+|---|---:|
+| 元のEEA年別負荷source indexと結合できる旧H7 | **173** |
+| 旧173 H7×2期間の原本年報告行 | **346** |
+| 追加10 H7（原454に未登録のため源報告INDEXが未取得） | **10** |
+| 旧173 H7で正の報告上流N/PありH7×期間 | **32** |
+| 旧173 H7で報告上流N/Pが正の異なるH7 | **20** |
+| 旧173 H7でいずれか報告正の真正H6 | **14** |
+| 旧H7で2期間とも報告正のH7 | **12** |
+| 報告正H7と照合正なしH7が同じ真正H6に共存 | **7 H6** |
+| **報告正の異なるH7が2本以上ある真正H6** | **4 H6** |
+| 固定した正の報告源強度差の最低反復 | **10 H6** |
+
+**source outcome gate：`STOP_SAME_H6_REPORTED_INTENSITY_REPLICATION`**。全条件（正の報告期間≥30、異なる報告正H7≥20、報告正の国≥5、同じH7両期間報告正≥5）のうち、肝心の**異なる2 H7とも報告負荷が正の真正H6≥10**を満たせなかった（4 H6）。計算のあとに閾値を緩めてN/P強度に対する植物・蝶の新しい正のβを探さない。
+
+**補助的な構造：** 「報告正／照合なし」の異なるH7が同じ真正H6に7組存在するが、後者は真の未曝露対照ではないので、下水効果の疑似介入比較としては使えない。また新10 H7を報告なしの真の0として埋めない。
+
+## 生物学的な含意と次の検証
+
+- **先行の肯定結果は維持**：同一欧州H7の植物NUTRIと蝶HNSの空間的対応、183 H7・40真正H6内部での正の共変動、属レベルの形質組成。
+- **先行の否定・未確認も維持**：W→植物NとW→蝶HNSは同一H6内で95%区間が0を含む。真正H7で2017–19から2020–22への植物Nと蝶HNSの同期も確認されない。同属内のNUTRI種ラベル入替p=0.6864。
+- 元のPR90も454 H7について報告N/Pの追加H6留保予測に安定した正の寄与を示さず、PR92/93の上流 vs 下流の負の対照は**源方向に特有の指標の識別が弱い**。この新sourceゲートのSTOPは以前の陰性検証と整合。
+- 下水を真の生態学的作用因として扱うには、**同一河川・同年の処理水由来N/P負荷が受容水へ届くこと、同一測定局の実測TN/TP、河岸植物の分布・栄養特性、幼虫寄主・蝶の反復観測**の少なくともsource/幾何/時間合致が必要。
+- EEA Waterbase/WISE6の2018/2022の同一地点化学sourceは以前のPR91で公式公開経路を探索したが、原本に基づいたTN/TP 30 H7期間以上の対応ゲートは当時成立しなかった。公開データの新しいソース取り出し法が見つかれば、**別のsource-onlyパイプラインとして再挑戦**する。取得可能性を確認してから生物アウトカムを開く。
+- 今回のsource監査で水生EPTと欧州陸域蝶を同じ「下水処理水N効果量」として合算する根拠は生まれていない。
+
+## 再現性・Git履歴
+
+- 元成果：<https://github.com/zuizui0223/gesui/pull/106>（**mainへマージ済み**）
+- 元EEA source：Draft PR [#90](https://github.com/zuizui0223/gesui/pull/90)、負の方向対照 [#92](https://github.com/zuizui0223/gesui/pull/92)
+- 今回のsource-only code：`analysis/20261116_reported_np_source/source_only_gate.py`
+- SOURCE GATE原本出力：`results/20261116_reported_np_source/183H7_40H6_REPORTED_NP_SOURCE_ONLY_GATE.json`
+- [GitHub Actions #43790162632 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43790162632)（元SHA・元346行・元40 H6・元report flag×direction正照合・数値を変更せず監査完了）
+- 元第三者の排出施設データ全体やH7×2期の蝶・植物の分布原画像を再配布しない。元PR105、main、chochoは変更していない。これは**次のsource-only検証Draft**であってmainの新肯定結果ではない。
+
+
+## 追加：公式 Waterbase Water Quality ICM 2026 の取得経路（2026-11-16）
+
+EEA公式Datahubは2026年7月7日公開の [Waterbase – Water Quality ICM 2026](https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1) を掲示し、データ製品全体は1900–2025年を対象とする。一方 [WISE SoE収集ページ](https://water.europa.eu/freshwater/resources/wise-soe-data-collection)には Discodata WISE-6 tables の更新に関する注意があり、SQLのlatestが2026本体と同一源という証明ではない。
+
+[新しい公式APIの小規模source test #43790940133 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/43790940133)（**ソースアクセス監査のActions成功であり、同一観測局2018/2022 TN/TP取得成功ではない**）。直接の4.3GB全文を取得せず、各最大2レコード・原本の数値を転載しないSQL/HEADのみを実施。
+
+- `[WISE_SOE].[latest].[Waterbase_T_WISE6_AggregatedData]` と `[WISE_SOE].[latest].[Waterbase_T_WISE6_DisaggregatedData]` は `SELECT TOP 1 *` のschema確認でともにHTTP200・JSONのresults配列を返した。AggregatedDataには`monitoringSiteIdentifier`,`phenomenonTimeReferenceYear`, `observedPropertyDeterminandCode`,`resultMeanValue`、DisaggregatedDataには`phenomenonTimeSamplingDate`,`resultObservedValue`が存在する。
+- 2018または2022の `Total nitrogen`/`Total phosphorus` を同時に問い合わせた複合条件SQLは**HTTP403・HTML**だった。空の化学観測ではなく、**取得・問い合わせ条件が未解決**という判定。
+- 同じ公式2026データの直接配布リンクに対するHEADはHTTP200でも**Content-Type HTML**であり、4.3GB本体・Part2ファイル自体は未取得。
+- EEAの旧PR #91での単一条件SQL、同一EEA EQR観測局の2018/2022化学照合先行失敗を保持。新しいこの小規模access probeから同一station/yearの2018/2022 TN/TPが存在する／しないとは判断しない。
+- 出力: `results/20261116_reported_np_source/EEA_2026_WISE6_TNTP_BOUNDED_API_PROBE.json`。コード `analysis/20261116_reported_np_source/probe_official_eea_2026_wise6_sql.py`。
+
+**次の技術的ボトルネック：** 公式2026版の`AggregatedData` Part2を、実際の元source ZIP/SQLiteの一部あるいは観測局ID×2018/2022の小規模原本テーブルとして**正確に取得**できる手段が必要。取得可能性と同一ID/yearでの結合を先に成立させ、植物/蝶の結果を見ない。今の段階でSEMや下水に特有の栄養供給機構は推定しない。

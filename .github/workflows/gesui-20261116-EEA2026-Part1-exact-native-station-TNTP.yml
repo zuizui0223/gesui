@@ -1,0 +1,48 @@
+name: gesui 20261116 2026 official EEA Part1 individual TNTP exact site-year original source
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/acquire_eea_2026_part1_exact_site.py'
+      - '.github/workflows/gesui-20261116-EEA2026-Part1-exact-native-station-TNTP.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  official_disaggregated_2026_native_station_chemistry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Only HTTPS official public source, zipped streaming
+        run: python -m pip install --quiet requests
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_station_h7
+      - name: Stream official 2026 Part1 ZIP, SHA-lock original and match EEA 3525 native year-specific TNTP sample records
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/acquire_eea_2026_part1_exact_site.py
+          python -u analysis/20261116_reported_np_source/acquire_eea_2026_part1_exact_site.py \
+            --stations '${{ runner.temp }}/original_station_h7' \
+            --github-token "$GITHUB_TOKEN" \
+            --output '${{ runner.temp }}/disaggregated_part1'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-EEA2026-official-Part1-exact-3525-EQR-station-year-TNTP
+          path: |
+            ${{ runner.temp }}/disaggregated_part1/EEA2026_PART1_EXACT_STATION_YEAR_SOURCE_QA.json
+            ${{ runner.temp }}/disaggregated_part1/EEA2026_ONLY_MATCHED_3525_STATION_YEAR_TNTP_PART1.csv
+          retention-days: 90
+          if-no-files-found: warn
