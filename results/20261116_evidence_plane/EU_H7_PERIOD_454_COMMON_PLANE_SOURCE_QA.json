@@ -1,0 +1,45 @@
+{
+  "schema": "GESUI_20261116_TRUE_EU_H7xPERIOD_WATER_PLANT_BUTTERFLY_PLANE_V1",
+  "native_H7period_rows": 454,
+  "native_H7": 232,
+  "native_true_H6": 90,
+  "matched_site_year_to_H7_mapping_records": 3525,
+  "original_2022_2018_benthic_reporting_EQR_site_source": {
+    "EEA18": {
+      "original_site_rows": 2634,
+      "site_rows_in_original_EU454_H7": 1803,
+      "original_sites_without_EU454_H7_mapping": 831,
+      "station_git_blob_sha": "0f30bfbc3dac13f6a182c8a910e9899c04778322",
+      "original_site_measurement_not_independent_of_H7_aggregation": true
+    },
+    "EEA22": {
+      "original_site_rows": 2475,
+      "site_rows_in_original_EU454_H7": 1722,
+      "original_sites_without_EU454_H7_mapping": 753,
+      "station_git_blob_sha": "325f199e985d9862ffee5b0edb205c61a7be3833",
+      "original_site_measurement_not_independent_of_H7_aggregation": true
+    }
+  },
+  "EIV_original_accepted_species_count": 4011,
+  "EIV_numeric_source_SHA256": "ffeb2a5f45c95886625f970734e431098587c65baad7def786d35364a761dbba",
+  "original_454_H7_panel_SHA256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+  "original_reported_source_Git_blob_SHA1": "45979613c1bc079f1c2346461eb7bdd31ac17e6a",
+  "original_downstream_placebo_Git_blob_SHA1": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+  "source_same_H7_benthic_site_groups": 454,
+  "source_original_EIV_451_eligible_H7period": 451,
+  "complete_same_H7_EQR_PlantN_HNS_original": 451,
+  "report_positive_same_H7periods": 56,
+  "complete_core_and_upstream_source_positive": 56,
+  "site_eqr_independent_recalculation_comparable_rows": 454,
+  "site_eqr_vs_original_H7_panel_absolute_difference_quantile": {
+    "0.05": 0.0,
+    "0.5": 0.0,
+    "0.95": 1.1102230246251565e-16
+  },
+  "GBIF_plant_HNS_not_field_diet_or_abundance": true,
+  "no_true_local_sewage_exposure_or_causal_mediation_claim": true,
+  "upstream_or_downstream_report_0_does_NOT_mean_absent_sewage": true,
+  "separate_benthic_station_site_subsamples_not_counted_as_new_independent_H7": true,
+  "cross_country_year_study_effects_not_pooled_into_one_coefficient": true,
+  "generated_common_plane_csv_SHA256": "56f8d80eaf6ac47ce3cc52ee27116be6f9e0bdd3c6bdc5e0b519e06090d1e085"
+}
