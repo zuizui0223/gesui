@@ -1,0 +1,429 @@
+[
+  {
+    "pr_number": 83,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-nrsa-threecycle-EPA-trait-source-audit.yml",
+        "status": "added",
+        "sha": "66e37e7cd36a4401447ad313e251000aff51dd98",
+        "changes": 135
+      },
+      {
+        "path": ".github/workflows/gesui-nrsa-threecycle-EPT-functional-trait-external.yml",
+        "status": "added",
+        "sha": "3e270c559a0ac2a77908535523734ca39ea109fe",
+        "changes": 179
+      },
+      {
+        "path": ".github/workflows/gesui-nrsa-threecycle-EPT-functional-trait-independentQA.yml",
+        "status": "added",
+        "sha": "f10b4cadf9efe0ddaa19a54932bd9f7ce4a05f16",
+        "changes": 191
+      },
+      {
+        "path": ".github/workflows/gesui-nrsa-threecycle-EPT-trait-site-source.yml",
+        "status": "added",
+        "sha": "1128a9a06aadb7e8ed9ad619486046a56eaab4d2",
+        "changes": 157
+      },
+      {
+        "path": ".github/workflows/gesui-nrsa-threecycle-rare100-external-compare200.yml",
+        "status": "added",
+        "sha": "732f431d7e7bdf78e03d2a2d50eae3770d3d90e9",
+        "changes": 158
+      },
+      {
+        "path": ".github/workflows/gesui-nrsa-threecycle-rare100-source.yml",
+        "status": "added",
+        "sha": "a64ebdc0859f1f1e3de5677ed6c8837b18b14ceb",
+        "changes": 135
+      },
+      {
+        "path": "docs/NRSA_3CYCLE_RARE100_SAMESITE_VS_EXPANDED_SOURCE_FREEZE_20261114.md",
+        "status": "added",
+        "sha": "4d88b9264509bdd0b5589d5df45216a783208089",
+        "changes": 29
+      },
+      {
+        "path": "docs/NRSA_THREECYCLE_EPT_OFFICIAL_PTV_FFG_HABIT_PRENUMERIC_PROTOCOL_20261114.md",
+        "status": "added",
+        "sha": "b19cfe47bd68f39a79a97ba4ccbb2940895d2824",
+        "changes": 34
+      },
+      {
+        "path": "docs/RESULTS_20261114_NRSA_3ERA_RARE100_AND_EPT_FUNCTIONAL_TRAITS.md",
+        "status": "added",
+        "sha": "502f690639907f3c3435d91015340bb49a453fe2",
+        "changes": 73
+      },
+      {
+        "path": "scripts/audit_NRSA3cycle_EPT_FUNCTIONAL_traits_manual_numpy.py",
+        "status": "added",
+        "sha": "b9c72c7a3aefb241f77294a8cd07b8f684b5ea16",
+        "changes": 209
+      },
+      {
+        "path": "scripts/gesui_NRSA3cycle_EPT_FFG_HABIT_PTV_EXTERNAL.py",
+        "status": "added",
+        "sha": "7863f20cb43ed67f05e36df0b7964d9d2e2dced3",
+        "changes": 144
+      },
+      {
+        "path": "scripts/gesui_NRSA3cycle_EPT_trait_site_SOURCEonly.py",
+        "status": "added",
+        "sha": "320ce461648e618fc61058babfe9f2b8c784c4c0",
+        "changes": 124
+      },
+      {
+        "path": "scripts/gesui_NRSA3cycle_rare100_SOURCE_only_cohort.py",
+        "status": "added",
+        "sha": "3baabe8fe7f7c85632388a838f700822e1cfcc65",
+        "changes": 71
+      },
+      {
+        "path": "scripts/gesui_NRSA3cycle_rarefaction100_same_vs_expanded_external.py",
+        "status": "added",
+        "sha": "b9d3f2bc2ea01f37dbe21c511ebe3c8ba7b980e3",
+        "changes": 235
+      },
+      {
+        "path": "scripts/gesui_NRSA_3cycle_official_EPA_autecology_trait_SOURCE_QA.py",
+        "status": "added",
+        "sha": "9aa61dd218715504f9e5f2121434402125672baa",
+        "changes": 219
+      }
+    ]
+  },
+  {
+    "pr_number": 90,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261115-actual-reported-np-hns-qa.yml",
+        "status": "added",
+        "sha": "fe917cdf4da5b50dc3030b2e4953b649d860e6ff",
+        "changes": 55
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/README.md",
+        "status": "added",
+        "sha": "d7be9027118e9479184ab922ec338ad81bbc75dd",
+        "changes": 14
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/scripts/analyze_reported_np.py",
+        "status": "added",
+        "sha": "8cf13c954114467fd6b91818336ba67d007516ad",
+        "changes": 250
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/scripts/compare_against_archive.py",
+        "status": "added",
+        "sha": "65b4ec308e7170ae5362dc09dcb2f7cf97a3a412",
+        "changes": 39
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/scripts/independent_sklearn_qa.py",
+        "status": "added",
+        "sha": "f76fdf9fe2697aa6888426707cf5f3bdec2f5974",
+        "changes": 93
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/scripts/selection_sensitivity.py",
+        "status": "added",
+        "sha": "4ca6dfdef95cfeb1176ad63d96d88b8035104afc",
+        "changes": 63
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/scripts/source_join.py",
+        "status": "added",
+        "sha": "92e0a6b582108178a5f37b25d6ed49124aca60f7",
+        "changes": 112
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/scripts/validate_results.py",
+        "status": "added",
+        "sha": "dac9ca696a4f03e8dea10670cc91eccc2ce37254",
+        "changes": 44
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/tests/test_model.py",
+        "status": "added",
+        "sha": "1733867a8597743ab2ee199200f63cecf95fb0f1",
+        "changes": 61
+      },
+      {
+        "path": "analysis/20261115_reported_np_hns/tests/test_source_join.py",
+        "status": "added",
+        "sha": "ddf62cc549cce70fbfd1d6cd1669fe90e518e88c",
+        "changes": 67
+      },
+      {
+        "path": "docs/RESULTS_20261115_ACTUAL_REPORTED_EEA_NP_HNS_EQR_PLANT.md",
+        "status": "added",
+        "sha": "8c43ceba64aeaa8be71066b5804ee49838e4ecf9",
+        "changes": 77
+      },
+      {
+        "path": "results/20261115_reported_np_hns/H7_454_REPORTED_SOURCE_INDEX_HNS_EQR_PLANT.csv",
+        "status": "added",
+        "sha": "45979613c1bc079f1c2346461eb7bdd31ac17e6a",
+        "changes": 455
+      },
+      {
+        "path": "results/20261115_reported_np_hns/INDEPENDENT_SKLEARN_QA.json",
+        "status": "added",
+        "sha": "f4c24cdccad4bb9871ad336526c9ef94b4acec9c",
+        "changes": 108
+      },
+      {
+        "path": "results/20261115_reported_np_hns/MODEL_COMPARISONS.csv",
+        "status": "added",
+        "sha": "49e1942a6ca5606a6e8d0fc71f6b42e7f9703d7b",
+        "changes": 19
+      },
+      {
+        "path": "results/20261115_reported_np_hns/POSTHOC_SOURCE_COMPLETENESS_COUNTRY_ERA.csv",
+        "status": "added",
+        "sha": "46cd403764c0661a0fe5fdee9664f5f3b0099d1e",
+        "changes": 19
+      },
+      {
+        "path": "results/20261115_reported_np_hns/POSTHOC_SOURCE_COMPLETENESS_COUNTRY_ERA.json",
+        "status": "added",
+        "sha": "d7ed2dcddd5184f6ec9321cea0f6d1bba1b71079",
+        "changes": 290
+      },
+      {
+        "path": "results/20261115_reported_np_hns/RESULTS_EEA_REPORTED_NP_TO_HNS_EQR_PLANT.json",
+        "status": "added",
+        "sha": "7d90b4d39e8ae56c63e24babfb3cf20966325d05",
+        "changes": 1014
+      },
+      {
+        "path": "results/20261115_reported_np_hns/SOURCE_QA_AND_EXPOSURE.json",
+        "status": "added",
+        "sha": "dd283aef32eaa52a197bf70bd3bdf49c87a156aa",
+        "changes": 59
+      }
+    ]
+  },
+  {
+    "pr_number": 92,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261115-annual-np-direction-source-only.yml",
+        "status": "added",
+        "sha": "8c6dc421209dec8b65371b1013e0ee280a81174d",
+        "changes": 59
+      },
+      {
+        "path": ".github/workflows/gesui-20261115-np-direction-H6-qa.yml",
+        "status": "added",
+        "sha": "438115fc48c33a0d4522dc8ec1deb683b7761ae5",
+        "changes": 71
+      },
+      {
+        "path": "analysis/20261115_np_direction/REPRODUCE.md",
+        "status": "added",
+        "sha": "70fe963b7149869757e6e74bf229a0882d112dbd",
+        "changes": 17
+      },
+      {
+        "path": "analysis/20261115_np_direction/scripts/analyze_placebo.py",
+        "status": "added",
+        "sha": "de57598bc36ba875573748dc8d5486ba951509c9",
+        "changes": 133
+      },
+      {
+        "path": "analysis/20261115_np_direction/scripts/independent_sklearn_qa.py",
+        "status": "added",
+        "sha": "18b288cc3f9035e8ca280fac679a7ef63bb928aa",
+        "changes": 74
+      },
+      {
+        "path": "analysis/20261115_np_direction/scripts/source_compare.py",
+        "status": "added",
+        "sha": "5b416b53407bae76d300b836122ae3b2853ee106",
+        "changes": 119
+      },
+      {
+        "path": "analysis/20261115_np_direction/scripts/validate_results.py",
+        "status": "added",
+        "sha": "84cf395022afc99b7e447b1fffa883f00403d5fe",
+        "changes": 24
+      },
+      {
+        "path": "analysis/20261115_np_direction/tests/test_analysis_placebo.py",
+        "status": "added",
+        "sha": "abad56146becad071432c08b2287d25c721b42ac",
+        "changes": 19
+      },
+      {
+        "path": "analysis/20261115_np_direction/tests/test_source_compare.py",
+        "status": "added",
+        "sha": "a9f3824b55159079a3fb0754f525a72b41ed181b",
+        "changes": 17
+      },
+      {
+        "path": "docs/PROTOCOL_20261115_ANNUAL_NP_SOURCE_DIRECTION_NEGATIVE_CONTROL.md",
+        "status": "added",
+        "sha": "19fa42546bbe69c8ea5b45d878cff6d6cd09af8c",
+        "changes": 11
+      },
+      {
+        "path": "docs/RESULTS_20261115_EEA_WWTP_ANNUAL_UPDOWN_NEGATIVE_CONTROL.md",
+        "status": "added",
+        "sha": "5ee9bb6e3fb90ba8dd678971e1630439b4eb0c94",
+        "changes": 46
+      },
+      {
+        "path": "results/20261115_np_direction/DIRECTIONAL_NEGATIVE_CONTROL_MODEL_SUMMARY.csv",
+        "status": "added",
+        "sha": "2da4c79a40db64f6672805c1eddb166660a51592",
+        "changes": 28
+      },
+      {
+        "path": "results/20261115_np_direction/DIRECTIONAL_NEGATIVE_CONTROL_RESULTS.json",
+        "status": "added",
+        "sha": "bbfa9a3fcd26f6f5fca2402f795322426e8309f3",
+        "changes": 426
+      },
+      {
+        "path": "results/20261115_np_direction/H7_454_DIRECTIONAL_SOURCE_AUDIT_PANEL.csv",
+        "status": "added",
+        "sha": "702131afc7d1a7bfb15e80357a506754cae7a70a",
+        "changes": 455
+      },
+      {
+        "path": "results/20261115_np_direction/INDEPENDENT_NUMERICAL_QA.json",
+        "status": "added",
+        "sha": "2fd0306045b374bf8355c45f6cb8509793831ca0",
+        "changes": 155
+      }
+    ]
+  },
+  {
+    "pr_number": 93,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261115-np-conditional-placebo-H6.yml",
+        "status": "added",
+        "sha": "98b8911d980a6d6e2e5d0ccb643d3e59d10d7c4e",
+        "changes": 76
+      },
+      {
+        "path": "analysis/20261115_np_conditional/README.md",
+        "status": "added",
+        "sha": "f06d1b7cc9219181684fdf6430aa4316fdde4f4c",
+        "changes": 24
+      },
+      {
+        "path": "analysis/20261115_np_conditional/scripts/conditional_source.py",
+        "status": "added",
+        "sha": "746a4f336155751e78a013393c09b13b8ebb652b",
+        "changes": 150
+      },
+      {
+        "path": "analysis/20261115_np_conditional/scripts/source_transition_audit.py",
+        "status": "added",
+        "sha": "6f14ca32a40b9a65d245a75c9ef598895829001a",
+        "changes": 50
+      },
+      {
+        "path": "analysis/20261115_np_conditional/scripts/validate_saved.py",
+        "status": "added",
+        "sha": "e4f8143639718edf372843156a3b2792a493c0ab",
+        "changes": 30
+      },
+      {
+        "path": "analysis/20261115_np_conditional/scripts/verify_against_original.py",
+        "status": "added",
+        "sha": "d997bb8b45fa06244285df0228e1696bd888d76a",
+        "changes": 44
+      },
+      {
+        "path": "analysis/20261115_np_conditional/tests/test_conditional.py",
+        "status": "added",
+        "sha": "fec4f30b3d673c5ff52644a271d31b30e77adf32",
+        "changes": 33
+      },
+      {
+        "path": "analysis/20261115_np_conditional/tests/test_transition.py",
+        "status": "added",
+        "sha": "59a123621f3a07bffa1aeb8bcdfa9936f0320a55",
+        "changes": 15
+      },
+      {
+        "path": "docs/RESULTS_20261115_NP_CONDITIONAL_UP_DOWN_NEGATIVE_CONTROL.md",
+        "status": "added",
+        "sha": "3ef080b646c0c83b5ad4a4655b600891af02540a",
+        "changes": 56
+      },
+      {
+        "path": "results/20261115_np_conditional/CONDITIONAL_NEGATIVE_CONTROL_RESULTS.json",
+        "status": "added",
+        "sha": "17b438cf07741ee2b03e9bcda7729fd8004d3ab4",
+        "changes": 566
+      },
+      {
+        "path": "results/20261115_np_conditional/CONDITIONAL_SOURCE_H6_COMPARISONS.csv",
+        "status": "added",
+        "sha": "4fceb5c0bd2e4be2ca58565371e6d933f1bd5a08",
+        "changes": 46
+      },
+      {
+        "path": "results/20261115_np_conditional/INDEPENDENT_ARCHIVED_MSE_AUDIT.json",
+        "status": "added",
+        "sha": "6d2e1369763b9cee6eba255a4d44191849402afd",
+        "changes": 7
+      },
+      {
+        "path": "results/20261115_np_conditional/INDEPENDENT_SKLEARN_QA.json",
+        "status": "added",
+        "sha": "614a21f0101764b727574a23eda1cef37ae5307f",
+        "changes": 187
+      },
+      {
+        "path": "results/20261115_np_conditional/SOURCE_DIRECTION_COUNTRY_COUNTS.csv",
+        "status": "added",
+        "sha": "7a3e11836f4bf4764376acefaed3826fc07e8cb5",
+        "changes": 16
+      },
+      {
+        "path": "results/20261115_np_conditional/SOURCE_REPORT_PAIRED_PERIOD_TRANSITIONS.json",
+        "status": "added",
+        "sha": "68989bb6b8e2bc660413e8ab27bd9f2be66a5ad5",
+        "changes": 34
+      }
+    ]
+  },
+  {
+    "pr_number": 96,
+    "files": [
+      {
+        "path": ".github/workflows/gesui-20261115-crosslayer-residuals.yml",
+        "status": "added",
+        "sha": "0e01665288a7fcfcbda021c15c838e6461999b70",
+        "changes": 50
+      },
+      {
+        "path": "analysis/20261115_crosslayer_residuals/recompute.py",
+        "status": "added",
+        "sha": "f44a94e10d530eefaa534454ebf99a73354b2dec",
+        "changes": 189
+      },
+      {
+        "path": "docs/RESULTS_20261115_CROSSLAYER_H6_RESIDUAL_NONCAUSAL.md",
+        "status": "added",
+        "sha": "09cc9a20dad22a32488f637d51f5db40a1240bad",
+        "changes": 52
+      },
+      {
+        "path": "results/20261115_crosslayer_residuals/ORIGINAL_JS_DIAGNOSTIC.json",
+        "status": "added",
+        "sha": "96faa4555d10fbd40b36927d95161aeb51257ac1",
+        "changes": 58
+      }
+    ]
+  }
+]
