@@ -1,0 +1,61 @@
+name: gesui 20261116 full 105 PR head-SHA/source-doc registry and main gap audit
+on:
+  push:
+    branches:
+      - analysis/gesui-all-evidence-one-plane-20261116
+    paths:
+      - 'analysis/20261116_evidence_plane/build_pr_registry.py'
+      - '.github/workflows/gesui-20261116-all-PR-registry-gaps.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: read
+concurrency:
+  group: gesui-20261116-one-plane-source-writes
+  cancel-in-progress: false
+jobs:
+  every_historical_PR_source_and_result_document:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install authorized GitHub public repository API client
+        run: python -m pip install --quiet requests
+      - name: Full PR changed-file inventory and precise main vs staged blob comparison
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python -m py_compile analysis/20261116_evidence_plane/build_pr_registry.py
+          python -u analysis/20261116_evidence_plane/build_pr_registry.py \
+             --branch 'analysis/gesui-all-evidence-one-plane-20261116' \
+             --output provenance/
+      - name: Preserve source index as separate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-all-105-historical-PR-source-registry-and-main-gaps
+          path: |
+            provenance/PR_ALL_RESEARCH_REGISTRY_20261116.csv
+            provenance/PR_SOURCE_FILE_DOC_MANIFEST_20261116.json
+            provenance/PR_REGISTRY_SUMMARY_20261116.json
+            docs/PR_RESEARCH_REGISTRY_20261116.md
+          retention-days: 90
+          if-no-files-found: error
+      - name: Commit all-PR registry source to stacked integration branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add provenance/PR_ALL_RESEARCH_REGISTRY_20261116.csv \
+                  provenance/PR_SOURCE_FILE_DOC_MANIFEST_20261116.json \
+                  provenance/PR_REGISTRY_SUMMARY_20261116.json \
+                  docs/PR_RESEARCH_REGISTRY_20261116.md
+          if git diff --cached --quiet; then
+            echo "Registry source unchanged"
+          else
+            git commit -m "registry: preserve all source PR heads, actual result doc paths, verdict nulls and main gap"
+            git push origin "HEAD:refs/heads/analysis/gesui-all-evidence-one-plane-20261116"
+          fi
