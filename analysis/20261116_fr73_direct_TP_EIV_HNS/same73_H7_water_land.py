@@ -64,6 +64,7 @@ def source_join(frdir,eivdir):
     idx=original.merge(fr[["HYBAS_ID_L07","HYBAS_ID_L06"]].rename(
         columns={"HYBAS_ID_L07":"h","HYBAS_ID_L06":"FR_true_H6"}),on="h",
         how="inner",validate="many_to_one")
+    print("FR73_SOURCE_ONLY_DEBUG="+json.dumps({"idx_rows":len(idx),"idx_H7":int(idx.h.nunique()),"idx_H6":int(idx.h6.nunique()),"periods":sorted(idx.period.astype(str).unique().tolist()),"H6_disagreement":int((idx.h6!=idx.FR_true_H6).sum()),"GBIF_majority_countries":idx.country.value_counts(dropna=False).to_dict(),"FR_only_rows":int((idx.country=="FR").sum())},sort_keys=True),flush=True)
     if (len(idx)!=146 or idx.h.nunique()!=73 or idx.h6.nunique()!=24
         or set(idx.period)!={EARLY,LATE} or not (idx.h6==idx.FR_true_H6).all()
         or not (idx.country=="FR").all()):
