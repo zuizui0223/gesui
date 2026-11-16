@@ -1,0 +1,32 @@
+name: gesui 2026 official EEA Part1 ZIP compression 256-byte bounded source check
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/probe_part1_zip_compression.py'
+      - '.github/workflows/gesui-20261116-EEA2026-Part1-zip-header-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public_original_zip_method_probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet requests
+      - name: Inspect 256 bytes ZIP original header and available archive extractor programs
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/probe_part1_zip_compression.py
+          python -u analysis/20261116_reported_np_source/probe_part1_zip_compression.py \
+            --output '${{ runner.temp }}/zip_header'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-20261116-official-EEA-Part1-ZIP-only-header-method-QA
+          path: ${{ runner.temp }}/zip_header/
+          retention-days: 90
+          if-no-files-found: warn
