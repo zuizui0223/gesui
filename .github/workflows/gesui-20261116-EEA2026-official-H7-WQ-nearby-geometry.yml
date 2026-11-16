@@ -1,0 +1,46 @@
+name: gesui EEA2026 original true HydroBASINS H7 WQ nearby site geometry gate
+on:
+  push:
+    branches:
+      - analysis/gesui-reported-np-40h6-source-gate-20261116
+    paths:
+      - 'analysis/20261116_reported_np_source/audit_official_H7_biology_wq_geometry_v2.py'
+      - '.github/workflows/gesui-20261116-EEA2026-official-H7-WQ-nearby-geometry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-authentic-official-H7-site-geography:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original true H7 HydroBASINS polygon and geodesic source dependencies
+        run: python -m pip install --quiet "shapely>=2.0,<3" "pyshp>=2.3,<3" scipy numpy requests
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43165326244
+          name: gesui-hybas7-genuine-EEA-EPA-basin-source-map
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_EEA_sites
+      - name: Verify both original monitoring stations in the SAME official HydroBASINS Level7 before opening measured TNTP
+        run: |
+          python -m py_compile analysis/20261116_reported_np_source/audit_official_H7_biology_wq_geometry_v2.py
+          python -u analysis/20261116_reported_np_source/audit_official_H7_biology_wq_geometry_v2.py \
+            --station-dir '${{ runner.temp }}/original_EEA_sites' \
+            --output '${{ runner.temp }}/official_H7_WQ_near_sites'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261116-original-H7-EEA-Biology-nearby-official-WQ-source-candidate-IDs
+          path: ${{ runner.temp }}/official_H7_WQ_near_sites/
+          retention-days: 90
+          if-no-files-found: warn
