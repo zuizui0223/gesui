@@ -118,17 +118,33 @@ def original_station_points(source):
         raise RuntimeError("Original station location outside Austrian official source extent")
     original_cols=[k for k in x.columns if k!="geometry"]
     # Station identifiers are source-listed, not derived from nearest-river names.
-    id_cols=[k for k in original_cols if ("id" in k.lower() or "mess" in k.lower() or
-             "code" in k.lower() or "nr" in k.lower())]
+    # The genuine BMLUK station source uses field PK/PKINT rather than
+    # an English/id field name. Never turn row order into a fake station ID.
+    id_cols=[k for k in ("PK","PKINT") if k in original_cols]
+    field_quality={}
+    for k in original_cols:
+        v=x[k]
+        field_quality[k]={"nonmissing":int(v.notna().sum()),
+          "distinct_nonmissing":int(v.nunique(dropna=True)),
+          "original_source_examples":v.dropna().astype(str).head(4).tolist()}
+    station_ids=None;idfield=None
     for k in id_cols:
         v=x[k]
-        if v.notna().sum()==len(x) and v.astype(str).nunique()==len(x):
-            station_ids=x[k].astype(str).tolist()
-            idfield=k
+        strings=v.astype(str).str.strip()
+        if v.notna().sum()==len(x) and strings.nunique()==len(x) and (strings!="").all():
+            station_ids=strings.tolist();idfield=k
             break
-    else:
-        idfield=None
-        station_ids=[str(i) for i in range(len(x))]
+    if idfield is None:
+        raise RuntimeError("Original GZÜV station PK and PKINT not sufficiently unique; refuse fabricated row-index station IDs")
+    # BEGIN_DAT describes the station's registered first operation only; it
+    # cannot prove any actual 2022 chemistry or macrozoobenthos sample.
+    began=x["BEGIN_DAT"] if "BEGIN_DAT" in x else None
+    began2022=None;beganvalid=None
+    if began is not None:
+        import pandas as pd
+        parsed=pd.to_datetime(began,errors="coerce",utc=True)
+        beganvalid=int(parsed.notna().sum())
+        began2022=int((parsed<pd.Timestamp("2023-01-01T00:00:00Z")).sum())
     return x,station_ids,{
       "original_GeoPackage_issued_point_layers":geometries,
       "original_gpkg_contents":contents,
@@ -137,6 +153,9 @@ def original_station_points(source):
       "original_native_CRS":str(gdf.crs),
       "original_source_fields":original_cols,
       "original_station_id_candidate_columns":id_cols,
+      "source_original_fields_nonmissing_unique_and_examples":field_quality,
+      "station_BEGIN_DAT_parseable_count":beganvalid,
+      "station_BEGIN_DAT_at_or_before_2022_count_not_measurement_2022":began2022,
       "source_primary_unique_station_identifier_field":idfield,
       "station_coord_bounding_box_lon_lat":list(x.total_bounds),
       "source_duplicate_coordinate_count":int(len(x)-len(x.geometry.drop_duplicates()))}
