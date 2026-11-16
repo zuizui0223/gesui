@@ -23,6 +23,7 @@ from pathlib import Path
 import time
 import zipfile
 import requests
+import subprocess
 
 from acquire_eea_2026_part2_exact_site import (prechemistry_source, CODES, UNITS)
 
@@ -91,7 +92,20 @@ def table_source(zip_path,target):
         if len(members)!=1:
             return {"status":"STOP_UNEXPECTED_ZIP_MEMBERS","ZIP_members":entries[:30]},samples
         member=members[0]
-        with z.open(member) as byte_stream:
+        method=z.getinfo(member).compress_type
+        source_process=None
+        if method==9:
+            # The authentic EEA 2026 Part1 ZIP uses DEFLATE64 (ZIP method 9),
+            # which Python 3.11 zipfile cannot decompress. The official full
+            # file size and SHA256 are already validated before this step.
+            # 7z (preinstalled in ubuntu-latest) extracts directly to stdout:
+            # no uncompressed multi-GB source files on disk.
+            source_process=subprocess.Popen(["7z","x","-so",str(zip_path),member],
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,bufsize=1024*1024)
+            byte_stream=source_process.stdout
+        else:
+            byte_stream=z.open(member)
+        with byte_stream:
             f=io.TextIOWrapper(byte_stream,encoding="utf-8-sig",errors="strict",newline="")
             reader=csv.reader(f)
             header=next(reader)
@@ -152,8 +166,19 @@ def table_source(zip_path,target):
                 if total%1_000_000==0:
                     print("EEA2026_PART1_ORIGINAL_SOURCE_ROWS_READ="+str(total),flush=True)
             if total<1_000_000:raise RuntimeError("Original 2026 Part1 full source CSV unexpectedly small")
+            if source_process is not None:
+                try:
+                    rc=source_process.wait(timeout=30)
+                except subprocess.TimeoutExpired:
+                    source_process.kill()
+                    raise RuntimeError("Official ZIP deflate64 extractor did not exit after streaming CSV")
+                if rc!=0:
+                    err=source_process.stderr.read(4000).decode("utf-8","replace") if source_process.stderr else ""
+                    raise RuntimeError("Deflate64 official ZIP extraction failed rc="+str(rc)+" "+err[:200])
             return {
                 "status":"SOURCE_PART1_READ_TO_END",
+                "source_original_zip_compression_method":method,
+                "external_streaming_decompressor_used":"7z DEFLATE64 stdout" if method==9 else "python zipfile",
                 "original_part1_CSV_member":member,
                 "original_part1_CSV_column_names":header,
                 "original_part1_ZIP_members":entries[:10],
