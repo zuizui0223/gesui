@@ -1,0 +1,34 @@
+name: gesui Austria67 public RiverATLAS complete upstream watershed land cover source ID gate
+on:
+  push:
+    branches:
+      - analysis/gesui-AT67-riveratlas-upstream-catchment-controls-20261117
+    paths:
+      - 'analysis/20261117_at67_upstream_landcover/RiverATLAS_full_upstream_source_67_probe.py'
+      - '.github/workflows/gesui-20261117-AT67-RiverATLAS-upstream-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_RiverATLAS_upstream_catchment_land_cover_source_qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install public ArcGIS REST source client
+        run: python -m pip install --quiet requests
+      - name: Verify public geographically clipped RiverATLAS upstream urban cropland forest by exact native HYRIV_ID of original 67 Austrian 2022 water stations
+        run: |
+          python -m py_compile analysis/20261117_at67_upstream_landcover/RiverATLAS_full_upstream_source_67_probe.py
+          python -u analysis/20261117_at67_upstream_landcover/RiverATLAS_full_upstream_source_67_probe.py \
+            --output '${{ runner.temp }}/riveratlas_original_67_upstream_source_gate'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-Austria67-RiverATLAS-original-upstream-catchment-landuse-source
+          path: '${{ runner.temp }}/riveratlas_original_67_upstream_source_gate/'
+          retention-days: 90
+          if-no-files-found: warn
