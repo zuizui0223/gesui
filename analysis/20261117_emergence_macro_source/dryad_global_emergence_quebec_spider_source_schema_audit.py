@@ -21,7 +21,8 @@ MAX_DOWNLOAD=2_500_000
 
 def sha(x):return hashlib.sha256(x).hexdigest()
 def get(url,max_bytes=MAX_DOWNLOAD):
-    if not url.startswith(BASE+"/"):raise RuntimeError("No unsupported/untrusted URL fetch: "+url[:180])
+    if not (url.startswith(BASE+"/") or url.startswith("https://datadryad.org/downloads/file_stream/")):
+        raise RuntimeError("No unsupported/untrusted URL fetch: "+url[:180])
     last=None
     for k in range(3):
         try:
@@ -114,7 +115,15 @@ def inspect_one(name,contents):
                   if x.strip().startswith("#")][:25]}
     return {"kind":"unknown_format","file":name,"bytes":len(contents)}
 
-def one_set(m):
+def public_published_file(fileid,maxsize=MAX_DOWNLOAD):
+    # Dryad's documented public web UI 'Download' action; the *API* endpoint
+    # may require an API token. This URL serves publicly published files via
+    # ordinary anonymous website download redirects. No credentials or bypass.
+    if not isinstance(fileid,int) or fileid<=0:
+        raise RuntimeError("Invalid original Dryad public file ID")
+    return get(f"https://datadryad.org/downloads/file_stream/{fileid}",maxsize)
+
+def one_set(m,outdir):
     enc=urllib.parse.quote("doi:"+m["doi"],safe="")
     api=BASE+"/datasets/"+enc
     dataset=js(api)
@@ -152,10 +161,30 @@ def one_set(m):
             continue
         rec={"file_id":fileid,"published_name":name,"published_size_bytes":size}
         try:
-            raw=get(BASE+f"/files/{fileid}/download",MAX_DOWNLOAD)
+            # Official ordinary website public download after API returned
+            # HTTP401; do not assume API file bytes are anonymously accessible.
+            try:
+                raw=get(BASE+f"/files/{fileid}/download",MAX_DOWNLOAD)
+                method="public_dryad_REST_API"
+            except RuntimeError as api_error:
+                if "401" not in str(api_error):
+                    raise
+                raw=public_published_file(fileid,MAX_DOWNLOAD)
+                method="published_anonymous_Dryad_website_download_link"
+            if size and len(raw)!=int(size):
+                raise RuntimeError("Published file size differs from actual public download")
             rec["actual_download_sha256"]=sha(raw)
             rec["actual_bytes"]=len(raw)
+            rec["download_method"]=method
             rec["inspection"]=inspect_one(name,raw)
+            # Public Dryad CC0 research file is retained only as a named Actions
+            # artifact for independent scientific audit, not committed to Git.
+            namepath=Path(name).name
+            if namepath in (".","..") or not namepath:
+                raise RuntimeError("Invalid public source filename")
+            saved=outdir/"public_Dryad_original_CC0"
+            saved.mkdir(parents=True,exist_ok=True)
+            (saved/f"{m['name']}__{fileid}__{namepath}").write_bytes(raw)
         except Exception as ex:
             rec["error_type"]=type(ex).__name__
             rec["error_summary"]=str(ex)[:320]
@@ -177,12 +206,18 @@ def main():
     data=[]
     for s in sets:
         try:
-            outcome=one_set(s)
+            outcome=one_set(s,args.out)
         except Exception as e:
             outcome={"dataset":s["name"],"source_doi":s["doi"],"status":"SOURCE_ACCESS_STOP",
                      "error_type":type(e).__name__,"error_summary":str(e)[:450]}
         else:
-            outcome["status"]="SOURCE_FILE_SCHEMA_AUDIT_COMPLETED_NO_WWTP_OR_ECOLOGY_TEST"
+            file_ok=sum("actual_download_sha256" in f for f in outcome.get("published_files",[]))
+            if file_ok==len(outcome.get("published_files",[])) and file_ok>0:
+                outcome["status"]="PUBLIC_DRYAD_ORIGINAL_FILE_DATA_DICTIONARY_PASS_NO_WWTP_FIT"
+            elif file_ok>0:
+                outcome["status"]="PARTIAL_PUBLIC_FILE_ACCESS_NO_ECOLOGY_FIT"
+            else:
+                outcome["status"]="SOURCE_METADATA_ONLY_DOWNLOAD_AUTH_OR_ACCESS_STOP"
         data.append(outcome)
         print("DRYAD_EMERGENCE_SOURCE="+json.dumps(
            {"dataset":s["name"],"status":outcome["status"],
