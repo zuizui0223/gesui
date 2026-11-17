@@ -392,6 +392,14 @@ def run(a):
       "posthoc_not_independently_preregistered":True,
     }
 
+def source_json_default(value):
+    """Serialize numpy scalar provenance without changing statistical estimates."""
+    if isinstance(value,np.integer): return int(value)
+    if isinstance(value,np.floating): return float(value)
+    if isinstance(value,np.bool_): return bool(value)
+    if isinstance(value,np.ndarray): return value.tolist()
+    raise TypeError("Unrecognized source result type: "+str(type(value)))
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--self-test",action="store_true")
@@ -409,7 +417,7 @@ def main():
     a.output.mkdir(parents=True,exist_ok=True)
     result=run(a)
     out=a.output/"STRICT_162_HOST_MOIST_EU447_BETWEEN_WITHIN_GENUS_ADVERSARIAL.json"
-    out.write_text(json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
+    out.write_text(json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False,default=source_json_default)+"\n")
     focus={
        "status":result["status"],
        "source_strict_H7":result["source_pr119_original_2026_11_17_verification"]["strict_original_H7period"],
@@ -424,7 +432,7 @@ def main():
        "local_H6_gate":result["posthoc_original_multi_H7_within_H6_source_gate"]
     }
     print("GESUI_MOIST_GENUS_STRICT162_ORIGINAL_H7_RESULT="+json.dumps(
-       focus,sort_keys=True,ensure_ascii=False,allow_nan=False),flush=True)
+       focus,sort_keys=True,ensure_ascii=False,allow_nan=False,default=source_json_default),flush=True)
 
 if __name__=="__main__":
     main()
