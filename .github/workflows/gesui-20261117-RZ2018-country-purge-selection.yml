@@ -7,6 +7,12 @@ on:
       - 'analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py'
       - '.github/workflows/gesui-20261117-RZ2018-country-purge-selection.yml'
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py'
+      - '.github/workflows/gesui-20261117-RZ2018-country-purge-selection.yml'
 permissions:
   contents: read
   actions: read
