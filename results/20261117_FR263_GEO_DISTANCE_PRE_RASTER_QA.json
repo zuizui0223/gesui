@@ -1,0 +1,61 @@
+{
+  "schema": "GESUI_20261117_FR263_GEO_SOURCE_PRE_RASTER_SPATIAL_OVERLAP_V1",
+  "source_coordinates_csv": "https://github.com/zuizui0223/gesui/blob/analysis/gesui-20261117-onepaper-pathway-identification-decision/results/20261117_FR263_FIXED_ORIGINAL_EEA2022_STATION_COORDINATES_SOURCE_ONLY.csv",
+  "source_git_blob": "c6fbe903b63367fcc047341204d4350c92cf3767",
+  "original_eea2022_source_blob": "325f199e985d9862ffee5b0edb205c61a7be3833",
+  "n_sites": 263,
+  "unique_coords": 263,
+  "unique_reach_ids": 262,
+  "n_haversine_pairwise_comparisons": 34453,
+  "pair_proximity_km": {
+    "1": {
+      "n_site_pairs": 0,
+      "n_sites_involved": 0
+    },
+    "2": {
+      "n_site_pairs": 5,
+      "n_sites_involved": 10
+    },
+    "3": {
+      "n_site_pairs": 7,
+      "n_sites_involved": 14
+    },
+    "5": {
+      "n_site_pairs": 21,
+      "n_sites_involved": 41
+    },
+    "10": {
+      "n_site_pairs": 81,
+      "n_sites_involved": 108
+    },
+    "20": {
+      "n_site_pairs": 295,
+      "n_sites_involved": 218
+    },
+    "0.25": {
+      "n_site_pairs": 0,
+      "n_sites_involved": 0
+    },
+    "0.5": {
+      "n_site_pairs": 0,
+      "n_sites_involved": 0
+    }
+  },
+  "nearest_neighbor_km": {
+    "min": 1.1508536448579356,
+    "q25": 6.824308121299627,
+    "median": 10.803245801185238,
+    "q75": 17.1640740264685,
+    "max": 61.644126061234985
+  },
+  "same_HYRIV_ID_pairs": [
+    {
+      "site1": "FR|FRFR05097000|euMonitoringSiteCode",
+      "site2": "FR|FRFR05097200|euMonitoringSiteCode",
+      "river": "20503419",
+      "km": 1.2160664838813908
+    }
+  ],
+  "geometry_note": "Areal geodesic centroid proximity is not a hydrologic flow-path distance, nor proof of overlap of local fixed along-reach vegetation masks. Use the actual HydroRIVERS polyline before buffer/pixel analysis.",
+  "ecological_effect_not_evaluated": true
+}

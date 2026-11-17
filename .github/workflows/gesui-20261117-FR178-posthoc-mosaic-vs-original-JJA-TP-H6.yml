@@ -1,0 +1,72 @@
+name: gesui FR178 POSTHOC original 2scene S2 mosaic versus measured TP source-gated H6 analysis
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-onepaper-pathway-identification-decision
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_POSTHOC_2scene_mosaic_vs_real_JJA_TP_H6.py'
+      - '.github/workflows/gesui-20261117-FR178-posthoc-mosaic-vs-original-JJA-TP-H6.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_POSTHOC_2scene_mosaic_vs_real_JJA_TP_H6.py'
+      - '.github/workflows/gesui-20261117-FR178-posthoc-mosaic-vs-original-JJA-TP-H6.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  after_strict_source_gate_posthoc_true_riverline_ndvi_vs_real_river_TP:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original statistical dependencies
+        run: python -m pip install --quiet numpy scipy scikit-learn
+      - name: Read all 4 signed source-only mosaic shards from original complete action, not ecological fit
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 44018628546
+          pattern: gesui-20261117-FR178-2scene-mosaic-source-only-shard-*
+          merge-multiple: true
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/mosaic_source_all178
+      - name: Read old SHA fixed original 263 physical water stations and H7 source covariates
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43373639391
+          name: gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_FR263_water_numeric
+      - name: Recover immutable published actual datewise water TP.2 source by SHA (not WWTP load)
+        shell: bash
+        run: |
+          curl --fail --location --show-error --silent --retry 3 --max-time 150 \
+            'https://ndownloader.figshare.com/files/70896288' \
+            --output '${{ runner.temp }}/Peters_TP2_source_authentic.zip'
+          echo '26f2af11f4972987ee6f7c3f497ad902820f145851f71919d4f45b589e1d809e  ${{ runner.temp }}/Peters_TP2_source_authentic.zip' | sha256sum --check -
+      - name: First check independent source 120/40/15 without loading any aquatic magnitudes; if GO fit only exploratory true same-month TP×NDVI with H6 holdout
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr178_POSTHOC_2scene_mosaic_vs_real_JJA_TP_H6.py
+          python -u analysis/20261117_FR263_riverland/fr178_POSTHOC_2scene_mosaic_vs_real_JJA_TP_H6.py \
+            --pixel-dir '${{ runner.temp }}/mosaic_source_all178' \
+            --original-TP '${{ runner.temp }}/Peters_TP2_source_authentic.zip' \
+            --aquatic '${{ runner.temp }}/original_FR263_water_numeric/FR263_SAME_PHYSICAL_STATION_2018_2022_REAL_TP_AND_EEA_EQR.csv' \
+            --h7 '${{ runner.temp }}/original_FR263_water_numeric/FR73_HYBAS7_NATIVE_2018_2022_REAL_TP_I2M2_EQR_AND_GBIF_INDEX_DELTA.csv' \
+            --out '${{ runner.temp }}/fr178_posthoc_mosaic_waterland_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR178-posthoc-original-2scene-mosaic-JJA-realTP-H6sourcefit
+          path: '${{ runner.temp }}/fr178_posthoc_mosaic_waterland_QA/'
+          retention-days: 90
+          if-no-files-found: warn

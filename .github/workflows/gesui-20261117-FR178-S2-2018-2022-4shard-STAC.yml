@@ -1,0 +1,53 @@
+name: gesui FR178 2018 and 2022 original Sentinel2 scenes 4 H6 shards source only
+on:
+  push:
+    branches: [analysis/gesui-20261117-onepaper-pathway-identification-decision]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_source_4shard.py'
+      - '.github/workflows/gesui-20261117-FR178-S2-2018-2022-4shard-STAC.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_source_4shard.py'
+      - '.github/workflows/gesui-20261117-FR178-S2-2018-2022-4shard-STAC.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_original_frozen_FR178_24months:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0,1,2,3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Python original STAC source API dependencies
+        run: python -m pip install --quiet requests "shapely>=2"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44011319062
+          name: gesui-20261117-FR178-original-riverline-JJA-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_FR178_frozen
+      - name: Original SHA verified exact fixed FR178 H6-sharded authentic Sentinel2 2018+2022 metadata, no ecological outcomes
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_source_4shard.py
+          python -u analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_source_4shard.py \
+            --source '${{ runner.temp }}/original_FR178_frozen/FR178_FIXED_NO_SATELLITE_OUTCOME_STATIONS.csv' \
+            --shard ${{ matrix.shard }} \
+            --out '${{ runner.temp }}/FR178_STAC_shard'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR178-true-reach-2018-2022-original-S2-scene-shard-${{ matrix.shard }}
+          path: '${{ runner.temp }}/FR178_STAC_shard/'
+          retention-days: 90
+          if-no-files-found: warn

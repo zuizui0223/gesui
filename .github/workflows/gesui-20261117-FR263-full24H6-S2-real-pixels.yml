@@ -1,0 +1,55 @@
+name: gesui FR263 full24 H6 original 2018/2022 10m cloudfree riverbank S2 source
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-onepaper-pathway-identification-decision
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_full24H6_pixel_QA.py'
+      - '.github/workflows/gesui-20261117-FR263-full24H6-S2-real-pixels.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_full24H6_pixel_QA.py'
+      - '.github/workflows/gesui-20261117-FR263-full24H6-S2-real-pixels.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  true_2018_2022_S2_L2A_24H6_all_original_monthmatched_pixels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source public 10m Sentinel2 original window dependencies
+        run: python -m pip install --quiet numpy "rasterio>=1.4,<2" "pyproj>=3,<4"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44008867555
+          name: gesui-20261117-FR263-24H6-2018-2022-S2-metadata-only-QA
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_24H6_STAC_source
+      - name: Original source-locked true 24 parent basins same-month 2018+2022 NDVI pixel QA, no river ecology
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_full24H6_pixel_QA.py
+          python -u analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_full24H6_pixel_QA.py \
+            --stac '${{ runner.temp }}/original_24H6_STAC_source/FR263_24H6_S2_2018_2022_ORIGINAL_STAC_METADATA_SOURCE_QA.json' \
+            --out '${{ runner.temp }}/FR263_original_24H6_fullS2_pixel_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR263-original-full24H6-2018-2022-real-S2-pixels
+          path: '${{ runner.temp }}/FR263_original_24H6_fullS2_pixel_QA/'
+          retention-days: 90
+          if-no-files-found: warn

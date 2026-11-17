@@ -1,0 +1,68 @@
+name: gesui FR178 real 2018+2022 S2 original 10m pixel distance from true river line
+on:
+  push:
+    branches: [analysis/gesui-20261117-onepaper-pathway-identification-decision]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_TRUE_line_2018_2022_original_S2_pixel_qa.py'
+      - '.github/workflows/gesui-20261117-FR178-true-line-S2-real-4shard-pixels.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_TRUE_line_2018_2022_original_S2_pixel_qa.py'
+      - '.github/workflows/gesui-20261117-FR178-true-line-S2-real-4shard-pixels.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  authentic_source_original_2018_2022_true_riverline_distance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0,1,2,3]
+    env:
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install authentic source river geometry and true optical raster pixel tools
+        run: python -m pip install --quiet numpy pandas "shapely>=2,<3" pyproj pyarrow geopandas "rasterio>=1.4,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44011565175
+          name: gesui-20261117-FR178-true-reach-2018-2022-original-S2-scene-shard-${{ matrix.shard }}
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_FR178_STAC
+      - name: Obtain independently SHA-pinned v1 third-party original true riverline source, not the official unavailable ZIP
+        shell: bash
+        run: |
+          mkdir -p '${{ runner.temp }}/source_rivers'
+          curl --fail --location --show-error --silent --retry 3 --max-time 350 \
+            'https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet' \
+            --output '${{ runner.temp }}/source_rivers/HydroRIVERS_v10_eu.geoparquet'
+          echo '5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  ${{ runner.temp }}/source_rivers/HydroRIVERS_v10_eu.geoparquet' | sha256sum --check -
+      - name: True original physically observed 2018 and 2022 S2 pixels at 4 riverline lateral distances, no biology read
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr178_TRUE_line_2018_2022_original_S2_pixel_qa.py
+          python -u analysis/20261117_FR263_riverland/fr178_TRUE_line_2018_2022_original_S2_pixel_qa.py \
+            --stac '${{ runner.temp }}/original_FR178_STAC/FR178_ORIGINAL_STAC_2018_2022_SHARD${{ matrix.shard }}.json' \
+            --rivers '${{ runner.temp }}/source_rivers/HydroRIVERS_v10_eu.geoparquet' \
+            --out '${{ runner.temp }}/original_FR178_true_riverline_pixel_shard'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR178-original-2018-2022-true-riverline-real-S2-pixels-shard-${{ matrix.shard }}
+          path: '${{ runner.temp }}/original_FR178_true_riverline_pixel_shard/'
+          retention-days: 90
+          if-no-files-found: warn
