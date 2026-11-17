@@ -1,0 +1,66 @@
+name: gesui FR fixed 24 H6 original Figshare 2018+2022 summer same-month river TP source
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-onepaper-pathway-identification-decision
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr24H6_2018_2022_original_Figshare_summer_TP_monthly_source.py'
+      - '.github/workflows/gesui-20261117-FR24H6-summer-2018-2022-original-TP.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr24H6_2018_2022_original_Figshare_summer_TP_monthly_source.py'
+      - '.github/workflows/gesui-20261117-FR24H6-summer-2018-2022-original-TP.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_real_datewise_TP_June_July_August_2018_and_2022:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44008867555
+          name: gesui-20261117-FR263-24H6-2018-2022-S2-metadata-only-QA
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original24_S2_sites
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43373061409
+          name: gesui-FR2018-22-realTP-I2M2-same-263-site-date-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original263_TP_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43373639391
+          name: gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original263_numeric_TP
+      - name: Source-sha original true datewise Figshare TP JJA across 24 S2 stations without using land outcomes
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr24H6_2018_2022_original_Figshare_summer_TP_monthly_source.py
+          python -u analysis/20261117_FR263_riverland/fr24H6_2018_2022_original_Figshare_summer_TP_monthly_source.py \
+            --stac '${{ runner.temp }}/original24_S2_sites/FR263_24H6_S2_2018_2022_ORIGINAL_STAC_METADATA_SOURCE_QA.json' \
+            --datesource '${{ runner.temp }}/original263_TP_source/FR2018_2022_TRUE_TP_I2M2_SOURCE_ONLY_STATION_DATES_ELIGIBLE.json' \
+            --original-number '${{ runner.temp }}/original263_numeric_TP/FR263_SAME_PHYSICAL_STATION_2018_2022_REAL_TP_AND_EEA_EQR.csv' \
+            --output '${{ runner.temp }}/FR24H6_original_JJA_TP_months'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR24H6-original-Figshare-JJA-2018-2022-monthmatched-TP
+          path: '${{ runner.temp }}/FR24H6_original_JJA_TP_months/'
+          retention-days: 90
+          if-no-files-found: warn
