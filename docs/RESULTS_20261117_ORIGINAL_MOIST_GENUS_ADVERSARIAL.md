@@ -1,0 +1,40 @@
+# 2026-11-17 | 原本真正162種・欧州447 H7期間：植物MOISTの属間/属内分解とラベル帰無
+
+**NEW NUMERIC RESULT — genuine original-source GitHub Actions PASS. Exploratory/posthoc observational test, *not* an independently preregistered confirmatory result or WWTP causal/physical water–land pathway.**
+
+## Verified primary source and receipt
+- [Full successful original 2026-11-17 strict moisture genus Action **#44001877123**](https://github.com/zuizui0223/gesui/actions/runs/44001877123): job source acquisition, 2023 official EIV 8,908-row SHA, original strict HOSTs, authentic GBIF 2,808 facets, n447/89 source-gates and original benchmark reproduction all completed. Artifact **14293081054** (`gesui-20261117-plant-MOIST-between-within-genus-strict162-H7-source`), original ZIP SHA256 verified **`a3b4ce1f18620aa619eb697bb28b323fe00878237fe8c03fb74a2277cad6d90d`**. Signed artifact holds full original-source QA, source covariates, model result summaries and fixed H6 error diagnostics; **no original third-party EIV raw dataset** is committed or redistributed.
+- Original original **11,511** GBIF speciesKey crosswalk and **4,011** exact NUTRI-eligible accepted vascular species; precisely **3,722** had published EIV nutrient+moisture scores on the identical species, comprising **935 accepted genera** (503 multispecies genera, 488 with variable numeric MOIST, 3,290 scored plant species exchangeable within-genus). Strict butterfly score is based on **162 species** with original 2014 same actual documented HOST-species N+MOIST; not currently observed feeding.
+- Original 454 H7×period source panel -> unchanged pair eligible **447 H7×period / 89 original H6 parents**. Plant N/F community scores reproduced from original 2808 GBIF speciesKey facets to max absolute **8.88e−15 (N)** and **1.33e−14 (F)**. Original PR119 source partial regression **β=+0.1335704237** and true H6-heldout fivefold MSE improvement **+22.00496962%** both faithfully reproduced. Genus decomposed components reconstruct same plant F score to **7.11e−15** max abs. No source/site selection based on fitted effects.
+
+## Primary NEW genus-aware heldout comparisons (same outcome and original covariates)
+
+Outcome is the true published same-host 162 butterfly taxon incidence-weighted larval-host **MOIST affinity** in the original GBIF species recording composition. The original BASE includes source W/urban/crop/geography/flow/effort/trait support, source host N, plant N, country×method and period. This is **not** actual insect abundance/feeding, plant growth or riverbank nutrient exchange.
+
+| Added predictor | New true-parent H6 outside fivefold Ridge10 MSE gain | Fixed-out-of-fold H6 error resampling, descriptive 95% |
+|---|---:|---|
+| Entire original plant-community MOIST (replayed source comparator) | **+22.005%** | original PR119 [+8.68,+34.19]% |
+| **Between-genus MOIST** = unweighted scored-species source genus mean, then community CWM | **+18.74034%** | **[+3.807,+31.438]%** |
+| **Within-genus MOIST** = species MOIST minus its accepted-genus mean, **AFTER between-genus model** | **+3.53702%** | **[−2.986,+9.330]%** |
+
+These added gains are sequential, not fractions of the total 22.005% and must not be summed. Original baseline H6-equal loss 0.02214581129; between-genus source loss 0.01799561089; between+within source loss 0.01735910269. Independently verified `100×(1−MSEnew/MSEbase)` recovers both gains to machine precision.
+
+Original source WLS H6-cluster **joint** between-genus coefficient per 1SD between MOIST **+0.08932489**, descriptive95 [+0.04720,+0.13145], within-genus coefficient per 1SD within MOIST **+0.05035692**, descriptive95 [+0.00927,+0.09144]. **Do not cherry-pick** nominal in-cohort WLS within-significance when actual heldout H6 within-added 95 interval includes zero. Original adjusted in-sample H6-weighted SSE: between alone +20.277% from baseline, within-after-between +2.324% of remaining error; in-sample improvement does not establish out-of-region transfer. Plant MOIST total site SD .489745, between .349804, within .154460; component-standardized coefficients cannot be arithmetically added.
+
+## NEW two conditional trait-label falsifiers (frozen seed, true species matrix and original covariates)
+- Original **observed H6-weighted covariate-adjusted partial r=+0.4698572** for full source plant MOIST ↔ butterfly strict-host MOIST.
+- Global across ALL 3,722 species original MOIST labels, **999** draws, fixed GBIF taxon/community incidence and outcome: null mean +0.00190; 2.5–97.5% [−0.23203,+0.22571], **positive-tail Monte Carlo p=0.001**. Strong signal relative to arbitrary global trait assignability, but genus structure is not controlled.
+- **Within SAME accepted genus** MOIST label shuffles only, **4,999** draws, genus means fixed: null mean **+0.437482**, 2.5–97.5% **[+0.39354,+0.47886]**, observed +0.469857. **Positive-tail Monte Carlo p=0.0678**; median-centered *two-sided descriptive* tail **0.1494**. Therefore the observed spatial partial r lies **within** the 95% genus-preserving null range. This does not refute all within-genus ecological effects but fails the preregistered *conditional-label* support for an independently detectable within-genus species-trait alignment.
+- This is *posthoc* and shares the EIV trait reference across the botanical and butterfly-host indices, so it does not provide independent host-plant feeding evidence, phylogenetic independence or treatment causality.
+
+## Spatial source gate: original H6 local contrast STOP remains
+- Original strict 447 H7period supported **89 true H6**. Of them, only **33** contain ≥2 distinct observed H7 watersheds, below fixed minimum **40**. Hence **NO within-H6 fixed-effect local spatial genus comparison was fitted**. The pattern remains geographically broad and may be driven by genus replacement, climate, land use or floral bio-geography.
+- The original strict period-change check had **216 repeated H7**, butterfly ΔhostF vs plant ΔF Spearman about **+0.0502** and vs aquatic EQR about **−0.0594**. No synchronized community cochange shown.
+- Original Australia/European monitoring-site distinction is retained: EEA original actual Austria67 2022 TP/EQR/WWTP indices are a DIFFERENT physical response population from the EU447 butterfly/plant H7, and prior 2022 same-river natural-land Sentinel NDVI technical smoke **5/10 < preregistered 6/10 remains STOP**.
+
+## Scientific and publication decision
+The newly verified observational result supports **genus-level community sorting as a major explanation** of botanical MOIST ↔ butterfly host MOIST spatial alignment. There is **no robust H6-out extra prediction from within-genus plant MOIST** and the genus-preserving label null reaches the observed correlation with one-sided p=.0678. Original plant nutrient-genus falsifier (PR105) similarly found weak within-genus evidence for the *different NUTRI score* but cannot be called an independent moisture replication.
+
+**Downgrade the causal interpretation**: do not write that wastewater increases butterflies by improving larval hosts, do not call it a sewage-supported food-web subsidy, and do not draw `EQR→plants→butterflies` as a measured causal chain. The most defensible paper path is first a rigorous **aquatic source/flow/landcover→benthic condition observational** analysis, while this botanical–butterfly trait result is a distinct *assemblage-composition* finding. A truly unified cross-boundary mechanism article needs same original outfall-year/riverbank physical connectivity, measured local vegetation, emergent aquatic insects/spider tracer or actual butterfly feeding; none of those were added in this run.
+
+**Reproducible script:** `analysis/20261117_moist_genus/strict_moist_genus_falsifier.py`; protocol `docs/PROTOCOL_20261117_MOISTURE_GENUS_COMPONENT_SOURCE_GATES.md`; workflow `.github/workflows/gesui-20261117-strict-mois-genus-falsifier.yml`. First run failed **only JSON serialization** after computing result; current successful run updates NumPy scalar JSON serialization, **no source gates, biological model, sample, seed, shuffles, or hypothesis changed**. Keep Draft, no main/chocho edit.
