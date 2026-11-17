@@ -1,0 +1,48 @@
+name: gesui 20261117 genuine Bow River WWTP 2022 isotopes aquatic larvae adults spiders exact site-level QA
+on:
+  push:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - 'analysis/20261117_emergence_macro_source/bow_2022_isotope_site_level_3up_2down_exact_perm.py'
+      - '.github/workflows/gesui-20261117-Bow-River-2022-site-isotope-numeric.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/bow_2022_isotope_site_level_3up_2down_exact_perm.py'
+      - '.github/workflows/gesui-20261117-Bow-River-2022-site-isotope-numeric.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_author_original_isotopes_3up_2down_five_site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Clone genuine public original author's 2022 aquatic insect-spider isotope source, freeze commit
+        shell: bash
+        run: |
+          git clone --depth 1 'https://github.com/Karen-Kidd-Lab-Ecotoxicology/Bow-River-Microbiome-2022.git' '${{ runner.temp }}/genuine_bow_author_source'
+          cd '${{ runner.temp }}/genuine_bow_author_source'
+          if [ "$(git rev-parse HEAD)" != "32b36abfcf31117ac1bd9d7f3fdbc17cdcedd795" ]; then
+            git fetch --depth 1 origin 32b36abfcf31117ac1bd9d7f3fdbc17cdcedd795
+            git checkout --detach 32b36abfcf31117ac1bd9d7f3fdbc17cdcedd795
+          fi
+          test "$(git rev-parse HEAD)" = "32b36abfcf31117ac1bd9d7f3fdbc17cdcedd795"
+      - name: Compile source-locked original 184 stable-isotope specimen, 380 microbiome metadata, five site and taxon-preserving exact comparison
+        run: |
+          python -m py_compile analysis/20261117_emergence_macro_source/bow_2022_isotope_site_level_3up_2down_exact_perm.py
+          python -u analysis/20261117_emergence_macro_source/bow_2022_isotope_site_level_3up_2down_exact_perm.py \
+            --original '${{ runner.temp }}/genuine_bow_author_source' \
+            --out '${{ runner.temp }}/genuine_Bow5_site_level_source_isotopes'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-genuine-Bow-2022-five-site-insects-spiders-isotope-source-level
+          path: '${{ runner.temp }}/genuine_Bow5_site_level_source_isotopes/'
+          retention-days: 90
+          if-no-files-found: warn
