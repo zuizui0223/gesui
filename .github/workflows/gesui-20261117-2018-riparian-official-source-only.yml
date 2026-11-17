@@ -1,0 +1,43 @@
+name: gesui original EEA2018 river benthos sites × Copernicus RZ2018 official source-only source gate
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-2018-riparian-official-common-site-source
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_original_riparian_lclu_source_pilot.py'
+      - '.github/workflows/gesui-20261117-2018-riparian-official-source-only.yml'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_original_riparian_lclu_source_pilot.py'
+      - '.github/workflows/gesui-20261117-2018-riparian-official-source-only.yml'
+permissions:
+  contents: read
+jobs:
+  source_official_2018_LCLU_without_biotic_response:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original public RZ2018 vector area calculation and HTTP libraries
+        run: python -m pip install --quiet requests "shapely>=2,<3" "pyproj>=3,<4"
+      - name: Audit 2018 original source-only 2639 EEA benthic sites and objective public RZ2018 riverland cover-class area pilot at fixed two sites/country
+        run: |
+          python -m py_compile analysis/20261117_RZ2018/eea2018_original_riparian_lclu_source_pilot.py
+          python -u analysis/20261117_RZ2018/eea2018_original_riparian_lclu_source_pilot.py \
+            --output '${{ runner.temp }}/source_RZ2018_EEA_2018_riverbank'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-EEA2018-verified-benthic-water-station-RiparianZones2018-source
+          path: '${{ runner.temp }}/source_RZ2018_EEA_2018_riverbank/'
+          retention-days: 90
+          if-no-files-found: warn
