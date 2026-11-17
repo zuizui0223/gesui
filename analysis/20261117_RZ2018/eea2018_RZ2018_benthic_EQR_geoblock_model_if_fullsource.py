@@ -74,9 +74,15 @@ def source_frame(path):
         raise RuntimeError("Original full physical 2018 census source did not return all stations")
     valid=[x for x in r if x["source_near_outer_0p70_eligible"]]
     rows=[]
+    original_riverbank_area_failure=[]
     for x in valid:
-        n=hindex(x["source_Level1_class_area_frac_of_entire_near250m_circle"])
-        o=hindex(x["source_Level1_class_area_frac_of_entire_outer250to500m_ring"])
+        try:
+            n=hindex(x["source_Level1_class_area_frac_of_entire_near250m_circle"])
+            o=hindex(x["source_Level1_class_area_frac_of_entire_outer250to500m_ring"])
+        except ValueError as exc:
+            original_riverbank_area_failure.append({
+                "site_key":x["site_key"],"source_exclusion_reason":str(exc)})
+            continue
         rows.append({"site_key":x["site_key"],
                      "RZOriginalCountry":x["country"],
                      "RZOriginal3DegreeBlock":x["source_original_region_3deg"],
@@ -85,6 +91,13 @@ def source_frame(path):
                      "NaturalNearMinusFar":n["natural"]-o["natural"],
                      "UrbanFar":o["urban"],"CropFar":o["cropland"],
                      "NaturalNearAndFarMappedTerrestrialAreaPass":True})
+    data["new_additional_preoutcome_terrestrial_land_area_exclusion"]={
+       "frozen_land_min_10pct_two_rings":True,
+       "source_986_at_least70pct_classified_ring_sites":len(valid),
+       "source_no_terrestrial_area_in_both_rings":len(original_riverbank_area_failure),
+       "source_eligible_for_land_class_fraction":len(rows),
+       "technical_missing_sites_not_imputed_as_zero":True,
+       "not_selected_on_original_EQR_or_predictive_effect":True}
     return pd.DataFrame(rows),data
 
 def source_eqr():
@@ -195,6 +208,11 @@ def cv(frame,outcome,models=MODELS):
 
 def run(a):
     land,qa=source_frame(a.source_json)
+    # Pre-response source-only land support, unchanged minimum counts
+    if (len(land)<200 or land.RZOriginalCountry.nunique()<6 or
+        land.RZOriginal3DegreeBlock.nunique()<10 or
+        int(land.OriginalUpPReported.sum())<20):
+        raise RuntimeError("Pre-EQR mapped terrestrial area sample source STOP")
     E,source=source_eqr()
     joined=E.merge(land,on="site_key",how="inner",validate="one_to_one")
     if len(joined)<200 or joined.countryCode.nunique()<6 or joined.region_3deg_block.nunique()<10:
@@ -219,6 +237,8 @@ def run(a):
             "original_EEA2018_EQR_SHA256":ORIG_EQR,
             "original_EEA2018_preoutcome_source_SHA256":ORIG_SOURCE,
             "external_2018_RZ_source_status":qa["status"],
+            "source_terrestrial_area_exclusions":
+                qa["new_additional_preoutcome_terrestrial_land_area_exclusion"],
             "original_river_benthic_real_numeric_EQR_population":len(E),
             "original_full_2018_RZ_EEA_source_only_2639":2639,
             "eligible_LCLU_with_2018_same_site_real_EQR":len(joined),
