@@ -1,0 +1,42 @@
+name: gesui HBEF genuine 8-stream 2018–24 aquatic emergence and streamchem source QA
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/hubbard_edi_original_emergence_streamchem_source_gate.py'
+      - '.github/workflows/gesui-20261117-Hubbard-EDI-8stream-emergence-chem-source.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/hubbard_edi_original_emergence_streamchem_source_gate.py'
+      - '.github/workflows/gesui-20261117-Hubbard-EDI-8stream-emergence-chem-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_two_public_EDI_packages_source_before_ecological_model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    strategy:
+      fail-fast: false
+      matrix:
+        dataset: [emergence,chemistry]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source-only original EDI source metadata and entity check
+        run: python -m py_compile analysis/20261117_emergence_macro_source/hubbard_edi_original_emergence_streamchem_source_gate.py
+      - name: Real original EDI immutable data entity key/year/site column inspection, no statistical effect
+        run: |
+          python -u analysis/20261117_emergence_macro_source/hubbard_edi_original_emergence_streamchem_source_gate.py \
+            --dataset ${{ matrix.dataset }} \
+            --out '${{ runner.temp }}/hbef_emergence_chem_source_only'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-HBEF-original-EDI-emergence-and-water-source-${{ matrix.dataset }}
+          path: '${{ runner.temp }}/hbef_emergence_chem_source_only/'
+          retention-days: 90
+          if-no-files-found: warn
