@@ -126,6 +126,12 @@ def one_scene(scene,site,segment):
             idx=(d>lower)&(d<=upper)
             bands[key]={"n_valid_source_pixels":int(idx.sum()),"class_pixel_counts":{
                str(k):int(((wc[yi,xi]==k)&idx).sum()) for k in NATURAL}}
+        # Require original prespecified source support in ALL FOUR river-distance
+        # bands, not only the near/far contrast. This gate uses pixel support,
+        # never TP/EQR or directional NDVI effects.
+        if any(v["n_valid_source_pixels"]<BAND_MIN_NATURAL for v in bands.values()):
+            return {"pixel_source_pass":False,"reason":"original_any_of_four_river_distance_bands_under_100_valid_pixels",
+                    "distance_band_source_counts":bands}
         near=(d>20)&(d<=100)
         far=(d>500)&(d<=1000)
         if min(int(near.sum()),int(far.sum()))<BAND_MIN_NATURAL:
