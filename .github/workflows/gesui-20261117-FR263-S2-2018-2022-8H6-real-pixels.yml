@@ -1,0 +1,55 @@
+name: gesui FR263 2018 2022 real S2 8H6 matched natural-cover 10m pixel smoke
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-onepaper-pathway-identification-decision
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_8H6_original_pixel_smoke.py'
+      - '.github/workflows/gesui-20261117-FR263-S2-2018-2022-8H6-real-pixels.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_8H6_original_pixel_smoke.py'
+      - '.github/workflows/gesui-20261117-FR263-S2-2018-2022-8H6-real-pixels.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  real_S2_L2A_Red_NIR_SCL_original_pixel_source_8H6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install authentic public image window and physical reflectance dependencies
+        run: python -m pip install --quiet numpy "rasterio>=1.4,<2" "pyproj>=3,<4"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44008867555
+          name: gesui-20261117-FR263-24H6-2018-2022-S2-metadata-only-QA
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_FR263_24H6_STAC_source
+      - name: True real original 2018 and 2022 red nir SCL, ESA WorldCover 2021 static class, no river ecology values
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_8H6_original_pixel_smoke.py
+          python -u analysis/20261117_FR263_riverland/fr263_2018_2022_S2_COG_8H6_original_pixel_smoke.py \
+            --stac '${{ runner.temp }}/original_FR263_24H6_STAC_source/FR263_24H6_S2_2018_2022_ORIGINAL_STAC_METADATA_SOURCE_QA.json' \
+            --out '${{ runner.temp }}/FR263_true_original_8H6_S2_pixel_smoke'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR263-real-2018-2022-S2-8H6-WorldCover-matched-pixel-QA
+          path: '${{ runner.temp }}/FR263_true_original_8H6_S2_pixel_smoke/'
+          retention-days: 90
+          if-no-files-found: warn
