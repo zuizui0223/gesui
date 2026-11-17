@@ -7,6 +7,12 @@ on:
       - 'analysis/20261117_moist_genus/strict_moist_genus_falsifier.py'
       - '.github/workflows/gesui-20261117-strict-mois-genus-falsifier.yml'
   workflow_dispatch:
+  pull_request:
+    branches:
+      - analysis/gesui-20261117-butterfly-host-moisture-source-gate
+    paths:
+      - 'analysis/20261117_moist_genus/strict_moist_genus_falsifier.py'
+      - '.github/workflows/gesui-20261117-strict-mois-genus-falsifier.yml'
 permissions:
   contents: read
   actions: read
