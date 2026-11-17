@@ -127,7 +127,7 @@ def one_set(m):
     ranked=[]
     for v in version_records:
         href=str(v.get("_links",{}).get("self",{}).get("href",""))
-        hit=re.search(r"/versions/(\\d+)(?:$|[?])",href)
+        hit=re.search(r"/versions/(\d+)(?:$|[?])",href)
         if hit:
             ranked.append((int(v.get("versionNumber",0) or 0),
                            int(hit.group(1)),v))
@@ -143,7 +143,7 @@ def one_set(m):
     outputs=[]
     for f in files:
         selfhref=str(f.get("_links",{}).get("self",{}).get("href",""))
-        hit=re.search(r"/files/(\\d+)(?:$|[?])",selfhref)
+        hit=re.search(r"/files/(\d+)(?:$|[?])",selfhref)
         fileid=int(hit.group(1)) if hit else f.get("id")
         name=str(f.get("path") or f.get("filename") or f.get("name") or "")
         size=f.get("size") or f.get("fileSize") or f.get("sizeInBytes") or 0
