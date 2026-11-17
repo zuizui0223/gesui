@@ -1,0 +1,55 @@
+name: gesui FR263 original HydroRIVERS riverline source-only geometry
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-onepaper-pathway-identification-decision
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_true_hydrorivers_geometry_qa.py'
+      - '.github/workflows/gesui-20261117-FR263-official-HydroRIVERS-geometry-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_hydrorivers_same_station_geometry_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source GIS dependencies
+        run: python -m pip install --quiet "numpy<3" pandas pyogrio "geopandas>=0.14" "shapely>=2" pyproj
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43373061409
+          name: gesui-FR2018-22-realTP-I2M2-same-263-site-date-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original263-date-source
+      - name: Download official source-authenticated HydroRIVERS v1 Europe, no nutrient outcomes
+        shell: bash
+        run: |
+          curl --fail --location --show-error --silent --retry 3 --retry-delay 2 \
+             'https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_eu_shp.zip' \
+             --output '${{ runner.temp }}/HydroRIVERS_v10_eu_shp.zip'
+          echo '500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5  '${{ runner.temp }}/HydroRIVERS_v10_eu_shp.zip' | sha256sum --check -
+      - name: Match 263 exact original field stations to unaltered official river reach and 500m channel
+        run: |
+          python -u analysis/20261117_FR263_riverland/fr263_true_hydrorivers_geometry_qa.py \
+            --geo results/20261117_FR263_FIXED_ORIGINAL_EEA2022_STATION_COORDINATES_SOURCE_ONLY.csv \
+            --datesource '${{ runner.temp }}/original263-date-source/FR2018_2022_TRUE_TP_I2M2_SOURCE_ONLY_STATION_DATES_ELIGIBLE.json' \
+            --hydrorivers '${{ runner.temp }}/HydroRIVERS_v10_eu_shp.zip' \
+            --out '${{ runner.temp }}/FR263_hydrorivers_source_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR263-original-HydroRIVERS-true-reach-source-QA
+          path: '${{ runner.temp }}/FR263_hydrorivers_source_QA/'
+          if-no-files-found: warn
+          retention-days: 90
