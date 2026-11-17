@@ -1,0 +1,44 @@
+name: gesui AT67 same-2022 actual water site Copernicus HRVPP TPROD source-only gate
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-AT67-2022-HRVPP-common-station
+    paths:
+      - 'analysis/20261117_AT67_HRVPP/hrvpp_2022_official_public_source_probe.py'
+      - '.github/workflows/gesui-20261117-AT67-2022-HRVPP-source-probe.yml'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - analysis/gesui-20261116-AT67-same-riverbank-S2-landgreenness
+    paths:
+      - 'analysis/20261117_AT67_HRVPP/hrvpp_2022_official_public_source_probe.py'
+      - '.github/workflows/gesui-20261117-AT67-2022-HRVPP-source-probe.yml'
+permissions:
+  contents: read
+jobs:
+  source_2022_official_HRVPP_no_biological_result:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original site-source dependencies (no remote raster modelling)
+        run: python -m pip install --quiet numpy scipy requests
+      - name: Rebuild original true Austria67 river TP / benthos site sample and probe authoritative 2022 10m CLMS HRVPP metadata and first TIFF header only
+        run: |
+          python -m py_compile analysis/20261117_AT67_HRVPP/hrvpp_2022_official_public_source_probe.py
+          python -u analysis/20261117_AT67_HRVPP/hrvpp_2022_official_public_source_probe.py \
+            --output '${{ runner.temp }}/AT67_HRVPP_2022_public_original_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-AT67-2022-HRVPP-10m-TPROD-public-source-only
+          path: '${{ runner.temp }}/AT67_HRVPP_2022_public_original_source/'
+          retention-days: 90
+          if-no-files-found: warn
