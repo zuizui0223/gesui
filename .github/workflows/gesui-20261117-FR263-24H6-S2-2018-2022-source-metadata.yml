@@ -6,6 +6,12 @@ on:
     paths:
       - 'analysis/20261117_FR263_riverland/fr263_s2_2018_2022_stac_24h6_source_pilot.py'
       - '.github/workflows/gesui-20261117-FR263-24H6-S2-2018-2022-source-metadata.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_s2_2018_2022_stac_24h6_source_pilot.py'
+      - '.github/workflows/gesui-20261117-FR263-24H6-S2-2018-2022-source-metadata.yml'
   workflow_dispatch:
 permissions:
   contents: read
