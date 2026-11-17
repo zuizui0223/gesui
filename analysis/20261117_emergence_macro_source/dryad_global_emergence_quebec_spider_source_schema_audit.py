@@ -7,7 +7,7 @@ No ecological effect testing, no wastewater join, no ecological conclusions.
 Only published source records/columns/completeness and candidate matching keys.
 """
 from __future__ import annotations
-import argparse,collections,csv,hashlib,io,json,os,time,urllib.error,urllib.parse,urllib.request,zipfile
+import argparse,collections,csv,hashlib,io,json,os,re,time,urllib.error,urllib.parse,urllib.request,zipfile
 from pathlib import Path
 
 SETS=[
@@ -119,30 +119,32 @@ def one_set(m):
     api=BASE+"/datasets/"+enc
     dataset=js(api)
     versions=js(api+"/versions")
-    # Published REST provider versions change shape; log public HAL metadata
-    # before attempting a version/file download. No ecology magnitudes.
-    print("DRYAD_PUBLIC_VERSION_RESPONSE="+json.dumps({
-        "dataset":m["name"],
-        "version_response":versions,
-        "dataset_api_links":dataset.get("_links",{}),
-        "dataset_keys":list(dataset.keys())},ensure_ascii=False)[:7000],flush=True)
-    candidates=file_list(versions)
-    ranked=[v for v in candidates if isinstance(v.get("id"),int)]
-    if not ranked:
-        # Dryad version metadata may be linked from the dataset or latestVersion
-        for k in ("latestVersion","versionNumber","id"):
-            if isinstance(dataset.get(k),int):
-                ranked=[{"id":dataset[k],"versionNumber":dataset.get("versionNumber",0)}]
-                break
-    if not ranked:raise RuntimeError("No accessible published version IDs in Dryad API")
-    version=max(ranked,key=lambda d:float(d.get("versionNumber",0) or 0))
-    versionid=int(version["id"])
+    # Dryad HAL version records are version metadata without numeric "id";
+    # follow the REST self.href explicitly instead of mistaking dataset.id
+    # (often a small integer) for a globally unique version id.
+    embedded=versions.get("_embedded",{})
+    version_records=embedded.get("stash:versions",[]) if isinstance(embedded,dict) else []
+    ranked=[]
+    for v in version_records:
+        href=str(v.get("_links",{}).get("self",{}).get("href",""))
+        hit=re.search(r"/versions/(\\d+)(?:$|[?])",href)
+        if hit:
+            ranked.append((int(v.get("versionNumber",0) or 0),
+                           int(hit.group(1)),v))
+    if not ranked:raise RuntimeError("No published Dryad REST version self links")
+    _vno,versionid,selected_metadata=max(ranked,key=lambda q:(q[0],q[1]))
+    print("DRYAD_ORIGINAL_VERSION_SELECTED="+json.dumps(
+       {"dataset":m["name"],"versionid":versionid,
+        "version_number":_vno,"n_version_records":len(version_records),
+        "source_hal_link":selected_metadata.get("_links",{}).get("self",{}).get("href")}),flush=True)
     filemeta=js(BASE+f"/versions/{versionid}/files")
     files=file_list(filemeta)
     if not files:raise RuntimeError("Published dataset has no file records via version/files")
     outputs=[]
     for f in files:
-        fileid=f.get("id")
+        selfhref=str(f.get("_links",{}).get("self",{}).get("href",""))
+        hit=re.search(r"/files/(\\d+)(?:$|[?])",selfhref)
+        fileid=int(hit.group(1)) if hit else f.get("id")
         name=str(f.get("path") or f.get("filename") or f.get("name") or "")
         size=f.get("size") or f.get("fileSize") or f.get("sizeInBytes") or 0
         if not isinstance(fileid,int):
