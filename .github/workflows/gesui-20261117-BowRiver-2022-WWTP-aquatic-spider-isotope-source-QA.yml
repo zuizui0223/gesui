@@ -1,0 +1,57 @@
+name: gesui 2022 original WWTP isotope source: aquatic larvae-adult-spider five-site audit
+on:
+  push:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - 'analysis/20261117_BowRiver_WWTP_riparian_direct_source/bowriver_original_WWTP_spiders_isotopes_stage_QA.py'
+      - '.github/workflows/gesui-20261117-BowRiver-2022-WWTP-aquatic-spider-isotope-source-QA.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_BowRiver_WWTP_riparian_direct_source/bowriver_original_WWTP_spiders_isotopes_stage_QA.py'
+      - '.github/workflows/gesui-20261117-BowRiver-2022-WWTP-aquatic-spider-isotope-source-QA.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual_published_2022_BowRiver_sites_spider_insect_stable_isotope_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original source GitHub published version and genuine raw sample extraction, original Git blob checks
+        shell: bash
+        run: |
+          mkdir -p '${{ runner.temp }}/original_BowRiver_2022'
+          ROOT=https://raw.githubusercontent.com/Karen-Kidd-Lab-Ecotoxicology/Bow-River-Microbiome-2022/32b36abfcf31117ac1bd9d7f3fdbc17cdcedd795
+          curl --fail --location --show-error --silent --retry 3 --max-time 80 \
+            "$ROOT/stable_isotope_analysis/StableIsotope2022.csv" \
+            --output '${{ runner.temp }}/original_BowRiver_2022/StableIsotope2022.csv'
+          curl --fail --location --show-error --silent --retry 3 --max-time 80 \
+            "$ROOT/stable_isotope_analysis/StableIsotope2022_subset.csv" \
+            --output '${{ runner.temp }}/original_BowRiver_2022/StableIsotope2022_subset.csv'
+          curl --fail --location --show-error --silent --retry 3 --max-time 80 \
+            "$ROOT/microbiome_analysis/Raw%20data/metadata_noKK2078_samples_ordered.csv" \
+            --output '${{ runner.temp }}/original_BowRiver_2022/metadata_noKK2078_samples_ordered.csv'
+          test "$(git hash-object '${{ runner.temp }}/original_BowRiver_2022/StableIsotope2022.csv')" = "849ad337ecdb689e2a8265a3e3db5ef8671a506a"
+          test "$(git hash-object '${{ runner.temp }}/original_BowRiver_2022/StableIsotope2022_subset.csv')" = "404e3136eb0e5cd0196b9d7b205778e71280171f"
+          test "$(git hash-object '${{ runner.temp }}/original_BowRiver_2022/metadata_noKK2078_samples_ordered.csv')" = "638a729d8eecfca225f671e805e26d242662f983"
+      - name: Site-level isotope stage and baseline, original 2 reported exposed vs 3 unexposed river sampling sites
+        run: |
+          python -m py_compile analysis/20261117_BowRiver_WWTP_riparian_direct_source/bowriver_original_WWTP_spiders_isotopes_stage_QA.py
+          python -u analysis/20261117_BowRiver_WWTP_riparian_direct_source/bowriver_original_WWTP_spiders_isotopes_stage_QA.py \
+            --raw '${{ runner.temp }}/original_BowRiver_2022/StableIsotope2022.csv' \
+            --subset '${{ runner.temp }}/original_BowRiver_2022/StableIsotope2022_subset.csv' \
+            --metadata '${{ runner.temp }}/original_BowRiver_2022/metadata_noKK2078_samples_ordered.csv' \
+            --out '${{ runner.temp }}/BowRiver_2022_source_verified_isotope_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-BowRiver-2022-WWTP-insect-riparian-spider-original-isotopes-site-5-source-audit
+          path: '${{ runner.temp }}/BowRiver_2022_source_verified_isotope_QA/'
+          if-no-files-found: warn
+          retention-days: 90
