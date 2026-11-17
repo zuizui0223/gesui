@@ -35,3 +35,23 @@ Public **original Dataverse Borealis replication DOIs** located by actually quer
 4. A direct conceptual nutrient transfer proxy is **Bow stable-isotope enrichment** (food-web assimilation), whereas Grand River Borealis records directly measured **microplastic movement**. They can triangulate biological plausibility **but must not be pooled as a single numeric substance effect**. Neither addresses France122 where original 2018 positive upstream reported WWTP P exists at **0/122** source sites, nor proves butterfly host use.
 
 The paper's cautious new *macro* claim would be: emission channel and taxa/guild identity condition which aquatic-to-riparian endpoints respond. This requires source-matched independent WWTP data, holding known original nulls and spatial gradients. A positive paper-level effect is NOT presumed.
+
+
+## 6. Bow River 2022 原本同位体から実際に再計算した地点単位の数値（原著の追再現、独立発見ではない）
+
+原著コミット`32b36abfcf31117ac1bd9d7f3fdbc17cdcedd795`をcheckoutしてSHA固定の`StableIsotope2022.csv`全184試料をsource QCした後、2022年の原著微生物叢メタデータから上流`Unexposed`（3地点）・下流`Exposed`（2地点）を照合し、**地点ごとの**δ¹³C・δ¹⁵N中央値を集計。原著の試料は独立したWWTP処理場の反復数ではない。
+
+[実行済GitHub Actions #44080153960 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/44080153960)、元著者CSVからのderived結果artifact ID `14326522225`、完全コード `analysis/20261117_emergence_macro_source/bow_2022_isotope_site_level_3up_2down_exact_perm.py`。
+
+| 本当に観測した元sample_group | 上流3地点平均の地点中央値 δ¹⁵N | 下流2地点平均の地点中央値 δ¹⁵N | 下流−上流 δ¹⁵N | 下流−上流 δ¹³C | site-label exact両側p（δ¹⁵N） |
+|---|---:|---:|---:|---:|---:|
+| Aquatic Larvae / 水生幼虫 | source artifact | source artifact | **+1.8167‰** | **+2.8500‰** | 0.1 |
+| Aquatic Adult / 羽化成虫 | source artifact | source artifact | **+0.4083‰** | **+3.7083‰** | 0.8 |
+| Spider / 河岸クモ | 8.5917‰ | 10.4750‰ | **+1.8833‰** | **+2.7542‰** | 0.4 |
+| Spider δ¹⁵N minus matched source-site biofilm δ¹⁵N | — | — | **+2.5000‰** | — | 0.3 |
+
+Spider の真の原著5地点中央値 δ¹⁵N（‰）：`Cochrane 8.650, Cushing Bridge 8.650, Sunalta 8.475`（上流3）、`Graves Bridge 12.750, Policeman Flats 8.200`（下流2）。**下流2地点で一貫した強い同位体濃縮ではなく、一方の下流サイトが大きい**。Original biofilm median δ¹⁵N（‰）も Cushing5.6、Sunalta5.0、Cochrane2.5、Graves8.3、Policeman−0.8 と地点差が大きい。局所biofilm基準で差を取っても、source-only `down−up` δ¹⁵N spider–biofilm差 +2.50‰は5サイトexact p=.3で、栄養移行量の定量・下水以外の交絡の除去にはならない。
+
+すべて同一Bow River沿いの地点ラベルであり、元3up/2downの配置を入れ替える10通りの**数学的帰無の記述値**。最低1側p=.1、二側pも細かい推定は不可能。下水はランダム割付されていない。したがって**元論文の局所的な同位体的整合性を再現した**という意味が最も正確で、元2026 FR122の下水負荷陽性0/122というサンプル選択の欠落を補う「別物の全球8処理場」や独立の栄養移行メタ解析にはしない。
+
+**次に必要**なのはBorealisの2026年8WWTPについて、著者が公開したsource DOI `SP3/TLDY6W`と受け手 DOI `SP4/U0MN9S`の真正original `WWTP_site×year×upstream/downstream×taxon/life-stage`各表の欠測/単位を照合すること。主対象をmicroplastic物質移行と明記し、N/P栄養量へ換算しない。
