@@ -90,7 +90,7 @@ def stat(rows,site,group,taxon=None):
       "valid_d13C_n":sum(parse(x.get("d13C")) is not None for x in r),
       "median_d15N":med(parse(x.get("d15N")) for x in r),
       "median_d13C":med(parse(x.get("d13C")) for x in r)}
-def difference(rows,exp,n_exp=2):
+def difference(rows,n_exp=2):
     keys=[r["site"] for r in rows]
     if len(set(keys))!=len(keys):raise RuntimeError("Site was treated as repeat")
     y={r["site"]:r["value"] for r in rows}
