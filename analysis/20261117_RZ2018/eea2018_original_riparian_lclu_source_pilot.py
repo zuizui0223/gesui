@@ -37,7 +37,7 @@ def source():
         raise RuntimeError("Original 2018 site×BQE duplicate")
     if any(r["phenomenonTimeReferenceYear"]!="2018" for r in frame):
         raise RuntimeError("Original 2018 reference year mismatch")
-    if any("EQR" in col.upper() for col in frame[0]):
+    if any(col in frame[0] for col in ("resultNormalisedEQRValue","numeric_EQR_2018","resultEQRValue","normalised_EQR")):
         raise RuntimeError("Source-only fixture must not include numeric 2018 EQR outcomes")
     b=[r for r in frame if r["observedPropertyDeterminandBiologyEQRCode"]==BENTHIC]
     if len(b)<2600 or len({r["site_key"] for r in b})!=len(b):
