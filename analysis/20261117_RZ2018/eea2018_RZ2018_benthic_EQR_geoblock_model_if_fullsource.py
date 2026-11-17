@@ -172,6 +172,7 @@ def cv(frame,outcome,models=MODELS):
     rng=np.random.default_rng(SEED)
     draws=rng.integers(0,len(unique),size=(NBOOT,len(unique)))
     for add,base in COMPARE:
+        if add not in models or base not in models: continue
         base_site=float(np.mean(losses[base]));add_site=float(np.mean(losses[add]))
         a=by_err[base];b=by_err[add]
         if base_site<=0 or a.mean()<=0:
