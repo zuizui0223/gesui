@@ -131,9 +131,15 @@ def main_analysis(group,ncell,qualify):
                     matches.append(x)
         facilities={}
         for site in SITES:
-            z=[x["downstream_minus_upstream_MP_per_mg_mean"] for x in matches if x["site"]==site]
+            cells=[x for x in matches if x["site"]==site]
+            z=[x["downstream_minus_upstream_MP_per_mg_mean"] for x in cells]
+            up=avg([x["original_upstream"]["MP_per_mg_mean"] for x in cells])
+            dn=avg([x["original_downstream"]["MP_per_mg_mean"] for x in cells])
             facilities[site]={"n_source_matched_visits":len(z),
-                              "original_visits":[x["time"] for x in matches if x["site"]==site],
+                              "original_visits":[x["time"] for x in cells],
+                              "source_upstream_per_mg_equal_visit_mean":up,
+                              "source_downstream_per_mg_equal_visit_mean":dn,
+                              "downstream_to_upstream_ratio_if_both_positive":dn/up if up is not None and up>0 and dn is not None else None,
                               "equal_time_average_downstream_minus_upstream_MP_per_mg":avg(z)}
         a=[r["equal_time_average_downstream_minus_upstream_MP_per_mg"] for r in facilities.values()
            if r["n_source_matched_visits"]>=MIN_VISITS_PER_WWTP]
@@ -146,6 +152,15 @@ def main_analysis(group,ncell,qualify):
           "observed_original_taxon":taxon,"original_matched_site_time_n":len(matches),
           "original_8WWTP_facility_site_summaries":facilities,
           "original_facilities_with_at_least_two_valid_visits":len(a),
+          "source_min_six_original_facilities_two_visits_measurement_gate_pass":len(a)>=MIN_INDEPENDENT_WWTP_WITH_CHAIN,
+          "source_eligibility_status":"MEASUREMENT_SUPPORT_GO" if len(a)>=MIN_INDEPENDENT_WWTP_WITH_CHAIN else "STOP_INSUFFICIENT_NUMERIC_ASSAY_SUPPORT_NO_CONFIRMATORY_STAGE_EFFECT",
+          "original_matched_site_time_aggregate_qa":[{"site":x["site"],"time":x["time"],
+            "observed_n_up":x["original_upstream"]["n_original_finite_nonnegative_MP_per_mg"],
+            "observed_n_down":x["original_downstream"]["n_original_finite_nonnegative_MP_per_mg"]} for x in matches],
+          "original_sites_with_same_year_visit_UPDOWN_source_only":len([r for r in facilities.values() if r["n_source_matched_visits"]>0]),
+          "site_equal_exposed_both_sides_mean_upstream_per_mg":avg([r["source_upstream_per_mg_equal_visit_mean"] for r in facilities.values() if r["n_source_matched_visits"]>=MIN_VISITS_PER_WWTP]),
+          "site_equal_exposed_both_sides_mean_downstream_per_mg":avg([r["source_downstream_per_mg_equal_visit_mean"] for r in facilities.values() if r["n_source_matched_visits"]>=MIN_VISITS_PER_WWTP]),
+          "facility_ratio_summary_only_if_original_upstream_positive":median([r["downstream_to_upstream_ratio_if_both_positive"] for r in facilities.values() if r["n_source_matched_visits"]>=MIN_VISITS_PER_WWTP and r["downstream_to_upstream_ratio_if_both_positive"] is not None]),
           "facility_equal_mean_updown_difference_MP_per_mg":avg(a),
           "facility_equal_median_updown_difference_MP_per_mg":median(a),
           "facility_positive_negative_zero_difference_counts":[positive,negative,neutral],
