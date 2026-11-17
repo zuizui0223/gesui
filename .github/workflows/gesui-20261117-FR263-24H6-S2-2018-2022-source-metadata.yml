@@ -1,0 +1,46 @@
+name: gesui FR263 24H6 original Sentinel-2 2018+2022 source metadata opportunity
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-onepaper-pathway-identification-decision
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_s2_2018_2022_stac_24h6_source_pilot.py'
+      - '.github/workflows/gesui-20261117-FR263-24H6-S2-2018-2022-source-metadata.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_metadata_2018_22_France_24H6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install scientific public-STAC source tools
+        run: python -m pip install --quiet "pandas>=2" "shapely>=2" "requests>=2.31"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43373061409
+          name: gesui-FR2018-22-realTP-I2M2-same-263-site-date-SOURCE
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original263-date-source
+      - name: Original fixed one-station-per-H6 authentic STAC source scene support, no vegetation coefficients
+        run: |
+          python -u analysis/20261117_FR263_riverland/fr263_s2_2018_2022_stac_24h6_source_pilot.py \
+            --geo results/20261117_FR263_FIXED_ORIGINAL_EEA2022_STATION_COORDINATES_SOURCE_ONLY.csv \
+            --datesource '${{ runner.temp }}/original263-date-source/FR2018_2022_TRUE_TP_I2M2_SOURCE_ONLY_STATION_DATES_ELIGIBLE.json' \
+            --out '${{ runner.temp }}/FR263_S2_public_STAC_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR263-24H6-2018-2022-S2-metadata-only-QA
+          path: '${{ runner.temp }}/FR263_S2_public_STAC_source/'
+          if-no-files-found: warn
+          retention-days: 90
