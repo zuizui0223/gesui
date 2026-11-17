@@ -1,0 +1,67 @@
+name: gesui FR178 true-river and same-JJA water observational source + 2-year public S2 scenes
+on:
+  push:
+    branches: [analysis/gesui-20261117-onepaper-pathway-identification-decision]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_source_only_geometry_JJA_no_vegetation.py'
+      - 'analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_no_pixels.py'
+      - '.github/workflows/gesui-20261117-FR178-river-JJA-two-year-STAC-source.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_source_only_geometry_JJA_no_vegetation.py'
+      - 'analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_no_pixels.py'
+      - '.github/workflows/gesui-20261117-FR178-river-JJA-two-year-STAC-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_178_physical_reach_JJA_source_and_real_S2_STAC_meta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install public source and GIS-light query dependencies
+        run: python -m pip install --quiet pandas requests "shapely>=2,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44009618859
+          name: gesui-20261117-FR263-HydroRIVERS-v1-thirdparty-conversion-geometry-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original263_true_reach
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43378917089
+          name: gesui-FR263-2018-22-TP-calendar-month-balanced-I2M2-3biota-H6
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original263_measured_TP_months
+      - name: Reproduce 178-site original source-only geometry and JJA month frame before optical retrieval
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr178_source_only_geometry_JJA_no_vegetation.py
+          python -u analysis/20261117_FR263_riverland/fr178_source_only_geometry_JJA_no_vegetation.py \
+            --geo '${{ runner.temp }}/original263_true_reach/FR263_ORIGINAL_HYRIV_SOURCE_GEOMETRY_QA.csv' \
+            --months '${{ runner.temp }}/original263_measured_TP_months/FR263_SOURCE_PHYSICAL_WQ_EEA_MATCHED_CALENDAR_MONTH_TP_EQR.csv' \
+            --out '${{ runner.temp }}/source_FR178'
+      - name: Query original official indexed STAC time/footprint/band metadata of ALL 178 source-fixed stations, no NDVI or water quality values
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_no_pixels.py
+          python -u analysis/20261117_FR263_riverland/fr178_2018_2022_S2_STAC_no_pixels.py \
+            --geo '${{ runner.temp }}/source_FR178/FR178_TRUE_REACH_TWO_YEAR_JJA_MEASURED_TP_SOURCE_ONLY.csv' \
+            --out '${{ runner.temp }}/source_FR178'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR178-true-reach-JJA-2018-2022-STAC-source-before-pixel
+          path: '${{ runner.temp }}/source_FR178/'
+          if-no-files-found: warn
+          retention-days: 90
