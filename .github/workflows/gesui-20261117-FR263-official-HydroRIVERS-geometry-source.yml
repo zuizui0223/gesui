@@ -6,6 +6,12 @@ on:
     paths:
       - 'analysis/20261117_FR263_riverland/fr263_true_hydrorivers_geometry_qa.py'
       - '.github/workflows/gesui-20261117-FR263-official-HydroRIVERS-geometry-source.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr263_true_hydrorivers_geometry_qa.py'
+      - '.github/workflows/gesui-20261117-FR263-official-HydroRIVERS-geometry-source.yml'
   workflow_dispatch:
 permissions:
   contents: read
