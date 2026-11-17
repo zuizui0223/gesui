@@ -1,0 +1,81 @@
+name: gesui strict original162 butterfly host-moisture genus-composition adversarial
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-strict-moisture-genus-adversarial
+    paths:
+      - 'analysis/20261117_moist_genus/strict_moist_genus_falsifier.py'
+      - '.github/workflows/gesui-20261117-strict-mois-genus-falsifier.yml'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - analysis/gesui-20261117-butterfly-host-moisture-source-gate
+    paths:
+      - 'analysis/20261117_moist_genus/strict_moist_genus_falsifier.py'
+      - '.github/workflows/gesui-20261117-strict-mois-genus-falsifier.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  strict_same_host_original_moisture_species_genus_test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install published source parsing / original H6 regression dependencies
+        run: python -m pip install --quiet numpy scipy pandas statsmodels requests
+      - name: Compile and synthetic genus source identity (no real endpoints)
+        run: |
+          python -m py_compile analysis/20261117_moist_genus/strict_moist_genus_falsifier.py
+          python -u analysis/20261117_moist_genus/strict_moist_genus_falsifier.py --self-test
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_2808_facets
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43720948781
+          name: gesui-20261115-EU454-EIV-NUTRI-five-pairs-source-opportunity-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_EIV_pair_447
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43899851159
+          name: gesui-20261117-genuine-FerrerParis-same-larval-host-EIV-N-MOIST-303
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_same_HOST_162
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_original_11511_EIV_crosswalk
+      - name: SHA-verify and reconstruct all original sources before posthoc genus decomposition
+        run: |
+          python -u analysis/20261117_moist_genus/strict_moist_genus_falsifier.py \
+            --facets '${{ runner.temp }}/source_original_2808_facets' \
+            --crosswalk '${{ runner.temp }}/source_original_11511_EIV_crosswalk' \
+            --plants '${{ runner.temp }}/source_original_EIV_pair_447' \
+            --samehosts '${{ runner.temp }}/source_original_same_HOST_162' \
+            --output '${{ runner.temp }}/moisture_genus_source_results'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-plant-MOIST-between-within-genus-strict162-H7-source
+          path: '${{ runner.temp }}/moisture_genus_source_results/'
+          retention-days: 90
+          if-no-files-found: warn
