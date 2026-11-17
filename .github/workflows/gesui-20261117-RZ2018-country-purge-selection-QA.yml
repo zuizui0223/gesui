@@ -1,0 +1,50 @@
+name: gesui 2018 RZ terrestrial LCLU 13-country purge and reporting-source bias audit
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-2018-riparian-official-common-site-source
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py'
+      - '.github/workflows/gesui-20261117-RZ2018-country-purge-selection-QA.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_13country_holdout_reality_check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original source evaluation dependencies
+        run: python -m pip install --quiet numpy scipy pandas scikit-learn
+      - name: Compile original model and country-purge QA scripts
+        run: |
+          python -m py_compile analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py
+          python -m py_compile analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44004357868
+          name: gesui-20261117-RZ2018-2018Benthic-2639-source-only-physical-class-areas
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_RZ2018_2639
+      - name: Original RZ source 2639 and 2018 EQR SHA locked, entire country-purged transport and missingness
+        run: |
+          python -u analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py \
+            --source-json '${{ runner.temp }}/source_RZ2018_2639/EEA2018_2018_RIPARIAN_ZONES_REST_OFFICIAL_SOURCE_ONLY_QA.json' \
+            --out '${{ runner.temp }}/source_country_purged_qa'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-RZ2018-13country-purged-EQR-selection-bias
+          path: '${{ runner.temp }}/source_country_purged_qa/'
+          retention-days: 90
+          if-no-files-found: warn
