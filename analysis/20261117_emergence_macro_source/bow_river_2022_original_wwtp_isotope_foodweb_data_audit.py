@@ -30,8 +30,10 @@ def audit_csv(root,path):
     recs=csv.DictReader(text.splitlines(),delimiter=delim)
     cols=list(recs.fieldnames or [])
     if not cols:return {"rows":0,"column_names":[],"error":"no_header"}
-    cats={k:Counter() for k in cols if re.search(r"(site|location|river|reach|wwtp|outfall|down|upstream|treat|taxon|species|family|life.*stage|sample.*type|matrix|tissue|year|date|city|group|habitat)",k,re.I)}
+    cats={k:Counter() for k in cols if re.search(r"(site|location|river|reach|wwtp|outfall|down|upstream|treat|exposure|stream.*type|taxon|taxa|family|order|stage|aqu.*terr|sample.*type|matrix|tissue|year|month|date|city|group|habitat|consumer)",k,re.I)}
     n=0
+    cross_site=Counter()
+    cross_station_group=Counter()
     nonempty=Counter()
     for row in recs:
         if not any(v for v in row.values()):continue
@@ -39,6 +41,12 @@ def audit_csv(root,path):
         for k in cols:
             v=row.get(k,"")
             if v and str(v).strip():nonempty[k]+=1
+        site=str(row.get("Site") or row.get("Site_code") or "").strip()
+        exposure=str(row.get("Exposure") or "").strip()
+        stream=str(row.get("Stream_Type") or "").strip()
+        if site:cross_site[(site,exposure,stream)]+=1
+        group=str(row.get("sample_group") or row.get("Stage") or "").strip()
+        if site and group:cross_station_group[(site,group)]+=1
         for k in cats:
             value=str(row.get(k) or "").strip()
             if value and len(cats[k])<150:cats[k][value]+=1
@@ -49,6 +57,11 @@ def audit_csv(root,path):
       "candidate_true_biological_site_and_treatment_columns":list(cats),
       "category_distinct_count":{k:len(v) for k,v in cats.items()},
       "category_observed_n":{k:dict(v.most_common(30)) for k,v in cats.items() if len(v)<=35},
+      "original_site_by_published_exposure_and_stream_type":[{"site":k[0],"source_exposure":k[1],
+        "source_stream_type":k[2],"n_samples":v}
+        for k,v in sorted(cross_site.items())],
+      "original_site_by_biological_sample_group":[{"site":k[0],"group":k[1],"n_samples":v}
+        for k,v in sorted(cross_station_group.items())],
       "nonempty_rows_per_candidate_column":{k:nonempty[k] for k in cats},
       "numeric_fields_not_opened_or_tested":True}
 
