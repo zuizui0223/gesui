@@ -1,0 +1,45 @@
+name: gesui Grand River 8 WWTP genuine aquatic larvae adults riparian spider MP stage source-gated
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/grand8_true_WWTP_updown_larval_adult_spider_original_MP_source_gated.py'
+      - '.github/workflows/gesui-20261117-GrandRiver8-original-larva-adult-spider-MP-source-gated.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/grand8_true_WWTP_updown_larval_adult_spider_original_MP_source_gated.py'
+      - '.github/workflows/gesui-20261117-GrandRiver8-original-larva-adult-spider-MP-source-gated.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_published_WWTP_8_2022_23_insect_adult_spider_upstream_downstream:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Acquire genuine 2026 Borealis 906-sample aquatic to terrestrial microplastic source, SHA256 check
+        shell: bash
+        run: |
+          mkdir -p '${{ runner.temp }}/original_wastewater_transfer'
+          curl --fail --location --show-error --silent --retry 3 --max-time 180 \
+            'https://borealisdata.ca/api/access/datafile/1213261' \
+            --output '${{ runner.temp }}/original_wastewater_transfer/22.23.MP.Invert.Summary.tab'
+          echo '1b69eb88fe38f601b11ff466d6a9b3177546a9b489a74c61eaf2a64d770dec66  ${{ runner.temp }}/original_wastewater_transfer/22.23.MP.Invert.Summary.tab' | sha256sum -c -
+      - name: Original 8 source WWTP stages and replicates gate BEFORE any particulate magnitude; first genuine site-level exploratory contrast
+        run: |
+          python -m py_compile analysis/20261117_emergence_macro_source/grand8_true_WWTP_updown_larval_adult_spider_original_MP_source_gated.py
+          python -u analysis/20261117_emergence_macro_source/grand8_true_WWTP_updown_larval_adult_spider_original_MP_source_gated.py \
+            --published '${{ runner.temp }}/original_wastewater_transfer/22.23.MP.Invert.Summary.tab' \
+            --out '${{ runner.temp }}/original_GRAND8_source_magnitude_by_taxonomic_stage'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-GrandRiver8-original-WWTP-updown-larvae-adults-spiders-MP-facility-level
+          path: '${{ runner.temp }}/original_GRAND8_source_magnitude_by_taxonomic_stage/'
+          retention-days: 90
+          if-no-files-found: warn
