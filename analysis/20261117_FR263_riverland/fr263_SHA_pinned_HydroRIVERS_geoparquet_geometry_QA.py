@@ -89,7 +89,7 @@ def read_original_hydrorivers(hydrozip,wanted):
             raise RuntimeError("One original river reach cannot be resolved into one valid connected LineString")
         lines[str(r.HYRIV_ID)]=geom
     crs=chosen.crs
-    metr=gpd.GeoSeries(lines.values(),index=list(lines),crs=crs).to_crs("EPSG:3035")
+    metr=gpd.GeoSeries(list(lines.values()),index=list(lines),crs=crs).to_crs("EPSG:3035")
     return dict(zip(metr.index,metr.values)),len(g)
 
 
