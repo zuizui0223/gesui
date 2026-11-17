@@ -1,0 +1,38 @@
+name: gesui Borealis 8 WWTP 2022–23 insect to riparian spider cross-system original data source
+on:
+  push:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - 'analysis/20261117_emergence_macro_source/borealis_grand8_wwtp_microplastics_source_search.py'
+      - '.github/workflows/gesui-20261117-Borealis-8-WWTP-aquatic-spider-source-lookup.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/borealis_grand8_wwtp_microplastics_source_search.py'
+      - '.github/workflows/gesui-20261117-Borealis-8-WWTP-aquatic-spider-source-lookup.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source_discovery_original_eight_wwtp_exposure_and_riparian_taxa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile original Canadian Dataverse source-first schema probe
+        run: python -m py_compile analysis/20261117_emergence_macro_source/borealis_grand8_wwtp_microplastics_source_search.py
+      - name: Original Borealis public 2025-26 dataset search and DOI source file field QA with no ecology fit
+        run: |
+          python -u analysis/20261117_emergence_macro_source/borealis_grand8_wwtp_microplastics_source_search.py \
+            --out '${{ runner.temp }}/original_Borealis_8WWTP_source_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-Canada-Borealis-eight-WWTP-true-insect-spider-source-lookup
+          path: '${{ runner.temp }}/original_Borealis_8WWTP_source_QA/'
+          retention-days: 90
+          if-no-files-found: warn
