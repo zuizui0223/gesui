@@ -1,0 +1,43 @@
+name: gesui 20261117 global aquatic emergence and Quebec spider Dryad source-first audit
+on:
+  push:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - 'analysis/20261117_emergence_macro_source/dryad_global_emergence_quebec_spider_source_schema_audit.py'
+      - '.github/workflows/gesui-20261117-original-Dryad-aquatic-emergence-spider-source-census.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/dryad_global_emergence_quebec_spider_source_schema_audit.py'
+      - '.github/workflows/gesui-20261117-original-Dryad-aquatic-emergence-spider-source-census.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_public_dryad_insects_spiders_schema_before_WWTP_models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        dataset: [nash,quebec]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile original public-source-only data dictionary audit
+        run: python -m py_compile analysis/20261117_emergence_macro_source/dryad_global_emergence_quebec_spider_source_schema_audit.py
+      - name: Original public Dryad dataset DOI metadata and genuine CSV / ZIP file schemas, no WWTP effect
+        run: |
+          python -u analysis/20261117_emergence_macro_source/dryad_global_emergence_quebec_spider_source_schema_audit.py \
+            --dataset ${{ matrix.dataset }} \
+            --out '${{ runner.temp }}/dryad_original_source_only'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-real-Dryad-emergence-spider-source-schema-${{ matrix.dataset }}
+          path: '${{ runner.temp }}/dryad_original_source_only/'
+          retention-days: 90
+          if-no-files-found: warn
