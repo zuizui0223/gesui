@@ -79,7 +79,7 @@ def run(a):
     if {k for k,v in optical.items() if v["source_two_years_real_mosaic_pixel_eligible"]}!=set(keys["FR122"]):
         raise RuntimeError("Source-only NDVI filtering does not exactly match numeric 122")
     affected=optical[only]
-    if affected["source_two_years_real_mosaic_months_n"]!=1 or affected["source_two_years_real_mosaic_pixel_eligible"]:
+    if affected["source_2018_2022_real_mosaic_months_n"]!=1 or affected["source_two_years_real_mosaic_pixel_eligible"]:
         raise RuntimeError("Unique 2018 reported-positive station optical source qualification differs")
     missing=[x for x in affected["original_monthwise_source_QA"] if int(x["year"])==2022 and int(x["month"]) in (6,8)]
     missed=sorted((int(x["month"]),int(x["band_counts"]["20_100m"])) for x in missing)
