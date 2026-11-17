@@ -1,0 +1,73 @@
+name: gesui FR178 posthoc cloud-gap mosaic fixed 2 Sentinel scenes by 4 H6 shards
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-onepaper-pathway-identification-decision
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_2018_2022_frozen_2scene_cloud_mosaic_QA_POSTHOC.py'
+      - '.github/workflows/gesui-20261117-FR178-posthoc-2scene-cloud-mosaic-QA.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_FR263_riverland/fr178_2018_2022_frozen_2scene_cloud_mosaic_QA_POSTHOC.py'
+      - '.github/workflows/gesui-20261117-FR178-posthoc-2scene-cloud-mosaic-QA.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  quality_only_two_frozen_scenes_without_aquatic_ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0,1,2,3]
+    env:
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      CPL_VSIL_CURL_ALLOWED_EXTENSIONS: .tif
+      GDAL_HTTP_MAX_RETRY: '2'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned raster, riverline, source quality dependencies
+        run: python -m pip install --quiet numpy pandas pyarrow "geopandas>=0.14" "shapely>=2,<3" pyproj "rasterio>=1.4,<2"
+      - name: Validate source program and synthetic complementary cloud gap fill before reading real pixels
+        run: |
+          python -m py_compile analysis/20261117_FR263_riverland/fr178_2018_2022_frozen_2scene_cloud_mosaic_QA_POSTHOC.py
+          python -u analysis/20261117_FR263_riverland/fr178_2018_2022_frozen_2scene_cloud_mosaic_QA_POSTHOC.py \
+            --stac /dev/null --rivers /dev/null --out /tmp --self-test
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44011565175
+          name: gesui-20261117-FR178-true-reach-2018-2022-original-S2-scene-shard-${{ matrix.shard }}
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_FR178_STAC
+      - name: Source SHA verify third-party converted original HydroRIVERS v1 real lines
+        shell: bash
+        run: |
+          mkdir -p '${{ runner.temp }}/rivers'
+          curl --fail --location --show-error --silent --retry 3 --max-time 350 \
+            'https://huggingface.co/datasets/cassini-team-todo/hydro-rivers-europe/resolve/d43804121071d6693ec545fa43c27addbd686cad/HydroRIVERS_v10_eu.geoparquet' \
+            --output '${{ runner.temp }}/rivers/HydroRIVERS_v10_eu.geoparquet'
+          echo '5e6327c6dd34a81bd7768d840f25c0569d4361b7e078065a97214563bd01b32f  ${{ runner.temp }}/rivers/HydroRIVERS_v10_eu.geoparquet' | sha256sum --check -
+      - name: Same riverline four bands with unchanged >=100 class pixels; valid NDVI mean of same two frozen scenes; posthoc QA only
+        run: |
+          python -u analysis/20261117_FR263_riverland/fr178_2018_2022_frozen_2scene_cloud_mosaic_QA_POSTHOC.py \
+            --stac '${{ runner.temp }}/original_FR178_STAC/FR178_ORIGINAL_STAC_2018_2022_SHARD${{ matrix.shard }}.json' \
+            --rivers '${{ runner.temp }}/rivers/HydroRIVERS_v10_eu.geoparquet' \
+            --out '${{ runner.temp }}/FR178_2scene_mosaic_original_source_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-FR178-2scene-mosaic-source-only-shard-${{ matrix.shard }}
+          path: '${{ runner.temp }}/FR178_2scene_mosaic_original_source_QA/'
+          retention-days: 90
+          if-no-files-found: warn
