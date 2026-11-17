@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """FR178 POSTHOC 2-scene fixed-calendar-month S2 mosaic near–far NDVI × original measured river TP.
 
-Entirely exploratory: after original single-scene 116/178 source STOP. Frozen\n2-scene mosaics are an explicitly posthoc technical sensitivity (not a rescue\nof the preregistered main null and not independent confirmation).\nMinimum 120/40/15 and spatial bands remain unchanged. Source eligibility
+Entirely exploratory: after original single-scene 116/178 source STOP. Frozen
+2-scene mosaics are an explicitly posthoc technical sensitivity (not a rescue
+of the preregistered main null and not independent confirmation).
+Minimum 120/40/15 and spatial bands remain unchanged. Source eligibility
 before this numeric fit. STOP on a failed original source gate, never fit 14
 pre-screened sites or change a radius/mask after viewing effects.
 """
@@ -55,7 +58,9 @@ def pixel_source(path):
         "eligible_distinct_H7":h7,"eligible_distinct_H6":h6,
         "predeclared_minima":{"n_physical_sites":MIN_SITES,"n_native_H7":MIN_H7,"n_native_H6":MIN_H6},
         "all_178_original_site_IDs_authentic":True,
-        "no_original_aquatic_concentration_or_EQR_opened_for_selecting_pixel_population":True,\n        "posthoc_technical_mosaic_after_original_116_below_120_STOP":True,\n        "original_116_site_single_scene_primary_source_gate_remains_FAILED":True}
+        "no_original_aquatic_concentration_or_EQR_opened_for_selecting_pixel_population":True,
+        "posthoc_technical_mosaic_after_original_116_below_120_STOP":True,
+        "original_116_site_single_scene_primary_source_gate_remains_FAILED":True}
     qa["gate_pass"]=len(eligible)>=MIN_SITES and h7>=MIN_H7 and h6>=MIN_H6
     return eligible,qa
 
@@ -200,9 +205,12 @@ def run(a):
         output={"schema":SCHEMA,"status":"POSTHOC_EXPLORATORY_MOSAIC_RIVER_TP_NDVI_FITTED_NOT_ORIGINAL_MAIN_MODEL",
           "source_gate":qa,"original_river_source_chemistry_method":"physical same WQ ID and matched summer real TP medians",
           "original_h7_spearman":outcome,"original_h6_grouped_prediction":prediction,
-          "n_original_biological_monitor_sites":len(rows),\n          "original_single_scene_source_gate_failed_116_below_120":True,\n          "this_composite_is_after_known_original_source_failure":True,
+          "n_original_biological_monitor_sites":len(rows),
+          "original_single_scene_source_gate_failed_116_below_120":True,
+          "this_composite_is_after_known_original_source_failure":True,
           "original_h7_site_equal_values":h7,"original_native_site_month_matched_values":rows,
-          "no_actual_municipal_source_specific_water_to_land_NP_transport":True,\n          "no_confirmatory_or_independent_reproduction_claim":True}
+          "no_actual_municipal_source_specific_water_to_land_NP_transport":True,
+          "no_confirmatory_or_independent_reproduction_claim":True}
     (a.out/"FR178_POSTHOC_TWO_SCENE_MOSAIC_REAL_TP_NDVI_RESULTS.json").write_text(
         json.dumps(output,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
     print("FR178_POSTHOC_2SCENE_MOSAIC_NUTRIENT_TERRESTRIAL="+json.dumps({
