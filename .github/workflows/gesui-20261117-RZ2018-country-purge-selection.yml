@@ -1,0 +1,53 @@
+name: gesui 2018 mapped riparian and river EQR country-purged selection adversarial
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-2018-riparian-official-common-site-source
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py'
+      - '.github/workflows/gesui-20261117-RZ2018-country-purge-selection.yml'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py'
+      - '.github/workflows/gesui-20261117-RZ2018-country-purge-selection.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source_2018_full_population_vs_selected_and_country_purged_prediction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-authentic EEA and independent country transfer numerical dependencies
+        run: python -m pip install --quiet numpy scipy pandas scikit-learn
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44004357868
+          name: gesui-20261117-RZ2018-2018Benthic-2639-source-only-physical-class-areas
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_2639_site_RZ2018
+      - name: Preserve every original source site/report and independently heldout country for each ecological contrast
+        run: |
+          python -m py_compile analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py
+          python -u analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py \
+            --source-json '${{ runner.temp }}/original_2639_site_RZ2018/EEA2018_2018_RIPARIAN_ZONES_REST_OFFICIAL_SOURCE_ONLY_QA.json' \
+            --out '${{ runner.temp }}/original_rz2018_EEA_country_out'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-2018-RZ2018-source-selection-country-holdout
+          path: '${{ runner.temp }}/original_rz2018_EEA_country_out/'
+          retention-days: 90
+          if-no-files-found: warn

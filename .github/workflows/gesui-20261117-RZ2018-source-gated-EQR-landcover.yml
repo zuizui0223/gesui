@@ -1,0 +1,57 @@
+name: gesui 2018 original same-river RZ land cover vs benthic EQR source-gated geoblock models
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-2018-riparian-official-common-site-source
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py'
+      - '.github/workflows/gesui-20261117-RZ2018-source-gated-EQR-landcover.yml'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py'
+      - '.github/workflows/gesui-20261117-RZ2018-source-gated-EQR-landcover.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  same_2018_true_site_terrestrial_LCLU_and_EEA_benthos_EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original source H6/geographic prediction dependencies
+        run: python -m pip install --quiet numpy scipy pandas scikit-learn
+      - name: Compile and test original Level1 terrestrial fraction on synthetic input
+        run: |
+          python -m py_compile analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py
+          python -u analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py \
+            --self-test --source-json /dev/null --output /tmp
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44004357868
+          name: gesui-20261117-RZ2018-2018Benthic-2639-source-only-physical-class-areas
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_all2639_2018_copernicus_RZ_class
+      - name: Original 2639 source prerequisite PASS; exact 2018 numeric EQR original SHA; source-gated real spatial CV, no causal claims
+        run: |
+          python -u analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py \
+            --source-json '${{ runner.temp }}/source_all2639_2018_copernicus_RZ_class/EEA2018_2018_RIPARIAN_ZONES_REST_OFFICIAL_SOURCE_ONLY_QA.json' \
+            --output '${{ runner.temp }}/gesui_2018_original_riparian_same_benthic_result'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-2018-original-EQR-RiparianLCLU-250to500m-source-gated
+          path: '${{ runner.temp }}/gesui_2018_original_riparian_same_benthic_result/'
+          retention-days: 90
+          if-no-files-found: warn

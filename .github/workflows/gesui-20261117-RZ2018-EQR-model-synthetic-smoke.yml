@@ -1,0 +1,27 @@
+name: gesui same2018 mapped river habitat to EQR model synthetic-only verification
+on:
+  push:
+    branches:
+      - analysis/gesui-20261117-2018-riparian-official-common-site-source
+    paths:
+      - 'analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py'
+      - '.github/workflows/gesui-20261117-RZ2018-EQR-model-synthetic-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check_near_outer_polygon_class_fraction_identity_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install basic local numeric dependencies
+        run: python -m pip install --quiet numpy pandas scikit-learn
+      - name: Compile full source-gated ecological comparison and synthetic natural terrestrial fraction identity
+        run: |
+          python -m py_compile analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py
+          python -u analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py \
+            --self-test --source-json /dev/null --output /tmp
