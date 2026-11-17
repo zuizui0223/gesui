@@ -119,6 +119,13 @@ def one_set(m):
     api=BASE+"/datasets/"+enc
     dataset=js(api)
     versions=js(api+"/versions")
+    # Published REST provider versions change shape; log public HAL metadata
+    # before attempting a version/file download. No ecology magnitudes.
+    print("DRYAD_PUBLIC_VERSION_RESPONSE="+json.dumps({
+        "dataset":m["name"],
+        "version_response":versions,
+        "dataset_api_links":dataset.get("_links",{}),
+        "dataset_keys":list(dataset.keys())},ensure_ascii=False)[:7000],flush=True)
     candidates=file_list(versions)
     ranked=[v for v in candidates if isinstance(v.get("id"),int)]
     if not ranked:
