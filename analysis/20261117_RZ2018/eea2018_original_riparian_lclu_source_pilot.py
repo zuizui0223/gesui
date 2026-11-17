@@ -5,7 +5,7 @@ New observational common-site terrestrial habitat SOURCE QA, NOT a new
 WWTP->terrestrial causal ecological model, biodiversity or plant biomass.
 """
 from __future__ import annotations
-import argparse,csv,hashlib,json,math,collections
+import argparse,csv,hashlib,json,math,collections,time
 from pathlib import Path
 from urllib.parse import urlparse
 import requests
@@ -28,7 +28,7 @@ PROJ=Transformer.from_crs("EPSG:4326","EPSG:3035",always_xy=True)
 UA="gesui2018-official-riparian-sourceonly-20261117-no-ecology"
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def hash_site(s):return hashlib.sha256(s.encode()).hexdigest()
-def source():
+def source(full_census=False):
     if sha(SOURCE)!=SOURCE_SHA:raise RuntimeError("2018 true source-frozen CSV SHA256 changed")
     with SOURCE.open(encoding="utf-8-sig",newline="") as f:
         frame=list(csv.DictReader(f))
@@ -61,12 +61,14 @@ def source():
         if yes and no:
             pick.extend([yes,no])
         else: pick.extend(g[:2])
+    if full_census: pick=sorted(b,key=lambda r:r["site_key"])
     sample={ "original_benthic_all_2018_source_n":len(b),
       "source_original_countries":len(groups),
       "original_source_positive_P_2018_n":sum(r["_P"]>0 for r in b),
       "selected_site_n":len(pick),
       "selected_countries_n":len({r["countryCode"] for r in pick}),
-      "prespecified_two_per_country_by_original_P_eligible_and_SHA":True}
+      "prespecified_two_per_country_by_original_P_eligible_and_SHA":not full_census,
+      "full_census_all_original_2018_benthic_source_sites":bool(full_census)}
     return pick,sample
 
 def service(session):
@@ -118,6 +120,7 @@ def source_site(session,r):
         outer=pt.buffer(BUFFER_FAR,resolution=32).difference(near)
         area_polys=[]
         classes=set()
+        landcover_group=collections.defaultdict(list)
         for f in feats:
             props=f.get("properties") or {}
             if any(k not in props for k in ("CODE_1_18","CODE_4_18","NODATA_18")):
@@ -129,6 +132,7 @@ def source_site(session,r):
             if not g.is_valid:g=g.buffer(0)
             if g.is_empty:continue
             area_polys.append(g);classes.add(int(code))
+            landcover_group[int(props["CODE_1_18"])].append(g)
         if area_polys:
             multi=unary_union(area_polys)
             nc=float(multi.intersection(near).area/near.area)
@@ -136,7 +140,17 @@ def source_site(session,r):
         else:nc=0.;oc=0.
         if not (-1e-6<=nc<=1.00001 and -1e-6<=oc<=1.00001):
             raise RuntimeError("Original LCLU RZ polygons overlap or wrong area")
+        # All Level1 terrestrial habitat classes are original publisher labels,
+        # NOT an optimized biological response or measured plant biomass.
+        by_near={str(k):float(unary_union(gg).intersection(near).area/near.area)
+                 for k,gg in sorted(landcover_group.items())}
+        by_outer={str(k):float(unary_union(gg).intersection(outer).area/outer.area)
+                 for k,gg in sorted(landcover_group.items())}
+        if sum(by_near.values())>1.0001 or sum(by_outer.values())>1.0001:
+            raise RuntimeError("Published polygon Level1 categories overlap")
         j.update({"original_polygon_features_n":len(feats),
+          "source_Level1_class_area_frac_of_entire_near250m_circle":by_near,
+          "source_Level1_class_area_frac_of_entire_outer250to500m_ring":by_outer,
           "original_classified_features_n":len(area_polys),
           "original_mapped_unique_classes_n":len(classes),
           "original_2018_near250m_LCLU_coverage":nc,
@@ -163,7 +177,7 @@ def main(args):
       "not_a_terrestrial_biomass_or_species_richness_measure":True,
       "prior_AT67_S2_riparian_source_STOP_unchanged":True}
     try:
-        chosen,qa=source()
+        chosen,qa=source(a.full_census)
     except Exception as exc:
         result.update({"status":"STOP_ORIGINAL_EEA2018_SOURCE",
           "source_error":type(exc).__name__+": "+str(exc)[:240]})
@@ -188,11 +202,22 @@ def main(args):
     result["source_pilot_eligible_countries"]=len({x["country"] for x in good})
     result["source_pilot_eligible_3degree_regions"]=len({x["source_original_region_3deg"] for x in good})
     result["source_pilot_eligible_upstream_P_positive_sites"]=sum(x["source_2018_upstream_P_positive_report"] for x in good)
-    passed=(len(good)>=10 and result["source_pilot_eligible_countries"]>=5
-        and result["source_pilot_eligible_3degree_regions"]>=5
-        and result["source_pilot_eligible_upstream_P_positive_sites"]>=3)
-    result["status"]="PASS_2018_PUBLIC_RIPARIAN_LCLU_SOURCE_PILOT_ONLY_NO_ECOLOGY" if passed else (
-      "STOP_PRELOCKED_2018_COMMON_SITE_RZ_PILOT_SOURCE_SUPPORT")
+    if a.full_census:
+        passed=(len(good)>=200 and result["source_pilot_eligible_countries"]>=6
+             and result["source_pilot_eligible_3degree_regions"]>=10
+             and result["source_pilot_eligible_upstream_P_positive_sites"]>=20)
+        result["status"]=("PASS_2018_RZ2018_ALL_ORIGINAL_BENTHIC_SITES_SOURCE_ONLY_NO_ECOLOGY"
+                          if passed else "STOP_PRELOCKED_FULL_2018_RZ_SOURCE_SUPPORT")
+        result["source_frozen_full_census_thresholds"]={
+            "min_original_2018_benthic_sites_with_both_rings":200,
+            "min_countries":6,"min_spatial3degree_regions":10,
+            "min_original_report_positive_upstream_sites":20}
+    else:
+        passed=(len(good)>=10 and result["source_pilot_eligible_countries"]>=5
+            and result["source_pilot_eligible_3degree_regions"]>=5
+            and result["source_pilot_eligible_upstream_P_positive_sites"]>=3)
+        result["status"]=("PASS_2018_PUBLIC_RIPARIAN_LCLU_SOURCE_PILOT_ONLY_NO_ECOLOGY"
+            if passed else "STOP_PRELOCKED_2018_COMMON_SITE_RZ_PILOT_SOURCE_SUPPORT")
     save(args.output,result)
 
 def save(folder,result):
@@ -208,5 +233,6 @@ def save(folder,result):
 if __name__=="__main__":
     p=argparse.ArgumentParser()
     p.add_argument("--output",required=True,type=Path)
+    p.add_argument("--full-census",action="store_true",help="New source-first 2639 original station census")
     a=p.parse_args()
     main(a)
