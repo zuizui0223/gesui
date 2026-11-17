@@ -46,3 +46,21 @@ The same-year, same-physical-site observational bridge is a concrete macro-ecolo
 Newly posthoc country-heldout and source-bias falsification (not used to choose this primary model) is being separately implemented as `analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py`, and will be reported only after successful original Action. The original 2022 Austria S2 5/10 smoke STOP, 2022 HRVPP official-public STAC STOP and 2018 plant/host trait scores from a *different EU H7 source population* are not merged into the same causal graph.
 
 Reproduction: `docs/PROTOCOL_20261117_EEA2018_SAME_RIVER_RIPARIAN_LCLU_SOURCE_GATE.md`, `docs/PROTOCOL_20261117_2018_RZ_LCLU_BENTHIC_EQR_SPATIAL_VALIDATION_IF_SOURCE_GO.md`, full-source `analysis/20261117_RZ2018/eea2018_original_riparian_lclu_source_pilot.py`, model `analysis/20261117_RZ2018/eea2018_RZ2018_benthic_EQR_geoblock_model_if_fullsource.py`. No original EEA/CLMS raw polygon or unlicensed occurrence source replicated in repository; signed derived output artifacts remain on GitHub.
+
+
+## 2026-11-17 posthoc full-country transfer: source-verified caution about continent-wide generalization
+
+[Original-source Actions **#44006778058 SUCCESS**](https://github.com/zuizui0223/gesui/actions/runs/44006778058), derived artifact **14295235790**, ZIP SHA256 **d3af4869597f04c10b5f27a8189171e5a3dc5b4989964fc77575b54c06d5472c**. Independently reconstructs genuine 2,639 RZ source rows and 2,634 genuine numeric 2018 EQR sites; exactly 976 site-year matches, 13 source country groups; 2018 original original source/biology SHA locked. Whole-country disjoint test (train on all other original countries, test unseen full country) uses original Ridge10, same source variables and train-only standardization. This was designed AFTER 5 geographical fold results; strictly *posthoc*, not new independent confirmation.
+
+| Adding to benthic EQR predictive model | All 13 country-purged test rows site-weighted MSE gain | Country-equal mean-MSE gain | Descriptive95 of resampled FIXED 13 country errors | Positive countries |
+|---|---:|---:|---|---:|
+| Original mapped 250–500m landcover after original B hydrogeo controls | **+2.399%** | **+1.861%** | [−3.270,+10.119] | **6/13** |
+| 2018 eligible-reported upstream P after landcover | +3.239% | +2.123% | [−5.976,+7.181] | 8/13 |
+| 2018 eligible-reported upstream N after landcover | +3.518% | +2.101% | [−5.964,+6.769] | 8/13 |
+| 0–250m vs 250–500m mapped vegetated contrast after broader landcover | +0.055% | −0.169% | [−1.441,+1.142] | 8/13 |
+
+**Science downgrade:** the positive 49-geoblock fixed-error interval for broad landcover **does not translate to a zero-excluding whole-country interval**. The 13 national groups are extremely unbalanced (e.g., FR 455 sites, SE 2, SI 7, HR 8), with original reporting effort/methods/geography varying. Broad landscape composition predicts aquatic status on familiar source countries across geographic blocks, but external country-transfer universality is **NOT established**. The 2018 report-source incremental gains and direct near−outer contrast remain country-heterogeneous and uncertain. Do not claim wastewater caused any terrestrial reorganization from these source proxies.
+
+**Independent original source-selection QA validated** 2018 RZ polygon eligibility **175/204 = 85.784% upstream eligible-report-positive** against **811/2,435 = 33.306% no-eligible-report** (odds ratio **12.0838**), so the eligible subset is non-exchangeable even before modeling ecological responses. No regression approach can make RZ missingness fully ignorable without verifying external sampling/river hydrology. 2018 reference-year bank LCLU remains a landcover class composition (including plantations, managed grasslands), not field vegetation biomass, leaf N or aquatic insect emergence. There is no actual physical wastewater-to-terrestrial-trophic flux measured.
+
+The signed source code is `analysis/20261117_RZ2018/eea2018_RZ2018_country_purge_source_selection_QA.py`, source-staging task `.github/workflows/gesui-20261117-RZ2018-country-purge-selection.yml`. The original fivefold geographic result is preserved rather than overwritten by this new validation.
