@@ -49,9 +49,9 @@ def site_from_original_metadata(rows):
         if r.get("Sample_Type")!="Sample":continue
         site=str(r.get("Site","")).strip()
         if not site:continue
-        d[site]["exposure"].add(r.get("Exposure"))
-        d[site]["stream_type"].add(r.get("Stream_Type"))
-        month[site].add(r.get("Month"))
+        d[site]["exposure"].add(str(r.get("Exposure") or "").strip())
+        d[site]["stream_type"].add(str(r.get("Stream_Type") or "").strip())
+        month[site].add(str(r.get("Month") or "").strip())
         counts[site]+=1
     if set(d)!=set(UPSTREAM)|set(DOWNSTREAM):
         raise RuntimeError("Field observation five original Bow sites changed")
@@ -68,6 +68,11 @@ def site_from_original_metadata(rows):
             for k,v in sorted(d.items())}
 def original_isotopes(rows):
     if len(rows)!=184:raise RuntimeError("Original stable isotope 184 specimens changed")
+    # Original source metadata parser strips category whitespace; apply the
+    # identical deterministic normalisation before checking fixed census.
+    for r in rows:
+        for field in ("Site","Site_Code","sample_group","Taxa"):
+            r[field]=str(r.get(field) or "").strip()
     counts=Counter(r["sample_group"] for r in rows)
     if dict(counts)!=EXPECTED_ISO_GROUPS:raise RuntimeError("Original five source stage sample sizes changed")
     if Counter(r["Site"] for r in rows)!={"Graves Bridge":45,"Policeman Flats":41,
