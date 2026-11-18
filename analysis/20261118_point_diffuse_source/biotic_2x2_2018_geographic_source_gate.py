@@ -14,7 +14,9 @@ from datetime import datetime, timezone
 import geopandas as gpd
 import numpy as np
 import pandas as pd
-from shapely import make_valid
+from shapely import make_valid, wkt
+from shapely.ops import unary_union
+from urllib.parse import urlparse, parse_qs
 from shapely.geometry import Point
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -24,6 +26,7 @@ AQUATIC_QC=ROOT/"results/eea2018_independent_source_frozen_20261108/2018_MEASURE
 H7_META=ROOT/"results/20261115_sync/hns_macro/H7_454_HNS_panel.csv"
 EXPECTED_H7_SHA="1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca"
 HYBAS_SHA="b9b810f4db271f0fa6b39fecf01784041b948944b3c3f296a393766388e86b44"
+FACETS_SHA="251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4"
 SITE_COLS=("site_key","countryCode","observedPropertyDeterminandBiologyEQRCode","procedureClassificationSystem","phenomenonTimeReferenceYear","lat","lon")
 H7_COLS=("h","h6","period","country","nPlant","nButterfly")
 SOURCE_FIELDS=("NUTS2_country_id","water_point_N_t","water_point_P_t","land_atmos_N_mg_m2","land_mineral_N_kg_ha","land_organic_N_kg_ha","land_fixation_N_kg_ha")
@@ -100,8 +103,12 @@ def read_land(eiv_eligibility):
 
 def geometries(gisco_path,hybas_path,land):
     nuts=gpd.read_file(gisco_path)
+    if "NUTS_ID" not in nuts.columns and "id" in nuts.columns:
+        nuts["NUTS_ID"]=nuts["id"].astype(str)
+    if "CNTR_CODE" not in nuts.columns and "NUTS_ID" in nuts.columns:
+        nuts["CNTR_CODE"]=nuts["NUTS_ID"].astype(str).str[:2]
     if not {"CNTR_CODE","NUTS_ID","geometry"}.issubset(nuts.columns):
-        raise ValueError("GISCO 2016 source columns missing")
+        raise ValueError("2016 NUTS source columns missing: "+str(list(nuts.columns)))
     nuts=nuts.to_crs(3035)
     if "LEVL_CODE" in nuts:
         nuts=nuts.loc[nuts.LEVL_CODE.astype(str).eq("2")].copy()
@@ -109,12 +116,36 @@ def geometries(gisco_path,hybas_path,land):
     if nuts.geo.duplicated().any():raise ValueError("Multiple polygons per native NUTS2")
     nuts["geometry"]=nuts.geometry.map(lambda g: make_valid(g) if not g.is_valid else g)
     full_geom_count=len(nuts)
-    # Read all original EU HydroBASINS L7. This is not the WKT centroid shortcut.
-    bas=gpd.read_file("zip://"+str(hybas_path))
-    if "HYBAS_ID" not in bas.columns or bas.crs is None:
-        raise ValueError("Official HydroBASINS L7 shape source or CRS invalid")
-    bas["h"]=bas.HYBAS_ID.astype(str)
-    bas=bas.loc[bas.h.isin(set(land.h))].copy()
+    # Official HydroBASINS L7 zip OR the original GBIF H7 WKT query receipts.
+    # The latter retains genuine historical geometry instead of centroid proxies.
+    if str(hybas_path).endswith(".zip"):
+        bas=gpd.read_file("zip://"+str(hybas_path))
+        if "HYBAS_ID" not in bas.columns or bas.crs is None:
+            raise ValueError("Official HydroBASINS L7 shape source or CRS invalid")
+        bas["h"]=bas.HYBAS_ID.astype(str)
+        bas=bas.loc[bas.h.isin(set(land.h))].copy()
+    else:
+        if digest(hybas_path)!=FACETS_SHA:
+            raise ValueError("Original 2808-facet WKT source SHA mismatch")
+        facets=json.loads(Path(hybas_path).read_text())
+        if len(facets)!=2808:raise ValueError("Original source facet count differs")
+        verts={}
+        for record in facets:
+            if record.get("group")!="Plantae" or record.get("period")!="2017-2019":continue
+            h=str(record["HYBAS_ID_L07"])
+            if h not in set(land.h):continue
+            if h in verts:raise ValueError("Duplicated true H7 original WKT records")
+            pieces=[]
+            for rec in record["source_request_receipts"]:
+                raw=parse_qs(urlparse(rec["url"]).query).get("geometry",[])
+                if len(raw)!=1 or hashlib.sha256(raw[0].encode()).hexdigest()!=rec["component_SHA"]:
+                    raise ValueError("Original GBIF queried H7 polygon receipt changed")
+                pieces.append(wkt.loads(raw[0]))
+            if not pieces:raise ValueError("H7 source polygon has zero geometry parts")
+            verts[h]=unary_union(pieces)
+        bas=gpd.GeoDataFrame([{"h":h,"geometry":g} for h,g in verts.items()],
+                             geometry="geometry",crs=4326)
+    
     if bas.h.duplicated().any() or len(bas)!=len(land):
         raise ValueError(f"All original 227 H7 genuine polygons required; found {len(bas)}")
     bas=bas.to_crs(3035)
@@ -236,9 +267,13 @@ def main():
     p.add_argument("--jrc-report",type=Path,required=True)
     p.add_argument("--eiv-eligibility",type=Path,required=True)
     p.add_argument("--output-dir",type=Path,required=True)
+    p.add_argument("--provisional-nuts2-boundary",action="store_true")
     args=p.parse_args()
     args.output_dir.mkdir(parents=True,exist_ok=True)
-    if digest(args.hybas)!=HYBAS_SHA:raise ValueError("HydroBASINS official L7 archive SHA differs from prior source hash")
+    if str(args.hybas).endswith(".zip") and digest(args.hybas)!=HYBAS_SHA:
+        raise ValueError("HydroBASINS official L7 archive SHA differs from prior source hash")
+    if not str(args.hybas).endswith(".zip") and digest(args.hybas)!=FACETS_SHA:
+        raise ValueError("Alternative original H7 WKT query facet SHA differs from prior source hash")
     freeze=json.loads(FROZEN.read_text())
     if freeze.get("schema")!="gesui_20261118_point_vs_landN_biotic_2x2_preoutcome_v1":
         raise ValueError("2x2 preread frozen analysis contract missing")
@@ -249,6 +284,10 @@ def main():
     water_map,wdiag=map_water(water,nuts)
     land_map,ldiag=map_land(land,bas,nuts)
     core=gate(source,water_map,land_map)
+    core["official_NUTS2_2016_01M_boundary_confirmed"]=not args.provisional_nuts2_boundary
+    if args.provisional_nuts2_boundary:
+        core["final_biotic_source_gate_pass"]=False
+        core["decision"]="PROVISIONAL_03M_BOUNDARY_ONLY_" + core["decision"]
     # no site coordinates, EQR, NUTRI or butterfly outcome values written out
     derived={
       "schema":"gesui_2x2_biotic_source_geography_upperbound_v1",
@@ -257,6 +296,7 @@ def main():
       "outcome_numeric_fields_not_read":["resultNormalisedEQRValue","Plant_N_incidence","primary_incidence_mean","primary_record_mean"],
       "source_SHA256":{"H7_original_panel":digest(H7_META),"2018_EEA_source_noEQR":digest(AQUATIC),"2016_GISCO_L2_polygon":digest(args.gisco),"HydroBASINS_L7_official":digest(args.hybas),"archived_JRC_NUTS2_CSV":digest(args.jrc_source),"EIV_SOURCE_ONLY_451_IDS":digest(args.eiv_eligibility)},
       "orig_gisco_polygon_count":n_all,
+      "NUTS2_boundary_is_03M_Eurostat_Nuts2json_proxy_not_01M_primary":bool(args.provisional_nuts2_boundary),
       "water_mapping":wdiag,
       "land_mapping":ldiag,
       "gates":core,
