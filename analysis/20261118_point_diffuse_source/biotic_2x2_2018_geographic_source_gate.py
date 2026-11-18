@@ -76,7 +76,7 @@ def read_water():
     if sub[["lat","lon"]].isna().any().any(): raise ValueError("2018 original site lat/lon invalid")
     return sub
 
-def read_land():
+def read_land(eiv_eligibility):
     if digest(H7_META)!=EXPECTED_H7_SHA:
         raise ValueError("Original H7 original outcome-containing panel SHA changed (will not read outcomes)")
     d=strict_main_source(H7_META,EXPECTED_H7_SHA,H7_COLS)
@@ -86,9 +86,17 @@ def read_land():
     one=d[d.period.eq("2017-2019")].copy()
     if len(one)!=227 or one.h.nunique()!=227:
         raise ValueError("Primary 2017-2019 source cohort drift")
-    # 451/454 source-tested EIV outcome eligibility; original record-level
-    # criterion is deliberately NOT inferred from source-level H7 presence.
-    return one
+    # Retrieve original v2 source-only trait eligibility exactly (no NUTRI outcomes).
+    elig=strict_main_source(eiv_eligibility,None,("h","period","full_source_trait_eligible"))
+    if len(elig)!=454 or elig.duplicated(["h","period"]).any():
+        raise ValueError("Original EIV 454 source eligibility table missing or duplicated")
+    ok=elig.full_source_trait_eligible.str.strip().str.lower().map({"true":True,"false":False})
+    if ok.isna().any() or int(ok.sum())!=451:
+        raise ValueError("Prior source-only EIV 451 pass count did not reproduce")
+    elig["quality_eligible"]=ok
+    one=one.merge(elig[["h","period","quality_eligible"]],on=["h","period"],validate="one_to_one",how="left")
+    if one.quality_eligible.isna().any():raise ValueError("2017-2019 EIV eligibility source gaps")
+    return one[one.quality_eligible].copy()
 
 def geometries(gisco_path,hybas_path,land):
     nuts=gpd.read_file(gisco_path)
@@ -211,13 +219,13 @@ def gate(source,water,land):
             "geo_components>=20":ncomp>=20,
             "each_fold>=4_components":all(n>=4 for n in fold_components)
         },
-        "biotic_trait_451_H7period_exact_ids_unrecovered":True,
+        "biotic_trait_451_H7period_exact_ids_recovered":True,
         "background_covariate_complete_cases_NOT_ASSESSED":True
     }
     thresholds_pass=all(core["status_per_frozen_thresholds"].values())
     core["geographic_upper_bound_thresholds_pass"]=thresholds_pass
     core["final_biotic_source_gate_pass"]=False
-    core["decision"]="SOURCE_STOP_GEOGRAPHIC_UPPER_BOUND" if not thresholds_pass else "GEOGRAPHIC_UPPER_BOUND_ONLY_EIV_IDS_AND_COVARIATES_PENDING"
+    core["decision"]="SOURCE_STOP_GEOGRAPHIC_UPPER_BOUND" if not thresholds_pass else "GEOGRAPHIC_EIV_QUALITY_PASS_BACKGROUND_COVARIATES_PENDING"
     return core
 
 def main():
@@ -226,6 +234,7 @@ def main():
     p.add_argument("--hybas",type=Path,required=True)
     p.add_argument("--jrc-source",type=Path,required=True)
     p.add_argument("--jrc-report",type=Path,required=True)
+    p.add_argument("--eiv-eligibility",type=Path,required=True)
     p.add_argument("--output-dir",type=Path,required=True)
     args=p.parse_args()
     args.output_dir.mkdir(parents=True,exist_ok=True)
@@ -235,7 +244,7 @@ def main():
         raise ValueError("2x2 preread frozen analysis contract missing")
     source=read_sources(args.jrc_source,args.jrc_report,freeze)
     water=read_water()
-    land=read_land()
+    land=read_land(args.eiv_eligibility)
     nuts,bas,n_all=geometries(args.gisco,args.hybas,land)
     water_map,wdiag=map_water(water,nuts)
     land_map,ldiag=map_land(land,bas,nuts)
@@ -246,13 +255,13 @@ def main():
       "utc":datetime.now(timezone.utc).isoformat(),
       "only_original_source_metadata_opened":True,
       "outcome_numeric_fields_not_read":["resultNormalisedEQRValue","Plant_N_incidence","primary_incidence_mean","primary_record_mean"],
-      "source_SHA256":{"H7_original_panel":digest(H7_META),"2018_EEA_source_noEQR":digest(AQUATIC),"2016_GISCO_L2_polygon":digest(args.gisco),"HydroBASINS_L7_official":digest(args.hybas),"archived_JRC_NUTS2_CSV":digest(args.jrc_source)},
+      "source_SHA256":{"H7_original_panel":digest(H7_META),"2018_EEA_source_noEQR":digest(AQUATIC),"2016_GISCO_L2_polygon":digest(args.gisco),"HydroBASINS_L7_official":digest(args.hybas),"archived_JRC_NUTS2_CSV":digest(args.jrc_source),"EIV_SOURCE_ONLY_451_IDS":digest(args.eiv_eligibility)},
       "orig_gisco_polygon_count":n_all,
       "water_mapping":wdiag,
       "land_mapping":ldiag,
       "gates":core,
       "critical_limitations":[
-         "Only geographic upper bound. 451 scored EIV H7xperiod exact eligibility not yet reconstructed.",
+         "All 451 source-eligible EIV H7-period IDs are restored; only 2017-2019 strict source records used.",
          "H7 polygon 90% overlap is not observed riparian plant location.",
          "EEA site numeric EQR availability and complete climate/land-use/effort covariates not yet checked.",
          "Modelled GREEN pointN combines municipal/industrial and does not measure wastewater fraction reaching vegetation.",
