@@ -1,0 +1,46 @@
+name: gesui GRAND8 verify effluent vs biological 2022/23 chronological match before any mediation
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_grand8_temporal_bridge/grand8_source_only_effluent_year_biota_month_stage_gate.py'
+      - '.github/workflows/gesui-20261118-Grand8-effluent-biota-source-chronology.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_grand8_temporal_bridge/grand8_source_only_effluent_year_biota_month_stage_gate.py'
+      - '.github/workflows/gesui-20261118-Grand8-effluent-biota-source-chronology.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  borealis_real_8wwtp_source_same_year_stage_support_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Read genuine six-matrix source-only record/keys (not numeric contaminant outcomes)
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 44103189023
+          name: gesui-20261117-GrandRiver8-WWTP-six-stage-two-Borealis-DOI-source-gate
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_borealis_six_table_sources
+      - name: Original isotope documented field year vs WWTP effluent collection year; STOP on 4/8
+        run: |
+          python -m py_compile analysis/20261118_grand8_temporal_bridge/grand8_source_only_effluent_year_biota_month_stage_gate.py
+          python -u analysis/20261118_grand8_temporal_bridge/grand8_source_only_effluent_year_biota_month_stage_gate.py \
+            --original '${{ runner.temp }}/genuine_borealis_six_table_sources/GRAND8_REAL_EFFLUENT_BENTHIC_EMERGENCE_SPIDER_SITE_YEAR_SOURCE_QA.json' \
+            --out '${{ runner.temp }}/GRAND8_year_stage_nutri_transfer_source_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-GRAND8-real-wwtp-effluent-insect-spider-year-and-month-source-gate
+          path: '${{ runner.temp }}/GRAND8_year_stage_nutri_transfer_source_QA/'
+          if-no-files-found: warn
+          retention-days: 90
