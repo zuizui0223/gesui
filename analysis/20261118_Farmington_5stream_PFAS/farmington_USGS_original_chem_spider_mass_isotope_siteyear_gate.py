@@ -60,6 +60,9 @@ def aggregate(chem,isotope,masses,locations):
     for file,rs in (("PFAS",chem),("ISOTOPE",isotope),("MASSES",masses)):
         for r in rs:
             t=standard(r.get("site",""))
+            # Published instrument quality-control blanks are not stream
+            # sites or extra river replicates. Preserve and count separately.
+            if file=="PFAS" and t=="Field blank":continue
             if t not in CANONICAL:raise RuntimeError(f"Original {file} includes unexpected sampled stream {t}")
     for r in chem:
         if r.get("units") not in ("ng/g ww","ng/mL"):
@@ -71,7 +74,9 @@ def aggregate(chem,isotope,masses,locations):
     unique_sample_groups=collections.defaultdict(set)
     assay_rows=collections.Counter()
     assay_compounds=collections.defaultdict(set)
+    blankrows=sum(str(r["site"]).strip()=="Field blank" for r in chem)
     for r in chem:
+        if str(r["site"]).strip()=="Field blank":continue
         site=standard(r["site"])
         year=calendar(r["collected"])
         # Field-ID is specimen/sampling unit. Compounds analysed on the same
@@ -95,6 +100,9 @@ def aggregate(chem,isotope,masses,locations):
        "independent_water_catchment_count":1,
        "source_chemical_3192_rows_true_field_ids_not_false_replicates":True,
        "original_PFAS_sample_type_levels":actual_types,
+       "original_USGS_field_blank_assay_rows_excluded_from_five_biological_rivers":blankrows,
+       "original_all_PFAS_rows_including_QA_field_blanks":len(chem),
+       "original_nonblank_river_PFAS_assays":sum(assay_rows.values()),
        "original_PFAS_site_year_stage_field_sample_support":chem_source,
        "original_insect_mass_site_year_stage_order_count":[{"site":k[0],"year":k[1],"life_stage":k[2],"order":k[3],"n":v}
          for k,v in sorted(mass_groups.items())],
