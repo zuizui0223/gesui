@@ -1,0 +1,37 @@
+name: gesui Farmington USGS five-stream genuine PFAS aquatic adult spider source-only census
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_2020_23_real_insect_spider_source_schema.py'
+      - '.github/workflows/gesui-20261118-USGS-Farmington5-PFAS-source-census.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_2020_23_real_insect_spider_source_schema.py'
+      - '.github/workflows/gesui-20261118-USGS-Farmington5-PFAS-source-census.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_USGS_five_streams_site_stage_matrix_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source schema contract compile
+        run: python -m py_compile analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_2020_23_real_insect_spider_source_schema.py
+      - name: USGS public ScienceBase item and original files/site stage source opportunity (no concentrations analyzed)
+        run: |
+          python -u analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_2020_23_real_insect_spider_source_schema.py \
+            --out '${{ runner.temp }}/Farmington_USGS_original_source_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-Farmington-five-stream-real-PFAS-insects-spiders-USGS-source-only
+          path: '${{ runner.temp }}/Farmington_USGS_original_source_QA/'
+          retention-days: 90
+          if-no-files-found: warn
