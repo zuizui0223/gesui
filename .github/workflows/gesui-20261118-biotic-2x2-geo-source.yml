@@ -7,6 +7,7 @@ on:
     paths:
       - analysis/20261118_point_diffuse_source/biotic_2x2_2018_geographic_source_gate.py
       - .github/workflows/gesui-20261118-biotic-2x2-geo-source.yml
+      - tests/test_biotic_2x2_geo_source_gate.py
       - analysis/20261118_point_diffuse_source/BIOTIC_2X2_FROZEN_CONFIG_20261118.json
   workflow_dispatch:
 
@@ -25,6 +26,8 @@ jobs:
           python-version: "3.11"
       - name: Install GIS packages
         run: python -m pip install --disable-pip-version-check pandas numpy geopandas==1.0.1 shapely==2.0.6 pyogrio==0.10.0 pyproj==3.7.0
+      - name: Offline tests of 90-percent polygon assignment and H6-NUTS2 split leakage
+        run: python -m unittest discover -s tests -p 'test_biotic_2x2_geo_source_gate.py' -v
       - name: Obtain immutable official GISCO 2016 and HydroBASINS Europe L7 geometry
         shell: bash
         run: |
