@@ -53,3 +53,23 @@ JRC [公式MapServer](https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/
 - いずれの場合も「下水処理を改善しても蝶に効かない」「農業・大気沈着が蝶の変化の原因」といった介入効果は導かない。
 
 **成果物**：完全4層 source-only CSV・JSON・SHAはGitHub Actions artifactに保存し、元巨大データや生物結果の擬似統合をmainに混入させない。図1 A–C の現時点の解釈は維持する。
+
+
+## 2026-11-18 追補：河川への拡散源と陸上土壌への窒素投入は異なる（重要）
+
+GREEN Diffuse emissions は **河川へのモデル負荷**であり、河岸植物への直接の窒素投入を表さない。「水は点源、陸は面源」と言うために、これをそのまま陸上植物曝露として使うことを禁止する。
+
+JRC公式 [Inputs to soil](https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/MIS_Inputs_to_soil/MapServer) は別のモデル発生源を公開する：
+- 2015 EMEP大気N沈着：NUTS2 layer4、空間平均 MEAN_mgsqmy（mg/m²/年、全域平均、2015）
+- 2010–19 DAYCENT鉱質N施肥：NUTS2 layer9、MEAN_kgha（kg/ha/年、農地）
+- 同有機N施肥：NUTS2 layer14、MEAN_kgha（農地）
+- 同N固定：NUTS2 layer19、MEAN_kgha（農地）
+- 水へのモデル点源N：JRC [Losses to water](https://water.jrc.ec.europa.eu/arcgis/rest/services/inmap/Losses_to_water_MIS/MapServer) NUTS2 layer4 PsN、点源Pはlayer33 PsP、2014–18年平均t/地域
+
+水の負荷と土壌入力は、測定対象・時期・単位・対象面積が違う。**合計して総窒素量としない**。土壌Nの地域平均値は農地における平均投入量であって、河岸植生の葉N、河岸土壌の実測可給態N、WWTP放流水の同化率ではない。
+
+原地理キーの照合は、JRCの水 cntrCode|Nuts2 と土壌 giscoEsriNuts2016_NUTS2_3035_CNTR_CODE|giscoEsriNuts2016_NUTS2_3035_NUTS_ID を**完全一致**させる。地理名称や最近傍で補わない。専用SOURCE-only analysis/20261118_point_diffuse_source/jrc_soilN_pointN_nuts2_source_gate.py と Actions にて、4つの土壌N入力と水の点源N/Pの完全ケース、国数、国別変動、共線性、欠測/本当のゼロ、原本hashを記録。**100 NUTS2・6か国・各土壌N源について5か国以上に国内変動**を source-only 下限とし、結果を見て閾値を緩めない。
+
+この共通NUTS2単位のSOURCEゲートを満たしても、GBIF植物・蝶の小流域H7とJRCのNUTS2が独立地理単位で一対一に対応するわけではない。段階2として事前固定したGISCO 2016 NUTS2原ポリゴンとの地理照合と生物コホートの適格判定が必要。2016河川EQRと2017–22植物・蝶の相違を残し、時系列や同地点の媒介解析とは呼ばない。
+
+**この追補の二本立てが検証するのは「水に入る源の組成」と「陸に投入される窒素の地理」の独立した予測比較可能性である。両者が生態学的な効果量を共有するという仮定は置かない。**
