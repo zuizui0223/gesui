@@ -113,7 +113,7 @@ def primary(data):
         resp_dates[(date,site)]+=1
     if len(metabolic)!=12 or any(len(a)!=3 for a in metabolic.values()):
         raise RuntimeError("Oxygen 36 readings do not give exactly 12 bags × 3 technical replicates")
-    if set((site,d) for (d,site) in EXPECTED for _ in ("x",)) != {(site,leaf_harvest_date) for (site,leaf_harvest_date,bag) in leaf_index}:
+    if {(site,d) for d in EXPECTED for site in ("Upstream","Downstream")} != {(site,date) for (site,date,bag) in leaf_index}:
         raise RuntimeError("Bag-date expected source discrepancy")
     output=[]
     for (_site,harvest_date,bag),orig in sorted(leaf_index.items()):
