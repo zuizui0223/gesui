@@ -105,9 +105,16 @@ def primary(o):
           or days<=0):
             raise RuntimeError("Original river or riparian processing rate/geocoordinate invalid "+key)
         date=dt["deploy_date"].strip()
+        date_anomaly=None
         if date:
             try:year=datetime.datetime.strptime(date,"%m/%d/%y").year
             except ValueError:raise RuntimeError("True original field deployment date invalid "+key)
+            # The original 2015/2016 global deployment source includes one
+            # literal "1/15/81"; preserve it as source anomaly rather than
+            # silently pretending it is a genuine 1981 ecological experiment.
+            if year not in (2015,2016):
+                date_anomaly=date
+                year=None
         else:year=None
         items.append({
            "original_exact_site_key":key,
@@ -117,6 +124,7 @@ def primary(o):
            "original_deploy_duration_days":days,
            "source_original_year":year,
            "source_original_deploy_date":date,
+           "source_original_deploy_date_out_of_2015_2016_study_window":date_anomaly,
            "original_river_k_per_day":k_r,"original_riparian_k_per_day":k_p,
            "ln_river_rate":math.log(k_r),"ln_riparian_rate":math.log(k_p),
            "ln_river_over_riparian":math.log(k_r/k_p)})
@@ -201,6 +209,11 @@ def run(args):
        "source_coordinates_unique_sites":540,
        "original_biogeographic_partner_clusters":131,
        "true_original_field_deployment_year_counts":year_counts,
+       "source_original_2015_2016_deployment_year_unresolved_records":[
+          {"original_field_site_key":x["original_exact_site_key"],
+           "raw_source_date":x["source_original_deploy_date"],
+           "reason":"out_of_study_window" if x["source_original_deploy_date_out_of_2015_2016_study_window"] else "missing"}
+          for x in rows if x["source_original_year"] is None],
        "original_source_Spearman_river_vs_riparian_k":float(spearmanr(a,b).statistic),
        "original_source_Pearson_log_rates":float(np.corrcoef(np.log(a),np.log(b))[0,1]),
        "river_faster_than_adjacent_riparian_n":int(np.sum(a>b)),
