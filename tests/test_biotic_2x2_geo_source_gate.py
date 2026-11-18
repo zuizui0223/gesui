@@ -26,7 +26,7 @@ class GeographicGateTest(unittest.TestCase):
         land=pd.DataFrame({"h":["h1","h2"],"h6":["p1","p2"],"period":["2017-2019"]*2,"country":["AA"]*2})
         mapped, qc=g.map_land(land,bas,nuts)
         self.assertEqual(mapped.loc[mapped.h=="h1","assigned_NUTS2"].iloc[0],"AA|AA11")
-        self.assertIsNone(mapped.loc[mapped.h=="h2","assigned_NUTS2"].iloc[0])
+        self.assertTrue(pd.isna(mapped.loc[mapped.h=="h2","assigned_NUTS2"].iloc[0]))
         self.assertEqual(qc["H7_strict_assigned_over90pct"],1)
 
     def test_nuts2_h6_geographic_components_protect_against_leakage(self):
