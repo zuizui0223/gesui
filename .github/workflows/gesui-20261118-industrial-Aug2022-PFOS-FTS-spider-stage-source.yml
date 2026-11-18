@@ -1,0 +1,37 @@
+name: gesui original industrial 2022 Aug PFOS FTS effluent larval adult spider BDL unit gate
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/kotalik2022_aug1_2_PFOS_FTS_original_larvae_adult_spider_source_gate.py'
+      - '.github/workflows/gesui-20261118-industrial-Aug2022-PFOS-FTS-spider-stage-source.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/kotalik2022_aug1_2_PFOS_FTS_original_larvae_adult_spider_source_gate.py'
+      - '.github/workflows/gesui-20261118-industrial-Aug2022-PFOS-FTS-spider-stage-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual_2022_same_original_industrial_outfall_year_insect_adult_spider_chemical_tracer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source guard
+        run: python -m py_compile analysis/20261118_industrial_PFAS_source/kotalik2022_aug1_2_PFOS_FTS_original_larvae_adult_spider_source_gate.py
+      - name: Verify actual source stage assays and comparison units before any numerical tracer values
+        run: |
+          python -u analysis/20261118_industrial_PFAS_source/kotalik2022_aug1_2_PFOS_FTS_original_larvae_adult_spider_source_gate.py \
+            --out '${{ runner.temp }}/USGS_2022_industrial_original_PFAS_true_biota_gate'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-original-industrial-2022-PFOS-FTS-effluent-larval-adult-spider-true-source-QA
+          path: '${{ runner.temp }}/USGS_2022_industrial_original_PFAS_true_biota_gate/'
+          retention-days: 90
+          if-no-files-found: warn
