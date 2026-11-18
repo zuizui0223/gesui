@@ -52,7 +52,10 @@ def original_table(raw,filename):
                 "no_spreadsheet_numeric_values_loaded":True}
     if not filename.lower().endswith((".csv",".tsv",".tab",".txt")):
         return {"kind":"other_original_text_or_binary","n_bytes":len(raw)}
-    delim="\t" if filename.lower().endswith((".tsv",".tab")) else ","
+    # USGS Soyoil original .txt data files are TAB-delimited, not comma-delimited.
+    first=text.splitlines()[0] if text else ""
+    delim="\t" if filename.lower().endswith((".tsv",".tab")) or
+        (filename.lower().endswith(".txt") and "\t" in first) else ","
     reader=csv.DictReader(io.StringIO(text),delimiter=delim)
     fields=list(reader.fieldnames or [])
     if not fields or any(len(str(f))>250 for f in fields):
