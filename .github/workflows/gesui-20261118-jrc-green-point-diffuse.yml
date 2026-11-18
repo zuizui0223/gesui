@@ -1,0 +1,38 @@
+name: GESUI JRC GREEN point-vs-diffuse source-only audit
+
+on:
+  pull_request:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - "analysis/20261118_point_diffuse_source/**"
+      - "tests/test_jrc_green_point_diffuse_source_gate.py"
+      - ".github/workflows/gesui-20261118-jrc-green-point-diffuse.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout source-only branch
+        uses: actions/checkout@v4
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Source invariant tests (no biological outcome)
+        run: python -m unittest discover -s tests -p 'test_jrc_green_point_diffuse_source_gate.py' -v
+      - name: Exhaustive public JRC GREEN source audit (2014-2018 models only)
+        run: python analysis/20261118_point_diffuse_source/jrc_green_point_diffuse_source_gate.py --output-dir results/20261118_point_diffuse_source
+      - name: Archive source-only counts, provenance and complete native basin source panel
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-jrc-green-point-diffuse-source-only
+          path: results/20261118_point_diffuse_source/
+          if-no-files-found: warn
+          retention-days: 30
