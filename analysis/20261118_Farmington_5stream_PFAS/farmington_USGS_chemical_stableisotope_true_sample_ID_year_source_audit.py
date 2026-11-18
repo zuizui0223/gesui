@@ -140,7 +140,7 @@ def run(args):
       "original_actual_isotope_siteyear_stage_source_counts":isotope_presence,
       "original_exact_specimenID_chemical_isotope_join_counts":stage_rows,
       "exact_join_stages_and_source_fields":dict(collections.Counter(
-         (tuple(p["matching_fields"]) for p in pairs)).most_common()),
+         ("/".join(p["matching_fields"]) for p in pairs)).most_common()),
       "no_real_annual_PFAS_response_value_or_isotope_magnitude_opened":True,
       "source_year_of_PFAS_insects_not_imputed_from_isotope_without_ID_match":True,
       "actual_source_independent_water_catchments":1,
