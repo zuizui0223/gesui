@@ -1,0 +1,37 @@
+name: gesui 2022 industrial effluent true river nutrient decomposition oxygen-bag function reanalysis
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/kotalik2022_original_three_nutrients_decomposition_metabolism_descriptive.py'
+      - '.github/workflows/gesui-20261118-Kotalik2022-nutrients-decomp-metabolism-source-descriptive.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/kotalik2022_original_three_nutrients_decomposition_metabolism_descriptive.py'
+      - '.github/workflows/gesui-20261118-Kotalik2022-nutrients-decomp-metabolism-source-descriptive.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_USGS_industrial_nutrient_and_stream_function_original_2022:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile genuine source-locked nutritional and ecosystem-function original study reader
+        run: python -m py_compile analysis/20261118_industrial_PFAS_source/kotalik2022_original_three_nutrients_decomposition_metabolism_descriptive.py
+      - name: Compute only source-gated site/date mean of 3 nutrient parameters and bag-level oxygen and decomposition (n2 dates)
+        run: |
+          python -u analysis/20261118_industrial_PFAS_source/kotalik2022_original_three_nutrients_decomposition_metabolism_descriptive.py \
+            --out '${{ runner.temp }}/original_USGS_industrial_2022_function_assay_summary'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-USGS-industrial-original-2022-nutrients-metabolism-decomposition-descriptive
+          path: '${{ runner.temp }}/original_USGS_industrial_2022_function_assay_summary/'
+          if-no-files-found: warn
+          retention-days: 90
