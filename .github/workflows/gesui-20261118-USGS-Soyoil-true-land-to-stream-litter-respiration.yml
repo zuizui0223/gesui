@@ -1,0 +1,37 @@
+name: gesui Soyoil 2022 original industrial PFAS leaf litter and microbial respiration field source
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/soyoil_2022_source_pinned_bag_leafdecomp_respiration.py'
+      - '.github/workflows/gesui-20261118-USGS-Soyoil-true-land-to-stream-litter-respiration.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/soyoil_2022_source_pinned_bag_leafdecomp_respiration.py'
+      - '.github/workflows/gesui-20261118-USGS-Soyoil-true-land-to-stream-litter-respiration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_one_2022_industrial_outfall_leaf_to_stream_bag_loss_oxygen_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source-locked method and strict source checks
+        run: python -m py_compile analysis/20261118_industrial_PFAS_source/soyoil_2022_source_pinned_bag_leafdecomp_respiration.py
+      - name: Reproduce truly observed original 12 litter packs and 36 technical oxygen replicates, 81 nutrient and 2839 PFAS source rows
+        run: |
+          python -u analysis/20261118_industrial_PFAS_source/soyoil_2022_source_pinned_bag_leafdecomp_respiration.py \
+            --out '${{ runner.temp }}/USGS_SOYOIL_2022_original_bag_respiration'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-USGS-industrial-PFAS-2022-original-12-litter-bags-36-respiration
+          path: '${{ runner.temp }}/USGS_SOYOIL_2022_original_bag_respiration/'
+          retention-days: 90
+          if-no-files-found: warn
