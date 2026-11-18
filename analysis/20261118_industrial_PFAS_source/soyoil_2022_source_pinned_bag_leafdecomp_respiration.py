@@ -63,7 +63,7 @@ def fetchall():
         if name not in fs:raise RuntimeError("Original true file absent "+name)
         raw=get(fs[name]["downloadUri"])
         if sha(raw)!=signed_sha:raise RuntimeError("Original published source SHA mismatch "+name)
-        rows=list(csv.DictReader(io.StringIO(raw.decode("utf-8-sig")),delimiter="\t"))
+        rows=list(csv.DictReader(io.StringIO(raw.decode("utf-8-sig","replace")),delimiter="\t"))
         if len(rows)!=n:raise RuntimeError(f"Original {name} true row count changed: {len(rows)} != {n}")
         if not rows or any("\t" in key for key in rows[0]):raise RuntimeError("Source delimiter/schema mismatch")
         out[k]=rows
