@@ -86,7 +86,7 @@ def audit_nutrient(rows):
     for date in DATES:
         for p in PARAMS:
             vals={r["site"]:r for r in data if r["date"]==date and r["parameter"]==p}
-            u,d,o=(*(vals[k]["source_mean"] for k in SITES),)
+            u,d,o=(vals[k]["source_mean"] for k in SITES)
             deltas.append({"sample_date":date,"parameter":p,"unit":PARAMS[p],
               "upstream_original_mean":u,"downstream_original_mean":d,"outfall_original_mean":o,
               "DS_minus_US":d-u,"DS_to_US_ratio_if_original_U_positive":d/u if u>0 else None,
