@@ -1,0 +1,37 @@
+name: gesui Kotalik industrial 2021 2022 true PFAS biota and ecosystem-function source QA
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/kotalik2021_22_original_biota_and_function_source_key_QA.py'
+      - '.github/workflows/gesui-20261118-Kotalik2021-22-PFAS-biota-function-source-QA.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/kotalik2021_22_original_biota_and_function_source_key_QA.py'
+      - '.github/workflows/gesui-20261118-Kotalik2021-22-PFAS-biota-function-source-QA.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_USGS_industrial_updown_2021_2022_real_PFAS_insect_spider_nutrients_functions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Confirm original source-only script syntax
+        run: python -m py_compile analysis/20261118_industrial_PFAS_source/kotalik2021_22_original_biota_and_function_source_key_QA.py
+      - name: Original SHA256 published 2021 2022 PFAS and 2022 nutrient metabolism decomposition sample-date support
+        run: |
+          python -u analysis/20261118_industrial_PFAS_source/kotalik2021_22_original_biota_and_function_source_key_QA.py \
+            --out '${{ runner.temp }}/USGS_true_industrial_source_PFAS_ecosystem_function_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-USGS-industrial-realPFAS-2021-2022-biota-functions-date-source-QA
+          path: '${{ runner.temp }}/USGS_true_industrial_source_PFAS_ecosystem_function_QA/'
+          retention-days: 90
+          if-no-files-found: warn
