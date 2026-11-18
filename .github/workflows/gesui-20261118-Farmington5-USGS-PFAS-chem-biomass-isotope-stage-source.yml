@@ -1,0 +1,37 @@
+name: gesui USGS Farmington 5 streams true PFAS chemistry insect mass and isotope site-year support
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_original_chem_spider_mass_isotope_siteyear_gate.py'
+      - '.github/workflows/gesui-20261118-Farmington5-USGS-PFAS-chem-biomass-isotope-stage-source.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_original_chem_spider_mass_isotope_siteyear_gate.py'
+      - '.github/workflows/gesui-20261118-Farmington5-USGS-PFAS-chem-biomass-isotope-stage-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_5streams_2022_23_same_site_larva_adult_spider_chemical_isotope_mass_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source compilation and source table original signature verification
+        run: python -m py_compile analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_original_chem_spider_mass_isotope_siteyear_gate.py
+      - name: Independent original USGS CC0 ScienceBase four SHA-pinned tables and site-year-stage opportunity (no PFAS effects)
+        run: |
+          python -u analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_original_chem_spider_mass_isotope_siteyear_gate.py \
+            --out '${{ runner.temp }}/original_Farmington_2022_2023_five_stream_site_stage_QA'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-Farmington-USGS5-real-PFAS-chem-insect-mass-spider-isotope-stage-qa
+          path: '${{ runner.temp }}/original_Farmington_2022_2023_five_stream_site_stage_QA/'
+          retention-days: 90
+          if-no-files-found: warn
