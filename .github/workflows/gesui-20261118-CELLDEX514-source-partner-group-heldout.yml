@@ -1,0 +1,43 @@
+name: gesui CELLDEX genuine 514 paired river-riparian cellulose decomposition global functional CV
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_CELLDEX_global_waterland/celldex_original_514_river_riparian_function_partnerheldout.py'
+      - '.github/workflows/gesui-20261118-CELLDEX514-source-partner-group-heldout.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_CELLDEX_global_waterland/celldex_original_514_river_riparian_function_partnerheldout.py'
+      - '.github/workflows/gesui-20261118-CELLDEX514-source-partner-group-heldout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_global_514_same_site_water_bank_decomposition_131_partners:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install statistical runtime
+        run: python -m pip install --quiet numpy scipy pandas scikit-learn
+      - name: Compile source-pinned genuine 2019/2024 global aquatic-riparian paired rate comparison
+        run: python -m py_compile analysis/20261118_CELLDEX_global_waterland/celldex_original_514_river_riparian_function_partnerheldout.py
+      - name: Verify six original Git blobs, 514 exact aquatic-riparian pairs and hold out 131 authentic partner labs in 5 folds
+        run: |
+          python -u analysis/20261118_CELLDEX_global_waterland/celldex_original_514_river_riparian_function_partnerheldout.py \
+            --out '${{ runner.temp }}/CELLDEX_original_global_514_paired_function_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-CELLDEX514-true-paired-river-riparian-original-131partner-H6equivalent-holdout
+          path: '${{ runner.temp }}/CELLDEX_original_global_514_paired_function_source/'
+          retention-days: 90
+          if-no-files-found: warn
