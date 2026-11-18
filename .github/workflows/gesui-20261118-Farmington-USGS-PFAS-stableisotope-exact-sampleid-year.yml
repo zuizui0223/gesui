@@ -1,0 +1,37 @@
+name: gesui Farmington USGS five streams exact chemistry stable isotope specimen ID year matching
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_chemical_stableisotope_true_sample_ID_year_source_audit.py'
+      - '.github/workflows/gesui-20261118-Farmington-USGS-PFAS-stableisotope-exact-sampleid-year.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_chemical_stableisotope_true_sample_ID_year_source_audit.py'
+      - '.github/workflows/gesui-20261118-Farmington-USGS-PFAS-stableisotope-exact-sampleid-year.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_USGS_exact_individual_chemical_vs_isotope_year_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile exact specimen source-quality ID checker
+        run: python -m py_compile analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_chemical_stableisotope_true_sample_ID_year_source_audit.py
+      - name: Original published USGS 3192-analyte assays and 76 isotope specimens exact ID crosswalk only
+        run: |
+          python -u analysis/20261118_Farmington_5stream_PFAS/farmington_USGS_chemical_stableisotope_true_sample_ID_year_source_audit.py \
+            --out '${{ runner.temp }}/Farmington_original_field_specimen_id_and_year_audit'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-USGS-Farmington5-PFAS-isotope-true-sample-ID-year-source-QA
+          path: '${{ runner.temp }}/Farmington_original_field_specimen_id_and_year_audit/'
+          if-no-files-found: warn
+          retention-days: 90
