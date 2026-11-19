@@ -27,7 +27,9 @@ class FrozenBenthicSourceTest(unittest.TestCase):
             if r["country"]=="NO":continue
             key=r["country"]+"|"+r["original_GISCO_NUTS2"]
             src[key]={"water_point_N_t":r["source_NUTS2_GREEN_pointN_t"],
-                      "land_atmos_N_mg_m2":float(len(key)+int(r["original_GISCO_NUTS2"][2:]))}
+                      "land_atmos_N_mg_m2":float(len(key)+int(r["original_GISCO_NUTS2"][2:])),
+                      "land_mineral_N_kg_ha":float(len(key)+2),
+                      "land_organic_N_kg_ha":float(len(key)+3)}
         j={"original_2016_EEA_numeric_EQR_outcome_VALUES_not_read":True,
            "source_biological_classes":{"benthic_invertebrates":{
                "original_NUTS2_source_inventory":rows,
