@@ -85,7 +85,7 @@ def count_site(path):
     candidates=Counter()
     points=Counter()
     key_parameters=defaultdict(Counter)
-    parameter_units=defaultdict(Counter)
+    parameter_units=Counter()
     quality=Counter()
     dates=Counter()
     point_types=defaultdict(Counter)
