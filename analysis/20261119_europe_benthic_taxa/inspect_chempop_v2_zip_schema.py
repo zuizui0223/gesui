@@ -37,10 +37,18 @@ def make(a):
     head=result["HEAD"]
     if head["status"]!=200:
         result["reason"]="OFFICIAL_ZIP_HEAD_NOT_200"
-    elif head["content_length"] is None or head["content_length"]>MAXBYTES:
-        result["reason"]="SOURCE_FILE_TOO_LARGE_OR_UNKNOWN_SIZE_FOR_THIS_BOUNDED_PILOT"
+    elif head["content_length"] is not None and head["content_length"]>MAXBYTES:
+        result["reason"]="SOURCE_FILE_TOO_LARGE_FOR_THIS_BOUNDED_PILOT"
     else:
         try:
+            # The EIDC ZIP endpoint uses chunked streaming, so HEAD may omit
+            # Content-Length. Probe genuine ZIP magic without reading outcomes
+            # or accepting any login/terms screens on the user's behalf.
+            probe_req=urllib.request.Request(URL,headers={**HEADERS,"Range":"bytes=0-15"})
+            with urllib.request.urlopen(probe_req,timeout=35) as probe:
+                actual=probe.read(16)
+                if actual[:4] not in (b"PK\\x03\\x04", b"PK\\x05\\x06"):
+                    raise RuntimeError("No ZIP signature at original source URL; authentication/license gate or wrong format")
             with tempfile.TemporaryDirectory(prefix="gesui_chem_v2_") as temp:
                 file=Path(temp)/"v2_original.zip"
                 h=hashlib.sha256();n=0
@@ -53,7 +61,7 @@ def make(a):
                         n+=len(chunk)
                         if n>MAXBYTES:raise RuntimeError("Original archive exceeds maximum")
                         fd.write(chunk);h.update(chunk)
-                if n!=head["content_length"]:
+                if head["content_length"] is not None and n!=head["content_length"]:
                     raise RuntimeError("Original ZIP HEAD size != actual received size")
                 if not zipfile.is_zipfile(file):
                     raise RuntimeError("Official v2 downloaded file is not ZIP")
