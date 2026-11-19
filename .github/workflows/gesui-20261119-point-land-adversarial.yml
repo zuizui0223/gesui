@@ -1,0 +1,57 @@
+name: GESUI 20261119 source-only point vs soil N within-country and area audit
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-point-land-adversarial.yml
+      - analysis/20261119_point_land_N_source/**
+      - tests/test_point_land_source_adversarial_20261119.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install spatial source libraries
+        run: python -m pip install --disable-pip-version-check geopandas==1.0.1 pyogrio==0.10.0 shapely==2.0.6 pyproj==3.7.0 numpy pandas
+      - name: Test source-only statistical invariants
+        run: python -m unittest discover -s tests -p 'test_point_land_source_adversarial_20261119.py' -v
+      - name: Retrieve original exact 269-NUTS2 source-only artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/gesui_adversarial/source
+          gh run download 44290036470 --repo zuizui0223/gesui --name gesui-jrc-nuts2-soilN-pointN-source-only --dir /tmp/gesui_adversarial/source
+          find /tmp/gesui_adversarial/source -maxdepth 1 -type f -printf '%f %s bytes\n'
+      - name: Obtain identical official GISCO 2016 01M geometry for land area
+        run: |
+          mkdir -p /tmp/gesui_adversarial/gisco
+          curl -fsSL --retry 3 --max-time 120 'https://gisco-services.ec.europa.eu/distribution/v2/nuts/gpkg/NUTS_RG_01M_2016_4326_LEVL_2.gpkg' -o /tmp/gesui_adversarial/gisco/nuts2016_01m.gpkg
+          sha256sum /tmp/gesui_adversarial/gisco/nuts2016_01m.gpkg
+      - name: Audit all four land sources with area, country, geographic and joint diagnostics
+        run: |
+          python analysis/20261119_point_land_N_source/point_land_N_area_country_adversarial.py \
+            --source-csv /tmp/gesui_adversarial/source/jrc_nuts2_soilN_vs_pointN_source_only.csv \
+            --source-report /tmp/gesui_adversarial/source/jrc_nuts2_soilN_pointN_source_only_report.json \
+            --gisco-gpkg /tmp/gesui_adversarial/gisco/nuts2016_01m.gpkg \
+            --out results/20261119_point_land_N_source
+      - name: Archive all diagnostics even when source gate stops
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-point-landN-269-NUTS2-country-area-adversarial-source-only
+          path: results/20261119_point_land_N_source/
+          if-no-files-found: warn
+          retention-days: 60
