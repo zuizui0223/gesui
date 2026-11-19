@@ -1,0 +1,64 @@
+name: GESUI provisional 2016 NUTS2 03M vs original study H7 WKT source-only
+
+on:
+  pull_request:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - analysis/20261118_point_diffuse_source/biotic_2x2_2018_geographic_source_gate.py
+      - .github/workflows/gesui-20261118-biotic-2x2-fallback-source.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-provisional:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install geometry dependencies
+        run: python -m pip install --disable-pip-version-check pandas numpy geopandas==1.0.1 shapely==2.0.6 pyogrio==0.10.0 pyproj==3.7.0
+      - name: Offline geometry/leakage tests
+        run: python -m unittest discover -s tests -p 'test_biotic_2x2_geo_source_gate.py' -v
+      - name: Acquire Eurostat-produced 2016 NUTS geometry at 03M, not the frozen primary 01M
+        run: |
+          mkdir -p /tmp/gesui_fallback/gisco /tmp/gesui_fallback/eiv /tmp/gesui_fallback/facets /tmp/gesui_fallback/jrc
+          curl -fsSL --retry 3 --max-time 130 https://raw.githubusercontent.com/eurostat/Nuts2json/master/pub/v2/2016/4326/03M/nutsrg_2.json -o /tmp/gesui_fallback/gisco/NUTS2016_03M_provisional.geojson
+          sha256sum /tmp/gesui_fallback/gisco/NUTS2016_03M_provisional.geojson
+      - name: Restore previous genuine H7 GBIF WKT query receipt and EIV-eligibility source archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 43593227162 --repo zuizui0223/gesui --name gesui-H7-234x2x6-only429-source-merged-20261114 --dir /tmp/gesui_fallback/facets
+          gh run download 43718069015 --repo zuizui0223/gesui --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change --dir /tmp/gesui_fallback/eiv
+          gh run download 44290036470 --repo zuizui0223/gesui --name gesui-jrc-nuts2-soilN-pointN-source-only --dir /tmp/gesui_fallback/jrc
+          find /tmp/gesui_fallback -type f -printf '%p %s\n'
+      - name: Geographical join - STRICT original 90pct threshold, PROVISIONAL 03M boundary (cannot final PASS)
+        run: |
+          set -euo pipefail
+          FACETS="$(find /tmp/gesui_fallback/facets -type f -name GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json)"
+          EIVFILE="$(find /tmp/gesui_fallback/eiv -type f -name EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv)"
+          test -f "$FACETS"
+          test -f "$EIVFILE"
+          python analysis/20261118_point_diffuse_source/biotic_2x2_2018_geographic_source_gate.py \
+            --gisco /tmp/gesui_fallback/gisco/NUTS2016_03M_provisional.geojson \
+            --hybas "$FACETS" \
+            --jrc-source /tmp/gesui_fallback/jrc/jrc_nuts2_soilN_vs_pointN_source_only.csv \
+            --jrc-report /tmp/gesui_fallback/jrc/jrc_nuts2_soilN_pointN_source_only_report.json \
+            --eiv-eligibility "$EIVFILE" \
+            --provisional-nuts2-boundary \
+            --output-dir results/20261118_biotic_2x2_provisional_geometry
+      - name: Preserve provisional SOURCE-only output, no ecological effect estimates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-provisional-2016-NUTS03M-H7WKT-biotic-source-gate
+          path: results/20261118_biotic_2x2_provisional_geometry/
+          if-no-files-found: warn
+          retention-days: 30
