@@ -8,6 +8,8 @@ from __future__ import annotations
 import argparse,csv,hashlib,json,math,time
 from pathlib import Path
 from datetime import datetime,timezone
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 from jrc_soilN_waterpoint_native_inventory import CONFIG,fetch,validate_meta
 
 PAGE=500
