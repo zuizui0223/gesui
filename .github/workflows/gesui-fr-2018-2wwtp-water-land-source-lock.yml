@@ -1,0 +1,57 @@
+name: GESUI France 2018 two independent WWTP water and actual sludge same-year SOURCE
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-2018-2independent-wwtp-water-land-source-20261119
+    paths:
+      - analysis/20261119_fr_2wwtp_dualoutlet/**
+      - tests/test_fr_2018_two_wwtp_source_only_gate.py
+      - tests/test_fr_saint_jean_2018_monthly_dual_outlet_timing.py
+      - .github/workflows/gesui-fr-2018-2wwtp-water-land-source-lock.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  year-locked-two-plant-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fail-closed unit tests (independent STEU, A4/A5 and missing export mass)
+        run: |
+          python -m unittest discover -s tests -p 'test_fr_2018_two_wwtp_source_only_gate.py' -v
+          python -m unittest discover -s tests -p 'test_fr_saint_jean_2018_monthly_dual_outlet_timing.py' -v
+      - name: Audit 2018 actual sludge and water outlets for two independent WWTP
+        run: |
+          python analysis/20261119_fr_2wwtp_dualoutlet/fr_2018_two_wwtp_source_only_gate.py \
+            --plants analysis/20261119_fr_2wwtp_dualoutlet/FR_2018_TWO_WWTP_SOURCE_ROWS.csv \
+            --events analysis/20261119_fr_2wwtp_dualoutlet/FR_SAINT_JEAN_ANGELY_2018_ANONYMIZED_EVENT_MONTH_COMMUNE_COUNTS.csv \
+            --out "$RUNNER_TEMP/fr2018_two_wwtp_source.json"
+          python analysis/20261119_fr_2wwtp_dualoutlet/fr_saint_jean_2018_monthly_dual_outlet_timing_gate.py \
+            --input analysis/20261119_fr_2wwtp_dualoutlet/FR_SAINT_JEAN_2018_MONTHLY_TREATED_A4_AND_REALIZED_SLUDGE_EVENT_COUNTS.csv \
+            --out "$RUNNER_TEMP/fr2018_saint_jean_monthly_source.json"
+          python - "$RUNNER_TEMP/fr2018_two_wwtp_source.json" "$RUNNER_TEMP/fr2018_saint_jean_monthly_source.json" <<'PY'
+          import json,sys
+          a=json.load(open(sys.argv[1]))
+          b=json.load(open(sys.argv[2]))
+          assert a["independent_identified_STEU_year_units"]==2
+          assert a["independent_H6_assigned_and_audited"]==0
+          assert a["2018_plant_years_with_both_measured_aqueous_TN_TP_and_realized_land_N_P"]==0
+          assert a["coupled_N_P_mass_balance_gate"]=="STOP"
+          assert a["biotic_response_and_causal_path_gate"]=="STOP"
+          assert b["annual_A4_treated_effluent_m3_reported"]==343221
+          assert b["realized_agricultural_sludge_ledger_events"]==8
+          assert b["monthly_causal_coupled_nutrient_transfer_gate"]=="STOP"
+          assert b["A5_bypass_meter_malfunction_preserved"]
+          print("SOURCE-only PASS: 2 independent WWTP, 2018 A4 and actual land events; no paired nutrient mass")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-FR-2018-two-independent-wwtp-dual-outlet-source-only
+          path: |
+            ${{ runner.temp }}/fr2018_two_wwtp_source.json
+            ${{ runner.temp }}/fr2018_saint_jean_monthly_source.json
+          retention-days: 60
