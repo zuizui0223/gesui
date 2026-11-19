@@ -36,7 +36,7 @@ jobs:
             --candidates "$RUNNER_TEMP/roSEAU-candidates/FR_ROSEAU_2017TO22_PUBLIC_CANDIDATE_COMMUNE_YEAR_PRESENCE.csv" \
             --external analysis/20261119_fr_sludge_routeC/FR_EXTERNALLY_VERIFIED_ACTUAL_APPLICATIONS_2018.csv \
             --out "$RUNNER_TEMP/FR_2018_FEURS_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json"
-          python - "$RUNNER_TEMP/FR_2018_CLEPPE_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json" <<'PY'
+          python - "$RUNNER_TEMP/FR_2018_FEURS_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json" <<'PY'
           import json, sys
           v = json.load(open(sys.argv[1]))
           assert v["candidate_union_2017to22"] == 130
