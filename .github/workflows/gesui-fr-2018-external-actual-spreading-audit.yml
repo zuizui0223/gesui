@@ -35,18 +35,20 @@ jobs:
           python analysis/20261119_fr_sludge_routeC/fr_external_performed_spreading_coverage.py \
             --candidates "$RUNNER_TEMP/roSEAU-candidates/FR_ROSEAU_2017TO22_PUBLIC_CANDIDATE_COMMUNE_YEAR_PRESENCE.csv" \
             --external analysis/20261119_fr_sludge_routeC/FR_EXTERNALLY_VERIFIED_ACTUAL_APPLICATIONS_2018.csv \
-            --out "$RUNNER_TEMP/FR_2018_CLEPPE_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json"
+            --out "$RUNNER_TEMP/FR_2018_FEURS_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json"
           python - "$RUNNER_TEMP/FR_2018_CLEPPE_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json" <<'PY'
           import json, sys
           v = json.load(open(sys.argv[1]))
           assert v["candidate_union_2017to22"] == 130
           assert v["candidate_communes_in_2018"] == 72
-          assert v["external_verified_commune_station_year_cases"] == 1
-          assert v["external_cases_not_in_2018_ROSEAU_candidate_list"] == 1
-          assert v["external_cases_not_in_2017to22_union"] == 1
+          assert v["external_verified_commune_station_year_cases"] == 8
+          assert v["external_cases_not_in_2018_ROSEAU_candidate_list"] == 8
+          assert v["external_cases_not_in_2017to22_union"] == 8
+          assert v["external_unique_source_station_years"] == 1
+          assert v["external_unique_commune_years"] == 8
           assert v["biological_model_source_gate"] == "STOP"
           assert v["no_NUTRI_HNS_EQR_values_read"]
-          print("SOURCE-ONLY FEURS/CLEPPE HOLDOUT PASS; NO BIOLOGICAL GO")
+          print("SOURCE-ONLY FEURS 8 COMMUNES 1 SOURCE HOLDOUT PASS; NO BIOLOGICAL GO")
           PY
       - uses: actions/upload-artifact@v4
         with:
