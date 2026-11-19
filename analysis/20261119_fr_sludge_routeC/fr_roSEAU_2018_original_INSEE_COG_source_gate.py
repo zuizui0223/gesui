@@ -68,7 +68,11 @@ def cog2018(zipraw):
     if len(filenames)!=1:raise ValueError("INSEE 2018 ZIP does not include the expected official commune TXT")
     raw=z.read(filenames[0])
     text=raw.decode("iso-8859-1")
-    lines=iter(csv.reader(io.StringIO(text),delimiter=";"))
+    try:
+        delim=csv.Sniffer().sniff(text[:6000],delimiters=";,\t").delimiter
+    except csv.Error:
+        raise ValueError("Official COG2018 historical TXT delimiter could not be determined")
+    lines=iter(csv.reader(io.StringIO(text),delimiter=delim))
     first=next(lines)
     # Historic COG 2018 columns are CDC/CHEFLIEU/REG/DEP/COM/...
     if "DEP" in first and "COM" in first:
