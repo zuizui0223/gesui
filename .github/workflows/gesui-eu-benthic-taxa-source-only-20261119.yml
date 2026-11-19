@@ -26,6 +26,11 @@ jobs:
           python -m py_compile analysis/20261119_europe_benthic_taxa/inspect_ea_biosys_zip_schema.py
           python -u analysis/20261119_europe_benthic_taxa/inspect_ea_biosys_zip_schema.py \
             --out "${{ runner.temp }}/gesui_benthic_source/EA_BIOSYS_AND_CHEMPOP_SOURCE_SCHEMA.json"
+      - name: Inspect official ChemPop version 2 data ZIP within bounded original source audit
+        run: |
+          python -m py_compile analysis/20261119_europe_benthic_taxa/inspect_chempop_v2_zip_schema.py
+          python -u analysis/20261119_europe_benthic_taxa/inspect_chempop_v2_zip_schema.py \
+            --out "${{ runner.temp }}/gesui_benthic_source/CHEMPOP_V2_ORIGINAL_ZIP_SCHEMAS.json"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
