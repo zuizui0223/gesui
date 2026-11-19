@@ -1,0 +1,32 @@
+{
+  "absence_from_list_is_not_absence_of_field_application": true,
+  "biological_model_source_gate": "STOP",
+  "candidate_communes_in_2018": 72,
+  "candidate_union_2017to22": 130,
+  "cannot_estimate_candidate_capture_probability_from_this_case": true,
+  "case_study_not_sampling_representative": true,
+  "cases": [
+    {
+      "INSEE_code": "42066",
+      "application_year": "2018",
+      "in_ROSEAU_candidate_union_2017to22": false,
+      "in_ROSEAU_positive_station_commune_candidate_same_year": false,
+      "known_application_event_not_plant_or_butterfly_exposure": true,
+      "primary_report_url": "https://www.auvergne-rhone-alpes.developpement-durable.gouv.fr/IMG/pdf/10_step_feurs_cas_par-cas_annexe9_epandage_2018bilan.pdf",
+      "source_locator": "Feurs 2018 bilan agronomique section IV.2.1 Tableau 7 page 16; application date recorded for Cleppé",
+      "source_station_SANDRE": "0442094S0002",
+      "verified_source_evidence_class": "PERFORMED_SLUDGE_SPREADING_IN_COMMUNE"
+    }
+  ],
+  "external_cases_not_in_2017to22_union": 1,
+  "external_cases_not_in_2018_ROSEAU_candidate_list": 1,
+  "external_verified_commune_station_year_cases": 1,
+  "independent_H6_n_for_new_biotic_model": 0,
+  "no_NUTRI_HNS_EQR_values_read": true,
+  "run_UTC": "2026-11-19T07:08:44.106688+00:00",
+  "schema": "gesui_FR_ROSEAU_independent_confirmed_actual_spreading_coverage_v1",
+  "source_files_SHA256": {
+    "ROSEAU_candidate_csv": "971e20215a0788a229c5f0a18663e1eee9ddf70b6161fc4f70e78c8da9621333",
+    "external_verified_csv": "90662d48dda3f00666d543f6c09a91b3c38753b3d220d2e7714c6427f393b57e"
+  }
+}
