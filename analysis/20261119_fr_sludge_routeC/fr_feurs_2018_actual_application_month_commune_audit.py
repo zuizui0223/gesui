@@ -32,7 +32,7 @@ EXPECTED_TOTAL_WET_T = Decimal("1918")
 def summary(rows):
     if len(rows) != EXPECTED_APPLICATION_ROWS:
         raise ValueError("Table 7 count no longer equals 43")
-    by_month, by_commune = defaultdict(list), defaultdict(list)
+    by_month, by_commune, by_commune_month = defaultdict(list), defaultdict(list), defaultdict(list)
     accepted = []
     for r in rows:
         if set(r) != set(EXPECTED_COLUMNS):
@@ -55,6 +55,7 @@ def summary(rows):
         accepted.append((code, month, area, wet))
         by_month[month].append((area, wet))
         by_commune[code].append((area, wet))
+        by_commune_month[(code, month)].append((area, wet))
     if set(by_commune) != EXPECTED_CODES:
         raise ValueError("Missing/unexpected actual application commune")
     area_total = sum((x[2] for x in accepted), Decimal("0"))
@@ -72,6 +73,7 @@ def summary(rows):
         }
     month_summary = {str(k): aggregate(v) for k, v in sorted(by_month.items())}
     commune_summary = {str(k): aggregate(v) for k, v in sorted(by_commune.items())}
+    commune_month_summary = {f"{code}|{month:02d}": aggregate(v) for (code, month), v in sorted(by_commune_month.items())}
     march_july = month_summary["3"]["actual_wet_sludge_t"] + month_summary["7"]["actual_wet_sludge_t"]
     return {
         "schema": "gesui_FR_Fe u rs_2018_month_commune_real_application_source_v1".replace(" ", ""),
@@ -86,6 +88,9 @@ def summary(rows):
         "original_annual_applied_wet_t": float(wet_total),
         "month": month_summary,
         "commune": commune_summary,
+        "commune_month_source_opportunity_cells": len(by_commune_month),
+        "commune_month": commune_month_summary,
+        "commune_month_not_confirmed_specific_H7_field_exposure": True,
         "march_july_wet_t": march_july,
         "march_july_share_of_2018_wet_t": round(march_july / float(wet_total), 6),
         "independent_realized_stations_years_in_current_case": 1,
