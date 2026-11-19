@@ -1,0 +1,83 @@
+{
+  "schema": "gesui_feurs_primary_source_2018_2019_2021_NO_biological_outcomes_v1",
+  "STEU_SANDRE": "0442094S0002",
+  "water_receiving_body": "Loire",
+  "data_purpose": "strict SOURCE-only feasibility; different years never substituted",
+  "source_pages": [
+    {
+      "year": 2018,
+      "uri": "https://www.auvergne-rhone-alpes.developpement-durable.gouv.fr/IMG/pdf/10_step_feurs_cas_par-cas_annexe9_epandage_2018bilan.pdf",
+      "document": "Feurs suivi agronomique des épandages, bilan 2018",
+      "printed_pages": "5,11-12,14,16-19",
+      "source_type": "external_record_of_actual_land_spreading",
+      "source_binary_sha_available": false,
+      "notes": "P assay is explicitly P2O5, NOT elemental P; output paper PDF page render was inaccessible (HTTP403), source text indexed"
+    },
+    {
+      "year": 2019,
+      "uri": "https://www.services.eaufrance.fr/sispea/referential/download-rpqs.action?collectivityId=79907&rpqsId=299841",
+      "document": "Feurs assainissement 2019 RPQS",
+      "printed_pages": "17,24,27",
+      "source_type": "municipal_annual_service_report",
+      "source_binary_sha_available": false,
+      "notes": "outflow annual volume is reported; concentrations are arithmetic/unspecified means, not validated flow-weighted; sludge mass described as annual production not field application"
+    },
+    {
+      "year": 2021,
+      "uri": "https://www.services.eaufrance.fr/sispea/referential/download-rpqs.action?collectivityId=79907&rpqsId=568453",
+      "document": "Feurs assainissement 2021 RPQS",
+      "printed_pages": "17,24,27",
+      "source_type": "municipal_annual_service_report",
+      "source_binary_sha_available": false,
+      "notes": "outlet NTK is not total N; bypass at inlet excluded from treated outflow; sludge mass describes production without per-field realised applications"
+    }
+  ],
+  "years": [
+    {
+      "year": 2018,
+      "actual_sludge_spreading_confirmed": true,
+      "actual_spreading_ha": 161.53,
+      "actual_spreading_wet_t": 1918,
+      "actual_spreading_dry_t_including_lime": 481.31,
+      "actual_spreading_dry_t_excluding_lime": 347.32,
+      "mean_sludge_N_total_pct_of_limed_dry_matter": 4.76,
+      "mean_sludge_P2O5_pct_of_limed_dry_matter": 2.96,
+      "mean_applied_N_units_per_ha": 146,
+      "mean_applied_phosphorus_units_per_ha": 92,
+      "phosphorus_units_species_verified_as_P2O5": false,
+      "leachate_applied_m3_not_included_in_sludge_mass": 351,
+      "treated_water_m3": null,
+      "mean_effluent_NTK_mg_L": null,
+      "mean_effluent_total_P_mg_L": null,
+      "true_measured_annual_effluent_total_N_t": null,
+      "true_measured_annual_effluent_total_P_t": null,
+      "same_year_outlet_mass_pair_observable": false
+    },
+    {
+      "year": 2019,
+      "actual_sludge_spreading_confirmed": false,
+      "sludge_dry_produced_t_including_lime": 502.68,
+      "treated_water_m3": 1081393,
+      "inlet_bypass_m3": 244427,
+      "mean_effluent_NTK_mg_L": 5.15,
+      "mean_effluent_total_P_mg_L": 0.45,
+      "effluent_mean_is_flow_weighted": false,
+      "true_measured_annual_effluent_total_N_t": null,
+      "true_measured_annual_effluent_total_P_t": null,
+      "same_year_outlet_mass_pair_observable": false
+    },
+    {
+      "year": 2021,
+      "actual_sludge_spreading_confirmed": false,
+      "sludge_dry_produced_t_including_lime": 663.69,
+      "treated_water_m3": 1358574,
+      "inlet_bypass_m3": 329358,
+      "mean_effluent_NTK_mg_L": 6.6,
+      "mean_effluent_total_P_mg_L": 0.52,
+      "effluent_mean_is_flow_weighted": false,
+      "true_measured_annual_effluent_total_N_t": null,
+      "true_measured_annual_effluent_total_P_t": null,
+      "same_year_outlet_mass_pair_observable": false
+    }
+  ]
+}
