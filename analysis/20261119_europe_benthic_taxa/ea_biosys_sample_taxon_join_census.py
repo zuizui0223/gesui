@@ -65,16 +65,23 @@ def make(args):
                 if not set(SOURCE_REQUIRED).issubset(set(z.namelist())):
                     raise RuntimeError("Original official three-relational-table source absent")
                 sites={}
+                site_duplicate=0
+                site_conflicts=0
                 for row in records(z,"INV_OPEN_DATA_SITE.csv"):
                     key=row["SITE_ID"].strip()
                     if not key:continue
+                    detail={"catchment":row["CATCHMENT"].strip(),
+                            "wb":row["WFD_WATERBODY_ID"].strip(),
+                            "agency":row.get("AGENCY_AREA","").strip()}
                     if key in sites:
-                        raise RuntimeError("Duplicate native SITE_ID; must select version before any model")
-                    sites[key]={"catchment":row["CATCHMENT"].strip(),
-                                "wb":row["WFD_WATERBODY_ID"].strip(),
-                                "agency":row.get("AGENCY_AREA","").strip()}
+                        site_duplicate+=1
+                        if sites[key]!=detail:site_conflicts+=1
+                        continue
+                    sites[key]=detail
                 source_count={
-                  "site_records":len(sites),
+                  "site_records_unique_SITE_ID":len(sites),
+                  "site_duplicate_ID_extra_rows":site_duplicate,
+                  "site_duplicate_conflicting_metadata":site_conflicts,
                   "site_with_catchment":sum(bool(d["catchment"]) for d in sites.values()),
                   "site_with_WFD_waterbody":sum(bool(d["wb"]) for d in sites.values()),
                   "distinct_catchment":len({d["catchment"] for d in sites.values() if d["catchment"]}),
@@ -101,7 +108,7 @@ def make(args):
                     if sid not in sites:site_missing+=1
                     metrics[aid]=(sid,row["SAMPLE_ID"].strip(),yr)
                     year_counter[str(yr) if yr else "UNKNOWN"]+=1
-                    raw_dates[(row["SAMPLE_DATE"] or "")[:24]]+=1 if yr is None else 0
+                    if yr is None:raw_dates[(row["SAMPLE_DATE"] or "")[:24]]+=1
                     if yr is not None:sites_by_year[str(yr)].add(sid)
                     methods[row["SAMPLE_METHOD"].strip()]+=1
                     sample_types[row["SAMPLE_TYPE"].strip()]+=1
@@ -171,6 +178,7 @@ def make(args):
                 result["source_go_criteria"]={
                     "analysis_to_site_sample_join_100pct":bad_a==0 and bad_site==0 and bad_sample==0,
                     "no_duplicate_analysis_ID":duplicate_analysis==0,
+                    "no_conflicting_duplicate_SITE_metadata":site_conflicts==0,
                     "count_CWM_can_be_considered_if_numeric_coverage":count_number/(rows-bad_a) if rows>bad_a else None,
                     "must_independently_map_taxon_names_and_score_coverage":True,
                     "must_source_real_WWTP_or_ambient_NP_with_same_sample":True,
