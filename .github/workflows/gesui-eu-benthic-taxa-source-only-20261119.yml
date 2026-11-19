@@ -1,0 +1,30 @@
+name: gesui Europe benthic source-only original sample-taxon availability
+on:
+  push:
+    paths:
+      - 'analysis/20261119_europe_benthic_taxa/**'
+      - '.github/workflows/gesui-eu-benthic-taxa-source-only-20261119.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-source-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate bounded source-only original dataset catalogue and availability
+        run: |
+          python -m py_compile analysis/20261119_europe_benthic_taxa/source_inventory.py
+          python -u analysis/20261119_europe_benthic_taxa/source_inventory.py \
+            --output "${{ runner.temp }}/gesui_benthic_source/EU_ORIGINAL_BENTHIC_TAXON_AVAILABILITY_SOURCEONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261119-European-benthic-sample-taxon-source-only
+          path: ${{ runner.temp }}/gesui_benthic_source/EU_ORIGINAL_BENTHIC_TAXON_AVAILABILITY_SOURCEONLY.json
+          if-no-files-found: warn
+          retention-days: 90
