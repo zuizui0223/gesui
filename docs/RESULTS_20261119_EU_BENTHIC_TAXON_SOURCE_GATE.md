@@ -21,6 +21,20 @@ BiosysのMETRICSにある **BMWP_ASPT/WHPT_ASPTは試料単位の合成生物品
 - **WWTP定量曝露は未識別**：EA Biosys ZIPだけでは年別処理場報告N/Pの上流到達量も実測植物・蝶との因果媒介も作れない。モデル化下水比率がChemPopに含まれるとしても、地点×サンプル×年の元キーを検証するまではsource→biota因果対応と言わない。
 - **年代・分類群・独立性**：EA BiosysとChemPopは英国の同じ監視網を部分共有する可能性があり、元SampleIDを照合するまで「独立2研究」と数えない。PanEU欧州データにも同じ国家監視が再収録され得る。解析の地域間メタ研究のnを単純に足さない。
 
+## 2026-11-19 実行完了：ChemPop v2全ZIPと英国の分類群採点辞書
+
+**重要な更新：旧「300ファイル超でSOURCE STOP」は、原ファイルが326件であったための監査側の意図的ファイル数制限です。その後全326ファイルのZip・CSVスキーマ検証に成功して解除されました。** 元データを改変したのではなくファイル一覧の監査上限だけを変更しました。[真正元ZIP検証成功 #44544328596](https://github.com/zuizui0223/gesui/actions/runs/44544328596)。
+
+- **7地域の底生動物分類群原票**：各ファイルは正式 `BIO_SITE_ID,BIO_SAMPLE_ID,BIO_SAMPLE_VERSION,BIO_SAMPLE_DATE,BIO_ANALYSIS_ID,BIO_ANALYSIS_METHOD,BIO_ORD_NAME,BIO_FAM_NAME,BIO_SPGRP_NAME,BIO_ABUNDANCE`。地域ごとの同じ試料の「科」「目」別構成を検証する直接の原入力。
+- **7地域のsitevariables**：`BIO_SITE_ID` と `EDF_MEAN/EDF_STD/EDF_Q90/EDF_Q95`、`LC_URBAN_PER`、`LC_ARABLE_PER`、流路幅・底質・地形など。EDFは推定下水混入・希釈の**モデルproxy**、単位や高値方向・モデル期間は元資料で検証するまで未固定。実測N/Pの質量ではない。
+- **287種の地域×水質項目集計表**：生物site+sample dateに対応するWQ各項目の最小・最大・中央値・平均・LOQ階級・観測数。生物採集日に取得した元試料と完全同時の単発水質実測ではなく集計窓の適合性が必要。
+- **第三者公開された英国BMWP/WHPT形質辞書**：ソース原コミット `robbriers/biotic@08cea3f06eec93703bb10b53d1015d8fe8c626c4` のR `indextable` に得点つきBMWP分類群92件。別のEA Taxon Infoにおける異なる1,793科名のうち88の正式科名が完全一致。**88/1793は元の観測試料に占めるスコア付与率ではない**。試料で何件対応するかはChemPopのBIO_FAM_NAMEに当てて初めて判定する。公開された旧スコア辞書はEAの2026公式最新スコア表の代替とは限らない。
+- 新しい原ボリュームZIPの中にあるBIO_SITE_ID・BIO_ANALYSIS_IDと原site variablesの整合、試料の正の`BIO_ABUNDANCE`、BMWPカバー率・EDF分散・時期一致を、同一元ZIP上で**source-only**で検証中。生物の係数は未計算。
+
+## 2026-11-19 英国EA Biosys全原資料の結合監査（完成）
+
+[同一EA公式元ZIPでの全原票結合監査 #44544801464](https://github.com/zuizui0223/gesui/actions/runs/44544801464) 成功。**30,752原河川site、281,255異なるANALYSIS_ID、7,590,163分類群原票行、3,069 TAXON_LIST_ITEM_KEY、614 distinct CATCHMENT**。SITE→METRICS→TAXAの原ANALYSIS_IDの照合率100%、SITE_ID/SAMPLE_ID conflict 0。年代1965–2026年。正の数値`TOTAL_ABUNDANCE`は**6,786,884/7,590,163行=89.4%**、残る803,279は未記載/非正値でありゼロを「個体数なし」と無条件に補完しない。原の試料品質・河川曝露・正式形質辞書との結合モデルは未実施。2018/22 EEA EQRのサンプルと同一の実試料ではない可能性を維持。
+
 ## 次に具体的に検証する項目
 
 1. ChemPop v2元ZIP：構成ファイルのCSV列・原source 1,519サイト・元水質とモデル下水のどの列が共存するか、試料単位でのモデル更新有無。SOURCE/TRAIT両方が同じsource単位で測られるかを見てからモデル開始。
