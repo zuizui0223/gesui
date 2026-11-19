@@ -1,0 +1,47 @@
+name: GESUI Seine Aval 2022 January AESN exact A3-A4 NGL-PT site coverage
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/fr_aesn_2022_january_seineaval_site_point_source_audit.py
+      - tests/test_fr_aesn_2022_jan_seineaval_site_point_source_audit.py
+      - .github/workflows/gesui-fr-siaap-2022-aesn-one-month-source-only.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-one-month-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline exact station and A3 versus A4 tests
+        run: python -m unittest discover -s tests -p 'test_fr_aesn_2022_jan_seineaval_site_point_source_audit.py' -v
+      - name: Source-only complete original AESN Jan2022 CSV one-month station-point parameter coverage
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_aesn_2022_january_seineaval_site_point_source_audit.py \
+            --work "$RUNNER_TEMP/aesn_2022_source_one_month" \
+            --out "$RUNNER_TEMP/SeineAval_A4_Jan2022_source_unit_quality_coverage.json"
+          python - "$RUNNER_TEMP/SeineAval_A4_Jan2022_source_unit_quality_coverage.json" <<'PY'
+          import json,sys
+          a=json.load(open(sys.argv[1]))
+          assert a["numeric_wastewater_N_P_analysis_started"] is False
+          assert a["biological_EQR_NUTRI_HNS_values_read"] is False
+          if a.get("source_station_parameter_coverage"):
+            z=a["source_station_parameter_coverage"]
+            assert z["numeric_Resultat_Valeur_never_read"]
+            assert z["2022_annual_reported_water_N_P_load_confirmed"] is False
+            assert z["paired_2022_water_land_mass_and_causal_response_GO"] is False
+            print("SOURCE COVERAGE:",z["exact_SeineAval_station_code_rows"],z["exact_code_station_point_row_counts"])
+          else:
+            print("SOURCE DOWNLOAD STOP:",a.get("source_error","unspecified"))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-AESN-SeineAval-2022Jan-original-site-point-parameter-source-gate
+          path: ${{ runner.temp }}/SeineAval_A4_Jan2022_source_unit_quality_coverage.json
+          retention-days: 60
