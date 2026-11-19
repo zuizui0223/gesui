@@ -22,5 +22,6 @@ class OfficialROSEAUCSVTests(unittest.TestCase):
             m.sniff(b"a|b|c|d|e\n1|2|3|4\n")
     def test_year_scope_frozen(self):
         self.assertEqual(m.PERMITTED_YEARS,{"2017","2018","2019","2020","2021","2022"})
-        self.assertTrue(m.EXPORT.endswith("/controllers/GetDataExportBoueHandler.php"))
+        self.assertTrue(m.OFFICIAL_EXPORT_PATH.endswith("/controllers/GetDataExportBoueHandler.php"))
+        self.assertEqual(len(m.BASES),3)
 if __name__=="__main__":unittest.main()
