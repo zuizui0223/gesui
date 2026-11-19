@@ -211,9 +211,9 @@ def census(z,files,scores):
             sample_year_counts[str(yr) if yr else "UNKNOWN"]+=1
             record_dates[str(yr) if yr else "UNKNOWN"]+=1
             if yr is not None:n_same_samp_year_valid+=1
-            edf=(sites.get(site) or {}).get("EDF_MEAN")
-            if edf is not None:n_same_samp_has_site_edf+=1
-            if nfamily>=MIN_FAMILIES and coverage>=MIN_SCORED_FAMILY_PROP and edf is not None:
+            edf_value=(sites.get(site) or {}).get("EDF_MEAN")
+            if edf_value is not None:n_same_samp_has_site_edf+=1
+            if nfamily>=MIN_FAMILIES and coverage>=MIN_SCORED_FAMILY_PROP and edf_value is not None:
                 eligible.add((site,aid))
                 region_eligible_counts[region]+=1
                 region_sites_eligible[region].add(site)
