@@ -79,5 +79,25 @@
       "true_measured_annual_effluent_total_P_t": null,
       "same_year_outlet_mass_pair_observable": false
     }
-  ]
+  ],
+  "official_2018_permitted_water_outlet": {
+    "official_source": "https://www.loire.gouv.fr/index.php/contenu/telechargement/5025/45942/file/raa_special_du_8_mars_2018.pdf",
+    "administrative_order": "42-2018-03-01-007",
+    "issued_by": "Préfecture de la Loire – DDT",
+    "issued_date": "2018-03-01",
+    "published_date": "2018-03-08",
+    "official_document_printed_page": 135,
+    "coordinate_crs": "EPSG:2154 – RGF93 Lambert 93",
+    "treatment_plant_lambert93_x_m": 794449,
+    "treatment_plant_lambert93_y_m": 6516744,
+    "actual_permitted_effluent_discharge_point_lambert93_x_m": 794216,
+    "actual_permitted_effluent_discharge_point_lambert93_y_m": 6516746,
+    "receiving_river": "Loire",
+    "design_mean_daily_m3": 5800,
+    "design_population_equivalent_EH": 33300,
+    "regulatory_location_and_design_not_measured_2018_load": true,
+    "source_pdf_binary_sha_available": false,
+    "source_quote_locator": "2018 Préfecture RAA 42-2018-019 8 Mar; order 42-2018-03-01-007 'Article 2', p.135",
+    "coordinate_text_visible_but_pdf_image_screenshot_unavailable": true
+  }
 }
