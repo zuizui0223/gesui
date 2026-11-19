@@ -1,0 +1,49 @@
+name: GESUI original 226H7 point-soil N source geometry optimistic upperbound
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-JRC226-source-optimistic-bound.yml
+      - analysis/20261119_JRC_native_basin_N_source/jrc226_source_optimistic_repair_upperbound.py
+      - tests/test_jrc226_source_optimistic_bound_20261119.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-only-optimistic-upperbound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Test optimistic geometry source-only upperbound invariant
+        run: python -m unittest discover -s tests -p 'test_jrc226_source_optimistic_bound_20261119.py' -v
+      - name: Restore exact earlier completed 226 H7 no-outcome source gate artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui226_source_original
+          gh run download 44449479977 --repo zuizui0223/gesui \
+            --name gesui-226H7-sourceonly-unique-basin-independence-GO-STOP \
+            --dir /tmp/gesui226_source_original
+      - name: Verify even accepting every repaired ring does not make 100 independent source regions
+        run: |
+          python analysis/20261119_JRC_native_basin_N_source/jrc226_source_optimistic_repair_upperbound.py \
+            --summary /tmp/gesui226_source_original/JRC_226_H7_NATIVE_SOURCE_ONLY_GO_STOP.json \
+            --h7-csv /tmp/gesui226_source_original/JRC_226_H7_SOURCE_COVERAGE_AND_FOLD_METADATA_ONLY.csv \
+            --out results/20261119_jrc226_source_optimistic_bound
+      - name: Archive independent source support upper bound and original SHA receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-226H7-geometry-repair-bestcase-independent-source-upperbound
+          path: results/20261119_jrc226_source_optimistic_bound/
+          if-no-files-found: warn
+          retention-days: 60
