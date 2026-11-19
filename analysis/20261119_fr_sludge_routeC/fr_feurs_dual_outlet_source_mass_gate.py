@@ -61,7 +61,7 @@ def audit(source):
               "bypass_not_included_in_water_screening_index":True,
               "unweighted_mean_not_flow_weighted":True})
         out[str(y)]=year
-    return {"schema":"gesui_Feures_year_locked_source_only_mass_feasibility_v1",
+    return {"schema":"gesui_Feurs_year_locked_source_only_mass_feasibility_v1",
             "STEU_SANDRE":source["STEU_SANDRE"],
             "P_over_P2O5_conversion_factor":round(P_OVER_P2O5,9),
             "source_year_records":out,
