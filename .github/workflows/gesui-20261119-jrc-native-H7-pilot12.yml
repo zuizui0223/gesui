@@ -1,0 +1,58 @@
+name: GESUI H7 true polygon vs native JRC soil+point source pilot12
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-jrc-native-H7-pilot12.yml
+      - analysis/20261119_jrc_native_basins/jrc_native_H7_truepolygon_source_pilot12.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  H7-source-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original geometry source-only dependencies
+        run: python -m pip install --disable-pip-version-check numpy pandas shapely==2.0.6 pyproj==3.7.0
+      - name: Syntax validation and original geo support availability
+        run: python -m py_compile analysis/20261119_jrc_native_basins/jrc_native_H7_truepolygon_source_pilot12.py
+      - name: Restore exact original study H7 WKT query receipt and EIV source-only eligibility
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui_H7_native/facets /tmp/gesui_H7_native/eiv /tmp/gesui_H7_native/native /tmp/gesui_H7_native/geom30
+          gh run download 43593227162 --repo zuizui0223/gesui --name gesui-H7-234x2x6-only429-source-merged-20261114 --dir /tmp/gesui_H7_native/facets
+          gh run download 43718069015 --repo zuizui0223/gesui --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change --dir /tmp/gesui_H7_native/eiv
+          gh run download 44440277477 --repo zuizui0223/gesui --name gesui-jrc-five-native-basin-source-area-census --dir /tmp/gesui_H7_native/native
+          gh run download 44441131398 --repo zuizui0223/gesui --name gesui-jrc-soilHydroID-waterBasinID-fixed30-original-polygon-source --dir /tmp/gesui_H7_native/geom30
+      - name: Evaluate deterministic 12 H7 original polygons for native JRC source spatial-coverage opportunity
+        run: |
+          set -euo pipefail
+          FACETS="$(find /tmp/gesui_H7_native/facets -type f -name GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json)"
+          EIV="$(find /tmp/gesui_H7_native/eiv -type f -name EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv)"
+          test -f "$FACETS" && test -f "$EIV"
+          python analysis/20261119_jrc_native_basins/jrc_native_H7_truepolygon_source_pilot12.py \
+            --facets "$FACETS" \
+            --eiv-eligibility "$EIV" \
+            --native-source-csv /tmp/gesui_H7_native/native/JRC_NATIVE_POSSIBLE_SHARED_GEOMETRY_ONLY_SOURCE.csv \
+            --native-source-report /tmp/gesui_H7_native/native/JRC_NATIVE_FIVE_LAYER_FULL_SOURCE_GATE.json \
+            --native-geom30-report /tmp/gesui_H7_native/geom30/JRC_NATIVE_SOIL_POINT_GEOMETRY_SAMPLE30_GATE.json \
+            --out results/20261119_jrc_native_H7_source_pilot12
+      - name: Save full source-only H7 pilot whether GO or STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-nativeJRC-12H7-truepolygon-source-coverage-gate
+          path: results/20261119_jrc_native_H7_source_pilot12/
+          if-no-files-found: warn
+          retention-days: 45
