@@ -32,6 +32,9 @@ COVERAGE_MIN=.80
 MAX_DUPLICATION=1.05
 MAX_BBOX_NATIVE=3000
 PAGE=20
+MAX_LOCAL_SOURCE_AREA_MULTIPLIER=4
+REQUIRE_LOCAL_H7=8
+MIN_DISTINCT_DOMINANT_SOURCE_IDS=8
 
 def digest(path):
     h=hashlib.sha256()
@@ -120,7 +123,7 @@ def source_overlaps(geom, fullsource):
     uri=f"{WATER}/5/query"
     parts=[]
     source_ids=set()
-    invalid=0
+    source_pieces=[]
     count=0
     for j in range(0,len(object_ids),PAGE):
         ids=object_ids[j:j+PAGE]
@@ -142,11 +145,24 @@ def source_overlaps(geom, fullsource):
             if basin in source_ids:raise ValueError("Duplicate JRC GREEN BasinID within H7 overlap")
             source_ids.add(basin)
             parts.append(clip)
+            original_native_area=float(fullsource[basin]["soil_area_sqkm"])
+            if original_native_area<=0:
+                raise ValueError("Native basin candidate original area invalid")
+            source_pieces.append((basin,clip,original_native_area))
             count+=1
     combined=unary_union(parts) if parts else None
     coverage=float(combined.area/geom.area) if combined and not combined.is_empty else 0.
     rawarea=sum(x.area for x in parts)
     duplication=float(rawarea/combined.area) if combined and combined.area>0 else None
+    h7_area_km2=geom.area/1e6
+    local_coverage={}
+    for multiplier in (1,2,4,10):
+        good=[clip for basin,clip,a in source_pieces if a<=multiplier*h7_area_km2]
+        cov=unary_union(good).area/geom.area if good else 0.0
+        local_coverage[str(multiplier)]=float(cov)
+    dominant=max(source_pieces,key=lambda x:x[1].area) if source_pieces else None
+    dominated_ID=int(dominant[0]) if dominant else None
+    dominant_native_area_ratio=float(dominant[2]/h7_area_km2) if dominant else None
     return {
       "JRC_point_bbox_original_objectids":len(object_ids),
       "JRC_native_P_D_modelled_supported_positive_overlap_ids":count,
@@ -156,6 +172,11 @@ def source_overlaps(geom, fullsource):
       "source_overlap_no_geographic_pseudoreplication_PASS":duplication is not None and duplication<=MAX_DUPLICATION,
       "bbox_source_count_SHA256":ch,"bbox_source_ids_SHA256":ih,
       "native_basinid_sample_first10":sorted(source_ids)[:10],
+      "all_native_basinIDs_actual_geometry_intersection":sorted(source_ids),
+      "source_area_ratio_at_dominant_native_basin":dominant_native_area_ratio,
+      "dominant_native_pointN_soilN_BasinID":dominated_ID,
+      "source_polygon_covered_fraction_by_native_area_at_most_multiplied_H7":local_coverage,
+      "local_source_spatial_resolution_4x_area80pct_PASS":local_coverage["4"]>=COVERAGE_MIN,
       "not_BQE_or_NUTRI_observed":True
     }
 
@@ -185,7 +206,15 @@ def main():
         print("GESUI_JRC_H7_NATIVE_SOURCE_PILOT",json.dumps(z,ensure_ascii=False),flush=True)
     acceptable=[x for x in results if x.get("source_area_PASS_80pct")
                 and x.get("source_overlap_no_geographic_pseudoreplication_PASS")]
+    unique_dominants={x["dominant_native_pointN_soilN_BasinID"] for x in results
+                      if x.get("dominant_native_pointN_soilN_BasinID") is not None}
+    local_pass=[x for x in results if x.get("local_source_spatial_resolution_4x_area80pct_PASS")]
     qc={
+       "source_resolution_post_pilot_diagnostic_NOT_original_coverage_gate":True,
+       "native_area_lte_4x_H7_80pct_local_coverage_H7_n":len(local_pass),
+       "distinct_native_dominant_sourceIDs":len(unique_dominants),
+       "post_pilot_stricter_source_resolution_adequacy":len(local_pass)>=REQUIRE_LOCAL_H7
+                             and len(unique_dominants)>=MIN_DISTINCT_DOMINANT_SOURCE_IDS,
        "original_EIV_2017to19_source_only_eligible_H7":226,
        "fixed_pilot_H7_n":N_PILOT,
        "pilot_original_good_H7_geo_n":len(acceptable),
