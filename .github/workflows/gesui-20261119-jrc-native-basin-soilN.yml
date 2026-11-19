@@ -24,14 +24,14 @@ jobs:
           python-version: "3.11"
       - name: Source-only invariant tests, no biology
         run: python -m unittest discover -s tests -p 'test_jrc_native_soilN_basin_source_20261119.py' -v
-      - name: Official JRC river-basin inventory, schema and complete attribute pages
+      - name: Official JRC native river-basin metadata, counts and first-three source records
         run: |
-          python analysis/20261119_JRC_native_basin_N_source/jrc_native_soilN_layers_source_gate.py --out results/20261119_jrc_native_soil_basin_SOURCE
-      - name: Save all source-only provenance and native ID values
+          python analysis/20261119_JRC_native_basin_N_source/jrc_native_soilN_metadata_probe.py --out results/20261119_jrc_native_soil_basin_SOURCE
+      - name: Preserve full source metadata and 74k-count technical barrier with no biotic data
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: gesui-2015-emep-daycent-original-native-basin-source-only
+          name: gesui-2015-emep-daycent-native-basin-METADATA-source-only
           path: results/20261119_jrc_native_soil_basin_SOURCE/
           retention-days: 60
           if-no-files-found: warn
