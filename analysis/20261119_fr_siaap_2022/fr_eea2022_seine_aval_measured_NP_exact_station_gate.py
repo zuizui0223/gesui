@@ -65,7 +65,9 @@ def match_exact(plant_candidates,outlets):
     if len(exact)!=1:
         return {"status":"EXACT_STEU_NOT_UNIQUELY_CONFIRMED",
                 "exact_fr_station_rows":len(exact),"reported_measured_annual_N_P_t":None,
-                "confirmed_one_direct_Fw_outfall":False}
+                "confirmed_one_direct_Fw_outfall":False,
+                "paired_measured_water_N_P_and_2022_actual_field_N_P_mass_GO":False,
+                "biotic_response_and_mechanism_GO":False}
     x=exact[0]
     rep=x["repCode"]
     d=[o for o in outlets if str(o.get("repCode") or "").strip()==rep and
