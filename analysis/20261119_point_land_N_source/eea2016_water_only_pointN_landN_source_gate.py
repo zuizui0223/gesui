@@ -58,7 +58,7 @@ def gate(registry, sources):
     if j.get("original_2016_EEA_numeric_EQR_outcome_VALUES_not_read") is not True:
         raise ValueError("2016 source registry not outcome free")
     x=j["source_biological_classes"]["benthic_invertebrates"]
-    ro=x["original_NUTS2_source_inventory"]
+    ro=x["original_NUTS2_region_source_inventory"]
     folds=x["fixed_region_to_fivefold_source_only"]
     if len(ro)!=79 or x["n_original_independent_NUTS2"]!=79 or x["n_sites_source_fixed_before_EQR"]!=2469:
         raise ValueError("2016 source pre-frozen benthic cohort mismatch")
