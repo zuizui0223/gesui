@@ -1,0 +1,30 @@
+name: gesui EA original Biosys full site-sample-taxon source QA census
+on:
+  push:
+    paths:
+      - 'analysis/20261119_europe_benthic_taxa/ea_biosys_sample_taxon_join_census.py'
+      - '.github/workflows/gesui-ea-biosys-source-join-census-20261119.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-EA-source-only-relationships:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run original entire EA Biosys freshwater river source join census with no environment/biotic regression
+        run: |
+          python -m py_compile analysis/20261119_europe_benthic_taxa/ea_biosys_sample_taxon_join_census.py
+          python -u analysis/20261119_europe_benthic_taxa/ea_biosys_sample_taxon_join_census.py \
+            --out "${{ runner.temp }}/ea_biosys_join/EA_BIOSYS_REAL_SAMPLE_TAXON_JOIN_CENSUS.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261119-EA-Biosys-original-sample-taxon-source-join-census
+          path: ${{ runner.temp }}/ea_biosys_join/EA_BIOSYS_REAL_SAMPLE_TAXON_JOIN_CENSUS.json
+          if-no-files-found: warn
+          retention-days: 90
