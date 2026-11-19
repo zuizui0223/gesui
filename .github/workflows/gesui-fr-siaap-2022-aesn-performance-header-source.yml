@@ -1,0 +1,40 @@
+name: GESUI Seine Aval AESN 2022 station monthly performance source schema
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/fr_aesn_2022_monthly_performance_indicator_HEADER_gate.py
+      - tests/test_fr_aesn_2022_monthly_performance_header.py
+      - .github/workflows/gesui-fr-siaap-2022-aesn-performance-header-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-2022-performance-source-header:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fail-closed official monthly performance CSV source schema tests
+        run: python -m unittest discover -s tests -p 'test_fr_aesn_2022_monthly_performance_header.py' -v
+      - name: GET original 2022 performance catalog and just 128KiB CSV header
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_aesn_2022_monthly_performance_indicator_HEADER_gate.py \
+            --out "$RUNNER_TEMP/seineaval_aesn_2022_monthly_performance_header_source.json"
+          python - "$RUNNER_TEMP/seineaval_aesn_2022_monthly_performance_header_source.json" <<'PY'
+          import json,sys
+          p=json.load(open(sys.argv[1]))
+          assert p["original_2022_measurement_rows_opened"] is False
+          assert p["no_EQR_NUTRI_HNS_used"]
+          assert p["paired_water_land_nutrient_balance_GO"] is False
+          print("SOURCE",p["source_status"],p.get("source_error"))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-SIAAP-AESN-2022-monthly-performance-source-header
+          path: ${{ runner.temp }}/seineaval_aesn_2022_monthly_performance_header_source.json
+          retention-days: 60
