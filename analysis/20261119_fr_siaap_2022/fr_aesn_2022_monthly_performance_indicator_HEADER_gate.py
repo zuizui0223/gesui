@@ -23,7 +23,7 @@ def approved_resource(metadata):
         raise ValueError("Invalid official source catalog")
     resources=metadata["resources"]
     names=[(r.get("title"),r.get("filename")) for r in resources]
-    matches=[r for r in resources if FILENAME in (r.get("title"),r.get("filename"))]
+    matches=[r for r in resources if FILENAME in (r.get("title"),r.get("filename")) or str(r.get("url") or "").endswith("/"+FILENAME)]
     if len(matches)!=1:raise ValueError("Source 2022 resource not uniquely listed")
     r=matches[0]
     url=str(r.get("url") or "")
