@@ -30,3 +30,10 @@
 ## 生態解釈の上限
 
 地域平均EQRと地域平均モデル源の関連は都市化・国別評価手法・農地/気候・水温・河川流量などの未調整交絡を含む。モデルは複合的な地域地理の説明力のテストであり、処理場の下水Nと蝶の寄主Nを結ぶ媒介・生態系サービス・負荷源の原因効果ではない。2016年モデル値と2018/2022年の実WWTP源報告も単純な独立再現年として統合しない。国/面積調整後のpoint-vs-land source相関の知見と整合的でも、水陸共通2×2のSTOPは解除しない。
+
+
+## Source-vs-EQR eligibility implementation correction (after initial technical failure; before any new fit)
+
+Initial code [GitHub Actions #44436319400](https://github.com/zuizui0223/gesui/actions/runs/44436319400) stopped before a model fit because it incorrectly required the **73 source-only candidate regions to equal 73 old numeric EQR-valid regions by identity**. Both totals equal 73 but they are not the same regions: the original historical numerical EQR summary has 6 Norwegian regions absent from JRC soil-N source, whereas the source-only JRC cohort has 5 Danish regions and Austria AT13 absent from historical EQR-valid regions. Therefore the true numerical outcome+source overlap is **67 regions in 11 countries**. This was discovered from preexisting **region ID and availability metadata**, not signs of the new four-model coefficients, and no four-model numeric effect was fitted in the failed run.
+
+To honor the already fixed **minimum** conditions (>=55 region, >=8 countries, >=5 countries with 3 regions and both source variations, >=8 region per original fold), an explicit **pre-new-model source/validity compatibility audit** was added: analysis/20261119_point_land_N_source/eea2016_eqr_source_compatibility_gate.py. It will save the full set of eligible region IDs and reasons for exclusions *before the new EQR four-model fit*. Only if this audit confirms all predeclared minima will the new four-model script accept its exact region-ID list. No changes to period, metric, training fold, source models, coefficient thresholds or numerical model class are permitted. The original failed run remains available in the PR audit trail. This corrective stage is after previous numeric 2016 data were published and therefore remains exploratory, not prospectively preregistered.
