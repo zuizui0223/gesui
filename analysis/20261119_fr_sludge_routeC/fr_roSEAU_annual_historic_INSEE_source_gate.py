@@ -76,7 +76,12 @@ def official_cog(year,payload,min_count=30000):
                    "mvt" not in x.lower() and "histor" not in x.lower()]
             if len(files)!=1:raise ValueError("Expected exactly one official INSEE annual commune CSV: "+repr(files))
             orig_name=files[0];raw=z.read(files[0])
-        reader=csv.DictReader(io.StringIO(raw.decode("utf-8-sig")),delimiter=",")
+        txt=raw.decode("utf-8-sig")
+        try:
+            delim=csv.Sniffer().sniff(txt[:8192],delimiters=",;\t").delimiter
+        except csv.Error as ex:
+            raise ValueError("Official annual INSEE CSV delimiter unknown") from ex
+        reader=csv.DictReader(io.StringIO(txt),delimiter=delim)
         if not {"COM","NCC"}.issubset(reader.fieldnames or []):
             raise ValueError("Official newer COG CSV lacks COM/NCC code-name columns; original header="+repr((reader.fieldnames or [])[:18])+"; first_source_line="+repr(raw[:180]))
         codes=defaultdict(set)
