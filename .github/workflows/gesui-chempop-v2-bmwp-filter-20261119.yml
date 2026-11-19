@@ -1,0 +1,37 @@
+name: gesui ChemPop v2 2010-18 source-gated BMWP incidence and EDF geographic transfer
+on:
+  push:
+    paths:
+      - 'analysis/20261119_europe_benthic_taxa/chempop_v2_bmwp_filter.py'
+      - '.github/workflows/gesui-chempop-v2-bmwp-filter-20261119.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-gate-then-posthoc-ecology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install immutable analysis dependency ranges
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Strict authentic 326-file source and 2010-18 site/sample family score gates followed by posterior observational fit only if supported
+        run: |
+          python -m py_compile analysis/20261119_europe_benthic_taxa/chempop_v2_bmwp_filter.py
+          python -u analysis/20261119_europe_benthic_taxa/chempop_v2_bmwp_filter.py \
+            --output "${{ runner.temp }}/chempop_bmwp/CHEMPOP_V2_BMWP_EDF_TRAIT_FILTER_RESULTS.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261119-ChemPop-v2-BMWP-incidence-EDF-region-disjoint
+          path: ${{ runner.temp }}/chempop_bmwp/CHEMPOP_V2_BMWP_EDF_TRAIT_FILTER_RESULTS.json
+          if-no-files-found: warn
+          retention-days: 90
