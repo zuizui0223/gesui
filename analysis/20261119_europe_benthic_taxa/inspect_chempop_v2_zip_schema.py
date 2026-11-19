@@ -67,7 +67,7 @@ def make(a):
                     raise RuntimeError("Official v2 downloaded file is not ZIP")
                 with zipfile.ZipFile(file) as z:
                     files=z.infolist()
-                    if len(files)>300:raise RuntimeError("Unexpected huge number of files")
+                    if len(files)>30000:raise RuntimeError("Unexpected >30000 original files; source STOP")
                     manifest=[]
                     for f in files:
                         meta={"name":f.filename,"size_uncompressed_bytes":f.file_size,
@@ -78,6 +78,14 @@ def make(a):
                             if len(first)>65536:raise RuntimeError("A source CSV header exceeds bound")
                             meta["columns"]=next(csv.reader([first.decode("utf-8-sig","replace").strip()]))
                         manifest.append(meta)
+                    schema_groups={}
+                    for o in manifest:
+                        if not o.get("columns"):continue
+                        key="|".join(o["columns"])
+                        g=schema_groups.setdefault(key,{"member_count":0,"sample_files":[],"n_columns":len(o["columns"]),"headers":o["columns"]})
+                        g["member_count"]+=1
+                        if len(g["sample_files"])<3:g["sample_files"].append(o["name"])
+                    result["unique_CSV_schema_groups"]=list(schema_groups.values())
                     result["status"]="SOURCE_AUTHENTIC_ZIP_MEMBERS_AND_CSV_HEADERS_VERIFIED"
                     result["ZIP_source_SHA256"]=h.hexdigest()
                     result["ZIP_size_bytes"]=n
@@ -89,8 +97,9 @@ def make(a):
     print("GESUI_CHEMPOP_V2_ZIP_SCHEMA="+json.dumps({
         "status":result["status"],"reason":result.get("reason"),
         "HEAD":result["HEAD"],"n_files":len(result["members"]),
-        "files":[{"name":x["name"],"columns":x.get("columns",[]),
-                  "size":x["size_uncompressed_bytes"]} for x in result["members"]],
+        "files_first40":[{"name":x["name"],"columns":x.get("columns",[]),
+                  "size":x["size_uncompressed_bytes"]} for x in result["members"][:40]],
+        "unique_CSV_schema_groups":result.get("unique_CSV_schema_groups",[]),
     },ensure_ascii=False,sort_keys=True,allow_nan=False),flush=True)
 
 if __name__=="__main__":
