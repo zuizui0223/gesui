@@ -1,6 +1,7 @@
-import importlib.util,unittest,io,csv,zipfile
+import importlib.util,unittest,io,csv,zipfile,sys
 from pathlib import Path
 P=Path(__file__).resolve().parents[1]/"analysis/20261119_fr_sludge_routeC/fr_roSEAU_annual_historic_INSEE_source_gate.py"
+sys.path.insert(0,str(P.parent))
 spec=importlib.util.spec_from_file_location("historicCog",P)
 m=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
