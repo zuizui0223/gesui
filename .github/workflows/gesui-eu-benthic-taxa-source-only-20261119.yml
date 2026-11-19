@@ -44,3 +44,26 @@ jobs:
           path: ${{ runner.temp }}/gesui_benthic_source/
           if-no-files-found: warn
           retention-days: 90
+
+  official-chem-pop-family-source-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official source-only UK family score R-archive interpreter
+        run: python -m pip install --quiet 'pandas>=2,<3' 'pyreadr>=0.5,<1'
+      - name: Run 326-file official EIDC original 7-region sample×family/EDF raw source census
+        run: |
+          python -m py_compile analysis/20261119_europe_benthic_taxa/chempop_v2_source_census.py
+          python -u analysis/20261119_europe_benthic_taxa/chempop_v2_source_census.py \
+            --output "${{ runner.temp }}/chempop_v2_source/CHEMPOP_V2_SITE_FAMILY_EDF_SOURCE_CENSUS.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261119-ChemPop-v2-original-same-sample-family-source-census
+          path: ${{ runner.temp }}/chempop_v2_source/CHEMPOP_V2_SITE_FAMILY_EDF_SOURCE_CENSUS.json
+          if-no-files-found: warn
+          retention-days: 90
