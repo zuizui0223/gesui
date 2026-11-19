@@ -47,10 +47,17 @@ jobs:
             --facets '${{ runner.temp }}/source_facets' \
             --out '${{ runner.temp }}/plant_W_genus/451_W_PLANT_NUTRI_GENUS_LABEL_NULL.json' \
             --permutations 4999
+      - name: Independent country-heldout and disjoint-H6 transfer, plus source-only within-parent support ceiling
+        run: |
+          python -m py_compile analysis/20261119_plant_W_genus/country_h6_transfer_gate.py
+          python -u analysis/20261119_plant_W_genus/country_h6_transfer_gate.py \
+            --eiv '${{ runner.temp }}/verified_eiv' \
+            --facets '${{ runner.temp }}/source_facets' \
+            --out '${{ runner.temp }}/plant_W_genus/451_W_PLANT_NUTRI_COUNTRY_H6_TRANSFER.json'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: gesui-20261119-EU451-plant-W-NUTRI-genus-null-verified
-          path: ${{ runner.temp }}/plant_W_genus/451_W_PLANT_NUTRI_GENUS_LABEL_NULL.json
+          path: ${{ runner.temp }}/plant_W_genus/
           if-no-files-found: warn
           retention-days: 90
