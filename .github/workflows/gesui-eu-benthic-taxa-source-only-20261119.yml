@@ -21,10 +21,15 @@ jobs:
           python -m py_compile analysis/20261119_europe_benthic_taxa/source_inventory.py
           python -u analysis/20261119_europe_benthic_taxa/source_inventory.py \
             --output "${{ runner.temp }}/gesui_benthic_source/EU_ORIGINAL_BENTHIC_TAXON_AVAILABILITY_SOURCEONLY.json"
+      - name: Download and inspect official EA Biosys sample taxon schemas (no biological outcomes)
+        run: |
+          python -m py_compile analysis/20261119_europe_benthic_taxa/inspect_ea_biosys_zip_schema.py
+          python -u analysis/20261119_europe_benthic_taxa/inspect_ea_biosys_zip_schema.py \
+            --out "${{ runner.temp }}/gesui_benthic_source/EA_BIOSYS_AND_CHEMPOP_SOURCE_SCHEMA.json"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: gesui-20261119-European-benthic-sample-taxon-source-only
-          path: ${{ runner.temp }}/gesui_benthic_source/EU_ORIGINAL_BENTHIC_TAXON_AVAILABILITY_SOURCEONLY.json
+          path: ${{ runner.temp }}/gesui_benthic_source/
           if-no-files-found: warn
           retention-days: 90
