@@ -11,7 +11,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 from collections import Counter
 import geopandas as gpd
-from shapely import wkt
+from shapely import wkt,make_valid
 from shapely.geometry import shape
 from shapely.ops import unary_union,transform
 from pyproj import Transformer
@@ -131,6 +131,8 @@ def geo_source(h7,geom,model,base,lid,valfield,idfield):
     numeric_cover=[]
     mass=[]
     found=set()
+    repair_count=0
+    repair_h7_area=0.0
     pgeom=transform(PROJECT,geom)
     if not pgeom.is_valid:raise ValueError("Original H7 WKT invalid")
     for feature in features:
@@ -141,12 +143,18 @@ def geo_source(h7,geom,model,base,lid,valfield,idfield):
             raise ValueError("Native JRC feature OID absent or repeated")
         found.add(oid)
         g=shape(feature["geometry"])
-        if g.is_empty or not g.is_valid:raise ValueError("Original JRC native polygon invalid")
+        if g.is_empty:raise ValueError("Original JRC native polygon empty")
+        invalid_original=not g.is_valid
+        if invalid_original:
+            g=make_valid(g)
+            repair_count+=1
+            if g.is_empty or not g.is_valid:raise ValueError("Original JRC polygon still invalid after GEOS make_valid")
         ge=transform(PROJECT,g)
         overlap=pgeom.intersection(ge)
         if overlap.is_empty:continue
         area=overlap.area
         if area<=0:continue
+        if invalid_original:repair_h7_area+=area
         original_coverage.append(overlap)
         try:
             z=float(attrs.get(valfield))
@@ -166,6 +174,9 @@ def geo_source(h7,geom,model,base,lid,valfield,idfield):
             "bbox_candidates":n,"true_intersecting_native_catchment_features":len(original_coverage),
             "native_H7_overlap_area_pct":100*cov,
             "native_H7_valid_model_value_overlap_pct":100*numeric,
+            "invalid_original_JRC_polygon_count_repaired":repair_count,
+            "H7_area_pct_contributed_by_repaired_JRC_polygons":100*repair_h7_area/pgeom.area,
+            "native_geometry_quality_sensitivity_flag":repair_h7_area/pgeom.area>0.05,
             "soil_H7_area_weighted_native_catchment_model_mean_NOT_original_raster":weighted,
             "original_query_page_SHA256_of_pages":hashlib.sha256("\n".join(receipts).encode()).hexdigest()}
 
