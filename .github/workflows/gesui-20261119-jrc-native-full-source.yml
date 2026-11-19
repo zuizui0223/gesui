@@ -1,0 +1,38 @@
+name: GESUI JRC full native soilN HydroID vs point BasinID source census
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-jrc-native-full-source.yml
+      - analysis/20261119_jrc_native_basins/jrc_native_full_source_area_census.py
+      - tests/test_jrc_native_full_source_area_census.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-full-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Test native IDs, missingness and polygon area candidate screen
+        run: python -m unittest discover -s tests -p 'test_jrc_native_full_source_area_census.py' -v
+      - name: Exhaustive official JRC soilN 4 layers plus water pointN full native-attribute source census
+        run: |
+          python analysis/20261119_jrc_native_basins/jrc_native_full_source_area_census.py \
+            --output-dir results/20261119_jrc_native_basins_full
+      - name: Save all source native-unit candidates and original page-receipt digests
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-jrc-five-native-basin-source-area-census
+          path: results/20261119_jrc_native_basins_full/
+          if-no-files-found: warn
+          retention-days: 45
