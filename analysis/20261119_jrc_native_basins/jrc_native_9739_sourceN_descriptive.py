@@ -24,6 +24,9 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 def pearson(x,y):
     x=np.asarray(x,float);y=np.asarray(y,float)
+    if len(x)!=len(y):raise ValueError("Source-only pair arrays have unequal lengths")
+    ok=np.isfinite(x)&np.isfinite(y)
+    x=x[ok];y=y[ok]
     if len(x)<3 or np.std(x)<1e-12 or np.std(y)<1e-12:return None
     return float(np.corrcoef(x,y)[0,1])
 
