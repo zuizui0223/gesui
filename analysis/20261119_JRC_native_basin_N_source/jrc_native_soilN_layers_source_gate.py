@@ -184,13 +184,15 @@ def main():
       "do_not_make_biotic_prediction":True
     }
     (args.out/"JRC_NATIVE_BASIN_SOURCE_ONLY_QA.json").write_text(json.dumps(summary,indent=2,sort_keys=True)+"\n")
-    allids=sorted(set.union(*(set(z) for z in values.values())))
-    with (args.out/"JRC_NATIVE_BASIN_SOURCE_VALUES_UNMATCHED_GEOS.csv").open("w",newline="",encoding="utf-8") as f:
+    # Long format makes incompatible ID namespaces unambiguous: NEVER visually
+    # align the same integer HydroID and point-source BasinID in the same row.
+    with (args.out/"JRC_NATIVE_BASIN_SOURCE_VALUES_LONG_UNCROSSWALKED.csv").open("w",newline="",encoding="utf-8") as f:
         writer=csv.writer(f)
-        writer.writerow(["native_numeric_ID_UNMATCHED","pointN_MODEL_BasinID_value_not_same_as_soil_HydroID",*list(SOURCES)[:4]])
-        for k in allids:
-            writer.writerow([k,values["water_model_point_N_t_2014_18"].get(k),
-                *[values[v].get(k) for v in list(SOURCES)[:4]]])
+        writer.writerow(["original_JRC_layer","native_ID_namespace","native_ID","original_model_source_value"])
+        for label in SOURCES:
+            namespace="JRC_SOIL_HydroID" if label.startswith("soil_") else "JRC_GREEN_POINT_BasinID"
+            for spatial_id,value in sorted(values[label].items()):
+                writer.writerow([label,namespace,spatial_id,value])
     print("GESUI_JRC_NATIVE_RIVERBASIN_SOURCE_ONLY",json.dumps(gate,sort_keys=True),flush=True)
 
 if __name__=="__main__":main()
