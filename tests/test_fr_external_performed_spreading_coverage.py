@@ -37,6 +37,17 @@ class ExternalPositiveCoverageTest(unittest.TestCase):
         self.assertEqual(result['external_cases_not_in_2017to22_union'], 1)
         self.assertTrue(result['absence_from_list_is_not_absence_of_field_application'])
         self.assertEqual(result['biological_model_source_gate'], 'STOP')
+        self.assertEqual(result['external_unique_source_station_years'], 1)
+
+    def test_multiple_communes_from_single_station_are_one_source_cluster(self):
+        a = self.write('a.csv', [self.candidate], self.candidate_fields)
+        second = dict(self.external, INSEE_code='42174', commune_name='Poncins')
+        b = self.write('b.csv', [self.external,second], self.ext_fields)
+        result = m.audit(a,b)
+        self.assertEqual(result['external_verified_commune_station_year_cases'], 2)
+        self.assertEqual(result['external_unique_commune_years'], 2)
+        self.assertEqual(result['external_unique_source_station_years'], 1)
+        self.assertEqual(result['independent_H6_n_for_new_biotic_model'], 0)
 
     def test_same_year_verified_candidate_is_found(self):
         a = self.write('a.csv', [dict(self.candidate, INSEE_code='42066')], self.candidate_fields)
