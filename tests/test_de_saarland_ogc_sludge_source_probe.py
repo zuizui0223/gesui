@@ -9,14 +9,14 @@ spec.loader.exec_module(m)
 
 class SaarlandOfficialSourceMetadataTest(unittest.TestCase):
     def test_official_wfs_layer_identification_only(self):
-        xml=b'''<?xml version="1.0" encoding="UTF-8"?>
+        xml='''<?xml version="1.0" encoding="UTF-8"?>
         <wfs:WFS_Capabilities xmlns:wfs="http://www.opengis.net/wfs/2.0">
          <wfs:FeatureTypeList>
            <wfs:FeatureType><wfs:Name>ABC:Forest</wfs:Name><wfs:Title>Forest</wfs:Title></wfs:FeatureType>
            <wfs:FeatureType><wfs:Name>Abfallbeseitigung:Klaerschlamm_Verfahren</wfs:Name>
             <wfs:Title>Ausbringungsflächen von Klärschlamm</wfs:Title></wfs:FeatureType>
          </wfs:FeatureTypeList>
-        </wfs:WFS_Capabilities>'''
+        </wfs:WFS_Capabilities>'''.encode('utf-8')
         r=m.parse_wfs_capabilities(xml)
         self.assertEqual(r["WFS_feature_type_count"],2)
         self.assertTrue(r["matching_layer_name_confirmed"])
