@@ -1,0 +1,49 @@
+name: GESUI JRC source native Esri JSON geometry adversarial check 3 H7
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-jrc-native-source-geometry-codec.yml
+      - analysis/20261119_JRC_native_basin_N_source/jrc_native_geometry_codec_adversarial.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  native-geometry-codec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install source-only geometry packages
+        run: python -m pip install --disable-pip-version-check shapely==2.0.6 pyproj==3.7.0
+      - name: Compile independent polygon-geometry codec QA
+        run: python -m py_compile analysis/20261119_JRC_native_basin_N_source/jrc_native_geometry_codec_adversarial.py
+      - name: Retrieve genuinely hashed original 2808 GBIF H7 source WKT
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/jrc_native_codec/facets
+          gh run download 43593227162 --repo zuizui0223/gesui --name gesui-H7-234x2x6-only429-source-merged-20261114 --dir /tmp/jrc_native_codec/facets
+      - name: Check Esri JSON native polygon rings versus independent GeoJSON repair algorithms
+        run: |
+          FACETS="$(find /tmp/jrc_native_codec/facets -name GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json)"
+          test -f "$FACETS"
+          python analysis/20261119_JRC_native_basin_N_source/jrc_native_geometry_codec_adversarial.py \
+            --original-h7-facets "$FACETS" \
+            --out results/20261119_JRC_native_ESRI_polygon_codecs
+      - name: Preserve raw geometry response SHA and decoded comparison for all 3 H7
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-JRC-3H7-original-Esri-vs-GeoJSON-geometry-source-QA
+          path: results/20261119_JRC_native_ESRI_polygon_codecs/
+          if-no-files-found: warn
+          retention-days: 60
