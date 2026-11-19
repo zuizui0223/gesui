@@ -26,6 +26,10 @@ class FeursRealizedApplicationTest(unittest.TestCase):
         self.assertEqual(result["original_annual_applied_wet_t"], 1918.0)
         self.assertEqual({k:int(v["actual_wet_sludge_t"]) for k,v in result["month"].items()},
                          {"3":761,"4":50,"7":613,"9":214,"10":208,"11":72})
+        self.assertEqual(result["commune_month_source_opportunity_cells"], 20)
+        self.assertTrue(result["commune_month_not_confirmed_specific_H7_field_exposure"])
+        self.assertEqual(result["commune_month"]["42066|07"]["actual_wet_sludge_t"], 322.0)
+        self.assertEqual(result["commune_month"]["42155|09"]["actual_wet_sludge_t"], 144.0)
         self.assertEqual(result["march_july_wet_t"], 1374.0)
         self.assertAlmostEqual(result["march_july_share_of_2018_wet_t"], 1374 / 1918, places=5)
         self.assertEqual(result["independent_realized_stations_years_in_current_case"], 1)
