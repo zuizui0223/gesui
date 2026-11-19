@@ -82,6 +82,9 @@ def official_cog(year,payload,min_count=30000):
         except csv.Error as ex:
             raise ValueError("Official annual INSEE CSV delimiter unknown") from ex
         reader=csv.DictReader(io.StringIO(txt),delimiter=delim)
+        reader.fieldnames=[x.strip().upper() for x in (reader.fieldnames or [])]
+        if len(reader.fieldnames)!=len(set(reader.fieldnames)):
+            raise ValueError("Official COG fields collapse to duplicate keys after case normalization")
         if not {"COM","NCC"}.issubset(reader.fieldnames or []):
             raise ValueError("Official newer COG CSV lacks COM/NCC code-name columns; original header="+repr((reader.fieldnames or [])[:18])+"; first_source_line="+repr(raw[:180]))
         codes=defaultdict(set)
