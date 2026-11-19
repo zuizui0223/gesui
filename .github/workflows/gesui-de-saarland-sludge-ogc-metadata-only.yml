@@ -1,0 +1,42 @@
+name: GESUI Saarland sewage-sludge polygons OGC official metadata SOURCE gate
+on:
+  push:
+    branches:
+      - analysis/gesui-de-saarland-spreading-ogc-source-20261119
+    paths:
+      - analysis/20261119_de_sludge_saarland/sl_saarland_official_ogc_SOURCE_probe.py
+      - tests/test_de_saarland_ogc_sludge_source_probe.py
+      - .github/workflows/gesui-de-saarland-sludge-ogc-metadata-only.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-metadata-first:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline fail-closed schema and URL safety tests
+        run: python -m unittest discover -s tests -p 'test_de_saarland_ogc_sludge_source_probe.py' -v
+      - name: Probe only two official public metadata endpoints (GET)
+        run: |
+          python analysis/20261119_de_sludge_saarland/sl_saarland_official_ogc_SOURCE_probe.py \
+            --out "$RUNNER_TEMP/saarland_sludge_ogc_metadata_SOURCE_ONLY.json"
+          python - "$RUNNER_TEMP/saarland_sludge_ogc_metadata_SOURCE_ONLY.json" <<'PY'
+          import json,sys
+          z=json.load(open(sys.argv[1],encoding="utf8"))
+          assert z["features_or_field_polygons_downloaded"] is False
+          assert z["years_2017to22_for_actual_application_verified"] is False
+          assert z["source_GO_for_biological_outcomes"] is False
+          assert z["independent_H6_for_cross_compartment_estimation"] == 0
+          assert z["NUTRI_HNS_EQR_values_accessed"] is False
+          print("OFFICIAL_METADATA_ONLY:", {k:v["access_status"] for k,v in z["sources"].items()})
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-DE-Saarland-sludge-spreading-official-OGC-source-gate
+          path: ${{ runner.temp }}/saarland_sludge_ogc_metadata_SOURCE_ONLY.json
+          retention-days: 60

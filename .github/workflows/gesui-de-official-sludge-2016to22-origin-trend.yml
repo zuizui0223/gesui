@@ -1,0 +1,45 @@
+name: GESUI Germany Saarland 2016-2022 official sludge origin source comparison
+on:
+  push:
+    branches:
+      - analysis/gesui-de-saarland-spreading-ogc-source-20261119
+    paths:
+      - analysis/20261119_de_sludge_saarland/DE_GERMANY_SAARLAND_2016TO22_SLUDGE_ORIGIN_ALLOCATION_SOURCE.csv
+      - analysis/20261119_de_sludge_saarland/de_sludge_origin_2016to22_SOURCE_trend.py
+      - tests/test_de_sludge_origin_2016to22_source_trend.py
+      - .github/workflows/gesui-de-official-sludge-2016to22-origin-trend.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check-official-origin-route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate national and Saarland route totals and avoid origin-field confusion
+        run: python -m unittest discover -s tests -p 'test_de_sludge_origin_2016to22_source_trend.py' -v
+      - name: Reconstruct nonoverlapping Saarland vs rest-Germany 2017-to-22 descriptive comparison
+        run: |
+          python analysis/20261119_de_sludge_saarland/de_sludge_origin_2016to22_SOURCE_trend.py \
+            --input analysis/20261119_de_sludge_saarland/DE_GERMANY_SAARLAND_2016TO22_SLUDGE_ORIGIN_ALLOCATION_SOURCE.csv \
+            --out "$RUNNER_TEMP/DE_SLUDGE_ORIGIN_ROUTING_2016TO22.json"
+          python - "$RUNNER_TEMP/DE_SLUDGE_ORIGIN_ROUTING_2016TO22.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          assert d["no_EQR_NUTRI_HNS_used"]
+          assert d["source_GO_for_biological_model"] is False
+          assert d["regional_allocation_by_WWTP_origin_not_actually_receiving_farmland"]
+          assert abs(d["2017to2022"]["DE_agri_percent_change"]-(-23.892))<0.001
+          assert abs(d["2017to2022"]["SL_agri_percent_change"]-63.645)<0.001
+          assert abs(d["2017to2022"]["SL_minus_RestDE_change_in_agri_share_percentage_points_DESCRIPTIVE_ONLY"]-12.374)<0.001
+          print("PASS: source origin routing (NOT actual field exposure) and nonoverlapping share comparison")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-DE-2016to22-official-sludge-origin-routes-source-only
+          path: ${{ runner.temp }}/DE_SLUDGE_ORIGIN_ROUTING_2016TO22.json
+          retention-days: 60

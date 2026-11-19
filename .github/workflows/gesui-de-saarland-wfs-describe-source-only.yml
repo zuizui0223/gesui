@@ -1,0 +1,45 @@
+name: GESUI Saarland sludge WFS actual schema only SOURCE gate
+on:
+  push:
+    branches:
+      - analysis/gesui-de-saarland-spreading-ogc-source-20261119
+    paths:
+      - analysis/20261119_de_sludge_saarland/sl_saarland_official_wfs_describe_feature_SOURCE_gate.py
+      - tests/test_de_saarland_wfs_describe_source_gate.py
+      - .github/workflows/gesui-de-saarland-wfs-describe-source-only.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-described-fields-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline fail-closed WFS schema and positive exposure tests
+        run: python -m unittest discover -s tests -p 'test_de_saarland_wfs_describe_source_gate.py' -v
+      - name: Official WFS capabilities then DescribeFeatureType only
+        run: |
+          python analysis/20261119_de_sludge_saarland/sl_saarland_official_wfs_describe_feature_SOURCE_gate.py \
+            --out "$RUNNER_TEMP/saarland_WFS_sludge_official_describe_source_only.json"
+          python - "$RUNNER_TEMP/saarland_WFS_sludge_official_describe_source_only.json" <<'PY'
+          import json,sys
+          p=json.load(open(sys.argv[1]))
+          assert p["no_GetFeature_or_field_geometries_downloaded"]
+          assert p["no_EQR_NUTRI_HNS_values_read"]
+          assert p["biological_model_gate"]=="STOP"
+          print("WFS SOURCE-only:",p["source_gate"])
+          if p.get("WFS_DescribeFeatureType_metadata"):
+            r=p["WFS_DescribeFeatureType_metadata"]
+            assert r["source_year_2017to22_field_exposure_GO"] is False
+            assert r["geometry_or_feature_values_downloaded"] is False
+            print("FIELD NAMES:",r["source_field_names"][:90])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-DE-Saarland-sludge-WFS-DescribeFeatureType-source-only
+          path: ${{ runner.temp }}/saarland_WFS_sludge_official_describe_source_only.json
+          retention-days: 60
