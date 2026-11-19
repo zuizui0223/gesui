@@ -1,0 +1,51 @@
+name: GESUI JRC 9739 native source candidates P vs D descriptive after fixed30 polygon gate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-jrc-native-descriptive.yml
+      - analysis/20261119_jrc_native_basins/jrc_native_9739_sourceN_descriptive.py
+      - tests/test_jrc_native_9739_sourceN_descriptive.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  native-source-descriptive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install source-only statistical libraries
+        run: python -m pip install --disable-pip-version-check numpy pandas
+      - name: Check zero and missing source handling and correlations
+        run: python -m unittest discover -s tests -p 'test_jrc_native_9739_sourceN_descriptive.py' -v
+      - name: Restore immutable full native source candidate values and polygon30 proof
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui_native_source/descriptive /tmp/gesui_native_source/geo30
+          gh run download 44440277477 --repo zuizui0223/gesui --name gesui-jrc-five-native-basin-source-area-census --dir /tmp/gesui_native_source/descriptive
+          gh run download 44441131398 --repo zuizui0223/gesui --name gesui-jrc-soilHydroID-waterBasinID-fixed30-original-polygon-source --dir /tmp/gesui_native_source/geo30
+      - name: Compute all four source geographies without biological outcomes or spurious independence tests
+        run: |
+          python analysis/20261119_jrc_native_basins/jrc_native_9739_sourceN_descriptive.py \
+            --native-source-csv /tmp/gesui_native_source/descriptive/JRC_NATIVE_POSSIBLE_SHARED_GEOMETRY_ONLY_SOURCE.csv \
+            --native-source-report /tmp/gesui_native_source/descriptive/JRC_NATIVE_FIVE_LAYER_FULL_SOURCE_GATE.json \
+            --geom30-report /tmp/gesui_native_source/geo30/JRC_NATIVE_SOIL_POINT_GEOMETRY_SAMPLE30_GATE.json \
+            --out results/20261119_jrc_native_source_descriptive
+      - name: Preserve full source-only result even when no independent spatial-basin inference possible
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-native-9739-soilN-versus-pointN-descriptive-source-only
+          path: results/20261119_jrc_native_source_descriptive/
+          if-no-files-found: warn
+          retention-days: 45
