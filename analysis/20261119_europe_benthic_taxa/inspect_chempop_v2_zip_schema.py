@@ -47,7 +47,7 @@ def make(a):
             probe_req=urllib.request.Request(URL,headers={**HEADERS,"Range":"bytes=0-15"})
             with urllib.request.urlopen(probe_req,timeout=35) as probe:
                 actual=probe.read(16)
-                if actual[:4] not in (b"PK\\x03\\x04", b"PK\\x05\\x06"):
+                if not (actual[:2] == b"PK" and actual[2] in (3, 5)):
                     raise RuntimeError("No ZIP signature at original source URL; authentication/license gate or wrong format")
             with tempfile.TemporaryDirectory(prefix="gesui_chem_v2_") as temp:
                 file=Path(temp)/"v2_original.zip"
