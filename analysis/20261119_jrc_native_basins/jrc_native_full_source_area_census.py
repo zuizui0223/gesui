@@ -12,7 +12,7 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from jrc_soilN_waterpoint_native_inventory import CONFIG,fetch,validate_meta
 
-PAGE=500
+PAGE=750
 PAGE_LIMIT=200000
 REQUIRE_SOIL_COMPLETE=1000
 MIN_PILOT_AREA_CANDIDATE=100
@@ -41,10 +41,15 @@ def all_layer(name):
     nulls=0
     for i in range(0,len(allids),PAGE):
         batch=allids[i:i+PAGE]
+        # ArcGIS officially supports ordered pagination; avoid a huge objectIds
+        # URL (server returned HTTP 403 for 500 IDs, not a missing-data result).
         o,stamp=fetch(endpoint+"/query",{
-          "objectIds":",".join(map(str,batch)),
+          "where":"1=1",
           "outFields":",".join(["OBJECTID",primary,value,areafield]),
-          "returnGeometry":"false"
+          "returnGeometry":"false",
+          "orderByFields":"OBJECTID ASC",
+          "resultOffset":i,
+          "resultRecordCount":len(batch)
         })
         data=[x.get("attributes",{}) for x in o.get("features",[])]
         if len(data)!=len(batch) or {z.get("OBJECTID") for z in data}!=set(batch) or o.get("exceededTransferLimit"):
