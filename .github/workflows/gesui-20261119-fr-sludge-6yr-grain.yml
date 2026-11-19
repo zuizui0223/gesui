@@ -1,0 +1,77 @@
+name: GESUI France sludge route C 2017-2022 original station-vs-commune SOURCE QA
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-fr-sludge-6yr-grain.yml
+      - analysis/20261119_fr_sludge_routeC/fr_roSEAU_2017to22_csv_grain_source_audit.py
+      - analysis/20261119_fr_sludge_routeC/fr_roSEAU_6year_SOURCE_coverage_gate.py
+      - tests/test_fr_roSEAU_2017to22_csv_grain_source.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  six-year-source-rows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        year: [2017, 2018, 2019, 2020, 2021, 2022]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install only public government CSV source client
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Test record grain, station duplicates, INSEE format and data type
+        run: python -m unittest discover -s tests -p 'test_fr_roSEAU_2017to22_csv_grain_source.py' -v
+      - name: Official public CSV for fixed year ${{ matrix.year }} (no EQR/plant/butterfly values)
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_roSEAU_2017to22_csv_grain_source_audit.py \
+            --year ${{ matrix.year }} \
+            --out results/20261119_fr_sludge_6year_source/
+      - name: Preserve year-by-year source QA and original row-grain metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-fr-sludge-original-${{ matrix.year }}-source-grain
+          path: results/20261119_fr_sludge_6year_source/
+          if-no-files-found: warn
+          retention-days: 60
+
+  six-year-source-summary:
+    needs: six-year-source-rows
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download only same-workflow original year QA files
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-fr-sludge-original-*-source-grain
+          path: /tmp/gesui_fr_6year
+          merge-multiple: true
+      - name: Distinguish year/assay/site repetition from independent application events
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_roSEAU_6year_SOURCE_coverage_gate.py \
+            --input /tmp/gesui_fr_6year \
+            --out results/20261119_fr_sludge_6year_summary/
+      - name: Archive full-year SOURCE-only coverage and conservative GO-STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-fr-sludge-2017to22-independent-application-source-GO-STOP
+          path: results/20261119_fr_sludge_6year_summary/
+          if-no-files-found: warn
+          retention-days: 60
