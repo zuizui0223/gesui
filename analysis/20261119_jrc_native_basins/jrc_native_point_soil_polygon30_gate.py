@@ -16,6 +16,8 @@ from datetime import datetime,timezone
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
 from shapely.validation import make_valid
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 from jrc_soilN_waterpoint_native_inventory import CONFIG,fetch
 
 SAMPLE_N=30
