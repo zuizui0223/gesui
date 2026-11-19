@@ -1,0 +1,76 @@
+name: GESUI France 2017-2022 sludge municipality codes vs historical INSEE source
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-fr-6year-historical-INSEE.yml
+      - analysis/20261119_fr_sludge_routeC/fr_roSEAU_annual_historic_INSEE_source_gate.py
+      - analysis/20261119_fr_sludge_routeC/fr_roSEAU_6year_historic_INSEE_aggregate.py
+      - tests/test_fr_roSEAU_year_specific_INSEE_2017to22.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-year:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        year: [2017, 2018, 2019, 2020, 2021, 2022]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install historical official INSEE / ROSEAU reader
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Unit-test historical official TXT and CSV code parsing with code-name examples
+        run: python -m unittest discover -s tests -p 'test_fr_roSEAU_year_specific_INSEE_2017to22.py' -v
+      - name: Crosswalk same year official INSEE COG and original French sludge source ${{ matrix.year }}
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_roSEAU_annual_historic_INSEE_source_gate.py \
+            --year ${{ matrix.year }} --out results/20261119_fr_SLUDGE_INSEE_YEAR/
+      - name: Preserve only public municipality code candidates and station-level counts, no raw rows
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-France-sludge-INSEE-original-year-${{ matrix.year }}
+          path: results/20261119_fr_SLUDGE_INSEE_YEAR/
+          if-no-files-found: warn
+          retention-days: 60
+
+  source-six-year-summary:
+    needs: source-year
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Retrieve only public source-code QA from this run
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-France-sludge-INSEE-original-year-*
+          path: /tmp/france_roSEAU_cog/
+          merge-multiple: true
+      - name: Audit time-specific independent application-candidate codes and both periods
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_roSEAU_6year_historic_INSEE_aggregate.py \
+            --input /tmp/france_roSEAU_cog/ \
+            --out results/20261119_fr_sludge_6year_COGlists/
+      - name: Publish source-only 6yr candidate municipality exposure opportunity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-France-2017to22-sludge-historical-INSEE-communes-source-GO-STOP
+          path: results/20261119_fr_sludge_6year_COGlists/
+          if-no-files-found: warn
+          retention-days: 60

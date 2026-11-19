@@ -1,0 +1,76 @@
+name: GESUI France ROSEAU 2018 historic candidate communes x true H7 opportunity-only source
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-fr-sludge-2018-h7-opportunity.yml
+      - analysis/20261119_fr_sludge_routeC/fr_roSEAU_2018_communes_to_H7_opportunity_geo.py
+      - tests/test_fr_roSEAU_2018_candidate_h7_geo_opportunity.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-only-historic-2018:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install geographic source-only packages, no biology
+        run: python -m pip install --disable-pip-version-check geopandas==1.0.1 pyogrio==0.10.0 shapely==2.0.6 pyproj==3.7.0 pandas
+      - name: Offline tests of commune-H7 geometry and false application-exposure rule
+        run: python -m unittest discover -s tests -p 'test_fr_roSEAU_2018_candidate_h7_geo_opportunity.py' -v
+      - name: Recover original COG-verified 130 code-year candidates and genuine GBIF H7 polygon
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/gesui_fr2018/candidates /tmp/gesui_fr2018/facets /tmp/gesui_fr2018/eiv /tmp/gesui_fr2018/municipal
+          gh run download 44465289468 --repo zuizui0223/gesui \
+            --name gesui-France-2017to22-sludge-historical-INSEE-communes-source-GO-STOP \
+            --dir /tmp/gesui_fr2018/candidates
+          gh run download 43593227162 --repo zuizui0223/gesui \
+            --name gesui-H7-234x2x6-only429-source-merged-20261114 \
+            --dir /tmp/gesui_fr2018/facets
+          gh run download 43718069015 --repo zuizui0223/gesui \
+            --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change \
+            --dir /tmp/gesui_fr2018/eiv
+          find /tmp/gesui_fr2018 -type f -printf '%p %s bytes\n'
+      - name: Retrieve historical Etalab 2018 50m municipality polygons, NOT current communes
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --max-time 180 \
+            'https://etalab-datasets.geo.data.gouv.fr/contours-administratifs/2018/geojson/communes-50m.geojson.gz' \
+            -o /tmp/gesui_fr2018/municipal/communes-50m-2018.geojson.gz
+          sha256sum /tmp/gesui_fr2018/municipal/communes-50m-2018.geojson.gz
+          test "$(wc -c </tmp/gesui_fr2018/municipal/communes-50m-2018.geojson.gz)" -gt 1000000
+      - name: Overlay exactly 2018 COG-valid communes on genuine FR H7 original 2017-19 SOURCE geometry
+        shell: bash
+        run: |
+          set -euo pipefail
+          CODE="$(find /tmp/gesui_fr2018/candidates -name 'FR_ROSEAU_2017TO22_PUBLIC_CANDIDATE_COMMUNE_YEAR_PRESENCE.csv')"
+          FACETS="$(find /tmp/gesui_fr2018/facets -name 'GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json')"
+          EIV="$(find /tmp/gesui_fr2018/eiv -name 'EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv')"
+          test -f "$CODE" && test -f "$FACETS" && test -f "$EIV"
+          python analysis/20261119_fr_sludge_routeC/fr_roSEAU_2018_communes_to_H7_opportunity_geo.py \
+            --candidates "$CODE" \
+            --municipal-2018-gz /tmp/gesui_fr2018/municipal/communes-50m-2018.geojson.gz \
+            --h7-panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --eiv-eligibility "$EIV" \
+            --original-h7-facets "$FACETS" \
+            --out results/20261119_fr_ROSEAU_2018_candidate_geo_only
+      - name: Save only municipality/H7 candidate overlays and source provenance, never site exposure/phenotype
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-ROSEAU-2018-historic-communes-original-H7-candidate-opportunity-only
+          path: results/20261119_fr_ROSEAU_2018_candidate_geo_only/
+          if-no-files-found: warn
+          retention-days: 60

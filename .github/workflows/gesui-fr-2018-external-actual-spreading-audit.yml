@@ -1,0 +1,57 @@
+name: GESUI 2018 independently documented spreading vs ROSEAU candidates
+on:
+  push:
+    branches:
+      - analysis/gesui-sludge-fr-spreading-source-gate-20261119
+    paths:
+      - analysis/20261119_fr_sludge_routeC/fr_external_performed_spreading_coverage.py
+      - analysis/20261119_fr_sludge_routeC/FR_EXTERNALLY_VERIFIED_ACTUAL_APPLICATIONS_2018.csv
+      - tests/test_fr_external_performed_spreading_coverage.py
+      - .github/workflows/gesui-fr-2018-external-actual-spreading-audit.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit-external-confirmed-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests for source-only semantics
+        run: python -W error::ResourceWarning -m unittest discover -s tests -p 'test_fr_external_performed_spreading_coverage.py' -v
+      - name: Download immutable prior 2017-22 public source candidate artifact
+        run: |
+          mkdir -p "$RUNNER_TEMP/roSEAU-candidates"
+          gh run download 44465289468 --repo "$GITHUB_REPOSITORY" --name "gesui-France-2017to22-sludge-historical-INSEE-communes-source-GO-STOP" --dir "$RUNNER_TEMP/roSEAU-candidates"
+          echo "971e20215a0788a229c5f0a18663e1eee9ddf70b6161fc4f70e78c8da9621333  $RUNNER_TEMP/roSEAU-candidates/FR_ROSEAU_2017TO22_PUBLIC_CANDIDATE_COMMUNE_YEAR_PRESENCE.csv" | sha256sum --check
+      - name: Audit external confirmed 2018 application against public ROSEAU list
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_external_performed_spreading_coverage.py \
+            --candidates "$RUNNER_TEMP/roSEAU-candidates/FR_ROSEAU_2017TO22_PUBLIC_CANDIDATE_COMMUNE_YEAR_PRESENCE.csv" \
+            --external analysis/20261119_fr_sludge_routeC/FR_EXTERNALLY_VERIFIED_ACTUAL_APPLICATIONS_2018.csv \
+            --out "$RUNNER_TEMP/FR_2018_FEURS_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json"
+          python - "$RUNNER_TEMP/FR_2018_FEURS_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json" <<'PY'
+          import json, sys
+          v = json.load(open(sys.argv[1]))
+          assert v["candidate_union_2017to22"] == 130
+          assert v["candidate_communes_in_2018"] == 72
+          assert v["external_verified_commune_station_year_cases"] == 8
+          assert v["external_cases_not_in_2018_ROSEAU_candidate_list"] == 8
+          assert v["external_cases_not_in_2017to22_union"] == 8
+          assert v["external_unique_source_station_years"] == 1
+          assert v["external_unique_commune_years"] == 8
+          assert v["biological_model_source_gate"] == "STOP"
+          assert v["no_NUTRI_HNS_EQR_values_read"]
+          print("SOURCE-ONLY FEURS 8 COMMUNES 1 SOURCE HOLDOUT PASS; NO BIOLOGICAL GO")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2018-external-documented-application-ROSEAU-coverage-SOURCE-only
+          path: ${{ runner.temp }}/FR_2018_CLEPPE_VERIFIED_APPLICATION_ROSEAU_COVERAGE_AUDIT.json
+          retention-days: 60

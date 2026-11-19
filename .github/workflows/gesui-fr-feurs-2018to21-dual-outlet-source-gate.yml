@@ -1,0 +1,47 @@
+name: GESUI Feurs 2018-2021 wastewater water/land SOURCE-only mass feasibility
+on:
+  push:
+    branches:
+      - analysis/gesui-sludge-fr-spreading-source-gate-20261119
+    paths:
+      - analysis/20261119_fr_sludge_routeC/FR_FEURS_PRIMARY_SOURCE_YEARS_2018_2019_2021.json
+      - analysis/20261119_fr_sludge_routeC/fr_feurs_dual_outlet_source_mass_gate.py
+      - tests/test_fr_feurs_dual_outlet_2018_2019_2021.py
+      - .github/workflows/gesui-fr-feurs-2018to21-dual-outlet-source-gate.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  year-locked-two-outlet-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Prevent N/P oxide and cross-year misclassification
+        run: python -m unittest discover -s tests -p 'test_fr_feurs_dual_outlet_2018_2019_2021.py' -v
+      - name: Recompute SOURCE-only indices and FAIL-closed gates
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_feurs_dual_outlet_source_mass_gate.py \
+            --source analysis/20261119_fr_sludge_routeC/FR_FEURS_PRIMARY_SOURCE_YEARS_2018_2019_2021.json \
+            --out "$RUNNER_TEMP/feurs_2018to21_water_land_SOURCE_ONLY.json"
+          python - "$RUNNER_TEMP/feurs_2018to21_water_land_SOURCE_ONLY.json" <<'PY'
+          import json, sys
+          p=json.load(open(sys.argv[1],encoding="utf8"))
+          assert p["STEU_SANDRE"]=="0442094S0002"
+          assert p["strict_paired_export_mass_GATE"]=="STOP"
+          assert p["strict_biological_path_GATE"]=="STOP"
+          assert p["source_years_with_measured_both_aqueous_and_field_mass"]==[]
+          assert p["source_year_records"]["2018"]["P2O5_not_elemental_P"]
+          assert p["source_year_records"]["2019"]["NTK_is_not_total_N"]
+          assert p["source_year_records"]["2021"]["NTK_is_not_total_N"]
+          print("PASS: 2018 field N+P2O5 screening estimates; 2019/2021 water NTK/PT indices; no paired years; no biology")
+          PY
+      - name: Upload SOURCE-only audit output
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-Feurs-dual-outlet-2018to21-source-only-stop
+          path: ${{ runner.temp }}/feurs_2018to21_water_land_SOURCE_ONLY.json
+          retention-days: 60

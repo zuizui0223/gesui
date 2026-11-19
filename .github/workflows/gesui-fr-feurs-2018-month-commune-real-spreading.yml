@@ -1,0 +1,47 @@
+name: GESUI Feurs 2018 actual field spreading Table6 Table7 SOURCE QA
+on:
+  push:
+    branches:
+      - analysis/gesui-sludge-fr-spreading-source-gate-20261119
+    paths:
+      - analysis/20261119_fr_sludge_routeC/FR_FEURS_2018_ANONYMIZED_ACTUAL_SPREADING_43_ROWS.csv
+      - analysis/20261119_fr_sludge_routeC/fr_feurs_2018_actual_application_month_commune_audit.py
+      - tests/test_fr_feurs_2018_real_application_month_commune.py
+      - .github/workflows/gesui-fr-feurs-2018-month-commune-real-spreading.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-month-commune-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test original Table 6 and 7 monthly and annual reconciliation
+        run: python -m unittest discover -s tests -p 'test_fr_feurs_2018_real_application_month_commune.py' -v
+      - name: Reconstruct anonymized source-only monthly and commune totals
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_feurs_2018_actual_application_month_commune_audit.py \
+            --input analysis/20261119_fr_sludge_routeC/FR_FEURS_2018_ANONYMIZED_ACTUAL_SPREADING_43_ROWS.csv \
+            --out "$RUNNER_TEMP/feurs_2018_real_application_month_commune_audit.json"
+          python - "$RUNNER_TEMP/feurs_2018_real_application_month_commune_audit.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1]))
+          assert r["source_table7_actual_application_rows"] == 43
+          assert r["municipalities_with_actual_application"] == 8
+          assert r["original_annual_applied_area_ha"] == 161.53
+          assert r["original_annual_applied_wet_t"] == 1918
+          assert r["march_july_wet_t"] == 1374
+          assert r["independent_realized_stations_years_in_current_case"] == 1
+          assert r["biological_analysis_gate"] == "STOP"
+          assert r["same_2018_aqueous_measured_TN_TP_export_not_identified"]
+          print("PASS: month and commune totals independently reconcile original agronomic source")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-Feurs-2018-43-realized-sludge-events-8communes-6months-source-only
+          path: ${{ runner.temp }}/feurs_2018_real_application_month_commune_audit.json
+          retention-days: 60
