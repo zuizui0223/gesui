@@ -44,3 +44,17 @@
 - 次段は**Feurs 2018同じ排水口の流量加重TN/TPまたは同年実測積算質量**、汚泥ロット別N/P₂O₅、同年他施設の実施用台帳を新規取得すること。旧実施用自治体≥30・独立親H6≥10・実施用支持H7≥20のSOURCE閾値を下げず、未記載を「未施用=0」としない。
 
 **判定：source bifurcation verified for Feurs 2018; quantitative paired source mass STOP; biological pathway and causality STOP.** mainと論文草稿PR #124は未変更。
+
+
+## 2018年の真正な水域への地理接続（県令で固定）
+
+[Loire県官報特別号2018-019、2018年3月8日公表](https://www.loire.gouv.fr/index.php/contenu/telechargement/5025/45942/file/raa_special_du_8_mars_2018.pdf)に掲載された**Feurs下水処理施設の操業許可 42-2018-03-01-007**のArticle 2（原印刷p.135）には、EPSG:2154（Lambert 93）の別々の地点が明記されている。
+
+| 対象 | X Lambert 93 (m) | Y Lambert 93 (m) | 説明 |
+|---|---:|---:|---|
+| 処理場 | 794449 | 6516744 | 施設所在地 |
+| **河川放流口** | **794216** | **6516746** | Loire川右岸の正式な放流口 |
+
+同県令にある**5,800 m³/日**は設備の計画日平均処理量、**33,300 EH**は設計人口当量で、2018年の実際の水量でも年間N/P負荷でもない。これによりSOURCE段階の**正しい放流口位置**は取得できたが、水側の2018年実測TN・PT排出量の欠測は解消しない。PDF検索可能本文で座標・Articleを確認し、画像ページの取得はゲートウェイの502で失敗したため元PDFバイナリSHAは未固定。
+
+2018年の未検証植物・蝶・底生EQR応答を用いた因果推定は依然としてSTOP。
