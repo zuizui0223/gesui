@@ -32,7 +32,7 @@ class FrozenBenthicSourceTest(unittest.TestCase):
                       "land_organic_N_kg_ha":float(len(key)+3)}
         j={"original_2016_EEA_numeric_EQR_outcome_VALUES_not_read":True,
            "source_biological_classes":{"benthic_invertebrates":{
-               "original_NUTS2_source_inventory":rows,
+               "original_NUTS2_region_source_inventory":rows,
                "fixed_region_to_fivefold_source_only":folds,
                "n_original_independent_NUTS2":79,
                "n_sites_source_fixed_before_EQR":2469}}}
