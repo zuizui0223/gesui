@@ -283,6 +283,14 @@ def site_year_response(sample_rows,weights,score_map):
     df=pd.DataFrame(out)
     A=np.asarray(inc_mat,float)
     B=np.asarray(cnt_mat,float)
+    # The label-permutation universe must consist of species actually
+    # observable in the frozen 2010-18 scored source cohort; unused
+    # dictionary entries must NOT act as phantom exchangeability slots.
+    observed=A.sum(axis=0)>0
+    A=A[:,observed]
+    B=B[:,observed]
+    families=[fam for fam,seen in zip(families,observed) if seen]
+    fvalues=fvalues[observed]
     if len(df)!=len(A):raise RuntimeError("site-year-source grain mismatch")
     if not np.allclose(A@fvalues,df.y_incidence,atol=1e-10):
         raise RuntimeError("First-principles CWM incidence reconstruction mismatch")
