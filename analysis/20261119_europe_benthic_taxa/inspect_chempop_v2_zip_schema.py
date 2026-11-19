@@ -53,10 +53,10 @@ def make(a):
                 file=Path(temp)/"v2_original.zip"
                 h=hashlib.sha256();n=0
                 req=urllib.request.Request(URL,headers=HEADERS)
-                with urllib.request.urlopen(req,timeout=45) as r, file.open("wb") as fd:
+                with urllib.request.urlopen(req,timeout=180) as r, file.open("wb") as fd:
                     if r.status!=200:raise RuntimeError("Original archive stream failed")
                     while True:
-                        chunk=r.read(2**20)
+                        chunk=r.read(65536)
                         if not chunk:break
                         n+=len(chunk)
                         if n>MAXBYTES:raise RuntimeError("Original archive exceeds maximum")
