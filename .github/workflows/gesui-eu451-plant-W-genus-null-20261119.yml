@@ -1,0 +1,56 @@
+name: gesui EU451 authentic W-to-plant NUTRI genus partition and within-genus null
+on:
+  push:
+    paths:
+      - 'analysis/20261119_plant_W_genus/**'
+      - '.github/workflows/gesui-eu451-plant-W-genus-null-20261119.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  strict-source-451-plant-W-genus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original numerical-source dependencies
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2.1,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1'
+      - name: Download immutable 11511 key original EU EIV source-v2 crosswalk and 451 quality gates
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43718069015
+          name: gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/verified_eiv
+      - name: Download immutable original 2808 source GBIF H7 species-key facets
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 43593227162
+          name: gesui-H7-234x2x6-only429-source-merged-20261114
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_facets
+      - name: Rebuild genuine 451 H7 periods and verify exact original W-to-NUTRI beta before genomics-free shuffles
+        run: |
+          python -m py_compile analysis/20261119_plant_W_genus/plant_W_genus_label_null.py
+          python -u analysis/20261119_plant_W_genus/plant_W_genus_label_null.py \
+            --eiv '${{ runner.temp }}/verified_eiv' \
+            --facets '${{ runner.temp }}/source_facets' \
+            --out '${{ runner.temp }}/plant_W_genus/451_W_PLANT_NUTRI_GENUS_LABEL_NULL.json' \
+            --permutations 4999
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261119-EU451-plant-W-NUTRI-genus-null-verified
+          path: ${{ runner.temp }}/plant_W_genus/451_W_PLANT_NUTRI_GENUS_LABEL_NULL.json
+          if-no-files-found: warn
+          retention-days: 90
