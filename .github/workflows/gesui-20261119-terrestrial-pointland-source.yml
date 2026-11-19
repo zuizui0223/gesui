@@ -1,0 +1,61 @@
+name: GESUI 2017-19 plant EIV H7 terrestrial-only point-vs-landN SOURCE eligibility
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-terrestrial-pointland-source.yml
+      - analysis/20261119_point_land_N_source/terrestrial_only_plantEIV_source_geometry_gate.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  terrestrial-only-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install GIS source-only dependencies
+        run: python -m pip install --disable-pip-version-check pandas numpy geopandas==1.0.1 shapely==2.0.6 pyogrio==0.10.0 pyproj==3.7.0
+      - name: Syntax and source contract check
+        run: python -m py_compile analysis/20261119_point_land_N_source/terrestrial_only_plantEIV_source_geometry_gate.py
+      - name: Fetch original EIV-eligibility, historical GBIF H7 true WKT receipts and unchanged JRC source models
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui_terrestrial/eiv /tmp/gesui_terrestrial/facets /tmp/gesui_terrestrial/jrc /tmp/gesui_terrestrial/gisco
+          gh run download 43593227162 --repo zuizui0223/gesui --name gesui-H7-234x2x6-only429-source-merged-20261114 --dir /tmp/gesui_terrestrial/facets
+          gh run download 43718069015 --repo zuizui0223/gesui --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change --dir /tmp/gesui_terrestrial/eiv
+          gh run download 44290036470 --repo zuizui0223/gesui --name gesui-jrc-nuts2-soilN-pointN-source-only --dir /tmp/gesui_terrestrial/jrc
+      - name: Fetch official 2016 01M NUTS2 GPKG fixed SHA
+        run: |
+          curl -fsSL --retry 3 --max-time 130 'https://gisco-services.ec.europa.eu/distribution/v2/nuts/gpkg/NUTS_RG_01M_2016_4326_LEVL_2.gpkg' -o /tmp/gesui_terrestrial/gisco/NUTS2_2016_01M.gpkg
+          sha256sum /tmp/gesui_terrestrial/gisco/NUTS2_2016_01M.gpkg
+      - name: Strict H7 polygon >=90pct original 2017-19 EIV quality x model P/D source only
+        run: |
+          set -euo pipefail
+          FACETS="$(find /tmp/gesui_terrestrial/facets -type f -name GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json)"
+          ELIG="$(find /tmp/gesui_terrestrial/eiv -type f -name EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv)"
+          test -f "$FACETS" && test -f "$ELIG"
+          python analysis/20261119_point_land_N_source/terrestrial_only_plantEIV_source_geometry_gate.py \
+            --gisco /tmp/gesui_terrestrial/gisco/NUTS2_2016_01M.gpkg \
+            --facets "$FACETS" \
+            --eiv-eligibility "$ELIG" \
+            --jrc-source /tmp/gesui_terrestrial/jrc/jrc_nuts2_soilN_vs_pointN_source_only.csv \
+            --jrc-report /tmp/gesui_terrestrial/jrc/jrc_nuts2_soilN_pointN_source_only_report.json \
+            --out results/20261119_terrestrial_pointland_source_only
+      - name: Preserve source-only eligibility and STOP before ecological model
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2017to19-plantEIV-H7-terrestrial-only-PD-NUTS2-source-gate
+          path: results/20261119_terrestrial_pointland_source_only/
+          if-no-files-found: warn
+          retention-days: 60

@@ -1,0 +1,48 @@
+name: GESUI 2016 aquatic-only water pointN vs soilN SOURCE opportunity gate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-eea2016-water-point-landN-source-gate.yml
+      - analysis/20261119_point_land_N_source/eea2016_water_only_pointN_landN_source_gate.py
+      - tests/test_eea2016_point_landN_source_gate_20261119.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  opportunity-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Test original 2016 no-outcome registry
+        run: python -m unittest discover -s tests -p 'test_eea2016_point_landN_source_gate_20261119.py' -v
+      - name: Retrieve original unchanged source-only JRC NUTS2 269 records
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui_water_only
+          gh run download 44290036470 --repo zuizui0223/gesui --name gesui-jrc-nuts2-soilN-pointN-source-only --dir /tmp/gesui_water_only
+      - name: No 2016 EQR numeric access - freeze source support
+        run: |
+          python analysis/20261119_point_land_N_source/eea2016_water_only_pointN_landN_source_gate.py \
+            --registry results/eea2016_thirdyear_source_20261111/2016_EEA_BENTHIC_JRC_NUTS2_FROZEN_5FOLDS_NO_EQR.json \
+            --source-csv /tmp/gesui_water_only/jrc_nuts2_soilN_vs_pointN_source_only.csv \
+            --source-report /tmp/gesui_water_only/jrc_nuts2_soilN_pointN_source_only_report.json \
+            --out results/20261119_eea2016_wateronly_source
+      - name: Publish all SOURCE-only opportunity counts, including STOP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2016-aquatic-only-pointN-landN-source-opportunity
+          path: results/20261119_eea2016_wateronly_source/
+          if-no-files-found: warn
+          retention-days: 60

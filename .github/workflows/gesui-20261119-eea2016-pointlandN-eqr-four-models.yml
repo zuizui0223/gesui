@@ -1,0 +1,64 @@
+name: GESUI EEA2016 benthic region EQR point-N vs soil-N exploratory four-model audit
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-eea2016-pointlandN-eqr-four-models.yml
+      - analysis/20261119_point_land_N_source/eea2016_regionmean_eqr_point_vs_landN.py
+      - analysis/20261119_point_land_N_source/eea2016_eqr_source_compatibility_gate.py
+      - tests/test_eea2016_regionmean_pointland_eqr_models_20261119.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  aquatic-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install fixed data and GIS dependencies
+        run: python -m pip install --disable-pip-version-check numpy pandas scikit-learn==1.7.2 geopandas==1.0.1 pyogrio==0.10.0 shapely==2.0.6 pyproj==3.7.0
+      - name: Validate independent original sklearn Ridge vs manual NumPy and no spatial leakage
+        run: python -m unittest discover -s tests -p 'test_eea2016_regionmean_pointland_eqr_models_20261119.py' -v
+      - name: Restore unchanged source-only input cohort and earlier source GO report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui_2016_point_land/source /tmp/gesui_2016_point_land/gate /tmp/gesui_2016_point_land/gisco
+          gh run download 44290036470 --repo zuizui0223/gesui --name gesui-jrc-nuts2-soilN-pointN-source-only --dir /tmp/gesui_2016_point_land/source
+          gh run download 44435431608 --repo zuizui0223/gesui --name gesui-2016-aquatic-only-pointN-landN-source-opportunity --dir /tmp/gesui_2016_point_land/gate
+      - name: Retrieve official historical GISCO 2016 01M boundary (SHA-locked)
+        run: |
+          curl -fsSL --retry 3 --max-time 120 'https://gisco-services.ec.europa.eu/distribution/v2/nuts/gpkg/NUTS_RG_01M_2016_4326_LEVL_2.gpkg' -o /tmp/gesui_2016_point_land/gisco/2016_nuts2_01m.gpkg
+          sha256sum /tmp/gesui_2016_point_land/gisco/2016_nuts2_01m.gpkg
+      - name: Verify exact EQR-available NUTS2 IDs before four-model fit (NO new EQR numerical values)
+        run: |
+          python analysis/20261119_point_land_N_source/eea2016_eqr_source_compatibility_gate.py \
+            --eligible-source /tmp/gesui_2016_point_land/gate/EEA2016_WATER_ONLY_POINT_LANDN_ELIGIBLE_NUTS2.csv \
+            --source-gate /tmp/gesui_2016_point_land/gate/EEA2016_WATER_ONLY_POINT_LANDN_SOURCE_GATE.json \
+            --out results/20261119_eea2016_point_land_region_EQR
+      - name: Run once on 2016 frozen NUTS2 region means (not site pseudoreplication)
+        run: |
+          python analysis/20261119_point_land_N_source/eea2016_regionmean_eqr_point_vs_landN.py \
+            --source-csv /tmp/gesui_2016_point_land/source/jrc_nuts2_soilN_vs_pointN_source_only.csv \
+            --source-report /tmp/gesui_2016_point_land/source/jrc_nuts2_soilN_pointN_source_only_report.json \
+            --source-gate /tmp/gesui_2016_point_land/gate/EEA2016_WATER_ONLY_POINT_LANDN_SOURCE_GATE.json \
+            --compatibility-gate results/20261119_eea2016_point_land_region_EQR/EEA2016_POINT_LANDN_MODEL_PREMODEL_COMPATIBILITY_GATE.json \
+            --gisco-gpkg /tmp/gesui_2016_point_land/gisco/2016_nuts2_01m.gpkg \
+            --out results/20261119_eea2016_point_land_region_EQR
+      - name: Preserve positive/negative results with all original fixed-fold losses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2016-aquatic-73NUTS2-point-landN-four-model-heldout-EQR
+          path: results/20261119_eea2016_point_land_region_EQR/
+          if-no-files-found: warn
+          retention-days: 60
