@@ -79,6 +79,8 @@ def audit(candidate_path, external_path):
             "known_application_event_not_plant_or_butterfly_exposure": True,
         })
     missing_year = sum(not x["in_ROSEAU_positive_station_commune_candidate_same_year"] for x in cases)
+    unique_source_station_years = len({(x["source_station_SANDRE"],x["application_year"]) for x in cases})
+    unique_confirmed_commune_years = len({(x["INSEE_code"],x["application_year"]) for x in cases})
     return {
         "schema": "gesui_FR_ROSEAU_independent_confirmed_actual_spreading_coverage_v1",
         "run_UTC": datetime.now(timezone.utc).isoformat(),
@@ -87,6 +89,9 @@ def audit(candidate_path, external_path):
         "candidate_union_2017to22": len(candidates),
         "candidate_communes_in_2018": sum("2018" in years for years in candidates.values()),
         "external_verified_commune_station_year_cases": len(cases),
+        "external_unique_commune_years": unique_confirmed_commune_years,
+        "external_unique_source_station_years": unique_source_station_years,
+        "these_communes_are_not_independent_plant_or_H6_replicates": True,
         "external_cases_not_in_2018_ROSEAU_candidate_list": missing_year,
         "external_cases_not_in_2017to22_union": sum(not x["in_ROSEAU_candidate_union_2017to22"] for x in cases),
         "cases": cases,
