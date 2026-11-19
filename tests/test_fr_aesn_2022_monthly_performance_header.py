@@ -14,6 +14,13 @@ class SourceMonthlyPerformanceTest(unittest.TestCase):
         x=m.approved_resource(catalog())
         self.assertTrue(x["url"].endswith(m.FILENAME))
         self.assertEqual(x["expected_bytes"],53300000)
+    def test_catalog_human_readable_title_with_original_official_filename_in_URL(self):
+        d=catalog()
+        d["resources"][0]["title"]="Résultats annuels des stations"
+        d["resources"][0]["filename"]=None
+        a=m.approved_resource(d)
+        self.assertTrue(a["url"].endswith(m.FILENAME))
+
     def test_nonofficial_domain_rejected(self):
         with self.assertRaises(ValueError):
             m.approved_resource(catalog("https://example.com/"+m.FILENAME))
