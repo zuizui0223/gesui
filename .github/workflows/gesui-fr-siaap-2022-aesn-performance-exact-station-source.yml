@@ -1,0 +1,47 @@
+name: GESUI AESN 2022 monthly performance Seine Aval station A4 NGL PT source coverage
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/fr_aesn_2022_performance_exact_sandre_source_coverage.py
+      - tests/test_fr_aesn_2022_performance_exact_station_source.py
+      - .github/workflows/gesui-fr-siaap-2022-aesn-performance-exact-station-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-AESN-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline source fail-close tests
+        run: python -m unittest discover -s tests -p 'test_fr_aesn_2022_performance_exact_station_source.py' -v
+      - name: Fetch complete official 2022 performance file by SHA-audited 8MiB ranges; metadata only
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_aesn_2022_performance_exact_sandre_source_coverage.py \
+             --work "$RUNNER_TEMP/aesn_performance_2022" \
+             --out "$RUNNER_TEMP/SeineAval_AESN_2022_performance_point_NP_coverage_SOURCE.json"
+          python - "$RUNNER_TEMP/SeineAval_AESN_2022_performance_point_NP_coverage_SOURCE.json" <<'PY'
+          import json,sys
+          x=json.load(open(sys.argv[1]))
+          assert x["numeric_result_values_read"] is False
+          assert x["biology_data_read"] is False
+          if x.get("source_station_point_parameter_coverage"):
+            s=x["source_station_point_parameter_coverage"]
+            assert s["original_Resultat_Valeur_NEVER_READ"] is True
+            assert s["paired_water_land_nutrient_mediation_GO"] is False
+            print("EXACT 2022 SOURCE STATION:",s["exact_station_record_rows"])
+            print("A4 NGL/PT monthly coverage:",s["NGL_PT_1551_1350_month_coverage_by_point"])
+          else:
+            print("Official SOURCE access STOP:",x.get("source_error"))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-AESN-SeineAval-2022-performance-NGL-PT-point-month-SOURCE-only
+          path: ${{ runner.temp }}/SeineAval_AESN_2022_performance_point_NP_coverage_SOURCE.json
+          retention-days: 60

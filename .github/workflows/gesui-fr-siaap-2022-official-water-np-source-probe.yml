@@ -1,0 +1,71 @@
+name: GESUI Seine Aval 2022 EEA exact N-P and AESN auto-surveillance source gates
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/fr_eea2022_seine_aval_measured_NP_exact_station_gate.py
+      - analysis/20261119_fr_siaap_2022/fr_seinenormandie_2022_autosurveillance_catalog_gate.py
+      - analysis/20261119_fr_siaap_2022/fr_aesn_2022_autosurveillance_csv_header_source_probe.py
+      - tests/test_fr_eea2022_seine_aval_exact_station_gate.py
+      - tests/test_fr_seinenormandie_autosurveillance_catalog_gate.py
+      - tests/test_fr_aesn_2022_csv_header_source_probe.py
+      - .github/workflows/gesui-fr-siaap-2022-official-water-np-source-probe.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Offline exact station and monthly coverage tests
+        run: |
+          python -m unittest discover -s tests -p 'test_fr_eea2022_seine_aval_exact_station_gate.py' -v
+          python -m unittest discover -s tests -p 'test_fr_seinenormandie_autosurveillance_catalog_gate.py' -v
+          python -m unittest discover -s tests -p 'test_fr_aesn_2022_csv_header_source_probe.py' -v
+      - name: GET only EEA 2022 official Seine Aval measured N/P and exact outlet/source status
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_eea2022_seine_aval_measured_NP_exact_station_gate.py \
+            --out "$RUNNER_TEMP/SeineAval_2022_EEA_measured_NP_exact_source_gate.json"
+      - name: GET only official AESN autosurveillance catalog metadata (NO big CSV downloads)
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_seinenormandie_2022_autosurveillance_catalog_gate.py \
+            --out "$RUNNER_TEMP/SeineNormandie_2018_2022_monthly_catalog_source_gate.json"
+      - name: GET first official AESN CSV bytes for SOURCE header and units-column candidates only
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_aesn_2022_autosurveillance_csv_header_source_probe.py \
+            --out "$RUNNER_TEMP/SeineNormandie_2022Jan_original_CSV_header_source_gate.json"
+      - name: Confirm no ecological data or fully verified water-to-land N/P claims were invented
+        run: |
+          python - "$RUNNER_TEMP/SeineAval_2022_EEA_measured_NP_exact_source_gate.json" "$RUNNER_TEMP/SeineNormandie_2018_2022_monthly_catalog_source_gate.json" "$RUNNER_TEMP/SeineNormandie_2022Jan_original_CSV_header_source_gate.json" <<'PY'
+          import json,sys
+          e=json.load(open(sys.argv[1],encoding="utf-8"))
+          a=json.load(open(sys.argv[2],encoding="utf-8"))
+          h=json.load(open(sys.argv[3],encoding="utf-8"))
+          assert e["eea_primary_year"]==2022
+          assert e["no_EQR_NUTRI_HNS_used"]
+          assert e["primary_2022_sludge_actual_spreading_product_N_P_mass_unverified"]
+          if e.get("EEA_NP_outlet_match"):
+            assert not e["EEA_NP_outlet_match"]["paired_measured_water_N_P_and_2022_actual_field_N_P_mass_GO"]
+            assert not e["EEA_NP_outlet_match"]["biotic_response_and_mechanism_GO"]
+          assert a["no_2022_SIAAP_N_P_numbers_imputed"]
+          assert h["measured_annual_SeineAval_N_P_mass_GO"] is False
+          assert h["biology_EQR_NUTRI_HNS_values_read"] is False
+          if a.get("source_facts"):
+            assert a["source_facts"]["no_original_data_rows_opened"]
+            assert not a["source_facts"]["paired_water_land_2022_mass_GO"]
+          print("EEA source:", e["source_quality"], "AESN source:", a["source_retrieval_status"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-SeineAval2022-EEA-AESN-official-water-NP-source-gates
+          path: |
+            ${{ runner.temp }}/SeineAval_2022_EEA_measured_NP_exact_source_gate.json
+            ${{ runner.temp }}/SeineNormandie_2018_2022_monthly_catalog_source_gate.json
+            ${{ runner.temp }}/SeineNormandie_2022Jan_original_CSV_header_source_gate.json
+          retention-days: 60

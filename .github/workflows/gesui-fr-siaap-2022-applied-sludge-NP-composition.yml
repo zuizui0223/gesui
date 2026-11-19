@@ -1,0 +1,45 @@
+name: GESUI Seine Aval 2022 actually applied sludge N and P2O5 lot-weighted chemical SOURCE
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/FR_SIAAP_SEINE_AVAL_2022_APPLIED_SLUDGE_NTK_P2O5_AGRONOMIC.csv
+      - analysis/20261119_fr_siaap_2022/fr_siaap_2022_actual_sludge_NTK_elementalP_SOURCE_screen.py
+      - tests/test_fr_siaap_2022_actual_sludge_NTK_P2O5.py
+      - .github/workflows/gesui-fr-siaap-2022-applied-sludge-NP-composition.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  field-applied-product-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Enforce real applied lots and oxide-vs-elemental P
+        run: python -m unittest discover -s tests -p 'test_fr_siaap_2022_actual_sludge_NTK_P2O5.py' -v
+      - name: Compute original applied BTF/BTC lot-weighted NTK and P2O5 source estimates
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_siaap_2022_actual_sludge_NTK_elementalP_SOURCE_screen.py \
+            --product analysis/20261119_fr_siaap_2022/FR_SIAAP_SEINE_AVAL_2022_REALIZED_SLUDGE_BY_PRODUCT.csv \
+            --composition analysis/20261119_fr_siaap_2022/FR_SIAAP_SEINE_AVAL_2022_APPLIED_SLUDGE_NTK_P2O5_AGRONOMIC.csv \
+            --out "$RUNNER_TEMP/SeineAval_2022_actually_applied_lot_NTK_P2O5_SOURCE_ESTIMATE.json"
+          python - "$RUNNER_TEMP/SeineAval_2022_actually_applied_lot_NTK_P2O5_SOURCE_ESTIMATE.json" <<'PY'
+          import json,sys
+          a=json.load(open(sys.argv[1]))
+          assert abs(a["estimated_applied_Kjeldahl_N_NTK_t"]-704.35879)<1e-5
+          assert abs(a["estimated_applied_P2O5_t"]-3402.411135)<1e-5
+          assert abs(a["estimated_applied_elemental_P_equivalent_t"]-1484.9034630074)<1e-5
+          assert a["NTK_is_not_total_N_for_NGL_comparison"]
+          assert not a["coupled_water_land_mass_balance_and_mediation_GO"]
+          print("APPLIED SOURCE ESTIMATE PASS: lot-weighted NTK, P2O5 and elemental-P")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-SeineAval2022-applied-sludge-lot-NTK-P2O5-estimates
+          path: ${{ runner.temp }}/SeineAval_2022_actually_applied_lot_NTK_P2O5_SOURCE_ESTIMATE.json
+          retention-days: 60

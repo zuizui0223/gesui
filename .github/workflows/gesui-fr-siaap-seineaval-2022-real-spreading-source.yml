@@ -1,0 +1,50 @@
+name: GESUI SIAAP Seine Aval 2022 real spreading SOURCE cross-table audit
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/**
+      - tests/test_fr_siaap_2022_real_spreading_source_audit.py
+      - .github/workflows/gesui-fr-siaap-seineaval-2022-real-spreading-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verified-2022-field-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fail-closed official source table and biological gates
+        run: python -m unittest discover -s tests -p 'test_fr_siaap_2022_real_spreading_source_audit.py' -v
+      - name: Independently check 13 departments and two sludge products against published 2022 actual application totals
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_siaap_2022_real_spreading_SOURCE_audit.py \
+            --departments analysis/20261119_fr_siaap_2022/FR_SIAAP_SEINE_AVAL_2022_REALIZED_SLUDGE_BY_DEPARTMENT.csv \
+            --products analysis/20261119_fr_siaap_2022/FR_SIAAP_SEINE_AVAL_2022_REALIZED_SLUDGE_BY_PRODUCT.csv \
+            --out "$RUNNER_TEMP/seineaval_2022_realized_spreading_source.json"
+          python - "$RUNNER_TEMP/seineaval_2022_realized_spreading_source.json" <<'PY'
+          import json,sys
+          z=json.load(open(sys.argv[1]))
+          r=z["actual_2022_sludge_spreading_recap"]
+          assert r["applied_wet_t"]==81195.15
+          assert r["applied_dry_t"]==35102.66
+          assert r["actually_spread_area_ha"]==10860.49
+          assert r["original_field_parcel_count"]==1092
+          assert r["department_count"]==13
+          assert r["sludge_originating_independent_stations"]==1
+          assert z["independent_geographic_subtotals_check_pass"]
+          assert z["independent_product_subtotals_check_pass"]
+          assert z["source_two_outlet_mass_pair_and_biological_causal_models"]=="STOP"
+          assert z["biology_EQR_NUTRI_HNS_accessed"] is False
+          print("PASS: SIAAP 2022 realized sludge two independent source tables agree; no biological pathway GO")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-SIAAP-SeineAval-2022-realized-sludge-source-reconciliation
+          path: ${{ runner.temp }}/seineaval_2022_realized_spreading_source.json
+          retention-days: 60

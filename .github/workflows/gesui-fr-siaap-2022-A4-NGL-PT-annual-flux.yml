@@ -1,0 +1,47 @@
+name: GESUI Seine Aval 2022 A4 validated monthly NGL PT flux original SHA-locked
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/fr_aesn_SeineAval_2022_A4_NGL_PT_annual_flux_SOURCE.py
+      - tests/test_fr_aesn_2022_seineaval_A4_NGL_PT_annual_flux.py
+      - .github/workflows/gesui-fr-siaap-2022-A4-NGL-PT-annual-flux.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reconstruct-2022-official-aqueous-NP:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 12 fail-closed tests for exact-year monthly A4 NGL PT, source units and calculation state
+        run: python -m unittest discover -s tests -p 'test_fr_aesn_2022_seineaval_A4_NGL_PT_annual_flux.py' -v
+      - name: Exact original 2022 AESN performance SHA before any numeric value; sum valid monthly A4 NGL/PT kg
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_aesn_SeineAval_2022_A4_NGL_PT_annual_flux_SOURCE.py \
+             --work "$RUNNER_TEMP/aesn2022_A4_original" \
+             --out "$RUNNER_TEMP/SeineAval_2022_validated_monthly_A4_NGL_PT_source_flux.json"
+          python - "$RUNNER_TEMP/SeineAval_2022_validated_monthly_A4_NGL_PT_source_flux.json" <<'PY'
+          import json,sys
+          z=json.load(open(sys.argv[1]))
+          assert z["biological_outcomes_read"] is False
+          if z.get("actual_source"):
+            a=z["actual_source"]
+            assert a["monthly_2022_source_indicator_count"]==84
+            assert a["original_STEU_rows"]==528
+            assert a["A5_bypass_separate_not_summed_into_A4"]
+            assert a["biological_effect_causal_path_GATE"]=="STOP"
+            print("VALIDATED SAME-YEAR MONTHLY A4 NGL AND PT:",a["annual_source_flux_indicators"])
+          else:
+            print("SOURCE STOP:",z.get("source_error"))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-SeineAval-2022-official-A4-NGL-PT-monthly-kg-source-flux
+          path: ${{ runner.temp }}/SeineAval_2022_validated_monthly_A4_NGL_PT_source_flux.json
+          retention-days: 60

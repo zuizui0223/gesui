@@ -1,0 +1,58 @@
+name: GESUI Seine Aval 2022 independent validated water A4 and land N/P same-year SOURCE comparison
+on:
+  push:
+    branches:
+      - analysis/gesui-fr-siaap-2022-real-spreading-source-20261119
+    paths:
+      - analysis/20261119_fr_siaap_2022/fr_seineaval_2022_water_land_source_pair_audit.py
+      - tests/test_fr_seineaval_2022_water_land_source_pair.py
+      - .github/workflows/gesui-fr-siaap-2022-merged-water-land-source-audit.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare-source-outlets-without-causal-inference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Nine tests for independent 2022 cross-media source pairing, different nutrient forms, nonclosure
+        run: python -m unittest discover -s tests -p 'test_fr_seineaval_2022_water_land_source_pair.py' -v
+      - name: Get 2022 validated water A4 nutrient source from original independent successful CI
+        run: |
+          mkdir -p "$RUNNER_TEMP/water-source"
+          gh run download 44538504180 --repo "$GITHUB_REPOSITORY" --name "gesui-SeineAval-2022-official-A4-NGL-PT-monthly-kg-source-flux" --dir "$RUNNER_TEMP/water-source"
+      - name: Get 2022 actually applied sludge lot-weighted N/P source from independent CI
+        run: |
+          mkdir -p "$RUNNER_TEMP/land-source"
+          gh run download 44538061031 --repo "$GITHUB_REPOSITORY" --name "gesui-SeineAval2022-applied-sludge-lot-NTK-P2O5-estimates" --dir "$RUNNER_TEMP/land-source"
+      - name: Confirm same calendar year and same original Seine Aval facility, but do not close nutrient budget
+        run: |
+          python analysis/20261119_fr_siaap_2022/fr_seineaval_2022_water_land_source_pair_audit.py \
+            --aqueous "$RUNNER_TEMP/water-source/SeineAval_2022_validated_monthly_A4_NGL_PT_source_flux.json" \
+            --land "$RUNNER_TEMP/land-source/SeineAval_2022_actually_applied_lot_NTK_P2O5_SOURCE_ESTIMATE.json" \
+            --out "$RUNNER_TEMP/SeineAval_2022_independent_two_outlet_NP_SOURCE_comparison.json"
+          python - "$RUNNER_TEMP/SeineAval_2022_independent_two_outlet_NP_SOURCE_comparison.json" <<'PY'
+          import json,sys
+          p=json.load(open(sys.argv[1]))
+          assert p["matched_calendar_year"]==2022
+          assert p["origin_ministry_SANDRE"]=="037800501000"
+          assert abs(p["aquatic_official_validated_monthly_calculated_indicator_A4"]["NGL_t_2022"]-10553.52352)<1e-5
+          assert abs(p["aquatic_official_validated_monthly_calculated_indicator_A4"]["elemental_PT_t_2022"]-562.48824)<1e-5
+          assert abs(p["land_actual_spread_2022_lot_weighted_product_NP_estimates"]["applied_Kjeldahl_NTK_t_2022"]-704.35879)<1e-5
+          assert abs(p["land_actual_spread_2022_lot_weighted_product_NP_estimates"]["applied_elemental_P_equivalent_t_2022"]-1484.90346)<1e-4
+          assert p["causal_N_P_transfer_and_biotic_effect_gate"]=="STOP"
+          assert p["true_closed_2022_plant_N_P_source_mass_balance"] is False
+          print("PASS official source pair, noncausal, time-preserving, no biology")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-SeineAval2022-independent-water-A4-land-sludge-NP-source-comparison
+          path: ${{ runner.temp }}/SeineAval_2022_independent_two_outlet_NP_SOURCE_comparison.json
+          retention-days: 60
