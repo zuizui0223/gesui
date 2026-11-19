@@ -74,7 +74,7 @@ def read_source(source_csv,source_report,gate_json,gisco):
     geodict=geo.set_index("source_id")[["lat","lon"]]
     return src.set_index("NUTS2_country_id"),geodict,source_gate
 
-def frozen_region_data(source,geodict,source_gate):
+def frozen_region_data(source,geodict,source_gate,compatibility):
     original=json.loads(RESULT.read_text())
     frozen=json.loads(FROZEN.read_text())
     if original["original_original5fold_SOURCE_before_EQR_SHA256"]!=sha(FROZEN):
@@ -121,8 +121,14 @@ def frozen_region_data(source,geodict,source_gate):
     d=pd.DataFrame(regions)
     if d.nuts2.duplicated().any() or len(d)<55 or d.country.nunique()<8:
         raise ValueError("New regional mean EQR quality gate has fewer independent regions/countries than frozen source eligibility")
-    if len(d)!=source_gate["source_complete_NUTS2_shared_n"]:
-        raise ValueError("2016 prior frozen numeric region cohort must match 73 source-only regions before fitted effect")
+    check=compatibility.get("results",{})
+    if not check.get("new_aquatic_only_four_model_numeric_GO",False):
+        raise ValueError("Original valid EQR x soilN compatibility source/quality gate STOP")
+    original_key_set=set(check["region_ids"])
+    if set(d.source_id)!=original_key_set or len(d)!=check["overlap_region_n"]:
+        raise ValueError("Cohort changed after pre-new-model numeric-availability ID gate")
+    if d.country.nunique()!=check["overlap_country_n"]:
+        raise ValueError("Country support changed after numeric-availability ID gate")
     return d,original
 
 def build_design(train,test,vars):
@@ -241,12 +247,14 @@ def main():
     a.add_argument("--source-csv",type=Path,required=True)
     a.add_argument("--source-report",type=Path,required=True)
     a.add_argument("--source-gate",type=Path,required=True)
+    a.add_argument("--compatibility-gate",type=Path,required=True)
     a.add_argument("--gisco-gpkg",type=Path,required=True)
     a.add_argument("--out",type=Path,required=True)
     args=a.parse_args()
     args.out.mkdir(parents=True,exist_ok=True)
     source,geo,gate=read_source(args.source_csv,args.source_report,args.source_gate,args.gisco_gpkg)
-    d,archive=frozen_region_data(source,geo,gate)
+    compatibility=json.loads(args.compatibility_gate.read_text())
+    d,archive=frozen_region_data(source,geo,gate,compatibility)
     predictions=cross_validate(d)
     results=metrics(predictions)
     vif=source_vif(d)
@@ -268,6 +276,7 @@ def main():
         "original_2016_source_geometry_SHA256":sha(ORIGINAL),
         "original_2016_preoutcome_fold_SHA256":sha(FROZEN),
         "source_only_2016_water_side_gate_SHA256":sha(args.source_gate),
+        "independently_pre_model_numeric_availability_gate_SHA256":sha(args.compatibility_gate),
         "JRC269_soil_inputs_SOURCE_sha256":sha(args.source_csv),
         "GISCO2016_01M_sha256":sha(args.gisco_gpkg),
         "original_outcome_is_region_mean_benthic_normalized_EQR_not_tolerance_trait":True,
