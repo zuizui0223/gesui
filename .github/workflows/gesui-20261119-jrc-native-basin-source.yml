@@ -1,0 +1,36 @@
+name: GESUI JRC native basin source-only soils versus water point inventory
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-jrc-native-basin-source.yml
+      - analysis/20261119_jrc_native_basins/**
+      - tests/test_jrc_native_point_soilN_riverbasin_source.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit-test separate point BasinID and terrestrial HydroID native schemas
+        run: python -m unittest discover -s tests -p 'test_jrc_native_point_soilN_riverbasin_source.py' -v
+      - name: Official ArcGIS metadata and full object ID inventory for 5 native source layers
+        run: python analysis/20261119_jrc_native_basins/jrc_soilN_waterpoint_native_inventory.py --out results/20261119_jrc_native_basins
+      - name: Save native-source schema counts and original-response hashes without ecology
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-jrc-native-riverbasin-soilN-pointN-schema-inventory
+          path: results/20261119_jrc_native_basins/
+          if-no-files-found: warn
+          retention-days: 45
