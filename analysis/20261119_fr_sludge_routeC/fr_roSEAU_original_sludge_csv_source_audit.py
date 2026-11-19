@@ -11,10 +11,14 @@ from datetime import datetime,timezone
 from pathlib import Path
 from urllib.parse import urljoin
 
-BASE="https://www.assainissement.developpement-durable.gouv.fr"
-PAGE=BASE+"/pages/data/basededonneeboue.php"
-JS=BASE+"/public/js/exportbasededonneeBoue_min.js"
-EXPORT=BASE+"/controllers/GetDataExportBoueHandler.php"
+BASES=(
+    "https://www.assainissement.developpement-durable.gouv.fr",
+    "https://assainissement.developpement-durable.gouv.fr",
+    "https://www2.assainissement.developpement-durable.gouv.fr",
+)
+OFFICIAL_PAGE_PATH="/pages/data/basededonneeboue.php"
+OFFICIAL_JS_PATH="/public/js/exportbasededonneeBoue_min.js"
+OFFICIAL_EXPORT_PATH="/controllers/GetDataExportBoueHandler.php"
 JS_SHA="f4cf1e2fe84e0ccf608ece6c5d363426960e2b730e21900d48265eba4a78f0e5"
 FORM_KEYS=("bassin","region","annee","format","tranche","departement")
 PERMITTED_YEARS={str(y) for y in range(2017,2023)}
@@ -71,14 +75,17 @@ def sniff(raw):
         "csv_parse_complete":True,
     }
 
-def retrieve(year,client):
+def retrieve(year,client,base):
+    page_url=base+OFFICIAL_PAGE_PATH
+    js_url=base+OFFICIAL_JS_PATH
+    export_url=base+OFFICIAL_EXPORT_PATH
     if year not in PERMITTED_YEARS:
         raise ValueError("Year outside frozen 2017–22 source cohort")
-    page=client.get(PAGE,timeout=55)
+    page=client.get(page_url,timeout=(12,35))
     page.raise_for_status()
     if year not in page.text or "list-bassin" not in page.text:
         raise ValueError("Official website no longer advertises year/required basin filter")
-    js=client.get(JS,timeout=55)
+    js=client.get(js_url,timeout=(12,35))
     js.raise_for_status()
     if digest(js.content)!=JS_SHA:
         raise ValueError("Official export JavaScript changed; endpoint/controls not re-authorized")
@@ -95,9 +102,9 @@ def retrieve(year,client):
       "tranche":"ALL",
       "departement":"ALL",
     }
-    res=client.post(EXPORT,data=body,timeout=150,headers={
-      "Origin":BASE,
-      "Referer":PAGE,
+    res=client.post(export_url,data=body,timeout=(15,110),headers={
+      "Origin":base,
+      "Referer":page_url,
       "Accept":"text/csv,text/plain,*/*"
     })
     res.raise_for_status()
@@ -108,8 +115,8 @@ def retrieve(year,client):
         raise ValueError("Original public JS documents exports shorter than 3485 bytes as no records")
     parsed=sniff(raw)
     return {
-      "year":year,"official_source_url":PAGE,"official_export_endpoint":EXPORT,
-      "official_JS_url":JS,"original_published_JS_sha256":JS_SHA,
+      "year":year,"official_source_url":page_url,"official_export_endpoint":export_url,
+      "official_JS_url":js_url,"original_published_JS_sha256":JS_SHA,
       "request_form_public_fields":body,
       "official_HTTP_status_code":res.status_code,
       "original_content_type":res.headers.get("Content-Type",""),
@@ -132,17 +139,26 @@ def main():
     c.headers.update({"User-Agent":"gesui-academic-FrROSEAU-sludge-source-first/20261119"})
     results=[]
     for year in years:
-        try:
-            rec=retrieve(year,c)
-            results.append(rec)
-            print("GESUI_FR_SLUDGE_ORIGINAL_YEAR_SOURCE",year,"records",rec["original_csv_metadata"]["record_rows"],
-                  "columns",len(rec["original_csv_metadata"]["columns"]),
-                  "application_commune_columns",[f["column"] for f in rec["original_csv_metadata"]["source_relevant_fields"]
+        failures=[]
+        record=None
+        for base in BASES:
+            try:
+                record=retrieve(year,c,base)
+                break
+            except Exception as e:
+                failures.append({"official_host":base,"reason":str(e)[:350]})
+                print("GESUI_FR_SLUDGE_OFFICIAL_HOST_STOP",year,base,type(e).__name__,str(e)[:180],flush=True)
+        if record is not None:
+            record["official_host_attempt_failures_before_success"]=failures
+            results.append(record)
+            print("GESUI_FR_SLUDGE_ORIGINAL_YEAR_SOURCE",year,"records",record["original_csv_metadata"]["record_rows"],
+                  "columns",len(record["original_csv_metadata"]["columns"]),
+                  "application_commune_columns",[f["column"] for f in record["original_csv_metadata"]["source_relevant_fields"]
                                                   if "commune" in f["column"].lower() or "pand" in f["column"].lower()],
                   flush=True)
-        except Exception as e:
-            results.append({"year":year,"status":"SOURCE_ACCESS_OR_FORMAT_STOP","reason":str(e)[:700]})
-            print("GESUI_FR_SLUDGE_ORIGINAL_YEAR_STOP",year,str(e)[:300],flush=True)
+        else:
+            results.append({"year":year,"status":"SOURCE_ACCESS_OR_FORMAT_STOP","official_host_failures":failures})
+            print("GESUI_FR_SLUDGE_ORIGINAL_YEAR_STOP",year,"all three public official hosts failed",flush=True)
     report={
       "schema":"gesui_20261119_FR_ROSEAU_SILLAGE_original_public_CSV_year_source_only_v1",
       "UTC":datetime.now(timezone.utc).isoformat(),
