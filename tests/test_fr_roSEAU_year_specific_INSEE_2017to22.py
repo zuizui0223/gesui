@@ -19,6 +19,13 @@ class HistoricalCOGTest(unittest.TestCase):
         data,meta=m.official_cog("2022",raw.encode(),min_count=1)
         self.assertIn("33033",data)
         self.assertNotIn("33034",data)
+    def test_official_2019_csv_lowercase_fieldnames(self):
+        txt='typecom,com,ncc,nccenr,libelle\\nCOM,01001,ABERGEMENT CLEMENCIAT,Abergement-Clemenciat,L Abergement-Clemenciat\\n'
+        b=io.BytesIO()
+        with zipfile.ZipFile(b,"w") as z:z.writestr("communes-01012019.csv",txt)
+        result,meta=m.official_cog("2019",b.getvalue(),min_count=1)
+        self.assertIn("01001",result)
+        self.assertIn("abergementclemenciat",result["01001"])
     def test_frozen_source_hashes_for_all_years(self):
         self.assertEqual(set(m.SOURCE_SHA),{"2017","2018","2019","2020","2021","2022"})
         self.assertEqual(set(m.COG),set(m.SOURCE_SHA))
