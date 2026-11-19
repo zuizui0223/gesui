@@ -1,0 +1,37 @@
+name: GESUI JRC 2015 EMEP and DAYCENT native river basin source-only audit
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-jrc-native-basin-soilN.yml
+      - analysis/20261119_JRC_native_basin_N_source/**
+      - tests/test_jrc_native_soilN_basin_source_20261119.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  jrc-native-basin-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Source-only invariant tests, no biology
+        run: python -m unittest discover -s tests -p 'test_jrc_native_soilN_basin_source_20261119.py' -v
+      - name: Official JRC river-basin inventory, schema and complete attribute pages
+        run: |
+          python analysis/20261119_JRC_native_basin_N_source/jrc_native_soilN_layers_source_gate.py --out results/20261119_jrc_native_soil_basin_SOURCE
+      - name: Save all source-only provenance and native ID values
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2015-emep-daycent-original-native-basin-source-only
+          path: results/20261119_jrc_native_soil_basin_SOURCE/
+          retention-days: 60
+          if-no-files-found: warn
