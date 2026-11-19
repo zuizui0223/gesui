@@ -16,6 +16,9 @@ from urllib.parse import urlencode
 from urllib.request import Request,urlopen
 
 STATION_SANDRE="037800501000"
+# EEA public 2022 name-source discovery returned this exact prefixed uwwCode.
+EEA_CODE="FR037800501000"
+EXPECTED_NAME="PARIS SEINE AVAL"
 API="https://water.discomap.eea.europa.eu/arcgis/rest/services/WISE_UWWTD"
 PLANTS=API+"/TreatmentPlants_2022/MapServer/0"
 OUTFALLS=API+"/DischargePoints_2022/MapServer/0"
@@ -26,7 +29,7 @@ FIELDS_PLANT=("repCode","uwwCode","uwwName","uwwNDischargeMeasured","uwwPDischar
 FIELDS_DCP=("repCode","uwwCode","dcpCode","dcpName","dcpWaterBodyType",
             "dcpLatitude","dcpLongitude","dcpSurfaceWaters")
 QUERIES={
- "exact_SANDRE":"uwwCode = '037800501000'",
+ "exact_SANDRE":"uwwCode = 'FR037800501000'",
  "name_Seine_Aval":"UPPER(uwwName) LIKE '%SEINE AVAL%'",
  "name_Acheres":"UPPER(uwwName) LIKE '%ACHERES%'"
 }
@@ -52,16 +55,17 @@ def attrs(doc):
         raise ValueError("Truncated source query cannot establish unique records")
     return [q["attributes"] for q in doc["features"] if isinstance(q,dict) and isinstance(q.get("attributes"),dict)]
 
+def is_verified_crosswalk_candidate(row):
+    full=str(row.get("uwwCode") or "").strip()
+    name=re.sub(r"\\s+"," ",str(row.get("uwwName") or "")).strip().upper()
+    rep=str(row.get("repCode") or "").strip()
+    return full==EEA_CODE and name==EXPECTED_NAME and rep.upper().startswith("FR")
+
 def match_exact(plant_candidates,outlets):
     exact=[]
     for p in plant_candidates:
-        if str(p.get("uwwCode") or "").strip()!=STATION_SANDRE:
-            continue
-        rep=str(p.get("repCode") or "")
-        if not rep.upper().startswith("FR"):
-            # Code alone might collide between countries.
-            continue
-        exact.append(p)
+        if is_verified_crosswalk_candidate(p):
+            exact.append(p)
     if len(exact)!=1:
         return {"status":"EXACT_STEU_NOT_UNIQUELY_CONFIRMED",
                 "exact_fr_station_rows":len(exact),"reported_measured_annual_N_P_t":None,
@@ -69,9 +73,9 @@ def match_exact(plant_candidates,outlets):
                 "paired_measured_water_N_P_and_2022_actual_field_N_P_mass_GO":False,
                 "biotic_response_and_mechanism_GO":False}
     x=exact[0]
-    rep=x["repCode"]
+    rep=str(x["repCode"]).strip()
     d=[o for o in outlets if str(o.get("repCode") or "").strip()==rep and
-       str(o.get("uwwCode") or "").strip()==STATION_SANDRE]
+       str(o.get("uwwCode") or "").strip()==EEA_CODE]
     fw=[o for o in d if str(o.get("dcpWaterBodyType") or "").upper()=="FW"]
     n,p=x.get("uwwNDischargeMeasured"),x.get("uwwPDischargeMeasured")
     def positive_num(v):
@@ -87,7 +91,11 @@ def match_exact(plant_candidates,outlets):
       "status":"EXACT_EEA_2022_MEASURED_FRESHWATER_SOURCE_MATCH" if confirmed else "EXACT_STEU_PRESENT_INCOMPLETE_SOURCE",
       "exact_fr_station_rows":1,
       "station_identifier":STATION_SANDRE,
+      "official_EEA_uwwCode":EEA_CODE,
+      "official_EEA_uwwName":EXPECTED_NAME,
       "original_reporter_code":rep,
+      "facility_reported_measured_annual_N_P_t":
+         {"N_t_per_2022":float(n),"P_t_per_2022":float(p)} if hasmeasured else None,
       "reported_measured_annual_N_P_t":
          {"N_t_per_2022":float(n),"P_t_per_2022":float(p)} if confirmed else None,
       "reported_N_measurement_available":positive_num(n),
@@ -145,14 +153,14 @@ def main():
             if k in unique and unique[k]!=x:
                 raise ValueError("Same EEA station key conflicts across queries")
             unique[k]=x
-        exact_candidates=[x for x in unique.values() if str(x.get("uwwCode") or "").strip()==STATION_SANDRE and str(x.get("repCode") or "").upper().startswith("FR")]
+        exact_candidates=[x for x in unique.values() if is_verified_crosswalk_candidate(x)]
         outfalls=[]
         if len(exact_candidates)==1:
             p=exact_candidates[0]
-            rep=str(p.get("repCode") or "")
+            rep=str(p.get("repCode") or "").strip()
             if not re.fullmatch(r"[A-Za-z0-9_.-]{2,100}",rep):
                 raise ValueError("Unsafe original reporter code format")
-            d,rec=fetch(OUTFALLS,{"f":"json","where":f"repCode = '{rep}' AND uwwCode = '{STATION_SANDRE}'",
+            d,rec=fetch(OUTFALLS,{"f":"json","where":f"uwwCode = '{EEA_CODE}'",
                                    "outFields":",".join(FIELDS_DCP),"returnGeometry":"false","resultRecordCount":"35"})
             outfalls=attrs(d)
             receipts["exact_original_station_outfall"]={"count":len(outfalls),**rec}
