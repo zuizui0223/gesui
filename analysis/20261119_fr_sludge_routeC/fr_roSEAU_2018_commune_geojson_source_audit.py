@@ -38,15 +38,23 @@ def official_get_two_formats():
             js.raise_for_status()
             if sh(js.content)!=EXPECTED_JS_SHA:raise ValueError("Official original exporter JS SHA mismatch")
             data={}
-            for fmt in ("csv","geojson"):
-                post={**REQ,"format":fmt}
-                rr=client.post(base+HANDLER,data=post,timeout=(18,110),headers={
-                    "Origin":base,"Referer":base+PAGE,"Accept":"application/json,text/csv,*/*"
-                })
-                rr.raise_for_status()
-                if not 3500<len(rr.content)<=MAXBYTES:raise ValueError("Original public export size invalid: "+fmt)
-                data[fmt]=(rr.content,rr.headers.get("Content-Type",""))
-            return base,data,errors
+            # CSV must succeed first; GeoJSON is a separate optional source.
+            rr=client.post(base+HANDLER,data={**REQ,"format":"csv"},timeout=(18,110),
+                           headers={"Origin":base,"Referer":base+PAGE,"Accept":"text/csv,*/*"})
+            rr.raise_for_status()
+            if not 3500<len(rr.content)<=MAXBYTES:raise ValueError("Original public CSV export size invalid")
+            data["csv"]=(rr.content,rr.headers.get("Content-Type",""))
+            geo_failure=None
+            try:
+                geo=client.post(base+HANDLER,data={**REQ,"format":"geojson"},timeout=(18,110),
+                                headers={"Origin":base,"Referer":base+PAGE,"Accept":"application/json,*/*"})
+                geo.raise_for_status()
+                if not 3500<len(geo.content)<=MAXBYTES:
+                    raise ValueError("Original GeoJSON size outside public data gate")
+                data["geojson"]=(geo.content,geo.headers.get("Content-Type",""))
+            except Exception as geo_exc:
+                geo_failure=str(geo_exc)[:400]
+            return base,data,errors,geo_failure
         except Exception as ex:
             errors.append({"official_host":base,"error":str(ex)[:400]})
     raise RuntimeError("All public official hosts unavailable: "+json.dumps(errors))
@@ -136,14 +144,18 @@ def main():
          "official_csv_not_saved_or_republished":True,
          "official_geojson_not_saved_or_republished":True}
     try:
-        host,src,failures=official_get_two_formats()
+        host,src,failures,geo_failure=official_get_two_formats()
         out["official_host"]=host
         out["previous_host_attempt_errors"]=failures
         out["original_CSV"]={"bytes":len(src["csv"][0]),"sha256":sh(src["csv"][0]),
                              "metadata":municipality_schema(src["csv"][0])}
-        out["original_GeoJSON"]={"bytes":len(src["geojson"][0]),"sha256":sh(src["geojson"][0]),
-                                 "metadata":geojson_schema(src["geojson"][0])}
-        out["status"]="SOURCE_FORMATS_INSPECTED_GEO_NOT_PARCEL_CONFIRMED"
+        if "geojson" in src:
+            out["original_GeoJSON"]={"bytes":len(src["geojson"][0]),"sha256":sh(src["geojson"][0]),
+                                     "metadata":geojson_schema(src["geojson"][0])}
+            out["status"]="SOURCE_FORMATS_INSPECTED_GEO_NOT_PARCEL_CONFIRMED"
+        else:
+            out["original_GeoJSON"]={"status":"GEOJSON_ACCESS_STOP","reason":geo_failure}
+            out["status"]="CSV_COMMUNE_GRAMMAR_INSPECTED_BUT_GEOJSON_STOP"
     except Exception as e:
         out["status"]="SOURCE_FORMAT_ACCESS_OR_QA_STOP"
         out["error"]=str(e)[:700]
