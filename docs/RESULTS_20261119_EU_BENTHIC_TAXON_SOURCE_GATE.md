@@ -35,6 +35,22 @@ BiosysのMETRICSにある **BMWP_ASPT/WHPT_ASPTは試料単位の合成生物品
 
 [同一EA公式元ZIPでの全原票結合監査 #44544801464](https://github.com/zuizui0223/gesui/actions/runs/44544801464) 成功。**30,752原河川site、281,255異なるANALYSIS_ID、7,590,163分類群原票行、3,069 TAXON_LIST_ITEM_KEY、614 distinct CATCHMENT**。SITE→METRICS→TAXAの原ANALYSIS_IDの照合率100%、SITE_ID/SAMPLE_ID conflict 0。年代1965–2026年。正の数値`TOTAL_ABUNDANCE`は**6,786,884/7,590,163行=89.4%**、残る803,279は未記載/非正値でありゼロを「個体数なし」と無条件に補完しない。原の試料品質・河川曝露・正式形質辞書との結合モデルは未実施。2018/22 EEA EQRのサンプルと同一の実試料ではない可能性を維持。
 
+## ChemPop v2 原試料×科スコア×EDFのSOURCE品質（元全集計）
+
+[原本SOURCE-only census #44545916466](https://github.com/zuizui0223/gesui/actions/runs/44545916466) の独立 `official-chem-pop-family-source-census` ジョブが成功。**1,519元地点、67,499元BIO_ANALYSIS_ID、1,810,224元 taxon-rows、226記録科ラベル**。BioScore正式出典（原2016 UK biotic BMWPの92 scored labels）を使った科均等の出現source品質は、全期で**34,571 original analyses／765 unique site／7地域**（1試料あたり scored family 3以上、scored fraction 70%以上、site EDF_MEAN有効）。地域別源ゲート7/7、各地域EDF_MEANは0から約42–95（％相当の公開モデル値）で変化を持つ。
+
+| 地域コード | 源品質適格sample | 源品質適格site | 7地域のサイトEDF範囲 |
+|---|---:|---:|---|
+| an | 9,666 | 164 | 0–70.108 |
+| mi | 7,736 | 130 | 0–64.864 |
+| ne | 3,952 | 103 | 0–63.776 |
+| nw | 2,428 | 64 | 0–75.498 |
+| so | 3,072 | 80 | 0–52.780 |
+| sw | 3,412 | 111 | 0–42.461 |
+| th | 4,305 | 113 | 0–94.682 |
+
+**解釈の境界：** 上のsample/サイトは1965–2018の全収録期間を含む。実際に2010–18に制限し、国/地域間・農業・都市・河川物理を調整し、試料同定・得点率を確保する独立解析は別SOURCEゲートを通過してから実行する。これだけで「下水が敏感種を減らした」または「下水由来リンが耐性種に働いた」とは主張しない。観測`BIO_ABUNDANCE`は数値が多いが真正個体数を代表する単位かは別に監査する。
+
 ## 次に具体的に検証する項目
 
 1. ChemPop v2元ZIP：構成ファイルのCSV列・原source 1,519サイト・元水質とモデル下水のどの列が共存するか、試料単位でのモデル更新有無。SOURCE/TRAIT両方が同じsource単位で測られるかを見てからモデル開始。
