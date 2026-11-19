@@ -31,6 +31,12 @@ jobs:
           python -m py_compile analysis/20261119_europe_benthic_taxa/inspect_chempop_v2_zip_schema.py
           python -u analysis/20261119_europe_benthic_taxa/inspect_chempop_v2_zip_schema.py \
             --out "${{ runner.temp }}/gesui_benthic_source/CHEMPOP_V2_ORIGINAL_ZIP_SCHEMAS.json"
+      - name: Source-verify UK family BMWP scoring dictionary and exact EA taxon names
+        run: |
+          python -m pip install --quiet 'pyreadr>=0.5,<1'
+          python -m py_compile analysis/20261119_europe_benthic_taxa/audit_biotic_family_scores_source.py
+          python -u analysis/20261119_europe_benthic_taxa/audit_biotic_family_scores_source.py \
+            --out "${{ runner.temp }}/gesui_benthic_source/UK_BMWP_FAMILY_SCORE_SOURCE_ONLY.json"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
