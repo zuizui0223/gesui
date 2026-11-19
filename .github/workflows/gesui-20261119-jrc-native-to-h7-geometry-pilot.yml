@@ -1,0 +1,54 @@
+name: GESUI 12 genuine H7 source geometry pilot vs JRC native soil and point basins
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-jrc-native-to-h7-geometry-pilot.yml
+      - analysis/20261119_JRC_native_basin_N_source/jrc_12h7_native_basin_geometry_pilot.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-geometry-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original polygon geometry libs, no biological models
+        run: python -m pip install --disable-pip-version-check geopandas==1.0.1 pyogrio==0.10.0 shapely==2.0.6 pyproj==3.7.0 numpy pandas
+      - name: Compile source-only 12-H7 pilot code before remote requests
+        run: python -m py_compile analysis/20261119_JRC_native_basin_N_source/jrc_12h7_native_basin_geometry_pilot.py
+      - name: Retrieve old genuine H7 WKT request receipts and old EIV source quality labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui_grid_h7/facets /tmp/gesui_grid_h7/elig
+          gh run download 43593227162 --repo zuizui0223/gesui --name gesui-H7-234x2x6-only429-source-merged-20261114 --dir /tmp/gesui_grid_h7/facets
+          gh run download 43718069015 --repo zuizui0223/gesui --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change --dir /tmp/gesui_grid_h7/elig
+      - name: Query official JRC native basin polygons for 12 prespecified SOURCE-only H7
+        run: |
+          set -euo pipefail
+          FACETS="$(find /tmp/gesui_grid_h7/facets -name GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json)"
+          ELIG="$(find /tmp/gesui_grid_h7/elig -name EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv)"
+          test -f "$FACETS" && test -f "$ELIG"
+          python analysis/20261119_JRC_native_basin_N_source/jrc_12h7_native_basin_geometry_pilot.py \
+            --facets "$FACETS" \
+            --eligibility "$ELIG" \
+            --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --out results/20261119_JRC_native_basin_12H7_pilot/
+      - name: Publish original source-only per-H7 polygon and numeric-coverage receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-JRC-native-basin-12H7-source-geometry-pilot
+          path: results/20261119_JRC_native_basin_12H7_pilot/
+          if-no-files-found: warn
+          retention-days: 60
