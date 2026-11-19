@@ -71,6 +71,17 @@ class FeursDualOutletSourceGateTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.audit(s)
 
+    def test_2018_permit_has_actual_outfall_not_station_site_and_no_mass(self):
+        permit = self.source["official_2018_permitted_water_outlet"]
+        self.assertEqual(permit["administrative_order"], "42-2018-03-01-007")
+        self.assertEqual(permit["coordinate_crs"], "EPSG:2154 – RGF93 Lambert 93")
+        self.assertEqual((permit["actual_permitted_effluent_discharge_point_lambert93_x_m"],
+                          permit["actual_permitted_effluent_discharge_point_lambert93_y_m"]), (794216, 6516746))
+        self.assertNotEqual(permit["treatment_plant_lambert93_x_m"],
+                            permit["actual_permitted_effluent_discharge_point_lambert93_x_m"])
+        self.assertTrue(permit["regulatory_location_and_design_not_measured_2018_load"])
+        self.assertEqual(m.audit(self.source)["strict_paired_export_mass_GATE"], "STOP")
+
     def test_station_change_is_rejected(self):
         s = copy.deepcopy(self.source)
         s["STEU_SANDRE"] = "fictional-id"
