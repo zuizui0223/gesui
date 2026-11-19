@@ -96,6 +96,9 @@ def classify(raw):
     per_station_production=defaultdict(set)
     per_site_fields=defaultdict(set)
     positive_total_and_commune=0
+    positive_station_ids=set()
+    positive_station_commune_pairs=set()
+    positive_commune_literals=set()
     negative_or_unparsed_qty=0
     explicit_insee=set()
     name_only=set()
@@ -133,7 +136,12 @@ def classify(raw):
         production["positive" if prod is not None and prod>0 else
                    "valid_zero" if prod==0 else "invalid_or_blank"]+=1
         if qty is None:negative_or_unparsed_qty+=1
-        if qty is not None and qty>0 and commune:positive_total_and_commune+=1
+        if qty is not None and qty>0 and commune:
+            positive_total_and_commune+=1
+            if station:
+                positive_station_ids.add(station)
+                positive_station_commune_pairs.add((station,commune))
+            positive_commune_literals.add(commune)
         if type_commune(commune)=="exact_INSEE_code":explicit_insee.add(commune.upper())
         elif type_commune(commune)=="label_plus_INSEE_code":
             match=EXPLICIT_INSEE_IN_LABEL.search(commune.upper())
@@ -163,6 +171,9 @@ def classify(raw):
       "raw_quantity_positive_zero_invalid_or_blank":dict(spreading),
       "raw_production_positive_zero_invalid_or_blank":dict(production),
       "raw_rows_with_positive_station_level_agricultural_qty_AND_nonempty_commune":positive_total_and_commune,
+      "distinct_positive_qty_station_ids":len(positive_station_ids),
+      "distinct_positive_qty_station_commune_pairs":len(positive_station_commune_pairs),
+      "distinct_positive_qty_commune_literal_strings":len(positive_commune_literals),
       "raw_commune_literal_types":dict(commune_types),
       "stations_where_agricultural_spreading_quantity_varies_between_duplicate_rows":len(station_bad),
       "stations_where_production_quantity_varies_between_duplicate_rows":len(station_prod_bad),
