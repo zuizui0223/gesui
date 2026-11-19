@@ -190,3 +190,18 @@ jobs:
           path: ${{ runner.temp }}/gesui_fourthcorner/FOURTHCORNER_EPT_TRAIT_FILTER_RESULTS.json
           if-no-files-found: warn
           retention-days: 90
+
+      - name: Actual ambient river TP nutrient filtering falsifier (count vs incidence, within-order null, disjoint-era HUC8)
+        run: |
+          python -m py_compile analysis/20261115_ept_fourthcorner/actual_tp_trait_null.py
+          python -u analysis/20261115_ept_fourthcorner/actual_tp_trait_null.py \
+            --out "${{ runner.temp }}/gesui_tp_falsifier/AMBIENT_TP_TRAIT_FALSIFIER.json" \
+            --permutations 999
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261119-NRSA3cycle-ambientTP-EPT-incidence-null
+          path: ${{ runner.temp }}/gesui_tp_falsifier/AMBIENT_TP_TRAIT_FALSIFIER.json
+          if-no-files-found: warn
+          retention-days: 90
