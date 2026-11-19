@@ -52,7 +52,7 @@ def all_layer(name):
           "resultRecordCount":len(batch)
         })
         data=[x.get("attributes",{}) for x in o.get("features",[])]
-        if len(data)!=len(batch) or {z.get("OBJECTID") for z in data}!=set(batch) or o.get("exceededTransferLimit"):
+        if len(data)!=len(batch) or {z.get("OBJECTID") for z in data}!=set(batch):
             raise ValueError(f"Truncated page {name} {i}: {len(data)} vs {len(batch)}")
         for z in data:
             key=z.get(primary)
