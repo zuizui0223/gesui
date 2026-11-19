@@ -16,8 +16,8 @@ import os
 from pathlib import Path
 import numpy as np
 import pandas as pd
-import h6_model_if_gate as m
 import plant_W_genus_label_null as g
+import h6_model_if_gate as m
 
 
 MIN_COUNTRY_TEST_ROWS = 10
