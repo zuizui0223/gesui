@@ -78,7 +78,7 @@ def official_cog(year,payload,min_count=30000):
             orig_name=files[0];raw=z.read(files[0])
         reader=csv.DictReader(io.StringIO(raw.decode("utf-8-sig")),delimiter=",")
         if not {"COM","NCC"}.issubset(reader.fieldnames or []):
-            raise ValueError("Official newer COG CSV lacks COM/NCC code-name columns")
+            raise ValueError("Official newer COG CSV lacks COM/NCC code-name columns; original header="+repr((reader.fieldnames or [])[:18])+"; first_source_line="+repr(raw[:180]))
         codes=defaultdict(set)
         for row in reader:
             code=str(row["COM"]).strip().upper()
