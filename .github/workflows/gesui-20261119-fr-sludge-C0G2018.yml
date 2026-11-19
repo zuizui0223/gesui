@@ -1,0 +1,40 @@
+name: GESUI France 2018 sludge application municipalities vs official INSEE historical COG
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-fr-sludge-C0G2018.yml
+      - analysis/20261119_fr_sludge_routeC/fr_roSEAU_2018_original_INSEE_COG_source_gate.py
+      - tests/test_fr_roSEAU_2018_INSEE_COG_source_gate.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  embedded-municipality-codes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install official source HTTP client
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Test embedded CODE-pipe-name multi-commune parsing
+        run: python -m unittest discover -s tests -p 'test_fr_roSEAU_2018_INSEE_COG_source_gate.py' -v
+      - name: Compare 2018 government ROSEAU source code-name lists to official historic INSEE COG2018 ZIP
+        run: |
+          python analysis/20261119_fr_sludge_routeC/fr_roSEAU_2018_original_INSEE_COG_source_gate.py \
+            --out results/20261119_fr_sludge_2018_official_INSEE/
+      - name: Archive public municipality codes only, not individual station/farmer/parcel records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-France2018-sludge-municipality-INSEE-original-COG-validation
+          path: results/20261119_fr_sludge_2018_official_INSEE/
+          if-no-files-found: warn
+          retention-days: 60
