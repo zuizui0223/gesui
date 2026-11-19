@@ -79,7 +79,7 @@ def fetch(url,session):
         raise ValueError("Official page response unexpectedly large")
     return req
 
-def probe():
+def probe(outdir:Path):
     session=requests.Session()
     records=[]
     first_valid=None
@@ -138,6 +138,8 @@ def probe():
                                    "bytes":len(raw),"too_large_to_inspect":True})
                     continue
                 decoded=raw.decode("utf-8","replace")
+                if src.split("?")[0].endswith("/public/js/exportbasededonneeBoue_min.js"):
+                    (outdir/"OFFICIAL_PUBLIC_ROSEAU_BOUES_EXPORT_SCRIPT.js").write_bytes(raw)
                 assets.append({"script_url":src.split("?")[0],"status_code":rr.status_code,
                                "bytes":len(raw),"sha256":sha(raw),
                                "export_related_clues":safe_js_excerpt(decoded)})
@@ -177,7 +179,7 @@ def main():
     p.add_argument("--out",type=Path,required=True)
     a=p.parse_args()
     a.out.mkdir(parents=True,exist_ok=True)
-    report=probe()
+    report=probe(a.out)
     (a.out/"FR_ROSEAU_SILLAGE_OFFICIAL_PUBLIC_FORM_SOURCE_PROBE.json").write_text(
         json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\n",encoding="utf-8")
     g=report["source_gate"]
