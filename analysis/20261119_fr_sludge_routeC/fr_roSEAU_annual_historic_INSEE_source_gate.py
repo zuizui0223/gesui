@@ -196,7 +196,6 @@ def main():
         ses=requests.Session()
         ses.headers.update({"User-Agent":"gesui-INSEE-history-sludge-source-only/20261119"})
         res=ses.get(COG[args.year],timeout=(15,70));res.raise_for_status()
-        official,rec=cog2018=None,None
         official,rec=official_cog(args.year,res.content)
         output["historic_INSEE_COG_source_receipt"]=rec
         src,host=retrieve_year(args.year)
