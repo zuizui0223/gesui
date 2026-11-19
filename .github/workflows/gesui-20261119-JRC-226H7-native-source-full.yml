@@ -1,0 +1,95 @@
+name: GESUI full 226 H7 JRC native soil and point N SOURCE-only geography census
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/gesui-20261119-JRC-226H7-native-source-full.yml
+      - analysis/20261119_JRC_native_basin_N_source/jrc_original_226h7_sharded_source_census.py
+      - analysis/20261119_JRC_native_basin_N_source/jrc_original_226h7_source_completeness_go_stop.py
+      - tests/test_jrc_original_226h7_source_gates_20261119.py
+      - tests/test_jrc_226h7_source_aggregation_20261119.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-H7-source-shards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install official original source geometry support
+        run: python -m pip install --disable-pip-version-check pandas numpy shapely==2.0.6 pyproj==3.7.0
+      - name: Test original native Polygon area, missingness and union-vs-single
+        run: python -m unittest discover -s tests -p 'test_jrc_original_226h7_source_gates_20261119.py' -v
+      - name: Restore unchanged EIV source-only quality and true H7 GBIF geometry
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui226/facets /tmp/gesui226/elig
+          gh run download 43593227162 --repo zuizui0223/gesui --name gesui-H7-234x2x6-only429-source-merged-20261114 --dir /tmp/gesui226/facets
+          gh run download 43718069015 --repo zuizui0223/gesui --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change --dir /tmp/gesui226/elig
+      - name: Source-only original 226 H7 full cohort deterministic shard ${{ matrix.shard }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          FACETS="$(find /tmp/gesui226/facets -type f -name GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json)"
+          ELIG="$(find /tmp/gesui226/elig -type f -name EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv)"
+          test -f "$FACETS" && test -f "$ELIG"
+          python analysis/20261119_JRC_native_basin_N_source/jrc_original_226h7_sharded_source_census.py \
+            --facets "$FACETS" --eligibility "$ELIG" \
+            --panel results/20261115_sync/hns_macro/H7_454_HNS_panel.csv \
+            --shard ${{ matrix.shard }} --n-shards 12 \
+            --out results/20261119_jrc226_shard/
+      - name: Publish complete source-only shard even if technical stop recorded
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-JRC-226H7-native-source-shard-${{ matrix.shard }}
+          path: results/20261119_jrc226_shard/
+          retention-days: 60
+          if-no-files-found: warn
+
+  original-226H7-source-GO-STOP:
+    needs: original-H7-source-shards
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Offline independent-source effective sample and GO/STOP unit tests
+        run: python -m unittest discover -s tests -p 'test_jrc_226h7_source_aggregation_20261119.py' -v
+      - name: Collect every original full cohort source-only shard
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-JRC-226H7-native-source-shard-*
+          path: /tmp/gesui226_full_shards
+          merge-multiple: true
+      - name: Enforce 226 original distinct H7 and fixed single-basin and independent-country/H6 gates
+        run: |
+          python analysis/20261119_JRC_native_basin_N_source/jrc_original_226h7_source_completeness_go_stop.py \
+            --shards /tmp/gesui226_full_shards \
+            --out results/20261119_jrc226_consolidated_SOURCE_GATE/
+      - name: Publish full-cohort source-only eligibility, source-unit graph and technical failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-226H7-sourceonly-unique-basin-independence-GO-STOP
+          path: results/20261119_jrc226_consolidated_SOURCE_GATE/
+          retention-days: 60
+          if-no-files-found: warn
