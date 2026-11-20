@@ -18,6 +18,9 @@ import collections
 import json
 import tempfile
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]/'analysis'/'20261119_europe_benthic_taxa'))
 
 import numpy as np
 import pandas as pd
@@ -110,7 +113,6 @@ def decompose(df, A, values, ref, original_fit):
     wfit = f.fit_cluster(d, "y_within_order")
     if abs((bfit["beta"] + wfit["beta"]) - original_fit["beta"]) > 1e-9:
         raise RuntimeError("WLS order-decomposed EDF slopes do not add to source")
-    null = f.null_score_shuffle(d, A, None, values, None) if False else None
     # prior true label null from the independently re-built source pipeline;
     # no additional hypothesis-selected permutations are used here.
     returns = {
@@ -284,7 +286,14 @@ def main(a):
             output["order_decomposition"]=decompose(df,A,values,ref,orig)
             output["leave_one_region_out_EDF_slope"]=leave_region_influence(df)
             output["one_record_per_SITE_sensitivity"]=only_sites(df)
-            output["real_count_method_only"]=true_count_sensitivity(raw,weights,scores)
+            try:
+                output["real_count_method_only"]=true_count_sensitivity(raw,weights,scores)
+            except Exception as ex:
+                output["real_count_method_only"]={
+                    "status":"SOURCE_OR_METHOD_STOP_TRUE_COUNTS",
+                    "error":type(ex).__name__+": "+str(ex)[:450],
+                    "old_original_main_results_preserved":True
+                }
             output["status"]="POSTHOC_ADVERSARIAL_CALCULATION_COMPLETE"
     except Exception as ex:
         output.update({"status":"SOURCE_OR_MODEL_STOP","error":type(ex).__name__+": "+str(ex)[:650]})
