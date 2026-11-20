@@ -1,0 +1,36 @@
+name: gesui ChemPop same-sample water nutrients vs EDF BMWP source-gated regional transfer
+on:
+  push:
+    paths:
+      - 'analysis/20261120_chempop_bmwp/wq_adjusted_edf.py'
+      - '.github/workflows/gesui-chempop-WQ-nutrient-adjusted-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  same-biological-date-WQ-original-source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Pinned scientific dependencies
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Original same-date three nutrient summary join; stop if support or VIF gates fail; otherwise compare EDF after NP and NP after EDF
+        run: |
+          python -m py_compile analysis/20261120_chempop_bmwp/wq_adjusted_edf.py
+          python -u analysis/20261120_chempop_bmwp/wq_adjusted_edf.py \
+            --out "${{ runner.temp }}/chem_np_test/20261120_EDF_AFTER_NUTRIENTS_BMWP_RESULTS.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-ChemPop-orthophosphate-nitrate-ammoniacalN-EDF-BMWP
+          path: ${{ runner.temp }}/chem_np_test/20261120_EDF_AFTER_NUTRIENTS_BMWP_RESULTS.json
+          if-no-files-found: warn
+          retention-days: 90
