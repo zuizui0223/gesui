@@ -1,0 +1,452 @@
+{
+  "source": {
+    "original_archive_name": "GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json",
+    "original_archive_member": null,
+    "source_archive_sha256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+    "score_table_sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+    "original_454_source_sum_speciesKey": 4318269,
+    "original_454_all_family_record_count": 4400147,
+    "inputs": [
+      {
+        "path": "original\\H7_454_HNS_panel.csv",
+        "sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "original\\GESUI_303_HOST_NUTRIENT_SCORES.csv",
+        "sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "fr73\\gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota\\FR73_HYBAS7_NATIVE_2018_2022_REAL_TP_I2M2_EQR_AND_GBIF_INDEX_DELTA.csv",
+        "sha256": "f2ff4e56f245e1aa8f84f5ac099d68ec1c7e27a786c1067439db388b186dd90b",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "plant\\EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv",
+        "sha256": "33a1a3b27e584121b4c3ec6dff9330d4b06a7096f35758c71690cf1dc431e7bc",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "plant\\EU454_H7PERIOD_NUTRI_TRAIT_MEANS_SOURCEONLY.csv",
+        "sha256": "53918cd3dfa99b51bc5d8e21edb27de9978598ecf2985b7dff0e643546544c23",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "gesui\\analysis\\20261120_water_land_covariation\\analyse.py",
+        "sha256": "aff841d4b6f065414580e33767c1817fb1c54999d6d51096a42e9e0c82393cbf",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261120_water_land_covariation\\PROTOCOL.md",
+        "sha256": "70593aba7a470483b09f87dbe8fe399b9cf3cabda9b9e744b1369dcae6949983",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_taxon\\analyse.py",
+        "sha256": "1a31c2d73716e8aa081baf1549957bf4f3e94d08695e603de1e54c301c2b1e7c",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_taxon\\family_base.py",
+        "sha256": "7e22becccd443e1590f490b6ca9dab8868281be05d68c82e815672ec43a1c898",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_taxon\\sensitivity.py",
+        "sha256": "e89863f5a3bbfcc2fb1a8b0c3a128b0b9f72dcdd7530b0a0bbc47b13bf72dfec",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_decomposition\\analyse.py",
+        "sha256": "af53972248f7c10e3c16ee47bd984dce4f73ac943f91c6765efc9549853e598f",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns\\scripts\\score_core.py",
+        "sha256": "f456cff9c47cc1a765582236d2ba57bc7d0107f89cf278f3873b9890221fd49e",
+        "hash_mode": "LF-normalized UTF-8"
+      }
+    ]
+  },
+  "cohorts": {
+    "all_butterflies_spatial": {
+      "n_H7": 73,
+      "n_H6": 24,
+      "valid_bootstraps": 3000,
+      "requested_bootstraps": 3000,
+      "controls": {
+        "raw": [],
+        "observation": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support"
+        ],
+        "observation_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "W"
+        ],
+        "landscape": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout"
+        ],
+        "landscape_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout",
+          "W"
+        ]
+      },
+      "outcome_scale": {
+        "aquatic_stress": 0.16736770478886573,
+        "TP": 0.7636918321018173,
+        "plant": 0.2891046725476174,
+        "butterfly": 0.2835278446492869
+      },
+      "H6_sizes": [
+        5,
+        3,
+        5,
+        1,
+        5,
+        1,
+        2,
+        1,
+        6,
+        6,
+        5,
+        1,
+        2,
+        2,
+        3,
+        6,
+        6,
+        4,
+        1,
+        2,
+        3,
+        1,
+        1,
+        1
+      ],
+      "static_max_period_difference": {
+        "crop": 0.0,
+        "urban": 0.0,
+        "area": 0.0,
+        "riverflow": 0.7364277401956058,
+        "naturalout": 0.0,
+        "W": 0.0
+      }
+    },
+    "all_butterflies_temporal": {
+      "n_H7": 73,
+      "n_H6": 24,
+      "valid_bootstraps": 3000,
+      "requested_bootstraps": 3000,
+      "controls": {
+        "raw": [],
+        "observation": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support"
+        ],
+        "observation_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "W"
+        ],
+        "landscape": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout"
+        ],
+        "landscape_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout",
+          "W"
+        ]
+      },
+      "outcome_scale": {
+        "aquatic_stress": 0.10268383941916981,
+        "TP": 0.25949611200622613,
+        "plant": 0.13085233904423127,
+        "butterfly": 0.1023830520258173
+      },
+      "H6_sizes": [
+        5,
+        3,
+        5,
+        1,
+        5,
+        1,
+        2,
+        1,
+        6,
+        6,
+        5,
+        1,
+        2,
+        2,
+        3,
+        6,
+        6,
+        4,
+        1,
+        2,
+        3,
+        1,
+        1,
+        1
+      ],
+      "static_max_period_difference": {
+        "crop": 0.0,
+        "urban": 0.0,
+        "area": 0.0,
+        "riverflow": 0.7364277401956058,
+        "naturalout": 0.0,
+        "W": 0.0
+      }
+    },
+    "lyca_supported_spatial": {
+      "n_H7": 67,
+      "n_H6": 24,
+      "valid_bootstraps": 3000,
+      "requested_bootstraps": 3000,
+      "controls": {
+        "raw": [],
+        "observation": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support"
+        ],
+        "observation_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "W"
+        ],
+        "landscape": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout"
+        ],
+        "landscape_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout",
+          "W"
+        ]
+      },
+      "outcome_scale": {
+        "aquatic_stress": 0.16784844072190663,
+        "TP": 0.7197767802034909,
+        "plant": 0.2736467113459854,
+        "butterfly": 0.2699354789476576,
+        "lyca": 0.20868891013343704
+      },
+      "H6_sizes": [
+        5,
+        3,
+        4,
+        1,
+        3,
+        1,
+        2,
+        1,
+        6,
+        6,
+        5,
+        1,
+        1,
+        2,
+        3,
+        5,
+        6,
+        4,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1
+      ],
+      "static_max_period_difference": {
+        "crop": 0.0,
+        "urban": 0.0,
+        "area": 0.0,
+        "riverflow": 0.7364277401956058,
+        "naturalout": 0.0,
+        "W": 0.0
+      }
+    },
+    "lyca_supported_temporal": {
+      "n_H7": 67,
+      "n_H6": 24,
+      "valid_bootstraps": 3000,
+      "requested_bootstraps": 3000,
+      "controls": {
+        "raw": [],
+        "observation": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support"
+        ],
+        "observation_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "W"
+        ],
+        "landscape": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout"
+        ],
+        "landscape_W": [
+          "nPlant",
+          "nButterfly",
+          "NUTRI_coverage_all_Plantae_speciesKeys",
+          "primary_record_coverage_raw",
+          "water_support",
+          "crop",
+          "urban",
+          "area",
+          "riverflow",
+          "naturalout",
+          "W"
+        ]
+      },
+      "outcome_scale": {
+        "aquatic_stress": 0.09771360991033244,
+        "TP": 0.2594810608207545,
+        "plant": 0.09866456838894337,
+        "butterfly": 0.08649058155402428,
+        "lyca": 0.20262717965117827
+      },
+      "H6_sizes": [
+        5,
+        3,
+        4,
+        1,
+        3,
+        1,
+        2,
+        1,
+        6,
+        6,
+        5,
+        1,
+        1,
+        2,
+        3,
+        5,
+        6,
+        4,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1
+      ],
+      "static_max_period_difference": {
+        "crop": 0.0,
+        "urban": 0.0,
+        "area": 0.0,
+        "riverflow": 0.7364277401956058,
+        "naturalout": 0.0,
+        "W": 0.0
+      }
+    }
+  },
+  "python": "3.10.11",
+  "numpy": "2.2.6",
+  "pandas": "2.3.3",
+  "seed": 20261120,
+  "checks": [
+    "frozen source hashes and uniqueness",
+    "same-site water difference identities",
+    "static W verified",
+    "full-rank models",
+    "shared-driver synthetic check",
+    "FWL covariance decomposition on every valid bootstrap"
+  ],
+  "limitations": [
+    "Exploratory, not preregistered.",
+    "W static: no change-in-wastewater estimate.",
+    "No climate adjustment or causal attribution.",
+    "Two windows only, no long-term synchrony.",
+    "H6 equal weighted, marginal CIs unless simultaneous columns present.",
+    "Spatial and temporal results reuse the same sites; not independent replication."
+  ]
+}
