@@ -1,7 +1,7 @@
 # 2026-11-21｜処理済み下水TP採水が底生動物の調査より先だったか：同一原採集日・上流河道のSOURCE監査
 
 **SOURCE-only再解析。環境影響の回帰や因果推論ではない。**
-[元採水日照合の実行済みActions #44838235844](https://github.com/zuizui0223/gesui/actions/runs/44838235844) 成功、成果JSON artifact ID **14678789421**。原EA Water Quality Explorer 2026 API、EIDC ChemPop v2 official 326 original files、UK 2016 BMWP採点辞書のSOURCE品質ゲート、HydroRIVERS v1 EU original source SHA256 **500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5**を使用。生物BMWP値・実個体数・栄養による生物効果係数は計算していない。
+[採用：合否判定をデータから計算する修正版 Actions #44838492378](https://github.com/zuizui0223/gesui/actions/runs/44838492378) **SUCCESS**、採用原JSON artifact ID **14679184658**。先行の数値検証 [Actions #44838235844](https://github.com/zuizui0223/gesui/actions/runs/44838235844) も同じ観測件数を再現したが、source gateの真偽をハードコードしていたため採用判定は修正版とする。原EA Water Quality Explorer 2026 API、EIDC ChemPop v2 official 326 original files、UK 2016 BMWP採点辞書のSOURCE品質ゲート、HydroRIVERS v1 EU original source SHA256 **500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5**を使用。生物BMWP値・実個体数・栄養による生物効果係数は計算していない。
 
 ## SOURCEと年月日の原本ゲート
 
@@ -25,7 +25,7 @@
 
 ### source-onlyの品質判定
 
-- 元事後手続きで固定した前90日の **50異なるBIO site／100 site×year** は、観測された **147 site／236 site×year** で数値的に通過。さらに保守的な「そのsite×yearの**すべてのBIO採集日**に前90日TP測定が存在」でも **233/237 site×year**。元SOURCE流向/日付の標本機会を検証するには十分。
+- 元事後手続きで固定した前90日の **50異なるBIO site／100 site×year** は、観測された **147 site／236 site×year** でコードから算出したSOURCE gateがいずれもtrueとなり通過。さらに保守的な「そのsite×yearの**すべてのBIO採集日**に前90日TP測定が存在」でも **233/237 site×year**。元SOURCE流向/日付の標本機会を検証するには十分。
 - しかし主SOURCE候補237のうち236で前90日TPの採水があり、後90日でも236あるため、**「先行TP測定あり/なし」というバイナリはほぼ飽和**。これを単独のWTP曝露のあり/なしとしてBMWP回帰に入れれば、源別の真正な差・施設効果を識別できず、監視頻度・源選択の内生性を過小評価する。**原河川BMWP値の新しい回帰は実行しない**。
 - 逆流向placebo BIO地点は元source条件付きで2017年170、2018年176、同reach未確定61/71。これらを**下水非曝露地点**に置換しない（ほかの上流SOURCEがあり得る）。HydroRIVERSは小流路・側溝を欠落させ、EA official SAの採水位置は実際のpermit-outfallとは限らない。
 
@@ -37,7 +37,7 @@
 
 ## 再現・保存
 
-- 元実行: [GitHub Actions #44838235844](https://github.com/zuizui0223/gesui/actions/runs/44838235844)（旧hard-coded source gate判定フィールドには方法上の誤りがあり、観測件数の結果は本表の通り）。後続実行では**計算から導く実際の90日source合否**に置換した。修正後実行を採用版とする。
+- **採用実行：[GitHub Actions #44838492378](https://github.com/zuizui0223/gesui/actions/runs/44838492378) 成功、art #14679184658。** 計算で得た前90日90日source 147地点・236 site×year（全BIO採集日成立233 site×year）に対し、主SOURCE gate ≥50地点、≥100site×year、保守的all-site-dates≥100site×yearが全てpass。事前の [#44838235844](https://github.com/zuizui0223/gesui/actions/runs/44838235844) は観測件数が完全一致するが一部source gateを固定trueにしていたので旧診断版として保持。
 - 元データ・元コードのSOURCE-first [日時条件プロトコル](PROTOCOL_20261120_UK_STW_TP_BEFORE_BIO_SAMPLE_DATE_SOURCE_ONLY.md)、[ソース計算](../analysis/20261120_wessex_wwtp/ea_SA_TP_upstream_before_ChemPop_bio_dates.py)。元原データ化学・生物・地理行や原station IDは公Gitへ再配布せず、集約数値と原source SHAのみ公開。
 
 研究原稿・gesui/main・ほかのPRは変更しない。結果の符号や有意性を見てTP源の時間閾値や空間閾値を緩めることをしない。
