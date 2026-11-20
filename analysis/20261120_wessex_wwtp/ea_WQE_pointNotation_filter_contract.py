@@ -67,8 +67,10 @@ def main(a):
     invalid=query("GESUI_SOURCE_NOT_A_REAL_SAMPLING_POINT_999999999")
     valid=(positive.get("n",0)>0 and positive.get("other_notation") == 0
            and second.get("n",0)>0 and second.get("other_notation")==0
-           and invalid.get("n")==0
-           and invalid.get("http") in (200,204))
+           and positive.get("response_SHA256")!=second.get("response_SHA256")
+           and invalid.get("n",0)==0
+           and invalid.get("status")!="SOURCE_RETURNED_RECORDS"
+           and invalid.get("http") in (200,204,400))
     result={"schema":"GESUI_EA_WQE_POST_OBSERVATION_NATIVE_POINTNOTATION_20261120_V1",
             "source_only":True,
             "original_2018_watercompany_SA_tp_station_labels_local":len(official_source),
