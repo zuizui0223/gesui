@@ -11,7 +11,7 @@ biological effect coefficient or 2018 facility activity can be inferred here.
 No original site names/IDs/coordinates or individual biology rows are rehosted.
 """
 from __future__ import annotations
-import argparse,collections,hashlib,json,math,re,sys,urllib.error,urllib.parse,urllib.request
+import argparse,collections,hashlib,json,math,re,sys,time,urllib.error,urllib.parse,urllib.request
 from pathlib import Path
 import numpy as np
 
@@ -36,12 +36,20 @@ def get_page(skip):
     query=urllib.parse.urlencode({"samplingPointType":SOURCE_TYPE,"limit":LIMIT,"skip":skip})
     req=urllib.request.Request(URL+"?"+query,method="POST",data=b"",headers=HEADERS)
     out={"skip":skip,"http":None,"source_sha256":None,"n_source_members":0}
-    with urllib.request.urlopen(req,timeout=60) as r:
-        out["http"]=int(r.status)
-        if out["http"]!=200:raise RuntimeError("Official EA SA registry not HTTP200")
-        data=r.read(MAX_REPLY_BYTES+1)
-        if len(data)>MAX_REPLY_BYTES:
-            raise RuntimeError("Official original filtered JSON-LD page exceeded source-only limit")
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req,timeout=60) as r:
+                out["http"]=int(r.status)
+                if out["http"]!=200:raise RuntimeError("Official EA SA registry not HTTP200")
+                data=r.read(MAX_REPLY_BYTES+1)
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code in (502,503,504) and attempt<2:
+                time.sleep(1.5*(attempt+1))
+                continue
+            raise RuntimeError("Official EA SA source registry page HTTP "+str(exc.code)+" at skip "+str(skip)) from exc
+    if len(data)>MAX_REPLY_BYTES:
+        raise RuntimeError("Official original filtered JSON-LD page exceeded source-only limit")
     out["n_bytes"]=len(data)
     out["source_sha256"]=hashlib.sha256(data).hexdigest()
     doc=json.loads(data)
