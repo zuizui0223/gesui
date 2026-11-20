@@ -175,6 +175,7 @@ EEAの2018年・2022年では、上流の真正報告N/Pの負荷情報を加え
 - Cross-Ecosystem Transfer of Microplastics via Emergent Aquatic Insects to Riparian Spiders in a Municipal Wastewater-Impacted System. *Environmental Pollution* (2026). https://doi.org/10.1016/j.envpol.2026.129116
 - 水域・陸域の元sourceと統合した検証済み成果：[2026-11-16のmain原本検証索引](https://github.com/zuizui0223/gesui/blob/main/docs/RESULTS_20261116_VERIFIED_MAIN_INTEGRATION.md)
 - フランス139共通標本：[標準化係数・3000反復の全経路](evidence/fr_interface_paths.csv)
+- フランス139行の再現確認：[元コード・入力ハッシュ・13経路の一致・同時再標本化共分散](FR139_REPLAY_AND_INTEGRATION_20261120.md)。2026-11-20の再実行で既存係数・区間は数値差0。因果媒介の実証とは区別する。
 - フランス時空間・地域外予測：[元139標本と同一H7差分](evidence/fr_lyca_water_land.csv)
 - 点面の厳格な地理SOURCE-STOP：[PR #125](https://github.com/zuizui0223/gesui/pull/125)、[PR #126](https://github.com/zuizui0223/gesui/pull/126)、[PR #128](https://github.com/zuizui0223/gesui/pull/128)
 - 事後探索・ドイツ放流口・出所監査：[補足移行文書](SUPPLEMENTARY_ANALYSES_AND_SOURCE_STOPS_20261119.md)

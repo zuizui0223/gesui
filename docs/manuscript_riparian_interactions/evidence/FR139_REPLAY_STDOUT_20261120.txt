@@ -1,0 +1,16 @@
+                    standardized    low   high  valid_bootstraps
+W>TP                       0.103 -0.305  0.614              3000
+W>EQR                     -0.185 -0.634  0.303              3000
+TP>EQR                    -0.434 -0.654 -0.279              3000
+W>plant                   -0.161 -0.453  0.295              3000
+TP>plant                   0.027 -0.170  0.229              3000
+W>host_eq                  0.115 -0.369  0.661              3000
+TP>host_eq                -0.128 -0.381  0.211              3000
+EQR>host_eq               -0.112 -0.415  0.210              3000
+plant>host_eq              0.634  0.116  0.880              3000
+W>TP>plant>host_eq         0.002 -0.030  0.038              3000
+W>TP>EQR>host_eq           0.005 -0.025  0.061              3000
+TP>plant>host_eq           0.017 -0.096  0.120              3000
+W>plant>host_eq           -0.102 -0.315  0.144              3000
+plant water joint heldout gain 4.605125728304882 [-8.82860866 12.78780858]
+host_eq water joint heldout gain -5.3848332373695795 [-10.84924555   0.87241347]
