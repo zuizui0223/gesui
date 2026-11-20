@@ -130,8 +130,8 @@ def summarize_models(df):
 
 def one_site_only(df):
     """Give each source physical river site exactly one equal-weight record."""
-    numeric=tuple(m.original.COVARIATES)+("edf_pct","edf_log1p")+
-        tuple("chem_"+k for k in m.NUTRIENTS)+("y_incidence",)
+    numeric=(tuple(m.original.COVARIATES)+("edf_pct","edf_log1p")+
+             tuple("chem_"+k for k in m.NUTRIENTS)+("y_incidence",))
     rows=[]
     for sid,g in df.groupby("site_region_id",sort=True):
         if abs(g.edf_pct.max()-g.edf_pct.min())>1e-10:
