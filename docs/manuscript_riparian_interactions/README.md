@@ -18,6 +18,8 @@
 - [Hammond葉N/PとN添加メタ解析の原本・独立性監査](CHAIN_SOURCE_AUDIT_HAMMOND_NIMPACT_20261120.md)
 - [南豪州・Utahの水–河岸植物の対応と公開範囲](WATER_PLANT_SOURCE_COVERAGE_20261120.md)
 - [処理水–植物–植食者の灌漑比較実験](IRRIGATION_COMPARATORS_20261120.md)
+- [汚泥施用と昆虫：直接証拠・米国とフランスの取得データ](SLUDGE_INSECT_DIRECT_EVIDENCE_20261120.md)
+- [成虫の窒素・Na利用の種間差と、下水への検証予測](BUTTERFLY_ADULT_NUTRIENT_MECHANISMS_20261120.md)
 - [Arizona：水質・河岸植物・アブラムシを扱う同一研究と反証](ARIZONA_CHAIN_SOURCE_20261120.md)
 - [Italy：植物–アブラムシ実験の個体対応と数値利用判定](TROTTA_EXPERIMENT_ELIGIBILITY_20261120.md)
 - [既存129 PRの出所スナップショット](PR_SOURCE_SNAPSHOT_20261120.json)（独立129研究を意味しない）
