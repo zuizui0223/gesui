@@ -110,12 +110,16 @@ def validate_measured(measured,rel,graph,biosnap,year_bio):
     for yr in YEARS:
         src_codes=set(measured[yr])
         rel_year=rel[yr]
-        unexpected=src_codes-set(rel_year)
-        if unexpected:
-            raise RuntimeError("Original WQE native source unexpectedly outside topology-selected candidate")
+        # Sources were legitimately selected if linked to EITHER 2017 or
+        # 2018 BIO survey. A source observed in 2017 but only near a 2018
+        # BIO location is source-measured, yet has no 2017 BIO-network link.
+        # Count and retain as source QA rather than raising/assigning a
+        # fictitious same-year downstream biodiversity link.
+        no_sameyear_source_relations=src_codes-set(rel_year)
+        eligible_src_codes=src_codes & set(rel_year)
         groups={k:{} for k in ("upstream","downstream_placebo","same_reach_unknown")}
         n_pairs=collections.Counter()
-        for s_id in sorted(src_codes):
+        for s_id in sorted(eligible_src_codes):
             for kind,ids in rel_year[s_id].items():
                 groups[kind][s_id]=ids
                 n_pairs[kind]+=len(ids)
@@ -136,6 +140,10 @@ def validate_measured(measured,rel,graph,biosnap,year_bio):
             for bio in sites:per_bio[bio]+=1
         results[str(yr)]={
             "native_WaterCompany_final_TP_samplepoint_same_year_n":len(src_codes),
+            "historically_TP_measured_SA_with_NO_same_year_BIO_network_relation":
+                len(no_sameyear_source_relations),
+            "historically_TP_measured_SA_with_any_same_year_BIO_network_relation":
+                len(eligible_src_codes),
             "n_routed_source_samplepoints_with_network_upstream_BIO":
                 sum(bool(x) for x in groups["upstream"].values()),
             "n_distinct_source_eligible_BIO_with_upstream_SA_TP_on_network_within50km":len(hit),
