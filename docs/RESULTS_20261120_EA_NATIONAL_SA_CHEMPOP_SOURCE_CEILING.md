@@ -30,7 +30,29 @@
 
 さらに[EA原APIの複数native点のqueryフィルタ契約 #44678384278](https://github.com/zuizui0223/gesui/actions/runs/44678384278)で、comma-separated pointNotation＝2独立STWの各24件が結合された**48件を別ID混入なく正確に回収**。一方、pointNotationパラメータを二度繰り返すと1点24件しか返らず**source網羅性を損なう**。正式取得はカンマ連結で最大100 native sampling point codes/回、server skip/limitでページ送り、sourceかchemistryが未報告なら0でなく missingとする。
 
-[同一生物観測年のTP原実測sourceのみの全国近接スクリーニング](../analysis/20261120_wessex_wwtp/ea_WQE_national_SA_actual2017_18_TP_chemistry_bio_screen.py) は、現在登録SA中のChemPopの2017/18 SOURCE適格463siteから直線2km以内にある**367元SA地点**（原BNG座標と元samplingPoint.notation）を、毎回最大40地点ずつ同一元年で直接問い合わせる設計。2017/18の元phenomenonTime・FINAL SEWAGE EFFLUENT・source type SA・0348・単位mg/L・非負numeric TPで絞り、元データの真の過年度SOURCE対象施設数/同年近接BIO site数を数える。符号やBMWP生物係数を見て母集団を選ぶことはしない。**この検証が終了するまでは2017/18の真の近接元source nを未確定として扱う。**
+[同一生物観測年のTP原実測sourceのみの全国近接スクリーニング](../analysis/20261120_wessex_wwtp/ea_WQE_national_SA_actual2017_18_TP_chemistry_bio_screen.py) は、現在登録SA中のChemPopの2017/18 SOURCE適格463siteから直線2km以内にある**367元SA地点**（原BNG座標と元samplingPoint.notation）を、毎回最大40地点ずつ同一元年で直接問い合わせる設計。2017/18の元phenomenonTime・FINAL SEWAGE EFFLUENT・source type SA・0348・単位mg/L・非負numeric TPで絞り、元データの真の過年度SOURCE対象施設数/同年近接BIO site数を数える。符号やBMWP生物係数を見て母集団を選ぶことはしない。**全国の同年「実際のTP測定」が存在する地点の追加検証は完了した（以下参照）。**
+
+## 2026-11-20 追加：2017/18に真のTP濃度測定があった公式SAのみの同年地理ゲート
+
+[全国367 SA source候補×2017/18原EA観測の全照合 Actions #44678735822](https://github.com/zuizui0223/gesui/actions/runs/44678735822) **SUCCESS**、成果art ID 14602967987。原2026年登録5,722 SA×2017/18年ChemPopの原SOURCE品質463生物siteから**2km以内の現在登録367 source SA採水点**をsource-onlyで選び、公式EA WQE APIで**2017/18各年の実際の元TP (code0348) 観測**があるか毎回固定40 native pointNotationsのカンマ連結で調べた。元source queryは計10 batch/20 pages、**2,200原観測行**のうち**2,188原行**がwater-company最終処理水SA、sample material FINAL SEWAGE EFFLUENT、TP mg/L、かつ非負数値を満たす。12行は数値TP未満/欠測等で生物曝露に足さない。元のsource registry対象外・異なるnotionやyearが混ざる場合はSTOP。
+
+| official原TPが実際にその年に測られた元Water Company SA地点 | 2017 | 2018 |
+|---|---:|---:|
+| 元2km事前地理候補367のうち実際のTP観測があるnative SA採水点 | **67** | **71** |
+| 2以上のTP採水月がある元SA点 | 67 | 70 |
+| 同年のSOURCE品質生物監視BIO site | 389 | 366 |
+| **実測TP SAまで500m以内の同年BIO site** | **12** | **17** |
+| **実測TP SAまで1km以内の同年BIO site** | **28** | **37** |
+| **実測TP SAまで2km以内の同年BIO site** | **50** | **69** |
+| 2km以内の元SA×BIO地理ペア | 53 | 73 |
+
+**67元SA採水点は両年で実際のTP採水記録がある。** 2km以内の同年BIO siteは2017年50＋2018年69＝**延べ119 site×year候補**。これは同一BIO siteを2年に重複計上し得る。**119≠119独立河川・119独立実験でない**。元SA観測地点名は処理場施設名や許可された物理排水口と同値と確認されていない。
+
+さらに、この候補数は**直線2km以内**に過ぎない。処理水の上流・下流順序、水域に実際に混合するか、流量と下流実測化学の時間一致、P質量（kg/y）、元の処理場介入による群集応答は全て未検証。元の研究主SOURCE閾値（>50 downstream BIO sites、>100 routed site×year、>5 hydro block）はまだ通過と数えない。**これまでのChemPop EDF vs BMWPの空間係数を処理場直接因果効果に格上げしない。**
+
+次段はHydroRIVERS v1 European official original 68MB ZIP（NEXT_DOWNを持つ有向河道）を原SHAで監査して、この実TP SAと同年BIOを両方 ≤500mで河道にスナップできるか、下流へ向かう経路と逆方向placeboを確認するSOURCE-only検証。HydroRIVERSは10km²以上/0.1m³/s以上の河道しか含まないため、細い河川・側溝が失われる。河道上で接続が見つからないことを「下水の影響なし」と読まない。
+
+
 
 ## 4. 真の下水→群集の因果ルートのSOURCE STOPはまだ残る
 
