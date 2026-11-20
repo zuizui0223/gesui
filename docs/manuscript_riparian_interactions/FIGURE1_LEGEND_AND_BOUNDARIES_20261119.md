@@ -1,31 +1,25 @@
-# 図1 A–C：投稿図版用キャプションと原図の区別（2026年11月19日）
+# 図1 A–D：観測単位と経路の支持状態（2026年11月20日改訂）
 
-**主図は1枚（A、B、Cの3パネル）**。本文 [MANUSCRIPT_FULL_20261119.md](MANUSCRIPT_FULL_20261119.md) に対応。[元のMermaid構成](README.md) を保持したまま、数値・観測単位・実測／モデル／仮説の区別が消えないキャプションを固定する。
+原図は [READMEのMermaid図](README.md)、数値と固定出所は [表1](PATH_EVIDENCE_SCALES_20261120.md)、本文は [統合草稿](MANUSCRIPT_FULL_20261119.md)。旧A–C構成を以下のA–Dに置き換える。
 
-## Figure 1. Within-system nutrient-related associations and the unresolved aquatic–terrestrial pathway
+## 日本語キャプション
 
-**A | Distinct within-system associations measured at different observational supports.** In Austria (2022), reported upstream wastewater-treatment-plant phosphorus load normalized by discharge provided additional predictive information for measured total phosphorus and benthic macroinvertebrate ecological quality ratio (EQR). In France (72 distinct H7 subcatchments, 139 H7-by-period observations), observed stream total phosphorus was negatively associated with benthic EQR (standardized β = −0.434, 95% interval −0.654 to −0.279), while the nutrient-affinity score of recorded terrestrial plant assemblages was positively associated with the nutrient affinity of known larval host plants of recorded lycaenid butterfly species (β = +0.634, interval +0.116 to +0.880). The stream phosphorus–plant affinity association was uncertain (β = +0.027, interval −0.170 to +0.229). Solid arrows represent estimated statistical associations or predictive contributions, not causal fluxes. Austrian and French estimates arise from separate samples and have different scales; their coefficients are not multiplied to infer mediation.
+**図1｜下水に関連する群集構成と水陸間接続の証拠。** **A** 水域の別々の標本における予測情報。オーストリア2022年68地点（位置精査67地点）の報告P/流量と実測TP・底生EQR、英国2010–2018年591地点・5,000生物分析の実測3水質成分と出現科均等BMWPを区別する。英国ではEDF後の水質追加はMSEを10.56%改善したが、水質後のEDF追加は−0.519%だった。**B** 欧州451 H7×期間（232 H7・90 H6）でのW→植物、植物→蝶の関連、および別標本183 H7・40 H6での植物属内成分→蝶の不確実性。W→植物属内成分の支持を、植物→蝶属内成分の支持と取り違えない。蝶5科からシジミ適格426行への矢印は探索の順序を示す。国外転送と科別置換の補正結果を併記し、シジミ固有の機構とは解釈しない。**C** フランス共通139 H7×期間（72 H7・24 H6）内の条件付き経路。TP→EQRと植物→シジミHNSは支持される一方、W→TP、TP→植物および全係数積は不確実である。別の同一地点衛星比較は116地点で最低120地点に届かず未推定。**D** Seine Aval 1施設の2022年A4排出と実施用汚泥の源記録、その先の河岸植物・農地寄主・幼虫・成虫への未観測経路。汚泥施用1,092区画は独立処理場数ではなく、生物標本と未接続である。
 
-**B | The limit of a same-site, matched-month boundary test.** A planned comparison of change in measured stream total phosphorus between 2018 and 2022 with concurrent changes in the near-bank versus distant riparian vegetation index did not pass its pre-specified single-scene satellite coverage threshold (116 of 178 eligible monitoring sites; minimum 120). A two-scene post-hoc 122-site analysis is reported only in Supplementary material, not presented as a confirmatory null result. No site in that post-hoc sample had positive 2018 reported upstream WWTP phosphorus load; the analysis therefore could not assess the absence of a wastewater-specific effect on terrestrial vegetation. A dotted arrow denotes an attempted but unsupported test, not proven ecological disconnection.
+実線は統計的支持、太線は源の数量記録、点線はラベルに応じて推定の不確実性・未観測・品質STOPを表す。すべてを物質の実測フラックスと解釈しない。枠外の別標本の係数を掛け合わせない。H7の植物・蝶記録は河岸限定ではなく、NUTRIとHNSは潜在的立地嗜好であり、葉N・現地摂食・成虫のタンパク質利用の測定ではない。
 
-**C | Three hypothesized, unmeasured routes from wastewater treatment to butterflies.** Route A: treated effluent enters a river and may reach riparian soils and host plants through inundation, deposition or infiltration, potentially entering butterfly larvae through their hosts. Route B: adult butterflies may contact or ingest water, salts or organic substances from damp substrates; observed puddling does not itself demonstrate nitrogen assimilation. Route C: sewage sludge is processed into a fertilizer or soil amendment and transported to documented application fields, where sludge-derived nitrogen may be incorporated into host plants and larvae **without passing through the river**. The source treatment works, receiving river and application field need not be in the same catchment. Aquatic insect emergence to riparian spiders is a separate contextual route. All arrows in C are hypotheses, not measured fluxes in the present data. Natural-abundance δ¹⁵N alone cannot identify effluent versus sludge because their source signatures can overlap.
+## Figure 1. Wastewater-associated community patterns and the evidence for aquatic–terrestrial connections
 
-## 日本語キャプション（投稿前確認用）
+**A, Aquatic predictive associations in separate samples.** Austrian observations comprise 68 monitoring sites in 2022, with a refined 67-site sensitivity sample. English ChemPop observations comprise 5,000 biological analyses at 591 sites, 2,624 site-years and seven regions in 2010–2018. Orthophosphate, nitrate and ammoniacal nitrogen, summarized in sampling-date-matched windows, improve regional prediction of incidence-weighted BMWP family composition after modelled effluent fraction EDF (MSE reduction 10.56%). EDF provides no additional improvement after chemistry (−0.519%). Chemistry is neither TP/TN nor a measurement of sewage-derived fractions.
 
-**図1｜水域内と陸域内の栄養関連の生物指標の対応と、未解決の水陸境界。** **A** オーストリア2022年の処理場報告リン負荷／流量が河川実測TPおよび底生EQRの地域外予測に加えた情報と、フランス共通139 H7×期間（72 H7）における河川TP–底生EQR（標準化β−0.434）、植物群集NUTRI–シジミチョウ科の既知寄主HNS（β+0.634）の正負の関連を示す。河川TP–植物NUTRIは不確実（β+0.027）。オーストリアとフランスは別標本であり、係数や予測改善を同じ効果量として掛け合わせない。**B** 2018→2022年の同一河川地点・同一夏季観測月におけるTP変化と河岸近接−遠方NDVI変化の比較は、単一シーンの元事前品質基準120地点に対し116地点しか残らずSTOP。事後的な122地点の数値は補足にのみ記録し、この標本では2018年の上流WWTP報告P陽性が0であるため、下水特異的な水陸影響なしとは結論できない。**C** 下水処理から蝶への仮説的3経路：**A** 処理水→河川・河岸寄主→幼虫、**B** 水際の湿った基質→成虫の口吻接触・摂取、**C** 汚泥由来肥料→施用農地→寄主→幼虫を示す。処理場と汚泥施用農地の位置を同一流域と仮定しない。羽化昆虫→河岸捕食者は別の既知候補経路。実線は観測的な予測関連、点線・破線は品質不足の検定や未観測の機構であり、物質の実測フラックスではない。
+**B, Terrestrial associations and the sequence of exploratory focus.** The European plant panel contains 451 H7-by-period observations, 232 H7 subcatchments and 90 parent H6 catchments in 2017–2019 and 2020–2022. W is associated with plant nutrient affinity, including its within-genus species component. A separate 183-H7/40-H6 analysis provides uncertain support for the within-genus plant component as a predictor of butterfly host affinity. The five-family comparison precedes the focus on 426 supported lycaenid observations; this arrow depicts analytical focus, not material transfer. Country transfer remains uncertain, and no family passes the family-wise BH-adjusted score-label test.
 
-## 図版のデザイン仕様（実測・推定・仮説を誤認させない）
+**C, Connections evaluated within the same French sample.** Conditional pathways use 139 H7-by-period observations, 72 H7 and 24 H6. TP–EQR and plant–lycaenid host-affinity associations are supported, whereas W–TP, TP–plant and the full coefficient product are uncertain. A separate matched-site satellite comparison stops at 116 eligible sites, below the pre-specified minimum of 120; it is not a zero-effect estimate.
 
-Aの水域と陸域は同じ色で統一しない。数字の単位はフランスの標準化係数、オーストリアのMSE改善率として別に記載。TP→植物NUTRIは実線ではなく不確実な推定区間が0を跨ぐことを注記する。Wは静的なモデル下水関連地理であり、実測処理場の到達量ではない。Bは数値効果ゼロではなくSOURCE/QUALITY STOPの位置として表示する。Cは本文に実際の安定同位体フラックス測定があるかのような矢印幅・太さを使わない。
+**D, Recorded source routes and unobserved biological transfers.** Records from one Seine Aval treatment works describe 2022 treated-water A4 phosphorus discharge and estimated constituent mass in sludge actually applied to farmland. The 1,092 parcels are not independent wastewater sources and have not been linked to the biological panels. Sludge production and application years can differ, A5 bypass discharge is separate, and these records do not constitute a closed annual mass balance. Subsequent transfer to soils, hosts, larvae or adult butterflies remains unobserved in the focal data.
 
-**配色の意味だけで結果を伝えない。** 凡例に「直接の観測関連」「モデル・予測」「未実施または仮説」を必ず文字で併記する。H7のGBIF陸域記録は河岸距離内に限定されていないため、図中で河岸植物の実測個体群と同義に描かない。
+Solid arrows indicate statistical support, thick arrows documented source quantities, and dotted arrows explicitly labelled uncertainty, unobserved mechanisms or a stopped test. None establishes a causal cross-ecosystem flux. Coefficients from separate samples are not chained. Basin-wide occurrence records do not establish riparian co-occurrence, actual host consumption or adult protein assimilation.
 
-## 対応元データ
-- [フランス139共通標本の元係数](evidence/fr_interface_paths.csv)
-- [オーストリアの原本・地点重複QA](https://github.com/zuizui0223/gesui/pull/118)
-- [フランスの衛星SOURCE STOP・事後解析](SUPPLEMENTARY_ANALYSES_AND_SOURCE_STOPS_20261119.md)
-- [主張・元source・不確実性の監査](CLAIM_EVIDENCE_LIMITS_20261119.md)
+## 図版の仕様
 
-## 新しい陸域汚泥経路Cの資料
-
-[EU・日本の汚泥肥料利用、¹⁵N標識・自然同位体・既知の昆虫影響文献と野外設計](SLUDGE_TO_HOST_BUTTERFLY_ROUTE_C_LITERATURE_20261119.md)。既存の陸域DAYCENT有機肥料モデルを汚泥施用記録と読み替えない。
+色だけに依存せず全辺の状態を文字で示す。係数β、予測MSE改善率、源の質量tを共通の効果量にしない。未観測・STOPを0に置換しない。蝶5科からシジミへの矢印は解析上の焦点化と明記する。既報の羽化昆虫→河岸捕食者は本文序論に残す。天然存在比δ¹⁵Nのみで処理水・汚泥・家畜ふん尿の起源を識別できるとしない。
