@@ -137,8 +137,8 @@ def main(a):
         "bulk_results_not_requested":True,
     }
     out["status"]="SOURCE_ONLY_NEW_EA_WQE_API_PROBED"
-    a.output.parent.mkdir(parents=True,exist_ok=True)
-    a.output.write_text(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True,allow_nan=False)+"\n")
+    a.out.parent.mkdir(parents=True,exist_ok=True)
+    a.out.write_text(json.dumps(out,ensure_ascii=False,indent=2,sort_keys=True,allow_nan=False)+"\n")
     print("GESUI_EA_NEW_WQE_SOURCE_PILOT="+json.dumps({
         "status":out["status"],"summary":{
             k:{"method":v["method"],"http":v["http_status"],
