@@ -1,0 +1,30 @@
+name: gesui original Wessex Water WRC 2010–19 effluent N-P source availability and sample schema
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/**'
+      - '.github/workflows/gesui-wessex-wrc-2010-19-effluent-source-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine-public-WRC-effluent-no-effect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download original public Wessex WRC final effluent records with bounded file sizes; assess source only
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/source_only_wrc_effluent.py
+          python -u analysis/20261120_wessex_wwtp/source_only_wrc_effluent.py \
+            --output "${{ runner.temp }}/wessex_source/WESSEX_WRC_2010_2019_NP_EFFLUENT_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-Wessex-2010-19-STW-effluent-source-only
+          path: ${{ runner.temp }}/wessex_source/WESSEX_WRC_2010_2019_NP_EFFLUENT_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90
