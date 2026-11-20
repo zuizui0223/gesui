@@ -1,0 +1,41 @@
+{
+  "figure1": {
+    "population_result": "results/20261120_population_sensitivity/result.json",
+    "original_result": "results/20261120_eu451_W_confirmation/result.json"
+  },
+  "figure2": {
+    "copied_from": "results/20261120_water_land_covariation/water_land_covariation.png"
+  },
+  "figure3": {
+    "source_table": "docs/manuscript_riparian_interactions/PATH_EVIDENCE_SCALES_20261120.md",
+    "UK_fixed_source": "https://github.com/zuizui0223/gesui/blob/76b0dd0368a14589ef496c1dd8cfc09809b02717/docs/RESULTS_20261120_CHEMPOP_WQ_EDF_AFTER_NP.md",
+    "Austria_source": "https://github.com/zuizui0223/gesui/pull/118",
+    "UK_MSE_gain": [
+      10.56,
+      -0.519
+    ],
+    "UK_intervals": [
+      [
+        5.06,
+        14.29
+      ],
+      [
+        -0.761,
+        -0.253
+      ]
+    ],
+    "Austria_MSE_gain": [
+      16.3,
+      19.27
+    ],
+    "Austria_intervals": null
+  },
+  "outputs": {
+    "FIGURE1_butterfly_population.pdf": "0f7da1105f54d3fb43da16c6e5e35ebc45bff5c6e0ad6e17f9cba76498faa94c",
+    "FIGURE1_butterfly_population.png": "c4038cf706df432de7d50b08585ed9b09c5797940167e74ce7f49724602d6869",
+    "FIGURE2_water_land_correspondence.pdf": "9e4156050fe1e61f06b708ffde2cbd1573d79cfdcf1d5eaa84784f78ec5d09d4",
+    "FIGURE2_water_land_correspondence.png": "6aa9d28a21672cbda8bf7eee6ae206030c58dd78be7092198acc09b13ace6802",
+    "FIGURE3_aquatic_context.pdf": "4a41fc92487f9bcf4db8f0b26d2e03e912c53fa2af6abd784bca44661fb3b292",
+    "FIGURE3_aquatic_context.png": "3be518643e3d9e03374c0e7822892a69553a76c1397646e211c43aea9358495d"
+  }
+}
