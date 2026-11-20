@@ -105,7 +105,7 @@ def historical_sa_tp_dates(measured):
 def evaluate_windows(bio_dates,src_by_bio,sa_tp_days):
     """Count ACTUAL upstream TP assays preceding all source-qualified BIO dates."""
     flags={
-       "pre30":30,"pre90":90,"pre365":365,"post90":90,
+       "pre30":30,"pre90":90,"pre365":365,"post90":90,"same_day":0,
     }
     year_result={}
     aggregate={k:{"union_bio":set(),"site_year_count":0,
@@ -134,9 +134,13 @@ def evaluate_windows(bio_dates,src_by_bio,sa_tp_days):
                 supported=0
                 for bio_day in days:
                     if flag.startswith("pre"):
-                        source_before=any(0<=(bio_day-date).days<=daysize
-                                          for date in measured_days)
-                        passed=source_before
+                        # Source timestamps and BIO survey records do not
+                        # establish the WITHIN-DAY order. Same-calendar-day
+                        # TP is NOT evidence of a preceding source sample.
+                        passed=any(0<(bio_day-date).days<=daysize
+                                   for date in measured_days)
+                    elif flag=="same_day":
+                        passed=bio_day in measured_days
                     else:
                         passed=any(0<(date-bio_day).days<=daysize
                                    for date in measured_days)
