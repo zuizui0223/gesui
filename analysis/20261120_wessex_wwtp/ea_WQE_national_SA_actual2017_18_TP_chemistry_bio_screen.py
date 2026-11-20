@@ -40,9 +40,9 @@ YEARS=(2017,2018)
 SEARCH_RADIUS_M=2000
 SCREENS_M=(500,1000,2000)
 BATCH_N=40
-PAGE_LIMIT=2500
+PAGE_LIMIT=250  # EA official WQE API max 250 observations per page (2025-11 documented)
 MAX_BATCH_PAGES=12
-MAX_BATCH_REPLY_BYTES=3300000
+MAX_BATCH_REPLY_BYTES=750000
 EXPECTED_SOURCE_N=5722
 EXPECTED_BIO_BY_YEAR={2017:389,2018:366}
 MIN_SA_OBS_DATES=1
@@ -86,7 +86,7 @@ def page(year,notations,skip):
             receipt["status"]=int(response.status)
             receipt["content_type"]=response.headers.get("Content-Type","")
             raw=response.read(MAX_BATCH_REPLY_BYTES+1)
-        if len(raw)>MAX_BATCH_REPLY_BYTES:raise RuntimeError("Official source page over capped 3.3 MB")
+        if len(raw)>MAX_BATCH_REPLY_BYTES:raise RuntimeError("Official 250-observation WQE page over capped 750 KB")
         receipt["source_bytes"]=len(raw)
         receipt["sha256"]=hashlib.sha256(raw).hexdigest()
         if receipt["status"]==204 or not raw:
@@ -160,6 +160,7 @@ def candidate_history(names):
     summary={
         "total_source_registered_SA_candidates_screened":len(names),
         "source_batch_size_native_pointNotations":BATCH_N,
+        "official_EA_WQE_observation_max_250_per_page_enforced":True,
         "source_batches":all_batches,
         "source_WQE_requested_years":list(YEARS),
         "source_page_count":len(receipts),
