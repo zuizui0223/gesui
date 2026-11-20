@@ -1,0 +1,30 @@
+name: gesui EA WQE source STW true pointNotation observation ID filter
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_WQE_pointNotation_filter_contract.py'
+      - '.github/workflows/gesui-EA-WQE-pointNotation-positive-negative-source-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-source-ID-filter-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate native STW total-P observation pointNotation filter against authentic original and impossible negative-control site code
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_WQE_pointNotation_filter_contract.py
+          python -u analysis/20261120_wessex_wwtp/ea_WQE_pointNotation_filter_contract.py \
+            --out "${{ runner.temp }}/gesui_point_notation/EA_WQE_POINTNOTATION_FILTER_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-WQE-true-pointNotation-original-source-contract
+          path: ${{ runner.temp }}/gesui_point_notation/EA_WQE_POINTNOTATION_FILTER_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90
