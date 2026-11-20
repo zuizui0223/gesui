@@ -14,6 +14,10 @@
 
 - [マクロ解析／メタ解析の統合設計、既存接点の再評価](CHAIN_INTEGRATION_PROTOCOL_20261120.md)
 - [世界の植物・植食者に近い原データ候補と原本確認状況](GLOBAL_PLANT_HERBIVORE_SOURCE_SEARCH_20261120.md)
+- [Hammond葉N/PとN添加メタ解析の原本・独立性監査](CHAIN_SOURCE_AUDIT_HAMMOND_NIMPACT_20261120.md)
+- [南豪州・Utahの水–河岸植物の対応と公開範囲](WATER_PLANT_SOURCE_COVERAGE_20261120.md)
+- [処理水–植物–植食者の灌漑比較実験](IRRIGATION_COMPARATORS_20261120.md)
+- [Arizona：水質・河岸植物・アブラムシを扱う同一研究と反証](ARIZONA_CHAIN_SOURCE_20261120.md)
 - [既存129 PRの出所スナップショット](PR_SOURCE_SNAPSHOT_20261120.json)（独立129研究を意味しない）
 
 まだ新しい生態効果は推定していない。同一源・地点・期間で完全鎖に近い標本を優先し、部分経路の異なる研究を掛け合わせた因果連鎖は作らない。

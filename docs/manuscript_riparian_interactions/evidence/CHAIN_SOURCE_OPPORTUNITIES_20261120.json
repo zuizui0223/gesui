@@ -1,0 +1,1156 @@
+{
+  "purpose": "Source-opportunity audit, not ecological effect or meta-analysis",
+  "nimpact_git_commit": "d6520b530f9310391596cd0095ecc0ad8ca07f0e",
+  "provenance": [
+    {
+      "url": "https://raw.githubusercontent.com/juangallegozamorano/NImpact_Invertebrates_MetaAnalysis/d6520b530f9310391596cd0095ecc0ad8ca07f0e/README.md",
+      "bytes": 1403,
+      "sha256": "d0d6c54d22ee1555606cca778a520a2879ea1469c4dfb587e860a649c9d80218"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/juangallegozamorano/NImpact_Invertebrates_MetaAnalysis/d6520b530f9310391596cd0095ecc0ad8ca07f0e/Databases/AbundanceDataset_csv.csv",
+      "bytes": 3501069,
+      "sha256": "4bbf48b93bff871b97894e496ef761399bfe8b0a13d3d2d5d0873a80d5681884"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/juangallegozamorano/NImpact_Invertebrates_MetaAnalysis/d6520b530f9310391596cd0095ecc0ad8ca07f0e/Databases/RichnessDataset_csv.csv",
+      "bytes": 357164,
+      "sha256": "039c190a71e853ba36ca03bb89da5ee7bbc24401b11a5b39ad335047e561f14d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/juangallegozamorano/NImpact_Invertebrates_MetaAnalysis/d6520b530f9310391596cd0095ecc0ad8ca07f0e/Databases/References_AllPapersAdded.xlsx",
+      "bytes": 120719,
+      "sha256": "7334d53e4451055abeb1b27eac66df263f9743dd447407404c3853be0831ed45"
+    }
+  ],
+  "nimpact": {
+    "Databases/AbundanceDataset_csv.csv": {
+      "encoding": "cp1252",
+      "raw_rows": 7865,
+      "source_populated_rows": 7697,
+      "rows_without_source": 168,
+      "columns": [
+        "Source",
+        "Source_Year",
+        "Study",
+        "Control_ID",
+        "Study_Year_Initial",
+        "Study_Year_Final",
+        "Duration_Years",
+        "Collection_Periods",
+        "Continent",
+        "Country",
+        "Site_Name",
+        "Latitude",
+        "Longitude",
+        "Location_Uncertainty",
+        "Phylum",
+        "Class",
+        "Order",
+        "Family",
+        "Genus",
+        "Species",
+        "Binomial",
+        "Feeding_Guild",
+        "Aggregated_Study",
+        "Soil_Fauna",
+        "Soil_Depth",
+        "Pest",
+        "Nitrogen_Deposited",
+        "Nitrogen_Added",
+        "N_Added_Deposited",
+        "Fertilizer_Type",
+        "Plot_Size",
+        "Treatment_Mean",
+        "Treatment_N",
+        "Treatment_SD",
+        "Treatment_SE",
+        "Control_Mean",
+        "Control_N",
+        "Control_SD",
+        "Control_SE",
+        "SD_Estimated",
+        "Sampling_Method",
+        "Unit_Measurement",
+        "Treatment_ScalingConstant",
+        "Control_ScalingConstant",
+        "Biome",
+        "Vegetation_Type",
+        "Land_Use_Described",
+        "MAT",
+        "MAP",
+        "pH",
+        "P",
+        "K",
+        "Checked",
+        "Finished",
+        "Reviewer",
+        "Study_Quality_1",
+        "Study_Quality_2",
+        "Study_Quality_3",
+        "Study_Quality_Total",
+        "Data_Retrieved_From",
+        "Notes"
+      ],
+      "unique_source_labels": 139,
+      "source_study_keys_NOT_independent_sources": 452,
+      "exact_herbivore_label_rows": 2257,
+      "outcomes_or_effect_sizes_recomputed": false,
+      "candidate_search": {
+        "wastewater_terms": {
+          "matched_rows": 3,
+          "unique_source_labels": [
+            "Booher_et_al_2012"
+          ],
+          "source_study_candidates": [
+            {
+              "source": "Booher_et_al_2012",
+              "study": "252",
+              "rows": 3,
+              "fertilizer": [
+                "swine effluent"
+              ],
+              "vegetation": [
+                "Maize field"
+              ],
+              "guilds": [
+                "Unknown"
+              ]
+            }
+          ]
+        },
+        "water_margin_terms": {
+          "matched_rows": 403,
+          "unique_source_labels": [
+            "Bowdish_and_Stiling_1998",
+            "Ettema_et_al_1999",
+            "Gratton_and_Denno_2003",
+            "Hines_2004",
+            "Hines_et_al_2006",
+            "Huberty_and_Denno_2006",
+            "Pringle_et_al_2017",
+            "Song_et_al_2016",
+            "Stiling_and_Moon_2005"
+          ],
+          "source_study_candidates": [
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "36",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "37",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "38",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "39",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "40",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "41",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "42",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "43",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "44",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "45",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "46",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "47",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "48",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "49",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "50",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "51",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "52",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "53",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "54",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Bowdish_and_Stiling_1998",
+              "study": "55",
+              "rows": 2,
+              "fertilizer": [
+                "NA"
+              ],
+              "vegetation": [
+                "Salt marshes"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Ettema_et_al_1999",
+              "study": "394",
+              "rows": 87,
+              "fertilizer": [
+                "NH4CL & KNO3 (2:1 mixture)"
+              ],
+              "vegetation": [
+                "Hardwood trees (yellow poplar, swamp tupelo)"
+              ],
+              "guilds": [
+                "Bacterivore",
+                "Fungivore",
+                "Omnivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Ettema_et_al_1999",
+              "study": "395",
+              "rows": 87,
+              "fertilizer": [
+                "NH4CL & KNO3 (2:1 mixture)"
+              ],
+              "vegetation": [
+                "Slash pine, longleaf pine"
+              ],
+              "guilds": [
+                "Bacterivore",
+                "Fungivore",
+                "Omnivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "100",
+              "rows": 6,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "101",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "102",
+              "rows": 8,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "103",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "104",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "105",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "106",
+              "rows": 8,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "107",
+              "rows": 10,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "108",
+              "rows": 8,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "109",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "96",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "97",
+              "rows": 10,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "98",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Gratton_and_Denno_2003",
+              "study": "99",
+              "rows": 12,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Hines_2004",
+              "study": "397",
+              "rows": 6,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Hines_et_al_2006",
+              "study": "129",
+              "rows": 6,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh, spartina meadow"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Predator"
+              ]
+            },
+            {
+              "source": "Huberty_and_Denno_2006",
+              "study": "298",
+              "rows": 8,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh with Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Huberty_and_Denno_2006",
+              "study": "299",
+              "rows": 8,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Salt marsh with Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Pringle_et_al_2017",
+              "study": "316",
+              "rows": 6,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Milkweed"
+              ],
+              "guilds": [
+                "Herbivore",
+                "Omnivore"
+              ]
+            },
+            {
+              "source": "Song_et_al_2016",
+              "study": "185",
+              "rows": 5,
+              "fertilizer": [
+                "H2CONH2"
+              ],
+              "vegetation": [
+                "Marshland"
+              ],
+              "guilds": [
+                "Detritivore"
+              ]
+            },
+            {
+              "source": "Stiling_and_Moon_2005",
+              "study": "330",
+              "rows": 4,
+              "fertilizer": [
+                "NH2CONH2"
+              ],
+              "vegetation": [
+                "Salt marsh"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "Databases/RichnessDataset_csv.csv": {
+      "encoding": "utf-8-sig",
+      "raw_rows": 859,
+      "source_populated_rows": 859,
+      "rows_without_source": 0,
+      "columns": [
+        "Source",
+        "Source_Year",
+        "Study",
+        "Control_ID",
+        "Study_Year_Initial",
+        "Study_Year_Final",
+        "Duration_Years",
+        "Collection_Periods",
+        "Continent",
+        "Country",
+        "Site_Name",
+        "Latitude",
+        "Longitude",
+        "Location_Uncertainty",
+        "Phylum",
+        "Class",
+        "Order",
+        "Family",
+        "Feeding_Guild",
+        "Aggregated_Study",
+        "Soil_Fauna",
+        "Soil_Depth",
+        "Pest",
+        "Nitrogen_Deposited",
+        "Nitrogen_Added",
+        "N_Added_Deposited",
+        "Fertilizer_Type",
+        "Plot_Size",
+        "Treatment_Mean",
+        "Treatment_N",
+        "Treatment_SD",
+        "Treatment_SE",
+        "Control_Mean",
+        "Control_N",
+        "Control_SD",
+        "Control_SE",
+        "SD_Estimated",
+        "Sampling_Method",
+        "Unit_Measurement",
+        "Treatment_ScalingConstant",
+        "Control_ScalingConstant",
+        "Biome",
+        "Vegetation_Type",
+        "Land_Use_Described",
+        "MAT",
+        "MAP",
+        "pH",
+        "P",
+        "K",
+        "Checked",
+        "Finished",
+        "Reviewer",
+        "Study_Quality_1",
+        "Study_Quality_2",
+        "Study_Quality_3",
+        "Study_Quality_Total",
+        "Data_Retrieved_From",
+        "Notes",
+        ""
+      ],
+      "unique_source_labels": 41,
+      "source_study_keys_NOT_independent_sources": 110,
+      "exact_herbivore_label_rows": 177,
+      "outcomes_or_effect_sizes_recomputed": false,
+      "candidate_search": {
+        "wastewater_terms": {
+          "matched_rows": 0,
+          "unique_source_labels": [],
+          "source_study_candidates": []
+        },
+        "water_margin_terms": {
+          "matched_rows": 12,
+          "unique_source_labels": [
+            "Hines_2004"
+          ],
+          "source_study_candidates": [
+            {
+              "source": "Hines_2004",
+              "study": "64",
+              "rows": 2,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Hines_2004",
+              "study": "65",
+              "rows": 2,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Hines_2004",
+              "study": "66",
+              "rows": 2,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Hines_2004",
+              "study": "67",
+              "rows": 2,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Hines_2004",
+              "study": "68",
+              "rows": 2,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            },
+            {
+              "source": "Hines_2004",
+              "study": "69",
+              "rows": 2,
+              "fertilizer": [
+                "NH4NO3"
+              ],
+              "vegetation": [
+                "Spartina alterniflora"
+              ],
+              "guilds": [
+                "Herbivore"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "references": {
+      "rows": 126,
+      "candidate_search": {
+        "wastewater_terms": [
+          {
+            "Source": "Booher_et_al_2012",
+            "Year": "2012",
+            "Title": "Effects of Soil Amendments on Soil Microarthropods in Continuous Maize in Western Oklahoma",
+            "DOI": "10.3958/059.037.0103"
+          },
+          {
+            "Source": "Minor_and_Norton_2004",
+            "Year": "2004",
+            "Title": "Effects of soil amendments on assemblages of soil mites (Acari: Oribatida, Mesostigmata) in short-rotation willow plantings in central New York",
+            "DOI": "10.1139/x04-035"
+          },
+          {
+            "Source": "Potter_et_al_1996",
+            "Year": "1996",
+            "Title": "Cultural Practices Affect Root-Feeding White Grubs (Coleoptera: Scarabaeidae) in Turfgrass",
+            "DOI": "10.1093/jee/89.1.156"
+          }
+        ],
+        "water_margin_terms": [
+          {
+            "Source": "Bowdish_and_Stiling_1998",
+            "Year": "1998",
+            "Title": "The influence of salt and nitrogen on herbivore abundance: Direct and indirect effects",
+            "DOI": "10.1007/s004420050392"
+          },
+          {
+            "Source": "Eisenhauer_et_al_2012",
+            "Year": "2012",
+            "Title": "Global change belowground: impacts of elevated CO2, nitrogen, and summer drought on soil food webs and biodiversity",
+            "DOI": "10.1111/j.1365-2486.2011.02555.x"
+          },
+          {
+            "Source": "Ettema_et_al_1999",
+            "Year": "1999",
+            "Title": "Riparian soil response to surface nitrogen input: the indicator potential of free-living soil nematode populations",
+            "DOI": "10.1016/S0038-0717(99)00072-3"
+          },
+          {
+            "Source": "Gratton_and_Denno_2003",
+            "Year": "2003",
+            "Title": "Inter-year carryover effects of a nutrient pulse on Spartina plants, herbivores, and natural enemies",
+            "DOI": "10.1890/02-0666"
+          },
+          {
+            "Source": "Hartley_et_al_2003",
+            "Year": "2003",
+            "Title": "Indirect effects of grazing and nutrient addition on the hemipteran community of heather moorlands",
+            "DOI": "10.1046/j.1365-2664.2003.00846.x"
+          },
+          {
+            "Source": "Hines_2004",
+            "Year": "2004",
+            "Title": "Nutrient and structural effects of detritus on food web interactions in an intertidal marsh",
+            "DOI": "NA"
+          },
+          {
+            "Source": "Hines_et_al_2006",
+            "Year": "2006",
+            "Title": "Nutrient subsidies to belowground microbes impact aboveground food web interactions",
+            "DOI": "10.1890/0012-9658(2006)87[1542:NSTBMI]2.0.CO;2"
+          },
+          {
+            "Source": "Huberty_and_Denno_2006",
+            "Year": "2006",
+            "Title": "Consequences of nitrogen and phosphorus limitation for the performance of two planthoppers with divergent life-history strategies",
+            "DOI": "10.1007/s00442-006-0462-8"
+          },
+          {
+            "Source": "Lind_et_al_2017",
+            "Year": "2017",
+            "Title": "Increased grassland arthropod production with mammalian herbivory and eutrophication: a test of mediation pathways",
+            "DOI": "10.1002/ecy.2029"
+          },
+          {
+            "Source": "Ochoa-Hueso_et_al_2014",
+            "Year": "2014",
+            "Title": "Simulated nitrogen deposition affects soil fauna from a semiarid Mediterranean ecosystem in central Spain",
+            "DOI": "10.1007/s00374-013-0838-y"
+          },
+          {
+            "Source": "Peguero_et_al_2021",
+            "Year": "2021",
+            "Title": "Divergent effects of drought and nitrogen deposition on microbial and arthropod soil communities in a Mediterranean forest",
+            "DOI": "10.1016/j.ejsobi.2020.103275"
+          },
+          {
+            "Source": "Song_et_al_2016",
+            "Year": "2016",
+            "Title": "Euedaphic and hemiedaphic Collembola suffer larger damages than epedaphic species to nitrogen input",
+            "DOI": "10.1016/j.envpol.2015.10.008"
+          },
+          {
+            "Source": "Sun_et_al_2020",
+            "Year": "2020",
+            "Title": "Response of Collembola to the addition of nutrients along an altitudinal gradient of tropical montane rainforests",
+            "DOI": "10.1016/j.apsoil.2019.103382"
+          },
+          {
+            "Source": "Veromann_et_al_2013",
+            "Year": "2013",
+            "Title": "Effects of nitrogen fertilization on insect pests, their parasitoids, plant diseases and volatile organic compounds in Brassica napus",
+            "DOI": "10.1016/j.cropro.2012.09.001"
+          }
+        ]
+      }
+    }
+  },
+  "hammond": {
+    "record": "https://zenodo.org/api/records/14510967",
+    "files": [
+      {
+        "name": "traits.csv",
+        "bytes": 3693,
+        "checksum": "md5:efae65c9c8ac07d7150bbbc1286845b3",
+        "checksum_verified": true,
+        "sha256": "5594faadef5a56d50a42cf2160645d3f66f9b2fa86a9518837bc2a6e2c5bde10"
+      },
+      {
+        "name": "Schexnayder Wetlands script.R",
+        "bytes": 8460,
+        "checksum": "md5:82b8e3d32cd186796f19c2d5592aaf32"
+      },
+      {
+        "name": "BAI.csv",
+        "bytes": 2491,
+        "checksum": "md5:a488a8c248c163077e2adcbe31a71c84"
+      },
+      {
+        "name": "lmer_BAI.csv",
+        "bytes": 3527,
+        "checksum": "md5:609ff42e43f51c387cb5b61f86d287f0"
+      },
+      {
+        "name": "fd_and_weather.csv",
+        "bytes": 770697,
+        "checksum": "md5:53d07187d89cfcb60bf26a8ba6bc5949"
+      },
+      {
+        "name": "mean_E.csv",
+        "bytes": 309,
+        "checksum": "md5:32aa6d605ad0dd72ebbb93a27b592d32"
+      },
+      {
+        "name": "data column descriptions.csv",
+        "bytes": 4992,
+        "checksum": "md5:fa7712fa6d28cfd1650107b7b7a12a0d",
+        "checksum_verified": true,
+        "sha256": "5a56d87b20b51b914dd70151074f441cf0381ce99d8d450f5cfc01fdabdc2b9a"
+      }
+    ],
+    "verified_schemas": {
+      "traits.csv": {
+        "rows": 14,
+        "columns": [
+          "tree",
+          "BAI_22_18",
+          "site",
+          "wood_density_branch",
+          "LMA",
+          "wd_core_sw",
+          "wd_core_hw",
+          "Aluminum",
+          "B",
+          "Ca",
+          "C",
+          "Fe",
+          "Mg",
+          "Mn",
+          "N",
+          "P",
+          "K",
+          "Na",
+          "S",
+          "Zn",
+          "C_N",
+          "Gref",
+          "Bvpd",
+          "R2",
+          "vmax",
+          "VPDmax",
+          "N_P",
+          "distance_m",
+          "sw_depth",
+          "ln_N_P",
+          "BAI_avg_cm"
+        ],
+        "encoding": "utf-8-sig",
+        "site_tree_counts": {
+          "C": 7,
+          "T": 7
+        },
+        "tree_ids": 14,
+        "N_P_complete_rows": 14,
+        "independent_wwtp_sources_from_original_design": 1,
+        "aquatic_nutrients_row_table_present_in_this_deposit": false,
+        "herbivore_table_present_in_this_deposit": false,
+        "full_chain_identified": false
+      },
+      "data column descriptions.csv": {
+        "rows": 87,
+        "columns": [
+          "file",
+          "column",
+          "description",
+          "units"
+        ],
+        "encoding": "utf-8-sig"
+      }
+    }
+  },
+  "limitations": [
+    "Keyword candidates require original-paper verification; no match does not prove absence.",
+    "Source/Study labels can share sites, dates and controls; these are not independent replicate counts.",
+    "Raw extraction sheets differ from the 126-publication/4365-observation published analysis cohort.",
+    "N addition, sludge, animal effluent and municipal river effluent cannot be pooled as one exposure."
+  ]
+}
