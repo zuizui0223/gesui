@@ -8,6 +8,9 @@
 
 ## 変更内容
 
+- 欧州451行の蝶全体HNSに対するW追加情報を、仕様コミット20b2cb6で固定後に1比較だけ確認。元解析も耕地・都市・面積・流量を調整済みだった。係数+0.07750［0.04094,0.11405］、H6留保MSE改善7.98%［0.96,14.47］で両基準を満たす。フランスの不確実性と区別し、因果経路は未識別とする。
+- Virginia汚泥資料は本論文の生態解析から除外し、別の野外研究候補として保管。
+
 - 同じ73流域で共有要因・頑健性を追加検証。都市・耕地・流域条件・Wへの全順序共分散配分、24親流域の除外診断、親流域完全留保の予測比較を収録。景観は水域・陸域指標の予測を改善したがW追加は不確実。独立した再現や時間的同調とはしない。
 
 - フランス73流域の期間平均・差分で、水域と陸域の残差相関と共分散を並列に推定。蝶全体を主解析、両期間適格67流域のシジミを補足とし、3,000回の親流域再標本化、全結果CSV、入力ハッシュ、比較図、本文2.8・3.6を追加。
@@ -33,6 +36,8 @@
 新しい全鎖メタ解析・因果媒介推定は実行していない。既存解析の再実行と監査を「解析なし」と一括せず、独立した新規生態研究とも数えない。
 
 ## レビュー対象
+
+- [欧州451行の固定確認：調整済みW―蝶の関連と予測増分](https://github.com/zuizui0223/gesui/blob/docs/wastewater-riparian-interactions-outline/docs/manuscript_riparian_interactions/EU451_W_LANDSCAPE_CONFIRMATION_20261120.md)
 
 - [共通要因・頑健性・親流域外予測](https://github.com/zuizui0223/gesui/blob/docs/wastewater-riparian-interactions-outline/docs/manuscript_riparian_interactions/WATER_LAND_SHARED_DRIVERS_20261120.md)
 

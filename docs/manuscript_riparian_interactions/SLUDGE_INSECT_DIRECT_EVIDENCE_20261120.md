@@ -15,6 +15,8 @@
 
 ## 新たに取得した施用地由来データ：米国Virginia
 
+**2026年11月20日のユーザー指定：この資料は本論文の生態解析には使用せず、汚泥経路を調べる別の野外研究候補として保管する。** 以下は取得時点の資料監査であり、欧州の独立追試や本論文の追加解析計画ではない。
+
 [USGS release DOI:10.5066/P13IVMXG](https://doi.org/10.5066/P13IVMXG)（2025-12-09公開、対象2024年）のCSV 2点とmetadata XMLを `data/external/usgs_biosolids_va_2024/` に取得した。公開metadataと実ファイルの確認結果は次の通り。
 
 - 郡・独立市: 133行、施用量正値48行。`County_Applied_FIPS`, `Biosolid_Tons`。

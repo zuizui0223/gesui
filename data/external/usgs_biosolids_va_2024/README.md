@@ -1,3 +1,5 @@
+Status (2026-11-20): Retained only as candidate material for a separate biosolids field study. Excluded from the current manuscript ecological analyses by user instruction.
+
 # USGS Virginia biosolids application, 2024
 
 Downloaded 2026-11-20 from the public ScienceBase item; CC0.
