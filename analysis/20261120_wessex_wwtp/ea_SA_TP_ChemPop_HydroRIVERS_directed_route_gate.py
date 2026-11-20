@@ -72,8 +72,8 @@ def get_rivers(base):
         target.mkdir()
         source_name=Path(members[0]).stem
         for name in names:
-            if Path(name).stem!=source_name or
-               Path(name).suffix.lower() not in {".shp",".shx",".dbf",".prj",".cpg"}:
+            if (Path(name).stem!=source_name or
+                Path(name).suffix.lower() not in {".shp",".shx",".dbf",".prj",".cpg"}):
                 continue
             out=target/Path(name).name
             with z.open(name) as src,out.open("wb") as dst:
