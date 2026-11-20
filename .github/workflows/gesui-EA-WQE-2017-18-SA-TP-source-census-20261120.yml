@@ -1,0 +1,31 @@
+name: gesui EA 2017-18 WQE Water Company treated-final effluent TP source census
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_wqe_2017_2018_SA_tp_siteyear_census.py'
+      - '.github/workflows/gesui-EA-WQE-2017-18-SA-TP-source-census-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  official-bounded-STW-source-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Count native EA Water Company SA treated discharge TP site/year original observations; no ecology or mass
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_wqe_2017_2018_SA_tp_siteyear_census.py
+          python -u analysis/20261120_wessex_wwtp/ea_wqe_2017_2018_SA_tp_siteyear_census.py \
+            --out "${{ runner.temp }}/STW2017_18/EA_WQE_SA_TP2017_2018_BATH50KM_SOURCEONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-WQE-2017-18-WaterCompany-SA-TP-source-census
+          path: ${{ runner.temp }}/STW2017_18/EA_WQE_SA_TP2017_2018_BATH50KM_SOURCEONLY.json
+          if-no-files-found: warn
+          retention-days: 90
