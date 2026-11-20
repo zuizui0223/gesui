@@ -61,3 +61,40 @@ Salt River complexでは放流水区間と対照を比較し、NH4、NO3、NO2�
 この追加監査で得た新しい独立性の情報は、**プロジェクト全体は3河川の放流水/自然恒常流比較を構想したが、多媒体の重点調査は1河川に限られる**という資金提供者側の確認である。自然恒常流の対照を置く点は単純な乾燥河床対放流水比較とは異なる。ただし流量・地下水・洪水履歴・植生型を一致させたことまでは保証しない。
 
 アブラムシの採集法、種・宿主、絶対数/組成比の区別、共通地点・採取日ID、植物媒介指標、n/SD/SEはいずれも**未取得・判定保留**。原本に数値がないとは言わない。今回の公開原本探索から効果量を補完せず、同一研究群の定性的候補という採否を維持する。アクセス制限の回避・著者連絡・非公開資料の取得は行っていない。
+
+## 取得経路の確定と照会原稿（未送信）
+
+同日の追加探索で、一般検索を繰り返すより有効な公式取得経路を確認した。
+
+- [AWPF Documents and Reports](https://www.azwpf.gov/documents-and-reports) は最終報告の公開一覧が不完全であると明記し、未掲載報告について公文書請求を案内する。[実際の最終報告一覧](https://www.azwpf.gov/final-reports) に95-010は掲載されていなかった。これは報告書の不存在を意味しない。
+- [ADWRの請求案内](https://www.azwater.gov/adwr-public-records-request) は既存の記録を対象とし、新しい集計表の作成を保証しない。[公開DocuShare入口](https://infoshare.azwater.gov/docushare/dsweb/HomePage) は今回のweb取得ではXML形式のため読み取れなかった。未閲覧の内部一覧に対象資料がないとは判定しない。
+- [ASUの博士論文年代別案内](https://libguides.asu.edu/asudissertations/doctoral) によれば、1999–2009年の博士論文全文は同大学の公開デジタルリポジトリに収録されていない。この年代の多くは契約制ProQuestまたは紙資料にある。Marlerの2005年論文に関してKEEP検索を繰り返す優先度を下げる。個別論文の所蔵・貸出可否はまだ確認していない。
+- [学外研究者向けASU案内](https://askalibrarian.asu.edu/faq/177565) は所属機関図書館を介した取り寄せとUniversity Archives（archives@asu.edu）への照会を案内する。全文を得ても昆虫データが収録されているとは保証しない。
+
+### AWPF / ADWR向けの具体的照会文
+
+**Status: UNSENT.** 外部への送信や公文書請求は実施していない。依頼者の所属・連絡先・目的区分は実際の申請時に本人が確認する。費用を伴う取得は未承認。
+
+Subject: Existing final report and supporting records for AWPF grant 95-010 / 95-010WPF
+
+I am seeking existing records for the Arizona Water Protection Fund project “Assessment of the Role of Effluent-Dominated Rivers in Supporting Riparian Functions,” grant 95-010 / 95-010WPF, associated with Arizona State University and Duncan T. Patten. Agency reports list completion in 1997, and the final report is cited as 1998. The project compared effluent-influenced and natural perennial reaches in the Salt–Verde–Gila, Santa Cruz, and Agua Fria systems.
+
+Could you provide the final scientific report, its appendices, and any existing supporting data files retained with the project? I am particularly seeking methods and tables for water chemistry, riparian vegetation, and terrestrial invertebrates, including the homopterid/aphid observations reported by R. J. Marler and D. T. Patten at the 1998 Arizona Riparian Council meeting. Existing site codes, sampling dates, sampling effort, treatment/control assignments, and cross-references between these components would be especially useful. I am requesting existing records, not a newly created analysis or table.
+
+Electronic copies or links would be preferred. Please advise of any proposed fees before processing work that would incur a charge. If supporting data are not retained, the final report and information identifying any alternative custodian would still be useful.
+
+### 所属図書館／ASU Archives向けの書誌照会文
+
+**Status: UNSENT.** 書誌の題名・学位年は指導教員の公式CVに基づき、未確認のProQuest番号や請求記号は付加しない。
+
+Subject: Availability of Roy Marler's 2005 ASU dissertation
+
+Could you help locate a copy of Roy Marler's 2005 Arizona State University PhD dissertation, “Riparian plant community development on effluent-dependent rivers in Arizona”? The title and year appear in Juliet C. Stromberg's ASU curriculum vitae. I would appreciate a catalog record or dissertation identifier, and information on lawful access through an institutional subscription, interlibrary loan, or an available digital copy.
+
+The research question concerns whether wastewater-associated changes in river nutrients, riparian plants, and herbivorous insects were measured at matching sites and times. The table of contents and any methods or appendices describing site correspondence would help determine whether this dissertation contains the relevant observations. Please advise of any costs before supplying a paid copy.
+
+### 取得後の採否判定
+
+原表の各行を、河川区間・地点・日付・媒体・植物種・昆虫分類群・努力量で照合する。共通IDがある場合のみ同所の鎖として検証し、共通IDがない集計表は部分経路に限定する。植物と昆虫が別時期・別区間なら、その不一致を結果として保持する。1放流区間対1対照区間の内部反復しかなければ、全国・多河川の独立効果としてメタ解析へ投入しない。公開本文、元データ、再配布許諾は別々に記録する。
+
+**今回の到達点は取得経路の確定であり、生態学的な証拠の増加ではない。** Arizonaの定量採否は保留のままで、全鎖モデルや効果量は追加していない。
