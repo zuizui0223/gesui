@@ -165,6 +165,7 @@ def construct_eligible(z,filenames,scores):
         counts_valid+=int(all_numeric)
         row={
             "region":region,"site":site,"site_region_id":region+"||"+site,
+            "sample_date":v["meta"][1],
             "year":year,"month":month,"method":v["meta"][2],
             "edf_pct":edf,"lc_urban":site_fields["LC_URBAN_PER"],
             "lc_arable":site_fields["LC_ARABLE_PER"],
