@@ -1,0 +1,64 @@
+{
+  "url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/GHS_POP_E2020_GLOBE_R2023A_54009_1000/V1-0/GHS_POP_E2020_GLOBE_R2023A_54009_1000_V1_0.zip",
+  "epoch": 2020,
+  "product": "GHS-POP R2023A 1km equal-area population count",
+  "units": "persons per grid cell, aggregated with fractional intersection; density persons/km2",
+  "targets": 232,
+  "component_H7": 512,
+  "eligible_H7": 225,
+  "eligible_H6": 88,
+  "eligible_country_groups": 11,
+  "gate_pass": true,
+  "geometry_repairs": [
+    "2070311220",
+    "2070313490",
+    "2070321670",
+    "2070491200",
+    "2070508990",
+    "2070523720",
+    "2070531560"
+  ],
+  "raster": {
+    "crs": "ESRI:54009",
+    "resolution": [
+      1000.0,
+      1000.0
+    ],
+    "nodata": -200.0,
+    "dtype": "float64"
+  },
+  "minimum_coverage": 0.9999999978675536,
+  "network_area_failures": [
+    "2070514670",
+    "2070519470",
+    "2070531190",
+    "2070534140",
+    "2070536360",
+    "2070552460",
+    "2070556580"
+  ],
+  "inputs": [
+    {
+      "path": "gesui_chain_source_cache_20261120\\GHS_POP_E2020_GLOBE_R2023A_54009_1000_V1_0.zip",
+      "sha256": "846c03076da12d9d998e6b9946a0774ca134ea76b0731d11483058a7f9185bbf"
+    },
+    {
+      "path": "gesui_chain_source_cache_20261120\\GHS_POP_E2020_GLOBE_R2023A_54009_1000_V1_0.tif",
+      "sha256": "db25d12ab0851446af467a56eb1651d383867dc3fbf4aa6348ec8e3372225196"
+    },
+    {
+      "path": "eu_h7.zip",
+      "sha256": "b9b810f4db271f0fa6b39fecf01784041b948944b3c3f296a393766388e86b44"
+    },
+    {
+      "path": "original\\H7_454_HNS_panel.csv",
+      "sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca"
+    }
+  ],
+  "limits": [
+    "Separate product, not independent underlying census information.",
+    "2020 static population, not observed annual changes.",
+    "Upstream population, not a local-only human activity adjustment.",
+    "Missing raster population is not zero and is not extrapolated."
+  ]
+}

@@ -1,0 +1,45 @@
+name: gesui Grand River eight WWTP published source spider vs aquatic insect stage ratio QA
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_grand8_relative_stage_source/grand8_spider_vs_insect_source_ratio_of_ratios.py'
+      - '.github/workflows/gesui-20261118-Grand8-relative-spider-aquatic-ratio-QA.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_grand8_relative_stage_source/grand8_spider_vs_insect_source_ratio_of_ratios.py'
+      - '.github/workflows/gesui-20261118-Grand8-relative-spider-aquatic-ratio-QA.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  grand8_relative_response_original_stage_8_site_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44104639473
+          name: gesui-20261117-GrandRiver8-original-WWTP-updown-larvae-adults-spiders-MP-facility-level
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_original_grand8_facility_stage
+      - name: Reproduce source-locked within-eight-site relative spider vs aquatic stage MP response and source QA
+        run: |
+          python -m py_compile analysis/20261118_grand8_relative_stage_source/grand8_spider_vs_insect_source_ratio_of_ratios.py
+          python -u analysis/20261118_grand8_relative_stage_source/grand8_spider_vs_insect_source_ratio_of_ratios.py \
+            --original '${{ runner.temp }}/genuine_original_grand8_facility_stage/GrandRiver8_true_WWTP_larval_adult_spider_original_MP_source_gated.json' \
+            --out '${{ runner.temp }}/Grand8_original_MP_relative_stage_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-Grand8-WWTP-spider-vs-all-fixed-aquatic-stage-relative-MP-source-audit
+          path: '${{ runner.temp }}/Grand8_original_MP_relative_stage_source/'
+          retention-days: 90
+          if-no-files-found: warn

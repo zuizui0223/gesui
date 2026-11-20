@@ -1,0 +1,88 @@
+{
+  "cohort": {
+    "rows": 139,
+    "H7": 72,
+    "H6": 24
+  },
+  "replicates": 3000,
+  "historical_paths_verified": 13,
+  "maximum_absolute_numeric_difference": 0.0,
+  "original_script": {
+    "path": "analysis/20261120_chain_replay/fr_interface_paths_original.py",
+    "sha256": "0015453cb34782be7de30c586148ae2e946f98900469342123c762776901ae39",
+    "bytes": 4748
+  },
+  "inputs": [
+    {
+      "path": "work/original/H7_454_HNS_panel.csv",
+      "sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+      "bytes": 1235384
+    },
+    {
+      "path": "work/original/GESUI_303_HOST_NUTRIENT_SCORES.csv",
+      "sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+      "bytes": 256411
+    },
+    {
+      "path": "work/fr73/gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota/FR73_HYBAS7_NATIVE_2018_2022_REAL_TP_I2M2_EQR_AND_GBIF_INDEX_DELTA.csv",
+      "sha256": "f2ff4e56f245e1aa8f84f5ac099d68ec1c7e27a786c1067439db388b186dd90b",
+      "bytes": 25960
+    },
+    {
+      "path": "work/plant/EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv",
+      "sha256": "33a1a3b27e584121b4c3ec6dff9330d4b06a7096f35758c71690cf1dc431e7bc",
+      "bytes": 41010
+    },
+    {
+      "path": "work/plant/EU454_H7PERIOD_NUTRI_TRAIT_MEANS_SOURCEONLY.csv",
+      "sha256": "53918cd3dfa99b51bc5d8e21edb27de9978598ecf2985b7dff0e643546544c23",
+      "bytes": 28167
+    },
+    {
+      "path": "work/facets/GESUI_H7_234x2x6_SPECIESKEY_429_RECOVERY_AUDIT.json",
+      "sha256": "0381a5f78b9db59192892342b8fb33075cca9d184af57ad532b20f9c2563b157",
+      "bytes": 4734
+    },
+    {
+      "path": "work/facets/GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json",
+      "sha256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+      "bytes": 19203391
+    }
+  ],
+  "loaded_repository_modules": [
+    {
+      "path": "analysis/20261115_hns/scripts/score_core.py",
+      "sha256": "12671c0f14d5e9b447cc4307228be1f475840b19df047d2219b37463317debbd",
+      "bytes": 3097
+    },
+    {
+      "path": "analysis/20261115_hns_family_taxon/analyse.py",
+      "sha256": "b64844b339a47dbd6acb72b78970615464afbe766078a2b0fab28e2e0425ca42",
+      "bytes": 20007
+    },
+    {
+      "path": "analysis/20261115_hns_family_taxon/family_base.py",
+      "sha256": "58dc8bc517adbd28c1cb8d50b2dbfaa070b51b0ab5c818f3efdbf86a01dc1b82",
+      "bytes": 793
+    },
+    {
+      "path": "analysis/20261115_multilayer/scripts/multilayer.py",
+      "sha256": "01d33cbb87c0f79bdab48ae2e24168fdc0d570b8d6dc6975ec5f822d9ad6f0e6",
+      "bytes": 13664
+    },
+    {
+      "path": "analysis/20261120_chain_replay/verify_fr_replay.py",
+      "sha256": "a52a2876228151815c94045f3f4e2f00fd264485d2cfe50179d8d88fd958f6aa",
+      "bytes": 4535
+    }
+  ],
+  "versions": {
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2"
+  },
+  "interpretation": "Joint H6 bootstrap of the same historical observational equations; not causal mediation, new independent evidence, or cross-study covariance.",
+  "input_access": "Original external inputs required; this replay does not constitute fresh source acquisition."
+}

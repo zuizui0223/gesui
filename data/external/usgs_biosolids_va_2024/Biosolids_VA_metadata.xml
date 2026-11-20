@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Brooke A. Kline</origin>
+        <origin>Andrew J. Sekellick</origin>
+        <origin>Emily H. Majcher</origin>
+        <pubdate>20251209</pubdate>
+        <title>Applied Biosolids Data Input Summed from Fields to National Hydrography Dataset Plus V2 in Virginia, 2024</title>
+        <geoform>tabular digital data</geoform>
+        <pubinfo>
+          <pubplace>Reston, VA</pubplace>
+          <publish>U.S.Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/P13IVMXG</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This metadata record contains two tables with reported and calculated amounts of biosolids applied to agricultural land within Virginia in 2024 at different scales.  Included in the dataset are (1) mass of land-applied biosolids calculated for NHDPlus Version 2.1 (NHDPlusV2) reach catchments in 2024 as a CSV and (2) reported amount of biosolids applied to land by county in 2024 as a CSV, reported by Virginia Department of Environmental Quality.</abstract>
+      <purpose>Reported amounts of field applied biosolids were downscaled to assess the mass of land-applied biosolids within the Chesapeake Bay watershed at the NHDPlusV2 catchment and county scales Appropriate use of the data includes statistical analysis, model parameterization, and map creation or display.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>2024</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>observed</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <descgeog>Virginia</descgeog>
+      <bounding>
+        <westbc>-83.6700</westbc>
+        <eastbc>-75.2400</eastbc>
+        <northbc>39.4500</northbc>
+        <southbc>36.5400</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>Biosolids</themekey>
+        <themekey>Chesapeake Bay</themekey>
+        <themekey>National Hydrography Dataset (NHD)</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>Hydrology</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:686ec84ad4be020e5c0a6bcf</themekey>
+      </theme>
+      <place>
+        <placekt>Common geographic areas</placekt>
+        <placekey>Virginia</placekey>
+      </place>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Chesapeake Bay</placekey>
+      </place>
+    </keywords>
+    <accconst>No access constraints. Please see 'Distribution Information' for details.</accconst>
+    <useconst>These data are marked with a Creative Common CC0 1.0 Universal License. These data are in the public domain and do not have any use constraints. Users are advised to read the dataset's metadata thoroughly to understand appropriate use and data limitations.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>USGS - Northeast Region</cntorg>
+          <cntper>Emily H Majcher</cntper>
+        </cntorgp>
+        <cntpos>Hydrologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>MD/DE/DC WSC UMBC Campus, UMBC Research Park</address>
+          <city>Catonsville</city>
+          <state>MD</state>
+          <postal>21228</postal>
+        </cntaddr>
+        <cntvoice>443-498-5520</cntvoice>
+        <cntemail>emajcher@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>Data provided by Virginia Department of Environmental Quality. Data aggregation work was funded by the United States Geological Survey Ecosystems Mission Area, Chesapeake Bay Studies and performed by USGS.</datacred>
+    <native>Environment as of Metadata Creation: Microsoft Windows 11 Enterprise, Version 23H2, build 22631.5335; Esri ArcGIS Pro 3.4.3; RStudio version 2025.05.0 (Build 467); R version 4.5.0 (2025-05-22).</native>
+    <crossref>
+      <citeinfo>
+        <origin>Virginia Department of Environmental Quality</origin>
+        <pubdate>20250206</pubdate>
+        <title>Daily and Monthly Field Loading 2024</title>
+        <geoform>spreadsheet</geoform>
+        <pubinfo>
+          <pubplace>Richmond, VA</pubplace>
+          <publish>Virginia Department of Environmental Quality</publish>
+        </pubinfo>
+        <othercit>Biosolid land application permitted sites are available here (https://apps.deq.virginia.gov/EDM/). Field application of biosolids applied in 2024 was provided through written communication (Bryan Cauthorn, 02/06/2025).</othercit>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>Calculated NHDPlus catchment level data were assessed for obvious errors and compared to county-level data as provided.</attraccr>
+    </attracc>
+    <logic>All attributes were checked for outliers and whether the data were within the feasible range for the data represented.</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>No formal positional accuracy tests were conducted.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>No formal positional accuracy tests were conducted.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>R Core Team</origin>
+            <pubdate>20241031</pubdate>
+            <title>R; A language and Environment for Statistical Computing</title>
+            <geoform>publication</geoform>
+            <pubinfo>
+              <pubplace>Vienna, Austria</pubplace>
+              <publish>R Foundation for statistical computing</publish>
+            </pubinfo>
+            <onlink>https://www.R-project.org/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2024</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>version 4.4.2 release date</srccurr>
+        </srctime>
+        <srccitea>R Software</srccitea>
+        <srccontr>Documentation for R software</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Virginia Department of Environmental Quality</origin>
+            <pubdate>20250206</pubdate>
+            <title>Daily &amp; Monthly Field Loading 2024</title>
+            <geoform>spreadsheet</geoform>
+            <pubinfo>
+              <pubplace>Richmond, VA</pubplace>
+              <publish>Virginia Department of Environmental Quality</publish>
+            </pubinfo>
+            <othercit>Biosolid land application permitted sites are available here (https://apps.deq.virginia.gov/EDM/). Field application of biosolids applied in 2024 was provided through written communication (Bryan Cauthorn, 02/06/2025).</othercit>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2024</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>VA DEQ</srccitea>
+        <srccontr>Dry Tons Applied column used in the Daily Field Activity tab of spreadsheet</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>VA DEQ - Office of Land Application</origin>
+            <pubdate>20201112</pubdate>
+            <title>Biosolid Areas</title>
+            <geoform>tabular digital data</geoform>
+            <onlink>https://apps.deq.virginia.gov/arcgis/rest/services/public/EDMA/MapServer/207</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2020</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>Biosolid Areas</srccitea>
+        <srccontr>Boundary of permitted sites that includes one or more land application fields.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Lucinda McKay</origin>
+            <origin>Timothy Bondelid</origin>
+            <origin>Thomas G. Dewald</origin>
+            <pubdate>2012</pubdate>
+            <title>NHDPlus Version 2: User Guide</title>
+            <geoform>publication</geoform>
+            <pubinfo>
+              <pubplace>Washington D.C.</pubplace>
+              <publish>Office of Water, United States Environmental Protection Agency (EPA)</publish>
+            </pubinfo>
+            <onlink>https://www.epa.gov/system/files/documents/2023-04/NHDPlusV2_User_Guide.pdf</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2012</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>NHDPlusV2</srccitea>
+        <srccontr>NHD Plus Catchments</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Kyle Walker</origin>
+            <pubdate>2025</pubdate>
+            <title>tigris: Load Census TIGER/Line Shapefiles</title>
+            <geoform>R Package</geoform>
+            <onlink>https://CRAN.R-project.org/package=tigris</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2025</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>R package version 2.2.1</srccurr>
+        </srctime>
+        <srccitea>tigris</srccitea>
+        <srccontr>County FIPS</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Daniel Baston</origin>
+            <pubdate>2023</pubdate>
+            <title>exactextractr: Fast Extraction from Raster Datasets using Polygons</title>
+            <geoform>R Package</geoform>
+            <onlink>https://CRAN.R-project.org/package=exactextractr</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2023</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>R package version 0.10.0</srccurr>
+        </srctime>
+        <srccitea>exactextractr</srccitea>
+        <srccontr>Extraction of values from biosolid application raster.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Robert J. Hijmans</origin>
+            <pubdate>2025</pubdate>
+            <title>terra: Spatial Data Analysis</title>
+            <geoform>R Package</geoform>
+            <onlink>https://CRAN.R-project.org/package=terra</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2025</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>R package version 1.8-50</srccurr>
+        </srctime>
+        <srccitea>terra</srccitea>
+        <srccontr>Creation of raster from a shape file.</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>Daily Field Activity biosolids data with DEQ Control IDs were provided by the Virginia Department of Environmental Quality (VA DEQ) Biosolids Program. The Daily Field Activity biosolids table included the amount of biosolids applied daily in dry tons with corresponding DEQ Control IDs. Daily amounts of biosolids at each application field were summed for the entire year of 2024. A Biosolid Areas polygon geographic layer with DEQ Control IDs was downloaded from Virginia Department of Environmental Quality.</procdesc>
+        <srcused>VA DEQ</srcused>
+        <srcused>Biosolid Areas</srcused>
+        <procdate>20250210</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Daily Field Activity was summed by counties. Federal Information Processing Series (FIPS) codes and sum of biosolids were exported as a CSV (“BS_mass_VA_county_2024.csv”). County data were downloaded from the U.S. Census Bureau using the “list_counties” command with the “tigris” package in RStudio.</procdesc>
+        <srcused>VA DEQ</srcused>
+        <srcused>tigris</srcused>
+        <procdate>20250211</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Applied biosolids amounts were joined to the Biosolid Areas polygons layer by matching DEQ Control IDs in ArcGIS Pro.</procdesc>
+        <srcused>VA DEQ</srcused>
+        <srcused>Biosolid Areas</srcused>
+        <procdate>20250612</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The Biosolid Areas polygon geographic layer was imported into RStudio. Dry tons were converted to kilograms and acres were converted to square meters. A rate or density of biosolids application was calculated as a kilogram per square meter for each biosolid area. The polygon layer was converted into a 30-meter square resolution raster using this density value and the “terra ” package. The density was then multiplied by 900.</procdesc>
+        <srcused>R Software</srcused>
+        <srcused>terra</srcused>
+        <procdate>20250612</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Using “exactextractr” package, the “exact_extract” function was used to summarize values from the raster created in the previous step in a table containing the sum of added biosolids within National Hydrography Dataset version 2 (NHDv2) catchments. The sum of biosolids was then converted from kilograms to pounds. The table, now containing Federal Information Processing Series (FIPS) codes and the sum of biosolids in pounds, was exported as a CSV (“BS_mass_VA_nhdv2_2024.csv”). Only catchments with an applied biosolid mass greater than zero are included in the table.</procdesc>
+        <srcused>R Software</srcused>
+        <srcused>exactextractr</srcused>
+        <srcused>NHDPlusV2</srcused>
+        <procdate>20250612</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>BS_mass_VA_nhdv2_2024.csv</enttypl>
+        <enttypd>Comma Separated Value (CSV) file containing the summed amount of biosolids applied to land in Virginia by NHDPlus catchment in 2024.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>FEATUREID</attrlabl>
+        <attrdef>Catchment Identifier from NHDPlus Version 2.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1088429</rdommin>
+            <rdommax>22539732</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Biosolid_lbs</attrlabl>
+        <attrdef>Summed amount of biosolids applied to agricultural land in pounds (lbs).</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>940</rdommin>
+            <rdommax>3645200</rdommax>
+            <attrunit>Pounds</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>BS_mass_VA_county_2024.csv</enttypl>
+        <enttypd>Comma Separated Value (CSV) file containing the summed amount of biosolids applied to land in Virginia by county in 2024.</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>County</attrlabl>
+        <attrdef>County names</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Virginia county names</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>County_Applied_FIPS</attrlabl>
+        <attrdef>The Federal Information Processing Series (FIPS) code for where the biosolids were applied. The first two digits of the 5-digit code represent the state code, while the last three digits represent the county code.</attrdef>
+        <attrdefs>U.S. Geological Survey</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>51001</rdommin>
+            <rdommax>51840</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Biosolid_Tons</attrlabl>
+        <attrdef>Total reported amount of biosolids applied to the land in tons.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0</rdommin>
+            <rdommax>11502.78123</rdommax>
+            <attrunit>Tons</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey - ScienceBase</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center</address>
+          <address>Building 810</address>
+          <address>Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data for other purposes, nor on all computer systems, nor shall the act of distribution constitute any such warranty.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P13IVMXG</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20251209</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>USGS - Northeast Region</cntorg>
+          <cntper>Emily H Majcher</cntper>
+        </cntorgp>
+        <cntpos>Hydrologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>MD/DE/DC WSC UMBC Campus, UMBC Research Park</address>
+          <city>Catonsville</city>
+          <state>MD</state>
+          <postal>21228</postal>
+        </cntaddr>
+        <cntvoice>443-498-5520</cntvoice>
+        <cntemail>emajcher@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Biological Data Profile of the Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001.1-1999</metstdv>
+  </metainfo>
+</metadata>

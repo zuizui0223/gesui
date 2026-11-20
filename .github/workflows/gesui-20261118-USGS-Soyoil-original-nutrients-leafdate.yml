@@ -1,0 +1,37 @@
+name: gesui USGS Soyoil real 2022 NH4 NO3 SRP same-date upstream downstream leaf litter
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/soyoil_actual_2022_NP_SRP_same_day_litter_source.py'
+      - '.github/workflows/gesui-20261118-USGS-Soyoil-original-nutrients-leafdate.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/soyoil_actual_2022_NP_SRP_same_day_litter_source.py'
+      - '.github/workflows/gesui-20261118-USGS-Soyoil-original-nutrients-leafdate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual_original_water_nutrients_exact_litter_harvest_20220719_20220802:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source-only strict source and paired original calendar day contract
+        run: python -m py_compile analysis/20261118_industrial_PFAS_source/soyoil_actual_2022_NP_SRP_same_day_litter_source.py
+      - name: Original 81 true nutrient assays site by date and 12 leaf bags exact same two observation dates; descriptive only
+        run: |
+          python -u analysis/20261118_industrial_PFAS_source/soyoil_actual_2022_NP_SRP_same_day_litter_source.py \
+            --out '${{ runner.temp }}/SOYOIL_2022_genuine_same_date_nutrient_litter'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-USGS-Soyoil-2022-three-nutrients-updown-litter-sameday-source
+          path: '${{ runner.temp }}/SOYOIL_2022_genuine_same_date_nutrient_litter/'
+          retention-days: 90
+          if-no-files-found: warn

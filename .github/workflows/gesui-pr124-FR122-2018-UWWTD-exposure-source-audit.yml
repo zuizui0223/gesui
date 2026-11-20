@@ -1,0 +1,80 @@
+name: gesui PR124 original 2018 WWTP-P report support in FR122 water-land panel
+on:
+  push:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - 'analysis/20261117_wwtp_exposure_identification/france122_upstream_P_report_overlap_source_only.py'
+      - '.github/workflows/gesui-pr124-FR122-2018-UWWTD-exposure-source-audit.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_wwtp_exposure_identification/france122_upstream_P_report_overlap_source_only.py'
+      - '.github/workflows/gesui-pr124-FR122-2018-UWWTD-exposure-source-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact_2018_upstream_P_source_positive_against_real_FR263_178_122:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile exact source-only ID and 2018 wastewater-report audit
+        run: python -m py_compile analysis/20261117_wwtp_exposure_identification/france122_upstream_P_report_overlap_source_only.py
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44004357868
+          name: gesui-20261117-RZ2018-2018Benthic-2639-source-only-physical-class-areas
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_EEA2018_report_source
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43373639391
+          name: gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_original_FR263
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44011565169
+          name: gesui-20261117-FR178-original-riverline-JJA-source-only
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_original_FR178
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44020568960
+          name: gesui-20261117-FR178-posthoc-original-2scene-mosaic-JJA-realTP-H6sourcefit
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_original_FR122
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44018628546
+          pattern: gesui-20261117-FR178-2scene-mosaic-source-only-shard-*
+          merge-multiple: true
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/genuine_original_4shard_S2_quality
+      - name: Original exact EEA site ID coverage and no positive 2018 reported upstream WWTP P in 122
+        run: |
+          python -u analysis/20261117_wwtp_exposure_identification/france122_upstream_P_report_overlap_source_only.py \
+            --rz '${{ runner.temp }}/genuine_EEA2018_report_source/EEA2018_2018_RIPARIAN_ZONES_REST_OFFICIAL_SOURCE_ONLY_QA.json' \
+            --fr263 '${{ runner.temp }}/genuine_original_FR263/FR263_SAME_PHYSICAL_STATION_2018_2022_REAL_TP_AND_EEA_EQR.csv' \
+            --fr178 '${{ runner.temp }}/genuine_original_FR178/FR178_FIXED_NO_SATELLITE_OUTCOME_STATIONS.csv' \
+            --model '${{ runner.temp }}/genuine_original_FR122/FR178_POSTHOC_TWO_SCENE_MOSAIC_REAL_TP_NDVI_RESULTS.json' \
+            --shards '${{ runner.temp }}/genuine_original_4shard_S2_quality' \
+            --out '${{ runner.temp }}/original_FR122_WWTP_report_source_audit'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-pr124-2018-WWTP-source-identified-FR263-178-122-zero-report-inference
+          path: '${{ runner.temp }}/original_FR122_WWTP_report_source_audit/'
+          retention-days: 90
+          if-no-files-found: warn

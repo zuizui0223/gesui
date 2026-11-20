@@ -1,0 +1,552 @@
+{
+  "purpose": "Coverage, not effect support or independent-study counts",
+  "legend": {
+    "D": "Variable measured / reported (not necessarily open raw data)",
+    "P": "Proxy or spatial aggregate",
+    "N": "Not measured in focal dataset",
+    "U": "Linkage / numeric eligibility unresolved",
+    "S": "Simulated exposure"
+  },
+  "rows": [
+    {
+      "dataset": "England | 591 river stations",
+      "audit": "PATH_EVIDENCE_SCALES_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "P",
+          "label": "Model effluent fraction"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Matched water N / phosphate"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "D",
+          "label": "BMWP family composition"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "N",
+          "label": "No terrestrial herbivores"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "D",
+          "label": "Same water-biota observations"
+        }
+      ]
+    },
+    {
+      "dataset": "Austria | 68 / 67 stations",
+      "audit": "PATH_EVIDENCE_SCALES_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "P",
+          "label": "Reported P / flow proxy"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "River TP"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "D",
+          "label": "Benthic EQR"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "U",
+          "label": "Satellite support limits"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "N",
+          "label": "No joint herbivore sample"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Water chain only; land gate fails"
+        }
+      ]
+    },
+    {
+      "dataset": "USA | 1,184 river visits",
+      "audit": "CHAIN_INTEGRATION_PROTOCOL_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "U",
+          "label": "Source-specific exposure lacking"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "River TN / TP"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "D",
+          "label": "EPT composition"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "P",
+          "label": "Riparian structure"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "U",
+          "label": "Butterfly link unsupported"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "P",
+          "label": "Same visits; habitat proxy"
+        }
+      ]
+    },
+    {
+      "dataset": "Europe | 451 basin-periods",
+      "audit": "PATH_EVIDENCE_SCALES_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "P",
+          "label": "Model W"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "N",
+          "label": "No nutrient mediator"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "D",
+          "label": "Benthic EQR"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "P",
+          "label": "Plant EIV"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "P",
+          "label": "Host HNS"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "P",
+          "label": "Shared basins; proxy outcomes"
+        }
+      ]
+    },
+    {
+      "dataset": "France | 139 basin-periods",
+      "audit": "FR139_REPLAY_AND_INTEGRATION_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "P",
+          "label": "Model W"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "River TP"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "D",
+          "label": "Benthic EQR"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "P",
+          "label": "Plant EIV"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "P",
+          "label": "Lycaenid HNS"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "P",
+          "label": "13 paths replayed; not local feeding"
+        }
+      ]
+    },
+    {
+      "dataset": "Germany | 6 outfalls",
+      "audit": "LOCAL_INTERFACE_INTEGRATION_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "P",
+          "label": "Model effluent fraction"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Paired river TP"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not in this comparison"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "P",
+          "label": "Plant EIV"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "U",
+          "label": "Insufficient local records"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "0 full-chain support units"
+        }
+      ]
+    },
+    {
+      "dataset": "Europe | 976 river stations",
+      "audit": "CHAIN_INTEGRATION_PROTOCOL_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "D",
+          "label": "Reported annual P"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "N",
+          "label": "Not the mediator"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "D",
+          "label": "Benthic EQR"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "P",
+          "label": "Mapped land cover"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "P",
+          "label": "Same stations; landscape link"
+        }
+      ]
+    },
+    {
+      "dataset": "Arizona | focal river study",
+      "audit": "ARIZONA_CHAIN_SOURCE_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "D",
+          "label": "Effluent vs control reach"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Water chemistry"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "D",
+          "label": "Aquatic communities"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "D",
+          "label": "Vegetation structure"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "D",
+          "label": "Aphids / community"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Matched rows / variance pending"
+        }
+      ]
+    },
+    {
+      "dataset": "Louisiana | 1 wetland source",
+      "audit": "CHAIN_SOURCE_AUDIT_HAMMOND_NIMPACT_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "D",
+          "label": "Wetland discharge"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Water chemistry summary"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not in focal plant dataset"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "D",
+          "label": "14 trees; leaf N / P"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Leaf rows only; water date differs"
+        }
+      ]
+    },
+    {
+      "dataset": "South Australia | 1 wetland",
+      "audit": "WATER_PLANT_SOURCE_COVERAGE_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "D",
+          "label": "Treatment wetland flow"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Water N / isotopes"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "D",
+          "label": "Plant / soil isotopes"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Row data on request"
+        }
+      ]
+    },
+    {
+      "dataset": "Utah | 20 rivers, 3 basins",
+      "audit": "WATER_PLANT_SOURCE_COVERAGE_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "P",
+          "label": "Mixed land use / human N sources"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "U",
+          "label": "No paired water table confirmed"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "D",
+          "label": "Leaf chemistry / isotopes"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Leaf rows not obtained"
+        }
+      ]
+    },
+    {
+      "dataset": "Botswana | river-water pots",
+      "audit": "GLOBAL_PLANT_HERBIVORE_SOURCE_SEARCH_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "D",
+          "label": "Receiving-river irrigation"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Irrigation-water chemistry"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "U",
+          "label": "Leaf chemistry unconfirmed"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "D",
+          "label": "Aphid population"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Reporting inconsistencies"
+        }
+      ]
+    },
+    {
+      "dataset": "Jordan | bean-aphid pots",
+      "audit": "IRRIGATION_COMPARATORS_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "D",
+          "label": "Water-source treatments"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Irrigation-water chemistry"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "D",
+          "label": "Leaf elements / plant growth"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "D",
+          "label": "Aphid performance"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Methods / rows not obtained"
+        }
+      ]
+    },
+    {
+      "dataset": "Italy | 4 waters x fungus",
+      "audit": "TROTTA_EXPERIMENT_ELIGIBILITY_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "S",
+          "label": "Simulated effluents"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "S",
+          "label": "Prepared water composition"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "D",
+          "label": "Growth / pooled chemistry"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "D",
+          "label": "Aphid fecundity / survival"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Rows on request; subsamples differ"
+        }
+      ]
+    },
+    {
+      "dataset": "Europe | willow irrigation",
+      "audit": "IRRIGATION_COMPARATORS_20261120.md",
+      "cells": [
+        {
+          "stage": "Wastewater exposure",
+          "status": "D",
+          "label": "Municipal / industrial waters"
+        },
+        {
+          "stage": "Water nutrients",
+          "status": "D",
+          "label": "Irrigation-water chemistry"
+        },
+        {
+          "stage": "Aquatic biota",
+          "status": "N",
+          "label": "Not measured"
+        },
+        {
+          "stage": "Plant resources",
+          "status": "D",
+          "label": "Growth / stem nutrients"
+        },
+        {
+          "stage": "Herbivores",
+          "status": "D",
+          "label": "Leaf damage / aphids"
+        },
+        {
+          "stage": "Joint-data eligibility",
+          "status": "U",
+          "label": "Joint plot data not obtained"
+        }
+      ]
+    }
+  ]
+}

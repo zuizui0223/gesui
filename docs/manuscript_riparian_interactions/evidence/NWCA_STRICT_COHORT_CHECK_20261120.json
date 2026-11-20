@@ -1,0 +1,44 @@
+{
+  "scope": "Same registered geometry, stricter published monitoring support; no plant outcomes read",
+  "input_sha256": {
+    "NWCA2021_568WETLAND_160POTW_EXACT_PERMIT_FEATURE_SOURCE_BEFORE_2021DMR.json": "f79b473c211fff52b968f10e6420367c8f223a2d05980232d79e100c83f75703",
+    "NWCA2021_CAL2021_ACTUAL_DMR_TNTP_NEARFAR_STATEECO_SOURCE_ONLY_GATE.json": "594b6c0e3c6bb700ee1b758ffd7b8b9e61335af380349b95190f5ecec6acb47e",
+    "EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json": "68984d50c29779c696d832c96a5a57715482a63cfeb3f9d6cc4cafd7abf7ef68"
+  },
+  "cohorts": {
+    "DMR_actual2021_BOTH_TN_TP_same_EXO": {
+      "strict_near_before_region_matching": 26,
+      "old_near": 21,
+      "strict_matched_near": 21,
+      "old_far": 54,
+      "strict_matched_far": 54,
+      "near_removed": 0,
+      "near_added": 0,
+      "far_removed": 0,
+      "same_exact_near_and_far_membership": true,
+      "matched_states": 12,
+      "matched_state_ecoregions": 12,
+      "both_nutrients_30_site_original_gate_pass": false
+    },
+    "DMR_actual2021_TN_or_TP": {
+      "strict_near_before_region_matching": 71,
+      "old_near": 57,
+      "strict_matched_near": 51,
+      "old_far": 120,
+      "strict_matched_far": 92,
+      "near_removed": 6,
+      "near_added": 0,
+      "far_removed": 28,
+      "same_exact_near_and_far_membership": false,
+      "matched_states": 22,
+      "matched_state_ecoregions": 24,
+      "both_nutrients_30_site_original_gate_pass": null
+    }
+  },
+  "limitations": [
+    "Source receipts not original national DMR replay",
+    "No hydrologic delivery established",
+    "No raw plant model replay",
+    "Old source thresholds retained"
+  ]
+}

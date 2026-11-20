@@ -1,0 +1,38 @@
+name: gesui Grand River eight WWTP two Borealis DOIs six genuine material-stage source gate
+on:
+  push:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - 'analysis/20261117_emergence_macro_source/borealis8_two_published_dois_source_site_stage_crosswalk.py'
+      - '.github/workflows/gesui-20261117-Borealis-eight-WWTP-six-stage-SHA-source-gate.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/borealis8_two_published_dois_source_site_stage_crosswalk.py'
+      - '.github/workflows/gesui-20261117-Borealis-eight-WWTP-six-stage-SHA-source-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_two_publications_8_WWTP_genuine_site_year_stage_key_support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source-locked 8 WWTP 6 table cross DOI metadata script
+        run: python -m py_compile analysis/20261117_emergence_macro_source/borealis8_two_published_dois_source_site_stage_crosswalk.py
+      - name: Original Borealis authenticated-by-sha256 six real data tables, site/year/updown/life-stage support only
+        run: |
+          python -u analysis/20261117_emergence_macro_source/borealis8_two_published_dois_source_site_stage_crosswalk.py \
+            --out '${{ runner.temp }}/genuine_Borealis_8WWTP_two_DOI_six_stage'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-GrandRiver8-WWTP-six-stage-two-Borealis-DOI-source-gate
+          path: '${{ runner.temp }}/genuine_Borealis_8WWTP_two_DOI_six_stage/'
+          if-no-files-found: warn
+          retention-days: 90

@@ -1,0 +1,46 @@
+{
+  "scope": "Rejoin fixed station-summary CSVs; not raw EEA download or model replay",
+  "inputs": {
+    "2018": {
+      "git_blob": "0f30bfbc3dac13f6a182c8a910e9899c04778322",
+      "sha256": "2a1a72d43656aca588a832dfae13860054c01a651e76bf25f984c5a374709b02",
+      "rows": 2634,
+      "unique_site_keys": 2634
+    },
+    "2022": {
+      "git_blob": "325f199e985d9862ffee5b0edb205c61a7be3833",
+      "sha256": "5e1f3c31b389d0bd769984ab055d3e2c54b63ccaa4f5eedfb2d82bcdc83c28e6",
+      "rows": 2475,
+      "unique_site_keys": 2475
+    }
+  },
+  "shared_sites": 1167,
+  "2018_only": 1467,
+  "2022_only": 1308,
+  "shared_by_country": {
+    "AT": 1,
+    "BE": 9,
+    "FR": 1073,
+    "HR": 8,
+    "IE": 7,
+    "IT": 10,
+    "LT": 4,
+    "NL": 10,
+    "NO": 38,
+    "SE": 4,
+    "SI": 3
+  },
+  "shared_same_method": 1148,
+  "shared_same_reach": 1167,
+  "reported_source_transitions": {
+    "0_to_0": 1139,
+    "0_to_1": 7,
+    "1_to_0": 4,
+    "1_to_1": 17
+  },
+  "limitations": [
+    "Reporting changes are not verified WWTP interventions.",
+    "Station-disjoint sets need not have independent upstream sources or catchments.",
+    "Both years use the same EEA Biology release; no independent-study count estimated."
+  ]
+}

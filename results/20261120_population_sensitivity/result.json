@@ -1,0 +1,128 @@
+{
+  "status": "FIT_COMPLETED",
+  "specification_commit": "223da1a76b7c5b256b8e092f06829a763e23f9f6",
+  "cohort": {
+    "rows": 437,
+    "H7": 225,
+    "H6": 88,
+    "country_groups": 11
+  },
+  "outcome": "primary_incidence_mean",
+  "original_numeric_controls": [
+    "crop",
+    "urban",
+    "riverflow",
+    "naturalout",
+    "area",
+    "nEEA",
+    "nAnimal",
+    "nPlant",
+    "nButterfly",
+    "primary_record_coverage_raw",
+    "primary_host_completeness",
+    "NUTRI_coverage_all_Plantae_speciesKeys",
+    "log1p_eiv_scored_taxa"
+  ],
+  "added_population_term": "log1p_upstream_pop_density_2020",
+  "models": {
+    "same_sample_original": {
+      "association": {
+        "outcome": "primary_incidence_mean",
+        "focal_predictor": "W",
+        "adjusted_beta_per_1SD_focal": 0.08153525371585042,
+        "H6_cluster_standard_error": 0.019471974657150535,
+        "H6_cluster_descriptive95": [
+          0.043370183387835375,
+          0.11970032404386546
+        ],
+        "nominal_p_descriptive": 2.82276353442615e-05,
+        "n_source_H7period": 437,
+        "n_true_H6": 88,
+        "n_design_parameters": 34,
+        "effective_W_SD": 1.2448676711884412,
+        "normalized_eiv_N_SD": 0.39068710234464143,
+        "model_not_causal_or_mediation": true
+      },
+      "prediction": {
+        "n_true_H6": 88,
+        "n_original_H7period": 437,
+        "original_holdout_H6_baseline_MSE": 0.05979218722697823,
+        "original_holdout_H6_added_MSE": 0.0555109066657084,
+        "H6_equal_added_MSE_gain_pct": 7.160267519596809,
+        "fixed_out_of_fold_error_H6_resampling95_pct": [
+          -0.44046509438650855,
+          13.582668624406866
+        ],
+        "fixed_source_folds": 5,
+        "deterministic_H6_hash": true,
+        "train_only_scaling_and_country_method_dummies": true,
+        "ridge_alpha_fixed": 10.0,
+        "bootstrap_resampling_H6_groups": 2000,
+        "uncertainty_is_fixed_errors_not_model_refit": true,
+        "not_causal": true
+      }
+    },
+    "population_adjusted": {
+      "association": {
+        "outcome": "primary_incidence_mean",
+        "focal_predictor": "W",
+        "adjusted_beta_per_1SD_focal": 0.030994275930965424,
+        "H6_cluster_standard_error": 0.023856322692983514,
+        "H6_cluster_descriptive95": [
+          -0.015764116547282263,
+          0.0777526684092131
+        ],
+        "nominal_p_descriptive": 0.19387326668830152,
+        "n_source_H7period": 437,
+        "n_true_H6": 88,
+        "n_design_parameters": 35,
+        "effective_W_SD": 1.2448676711884412,
+        "normalized_eiv_N_SD": 0.39068710234464143,
+        "model_not_causal_or_mediation": true
+      },
+      "prediction": {
+        "n_true_H6": 88,
+        "n_original_H7period": 437,
+        "original_holdout_H6_baseline_MSE": 0.05481634850079771,
+        "original_holdout_H6_added_MSE": 0.054276945811775244,
+        "H6_equal_added_MSE_gain_pct": 0.9840179139524695,
+        "fixed_out_of_fold_error_H6_resampling95_pct": [
+          -3.5624285862398573,
+          7.115079153675677
+        ],
+        "fixed_source_folds": 5,
+        "deterministic_H6_hash": true,
+        "train_only_scaling_and_country_method_dummies": true,
+        "ridge_alpha_fixed": 10.0,
+        "bootstrap_resampling_H6_groups": 2000,
+        "uncertainty_is_fixed_errors_not_model_refit": true,
+        "not_causal": true
+      }
+    }
+  },
+  "fixed_rule_result": "positive_W_signal_not_supported",
+  "identifiability": {
+    "weighted_W_population_r": 0.8039983867139007,
+    "weighted_partial_r_after_original_controls": 0.5061872355789926,
+    "fraction_W_residual_variance_removed_by_population": 0.2562255174631025,
+    "full_design_condition_number": 123.45698154640726,
+    "FWL_beta_check": 0.030994275930963378,
+    "same_sample_W_SD": 1.2448676711884412
+  },
+  "source_receipt_sha256": "e31490ae3a1b3be5d8cba3d3d626143dd760b9131279a26ca866781cdca4ad2d",
+  "population_table_sha256": "5e4d68c4d931ae25bb0f989f15dabd1411d830355e2ec7e4b6f1a94fa300f7b2",
+  "files": {
+    "analysis\\20261120_population_sensitivity\\fit_once.py": "ae51e1387ff8f1721ce9db72f8817df181b115a603829a54ea1812f90dc825f0",
+    "analysis\\20261120_population_sensitivity\\SPECIFICATION.md": "e75246666caf15f86fd1346c6bff00bf895e5dc06c3f4a34ab2499a36c2adbfb",
+    "analysis\\20261120_population_sensitivity\\build_population.py": "fdf2842b1d8969873d414dab6a2539552e1f39fa1fd3ee8fa63efad8a5ea03aa",
+    "results\\20261120_eu451_W_confirmation\\result.json": "aa64554e86101297b6465797bbb596fda4f363de60fca982fccc7418ebb66e36",
+    "analysis\\20261115_eu454_plant_nutri\\h6_model_if_gate.py": "32f0b0b5dc52f835d27898bc10775e7c86044b47ef3ccd85931babc5392ba8d4"
+  },
+  "limits": [
+    "Same observed data, not independent replication.",
+    "2020 static upstream population; local human activity may remain.",
+    "Distinct population product, not fully independent census inputs.",
+    "Predictive CI resamples fixed H6 errors, not all model uncertainty.",
+    "No further ecological outcome/model search after this result."
+  ]
+}

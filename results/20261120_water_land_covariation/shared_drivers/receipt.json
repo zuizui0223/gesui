@@ -1,0 +1,116 @@
+{
+  "n_H7": 73,
+  "n_H6": 24,
+  "bootstrap_valid": 3000,
+  "requested": 3000,
+  "blocks": {
+    "urban": [
+      "urban"
+    ],
+    "crop": [
+      "crop"
+    ],
+    "hydrology": [
+      "area",
+      "riverflow",
+      "naturalout"
+    ],
+    "W": [
+      "W"
+    ]
+  },
+  "source": {
+    "original_archive_name": "GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json",
+    "original_archive_member": null,
+    "source_archive_sha256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4",
+    "score_table_sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+    "original_454_source_sum_speciesKey": 4318269,
+    "original_454_all_family_record_count": 4400147,
+    "inputs": [
+      {
+        "path": "original\\H7_454_HNS_panel.csv",
+        "sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "original\\GESUI_303_HOST_NUTRIENT_SCORES.csv",
+        "sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "fr73\\gesui-FR2018-22-realTP-I2M2-263-identical-sites-73H7-H6-3biota\\FR73_HYBAS7_NATIVE_2018_2022_REAL_TP_I2M2_EQR_AND_GBIF_INDEX_DELTA.csv",
+        "sha256": "f2ff4e56f245e1aa8f84f5ac099d68ec1c7e27a786c1067439db388b186dd90b",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "plant\\EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv",
+        "sha256": "33a1a3b27e584121b4c3ec6dff9330d4b06a7096f35758c71690cf1dc431e7bc",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "plant\\EU454_H7PERIOD_NUTRI_TRAIT_MEANS_SOURCEONLY.csv",
+        "sha256": "53918cd3dfa99b51bc5d8e21edb27de9978598ecf2985b7dff0e643546544c23",
+        "hash_mode": "original bytes"
+      },
+      {
+        "path": "gesui\\analysis\\20261120_water_land_covariation\\analyse.py",
+        "sha256": "aff841d4b6f065414580e33767c1817fb1c54999d6d51096a42e9e0c82393cbf",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261120_water_land_covariation\\PROTOCOL.md",
+        "sha256": "70593aba7a470483b09f87dbe8fe399b9cf3cabda9b9e744b1369dcae6949983",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_taxon\\analyse.py",
+        "sha256": "1a31c2d73716e8aa081baf1549957bf4f3e94d08695e603de1e54c301c2b1e7c",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_taxon\\family_base.py",
+        "sha256": "7e22becccd443e1590f490b6ca9dab8868281be05d68c82e815672ec43a1c898",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_taxon\\sensitivity.py",
+        "sha256": "e89863f5a3bbfcc2fb1a8b0c3a128b0b9f72dcdd7530b0a0bbc47b13bf72dfec",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns_family_decomposition\\analyse.py",
+        "sha256": "af53972248f7c10e3c16ee47bd984dce4f73ac943f91c6765efc9549853e598f",
+        "hash_mode": "LF-normalized UTF-8"
+      },
+      {
+        "path": "gesui\\analysis\\20261115_hns\\scripts\\score_core.py",
+        "sha256": "f456cff9c47cc1a765582236d2ba57bc7d0107f89cf278f3873b9890221fd49e",
+        "hash_mode": "LF-normalized UTF-8"
+      }
+    ]
+  },
+  "scripts": {
+    "shared_drivers.py": "36862fcf16b272ca5e373f765b0bbac2c424ba609faac26b44d7dbe71c471de9",
+    "FOLLOWUP_PROTOCOL.md": "dcdb4f8bdb076f5325f550fd692263177cde949e48b53b7328792b4033960125"
+  },
+  "W_partial_R2_landscape_after_observation": 0.6354989008910696,
+  "W_partial_R2_marginal95": [
+    0.42493270628765073,
+    0.8880209057884157
+  ],
+  "checks": [
+    "Shapley efficiency every bootstrap",
+    "Independent 24-order allocation check",
+    "Original saved correlations matched",
+    "Full-rank subsets",
+    "24 disjoint heldout H6 folds",
+    "Finite predictions"
+  ],
+  "limits": [
+    "Posthoc spatial follow-up; temporal uncertainty unchanged.",
+    "Shapley is an allocation convention, not causal attribution.",
+    "Marginal CIs, not corrected across candidates.",
+    "Prediction intervals resample fixed H6 errors, not full model uncertainty.",
+    "Partial R2 in sample, not predictive accuracy; climate unmeasured."
+  ]
+}

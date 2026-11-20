@@ -1,0 +1,37 @@
+name: gesui USGS SOYOIL original PFAS 2021-22 outfall leaf pack aquatic-insect and spider stage census
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/soyoil_source_first_2021_2022_leaf_pack_spider_taxa_census.py'
+      - '.github/workflows/gesui-20261118-USGS-Soyoil-dual-direction-PFAS-taxon-source.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261118_industrial_PFAS_source/soyoil_source_first_2021_2022_leaf_pack_spider_taxa_census.py'
+      - '.github/workflows/gesui-20261118-USGS-Soyoil-dual-direction-PFAS-taxon-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source_2021_2022_industrial_outfall_NP_leafpack_insects_spider_actual_stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original publication byte-pinned assay source scheme
+        run: python -m py_compile analysis/20261118_industrial_PFAS_source/soyoil_source_first_2021_2022_leaf_pack_spider_taxa_census.py
+      - name: Source presence of actual true original PFAS 2021+22 3 locations and insect/spider/leafpack stage cells with no concentration model
+        run: |
+          python -u analysis/20261118_industrial_PFAS_source/soyoil_source_first_2021_2022_leaf_pack_spider_taxa_census.py \
+            --out '${{ runner.temp }}/soyoil_original_two_year_updown_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261118-Soyoil-PFAS-2021-22-updown-leafpack-insect-spider-source-only
+          path: '${{ runner.temp }}/soyoil_original_two_year_updown_source/'
+          retention-days: 90
+          if-no-files-found: warn

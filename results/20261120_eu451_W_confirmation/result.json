@@ -1,0 +1,116 @@
+{
+  "specification_commit": "20b2cb67637f67b951d617532a6899732c7d108d",
+  "cohort": {
+    "H7_period": 451,
+    "H7": 232,
+    "H6": 90,
+    "country_holdout_groups": 11
+  },
+  "target": "primary_incidence_mean",
+  "numeric_controls": [
+    "crop",
+    "urban",
+    "riverflow",
+    "naturalout",
+    "area",
+    "nEEA",
+    "nAnimal",
+    "nPlant",
+    "nButterfly",
+    "primary_record_coverage_raw",
+    "primary_host_completeness",
+    "NUTRI_coverage_all_Plantae_speciesKeys",
+    "log1p_eiv_scored_taxa"
+  ],
+  "categorical_controls": [
+    "country_method",
+    "period"
+  ],
+  "association": {
+    "outcome": "primary_incidence_mean",
+    "focal_predictor": "W",
+    "adjusted_beta_per_1SD_focal": 0.07749644606112008,
+    "H6_cluster_standard_error": 0.018648893951572095,
+    "H6_cluster_descriptive95": [
+      0.04094461391603877,
+      0.11404827820620139
+    ],
+    "nominal_p_descriptive": 3.245033175532286e-05,
+    "n_source_H7period": 451,
+    "n_true_H6": 90,
+    "n_design_parameters": 34,
+    "effective_W_SD": 1.2318501691324943,
+    "normalized_eiv_N_SD": 0.38770931085925453,
+    "model_not_causal_or_mediation": true
+  },
+  "prediction": {
+    "n_true_H6": 90,
+    "n_original_H7period": 451,
+    "original_holdout_H6_baseline_MSE": 0.0600859311735985,
+    "original_holdout_H6_added_MSE": 0.0552922194039511,
+    "H6_equal_added_MSE_gain_pct": 7.978093500452793,
+    "fixed_out_of_fold_error_H6_resampling95_pct": [
+      0.9646054891191725,
+      14.473016219447667
+    ],
+    "fixed_source_folds": 5,
+    "deterministic_H6_hash": true,
+    "train_only_scaling_and_country_method_dummies": true,
+    "ridge_alpha_fixed": 10.0,
+    "bootstrap_resampling_H6_groups": 2000,
+    "uncertainty_is_fixed_errors_not_model_refit": true,
+    "not_causal": true
+  },
+  "fixed_rule_result": "positive_association_and_predictive_information",
+  "checks": {
+    "source_gate_pass": true,
+    "fixed_spec_matches_commit": true,
+    "focal_FWL_beta": 0.0774964460611218,
+    "full_rank_design": true,
+    "original_CV_checks_train_test_H6_disjoint": true
+  },
+  "inputs": [
+    {
+      "path": "original\\H7_454_HNS_panel.csv",
+      "sha256": "1296d1ded7f1ee185854cad6d1ece1dbb1f94b4e2f48856c8c487a3f3d002fca",
+      "hash_mode": "original bytes"
+    },
+    {
+      "path": "plant\\EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv",
+      "sha256": "33a1a3b27e584121b4c3ec6dff9330d4b06a7096f35758c71690cf1dc431e7bc",
+      "hash_mode": "original bytes"
+    },
+    {
+      "path": "plant\\EU454_H7PERIOD_NUTRI_TRAIT_MEANS_SOURCEONLY.csv",
+      "sha256": "53918cd3dfa99b51bc5d8e21edb27de9978598ecf2985b7dff0e643546544c23",
+      "hash_mode": "original bytes"
+    },
+    {
+      "path": "plant\\EU454_FULL_EIV_SOURCE_GATE.json",
+      "sha256": "3d51e9d6af5cd3a6ad2438d70134a3bf5ccc6ec88451d04ad07c2ba044f86e13",
+      "hash_mode": "original bytes"
+    },
+    {
+      "path": "gesui\\analysis\\20261115_eu454_plant_nutri\\h6_model_if_gate.py",
+      "sha256": "32f0b0b5dc52f835d27898bc10775e7c86044b47ef3ccd85931babc5392ba8d4",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "gesui\\analysis\\20261120_eu451_W_confirmation\\confirm.py",
+      "sha256": "2d85ab4bd54807d1616732ce16ed800fe2f060ee1b77832f57a3c3e12827b32e",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "gesui\\analysis\\20261120_eu451_W_confirmation\\SPECIFICATION.md",
+      "sha256": "7315cf8e90477ad7d3b0e54a1336bb7560f2c87cda6f9a629e24e9e9eebed34a",
+      "hash_mode": "LF-normalized"
+    }
+  ],
+  "limits": [
+    "Not independent replication or new-data preregistration.",
+    "Old models already adjusted for cropland and the other landscape variables.",
+    "Static W is not measured sewage dose; climate/elevation unadjusted.",
+    "Species-equal larval host affinity, not adult protein use or leaf N.",
+    "Neither failure nor success identifies a causal nutrient pathway."
+  ]
+}

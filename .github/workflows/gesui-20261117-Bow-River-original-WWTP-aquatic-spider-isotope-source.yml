@@ -1,0 +1,41 @@
+name: gesui original 2025 Bow River municipal WWTP aquatic riparian isotope source-only QA
+on:
+  push:
+    branches: [docs/wastewater-riparian-interactions-outline]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/bow_river_2022_original_wwtp_isotope_foodweb_data_audit.py'
+      - '.github/workflows/gesui-20261117-Bow-River-original-WWTP-aquatic-spider-isotope-source.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'analysis/20261117_emergence_macro_source/bow_river_2022_original_wwtp_isotope_foodweb_data_audit.py'
+      - '.github/workflows/gesui-20261117-Bow-River-original-WWTP-aquatic-spider-isotope-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_public_Bow_River_municipal_source_isotope_biota_schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original public research repository shallow-clone, no third-party source mutations
+        run: |
+          git clone --depth 1 'https://github.com/Karen-Kidd-Lab-Ecotoxicology/Bow-River-Microbiome-2022.git' '${{ runner.temp }}/original_Bow_River_2022_public'
+          git -C '${{ runner.temp }}/original_Bow_River_2022_public' rev-parse HEAD
+      - name: Source-only stable isotope, insect, spider, WWTP group labels and real sample-size audit
+        run: |
+          python -m py_compile analysis/20261117_emergence_macro_source/bow_river_2022_original_wwtp_isotope_foodweb_data_audit.py
+          python -u analysis/20261117_emergence_macro_source/bow_river_2022_original_wwtp_isotope_foodweb_data_audit.py \
+            --original '${{ runner.temp }}/original_Bow_River_2022_public' \
+            --out '${{ runner.temp }}/GESUI_original_municipal_wastewater_riparian_biota_source'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261117-Bow-River-real-WWTP-isotope-insects-spider-original-source-QA
+          path: '${{ runner.temp }}/GESUI_original_municipal_wastewater_riparian_biota_source/'
+          retention-days: 90
+          if-no-files-found: warn

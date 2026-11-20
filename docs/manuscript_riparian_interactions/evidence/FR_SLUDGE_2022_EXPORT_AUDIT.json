@@ -1,0 +1,22 @@
+{
+  "source": "https://www.assainissement.developpement-durable.gouv.fr/pages/data/basededonneeboue.php",
+  "endpoint": "/controllers/GetDataExportBoueHandler.php",
+  "request_multipart_fields": {
+    "annee": "2022",
+    "bassin": "ALL",
+    "region": "ALL",
+    "departement": "ALL",
+    "tranche": "ALL",
+    "format": "csv"
+  },
+  "date": "2026-11-20",
+  "bytes": 896694,
+  "sha256": "b75f7191ca03750958548312867350568398a6454adac5c373f3d2ff91e199f0",
+  "rows": 2099,
+  "columns": 34,
+  "stations": 35,
+  "station_commune_pairs": 135,
+  "communes": 123,
+  "sources_with_commune_but_zero_reported_spreading_mass": 13,
+  "eligibility": "Reported receiving communes, not verified parcel-date applications. Chemistry rows repeat source quantities. No ecology fit or exposure assignment."
+}

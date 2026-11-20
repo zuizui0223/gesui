@@ -1,0 +1,32 @@
+{
+  "scope": "Existing aggregate receipts; no nationwide DMR or biological model replay",
+  "input_sha256": {
+    "NWCA2021_160POTW_ORIGINAL_CAL2021_DMR_TN_TP_EXO_FEATURE_SOURCE_GATE.json": "d6b0a704c95f78bf0da28c2374858da17a2b7aad5dcefe7e13cfa2f708768244",
+    "EPA_NWCA2021_ORIGINAL_160POTW_2021_DMR_TNTP_SOURCE_FEASIBILITY.json": "68984d50c29779c696d832c96a5a57715482a63cfeb3f9d6cc4cafd7abf7ef68"
+  },
+  "feature_counts": {
+    "00600": {
+      "PR53": 35,
+      "PR54_on_PR53_reported_feature_keys": 34,
+      "only_PR53": 1,
+      "only_PR54": 0
+    },
+    "00665": {
+      "PR53": 93,
+      "PR54_on_PR53_reported_feature_keys": 83,
+      "only_PR53": 10,
+      "only_PR54": 0
+    },
+    "both": {
+      "PR53": 32,
+      "PR54_on_PR53_reported_feature_keys": 31
+    }
+  },
+  "PR53_all_parameter_qualifier_counts_not_deduplicated": {
+    "=": 5554,
+    "(blank)": 1158,
+    "<": 11
+  },
+  "interpretation": "Code predicates differ in monitoring location, NODI and estimated-value acceptance. Aggregate receipts do not assign each discrepant feature to a unique cause.",
+  "native_source_ids_omitted": true
+}
