@@ -1,0 +1,36 @@
+name: gesui official EA national 2017-18 truly observed SA effluent total P vs ChemPop source-only
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_WQE_national_SA_actual2017_18_TP_chemistry_bio_screen.py'
+      - '.github/workflows/gesui-EA-national-SA-actualTP-yearBio-source-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  official-historic-SA-P-and-biological-site-nearby-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Frozen EIDC and official EA source dependencies
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Verify nationwide native-SA 2026 registry and select only source-verified 2017/18 measured final-effluent total P near same-year original ChemPop sites
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_WQE_national_SA_actual2017_18_TP_chemistry_bio_screen.py
+          python -u analysis/20261120_wessex_wwtp/ea_WQE_national_SA_actual2017_18_TP_chemistry_bio_screen.py \
+            --out "${{ runner.temp }}/gesui_source_year/EA_NATIONAL_SA_REAL2017_18_TOTAL_P_BIO_SAME_YEAR_SOURCEONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-WQE-national-actual-2017-18-SA-TP-ChemPop-source
+          path: ${{ runner.temp }}/gesui_source_year/EA_NATIONAL_SA_REAL2017_18_TOTAL_P_BIO_SAME_YEAR_SOURCEONLY.json
+          if-no-files-found: warn
+          retention-days: 90

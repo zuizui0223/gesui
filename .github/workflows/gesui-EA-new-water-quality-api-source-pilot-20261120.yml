@@ -1,0 +1,30 @@
+name: gesui England EA new 2026 WQE official STW historic sample chemistry source pilot
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_2026_water_quality_api_pilot.py'
+      - '.github/workflows/gesui-EA-new-water-quality-api-source-pilot-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-only-EA-new-API:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify new EA WQE 2026 API without collecting bulk observations or fitting biology
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_2026_water_quality_api_pilot.py
+          python -u analysis/20261120_wessex_wwtp/ea_2026_water_quality_api_pilot.py \
+            --out "${{ runner.temp }}/gesui_ea_wqe/20261120_EA_WQE_CURRENT_PUBLIC_API_SOURCE_PILOT.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-EA-WQE-new-API-source-only
+          path: ${{ runner.temp }}/gesui_ea_wqe/20261120_EA_WQE_CURRENT_PUBLIC_API_SOURCE_PILOT.json
+          if-no-files-found: warn
+          retention-days: 90

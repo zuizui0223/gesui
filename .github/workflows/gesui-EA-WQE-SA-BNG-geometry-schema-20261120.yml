@@ -1,0 +1,30 @@
+name: gesui EA national final treated water company SA geometry source schema pilot
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_SA_national_geometry_schema_pilot.py'
+      - '.github/workflows/gesui-EA-WQE-SA-BNG-geometry-schema-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-only-native-SAWQE-geometry-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify native SA JSON-LD geometry schema and filtered registry second page
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_SA_national_geometry_schema_pilot.py
+          python -u analysis/20261120_wessex_wwtp/ea_SA_national_geometry_schema_pilot.py \
+            --out "${{ runner.temp }}/sa_schema/EA_WQE_SA_NATIONAL_BNG_SOURCE_SCHEMA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-EA-WQE-SA-BNG-geometry-source-schema
+          path: ${{ runner.temp }}/sa_schema/EA_WQE_SA_NATIONAL_BNG_SOURCE_SCHEMA.json
+          if-no-files-found: warn
+          retention-days: 90

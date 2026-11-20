@@ -1,0 +1,30 @@
+name: gesui DEFRA open UK UWWTR 2022-24 Article15 treatment/outlet data source access
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/defra_UWWTR_2022_24_discharge_points_source_probe.py'
+      - '.github/workflows/gesui-DEFRA-UWWTR-2022-24-outfall-ODS-source-only.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-DEFRA-CCBY-outlet-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Probe officially published DEFRA CC BY 2022/24 UWWTR Article15 ODS archive access and outer SHA; no 2017/18 source backfill
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/defra_UWWTR_2022_24_discharge_points_source_probe.py
+          python -u analysis/20261120_wessex_wwtp/defra_UWWTR_2022_24_discharge_points_source_probe.py \
+            --out "${{ runner.temp }}/gesui_DEFRA_UWWTR/DEFRA_UWWTR_ARTICLE15_CC_BY_OUTFALL_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-DEFRA-Article15-2022-24-plant-outlet-source-only
+          path: ${{ runner.temp }}/gesui_DEFRA_UWWTR/DEFRA_UWWTR_ARTICLE15_CC_BY_OUTFALL_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90

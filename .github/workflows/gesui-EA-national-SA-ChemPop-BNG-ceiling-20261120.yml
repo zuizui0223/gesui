@@ -1,0 +1,36 @@
+name: gesui national 5722 EA Water Company final-treated SA register to original ChemPop BNG geographic ceiling
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_national_SA_registry_to_ChemPop_source_ceiling.py'
+      - '.github/workflows/gesui-EA-national-SA-ChemPop-BNG-ceiling-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  official-nationwide-EA-SA-to-original-bio-geography:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install audited source-only original EIDC and RData readers
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Fully retrieve official 5722 national SA native WKT BNG source stations and compare only original ChemPop sites / 2017-18 source-eligible same-year biology
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_national_SA_registry_to_ChemPop_source_ceiling.py
+          python -u analysis/20261120_wessex_wwtp/ea_national_SA_registry_to_ChemPop_source_ceiling.py \
+            --out "${{ runner.temp }}/sa_national_geo/EA_CURRENT_5722_SA_WKT_CHEMPOP_BNG_SOURCE_CEILING.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-national-SA-ChemPop-2017-18-geographic-ceiling
+          path: ${{ runner.temp }}/sa_national_geo/EA_CURRENT_5722_SA_WKT_CHEMPOP_BNG_SOURCE_CEILING.json
+          if-no-files-found: warn
+          retention-days: 90

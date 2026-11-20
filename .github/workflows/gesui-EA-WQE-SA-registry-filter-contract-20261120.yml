@@ -1,0 +1,30 @@
+name: gesui official EA WQE national treated WaterCompany SA point-type filter contract
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_SA_registry_filter_contract.py'
+      - '.github/workflows/gesui-EA-WQE-SA-registry-filter-contract-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-API-source-parameter-filter-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compare official actual sampling-point SA and SB filters to unfiltered JSON-LD page and reject ignored API query keys
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_SA_registry_filter_contract.py
+          python -u analysis/20261120_wessex_wwtp/ea_SA_registry_filter_contract.py \
+            --out "${{ runner.temp }}/gesui_wqe_type/EA_WQE_SA_NATIONAL_FILTER_SOURCE_CONTRACT.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-EA-WQE-SA-pointtype-filter-contract-source
+          path: ${{ runner.temp }}/gesui_wqe_type/EA_WQE_SA_NATIONAL_FILTER_SOURCE_CONTRACT.json
+          if-no-files-found: warn
+          retention-days: 90
