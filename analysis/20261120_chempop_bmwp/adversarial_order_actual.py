@@ -50,6 +50,7 @@ def create_same_source(fam_scores, source_rows, source_weights):
         raise RuntimeError("Source sample and taxon weight identity drift")
     siteyear, A, B, fam, scores, nsupported = f.site_year_response(
         source_rows, source_weights, fam_scores)
+    siteyear["edf_log1p"] = np.log1p(siteyear.edf_pct.to_numpy(float))
     if (len(siteyear) != ORIGINAL_N_SITEYEAR
         or siteyear.site_region_id.nunique() != ORIGINAL_N_SITES
         or siteyear.region.nunique() != ORIGINAL_N_REGIONS):
@@ -225,6 +226,7 @@ def true_count_sensitivity(source_rows, source_weights, scores):
     raw=[q[0] for q in eligible]
     weights=[q[1] for q in eligible]
     df, _, _, _, _, n=f.site_year_response(raw,weights,scores)
+    df["edf_log1p"] = np.log1p(df.edf_pct.to_numpy(float))
     # Source test is conducted BEFORE reading count-CWM outcomes.
     record=df.to_dict(orient="records")
     gate=actual_count_gate(record,raw)
