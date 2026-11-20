@@ -18,6 +18,11 @@
 - まず**元全登録SAのネットワーク位置関係の件数**を固定し、次に元同年TPを取得した採水点に限定して出現SOURCEを再分類する。候補の数が多くWQE APIが制限する場合、元source-selected batchを分割し、全件取得できなければSOURCE CENSUS INCOMPLETEとして報告。年や施設を結果の都合で選ばない。
 - 検定の研究規模基準は旧版から固定：50 distinct true BIO site、100 site×year、最低5 independent hydrological groups。今回はdistinct/hydrologicalの情報からSOURCE-supportのみを判断し、満たしても**真のoutfall IDと放流量kg/yearの未識別**のため生態モデルの因果認可は別途STOP。
 
+## 公式EA仕様で実装後に見つかった検証上の注意点
+
+- 公式[EA Water Quality Archive移行のお知らせ（2025-11-27）](https://dsp.environment.data.gov.uk/support/announcements/275811447/1156939777)によると、**/data/observation の最大ページ長は250**、一回の検索のsampling point上限100、ページ送りは skip を使う。旧 source-only 実装で limit=2500 を要求し len(rows)<2500 で完了扱いした部分には、**APIが250に制限した結果を全件と誤認する潜在的な欠落**があった。正しい limit=250 で全sourceバッチを再実行して初めて採用する。未修正版のActions runはSTOP/診断履歴として残し、過小なsource observation countは用いない。
+- WQE SAの**採水地点**と元permitの物理的な**放流口**が別な可能性は行政要件にもある。[GOV.UKの排出監視ガイダンス](https://www.gov.uk/government/publications/waste-water-treatment-works-treatment-monitoring-and-compliance-limits/waste-water-treatment-works-treatment-monitoring-and-compliance-limits)では複数outletとcombined sample pointがあり得る。[事業許可の管理システム](https://www.gov.uk/guidance/develop-a-management-system-environmental-permits?lang=en)も排出monitoring pointsとsurface-water outletを別項目として扱う。流下の候補を出しただけで実際の物理outfall→河川の受水と認めない。
+- 生物観測年と処理水のTP測定年を別々に確認する。2017のsourceを2018のBIO地点に後付けで付与しない。
 ## 繰り返してはいけない表現
 
 HydroRIVERS reachが上流にあるだけでは、WQE SA「採水点」が原処理場の物理放流口と一致すると保証されない。HydroRIVERS v1は10km²/0.1cmsより小さい流路を落としており、支流/感潮/施設敷地内の水路/下流方向の不確実性は残る。BWMPの見かけの地理傾向をSTW由来の因果N/P選別に格上げしない。処理水TP mg/Lは質量kg/yrの代わりにならない。下流比較のplaceboと同reach曖昧、別branch=陰性と決めつけない。
