@@ -58,6 +58,8 @@ def main():
     ax.legend(handles=[Patch(facecolor=COLORS[k],label=v) for k,v in LABELS.items()],loc='lower left',bbox_to_anchor=(0,-.005),ncol=2,frameon=False,fontsize=8.5)
     fig.subplots_adjust(left=.015,right=.995,top=.99,bottom=.025)
     for ext in ('png','svg','pdf'):fig.savefig(output/f'GLOBAL_CHAIN_COVERAGE_20261120.{ext}',dpi=170,facecolor='white')
+    svg=output/'GLOBAL_CHAIN_COVERAGE_20261120.svg'
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8')
     print(f'Rendered {len(ROWS)} designs x {len(COLS)} fields; no effect estimates computed')
 
 if __name__=='__main__':main()
