@@ -175,6 +175,83 @@ def validate_measured(measured,rel,graph,biosnap,year_bio):
         "cannot_authorize_ecological_causal_regression":True
     }
 
+
+def source_sensitivity_snap_and_path(measured,snapsrc,snapbio,year_bio,graph,original):
+    """On EXACT SAME actual 2017/18 measured SA point cohort: 3x3 source sensitivity.
+
+    Preserves the 500m river-snap / 50km downstream reach-traversal as the
+    original main; diagnostic variants are explicitly exploratory/posthoc
+    and do not alter source eligibility thresholds or STW measured cohort.
+    """
+    outcome={}
+    for max_snap in (100,250,500):
+        for max_km in (10,25,50):
+            years={}
+            unique_bio=set()
+            n_site_year=0
+            all_upstream_SA=set()
+            for yr in YEARS:
+                sites=[b for b in sorted(year_bio[yr])
+                       if b in snapbio and snapbio[b]["snap_distance_m"]<=max_snap]
+                stws=[k for k in sorted(measured[yr])
+                      if k in snapsrc and snapsrc[k]["snap_distance_m"]<=max_snap]
+                src_path={
+                    k:route.downstream_trace(snapsrc[k]["reach"],graph,
+                                             maxkm=float(max_km))[0] for k in stws}
+                bio_path={
+                    k:route.downstream_trace(snapbio[k]["reach"],graph,
+                                             maxkm=float(max_km))[0] for k in sites}
+                hits=set()
+                reverse=set()
+                same=set()
+                source_with_upstream=set()
+                paircounts=collections.Counter()
+                for b in sites:
+                    br=snapbio[b]["reach"]
+                    for stw in stws:
+                        sr=snapsrc[stw]["reach"]
+                        if sr==br:
+                            same.add(b)
+                            paircounts["same_reach"]+=1
+                        elif br in src_path[stw]:
+                            hits.add(b)
+                            source_with_upstream.add(stw)
+                            paircounts["upstream"]+=1
+                        elif sr in bio_path[b]:
+                            reverse.add(b)
+                            paircounts["reverse_placebo"]+=1
+                unique_bio.update(hits)
+                all_upstream_SA.update(source_with_upstream)
+                n_site_year+=len(hits)
+                years[str(yr)]={
+                    "source_bio_eligible_site_n":len(year_bio[yr]),
+                    "BIO_sites_snap_at_most_limit":len(sites),
+                    "historically_measured_TP_SA_points_snap_at_most_limit":len(stws),
+                    "BIO_sites_with_potential_upstream_measured_TP_SA":len(hits),
+                    "BIO_sites_with_reverse_downstream_TP_SA_placebo":len(reverse),
+                    "BIO_sites_with_same_reach_order_unknown":len(same),
+                    "STW_TP_SA_upstream_sources_with_at_least_one_BIO":len(source_with_upstream),
+                    "directed_pair_counts":dict(paircounts),
+                }
+            mode=str(max_snap)+"m_snap_"+str(max_km)+"km_maxtrace"
+            outcome[mode]={
+                "years":years,
+                "distinct_BIO_site_union_upstream":len(unique_bio),
+                "BIO_site_years_upstream":n_site_year,
+                "distinct_original_SA_TP_monitored_source_points":len(all_upstream_SA),
+                "original_50site_source_threshold_pass":len(unique_bio)>=N_DISTINCT_BIO_GATE,
+                "original_100siteyear_source_threshold_pass":n_site_year>=N_SITEYEAR_GATE,
+                "source_point_not_verified_outfall_and_not_causal":True
+            }
+    main=outcome["500m_snap_50km_maxtrace"]
+    if (main["distinct_BIO_site_union_upstream"]!=
+            original["n_DISTINCT_true_BIO_site_union_network_upstream_measured_source"]
+        or main["BIO_site_years_upstream"]!=
+            original["n_SITE_YEAR_bio_network_upstream_measured_source"]):
+        raise RuntimeError("Independent 500m/50km source routing sensitivity does not reproduce original source-quality result")
+    return outcome
+
+
 def main(args):
     out={
         "schema":"GESUI_20261120_UK_WQE_ALL_SA_NETWORK_FIRST_ACTUAL2017_18_TP_BIO_SOURCE_V1",
@@ -208,7 +285,10 @@ def main(args):
             # presence in either biological survey year.
             actual,actualqa=hist.candidate_history(sorted(candidate))
             by_year,overall=validate_measured(actual,rel,graph,b_snap,yr)
+        sensitivities=source_sensitivity_snap_and_path(actual,s_snap,b_snap,yr,graph,overall)
         out.update({
+            "original_source_posthoc_snap_and_path_sensitivities":sensitivities,
+            "original_500m_50km_sensitivity_independently_reproduced":True,
             "source_registry":{k:v for k,v in regqa.items() if k not in ("source_page_SHA256",)},
             "original_ChemPop_source_frame":biqa,
             "official_HydroRIVERS_v1_source_frame":networkqa,
@@ -235,6 +315,16 @@ def main(args):
         "historical_TP_source":out.get("historical_TP_source"),
         "year_relations":out.get("same_year_original_TP_measured_source_vs_BIO_directed_relation"),
         "gates":out.get("network_matched_historical_source_gates"),
+        "snap_path_sensitivity_summary":{
+            key:{"distinct_BIO_site_union":v["distinct_BIO_site_union_upstream"],
+                 "site_years":v["BIO_site_years_upstream"],
+                 "SA_TP_sources":v["distinct_original_SA_TP_monitored_source_points"],
+                 "upstream_2017":v["years"]["2017"]["BIO_sites_with_potential_upstream_measured_TP_SA"],
+                 "upstream_2018":v["years"]["2018"]["BIO_sites_with_potential_upstream_measured_TP_SA"],
+                 "reverse_2017":v["years"]["2017"]["BIO_sites_with_reverse_downstream_TP_SA_placebo"],
+                 "reverse_2018":v["years"]["2018"]["BIO_sites_with_reverse_downstream_TP_SA_placebo"],
+            } for key,v in out.get("original_source_posthoc_snap_and_path_sensitivities",{}).items()
+        },
     },ensure_ascii=False,sort_keys=True,allow_nan=False),flush=True)
 
 
