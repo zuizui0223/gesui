@@ -233,7 +233,14 @@ def main(a):
             "source_gates":{
                 "same_year_source_reach_count_reproduced":True,
                 "original_BIO_dates_from_actual_sample_date_not_year_proxy":True,
-                "effluent_TP_dates_before_BIO_not_after_only":True,
+                "pre90_any_BIO_source_observation_siteyears_ge_100":
+                    total["pre90"]["site_years_with_any_true_BIO_date_in_window"]>=100,
+                "pre90_distinct_BIO_sites_ge_50":
+                    total["pre90"]["unique_BIO_sites_with_any_date_in_window"]>=50,
+                "pre90_all_BIO_dates_source_observation_siteyears_ge_100":
+                    total["pre90"]["site_years_where_ALL_true_BIO_dates_in_window"]>=100,
+                "same_day_measurement_not_assumed_to_precede_BIO":True,
+                "pre365_year2017_left_censored_due_to_unretrieved2016_TP":True,
                 "true_STW_outfall_location_and_actual_river_flow_delivered":False,
                 "real_WWTP_P_mass_kg_year":False,
                 "allow_BMWP_causal_model":False
