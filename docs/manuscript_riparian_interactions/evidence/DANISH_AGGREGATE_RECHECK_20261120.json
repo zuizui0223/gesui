@@ -1,0 +1,90 @@
+{
+  "scope": "Published aggregate arithmetic only; no new ecological model or uncertainty estimate",
+  "snapshot_sha256": "77fd9ce030b7c5f405411259dabbb1b61a0a17fae5f4ac858a4e2b9ecaedabb3",
+  "series": "Denmark eBMS v1.4; PRs are dependent analyses, not seven studies",
+  "prs": [
+    {
+      "number": 37,
+      "headRefOid": "0eab8a9f065312b80874a061f7fd1f8b507f05c9",
+      "url": "https://github.com/zuizui0223/gesui/pull/37"
+    },
+    {
+      "number": 38,
+      "headRefOid": "8bae689d06b1995927ccd897ef93da696f7119ab",
+      "url": "https://github.com/zuizui0223/gesui/pull/38"
+    },
+    {
+      "number": 39,
+      "headRefOid": "040bfd3e836ec866ce6eb37f5cc7d5c952306035",
+      "url": "https://github.com/zuizui0223/gesui/pull/39"
+    },
+    {
+      "number": 40,
+      "headRefOid": "1d6742eab3cec4bfa70e378abee21fbf699e3150",
+      "url": "https://github.com/zuizui0223/gesui/pull/40"
+    },
+    {
+      "number": 41,
+      "headRefOid": "010879cf249f82f353eac2fa59b755eed7b3658f",
+      "url": "https://github.com/zuizui0223/gesui/pull/41"
+    },
+    {
+      "number": 42,
+      "headRefOid": "029d28ff259739d8a576a7d40af3350aabd8661d",
+      "url": "https://github.com/zuizui0223/gesui/pull/42"
+    },
+    {
+      "number": 43,
+      "headRefOid": "c960df1064a43671e74dda7eaae1445a4316a644",
+      "url": "https://github.com/zuizui0223/gesui/pull/43"
+    }
+  ],
+  "source_report": "https://github.com/zuizui0223/gesui/blob/c960df1064a43671e74dda7eaae1445a4316a644/docs/RESULTS_DK2025_NEW399_SPECIES_3VS5FAMILY_COMPOSITION_2021_HABITAT_20261110.md",
+  "published_aggregate_counts": {
+    "near": [
+      382,
+      680,
+      0,
+      3822,
+      372
+    ],
+    "remote": [
+      644,
+      2602,
+      0,
+      3544,
+      192
+    ],
+    "near_linked_days": 539,
+    "remote_linked_days": 757
+  },
+  "recomputed": {
+    "rate_ratio": 0.8330759746021503,
+    "three_family_OR": 2.2697387650712457,
+    "five_family_OR": 0.7713370731247309
+  },
+  "algebraic_species_exclusions_not_interventions": {
+    "Pieris brassicae": {
+      "three_family_OR": 1.2894467986300575,
+      "five_family_OR": 0.6144911337341026
+    },
+    "Maniola jurtina": {
+      "three_family_OR": 2.2697387650712457,
+      "five_family_OR": 1.0648197615852988
+    },
+    "Polyommatus icarus": {
+      "three_family_OR": 3.2681599330123507,
+      "five_family_OR": 1.11063570664007
+    },
+    "Plebejus argus": {
+      "three_family_OR": 1.895410120569967,
+      "five_family_OR": 0.6441270322690814
+    }
+  },
+  "limitations": [
+    "No raw event/occurrence rejoin in this check",
+    "No independent variance derivable from pooled individual totals",
+    "Observation dates without occurrence rows are not verified zero counts",
+    "Recorded adults and larval-host HNS are different outcomes"
+  ]
+}
