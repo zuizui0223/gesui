@@ -7,7 +7,7 @@
 - 原 [ChemPop v2 (EIDC, 2025)](https://doi.org/10.5285/23f194b0-1e21-4f14-be9c-6eabdcc1feb7)、2010–2018のsource適格7,836原生物試料→3,884地点×年・707 site・英国7地域。英国2016 biotic原公開BMWP辞書、出現した88採点科名。
 - [元主解析 Actions #44548177752](https://github.com/zuizui0223/gesui/actions/runs/44548177752) の主BMWP科均等係数 β **−0.09110572**、707地点クラスタ記述95 **[−0.13360,−0.04861]**、EDFを追加する地域丸ごと外挿MSE改善 **+4.5166% [0.5916,8.3519]**、5/7地域で改善。背景：都市/農地/河床/河川幅/標高/調査年/月/観測方法/得点率/科数、地域。
 - [新追加反証 Actions #44669989917](https://github.com/zuizui0223/gesui/actions/runs/44669989917) 完全実行。元BMWP得点辞書SHA 4f9be755ce6d24e645b46705dbec9c0367bc71a9ce6b335d3bf2657d8c10ac5a は固定。EIDC公式ZIPのバイトハッシュが先行runと異なるため、新runではそれも記録し、原7地域×sitevariables/taxon CSV計14のメンバーSHAを保持。元サイト/期間/係数を誤差1e−10以内で再現しない場合は停止。元の一度目のSTOPとコード改修（ZIPコンテナSHAと固定得点辞書を区別、予測に必要なEDF変換列を追加）は履歴として残す。
-- 原生物1.81百万taxon rowsや第三者score辞書はGitに再配布していない。新run JSON artifact ID **14598803930** は最初のSOURCE STOP実行のものではなく、最終 #44669989917 にある集約JSONが採用成果物。
+- 原生物1.81百万taxon rowsや第三者score辞書はGitに再配布していない。**最終成功run #44669989917 の採用JSON artifact ID は14598879538**。ID14598803930は最初のSOURCE STOP実行の成果物であり、採用結果ではない。
 
 ## 1. 目平均と同じ目の中の科差への厳密分解
 
