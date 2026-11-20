@@ -1,0 +1,54 @@
+{
+  "plant_sites_reconstructed": 18,
+  "outfall_contrasts_verified": 6,
+  "up_down_plant_supported": 4,
+  "three_site_plant_supported": 3,
+  "supported_plant_contrasts_below_zero": 4,
+  "frozen_butterfly_support": [
+    {
+      "cohort": "DE6",
+      "period": "2011,2022",
+      "outfalls": 6,
+      "all_sites_one_lyca": 1,
+      "all_sites_plant20_and_lyca_support": 0
+    },
+    {
+      "cohort": "local16",
+      "period": "2017,2019",
+      "outfalls": 16,
+      "all_sites_one_lyca": 1,
+      "all_sites_plant20_and_lyca_support": 0
+    },
+    {
+      "cohort": "local16",
+      "period": "2020,2022",
+      "outfalls": 16,
+      "all_sites_one_lyca": 3,
+      "all_sites_plant20_and_lyca_support": 0
+    }
+  ],
+  "original_git_sources": [
+    {
+      "commit": "2bedeae879a80b8af842703a29836ce099cd59f0",
+      "path": "results/independent_deu_tp_plantae_20261107/PLANT_site_species_records.csv",
+      "sha256": "c3dcf021ab93cc197ef27bdec12e4f8b06681b3ec745bd86ffea36d2a21d8029"
+    },
+    {
+      "commit": "2bedeae879a80b8af842703a29836ce099cd59f0",
+      "path": "results/independent_deu_tp_plantae_20261107/paired_monthly_TP_mg_L.csv",
+      "sha256": "3a0ac6ece7e20402f87287b2aff9042ea2c98bbfb5d3ef83db92868ad947c1cf"
+    },
+    {
+      "commit": "2bedeae879a80b8af842703a29836ce099cd59f0",
+      "path": "results/independent_deu_tp_plantae_20261107/FROZEN_DESIGN.json",
+      "sha256": "72931f8403c548d7e60558302028b211c663d075ecfd22e7f40be62ccc35c41d"
+    }
+  ],
+  "crosswalk_sha256": "ab45f36c0dad047442bb958bcef3135b45014bafec8a70811bcafb6109a02679",
+  "frozen_support_table_sha256": "56574328f1a816a0abf1b41f116202f30dafa23ca368e8216e67a62219f250e7",
+  "limits": [
+    "Plant/TP reconstructed from fixed original source-derived tables and external trait crosswalk.",
+    "Butterfly thresholds rechecked from frozen site counts; individual GBIF records not requeried or independently recounted.",
+    "No new ecological test, causal effect or meta-analysis fitted."
+  ]
+}
