@@ -1,0 +1,37 @@
+name: gesui true 2017-18 SA effluent TP sample dates before ChemPop river-fauna sampling
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_SA_TP_upstream_before_ChemPop_bio_dates.py'
+      - '.github/workflows/gesui-EA-SA-TP-source-before-BIO-sampling-dates-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-only-native-date-order-on-upstream-reaches:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source-only official WQE, ChemPop and HydroRIVERS dependencies
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'geopandas>=1.0,<2' 'pyogrio>=0.10,<1' 'shapely>=2.0,<3' 'pyproj>=3.6,<4' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Verify 148 BIO sites and 237 siteyears before checking strict prior TP 30/90/365 days and after90 and same-day ambiguity
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_SA_TP_upstream_before_ChemPop_bio_dates.py
+          python -u analysis/20261120_wessex_wwtp/ea_SA_TP_upstream_before_ChemPop_bio_dates.py \
+            --out "${{ runner.temp }}/gesui_STW_dates/EA_STW_TRUE_TP_BEFORE_CHEMPOP_BIO_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-real-STW-TP-before-ChemPop-BIO-sample-dates-source-only
+          path: ${{ runner.temp }}/gesui_STW_dates/EA_STW_TRUE_TP_BEFORE_CHEMPOP_BIO_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90
