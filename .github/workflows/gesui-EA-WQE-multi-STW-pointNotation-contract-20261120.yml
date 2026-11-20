@@ -1,0 +1,30 @@
+name: gesui official WQE multiple pointNotation treated effluent 2018 exact source filter
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_WQE_pointNotation_multi_contract.py'
+      - '.github/workflows/gesui-EA-WQE-multi-STW-pointNotation-contract-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine-two-native-2018-STW-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate multi-ID filter syntax by comparing repeated and comma-separated source pointNotations to two exact genuine 2018 STW TP samples
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_WQE_pointNotation_multi_contract.py
+          python -u analysis/20261120_wessex_wwtp/ea_WQE_pointNotation_multi_contract.py \
+            --out "${{ runner.temp }}/gesui_multi_site/WQE_NATIVE_MULTI_POINTNOTATION_SOURCE_CONTRACT.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-EA-WQE-2018-verified-multiple-samplingpoint-filter
+          path: ${{ runner.temp }}/gesui_multi_site/WQE_NATIVE_MULTI_POINTNOTATION_SOURCE_CONTRACT.json
+          if-no-files-found: warn
+          retention-days: 90
