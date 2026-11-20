@@ -8,6 +8,8 @@
 
 ## 変更内容
 
+- 同じ73流域で共有要因・頑健性を追加検証。都市・耕地・流域条件・Wへの全順序共分散配分、24親流域の除外診断、親流域完全留保の予測比較を収録。景観は水域・陸域指標の予測を改善したがW追加は不確実。独立した再現や時間的同調とはしない。
+
 - フランス73流域の期間平均・差分で、水域と陸域の残差相関と共分散を並列に推定。蝶全体を主解析、両期間適格67流域のシジミを補足とし、3,000回の親流域再標本化、全結果CSV、入力ハッシュ、比較図、本文2.8・3.6を追加。
 
 - 本文、4パネルのパス図、経路別スケール表を更新。下水→河川環境→植物資源→植食者の既存経路図を保持し、底生EQR/BMWPは水域側の別応答として置く。新規の並列比較とは推定対象を区別する。
@@ -31,6 +33,8 @@
 新しい全鎖メタ解析・因果媒介推定は実行していない。既存解析の再実行と監査を「解析なし」と一括せず、独立した新規生態研究とも数えない。
 
 ## レビュー対象
+
+- [共通要因・頑健性・親流域外予測](https://github.com/zuizui0223/gesui/blob/docs/wastewater-riparian-interactions-outline/docs/manuscript_riparian_interactions/WATER_LAND_SHARED_DRIVERS_20261120.md)
 
 - [新規の水陸共変動解析・図・再現コード](https://github.com/zuizui0223/gesui/blob/docs/wastewater-riparian-interactions-outline/docs/manuscript_riparian_interactions/WATER_LAND_COVARIATION_20261120.md)
 
