@@ -1,0 +1,30 @@
+name: gesui EA WQE genuine 2017-18 wastewater P N monitored mass loads bounded source
+on:
+  push:
+    paths:
+      - 'analysis/20261120_wessex_wwtp/ea_2026_load_determinand_historical_pilot.py'
+      - '.github/workflows/gesui-EA-WQE-historic-PN-load-source-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-p-n-load-source-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Bounded current official EA WQE 2017-18 total P, ortho P load and ammoniacal N load source audit
+        run: |
+          python -m py_compile analysis/20261120_wessex_wwtp/ea_2026_load_determinand_historical_pilot.py
+          python -u analysis/20261120_wessex_wwtp/ea_2026_load_determinand_historical_pilot.py \
+            --out "${{ runner.temp }}/gesui_ea_wqe/EA_WQE_2017_2018_P_N_EFFLUENT_LOAD_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-EA-WQE-2017-18-effluent-PN-load-source-only
+          path: ${{ runner.temp }}/gesui_ea_wqe/EA_WQE_2017_2018_P_N_EFFLUENT_LOAD_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90
