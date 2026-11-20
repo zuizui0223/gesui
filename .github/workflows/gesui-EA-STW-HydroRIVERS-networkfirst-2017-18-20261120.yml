@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'analysis/20261120_wessex_wwtp/ea_SA_TP_ChemPop_networkfirst_allSA_history.py'
+      - 'analysis/20261120_wessex_wwtp/ea_WQE_national_SA_actual2017_18_TP_chemistry_bio_screen.py'
       - '.github/workflows/gesui-EA-STW-HydroRIVERS-networkfirst-2017-18-20261120.yml'
   workflow_dispatch:
 permissions:
