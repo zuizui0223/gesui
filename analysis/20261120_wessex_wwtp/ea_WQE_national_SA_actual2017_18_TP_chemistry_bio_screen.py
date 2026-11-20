@@ -21,7 +21,7 @@ Bath-area effluent monitoring points (run #44678384278).
 """
 from __future__ import annotations
 
-import argparse,collections,csv,hashlib,io,json,math,sys,urllib.error,urllib.parse,urllib.request
+import argparse,collections,csv,hashlib,io,json,math,sys,time,urllib.error,urllib.parse,urllib.request
 from pathlib import Path
 import numpy as np
 
@@ -82,10 +82,18 @@ def page(year,notations,skip):
         "skip":skip,"status":None,"n_observations":None,
         "sha256":None,"content_type":None}
     try:
-        with urllib.request.urlopen(request,timeout=70) as response:
-            receipt["status"]=int(response.status)
-            receipt["content_type"]=response.headers.get("Content-Type","")
-            raw=response.read(MAX_BATCH_REPLY_BYTES+1)
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(request,timeout=70) as response:
+                    receipt["status"]=int(response.status)
+                    receipt["content_type"]=response.headers.get("Content-Type","")
+                    raw=response.read(MAX_BATCH_REPLY_BYTES+1)
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code in (502,503,504) and attempt<2:
+                    time.sleep(1.5*(attempt+1))
+                    continue
+                raise
         if len(raw)>MAX_BATCH_REPLY_BYTES:raise RuntimeError("Official 250-observation WQE page over capped 750 KB")
         receipt["source_bytes"]=len(raw)
         receipt["sha256"]=hashlib.sha256(raw).hexdigest()
@@ -103,14 +111,14 @@ def page(year,notations,skip):
         rows=list(reader)
         receipt["n_observations"]=len(rows)
         if len(rows)>PAGE_LIMIT:
-            raise RuntimeError("Official source response exceeds fixed 2500 observations per page")
+            raise RuntimeError("Official source response exceeds official WQE 250 observations per page")
         requested=set(notations)
         if any(x["samplingPoint.notation"].strip() not in requested for x in rows):
             raise RuntimeError("Official pointNotation comma filter is not strict")
         return rows,receipt
     except urllib.error.HTTPError as err:
         raise RuntimeError(
-           f"WQE original source HTTP {err.code} on fixed source batch: {str(err)[:200]}") from err
+           f"WQE original source HTTP {err.code} on fixed source batch, year={year}, skip={skip}: {str(err)[:200]}") from err
 
 
 def candidate_history(names):
