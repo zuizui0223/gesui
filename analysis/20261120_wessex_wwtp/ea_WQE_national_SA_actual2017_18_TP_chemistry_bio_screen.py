@@ -250,7 +250,7 @@ def make(args):
             "pre_original_outcome_geographic_candidate_QA":candidateqa,
             "original_EA_WQE_actual_2017_18_TP_source_QA":obsqa,
             "verified_same_year_TP_source_to_BIO_geography":{
-                str(yr):compare_year(registry,measured,yr,bio,years[yr] if False else years)
+                str(yr):compare_year(registry,measured,yr,bio,years)
                 for yr in YEARS
             },
             "source_gates":{
