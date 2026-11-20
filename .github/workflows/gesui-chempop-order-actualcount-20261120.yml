@@ -1,0 +1,36 @@
+name: gesui ChemPop posthoc BMWP order-vs-family and actual-count-only adversarial
+on:
+  push:
+    paths:
+      - 'analysis/20261120_chempop_bmwp/**'
+      - '.github/workflows/gesui-chempop-order-actualcount-20261120.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  authentic-source-adversarial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Frozen source and model dependencies
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Source-verify 2010–18 original BMWP response and examine order filtering, site-only, real counts and region transfer
+        run: |
+          python -m py_compile analysis/20261120_chempop_bmwp/adversarial_order_actual.py
+          python -u analysis/20261120_chempop_bmwp/adversarial_order_actual.py \
+            --out "${{ runner.temp }}/chempop_adversarial/20261120_BMWP_ORDER_ACTUALCOUNT_FALSIFIERS.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261120-ChemPop-v2-order-and-actualcount-adversarial
+          path: ${{ runner.temp }}/chempop_adversarial/20261120_BMWP_ORDER_ACTUALCOUNT_FALSIFIERS.json
+          if-no-files-found: warn
+          retention-days: 90
