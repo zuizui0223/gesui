@@ -44,3 +44,20 @@ Salt River complexでは放流水区間と対照を比較し、NH4、NO3、NO2�
 5. 外部への問い合わせは未送信。著者等へ連絡する場合は別途ユーザーの明示指示を要する。
 
 論文で安全に使える位置づけ：**処理水が河川環境と河岸の植生・植食性昆虫を同時に変える可能性は既存研究に現れているが、栄養経路と水供給経路の分離、および植物を介した媒介の定量化が残されている。** これにより本研究の共通問を、単なる水域・陸域比較から「河川を通る下水の資源供給が、どの植物資源を介して河岸の植食者へ届くか」へ具体化できる。
+
+## 追補：95-010WPF最終報告・学位論文の公式原本探索
+
+同日追加監査では、1998年最終報告として引用される *Assessment of the Role of Effluent-Dominated Rivers in Supporting Riparian Functions* を、題名および `95-010` / `95-010WPF` の表記でAWPF、Arizona州立図書館、ASUを検索した。**公式の事業存在・設計記録には到達したが、対象最終報告本文そのものには未到達。** 以下の資料を最終報告や生物rawと取り違えない。
+
+| 公式URL | 確認した内容 | 未解決 |
+|---|---|---|
+| [AWPF 2004–2005 Annual Report](https://www.azwpf.gov/sites/default/files/media/2004-2005_AWPF_Annual_Report.pdf) | p.17に95-010WPF、ASU、3河川6区間（各河川で放流水/自然恒常流の2区間）、重点調査は1河川。完了August 1997 | 調査結果の原表・採集法なし。1998は最終報告引用年、1997は事業完了年として分離 |
+| [州立図書館収蔵AWPF年報](https://azmemory.azlibrary.gov/assets/displaypdf/89601) | 同事業・6区間設計を記載、完了December 1997と表示 | 上記年報と完了月が不一致。原本照合までは月を固定しない |
+| [AWPF Phase I事業評価報告](https://www.azwpf.gov/sites/default/files/media/PhaseIFinalReport_0.pdf) | 95-010を完了研究事業として一覧に収録 | 名称がFinal Reportでも対象研究自身の最終報告ではない |
+| [AWPF Phase II事業評価報告](https://www.azwpf.gov/sites/default/files/media/PhaseIIFinalReport.pdf) | 事業一覧の95-010を確認 | 同上。アブラムシ原データの所在を確認できない |
+| [ASU KEEP](https://keep.lib.asu.edu/) | 通常web取得はJavaScriptを要するbot確認画面 | 学位論文本体への到達失敗。確認回避は実施しない |
+| [ASU指導教員CV](https://search.asu.edu/profile/52090/cv) | 2005 Marler PhDの存在・正式題名 | CVは論文本体ではない。ASU repository/KEEP/library searchドメインを対象とした題名・著者検索でも今回本文リンクを特定できず |
+
+この追加監査で得た新しい独立性の情報は、**プロジェクト全体は3河川の放流水/自然恒常流比較を構想したが、多媒体の重点調査は1河川に限られる**という資金提供者側の確認である。自然恒常流の対照を置く点は単純な乾燥河床対放流水比較とは異なる。ただし流量・地下水・洪水履歴・植生型を一致させたことまでは保証しない。
+
+アブラムシの採集法、種・宿主、絶対数/組成比の区別、共通地点・採取日ID、植物媒介指標、n/SD/SEはいずれも**未取得・判定保留**。原本に数値がないとは言わない。今回の公開原本探索から効果量を補完せず、同一研究群の定性的候補という採否を維持する。アクセス制限の回避・著者連絡・非公開資料の取得は行っていない。
