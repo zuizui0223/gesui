@@ -1,0 +1,178 @@
+{
+  "BIO_snap_QA": {
+    "all_raw_site_ids_and_coordinates_omitted": true,
+    "ambiguous_confluence_tied_reach_n": 0,
+    "input_points_n": 463,
+    "median_snap_distance_m": 108.62842165530927,
+    "no_river_within_500m_n": 21,
+    "point_type": "original ChemPop 2017/18 BIO source",
+    "snapped_to_unique_nearest_reach_within_500m_n": 442
+  },
+  "actual_TP_mgL_source_not_WWTP_annual_P_mass": true,
+  "all_SA_snap_QA": {
+    "all_raw_site_ids_and_coordinates_omitted": true,
+    "ambiguous_confluence_tied_reach_n": 1,
+    "input_points_n": 5722,
+    "median_snap_distance_m": 136.27139372094268,
+    "no_river_within_500m_n": 2729,
+    "point_type": "all current EA WaterCompany SA source",
+    "snapped_to_unique_nearest_reach_within_500m_n": 2992
+  },
+  "before_2017_18_observed_TP_network_relation": {
+    "2017": {
+      "bio_not_snapped_to_HydroRIVERS_500m": 18,
+      "bio_with_some_current_registered_STW_on_potential_upstream_reach": 257,
+      "bio_with_some_current_registered_STW_on_reverse_placebo_reach": 312,
+      "current_source_registry_not_historically_measured": true,
+      "national_current_SA_registered_sites_WITH_A_or_B_or_same_reach_relation": 1546,
+      "national_current_SA_with_downstream_reverse_placebo_path": 484,
+      "national_current_SA_with_same_reach_order_unknown": 276,
+      "national_current_SA_with_upstream_geometry_path": 1169,
+      "original_eligible_bio_site_n": 389
+    },
+    "2018": {
+      "bio_not_snapped_to_HydroRIVERS_500m": 12,
+      "bio_with_some_current_registered_STW_on_potential_upstream_reach": 243,
+      "bio_with_some_current_registered_STW_on_reverse_placebo_reach": 301,
+      "current_source_registry_not_historically_measured": true,
+      "national_current_SA_registered_sites_WITH_A_or_B_or_same_reach_relation": 1489,
+      "national_current_SA_with_downstream_reverse_placebo_path": 485,
+      "national_current_SA_with_same_reach_order_unknown": 246,
+      "national_current_SA_with_upstream_geometry_path": 1095,
+      "original_eligible_bio_site_n": 366
+    }
+  },
+  "historical_TP_source": {
+    "historically_measured_STW_sampling_points_both_years": 275,
+    "historically_measured_STW_sampling_points_by_year": {
+      "2017": 281,
+      "2018": 293
+    },
+    "historically_measured_STW_sampling_points_by_year_with_2_dates": {
+      "2017": 280,
+      "2018": 288
+    },
+    "historically_measured_STW_sampling_points_by_year_with_2_months": {
+      "2017": 280,
+      "2018": 288
+    },
+    "official_EA_WQE_observation_max_250_per_page_enforced": true,
+    "source_WQE_is_concentration_mgL_not_annual_P_kg": true,
+    "source_WQE_requested_years": [
+      2017,
+      2018
+    ],
+    "source_batch_size_native_pointNotations": 40,
+    "source_batches": 43,
+    "source_page_count": 90,
+    "source_record_fates": {
+      "all_source_observations_returned": 8810,
+      "source_TP_censored_or_non_numeric": 54,
+      "source_record_not_final_sewage_effluent": 3,
+      "valid_WaterCompany_final_TP_mgL": 8753
+    },
+    "total_source_registered_SA_candidates_screened": 1693,
+    "years_are_same_original_as_biological_study_and_NOT_2026_registry_activity": true
+  },
+  "network_matched_historical_source_gates": {
+    "cannot_authorize_ecological_causal_regression": true,
+    "n_DISTINCT_current_SA_with_measured_TP_and_at_least_one_potential_upstream_BIO": 222,
+    "n_DISTINCT_true_BIO_site_union_network_upstream_measured_source": 148,
+    "n_SITE_YEAR_bio_network_upstream_measured_source": 237,
+    "n_distinct_HYBAS_L12_numeric_group_keys_screened": 113,
+    "n_distinct_MAIN_RIV_group_keys_screened": 33,
+    "original_SA_sampling_point_NOT_permitted_outfall": true,
+    "river_direction_screen_not_verified_hydraulic_pollutant_delivery": true,
+    "source_bio_union_SHA256": "2710f7e5114464a714b91c86bf22eeca1f8eb1a7896a7265f0a67c05ce0c3164",
+    "source_geographic_gate_HYBAS_L12_ge_5": true,
+    "source_geographic_gate_SITE_YEAR_ge_100": true,
+    "source_geographic_gate_distinct_BIO_ge_50": true
+  },
+  "network_source_candidate_code_SHA256": "7e80f6c4ef0646bd2976c833d35ee4c9831d3397d514ddd0934ac3c8dd3842f4",
+  "network_source_candidate_total_n": 1693,
+  "no_BMWP_response_opened": true,
+  "official_HydroRIVERS_v1_source_frame": {
+    "network_reaches_in_england_padded_WGS84_bbox": 28830,
+    "original_BNG_transformed_from_official_WGS84_geometry": true,
+    "original_next_down_present": true,
+    "original_official_HydroRIVERS_EU_ZIP_SHA256": "500da7d36ceee0aa4c82dd625f5c53d80ba2f7ac14ad022cd3a6601bf55068e5",
+    "original_river_v1_release_not_modern_time_variable_drainage": true,
+    "river_lines_omit_small_headwaters_below_10km2_or_0_1_cms": true
+  },
+  "original_ChemPop_source_frame": {
+    "eligible_source_bio_sites_2017": 389,
+    "eligible_source_bio_sites_2018": 366,
+    "eligible_source_bio_sites_either_2017_or_2018": 463,
+    "n_BNG_source_sites_with_coordinates": 1519,
+    "native_BIO_ID_source_geo_join_verified": true,
+    "original_2010_18_source_eligible_sample_n": 7836,
+    "original_2010_18_source_eligible_site_n": 707,
+    "original_326_member_EIDC_ZIP_SHA256": "dbc8582041f862ae866ce519c54a8d0e12e41428e38a45c4cbfc2a4ea2098d72",
+    "original_BMWP_source_SHA256": "4f9be755ce6d24e645b46705dbec9c0367bc71a9ce6b335d3bf2657d8c10ac5a",
+    "source_BNG_missing_by_region": {}
+  },
+  "posthoc_original_source_quality_only": true,
+  "previous_2km_screen_falsification": "The 2km prefilter excludes 2–50km upstream sources; historical coverage must be re-evaluated on all SA network relation candidates",
+  "river_10km2_headwater_omission_source_missingness": true,
+  "same_year_original_TP_measured_source_vs_BIO_directed_relation": {
+    "2017": {
+      "historically_TP_measured_SA_with_NO_same_year_BIO_network_relation": 41,
+      "historically_TP_measured_SA_with_any_same_year_BIO_network_relation": 240,
+      "n_BIO_sites_with_two_or_more_upstream_screen_STW": 63,
+      "n_distinct_source_eligible_BIO_same_reach_TP_STW_order_unknown": 61,
+      "n_distinct_source_eligible_BIO_with_reverse_downstream_placebo_STW_TP": 170,
+      "n_distinct_source_eligible_BIO_with_upstream_SA_TP_on_network_within50km": 118,
+      "n_reverse_STW_BIO_network_pairs": 258,
+      "n_routed_source_samplepoints_with_network_upstream_BIO": 171,
+      "n_same_reach_STW_BIO_pairs_order_unknown": 67,
+      "n_upstream_STW_BIO_network_pairs": 282,
+      "native_WaterCompany_final_TP_samplepoint_same_year_n": 281,
+      "network_candidate_2017_18_SA_codes_SHA256": "4bb93a14a31f5499dee5c7a8acdaf9add8de46b3da99c9317e38520aeea3db64",
+      "no_actual_outfall_position_or_WWTP_P_mass_kg_year_verified": true
+    },
+    "2018": {
+      "historically_TP_measured_SA_with_NO_same_year_BIO_network_relation": 29,
+      "historically_TP_measured_SA_with_any_same_year_BIO_network_relation": 264,
+      "n_BIO_sites_with_two_or_more_upstream_screen_STW": 72,
+      "n_distinct_source_eligible_BIO_same_reach_TP_STW_order_unknown": 71,
+      "n_distinct_source_eligible_BIO_with_reverse_downstream_placebo_STW_TP": 176,
+      "n_distinct_source_eligible_BIO_with_upstream_SA_TP_on_network_within50km": 119,
+      "n_reverse_STW_BIO_network_pairs": 281,
+      "n_routed_source_samplepoints_with_network_upstream_BIO": 190,
+      "n_same_reach_STW_BIO_pairs_order_unknown": 79,
+      "n_upstream_STW_BIO_network_pairs": 314,
+      "native_WaterCompany_final_TP_samplepoint_same_year_n": 293,
+      "network_candidate_2017_18_SA_codes_SHA256": "248694ee516309e48004391a6de8559de72ce80fa650f7d430eff4b85d38de04",
+      "no_actual_outfall_position_or_WWTP_P_mass_kg_year_verified": true
+    }
+  },
+  "schema": "GESUI_20261120_UK_WQE_ALL_SA_NETWORK_FIRST_ACTUAL2017_18_TP_BIO_SOURCE_V1",
+  "source_registry": {
+    "complete_source_unique_native_SA_sampling_point_count": 5722,
+    "no_permit_or_outfall_massing_or_routing": true,
+    "official_data_nationwide_SA_totalItems": 5722,
+    "original_region_notation_counts": {
+      "AN": 1198,
+      "MD": 1233,
+      "NE": 1001,
+      "NW": 629,
+      "SO": 392,
+      "SW": 876,
+      "TH": 393
+    },
+    "original_registry_status_notations": {
+      "C": 662,
+      "O": 5060
+    },
+    "published_registry_is_2026_current_not_historical_2017_2018_sampling": true,
+    "source_all_station_code_SHA256": "bf4cb7027196d8de54c68ea6ef1956f44d17e9909dd5f4b080de750a74ff328e",
+    "source_geo_valid_BNG_point_n": 5722,
+    "source_geo_valid_fraction": 1.0,
+    "source_missing_unparsable_geometry_counts": {},
+    "source_pages_used": 23,
+    "source_type": "SA Water Company FINAL/TREATED effluent monitoring point",
+    "source_valid_BNG_station_code_SHA256": "bf4cb7027196d8de54c68ea6ef1956f44d17e9909dd5f4b080de750a74ff328e"
+  },
+  "status": "NETWORK_FIRST_2017_18_GENUINE_TP_STW_BIO_SOURCE_SCREEN_COMPLETE_NOT_CAUSAL",
+  "true_permitted_outfall_vs_WQE_sampling_point_not_verified": true
+}
