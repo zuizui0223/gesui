@@ -44,19 +44,19 @@
 
 **Produces:** aggregate source provenance, national workbook coverage, fixed-930 permit support and exact EA corroboration. Code accepts private verified caches for this run; default execution downloads only from the declared official sources or their UK National Archives preservation.
 
-- [ ] Require frozen XLSX, Access and EEA table hashes; parse selected columns only; record headers and page receipts.
-- [ ] Reconstruct the original 930 candidates and verify both station and complete-pair fingerprints before joining.
-- [ ] Check workbook and EA all/active/Effluents key consistency, duplicates, dates and source type. Keep incompleteness visible.
-- [ ] Run the new suite and relevant existing 25 source regressions; commit code/protocol before the study-cohort join.
-- [ ] Execute original-source audit, inspect status and aggregate margins, and retain the verified aggregate JSON.
+- [x] Require frozen XLSX, Access and EEA table hashes; parse selected columns only; record headers and page receipts.
+- [x] Reconstruct the original 930 candidates and verify both station and complete-pair fingerprints before joining.
+- [x] Check workbook and EA all/active/Effluents key consistency, duplicates, dates and source type. Keep incompleteness visible.
+- [x] Run the new suite and relevant existing 25 source regressions; commit code/protocol before the study-cohort join.
+- [x] Execute original-source audit, inspect status and aggregate margins, and retain the verified aggregate JSON.
 
 ## Task 3: Review, interpretation and delivery
 
 **Files:** New results and provenance under `results/uk2018_permit_identity_audit_20261121/`; new Japanese result report in `docs/`; update PR137 summary.
 
-- [ ] Obtain a fresh code/scientific review; address important findings with failing-then-passing regressions.
-- [ ] Reconcile national and cohort counts independently. Explain annual-summary selection, cross-sheet duplicates, historical/current differences, and remaining UWWTD native-ID gap.
-- [ ] Save code/results/docs on the same Draft branch, verify final remote blobs and CI, confirm main unchanged.
+- [x] Obtain a fresh code/scientific review; address important findings with failing-then-passing regressions.
+- [x] Reconcile national and cohort counts independently. Explain annual-summary selection, cross-sheet duplicates, historical/current differences, and remaining UWWTD native-ID gap.
+- [x] Prepare the corrected aggregate, provenance, Japanese report and prior-report addendum for the same Draft branch. Final publication verification is recorded in the PR delivery summary.
 
 ## Execution ledger
 
@@ -72,3 +72,10 @@
 - Reproduction: the local 930 station set and all 23 WQE page hashes exactly match the original run, but the hash containing projected floating-point coordinates differs across math runtimes. Preserve the local STOP, retain the strict original hash gate, and use the successful baseline-compatible Actions run for the complete mapping check. Record an additional native-pair hash and runtime versions; do not substitute it for the existing gate.
 
 - Correction verification: 46/46 tests pass (21 identity/source-boundary +25 existing). The source-native key fix restores the three workbook identities found independently; pair-loss and conflict-path regressions pass.
+
+- Adopted source run: `44907990658`, code `eb119f7530d8d69ae9d4184df7ef36b49420274a`, SUCCESS. All 46 regressions pass in Actions. Both original cohort fingerprints pass; all 23 WQE page hashes match run `44904429288`. Artifact `14708502882` ZIP digest and the extracted JSON digest were separately verified.
+- Final source counts: 607 workbook pairs /606 points; 522 pairs /521 points corroborated across EA publications; 33 pairs /33 points also in the active table. National all-only support is 489 pairs /488 points, keeping multiplicity explicit.
+- Fixed-cohort partition independently reconciled: 16 active corroborations +279 all-only corroborations +51 Ofwat-only associations +584 without a complete Ofwat association =930. All346 source-covered candidate points have one annual Ofwat key;295 are cross-publication corroborated.
+- Independent date-boundary check: the earlier auxiliary 6,189 eligible keys included two revoked exactly on2018-01-01. The frozen half-open rule correctly retains6,187; no duplicate or key-normalization discrepancy remains. The separate427 invalid intervals comprise422 empty and5 reversed intervals. Active-table32 vs33 is exactly one restored alphanumeric outlet identifier.
+- Japanese report and provenance document the annual-summary limitation, shared WIMS lineage, limited English-region source coverage, unresolved EEA physical outlet identity, missing annual volume and unchanged scientific gates. No TP/BIO model or daily-flow calculation was added.
+- Delivery gate: publish only the explicit report/provenance/aggregate/addendum/plan files, then compare local Git blob SHA values with the final remote tree, inspect integrity checks, and recheck Draft status, base branch and unchanged main before reporting completion.
