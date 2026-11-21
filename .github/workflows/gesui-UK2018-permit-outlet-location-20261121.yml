@@ -1,0 +1,43 @@
+name: gesui UK2018 permit version outlet location source audit
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/ea2018_permit_outlet_location_audit.py'
+      - 'analysis/20261121_uk_prtr/permit_outlet_location_support.py'
+      - 'analysis/20261121_uk_prtr/test_permit_outlet_location_support.py'
+      - 'analysis/20261121_uk_prtr/test_permit_outlet_audit.py'
+      - '.github/workflows/gesui-UK2018-permit-outlet-location-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  permit-outlet-location-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Frozen source reader and spatial runtime dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq mdbtools
+          python -m pip install --quiet 'openpyxl>=3.1,<4' 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'pyproj==3.7.2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1' 'geopandas>=1.0,<2' 'pyogrio>=0.10,<1' 'shapely>=2.0,<3'
+      - name: Grid, source identity, date, conflict and safe output regressions
+        run: python -m unittest discover -s analysis/20261121_uk_prtr -p 'test_*.py' -v
+      - name: Recorded permit outlet locations on unchanged295 corroborated points
+        run: |
+          python -u analysis/20261121_uk_prtr/ea2018_permit_outlet_location_audit.py \
+            --out "${{ runner.temp }}/uk2018_permit_outlet/UK2018_PERMIT_OUTLET_LOCATION_SOURCE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-UK2018-permit-outlet-location
+          path: ${{ runner.temp }}/uk2018_permit_outlet/UK2018_PERMIT_OUTLET_LOCATION_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 90

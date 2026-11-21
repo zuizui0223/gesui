@@ -1,0 +1,241 @@
+{
+  "adopted": {
+    "aggregate": {
+      "bytes": 16504,
+      "path": "results/uk2018_permit_identity_audit_20261121/run_44907990658.json",
+      "sha256": "40e318cffc0d2abb507df73f2933ce4a239dd71d56bc200a2f209e7cbba2bc48"
+    },
+    "archive_members": [
+      "UK2018_PERMIT_SAMPLE_ID_SOURCE.json"
+    ],
+    "artifact_archive_bytes": 4850,
+    "artifact_archive_sha256": "6d88e31ac6828d7286a3538bd83b330a7fa281499e4b8369720824acf3018387",
+    "artifact_id": 14708502882,
+    "artifact_name": "gesui-20261121-UK2018-Ofwat-permit-sample-identity",
+    "code_commit": "eb119f7530d8d69ae9d4184df7ef36b49420274a",
+    "code_tree": "034863b5ac12a02bb20cecaa03b033617f8aff37",
+    "github_artifact_digest_matched_local_archive": true,
+    "job_id": 136857570608,
+    "offline_tests_passed": 46,
+    "raw_aggregate_bytes_preserved": true,
+    "run_id": 44907990658,
+    "run_source_timestamp_jst": "2026-11-21T22:16:32.175104+09:00",
+    "run_source_timestamp_utc": "2026-11-21T13:16:32.175104+00:00",
+    "run_url": "https://github.com/zuizui0223/gesui/actions/runs/44907990658",
+    "source_status": "HISTORICAL_OFWAT_SAMPLE_PERMIT_IDENTITIES_AUDITED_UWWTD_OUTLET_ID_UNRESOLVED",
+    "spatial_runtime": {
+      "PROJ": "9.5.1",
+      "pyproj": "3.7.2",
+      "python": "3.11.18"
+    },
+    "workflow_conclusion": "success"
+  },
+  "base_branch": "analysis/gesui-wessex-wwtp-effluent-source-20261120",
+  "branch": "analysis/gesui-uk-prtr-2017-18-STW-annual-mass-source-20261121",
+  "disclosure": {
+    "artifact_cryptographic_signature_or_attestation_verified": false,
+    "coordinates_published": false,
+    "individual_chemistry_flow_or_biology_published": false,
+    "native_facility_permit_samplepoint_identifiers_published": false,
+    "only_source_urls_schema_aggregate_counts_and_hashes_published": true,
+    "raw_source_rows_rehosted": false
+  },
+  "display_timezone": "Asia/Tokyo",
+  "draft_retained": true,
+  "local_controlled_stop": {
+    "aggregate": {
+      "bytes": 249,
+      "path": "results/uk2018_permit_identity_audit_20261121/local_run_df1f542.json",
+      "sha256": "58574935188ea560d06f20eb181bb9af4ad73933d2f88a773cdadef83fc9b1c1"
+    },
+    "cause_investigated": "Unrounded projected-coordinate floating-point differences across math runtime/platform; not proven to be library version alone.",
+    "code_commit": "df1f542460472df384ff54fc4ddb8aeca74f75a2",
+    "error_stage": "fixed_candidate_cohort",
+    "error_type": "ValueError",
+    "local_aggregate_not_adopted": true,
+    "original_strict_pair_hash_gate_retained": true,
+    "station_set_and_native_pair_identities_reconciled": true
+  },
+  "main_sha_checked_before_delivery": "6a0ebac1274f23cd202e2f515176b6d77d264b54",
+  "pull_request": 137,
+  "reconciliation": {
+    "EA_active_corroborated_pairs": 33,
+    "EA_active_corroborated_points": 33,
+    "EA_all_corroborated_pairs": 522,
+    "EA_all_corroborated_points": 521,
+    "EA_all_only_pairs": 489,
+    "EA_all_only_points": 488,
+    "additional_pairs_from_integer_padding_normalization": 1,
+    "all_required_arithmetic_margins_passed": true,
+    "alphanumeric_outlet_correction": {
+      "EA_active_alphanumeric_outlet_pairs": 1,
+      "restored_fixed_cohort_points": 1,
+      "restored_workbook_points": 3
+    },
+    "current_WQE_pages_matching_previous_run": 23,
+    "current_registry_points": 5722,
+    "date_boundary_check": {
+      "adopted_half_open_interval_key_count": 6187,
+      "difference_from_duplicate_or_key_normalization": 0,
+      "initial_inclusive_revocation_boundary_key_count": 6189,
+      "keys_revoked_on_2018_01_01_excluded": 2,
+      "separate_empty_intervals": 422,
+      "separate_reversed_intervals": 5
+    },
+    "fixed_930_disjoint_partition": {
+      "EA_all_and_active": 16,
+      "EA_all_only": 279,
+      "Ofwat_without_EA_corroboration": 51,
+      "no_complete_Ofwat_identity": 584
+    },
+    "fixed_cohort": {
+      "both_existing_fingerprints_verified": true,
+      "candidate_points": 930,
+      "complete_pair_mapping_sha256": "b7e73bf03a76a376a44245d6a4835f0cdcd6bb84142c7625d925f89aa3de9da1",
+      "geographical_match_remains_distinct_from_formal_UWWTD_ID_match": true,
+      "native_pair_hash_is_additional_not_a_replacement_gate": true,
+      "native_pair_mapping_sha256": "40804120b62c8ac2641de4e0dd2fb4e3c1e4e3a797aa83589e4674b200fb23a9",
+      "spatial_runtime": {
+        "PROJ": "9.5.1",
+        "pyproj": "3.7.2",
+        "python": "3.11.18"
+      },
+      "station_set_sha256": "d55a7773bd85c59bf137dda4dac835cd0a1f77d8912a1164a422ac48ee7cee07"
+    },
+    "independent_original_source_count_reconciliation_completed": true,
+    "ofwat_workbook_pairs": 607,
+    "ofwat_workbook_points": 606,
+    "partition_sum": 930,
+    "previous_cohort_reference_run": 44904429288,
+    "strict_unnormalized_EA_corroborated_pairs": 521
+  },
+  "recorded_at_utc": "2026-11-21T13:27:29.930176+00:00",
+  "remaining_limits": [
+    "Formal UWWTD dcpCode to physical permitted outlet identity unresolved",
+    "Ofwat annual summary does not prove every 2018 sample-date permit version",
+    "Retrospective dates in a current EA publication do not certify complete 2018 permit history",
+    "Ofwat and EA records share EA WIMS lineage; corroboration is cross-publication, not independent measurement replication",
+    "346 and 295 are among 930 geographical candidates, not the 360 observed-TP subset",
+    "UK5 annual volume and method fields are blank for all 1799 plants; missing is not zero",
+    "No new TP, flow, biological effects or annual P/N mass estimates",
+    "Prior 93 BIO site-years remain below the frozen 100 site-year source gate"
+  ],
+  "repository": "zuizui0223/gesui",
+  "review_and_regressions": {
+    "declined_to_judge_items": [],
+    "existing_source_tests": 25,
+    "fresh_independent_code_and_scientific_review_completed": true,
+    "integrated_consents_Effluents_conflict_and_active_history_regression_passed": true,
+    "new_identity_source_tests": 21,
+    "observed_failing_then_passing_cases": [
+      "Opaque alphanumeric outlet preservation",
+      "Other opaque key component preservation",
+      "Separate lost pair and lost point totals"
+    ],
+    "shared_lineage_and_English_coverage_wording_corrected": true,
+    "source_reconciliation_found_numeric_only_key_bug": true,
+    "total_passed": 46
+  },
+  "schema": "GESUI_UK2018_PERMIT_SAMPLE_ID_PROVENANCE_V1",
+  "scope": "Historical source identity only; unchanged 930 geographical candidates; no chemistry, flow or biological outcome analysis",
+  "source_receipts": {
+    "EA_permit_archive": {
+      "bytes": 57075591,
+      "http": 200,
+      "sha256": "6efcacf35325586d38bdcc61a25f1219cbd84d03957ffd97343a8dc989636f83",
+      "url": "https://environment.data.gov.uk/api/file/download?fileDataSetId=a54fdea1-7769-4b22-a518-10d51fed6f33&fileName=Consented+Discharges+to+Controlled+Waters+with+Conditions.zip"
+    },
+    "EA_permit_database": {
+      "bytes": 507949056,
+      "sha256": "d664ea13da990c064006c6bfe32b3f76bc682c8b188bca55be33a3c8077136a7",
+      "verified_private_cache_used": false
+    },
+    "EEA_scientific_tables": {
+      "DischargePoints.csv": {
+        "bytes": 6426566,
+        "sha256": "fe96e70df6b169222b4aaab78201f687ecfadfe8bec2bfe8554a93784ee112da"
+      },
+      "ReportPeriod.csv": {
+        "bytes": 1731,
+        "sha256": "30bed8a962218c1a2c772ba1bd151fc16d058874f77a4aef263ba2d83dfeb9fd"
+      },
+      "UWWTPS.csv": {
+        "bytes": 6291352,
+        "sha256": "bfd60e8ecc1539d4e4c31ea1182eafef2653e8ac46680e09f268f1a889d7fa48"
+      }
+    },
+    "EEA_wrapper_archive": {
+      "bytes": 93245708,
+      "http": 200,
+      "sha256": "692f4ea18f80b21b2e7731f25ca22d2c2a723d10fae0686eee7433add3abd7d4",
+      "url": "https://sdi.eea.europa.eu/datashare/s/mGmXg3zcEqKQLTG/download"
+    },
+    "Ofwat_methods": {
+      "annual_latest_effective_permit_does_not_assign_every_sample_date": true,
+      "bytes": 1102357,
+      "retrieved_preservation_url": "https://webarchive.nationalarchives.gov.uk/ukgwa/20260203161052id_/https://www.ofwat.gov.uk/wp-content/uploads/2023/06/Water-Quality-Performance-Commitment-Review-Jacobs-Rev3.05.pdf",
+      "sections_used": [
+        "2.1 Table 1",
+        "2.3.2 English data"
+      ],
+      "sha256": "e006079ec980d207cc111f9f613c18ce4ecd77c963bfa14f8cfc709cd68bc2bc",
+      "shared_EA_WIMS_lineage": true,
+      "url": "https://www.ofwat.gov.uk/wp-content/uploads/2023/06/Water-Quality-Performance-Commitment-Review-Jacobs-Rev3.05.pdf"
+    },
+    "future_flow_metadata_lead_not_adopted": {
+      "daily_values_used": false,
+      "formal_permit_outlet_crosswalk_verified": false,
+      "metadata_member": "raw/metadata.parquet",
+      "metadata_sha256": "6bb8d112dd8d6a26c6029d30bd659123a74670f0f286da043cb68ac975516a58",
+      "metadata_stations": 3375,
+      "reported_time_range": "2011-2023",
+      "url": "https://zenodo.org/records/21652987"
+    },
+    "ofwat": {
+      "bytes": 11568309,
+      "retrieval_receipts": [
+        {
+          "bytes": 11568309,
+          "http": 200,
+          "sha256": "b7699aa3202366b15baab4c415e0702a5fb8f0401249b415903b8e763939b3c4",
+          "url": "https://www.ofwat.gov.uk/wp-content/uploads/2023/06/Water-company-phosphorus-discharge-data-2011-2021.xlsx"
+        }
+      ],
+      "sha256": "b7699aa3202366b15baab4c415e0702a5fb8f0401249b415903b8e763939b3c4",
+      "verified_private_cache_used": false
+    },
+    "original_UK_submission_auxiliary_check": {
+      "all_UK_outlets": 1887,
+      "all_UK_plants": 1877,
+      "bytes": 7088663,
+      "dedicated_EA_permit_or_WIMS_field_found": false,
+      "difference_Northern_Ireland_outlets": 78,
+      "difference_Northern_Ireland_plants": 78,
+      "fixed_UK5_outlets": 1809,
+      "fixed_UK5_plants": 1799,
+      "fixed_cohort_not_expanded": true,
+      "sha256": "067746439a36ab6bbf147edb3e2f4cc330ed8d0eb04a667b13b2ba9688ca04e3",
+      "url": "https://cdr.eionet.europa.eu/gb/eu/uwwt/envymsjva/UWWTDArt15_UK_2020_Report_on_2018_Data_29April2021.xml"
+    }
+  },
+  "superseded_run": {
+    "aggregate": {
+      "bytes": 15972,
+      "path": "results/uk2018_permit_identity_audit_20261121/run_44907070860_superseded.json",
+      "sha256": "b062c94a5b8f6ebb7e33ea661f68aee1eb9ba00ec5a9ce30d2082944f9a33121"
+    },
+    "artifact_archive_sha256": "12c6ff57777480884ccd897afb5d55e95145e16df4e22fb521360c76d6d25284",
+    "artifact_id": 14707924595,
+    "code_commit": "df1f542460472df384ff54fc4ddb8aeca74f75a2",
+    "old_fixed_cohort_EA_all": 294,
+    "old_fixed_cohort_ofwat": 345,
+    "old_national_ofwat_pairs": 604,
+    "old_national_ofwat_points": 603,
+    "old_run_success_does_not_validate_superseded_scientific_counts": true,
+    "raw_aggregate_bytes_preserved": true,
+    "run_id": 44907070860,
+    "run_url": "https://github.com/zuizui0223/gesui/actions/runs/44907070860",
+    "superseded_reason": "Numeric-only outlet validation wrongly excluded three legitimate alphanumeric source identifiers; one belonged to the fixed cohort.",
+    "workflow_conclusion": "success"
+  }
+}

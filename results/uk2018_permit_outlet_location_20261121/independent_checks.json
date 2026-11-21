@@ -1,0 +1,65 @@
+{
+  "adopted_ci_295_identity_fingerprint_matches": true,
+  "adopted_ci_six_distance_tables_match": true,
+  "adopted_ci_strict_fullfloat_gate_passed": true,
+  "adopted_run": 44914536306,
+  "extra_coincident_grid_count_is_descriptive_not_identity_confirmation": true,
+  "geometry": {
+    "alternative_reference_counts": {
+      "DISCHARGE_NGR_different": 262,
+      "DISCHARGE_NGR_same": 33,
+      "EFFLUENT_GRID_REF_different": 212,
+      "EFFLUENT_GRID_REF_same": 83,
+      "same_version_same_grid_multiple_outlet_numbers": 19
+    },
+    "counts": {
+      "EEA_100": {
+        "outside": 22,
+        "within": 273
+      },
+      "EEA_250": {
+        "outside": 5,
+        "within": 290
+      },
+      "EEA_500": {
+        "outside": 3,
+        "within": 292
+      },
+      "WQE_100": {
+        "outside": 80,
+        "straddles": 2,
+        "within": 213
+      },
+      "WQE_250": {
+        "outside": 7,
+        "straddles": 1,
+        "within": 287
+      },
+      "WQE_500": {
+        "outside": 3,
+        "within": 292
+      }
+    },
+    "distinct_keys": 295,
+    "distinct_version_outlets": 295,
+    "native_id_fingerprint": "1ce2b5be966498d282a5f3ae23bff896fa27c9b63712d67baba3ea7881f308ae",
+    "precision_metres": {
+      "1": 295
+    }
+  },
+  "implementation": "Accepted identity/source functions plus independently implemented National Grid decoding and closest-point/four-corner distance bounds; no new geometry-helper reuse.",
+  "initial_ci_six_distance_tables_match": true,
+  "local_float_difference_does_not_replace_production_strict_gate": true,
+  "no_native_ids_coordinates_names_or_individual_distances_published": true,
+  "parent_replayed_independent_script": true,
+  "reference_identity": {
+    "accepted_result_sha256": "40e318cffc0d2abb507df73f2933ce4a239dd71d56bc200a2f209e7cbba2bc48",
+    "local_projected_pair_equal_to_CI": false,
+    "native_pair_hash_verified": true,
+    "prior_counts_match": true,
+    "supported_canonical_sha256": "1ce2b5be966498d282a5f3ae23bff896fa27c9b63712d67baba3ea7881f308ae",
+    "supported_total": 295,
+    "verified_pages": 23
+  },
+  "schema": "GESUI_UK2018_OUTLET_LOCATION_INDEPENDENT_RECONSTRUCTION_V1"
+}

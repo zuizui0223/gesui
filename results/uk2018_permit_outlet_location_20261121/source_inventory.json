@@ -1,0 +1,396 @@
+{
+  "scope": "England-side evidence for explicit identification of a 2018 UWWTD reporting discharge point with a specific regulator permit outlet. No row-level records included.",
+  "inspected_files": [
+    {
+      "download_url": "https://cdr.eionet.europa.eu/gb/eu/uwwt/envymsjva/UWWTDArt15_UK_2020_Report_on_2018_Data_29April2021.xls",
+      "byte_length": 4540416,
+      "sha256": "e69623ec52eb317567936c8541aa6a9d89f4a36e6f077e19915aae086f633c7e",
+      "title": "UK original submitted Article 15 workbook",
+      "reference_year": 2018,
+      "submission_file_date": "2021-04-29",
+      "grain": "United Kingdom reported Article 15 records, with reporting plants and individual discharge points on different worksheets",
+      "sheets": [
+        "Reporter",
+        "ReportPeriod",
+        "Contacts",
+        "ReceivingAreasSAMain",
+        "ReceivingAreasSAParameter",
+        "ReceivingAreasSA54",
+        "ReceivingAreasLSA",
+        "ReceivingAreasSASA",
+        "ReceivingAreasSALSAPredecessor",
+        "Agglomerations",
+        "UWWTPs",
+        "UwwtpAgglos",
+        "DischargePoints",
+        "MSLevel",
+        "Industries",
+        "DO_NOT_DELETE_THIS_SHEET"
+      ],
+      "sheet_count": 16,
+      "hidden_worksheet_count": 0,
+      "hidden_column_entry_count": 0,
+      "cell_note_count": 0,
+      "dedicated_regulator_permit_or_WIMS_identifier_columns": false,
+      "reported_schema_url": "https://dd.eionet.europa.eu/datasets/3458",
+      "plant_schema_url": "https://dd.eionet.europa.eu/tables/11590",
+      "discharge_schema_url": "https://dd.eionet.europa.eu/tables/11599",
+      "schema_metadata_sheet": "DO_NOT_DELETE_THIS_SHEET",
+      "relevant_tables": [
+        {
+          "name": "UWWTPs",
+          "column_count": 65,
+          "coded_record_field": "uwwCode",
+          "coded_rows": 1877,
+          "coded_rows_in_fixed_reporting_subset": 1799,
+          "identifier_columns_report_level": [
+            "repCode",
+            "uwwCode"
+          ]
+        },
+        {
+          "name": "DischargePoints",
+          "column_count": 29,
+          "coded_record_field": "dcpCode",
+          "coded_rows": 1887,
+          "coded_rows_in_fixed_reporting_subset": 1809,
+          "identifier_columns_report_level": [
+            "repCode",
+            "uwwCode",
+            "dcpCode"
+          ]
+        }
+      ],
+      "evidence_limit": "The dedicated reporting keys identify the reporting plant and reporting discharge point. No field supplies a permit identifier and physical outlet composite."
+    },
+    {
+      "download_url": "https://webarchive.nationalarchives.gov.uk/ukgwa/20240710163534id_/https://environment.data.gov.uk/api/file/download?fileDataSetId=8d2b053b-382d-44ab-8040-cc1a28d4b32b&fileName=Urban_Waste_Water_Treatment_Directive_Treatment_Plants.xls.xlsx",
+      "byte_length": 241249,
+      "sha256": "0f0666ceb40f3a40bcf078a264a6f3c36d2d43acd90c19de1805e87a0173ea74",
+      "title": "Urban Waste Water Treatment Directive Treatment Plants",
+      "publisher": "Environment Agency",
+      "original_download_url": "https://environment.data.gov.uk/api/file/download?fileDataSetId=8d2b053b-382d-44ab-8040-cc1a28d4b32b&fileName=Urban_Waste_Water_Treatment_Directive_Treatment_Plants.xls.xlsx",
+      "second_archived_copy_with_same_sha256": "https://webarchive.nationalarchives.gov.uk/ukgwa/20240216193845id_/https://environment.data.gov.uk/api/file/download?fileDataSetId=8d2b053b-382d-44ab-8040-cc1a28d4b32b&fileName=Urban_Waste_Water_Treatment_Directive_Treatment_Plants.xls.xlsx",
+      "official_lineage_url": "https://environment.data.gov.uk/dataset/e129dcfa-8781-431f-bb11-bae4c1521005",
+      "reference_year_from_workbook": 2016,
+      "geography_as_described_by_workbook": "England (publisher description)",
+      "grain": "reported treatment plant",
+      "sheets": [
+        "READ ME",
+        "UWWTPS",
+        "Field Descriptions"
+      ],
+      "visible_sheet_count": 3,
+      "dedicated_regulator_permit_or_WIMS_identifier_columns": false,
+      "relevant_tables": [
+        {
+          "name": "UWWTPS",
+          "column_count": 26,
+          "coded_record_field": "uwwCode",
+          "coded_rows": 1887,
+          "columns": [
+            "uwwState",
+            "uwwCode",
+            "uwwName",
+            "uwwCollect",
+            "uwwDateClo",
+            "uwwHistori",
+            "uwwNUTS",
+            "uwwLoadEnt",
+            "uwwCapacit",
+            "uwwPrimary",
+            "uwwSeconda",
+            "uwwOtherTr",
+            "uwwNRemova",
+            "uwwPRemova",
+            "uwwUV",
+            "uwwChlorin",
+            "uwwOzonati",
+            "uwwSandFil",
+            "uwwMicroFi",
+            "uwwOther",
+            "uwwSpecifi",
+            "uwwBOD5Per",
+            "uwwCODPerf",
+            "uwwNTotPer",
+            "uwwPTotPer",
+            "uwwOtherPe"
+          ],
+          "dcpCode_field_present": false,
+          "dcpCode_coded_rows": null
+        }
+      ],
+      "evidence_limit": "The published uwwCode is defined as the identifier of the treatment plant as reported to the European Commission. No outlet table accompanies the workbook."
+    },
+    {
+      "download_url": "https://s3.eu-west-1.amazonaws.com/data.defra.gov.uk/Urban+Waste+Water+Treatment+Directive/Article15_13Dec2022.ods",
+      "byte_length": 757099,
+      "sha256": "9b7a13fa3db3551711963144cd7a320b55deea3090ea21459a27d5089a935dd2",
+      "title": "Wastewater Treatment in England",
+      "publisher": "Defra",
+      "catalogue_url": "https://www.data.gov.uk/dataset/d7e2c57b-110a-462b-97a0-9833e7d26cc2/wastewater-treatment-in-england",
+      "article": 15,
+      "reference_year": 2020,
+      "publication_date": "2022-12-13",
+      "grain": "Article 15 regulatory reporting, including plant and discharge point",
+      "sheets": [
+        "ReadMe",
+        "T_Agglomerations",
+        "T_UWWTPAgglos",
+        "T_UWWTPS",
+        "T_DischargePoints",
+        "T_ReceivingAreas_SAMain",
+        "T_ReceivingAreas_SAParameter",
+        "T_ReceivingAreas_SASA",
+        "T_MSLevel"
+      ],
+      "data_sheets": [
+        {
+          "name": "T_Agglomerations",
+          "named_column_count": 46
+        },
+        {
+          "name": "T_UWWTPAgglos",
+          "named_column_count": 11
+        },
+        {
+          "name": "T_UWWTPS",
+          "named_column_count": 66,
+          "coded_record_field": "uwwCode",
+          "coded_rows": 1469,
+          "identifier_columns_report_level": [
+            "repCode",
+            "aggCode",
+            "uwwCode"
+          ]
+        },
+        {
+          "name": "T_DischargePoints",
+          "named_column_count": 32,
+          "coded_record_field": "dcpCode",
+          "coded_rows": 1477,
+          "identifier_columns_report_level": [
+            "repCode",
+            "uwwCode",
+            "dcpCode"
+          ],
+          "dcpDischargePointsID_field_present": true,
+          "dcpDischargePointsID_nonempty_in_coded_rows": 0
+        },
+        {
+          "name": "T_ReceivingAreas_SAMain",
+          "named_column_count": 18
+        },
+        {
+          "name": "T_ReceivingAreas_SAParameter",
+          "named_column_count": 10
+        },
+        {
+          "name": "T_ReceivingAreas_SASA",
+          "named_column_count": 5
+        },
+        {
+          "name": "T_MSLevel",
+          "named_column_count": 19
+        }
+      ],
+      "dedicated_regulator_permit_or_WIMS_identifier_columns": false,
+      "dcpCode_field_present": true,
+      "dcpCode_coded_rows": 1477,
+      "evidence_limit": "Later reporting year. No dedicated permit or physical permit-outlet identifier."
+    },
+    {
+      "download_url": "https://s3.eu-west-1.amazonaws.com/data.defra.gov.uk/Urban+Waste+Water+Treatment+Directive/UWWTRArt17_13Dec2022.ods",
+      "byte_length": 12741,
+      "sha256": "1be43b6cf952aa94d7b0aa48ab28a44722779333f0ff07c15573b32d00490a15",
+      "title": "Wastewater Treatment in England",
+      "publisher": "Defra",
+      "catalogue_url": "https://www.data.gov.uk/dataset/d7e2c57b-110a-462b-97a0-9833e7d26cc2/wastewater-treatment-in-england",
+      "article": 17,
+      "reference_year": 2020,
+      "publication_date": "2022-12-13",
+      "grain": "forward-looking agglomeration and treatment plant plans",
+      "sheets": [
+        "Contacts",
+        "FLAAgglomerations",
+        "FLAUWWTPs"
+      ],
+      "data_sheets": [
+        {
+          "name": "FLAAgglomerations",
+          "named_column_count": 20,
+          "coded_record_field": "aggCode",
+          "coded_rows": 3,
+          "identifier_columns_report_level": [
+            "flarepCode",
+            "aggCode"
+          ]
+        },
+        {
+          "name": "FLAUWWTPs",
+          "named_column_count": 22,
+          "coded_record_field": "uwwCode",
+          "coded_rows": 12,
+          "identifier_columns_report_level": [
+            "flarepCode",
+            "uwwCode"
+          ]
+        }
+      ],
+      "dedicated_regulator_permit_or_WIMS_identifier_columns": false,
+      "dcpCode_field_present": false,
+      "dcpCode_coded_rows": null,
+      "evidence_limit": "No discharge-point table or dcpCode field. dcpCode_coded_rows is not applicable."
+    },
+    {
+      "download_url": "https://s3.eu-west-1.amazonaws.com/data.defra.gov.uk/Urban+Waste+Water+Treatment+Directive/UWWTR_Art15_24thOct2024.ods",
+      "byte_length": 640456,
+      "sha256": "ba928ea7d21bdaf7092a30a3e5895a442ad880cee8476c0b8f07c6384a35e54f",
+      "title": "Wastewater Treatment in England",
+      "publisher": "Defra",
+      "catalogue_url": "https://www.data.gov.uk/dataset/d7e2c57b-110a-462b-97a0-9833e7d26cc2/wastewater-treatment-in-england",
+      "article": 15,
+      "reference_year": 2022,
+      "publication_date": "2024-12-19",
+      "grain": "Article 15 regulatory reporting, including plant and discharge point",
+      "sheets": [
+        "ReadMe",
+        "T_UWWTPS",
+        "T_Agglomerations",
+        "T_UWWTPAgglos",
+        "T_DischargePoints",
+        "T_ReceivingAreas_SAMain",
+        "T_ReceivingAreas_SAParameter",
+        "T_ReceivingAreas_SASA",
+        "T_MSlevel"
+      ],
+      "data_sheets": [
+        {
+          "name": "T_UWWTPS",
+          "named_column_count": 65,
+          "coded_record_field": "uwwCode",
+          "coded_rows": 1470,
+          "identifier_columns_report_level": [
+            "repCode",
+            "aggCode",
+            "uwwCode"
+          ]
+        },
+        {
+          "name": "T_Agglomerations",
+          "named_column_count": 43
+        },
+        {
+          "name": "T_UWWTPAgglos",
+          "named_column_count": 8
+        },
+        {
+          "name": "T_DischargePoints",
+          "named_column_count": 29,
+          "coded_record_field": "dcpCode",
+          "coded_rows": 1481,
+          "identifier_columns_report_level": [
+            "repCode",
+            "uwwCode",
+            "dcpCode"
+          ],
+          "dcpDischargePointsID_field_present": false,
+          "dcpDischargePointsID_nonempty_in_coded_rows": null
+        },
+        {
+          "name": "T_ReceivingAreas_SAMain",
+          "named_column_count": 16
+        },
+        {
+          "name": "T_ReceivingAreas_SAParameter",
+          "named_column_count": 7
+        },
+        {
+          "name": "T_ReceivingAreas_SASA",
+          "named_column_count": 3
+        },
+        {
+          "name": "T_MSlevel",
+          "named_column_count": 15
+        }
+      ],
+      "dedicated_regulator_permit_or_WIMS_identifier_columns": false,
+      "dcpCode_field_present": true,
+      "dcpCode_coded_rows": 1481,
+      "evidence_limit": "Later reporting year. No dedicated permit or physical permit-outlet identifier."
+    },
+    {
+      "download_url": "https://s3.eu-west-1.amazonaws.com/data.defra.gov.uk/Urban+Waste+Water+Treatment+Directive/Art17_23rdOct2024.ods",
+      "byte_length": 16791,
+      "sha256": "f65b481e5c9ee85a457c09f3bd0faa7fdfbe0a145a695b11af01f42be72be772",
+      "title": "Wastewater Treatment in England",
+      "publisher": "Defra",
+      "catalogue_url": "https://www.data.gov.uk/dataset/d7e2c57b-110a-462b-97a0-9833e7d26cc2/wastewater-treatment-in-england",
+      "article": 17,
+      "reference_year": 2022,
+      "publication_date": "2024-12-19",
+      "grain": "forward-looking agglomeration and treatment plant plans",
+      "sheets": [
+        "ReadMe",
+        "FLAAgglomerations",
+        "FLAUWWTPs",
+        "FieldDescriptions"
+      ],
+      "data_sheets": [
+        {
+          "name": "FLAAgglomerations",
+          "named_column_count": 20,
+          "coded_record_field": "aggCode",
+          "coded_rows": 3,
+          "identifier_columns_report_level": [
+            "flarepCode",
+            "aggCode"
+          ]
+        },
+        {
+          "name": "FLAUWWTPs",
+          "named_column_count": 22,
+          "coded_record_field": "uwwCode",
+          "coded_rows": 19,
+          "identifier_columns_report_level": [
+            "flarepCode",
+            "uwwCode"
+          ]
+        }
+      ],
+      "dedicated_regulator_permit_or_WIMS_identifier_columns": false,
+      "dcpCode_field_present": false,
+      "dcpCode_coded_rows": null,
+      "evidence_limit": "No discharge-point table or dcpCode field. dcpCode_coded_rows is not applicable."
+    },
+    {
+      "download_url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/389703/Action_2.2_Annex_1_Consultant_Study.pdf",
+      "byte_length": 1031372,
+      "sha256": "056d087bb50e4a2d7b06ebe9c8d66a55d1be400b388b2d412c364b8f539404e9",
+      "title": "CLEAR Info: Populating INSPIRE spatial objects from WIMS Data",
+      "grain": "legacy WIMS schema documentation",
+      "source_section": "4.2.2 Identifiers",
+      "outlets_key_fields": [
+        "OL_AGCO_ID",
+        "OL_AGCO_VERSION",
+        "OL_REF"
+      ],
+      "effluents_key_fields": [
+        "EFF_AGCO_ID",
+        "EFF_AGCO_VERSION",
+        "EFF_OL_REF",
+        "EFF_NUM"
+      ],
+      "evidence_limit": "Describes regulator database keys and regional identifier scoping. Does not publish a UWWTD record-to-permit-outlet crosswalk."
+    }
+  ],
+  "additional_official_metadata": [
+    {
+      "title": "EEA public 2017–2018 UWWTD discharge points spatial layer",
+      "metadata_url": "https://sdi.eea.europa.eu/catalogue/srv/api/records/df6e5e64-f9fb-41e6-9333-855c13e4808c",
+      "basis": "Derived from reported Waterbase tables by selecting active, georeferenced records.",
+      "independent_permit_outlet_crosswalk_verified": false
+    }
+  ],
+  "scope_limit": "These inspected releases did not establish a formal bridge. The material does not establish absence of regulator or operator source worksheets elsewhere."
+}

@@ -1,0 +1,35 @@
+name: gesui EEA historic 2018 UK freshwater discharge outlets vs official WQE SA sampling-point source crosswalk
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/eea2018_physical_outlet_vs_EA_SA_source_spatial.py'
+      - '.github/workflows/gesui-EEA2018-UK-FW-outlet-to-EA-SA-samplingpoint-source-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  historical2018-UWWTD-FW-outlet-vs-2026-SA-source-geography:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install WQE strict SA source and BNG transformation dependencies
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'pyreadr>=0.5,<1' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'scipy>=1.12,<2' 'pyproj>=3.6,<4'
+      - name: Independently verify original UK 2018 EEA 1498 FW physical discharge locations and current EA WQE SA monitoring point nearest geometry WITHOUT plant identity assumptions
+        run: |
+          python -m py_compile analysis/20261121_uk_prtr/eea2018_physical_outlet_vs_EA_SA_source_spatial.py
+          python -u analysis/20261121_uk_prtr/eea2018_physical_outlet_vs_EA_SA_source_spatial.py \
+            --out "${{ runner.temp }}/eea_UK_2018_outlets/EEA_UK2018_PHYSICAL_FW_OUTLETS_TO_EA_WQE_SA_SOURCEONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-EEA-UK2018-physical-outlets-to-EA-final-SA-source-only
+          path: ${{ runner.temp }}/eea_UK_2018_outlets/EEA_UK2018_PHYSICAL_FW_OUTLETS_TO_EA_WQE_SA_SOURCEONLY.json
+          if-no-files-found: warn
+          retention-days: 90

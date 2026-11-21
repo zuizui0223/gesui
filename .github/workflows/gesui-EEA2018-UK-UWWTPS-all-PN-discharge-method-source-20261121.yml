@@ -1,0 +1,30 @@
+name: gesui original EEA2018 UK wastewater all nutrient discharge method fields census
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/eea_UWWTD2018_UK_all_NP_discharge_method_fields.py'
+      - '.github/workflows/gesui-EEA2018-UK-UWWTPS-all-PN-discharge-method-source-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-2018-UWWTD-UK-all-discharge-method-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source-only audit ALL original EEA 2018 UK5 uww nutrient discharge method columns including calculated estimated and measured
+        run: |
+          python -m py_compile analysis/20261121_uk_prtr/eea_UWWTD2018_UK_all_NP_discharge_method_fields.py
+          python -u analysis/20261121_uk_prtr/eea_UWWTD2018_UK_all_NP_discharge_method_fields.py \
+            --out "${{ runner.temp }}/eea_uk_methods/EEA_UK2018_UWWTP_ALL_PN_DISCHARGE_METHOD_FIELDS_SOURCE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-EEA2018-UK-UWWTPS-nutrient-discharge-method-source-availability
+          path: ${{ runner.temp }}/eea_uk_methods/EEA_UK2018_UWWTP_ALL_PN_DISCHARGE_METHOD_FIELDS_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 90

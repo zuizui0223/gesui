@@ -1,0 +1,27 @@
+{
+  "schema": "GESUI_UK2018_PREMOVAL_CORRECTION_PROVENANCE_V1",
+  "original": {
+    "run_id": 44850406458,
+    "head_sha": "3d4d640920da7bd9763ede076fb64047d49a24df",
+    "artifact_id": 14685161737,
+    "artifact_zip_sha256": "e16750780254e4661b38dcebf0151a78743626d63d320972474fc9c63524e3a2",
+    "aggregate_json_sha256": "8c0ff6b0ceecebd7660644a5ff5fbdaf795b978a0aa3bbba5cc1aa7be10a49ff"
+  },
+  "corrected_code_commit": "ab208e43ee4fc9953a3feb4c75e73f609c11e4c7",
+  "corrected_run_id": 44904429288,
+  "retrieval_day_JST": "2026-11-21",
+  "source_raw_rows_published": false,
+  "biological_outcome_opened_in_this_correction": false,
+  "full_pair_mapping_fingerprint_unavailable_in_original_run": true,
+  "corrected": {
+    "run_id": 44904429288,
+    "head_sha": "ab208e43ee4fc9953a3feb4c75e73f609c11e4c7",
+    "artifact_id": 14707078714,
+    "artifact_zip_sha256": "70627fdc5519f8fdfbdc89ed32bfd0be8adec871656b177d8981a33045ff942f",
+    "aggregate_json_sha256": "2cded075886b896fa1fb267a73ec429b0cd1b27bac65c3e77091e83a3ee8b359",
+    "source_status": "EXPLORATORY_UWWTD2018_PRemoval_EA_TP_CONCENTRATION_COMPARISON_NOT_CAUSAL",
+    "targeted_unittest_passed": 25
+  },
+  "artifact_verification": "SHA256 compared against GitHub artifact digest metadata; cryptographic signature or attestation not verified",
+  "cryptographic_attestation_verified": false
+}

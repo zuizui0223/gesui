@@ -1,0 +1,231 @@
+{
+  "exploratory_TP_flag_response": {
+    "PRemoval_0_median_yearly_final_TP_mgL": 0.652,
+    "PRemoval_1_divide_0_median_TP_ratio": 1.4800613496932515,
+    "PRemoval_1_median_yearly_final_TP_mgL": 0.965,
+    "PRemoval_1_minus_0_median_TP_mgL": 0.31299999999999994,
+    "adjusted_model": {
+      "PRemoval_nominal_p": 0.9902602286925927,
+      "UWWTD_WWTW_treatment_is_not_randomized": true,
+      "conditional_log1p_TP_PRemoval_beta": 0.000596604838653092,
+      "heteroskedastic_HC3_normal95": [
+        -0.09519233750009054,
+        0.09638554717739672
+      ],
+      "n_geographically_matched_unique_2018_SA": 360,
+      "n_source_regions": 9,
+      "original_source_controls": [
+        "PRemoval",
+        "NRemoval",
+        "log_capacity",
+        "original_uwwNUTS3"
+      ],
+      "permit_facility_ID_still_not_joined": true,
+      "status": "NONCAUSAL_CONDITIONAL_OLS"
+    },
+    "n_source_PRemoval_0": 113,
+    "n_source_PRemoval_1": 247,
+    "original_source_treatment_specific_TP_quantile25_median_75": {
+      "0": [
+        0.493,
+        0.652,
+        0.9704999999999999
+      ],
+      "1": [
+        0.589,
+        0.965,
+        1.2275
+      ]
+    },
+    "posthoc_sequential_source_adjustment_diagnostics": {
+      "flag_and_capacity": {
+        "PRemoval_beta_log1p_TP": 0.021157322829710244,
+        "PRemoval_site_HC3_normal95": [
+          -0.07277602651784085,
+          0.11509067217726132
+        ],
+        "n": 360,
+        "nominal_p": 0.6588817521434988,
+        "status": "POSTHOC_NONCAUSAL_ADJUSTMENT_DIAGNOSTIC"
+      },
+      "flag_and_region": {
+        "PRemoval_beta_log1p_TP": 0.02940978780901967,
+        "PRemoval_site_HC3_normal95": [
+          -0.04446143574566063,
+          0.10328101136369996
+        ],
+        "n": 360,
+        "nominal_p": 0.43521105338351584,
+        "status": "POSTHOC_NONCAUSAL_ADJUSTMENT_DIAGNOSTIC"
+      },
+      "flag_capacity_region": {
+        "PRemoval_beta_log1p_TP": 0.01048766679259936,
+        "PRemoval_site_HC3_normal95": [
+          -0.0824844925846849,
+          0.10345982616988364
+        ],
+        "n": 360,
+        "nominal_p": 0.8250203927486801,
+        "status": "POSTHOC_NONCAUSAL_ADJUSTMENT_DIAGNOSTIC"
+      },
+      "flag_capacity_region_NRemoval": {
+        "PRemoval_beta_log1p_TP": 0.0005966048386530712,
+        "PRemoval_site_HC3_normal95": [
+          -0.09519233750009043,
+          0.09638554717739659
+        ],
+        "n": 360,
+        "nominal_p": 0.990260228692593,
+        "status": "POSTHOC_NONCAUSAL_ADJUSTMENT_DIAGNOSTIC"
+      },
+      "flag_only": {
+        "PRemoval_beta_log1p_TP": 0.03082784837102739,
+        "PRemoval_site_HC3_normal95": [
+          -0.04487553177018137,
+          0.10653122851223616
+        ],
+        "n": 360,
+        "nominal_p": 0.4247924957569814,
+        "status": "POSTHOC_NONCAUSAL_ADJUSTMENT_DIAGNOSTIC"
+      }
+    },
+    "source_equal_SA_site_boot2000_median_diff95": [
+      0.20499999999999996,
+      0.4295
+    ],
+    "source_equal_SA_site_boot2000_median_ratio95": [
+      1.299166472758701,
+      1.7601478229028713
+    ],
+    "source_outcome_is_observed_final_effluent_total_P_concentration_not_river_P_mass": true,
+    "status": "EXPLORATORY_SOURCE_TP_DIFFERENCE_CALCULATED"
+  },
+  "not_WWTP_annual_P_mass_kg": true,
+  "official_EA_WQE_2018_TP_source_QA": {
+    "TP_per_SA_year_is_median_of_source_day_medians": 1,
+    "censored_or_nonnumeric": 47,
+    "distinct_numeric_TP_SA_stations": 360,
+    "official_WQE_250row_page_n": 32,
+    "official_source_batches": 24,
+    "returned_source_rows": 5356,
+    "valid_numeric_TP_records": 5309
+  },
+  "original_treatment_group_TP_monitoring_selection_QA": {
+    "PRemoval_flag_is_nonrandomly_related_to_regulatory_TP_monitoring_opportunity_POSSIBLE": true,
+    "actually_2018_TP_measured_source_by_PRemoval": {
+      "0": 113,
+      "1": 247
+    },
+    "geographical_reciprocal250m_source_before_WQE_TP_by_PRemoval": {
+      "0": 676,
+      "1": 254
+    },
+    "official_2018_EEA_plant_PRemoval_yes_of_all_1799": 418,
+    "original_all_2018_UWWTPS_plant_rows": 1799,
+    "sampling_fraction_with_actual_TP_by_original_PRemoval": {
+      "0": 0.16715976331360946,
+      "1": 0.9724409448818898
+    },
+    "still_not_direct_native_2018_plant_ID_crosswalk": true
+  },
+  "outlet_to_SA_source_geo250m_not_verified_native_ID_permit_crosswalk": true,
+  "posthoc_and_not_randomized": true,
+  "preoutcome_source_gates": {
+    "PRemoval_0_at_least30_2018_true_SA_TP": true,
+    "PRemoval_1_at_least30_2018_true_SA_TP": true,
+    "at_least3_original_NUTS3_regions_with10_sources": true,
+    "both_source_flags_are_actual_0_and_1": true,
+    "capacity_ge70pct_in_each_PRemoval_source_group": true
+  },
+  "schema": "GESUI_20261121_UWWTD2018_UK_PRemoval_FLAG_VS_EA_FINAL_EFFLUENT_TP_2018_SOURCE_GEOMATCH_V1",
+  "source_2018_UWWTP_treatment_QA": {
+    "EEA_original_UWWTPS_SHA256": "bfd60e8ecc1539d4e4c31ea1182eafef2653e8ac46680e09f268f1a889d7fa48",
+    "not_measured_NP_load_or_randomized_treatment": true,
+    "official_Eionet_type": "uwwPRemoval and uwwNRemoval boolean source treatment fields",
+    "original_2018_UK_UWWTP_source_n": 1799,
+    "original_WWTW_capacity_and_region_source_quality": {
+      "2018_N_removal_0": 1759,
+      "2018_N_removal_1": 40,
+      "2018_P_removal_0": 1381,
+      "2018_P_removal_1": 418,
+      "original_2018_UK_invalid_original_capacity": 2
+    },
+    "source_2018_valid_treatment_rows": 1799
+  },
+  "source_geo_QA": {
+    "2026_SA_current_registration_not_historic2018_TP_monitoring": true,
+    "main_WQE_SA_station_source_hash": "d55a7773bd85c59bf137dda4dac835cd0a1f77d8912a1164a422ac48ee7cee07",
+    "main_matching_tolerance_m": 250,
+    "mutual_unique_original_source_geographic_candidates_by_radius": {
+      "100m": {
+        "historical2018_UWWTD_FW_outlets_with_a_SA_candidate": 747,
+        "historical2018_UWWTD_FW_outlets_with_unique_SA_ignoring_reciprocal": 688,
+        "official_current_EA_SA_codes_geographically_mutual": 683,
+        "source_geographically_UNIQUE_mutual_SA_to_outlet_and_single_outlet_plant": 683,
+        "still_not_original_SA_to_UWWTD_permit_ID_verified": true
+      },
+      "250m": {
+        "historical2018_UWWTD_FW_outlets_with_a_SA_candidate": 1032,
+        "historical2018_UWWTD_FW_outlets_with_unique_SA_ignoring_reciprocal": 938,
+        "official_current_EA_SA_codes_geographically_mutual": 930,
+        "source_geographically_UNIQUE_mutual_SA_to_outlet_and_single_outlet_plant": 930,
+        "still_not_original_SA_to_UWWTD_permit_ID_verified": true
+      },
+      "500m": {
+        "historical2018_UWWTD_FW_outlets_with_a_SA_candidate": 1170,
+        "historical2018_UWWTD_FW_outlets_with_unique_SA_ignoring_reciprocal": 1035,
+        "official_current_EA_SA_codes_geographically_mutual": 1026,
+        "source_geographically_UNIQUE_mutual_SA_to_outlet_and_single_outlet_plant": 1026,
+        "still_not_original_SA_to_UWWTD_permit_ID_verified": true
+      }
+    },
+    "original_UWWTD_2018_reported_freshwater_outlet_n": 1498,
+    "original_current_WQE_WaterCompany_final_treated_SA_n": 5722,
+    "source_direction_uses_original_HISTORIC_UWWTD_OUTLET_not_SA_sample_coord": true
+  },
+  "source_matched_2018_cohort_QA": {
+    "2018_actual_TP_source_matched_plants": 360,
+    "NRemoval_source_flag_0_1_counts": {
+      "0": 342,
+      "1": 18
+    },
+    "PRemoval_source_flag_0_1_counts": {
+      "0": 113,
+      "1": 247
+    },
+    "capacity_source_valid_by_PRemoval": {
+      "0": {
+        "n_original_positive_capacity": 113,
+        "n_source": 113,
+        "source_capacity_complete_fraction": 1.0
+      },
+      "1": {
+        "n_original_positive_capacity": 247,
+        "n_source": 247,
+        "source_capacity_complete_fraction": 1.0
+      }
+    },
+    "historic_outlet_to_2018_SA_monitoring_point_mutual_unique_geography_not_ID": true,
+    "one_2018_sampoint_source_median_TP_per_original_EA_native_SA_ID": true,
+    "original_2018_eligible_real_final_TP_SA_sample_sites": 360,
+    "region_3letter_original_NUTS_counts": {
+      "UKC": 8,
+      "UKD": 36,
+      "UKE": 11,
+      "UKF": 50,
+      "UKG": 43,
+      "UKH": 83,
+      "UKI": 3,
+      "UKJ": 82,
+      "UKK": 44
+    },
+    "source_250m_mutual_original_outlet_SA_pairs": 930,
+    "source_missing_reason_counts": {
+      "EA_SA_no_actual_2018_TP_numeric_observations": 570
+    },
+    "source_months_at_least2": 354,
+    "source_true_2018_TP_sampling_months_median": 11.0
+  },
+  "source_only_before_BIO_effects": true,
+  "status": "EXPLORATORY_UWWTD2018_PRemoval_EA_TP_CONCENTRATION_COMPARISON_NOT_CAUSAL"
+}

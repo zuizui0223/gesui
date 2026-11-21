@@ -1,0 +1,30 @@
+name: gesui official UK PRTR 2017 2018 facility annual P-N source schema
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/**'
+      - '.github/workflows/gesui-UK-PRTR-2017-18-official-source-schema-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-UK-PRTR-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Official UK PRTR 2017 2018 facility annual mass original CSV headers and category scheme source-only
+        run: |
+          python -m py_compile analysis/20261121_uk_prtr/source_only_2017_2018_prtr_schema.py
+          python -u analysis/20261121_uk_prtr/source_only_2017_2018_prtr_schema.py \
+            --out "${{ runner.temp }}/prtr_source/UK_PRTR_2017_18_PN_SITE_FACILITY_SCHEMA_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-UKPRTR-2017-18-annual-emission-source-only
+          path: ${{ runner.temp }}/prtr_source/UK_PRTR_2017_18_PN_SITE_FACILITY_SCHEMA_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90
