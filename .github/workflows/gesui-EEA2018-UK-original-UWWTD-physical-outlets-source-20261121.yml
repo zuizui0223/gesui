@@ -1,0 +1,31 @@
+name: gesui 2018 EEA UK original UWWTD discharge points source provenance
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/eea_UWWTD2018_UK_outlet_source_gate.py'
+      - '.github/workflows/gesui-EEA2018-UK-original-UWWTD-physical-outlets-source-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  official-EEA-original-historic-UK-outlet-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Inspect official EEA 2017-18 source all UK reporter plants and original discharge point coordinates independently of measured-PN intersection
+        run: |
+          python -m py_compile analysis/20261121_uk_prtr/eea_UWWTD2018_UK_outlet_source_gate.py
+          python -u analysis/20261121_uk_prtr/eea_UWWTD2018_UK_outlet_source_gate.py \
+            --out "${{ runner.temp }}/UWWTD2018_UK/EEA_2018_UK_ORIGINAL_DISCHARGE_POINT_SOURCE_QA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-EEA-historical-2018-UK-UWWTD-original-outlet-source-only
+          path: ${{ runner.temp }}/UWWTD2018_UK/EEA_2018_UK_ORIGINAL_DISCHARGE_POINT_SOURCE_QA.json
+          if-no-files-found: warn
+          retention-days: 90
