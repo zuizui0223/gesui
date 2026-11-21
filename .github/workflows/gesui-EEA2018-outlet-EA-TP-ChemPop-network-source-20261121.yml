@@ -1,0 +1,37 @@
+name: gesui true 2018 EEA UK UWWTD freshwater outlet to EA final treated TP 2018 and ChemPop original downstream source-only
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/eea2018_outlet_EA_TP_2018_ChemPop_river_gate.py'
+      - '.github/workflows/gesui-EEA2018-outlet-EA-TP-ChemPop-network-source-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  2018-original-outlet-to-treated-TP-to-benthic-source-first:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original official geospatial, EIDC chemistry and source-only readers
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'pyproj>=3.6,<4' 'geopandas>=1.0,<2' 'pyogrio>=0.10,<1' 'shapely>=2.0,<3' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Original 2018 UK UWWTD FW outfall mutual 250m EA SA true TP then HydroRIVERS 2018 ChemPop directed and strict prior 90d TP source
+        run: |
+          python -m py_compile analysis/20261121_uk_prtr/eea2018_outlet_EA_TP_2018_ChemPop_river_gate.py
+          python -u analysis/20261121_uk_prtr/eea2018_outlet_EA_TP_2018_ChemPop_river_gate.py \
+            --out "${{ runner.temp }}/UK_outlet2018/2018_UWWTD_UK_TRUE_FW_OUTLET_EA_SA_TP_CHEMPOP_DIRECTED_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-2018-historic-UWWTD-outlet-EA-treated-TP-benthic-directed-source
+          path: ${{ runner.temp }}/UK_outlet2018/2018_UWWTD_UK_TRUE_FW_OUTLET_EA_SA_TP_CHEMPOP_DIRECTED_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90
