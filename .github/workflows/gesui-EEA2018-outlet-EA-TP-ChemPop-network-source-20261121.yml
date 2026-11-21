@@ -9,7 +9,7 @@ permissions:
   contents: read
   actions: read
 jobs:
-  2018-original-outlet-to-treated-TP-to-benthic-source-first:
+  historic-2018-outlet-to-treated-TP-to-benthic-source-first:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     env:
