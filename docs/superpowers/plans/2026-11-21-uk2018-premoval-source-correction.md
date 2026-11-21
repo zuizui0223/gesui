@@ -46,9 +46,9 @@ Files: existing `eea2018_PRemoval_to_EA_TP_effluent_source_test.py`; new `test_p
 
 ## Task 3: Verify against the original sources and report
 
-- [ ] Update the existing workflow to run the targeted tests before source retrieval; push only to existing Draft PR #137 with an expected-head lease.
-- [ ] Inspect workflow output and final JSON status, source hashes/cohort counts and corrected model estimates; download and verify artifact digest.
-- [ ] Save aggregate evidence and update result/protocol errata and PR summary. Preserve original median contrast, same-scale unadjusted/adjusted table and unresolved identity/selection limitations.
+- [x] Update the existing workflow to run the targeted tests before source retrieval; push only to existing Draft PR #137 with an expected-head lease.
+- [x] Inspect workflow output and final JSON status, source hashes/cohort counts and corrected model estimates; download and verify artifact digest.
+- [x] Save aggregate evidence and update result/protocol errata and PR summary. Preserve original median contrast, same-scale unadjusted/adjusted table and unresolved identity/selection limitations.
 
 ## Execution decisions
 
@@ -64,3 +64,6 @@ Files: existing `eea2018_PRemoval_to_EA_TP_effluent_source_test.py`; new `test_p
 - Fresh independent review found three important gaps: source-cohort count alone, serialization outside failure guard, and adjustment gates suppressing primary descriptives. Each received a failing regression and correction.
 - Review detail: export-duplicate counting applies after SA/material/unit filters; rejected-row counts remain returned records, not claims of independent samples. This scope is explicit in output metadata.
 - Baseline station-set SHA is enforced before requesting TP. Full pair-mapping SHA is newly recorded; the earlier run has no pair hash, so retrospective pair identity is not claimed.
+
+- Real source run 44904429288 SUCCESS at code ab208e43ee4fc9953a3feb4c75e73f609c11e4c7, 25/25 tests; raw artifact digest and both JSONs verified. Original 930 SA set and360 eligible cohort/counts retained. Corrected full BNG coefficient +0.016935 [−0.082186,+0.116057].
+- Original no-coordinate estimates reproduced; all eligible and adjusted samples remain360. Source availability570 missing sites are no-returned-TP-record, not all-censored exclusions. Region×capacity both-flag descriptive coverage277/360; this is not a new causal eligibility gate.
