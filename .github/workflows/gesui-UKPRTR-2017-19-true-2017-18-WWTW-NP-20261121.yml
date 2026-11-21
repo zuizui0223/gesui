@@ -1,0 +1,30 @@
+name: gesui UK PRTR 2017-2019 original wrappers true 2017-2018 wastewater P N water-release source
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/census_true_year_WWTW_PN_2017_2018.py'
+      - '.github/workflows/gesui-UKPRTR-2017-19-true-2017-18-WWTW-NP-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-first-true-year-WWTW-water-NP:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify original PRTR year INTERNAL, use 2017 2018 2019 files and strict urban WWTP 5f and NACE37 WATER total P N
+        run: |
+          python -m py_compile analysis/20261121_uk_prtr/census_true_year_WWTW_PN_2017_2018.py
+          python -u analysis/20261121_uk_prtr/census_true_year_WWTW_PN_2017_2018.py \
+            --out "${{ runner.temp }}/ukprtr/UKPRTR_TRUE_2017_18_WWTP_WATER_TOTAL_PN_MASS_SOURCE_GATE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-UKPRTR-true-reportyear-2017-18-WWTW-TP-TN-source
+          path: ${{ runner.temp }}/ukprtr/UKPRTR_TRUE_2017_18_WWTP_WATER_TOTAL_PN_MASS_SOURCE_GATE.json
+          if-no-files-found: warn
+          retention-days: 90
