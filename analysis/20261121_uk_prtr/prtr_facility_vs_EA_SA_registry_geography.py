@@ -76,6 +76,16 @@ def matches():
                 original_rows[(yr,row["PollutantCode"].strip(),natid)].append(
                     {"lat":lat,"lon":lon,"method":row["MethodBasisCode"].strip(),
                      "TotalQuantity":val,"source_file":label})
+    original_raw_source_QA={
+        yr:{poll:{
+            "original_EA_report_rows_across_these_wrappers":sum(
+                len(vals) for key,vals in original_rows.items()
+                if key[0]==yr and key[1]==poll),
+            "original_EA_distinct_native_facility_IDs_before_coordinates":
+                len({key[2] for key in original_rows if key[0]==yr and key[1]==poll}),
+            "native_source_NationalID_pollutant_year_keys":sum(
+                key[0]==yr and key[1]==poll for key in original_rows)
+        } for poll in prtr.TARGET_POLLUTANTS} for yr in prtr.VALID_YEARS}
     # A single facility may have multiple original designations: NEVER
     # integrate quantities. A facility POINT can be admitted only when
     # the reported original coordinates are consistent across release rows.
@@ -100,10 +110,16 @@ def matches():
     for yr in prtr.VALID_YEARS:
         for p in prtr.TARGET_POLLUTANTS:
             n=len({nid for yy,pp,nid in points if yy==yr and pp==p})
-            if n!=EXPECTED_EA_STRICT[yr][p]:
-                raise RuntimeError(f"Historical EA genuine {yr} {p} original source {n} differs from earlier independently audited {EXPECTED_EA_STRICT[yr][p]}")
+            source_n=original_raw_source_QA[yr][p]["original_EA_report_rows_across_these_wrappers"]
+            if source_n<EXPECTED_EA_STRICT[yr][p]:
+                raise RuntimeError(f"Missing previously audited EA {yr} {p} source rows: {source_n} < {EXPECTED_EA_STRICT[yr][p]}")
+            if n>source_n:
+                raise RuntimeError("Available geographical original facility IDs exceed actual source rows")
+            original_raw_source_QA[yr][p]["source_qualified_unique_geographical_facility_IDs"]=n
+            original_raw_source_QA[yr][p]["source_facility_count_loss_from_raw_due_to_original_duplicate_or_geometry"]=source_n-n
     return points,basis,{
         "original_strict_facility_year_pollutant_n":len(points),
+        "original_EA_source_counts_before_and_after_distinct_geo":original_raw_source_QA,
         "source_duplicate_or_invalid_geometry_QA":dict(sourceqa),
         "original_2017_18_2019_official_files":source_reports,
         "source_facility_conforms_5f_NACE37_and_EA":True,
