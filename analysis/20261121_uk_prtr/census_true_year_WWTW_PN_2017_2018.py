@@ -179,6 +179,11 @@ def census(a):
             "method":r["MethodBasisCode"].strip(),
             "quantity":v,"inputfile":sorted(labels),
             "country":r["CountryID"].strip(),
+            "authority":r.get("CompetentAuthorityPartyName","").strip(),
+            "nuts_region":r.get("NutsRegionID","").strip(),
+            "river_basin":r.get("RiverBasinDistrictID","").strip(),
+            "latitude":numeric(r.get("LatitudeMeasure","")),
+            "longitude":numeric(r.get("LongitudeMeasure","")),
             "designation":key[4]
         })
     result["overlap_sourceQA"]={
@@ -209,6 +214,14 @@ def census(a):
                     "basis_method_M_C_E_original_rows":dict(collections.Counter(x["method"] for x in subset)),
                     "facility_mass_rows_with_M_basis":sum(x["method"]=="M" and x["quantity"] is not None and x["quantity"]>0 for x in subset),
                     "original_CountryID_source":dict(collections.Counter(x["country"] for x in subset)),
+                    "original_competent_authority_counts":dict(collections.Counter(x["authority"] for x in subset)),
+                    "original_NUTS_region_code_counts":dict(collections.Counter(x["nuts_region"] for x in subset)),
+                    "original_river_basin_code_counts":dict(collections.Counter(x["river_basin"] for x in subset)),
+                    "n_original_nonmissing_valid_facility_lat_lon":sum(
+                        x["latitude"] is not None and x["longitude"] is not None
+                        and -12<=x["longitude"]<=5 and 49<=x["latitude"]<=61
+                        for x in subset),
+                    "facility_lat_lon_is_NOT_permitted_outfall":True,
                     "no_release_sum_until_source_overlap_and_outlet_identity_validated":True,
                 }
             p={x["id"] for x in rel if x["type"]==category and x["target"]==TARGET_POLLUTANTS[0] and x["quantity"] is not None and x["quantity"]>0}
