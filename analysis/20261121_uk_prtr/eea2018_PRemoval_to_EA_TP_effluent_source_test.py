@@ -79,8 +79,14 @@ def plant_records():
         if pflag not in ("0","1") or nflag not in ("0","1"):
             origin["original_2018_UK_unknown_P_or_N_treatment_flag"]+=1
             continue
-        cap=eea.finite(r.get("uwwCapacity",""))
-        if cap is None or cap<=0:origin["original_2018_UK_invalid_original_capacity"]+=1
+        # eea.finite in the OUTLET source audit is correctly restricted
+        # to coordinate magnitudes <10000: never reuse it for capacity (PE).
+        try:
+            cap=float(str(r.get("uwwCapacity","")).strip())
+            if not math.isfinite(cap) or cap<=0:cap=None
+        except (ValueError,TypeError):
+            cap=None
+        if cap is None:origin["original_2018_UK_invalid_original_capacity"]+=1
         region=str(r.get("uwwNUTS","")).strip()
         original_region=region[:3] if len(region)>=3 and region.startswith("UK") else None
         if not original_region:origin["original_2018_UK_unknown_region"]+=1
