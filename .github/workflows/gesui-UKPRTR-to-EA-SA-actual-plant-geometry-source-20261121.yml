@@ -1,0 +1,34 @@
+name: gesui UK PRTR true 2017-18 EA urban WWTP facility geometry vs WQE SA official treated sample points
+on:
+  push:
+    paths:
+      - 'analysis/20261121_uk_prtr/prtr_facility_vs_EA_SA_registry_geography.py'
+      - '.github/workflows/gesui-UKPRTR-to-EA-SA-actual-plant-geometry-source-20261121.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  facility-vs-samplingpoint-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: True original source geometry transformer and numeric QA
+        run: python -m pip install --quiet 'numpy>=1.26,<3' 'pyproj>=3.6,<4'
+      - name: Audit 2017 2018 EA urban WWTW PRTR annual water-NP facilities vs current official 5722 SA stations as geographic candidates, not outfalls
+        run: |
+          python -m py_compile analysis/20261121_uk_prtr/prtr_facility_vs_EA_SA_registry_geography.py
+          python -u analysis/20261121_uk_prtr/prtr_facility_vs_EA_SA_registry_geography.py \
+            --out "${{ runner.temp }}/ukprtr_geo/PRTR_TRUE_YEAR_WWTW_ANNUAL_NP_TO_EA_SA_GEOGRAPHIC_OPPORTUNITY_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-20261121-PRTR-urbanWWTW-facility-EA-SA-current-samplingpoint-source-geography
+          path: ${{ runner.temp }}/ukprtr_geo/PRTR_TRUE_YEAR_WWTW_ANNUAL_NP_TO_EA_SA_GEOGRAPHIC_OPPORTUNITY_ONLY.json
+          if-no-files-found: warn
+          retention-days: 90
