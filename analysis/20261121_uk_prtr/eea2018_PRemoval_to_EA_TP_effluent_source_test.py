@@ -280,6 +280,13 @@ def modelling(df,qual):
       "source_outcome_is_observed_final_effluent_total_P_concentration_not_river_P_mass":True
     }
 
+def json_source_scalar(value):
+    """Serialize original NumPy scalar support flags without changing their scientific meaning."""
+    if isinstance(value,np.generic):return value.item()
+    if isinstance(value,np.ndarray):return value.tolist()
+    raise TypeError("Unsupported original source audit JSON value: "+str(type(value)))
+
+
 def main(args):
     out={"schema":"GESUI_20261121_UWWTD2018_UK_PRemoval_FLAG_VS_EA_FINAL_EFFLUENT_TP_2018_SOURCE_GEOMATCH_V1",
          "status":"SOURCE_STOP","posthoc_and_not_randomized":True,
@@ -312,14 +319,14 @@ def main(args):
     except Exception as exc:
         out.update({"status":"SOURCE_OR_MODEL_STOP","source_error":type(exc).__name__+": "+str(exc)[:650]})
     args.out.parent.mkdir(parents=True,exist_ok=True)
-    args.out.write_text(json.dumps(out,indent=2,ensure_ascii=False,sort_keys=True,allow_nan=False)+"\n")
+    args.out.write_text(json.dumps(out,indent=2,ensure_ascii=False,sort_keys=True,allow_nan=False,default=json_source_scalar)+"\n")
     print("GESUI_UWWTD2018_PREMOVAL_EA_FINAL_TP="+json.dumps({
        "status":out["status"],"error":out.get("source_error"),
        "original_PRemoval":out.get("source_2018_UWWTP_treatment_QA"),
        "matched_source_cohort":out.get("source_matched_2018_cohort_QA"),
        "source_gates":out.get("preoutcome_source_gates"),
        "source_2018_totalP_comparison":out.get("exploratory_TP_flag_response"),
-    },ensure_ascii=False,sort_keys=True,allow_nan=False),flush=True)
+    },ensure_ascii=False,sort_keys=True,allow_nan=False,default=json_source_scalar),flush=True)
 
 if __name__=="__main__":
     p=argparse.ArgumentParser()
