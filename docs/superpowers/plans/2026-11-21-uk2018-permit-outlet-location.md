@@ -53,7 +53,7 @@
 
 - [x] Obtain one fresh code/scientific review and independently reconcile adopted aggregate counts; fix important findings with RED/GREEN tests.
 - [x] Report public-source search coverage, coordinate semantics and remaining formalID/temporal gaps; do not reinterpret geographic disagreement as a measured ecological effect.
-- [ ] Save explicit code/results/docs on the same Draft branch with expected-head lease; verify remote file hashes and CI and unchangedmain.
+- [x] Save explicit code/results/docs on the same Draft branch with expected-head lease; verify remote file hashes and CI and unchangedmain.
 
 ## Execution ledger
 
@@ -75,4 +75,5 @@
 - All74 source tests pass after the three guard fixes. The parent reran the separate reconstruction and reproduced the exact295-pair fingerprint and all accepted baseline counts. Next verification is the strengthened production run on the unchanged strict spatial runtime gate.
 - Strengthened code `7b1271930f9aa2d4b6b6af0a2d4ff9d531165f04`; adopted run `44914536306` SUCCESS, job `136877200929`, all74 tests passed inActions. Artifact `14710998636`; ZIP SHA256 `8a3f8d0ed1284c3d645166558686919fab6db2cc880ef6b80d280835acead884` matches GitHub metadata. Aggregate JSON SHA256 `652f02cb5a873c414bf2b93fd30ba311a16eac5bf17a078b96c858ecf7f3b724`. Original strict fullfloat SHA passed onPython3.11.18/pyproj3.7.2/PROJ9.5.1.
 - Adopted source support, nationalQA and all six distance tables equal the initial run. The parent independently reconciled all23 WQE page receipts, the295-pair digest,242093 source rows,6187 complete eligible keys and each295-point distance-table total. Separate geometry implementation agrees with every class count.
-- Code-commit source integrity `44914542640` and registry/evidence `44914542717` both SUCCESS. All four changed Git blobs match their locally prepared hashes. Complete report/provenance publication and its finalremote check remain.
+- Code-commit source integrity `44914542640` and registry/evidence `44914542717` both SUCCESS. All four changed Git blobs match their locally prepared hashes.
+- Results/report/source inventory/provenance published at `f4288ee3f9ba14af02b7092d49fe29abc8ac2ce7` (tree `e0661526c9f0c508deb8a66e85da293ecde065b4`). All8 prepared file Git blobs match the remote tree; all6 local report links resolve. Source integrity `44915112895` and registry/evidence `44915113058` both SUCCESS. Main remains `6a0ebac1274f23cd202e2f515176b6d77d264b54`; openDraft scope and original source/biological boundaries remain intact. This closing note records completed evidence, not a new scientific run.
