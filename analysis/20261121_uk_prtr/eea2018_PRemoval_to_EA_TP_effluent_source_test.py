@@ -155,6 +155,31 @@ def original_TP_dates(names):
                   "TP_per_SA_year_is_median_of_source_day_medians":True})
     return siteyear,dict(stats)
 
+def original_sampling_selection_QA(matches,plants,tps):
+    """Audit P-removal measurement-selection BEFORE interpreting TP outcomes."""
+    prior=collections.Counter()
+    actual=collections.Counter()
+    for code,item in matches.items():
+        plant=plants.get(item["outlet_id"][1])
+        if plant is None:
+            prior["original_plant_ID_missing"]+=1
+            continue
+        k=str(plant["PRemoval"])
+        prior[k]+=1
+        if code in tps:
+            actual[k]+=1
+    return {
+      "official_2018_EEA_plant_PRemoval_yes_of_all_1799":418,
+      "original_all_2018_UWWTPS_plant_rows":1799,
+      "geographical_reciprocal250m_source_before_WQE_TP_by_PRemoval":dict(prior),
+      "actually_2018_TP_measured_source_by_PRemoval":dict(actual),
+      "sampling_fraction_with_actual_TP_by_original_PRemoval":{
+        k:float(actual[k]/prior[k]) if prior[k] else None for k in ("0","1")},
+      "PRemoval_flag_is_nonrandomly_related_to_regulatory_TP_monitoring_opportunity_POSSIBLE":True,
+      "still_not_direct_native_2018_plant_ID_crosswalk":True,
+    }
+
+
 def make_frame(matches,plants,tps):
     rows=[]
     missing=collections.Counter()
@@ -304,12 +329,14 @@ def main(args):
         if len(matching)!=N_EXPECTED_MUTUAL_SA:
             raise RuntimeError("Original mutual 2018 FW outlet-current SA 250m 930 source cohort drift")
         TP_annual,tpqa=original_TP_dates(sorted(matching))
+        treatment_sampling_qa=original_sampling_selection_QA(matching,plants,TP_annual)
         cohort,sourceqa,sourcegates=make_frame(matching,plants,TP_annual)
         out.update({
             "status":"SOURCE_PASS_TREATMENT_FLAG_TP_COHORT_AUDITED",
             "source_2018_UWWTP_treatment_QA":plantqa,
             "source_geo_QA":qa,
             "official_EA_WQE_2018_TP_source_QA":tpqa,
+            "original_treatment_group_TP_monitoring_selection_QA":treatment_sampling_qa,
             "source_matched_2018_cohort_QA":sourceqa,
             "preoutcome_source_gates":sourcegates
         })
@@ -323,6 +350,7 @@ def main(args):
     print("GESUI_UWWTD2018_PREMOVAL_EA_FINAL_TP="+json.dumps({
        "status":out["status"],"error":out.get("source_error"),
        "original_PRemoval":out.get("source_2018_UWWTP_treatment_QA"),
+       "TP_monitoring_selection_by_PRemoval":out.get("original_treatment_group_TP_monitoring_selection_QA"),
        "matched_source_cohort":out.get("source_matched_2018_cohort_QA"),
        "source_gates":out.get("preoutcome_source_gates"),
        "source_2018_totalP_comparison":out.get("exploratory_TP_flag_response"),
