@@ -51,8 +51,8 @@
 
 **Files:** Japanese results in `docs/`; source aggregate/provenance in `results/uk2018_permit_outlet_location_20261121/`; additive prior-report note and PR137 summary.
 
-- [ ] Obtain one fresh code/scientific review and independently reconcile adopted aggregate counts; fix important findings with RED/GREEN tests.
-- [ ] Report public-source search coverage, coordinate semantics and remaining formalID/temporal gaps; do not reinterpret geographic disagreement as a measured ecological effect.
+- [x] Obtain one fresh code/scientific review and independently reconcile adopted aggregate counts; fix important findings with RED/GREEN tests.
+- [x] Report public-source search coverage, coordinate semantics and remaining formalID/temporal gaps; do not reinterpret geographic disagreement as a measured ecological effect.
 - [ ] Save explicit code/results/docs on the same Draft branch with expected-head lease; verify remote file hashes and CI and unchangedmain.
 
 ## Execution ledger
@@ -73,3 +73,6 @@
 - Independent geometry implementation (no new geometry-helper reuse) matches all six threshold tables from the initial CI run. Actual counts will be adopted only after the strengthened run passes.
 - Two Minor items deferred with bounded current risk: (1) a row missing part of its five-key is skipped by cross-effluent conflict logic; the SHA-locked actual source has zero invalid five-key rows, so this cannot affect this census; (2) direct output writes could leave stale/truncated output in an interrupted repeated local destination, whereas this workflow uses a fresh run-specific temporary path. No declined-to-judge review areas. No further reviewer dispatch is required; verify the fixes and source aggregate directly.
 - All74 source tests pass after the three guard fixes. The parent reran the separate reconstruction and reproduced the exact295-pair fingerprint and all accepted baseline counts. Next verification is the strengthened production run on the unchanged strict spatial runtime gate.
+- Strengthened code `7b1271930f9aa2d4b6b6af0a2d4ff9d531165f04`; adopted run `44914536306` SUCCESS, job `136877200929`, all74 tests passed inActions. Artifact `14710998636`; ZIP SHA256 `8a3f8d0ed1284c3d645166558686919fab6db2cc880ef6b80d280835acead884` matches GitHub metadata. Aggregate JSON SHA256 `652f02cb5a873c414bf2b93fd30ba311a16eac5bf17a078b96c858ecf7f3b724`. Original strict fullfloat SHA passed onPython3.11.18/pyproj3.7.2/PROJ9.5.1.
+- Adopted source support, nationalQA and all six distance tables equal the initial run. The parent independently reconciled all23 WQE page receipts, the295-pair digest,242093 source rows,6187 complete eligible keys and each295-point distance-table total. Separate geometry implementation agrees with every class count.
+- Code-commit source integrity `44914542640` and registry/evidence `44914542717` both SUCCESS. All four changed Git blobs match their locally prepared hashes. Complete report/provenance publication and its finalremote check remain.

@@ -1,0 +1,570 @@
+{
+  "EA_corroboration_QA": {
+    "Effluents_source_rows": 239461,
+    "additional_pairs_from_integer_padding_normalization": 1,
+    "corroborated_pairs_without_numeric_key_normalization": 521,
+    "eligible_keys_with_Effluents": 6187,
+    "eligible_keys_with_conflicting_effluent_fields": 0,
+    "ofwat_pair_fates": {
+      "corroborated": 522,
+      "effective_after_year": 1,
+      "no_exact_key_in_consents_all": 84
+    },
+    "publications_share_EA_WIMS_lineage_not_independent_measurements": true,
+    "same_original_5_keys_and_cross_publication_sample_notation_required": true
+  },
+  "EEA_2018_source": {
+    "annual_treated_volume_nonblank": 0,
+    "annual_volume_method_nonblank": 0,
+    "freshwater_outlets": 1498,
+    "harmonised_UK5_discharge_rows": 1809,
+    "harmonised_UK5_plants": 1799,
+    "repCode_UK5_not_all_rows_in_original_UK_submission": true,
+    "scientific_members": {
+      "DischargePoints.csv": {
+        "bytes": 6426566,
+        "sha256": "fe96e70df6b169222b4aaab78201f687ecfadfe8bec2bfe8554a93784ee112da"
+      },
+      "ReportPeriod.csv": {
+        "bytes": 1731,
+        "sha256": "30bed8a962218c1a2c772ba1bd151fc16d058874f77a4aef263ba2d83dfeb9fd"
+      },
+      "UWWTPS.csv": {
+        "bytes": 6291352,
+        "sha256": "bfd60e8ecc1539d4e4c31ea1182eafef2653e8ac46680e09f268f1a889d7fa48"
+      }
+    }
+  },
+  "EEA_archive_receipt": {
+    "bytes": 93245708,
+    "http": 200,
+    "sha256": "b5ff1675084f7b2cf816720903f845154e167cfe7faba1e94bef2690425612d6",
+    "url": "https://sdi.eea.europa.eu/datashare/s/mGmXg3zcEqKQLTG/download"
+  },
+  "WQE_coordinate_source_freeze": {
+    "accepted_identity_run": 44907990658,
+    "accepted_result_sha256": "40e318cffc0d2abb507df73f2933ce4a239dd71d56bc200a2f209e7cbba2bc48",
+    "all_original_coordinate_bearing_page_bytes_match": true,
+    "verified_pages": 23
+  },
+  "WQE_registry": {
+    "page_receipts": [
+      {
+        "http": 200,
+        "n_bytes": 311004,
+        "n_source_members": 250,
+        "skip": 0,
+        "source_sha256": "e55b3bf1c7d32991c50bcdc7e318796bc6f75e7caf0616962266e0686eb887bb",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 311168,
+        "n_source_members": 250,
+        "skip": 250,
+        "source_sha256": "9acd10188599f4109f08c5595020f5d2f08e60a154b30b0621bc6aee66468194",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 310837,
+        "n_source_members": 250,
+        "skip": 500,
+        "source_sha256": "22b180c7a683e958b7344b588ce38a0faf999f140342ee33027cfc9b4838a8fe",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 310851,
+        "n_source_members": 250,
+        "skip": 750,
+        "source_sha256": "ce4525a325ca36b5cfab1000b72634d7f07871389346b095634da4b1a22c52cc",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 314107,
+        "n_source_members": 250,
+        "skip": 1000,
+        "source_sha256": "8d1501bfd9505e3ce64bbfcc541e1cc34e752e9aff876d9f919afff954c193c0",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 327259,
+        "n_source_members": 250,
+        "skip": 1250,
+        "source_sha256": "174e494b16be9df41a6a957dc24c785df8d3bc29aecf2e20fa9b3e0417537ade",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 321421,
+        "n_source_members": 250,
+        "skip": 1500,
+        "source_sha256": "5fe2e08d83275acdf9bbcac4e32dc57dae50bffe86ec032cf0856a08d15e4183",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 325798,
+        "n_source_members": 250,
+        "skip": 1750,
+        "source_sha256": "834ff21c9851999e2c7b7312046c807608a8b64af3f6a63584428bc8373549d8",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 319180,
+        "n_source_members": 250,
+        "skip": 2000,
+        "source_sha256": "fdfe44ac79013c024b4e272b75981dca24714db5fb379d2ecb5dae28ffec9dc0",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 320733,
+        "n_source_members": 250,
+        "skip": 2250,
+        "source_sha256": "ad21f77953d9dbfc4cdc0375e2cec52057ca3e1a6e8d2c0c95069864e6fbd706",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 311757,
+        "n_source_members": 250,
+        "skip": 2500,
+        "source_sha256": "4a2c53c5f2fc986f35b8647eacfe0a99d11101d8274369fbfa5c29df7436649a",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 313025,
+        "n_source_members": 250,
+        "skip": 2750,
+        "source_sha256": "3cc210b95bad517ab05980f7d5343c922db799a95945d580043cdb87342ea111",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 313010,
+        "n_source_members": 250,
+        "skip": 3000,
+        "source_sha256": "9583ae82dae31b1c41b756d425bdbbe8d701f45bd029743ed9af68063881c678",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 316362,
+        "n_source_members": 250,
+        "skip": 3250,
+        "source_sha256": "93079a8c2374ddc0a4f843a68c35f4cb57d93fa5fb4f3655ac3b47a7ac64d259",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 323493,
+        "n_source_members": 250,
+        "skip": 3500,
+        "source_sha256": "8c8b1951bc2a9760913640b807aa8980b502d1bc5f8883cc100424b031eaf001",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 321788,
+        "n_source_members": 250,
+        "skip": 3750,
+        "source_sha256": "ad99e068d0140502fa5d7bfa0167f781ed55823374a3652aa0031b7d69565151",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 318548,
+        "n_source_members": 250,
+        "skip": 4000,
+        "source_sha256": "02c1975386b10170bb0b1edc10669de272406b402941bf5d7ea3bbaea9cf5f62",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 316247,
+        "n_source_members": 250,
+        "skip": 4250,
+        "source_sha256": "9a2edb291c8d6e4c8f61fc70e2f04717fcd4976739d585a8c2659a12dff336d9",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 307794,
+        "n_source_members": 250,
+        "skip": 4500,
+        "source_sha256": "3f4143a5c30e983b52bd5dcfcb7cedb597adbd43c2962e1825a635c683445301",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 312658,
+        "n_source_members": 250,
+        "skip": 4750,
+        "source_sha256": "a421e86be0f7f8bd551150ee05dd8b85a0205e84774e124c71d39de37bbcc71c",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 307287,
+        "n_source_members": 250,
+        "skip": 5000,
+        "source_sha256": "00cb48eb8d33cdf4d1bd5554a05cc0191ad5115bc9deef375c5726bf680e2370",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 303499,
+        "n_source_members": 250,
+        "skip": 5250,
+        "source_sha256": "f9ba3fbb89a5c041042a438ac8c67f3dfb3737189bc04bae89e2086a92681e24",
+        "totalItems": 5722
+      },
+      {
+        "http": 200,
+        "n_bytes": 270582,
+        "n_source_members": 222,
+        "skip": 5500,
+        "source_sha256": "4a180fc1e336bc6acc2f7bce0aee102241b289571b9014878b2e80f72c5b3b12",
+        "totalItems": 5722
+      }
+    ],
+    "points": 5722,
+    "region_counts": {
+      "AN": 1198,
+      "MD": 1233,
+      "NE": 1001,
+      "NW": 629,
+      "SO": 392,
+      "SW": 876,
+      "TH": 393
+    },
+    "station_set_sha256": "bf4cb7027196d8de54c68ea6ef1956f44d17e9909dd5f4b080de750a74ff328e"
+  },
+  "consents_active_QA": {
+    "date_screen_only_not_complete_2018_register": true,
+    "distinct_canonical_keys": 67719,
+    "duplicate_key_groups": 1513,
+    "duplicate_rows_beyond_first_key": 3605,
+    "eligible_distinct_keys": 2461,
+    "invalid_key_rows": 0,
+    "key_status_counts": {
+      "effective_after_year": 3019,
+      "not_water_company_final_treated": 62239,
+      "overlaps_by_recorded_dates": 2461
+    },
+    "source_rows": 71324
+  },
+  "consents_all_QA": {
+    "date_screen_only_not_complete_2018_register": true,
+    "distinct_canonical_keys": 236869,
+    "duplicate_key_groups": 2214,
+    "duplicate_rows_beyond_first_key": 5224,
+    "eligible_distinct_keys": 6187,
+    "invalid_key_rows": 0,
+    "key_status_counts": {
+      "effective_after_year": 5916,
+      "not_water_company_final_treated": 198568,
+      "overlaps_by_recorded_dates": 6187,
+      "reversed_or_empty_interval": 427,
+      "revoked_before_year": 25771
+    },
+    "source_rows": 242093
+  },
+  "fixed_295_location_support": {
+    "EEA_native_outlet_to_permit_identity_still_unverified": true,
+    "candidate_five_key_pairs": 295,
+    "candidate_points": 295,
+    "current_publication_attaches_geometry_to_historical_permit_version": true,
+    "distance_counts_are_points_not_independent_physical_outlets": true,
+    "distances": {
+      "current_WQE_samplepoint": {
+        "100m": {
+          "boundary": 2,
+          "outside": 80,
+          "within": 213
+        },
+        "250m": {
+          "boundary": 1,
+          "outside": 7,
+          "within": 287
+        },
+        "500m": {
+          "boundary": 0,
+          "outside": 3,
+          "within": 292
+        }
+      },
+      "original_EEA_outlet": {
+        "100m": {
+          "boundary": 0,
+          "outside": 22,
+          "within": 273
+        },
+        "250m": {
+          "boundary": 0,
+          "outside": 5,
+          "within": 290
+        },
+        "500m": {
+          "boundary": 0,
+          "outside": 3,
+          "within": 292
+        }
+      }
+    },
+    "distinct_versioned_outlets": 295,
+    "does_not_establish_2018_coordinate_survey_or_sample_date_validity": true,
+    "one_metre_notation_with_both_axes_trailing_double_zero": 20,
+    "one_metre_notation_with_both_axes_trailing_zero": 229,
+    "outlet_status_counts": {
+      "valid": 295
+    },
+    "outlet_vs_effluent_grid": {
+      "different_cells": 212,
+      "same_cell": 83
+    },
+    "outlet_vs_site_grid": {
+      "different_cells": 262,
+      "same_cell": 33
+    },
+    "recorded_grid_width_m_counts": {
+      "1": 295
+    },
+    "valid_distinct_versioned_outlets": 295,
+    "valid_location_points": 295,
+    "versioned_outlets_with_multiple_candidate_points": 0,
+    "whole_cell_bounds_reflect_notation_not_survey_accuracy": true
+  },
+  "fixed_295_native_permit_pair_sha256": "1ce2b5be966498d282a5f3ae23bff896fa27c9b63712d67baba3ea7881f308ae",
+  "fixed_cohort": {
+    "both_existing_fingerprints_verified": true,
+    "candidate_points": 930,
+    "complete_pair_mapping_sha256": "b7e73bf03a76a376a44245d6a4835f0cdcd6bb84142c7625d925f89aa3de9da1",
+    "geographical_match_remains_distinct_from_formal_UWWTD_ID_match": true,
+    "native_pair_hash_is_additional_not_a_replacement_gate": true,
+    "native_pair_mapping_sha256": "40804120b62c8ac2641de4e0dd2fb4e3c1e4e3a797aa83589e4674b200fb23a9",
+    "spatial_runtime": {
+      "PROJ": "9.5.1",
+      "pyproj": "3.7.2",
+      "python": "3.11.18"
+    },
+    "station_set_sha256": "d55a7773bd85c59bf137dda4dac835cd0a1f77d8912a1164a422ac48ee7cee07"
+  },
+  "formal_EEA_outlet_to_permit_identity_still_unverified": true,
+  "national_location_QA": {
+    "all_effluent_types_checked_on_same_versioned_outlet": true,
+    "coordinate_field_has_no_separate_survey_or_effective_date": true,
+    "distinct_versioned_outlet_keys": 6027,
+    "eligible_distinct_keys": 6187,
+    "field_status_counts": {
+      "DISCHARGE_NGR": {
+        "valid": 6187
+      },
+      "EFFLUENT_GRID_REF": {
+        "valid": 6187
+      },
+      "OUTLET_GRID_REF": {
+        "valid": 6187
+      }
+    },
+    "source_rows": 242093,
+    "versioned_outlet_status_counts": {
+      "valid": 6027
+    }
+  },
+  "no_TP_flow_BIO_values_or_river_rerouting_used": true,
+  "no_raw_identifiers_coordinates_names_or_individual_distances_published": true,
+  "ofwat_identity_QA": {
+    "Sites with P permits": {
+      "identity_counts": {
+        "complete_identity_rows": 312,
+        "distinct_pairs": 304,
+        "distinct_points": 304,
+        "duplicate_identity_rows": 8,
+        "excluded": {
+          "missing_or_invalid_full_permit_key": 4,
+          "missing_or_unknown_English_region": 28,
+          "missing_point_notation": 12
+        },
+        "full_notation_region_correspondence": {
+          "AN->AN": 78,
+          "MI->MD": 83,
+          "NE->NE": 17,
+          "NW->NW": 27,
+          "SO->SO": 63,
+          "SW->SW": 30,
+          "TH->TH": 18
+        },
+        "input_rows": 3715,
+        "points_with_multiple_keys": 0,
+        "points_with_multiple_keys_ignoring_version": 0,
+        "year_rows": 356
+      },
+      "schema": {
+        "header_count": 1,
+        "header_row_numbers": [
+          2
+        ],
+        "projected_rows": 3715,
+        "selected_fields": [
+          "year",
+          "sample_samplingpoint_notation",
+          "EA_REGION",
+          "permit_number",
+          "version",
+          "outlet_number",
+          "effluent_number",
+          "EFFECTIVE_DATE"
+        ]
+      },
+      "year_row_counts": {
+        "2011": 187,
+        "2012": 234,
+        "2013": 251,
+        "2014": 270,
+        "2015": 282,
+        "2016": 290,
+        "2017": 300,
+        "2018": 356,
+        "2019": 391,
+        "2020": 565,
+        "2021": 588,
+        "3714": 1
+      }
+    },
+    "Sites without P Permits": {
+      "identity_counts": {
+        "complete_identity_rows": 618,
+        "distinct_pairs": 606,
+        "distinct_points": 605,
+        "duplicate_identity_rows": 12,
+        "excluded": {
+          "missing_or_unknown_English_region": 551,
+          "missing_point_notation": 4934
+        },
+        "full_notation_region_correspondence": {
+          "AN->AN": 134,
+          "MI->MD": 153,
+          "NE->NE": 33,
+          "NW->NW": 64,
+          "SO->SO": 86,
+          "SW->SW": 59,
+          "TH->TH": 89
+        },
+        "input_rows": 67110,
+        "points_with_multiple_keys": 1,
+        "points_with_multiple_keys_ignoring_version": 1,
+        "year_rows": 6103
+      },
+      "schema": {
+        "header_count": 2,
+        "header_row_numbers": [
+          1,
+          61295
+        ],
+        "projected_rows": 67110,
+        "selected_fields": [
+          "year",
+          "sample_samplingpoint_notation",
+          "EA_REGION",
+          "permit_number",
+          "version",
+          "outlet_number",
+          "effluent_number",
+          "EFFECTIVE_DATE"
+        ]
+      },
+      "year_row_counts": {
+        "2011": 6100,
+        "2012": 6089,
+        "2013": 6096,
+        "2014": 6100,
+        "2015": 6090,
+        "2016": 6089,
+        "2017": 6074,
+        "2018": 6103,
+        "2019": 6117,
+        "2020": 6129,
+        "2021": 6123
+      }
+    },
+    "identity_pairs_shared_by_both_sheets": 303,
+    "sheets_are_not_independent_or_assumed_disjoint_P_permit_groups": true,
+    "union": {
+      "complete_identity_rows": 930,
+      "distinct_pairs": 607,
+      "distinct_points": 606,
+      "duplicate_identity_rows": 323,
+      "excluded": {
+        "missing_or_invalid_full_permit_key": 4,
+        "missing_or_unknown_English_region": 579,
+        "missing_point_notation": 4946
+      },
+      "full_notation_region_correspondence": {
+        "AN->AN": 212,
+        "MI->MD": 236,
+        "NE->NE": 50,
+        "NW->NW": 91,
+        "SO->SO": 149,
+        "SW->SW": 89,
+        "TH->TH": 107
+      },
+      "input_rows": 70825,
+      "points_with_multiple_keys": 1,
+      "points_with_multiple_keys_ignoring_version": 1,
+      "year_rows": 6459
+    }
+  },
+  "ofwat_source": {
+    "bytes": 11568309,
+    "retrieval_receipts": [
+      {
+        "bytes": 11568309,
+        "http": 200,
+        "sha256": "b7699aa3202366b15baab4c415e0702a5fb8f0401249b415903b8e763939b3c4",
+        "url": "https://www.ofwat.gov.uk/wp-content/uploads/2023/06/Water-company-phosphorus-discharge-data-2011-2021.xlsx"
+      }
+    ],
+    "sha256": "b7699aa3202366b15baab4c415e0702a5fb8f0401249b415903b8e763939b3c4",
+    "verified_private_cache_used": false
+  },
+  "permit_archive_receipt": {
+    "bytes": 57075591,
+    "http": 200,
+    "sha256": "6efcacf35325586d38bdcc61a25f1219cbd84d03957ffd97343a8dc989636f83",
+    "url": "https://environment.data.gov.uk/api/file/download?fileDataSetId=a54fdea1-7769-4b22-a518-10d51fed6f33&fileName=Consented+Discharges+to+Controlled+Waters+with+Conditions.zip"
+  },
+  "permit_database_source": {
+    "bytes": 507949056,
+    "sha256": "d664ea13da990c064006c6bfe32b3f76bc682c8b188bca55be33a3c8077136a7",
+    "verified_private_cache_used": false
+  },
+  "permit_dates_are_not_coordinate_survey_dates": true,
+  "prior_identity_partition": {
+    "candidate_points": 930,
+    "does_not_verify_UWWTD_dcpCode_to_permit_outlet": true,
+    "ea_active_corroborated_distinct_pairs": 16,
+    "ea_all_corroborated_distinct_pairs": 295,
+    "ea_all_corroborated_distinct_pairs_absent_from_active": 279,
+    "ofwat_distinct_pairs": 346,
+    "source_reported_annual_association_not_sample_date_version_assignment": true,
+    "with_corroboration_only_in_all_not_active": 279,
+    "with_ea_active_corroborated_pair": 16,
+    "with_ea_all_corroborated_pair": 295,
+    "with_exactly_one_ofwat_key": 346,
+    "with_historical_ofwat_pair": 346,
+    "with_multiple_ofwat_keys": 0,
+    "with_unique_ofwat_key_and_ea_corroboration": 295,
+    "without_ofwat_pair": 584
+  },
+  "run_utc": "2026-11-21T14:33:54.912888+00:00",
+  "schema": "GESUI_UK2018_PERMIT_OUTLET_LOCATION_AUDIT_V1",
+  "stage": "serialization",
+  "status": "HISTORICAL_PERMIT_OUTLET_LOCATION_ATTRIBUTES_AUDITED_EEA_NATIVE_ID_UNRESOLVED"
+}

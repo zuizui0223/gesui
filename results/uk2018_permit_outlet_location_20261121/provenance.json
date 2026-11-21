@@ -1,0 +1,122 @@
+{
+  "adopted": {
+    "artifact_id": 14710998636,
+    "artifact_name": "gesui-20261121-UK2018-permit-outlet-location",
+    "code_sha": "7b1271930f9aa2d4b6b6af0a2d4ff9d531165f04",
+    "code_tree_sha": "dcb0c48b3e45115f496c31dd2dead0e18addbc87",
+    "completed_jst": "2026-11-21T23:35:09+09:00",
+    "completed_utc": "2026-11-21T14:35:09Z",
+    "cryptographic_attestation_verified": false,
+    "job_id": 136877200929,
+    "json_bytes": 17682,
+    "json_file": "run_44914536306.json",
+    "json_sha256": "652f02cb5a873c414bf2b93fd30ba311a16eac5bf17a078b96c858ecf7f3b724",
+    "run_id": 44914536306,
+    "run_url": "https://github.com/zuizui0223/gesui/actions/runs/44914536306",
+    "spatial_runtime": {
+      "PROJ": "9.5.1",
+      "pyproj": "3.7.2",
+      "python": "3.11.18"
+    },
+    "status": "success",
+    "tests_actions": 74,
+    "tests_local": 74,
+    "zip_digest_matches_GitHub_metadata": true,
+    "zip_sha256": "8a3f8d0ed1284c3d645166558686919fab6db2cc880ef6b80d280835acead884"
+  },
+  "base_branch": "analysis/gesui-wessex-wwtp-effluent-source-20261120",
+  "branch": "analysis/gesui-uk-prtr-2017-18-STW-annual-mass-source-20261121",
+  "delivery_state": "open_draft",
+  "frozen_identity_baseline": {
+    "all_23_coordinate_bearing_page_bytes_verified": true,
+    "cohort_sha256": "d55a7773bd85c59bf137dda4dac835cd0a1f77d8912a1164a422ac48ee7cee07",
+    "complete_projected_mapping_sha256": "b7e73bf03a76a376a44245d6a4835f0cdcd6bb84142c7625d925f89aa3de9da1",
+    "counts_unchanged": true,
+    "json_sha256": "40e318cffc0d2abb507df73f2933ce4a239dd71d56bc200a2f209e7cbba2bc48",
+    "local_float_mismatch_not_used_to_relax_production_gate": true,
+    "native_EEA_mapping_sha256": "40804120b62c8ac2641de4e0dd2fb4e3c1e4e3a797aa83589e4674b200fb23a9",
+    "new_hash_was_not_recorded_in_previous_result": true,
+    "newly_reconstructed_295_station_permit_pair_sha256": "1ce2b5be966498d282a5f3ae23bff896fa27c9b63712d67baba3ea7881f308ae",
+    "pair_serialization": "sorted([[point,list(five_key)],...]); UTF8 JSON ensure_ascii=False,separators=(comma,colon),allow_nan=False",
+    "run_id": 44907990658
+  },
+  "independent_checks": {
+    "file": "independent_checks.json",
+    "sha256": "969fee15bae7f66a7f58b362998f113c7218a90f59a879ab48b2191ac5fcc62e"
+  },
+  "main_baseline_sha": "6a0ebac1274f23cd202e2f515176b6d77d264b54",
+  "prepared_utc": "2026-11-21T14:38:34.283305+00:00",
+  "prior_attempts": [
+    {
+      "adopted": false,
+      "artifact_id": 14710912207,
+      "code_sha": "762bfaa43e8133e8bc0fbbbd39d88e51316cf70d",
+      "json_file": "run_44913481948_pre_guard.json",
+      "json_sha256": "4bc372eb38c6854bc8cfc82ba48c01f04f4b708f621fdf8e33b8d58ea1dee87a",
+      "reason": "Pre-review-guard implementation. All distance counts agree with the strengthened rerun, but final inference uses the strengthened run.",
+      "run_id": 44913481948,
+      "status": "success",
+      "tests": 66,
+      "zip_sha256": "fb2c6a39f88d168699828466a0a197130d95cad20c3560ab53e06b8343809e5a"
+    }
+  ],
+  "pull_request": 137,
+  "repository": "zuizui0223/gesui",
+  "review": {
+    "declined_to_judge_areas": [],
+    "fresh_reviews": 1,
+    "important_fixed": 3,
+    "important_found": 3,
+    "minor_deferred": [
+      {
+        "bounded_current_risk": "SHA-locked actual consents_all source has0 invalid five-key rows.",
+        "issue": "Missing five-key component row is skipped during cross-effluent outlet-conflict examination."
+      },
+      {
+        "bounded_current_risk": "Production workflow uses a fresh run-specific temporary output path; downloaded complete aggregate and ZIP digest verified.",
+        "issue": "Direct write can leave incomplete or stale result after interrupted repeated local writes."
+      }
+    ],
+    "new_tests": 8,
+    "red_observed_before_fixes": true,
+    "resolutions": [
+      "Original accepted result SHA and all23 WQE coordinate-bearing source page receipts enforced.",
+      "Exact295 station/full-five-key fingerprint reconstructed independently and enforced before location reads.",
+      "Strict CSV row width and quotation parsing plus full required-key coverage enforced; explicit blank coordinates remain missing."
+    ]
+  },
+  "schema": "GESUI_UK2018_PERMIT_OUTLET_LOCATION_PROVENANCE_V1",
+  "scientific_limits": {
+    "BIO_gate_unchanged": 100,
+    "BIO_site_years_unchanged": 93,
+    "annual_permit_not_sample_date_assignment": true,
+    "current_publication_not_2018_coordinate_survey": true,
+    "formal_EEA_native_ID_unresolved": true,
+    "main_and_manuscript_PR124_unchanged": true,
+    "no_TP360_overlap_calculated": true,
+    "no_new_TP_BIO_flow_mass_or_river_rerouting": true,
+    "no_raw_source_records_or_individual_distances_published": true,
+    "notation_resolution_not_survey_accuracy": true,
+    "selected_930_proximity_cohort_not_national_validation_sample": true,
+    "shared_WIMS_lineage_not_independent_measurements": true
+  },
+  "source_inventory": {
+    "file": "source_inventory.json",
+    "inspected_files": 7,
+    "negative_scope": "No explicit UWWTD dcpCode to EA permit outlet bridge established in these inspected releases; absence elsewhere not established.",
+    "sha256": "016a21232c59ae1b289b9997320e1f0c69365e35131fc0fa5c53847a1bba1727"
+  },
+  "verification": {
+    "all_initial_distance_tables_unchanged": true,
+    "all_six_distance_rows_sum_to": 295,
+    "all_six_tables_reproduced_by_independent_implementation": true,
+    "artifact_contains_only_expected_aggregate_member": true,
+    "both_code_commit_integrity_runs_success": true,
+    "code_commit_registry_evidence_run": 44914542717,
+    "code_commit_source_integrity_run": 44914542640,
+    "eligible_keys_present": 6187,
+    "four_code_commit_git_blob_hashes_match": true,
+    "national_location_source_rows": 242093,
+    "parent_replayed_independent_reconstruction": true
+  }
+}

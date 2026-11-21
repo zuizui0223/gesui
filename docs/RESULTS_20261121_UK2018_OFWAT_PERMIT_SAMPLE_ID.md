@@ -150,3 +150,8 @@ EEAの `dcpCode` とEA許可の放流口キーを直接つなぐ原資料上の�
 - [EA許可データの公式カタログ](https://www.data.gov.uk/dataset/55b8eaa8-60df-48a8-929a-060891b7a109/consented-discharges-to-controlled-waters-with-conditions)、[EEAの2018年公開データ](https://sdi.eea.europa.eu/data/dbbccc77-ec41-4b19-8ec5-093bba1ba7a8)
 
 公開物はコード、合成テスト、集約結果、スキーマ、出典とハッシュに限定している。元の施設名・許可番号・採水点ID・座標・個別TP・流量・生物個票は含めない。PR137は既存のDraftのまま更新し、mainと原稿PR124へは統合しない。
+
+
+## 追記：許可版に記録された出口位置の確認
+
+[後続の位置監査](RESULTS_20261121_UK2018_PERMIT_OUTLET_LOCATION_SOURCE.md)で、同じ295採水点すべてに有効な許可出口格子があり、元EEA位置から250 m以内が290地点であることを確認した。採用run44914536306は全74テスト、旧集合・完全対応ハッシュ、全23 WQEページ、独立再構成した295許可対応ハッシュを通過した。正式なEEA dcpCode対応や2018年の座標測量を確定した結果ではない。346/295の年次許可対応、930候補、BIO93地点年は変更していない。
