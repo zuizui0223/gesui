@@ -1,0 +1,68 @@
+# UK2018 permit-to-sampling identity audit implementation plan
+
+> **For agentic workers:** Use superpowers:executing-plans to implement this continuation. The user has instructed continuing the existing source-first project; no new design approval or merge is requested.
+
+**Goal:** Count source-reported historical permit/sample relationships among the unchanged 930 spatial candidates, preserving every unresolved edge.
+
+**Architecture:** A pure Python helper handles exact identifiers, multiplicity and date screens. A source runner reads frozen official bytes and current WQE metadata privately, reuses the established spatial selector, and emits only aggregate JSON. An independent final review checks semantics and disclosure boundaries.
+
+**Tech Stack:** Existing Python, openpyxl for reading only, numpy/pyproj and existing spatial selector; mdbtools for private Access extraction; GitHub connector for the existing isolated Draft branch.
+
+**Spec:** `docs/PROTOCOL_20261121_UK2018_PERMIT_SAMPLE_ID_SOURCE.md`.
+
+## Global constraints
+
+- No TP/BIO outcome retrieval or regression; no annual mass calculation.
+- Exact 2018 rows; complete regionalized permit/version/outlet/effluent keys.
+- Preserve the 930 station-set hash and existing complete pairing hash.
+- Publish aggregates and hashes only; raw downloads and database exports remain outside the repository.
+- Current records and annual summaries do not prove sample-date-specific historical identities.
+- Use the existing PR137 Draft branch with an expected-head lease; main remains untouched.
+
+## Review focus
+
+- Duplicate and repeated-header rows must not create extra sites or suggest independent P-permit groups.
+- Same local sample code in different regions, or changed Midlands prefix, must not create a guessed join.
+- Distinct versions/outlets must remain separate; no first-row selection.
+- Missing/invalid/revoked/future dates must not qualify as verified 2018 activity.
+- Partial paging, source changes or exceptions must not publish raw source fields or a false completed census.
+
+## Task 1: Identity and date semantics
+
+**Files:** Create `analysis/20261121_uk_prtr/permit_sample_identity_support.py` and `test_permit_sample_identity_support.py`.
+
+**Interfaces:** `permit_key(row, source)` returns a regionalized 5-tuple or None; `ofwat_pairs(rows)` returns unique source-reported tuples plus aggregate QA; `date_overlap_status(row, year)` returns a controlled status; `summarize_candidates(candidates, pairs, corroborated, active)` returns aggregate multiplicity and corroboration counts.
+
+- [x] Write synthetic tests for duplicate collapse, missing keys, region collisions, MI/MD source-documented correspondence, preserved permit leading zeros, distinct version/outlet retention, date-boundary failures, candidate membership and disclosure-safe aggregate output.
+- [x] Run RED; implement only the required behavior; run GREEN.
+
+## Task 2: Reproducible source census
+
+**Files:** Create `analysis/20261121_uk_prtr/ofwat2018_permit_sample_identity_audit.py`; add one narrowly scoped Actions workflow.
+
+**Consumes:** Task 1 helpers; existing UWWTD/WQE spatial selector.
+
+**Produces:** aggregate source provenance, national workbook coverage, fixed-930 permit support and exact EA corroboration. Code accepts private verified caches for this run; default execution downloads only from the declared official sources or their UK National Archives preservation.
+
+- [ ] Require frozen XLSX, Access and EEA table hashes; parse selected columns only; record headers and page receipts.
+- [ ] Reconstruct the original 930 candidates and verify both station and complete-pair fingerprints before joining.
+- [ ] Check workbook and EA all/active/Effluents key consistency, duplicates, dates and source type. Keep incompleteness visible.
+- [ ] Run the new suite and relevant existing 25 source regressions; commit code/protocol before the study-cohort join.
+- [ ] Execute original-source audit, inspect status and aggregate margins, and retain the verified aggregate JSON.
+
+## Task 3: Review, interpretation and delivery
+
+**Files:** New results and provenance under `results/uk2018_permit_identity_audit_20261121/`; new Japanese result report in `docs/`; update PR137 summary.
+
+- [ ] Obtain a fresh code/scientific review; address important findings with failing-then-passing regressions.
+- [ ] Reconcile national and cohort counts independently. Explain annual-summary selection, cross-sheet duplicates, historical/current differences, and remaining UWWTD native-ID gap.
+- [ ] Save code/results/docs on the same Draft branch, verify final remote blobs and CI, confirm main unchanged.
+
+## Execution ledger
+
+- Start base: `6bba31654520b4db1ee622b57eda6ad8a755c549`.
+- Existing local directory is a selected-file snapshot, not a git checkout. Remote Git tree/commit/update-ref operations preserve unrelated files and the existing Draft branch. No local worktree is needed.
+- Source discovery found a stronger public historical Ofwat workbook bridge than the initially considered current-register prefix construction. The explicit workbook IDs are therefore primary; the EA database is independent corroboration.
+- Workbook schema/national counts were inspected before this protocol. Fixed-930 identity join has not yet been run at protocol creation; this is exploratory source research, not a preregistered confirmatory analysis.
+
+- Task 1 complete: 17 new identity/source-boundary tests observed failing before implementation and passing after; all 42 tests in this source-analysis directory pass (17 new +25 existing). Python compilation passes.
