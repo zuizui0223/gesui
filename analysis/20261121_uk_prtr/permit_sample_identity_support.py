@@ -24,14 +24,16 @@ def text(value):
 
 
 def permit_key(row, source, *, normalize_numbers=True):
-    """Preserve the permit reference; canonicalize only integer key components."""
+    """Preserve opaque IDs; canonicalize only components that are integers.
+
+    Original EA outlet identifiers include letters despite the column name
+    OUTLET_NUMBER. A non-integer identifier is not a missing identifier.
+    """
     values = [text(row.get(k)) for k in KEY_FIELDS[source]]
     if values[0] not in EA_TO_WQE or not all(values):
         return None
     for i in (2, 3, 4):
-        if not re.fullmatch(r"[0-9]+(?:\.0+)?", values[i]):
-            return None
-        if normalize_numbers:
+        if normalize_numbers and re.fullmatch(r"[0-9]+(?:\.0+)?", values[i]):
             values[i] = str(int(values[i].split(".")[0]))
     return tuple(values)
 
@@ -135,6 +137,9 @@ def summarize_candidates(candidates, pairs, corroborated, active):
         "with_ea_all_corroborated_pair": len(confirmed),
         "ea_all_corroborated_distinct_pairs": sum(p in candidates for p, _ in corroborated),
         "with_ea_active_corroborated_pair": len(current),
+        "ea_active_corroborated_distinct_pairs": sum(p in candidates for p, _ in active),
+        "ea_all_corroborated_distinct_pairs_absent_from_active": sum(
+            p in candidates for p, _ in corroborated - active),
         "with_corroboration_only_in_all_not_active": len(confirmed - current),
         "with_unique_ofwat_key_and_ea_corroboration": len(unique & confirmed),
         "source_reported_annual_association_not_sample_date_version_assignment": True,

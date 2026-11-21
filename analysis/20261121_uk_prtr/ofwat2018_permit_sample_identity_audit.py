@@ -232,7 +232,8 @@ def corroborate(pairs, raw_pairs, all_index, active_index, effluent_rows):
           "ofwat_pair_fates": dict(sorted(fates.items())),
           "corroborated_pairs_without_numeric_key_normalization": len(strict),
           "additional_pairs_from_integer_padding_normalization": len(corroborated - strict),
-          "same_original_5_keys_and_independent_sample_notation_required": True}
+          "same_original_5_keys_and_cross_publication_sample_notation_required": True,
+          "publications_share_EA_WIMS_lineage_not_independent_measurements": True}
     return corroborated, active, qa
 
 
@@ -308,16 +309,25 @@ def current_registry(cache):
 
 
 def fixed_candidates(coordinates, counts, registry):
+    import platform
+    import pyproj
     import eea2018_outlet_EA_TP_2018_ChemPop_river_gate as spatial
     matching, qa = spatial.select_current_SA_2018_UWWTD_historic_outlets(coordinates, counts, registry)
     station_sha = hashlib.sha256("\n".join(sorted(matching)).encode()).hexdigest()
     canonical = [[s, list(matching[s]["outlet_id"]), list(matching[s]["outlet_coord"])]
                  for s in sorted(matching)]
     pair_sha = hashlib.sha256(json.dumps(canonical, ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+    native_pair_sha = hashlib.sha256(json.dumps(
+        [[s, list(matching[s]["outlet_id"])] for s in sorted(matching)],
+        ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
     if len(matching) != 930 or station_sha != COHORT_SHA or pair_sha != PAIR_SHA:
         raise ValueError("Existing 930 station or complete pairing fingerprint changed")
     return set(matching), {"candidate_points": len(matching), "station_set_sha256": station_sha,
                            "complete_pair_mapping_sha256": pair_sha, "both_existing_fingerprints_verified": True,
+                           "native_pair_mapping_sha256": native_pair_sha,
+                           "native_pair_hash_is_additional_not_a_replacement_gate": True,
+                           "spatial_runtime": {"python": platform.python_version(),
+                                               "pyproj": pyproj.__version__, "PROJ": pyproj.proj_version_str},
                            "geographical_match_remains_distinct_from_formal_UWWTD_ID_match": True}
 
 

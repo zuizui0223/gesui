@@ -25,7 +25,24 @@ class IdentityTests(unittest.TestCase):
 
     def test_missing_version_is_not_filled_from_another_record(self):
         self.assertIsNone(audit.permit_key(row(version=None), "ofwat"))
-        self.assertIsNone(audit.permit_key(row(version="1.5"), "ofwat"))
+
+    def test_alphanumeric_outlet_identifiers_are_not_discarded_as_non_numeric(self):
+        self.assertEqual(audit.permit_key(row(outlet_number="A"), "ofwat"),
+                         ("AN", "00SYNTH/P", "1", "A", "1"))
+        pairs, qa = audit.ofwat_pairs([row(outlet_number="A")])
+        self.assertEqual(len(pairs), 1)
+        self.assertEqual(qa["complete_identity_rows"], 1)
+
+    def test_noninteger_identifier_text_is_preserved_without_rounding(self):
+        self.assertEqual(audit.permit_key(row(version="1.5"), "ofwat"),
+                         ("AN", "00SYNTH/P", "1.5", "1", "1"))
+
+    def test_pair_losses_remain_distinct_from_point_losses(self):
+        pairs, _ = audit.ofwat_pairs([row(), row(version=2)])
+        out = audit.summarize_candidates({"AN-SYNTH_A"}, pairs, pairs, set())
+        self.assertEqual(out["with_corroboration_only_in_all_not_active"], 1)
+        self.assertEqual(out["ea_active_corroborated_distinct_pairs"], 0)
+        self.assertEqual(out["ea_all_corroborated_distinct_pairs_absent_from_active"], 2)
 
     def test_complete_five_key_aliases_join_without_losing_version(self):
         source = dict(EA_REGION="AN", PERMIT_NUMBER="00SYNTH/P",
@@ -106,6 +123,33 @@ class DatesTests(unittest.TestCase):
 
 
 class SourceBoundaryTests(unittest.TestCase):
+    def test_joint_corroboration_excludes_conflicting_rows_and_preserves_historical_only(self):
+        sources = [row(sample_samplingpoint_notation="AN-SYNTH_" + x,
+                       permit_number="SYNTH/" + x) for x in "ABCD"]
+        pairs, _ = audit.ofwat_pairs(sources)
+        def consent(letter, **changes):
+            item = dict(EA_REGION="AN", PERMIT_NUMBER="SYNTH/" + letter,
+                        PERMIT_VERSION="1", OUTLET_NUMBER="1", EFFLUENT_NUMBER="1",
+                        EFFECTIVE_DATE="2010-01-01", REVOCATION_DATE="",
+                        EFF_TYPE_DESCRIPTION=runner.FINAL_TYPE)
+            item.update(changes)
+            return item
+        all_index = runner.consent_index([consent("A"), consent("B"), consent("C"),
+                         consent("C", EFFECTIVE_DATE="2019-01-01"), consent("D")])
+        active_index = runner.consent_index([consent("B")])
+        effluents = [dict(EA_REGION="AN", PERMIT_REF="SYNTH/" + x, VERSION="1",
+                          OUTLET_NUMBER="1", EFFLUENT_NUMBER="1", EFF_SAMPLE_POINT="SYNTH_" + x,
+                          SPT_DESC=runner.FINAL_TYPE) for x in "ABCD"]
+        effluents.append(dict(effluents[-1], EFF_SAMPLE_POINT="SYNTH_CHANGED"))
+        confirmed, active, qa = runner.corroborate(pairs, set(), all_index, active_index, effluents)
+        self.assertEqual(len(confirmed), 2)
+        self.assertEqual(len(active), 1)
+        self.assertEqual(qa["ofwat_pair_fates"]["conflicting_required_source_fields"], 1)
+        self.assertEqual(qa["ofwat_pair_fates"]["conflicting_Effluents_point_or_type"], 1)
+        out = audit.summarize_candidates({"AN-SYNTH_A", "AN-SYNTH_B"}, pairs, confirmed, active)
+        self.assertEqual(out["with_corroboration_only_in_all_not_active"], 1)
+
+
     def test_repeated_reordered_header_keeps_keys_and_drops_concentration(self):
         header = list(runner.OFWAT_FIELDS) + ["MEAN"]
         first = row()

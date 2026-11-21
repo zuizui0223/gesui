@@ -62,7 +62,13 @@
 
 - Start base: `6bba31654520b4db1ee622b57eda6ad8a755c549`.
 - Existing local directory is a selected-file snapshot, not a git checkout. Remote Git tree/commit/update-ref operations preserve unrelated files and the existing Draft branch. No local worktree is needed.
-- Source discovery found a stronger public historical Ofwat workbook bridge than the initially considered current-register prefix construction. The explicit workbook IDs are therefore primary; the EA database is independent corroboration.
+- Source discovery found a stronger public historical Ofwat workbook bridge than the initially considered current-register prefix construction. The explicit workbook IDs are therefore primary; the EA database provides cross-publication corroboration with shared EA WIMS lineage.
 - Workbook schema/national counts were inspected before this protocol. Fixed-930 identity join has not yet been run at protocol creation; this is exploratory source research, not a preregistered confirmatory analysis.
 
 - Task 1 complete: 17 new identity/source-boundary tests observed failing before implementation and passing after; all 42 tests in this source-analysis directory pass (17 new +25 existing). Python compilation passes.
+- Original code run `44907070860` passed both original cohort fingerprints. Its identity counts are superseded: independent XML parsing found three legitimate alphabetic outlet identifiers that the first numeric-key validator discarded. Preserve that run and its correction history.
+- Fix: retain opaque nonempty version/outlet/effluent strings, normalizing integer representations only. Two synthetic cases failed then passed. Add separate lost-pair counts (failing test before implementation) and a direct consent/Effluents conflict regression for the same joining path.
+- Review: historical and current publications share EA WIMS lineage; revise independence language and explicitly bound English-region coverage. No declined-to-judge items.
+- Reproduction: the local 930 station set and all 23 WQE page hashes exactly match the original run, but the hash containing projected floating-point coordinates differs across math runtimes. Preserve the local STOP, retain the strict original hash gate, and use the successful baseline-compatible Actions run for the complete mapping check. Record an additional native-pair hash and runtime versions; do not substitute it for the existing gate.
+
+- Correction verification: 46/46 tests pass (21 identity/source-boundary +25 existing). The source-native key fix restores the three workbook identities found independently; pair-loss and conflict-path regressions pass.
