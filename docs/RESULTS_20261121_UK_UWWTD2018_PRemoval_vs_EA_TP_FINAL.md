@@ -108,6 +108,8 @@ PRemovalあり／なしの単純比較を、その河川水質→底生群集の
 - [モデル・元観測テスト](../analysis/20261121_uk_prtr/test_premoval_source_model.py)、[source支持テスト](../analysis/20261121_uk_prtr/test_premoval_source_support.py)
 - [EEA原PRemoval定義](https://dd.eionet.europa.eu/dataelements/93986)、[原uwwNUTS定義](https://dd.eionet.europa.eu/dataelements/94007)、[ONS NUTS階層（Annex A）](https://www.ons.gov.uk/file?uri=/economy/regionalaccounts/grossdisposablehouseholdincome/methodologies/regionalaccounts/regionalaccountsmethodologyguideaugust2016.pdf)
 
+照合したのはGitHubが返すartifactのSHA256チェックサムであり、暗号署名やattestationの検証ではない。結果保存コミットのメッセージ中の「Signed artifact digest」はこのチェックサム照合を指す表現誤りで、本注記により訂正する。
+
 修正後ZIP SHA256：`70627fdc5519f8fdfbdc89ed32bfd0be8adec871656b177d8981a33045ff942f`。
 元930地点集合SHA256：`d55a7773bd85c59bf137dda4dac835cd0a1f77d8912a1164a422ac48ee7cee07`。
 今回初めて保存した完全対応表のSHA256：`b7e73bf03a76a376a44245d6a4835f0cdcd6bb84142c7625d925f89aa3de9da1`。旧runに完全対応表のハッシュはなく、採水点から放流点への対応が過去と完全一致したことまで遡って証明したとはしない。
