@@ -287,8 +287,41 @@ def modelling(df,qual):
                "original_source_controls":["PRemoval","NRemoval","log_capacity","original_uwwNUTS3"],
                "UWWTD_WWTW_treatment_is_not_randomized":True,
                "permit_facility_ID_still_not_joined":True}
+    # Posthoc diagnostic, explicitly separate from the pre-outcome frozen
+    # full adjustment. This sequence shows whether composition by geography
+    # and plant size explains the unadjusted treatment-flag contrast; it is
+    # NOT a mediation sequence and is not a causal effect decomposition.
+    nested={}
+    y=np.log1p(sub.annual_TP.to_numpy(float))
+    for label,parts in (
+        ("flag_only",()),
+        ("flag_and_capacity",("capacity",)),
+        ("flag_and_region",("region",)),
+        ("flag_capacity_region",("capacity","region")),
+        ("flag_capacity_region_NRemoval",("capacity","region","NRemoval"))
+    ):
+        Z=pd.DataFrame({"const":np.ones(len(sub)),
+                        "PRemoval":sub.P_removal.to_numpy(float)},index=sub.index)
+        if "capacity" in parts:
+            Z["log_capacity"]=np.log1p(sub.capacity.to_numpy(float))
+        if "NRemoval" in parts:
+            Z["NRemoval"]=sub.N_removal.to_numpy(float)
+        if "region" in parts:
+            for rk in sorted(sub.region.dropna().unique())[1:]:
+                Z["region_"+rk]=(sub.region==rk).astype(float)
+        if np.linalg.matrix_rank(Z.to_numpy(float))<Z.shape[1]:
+            nested[label]={"status":"MODEL_STOP_COLLINEAR"}
+        else:
+            mfit=sm.OLS(y,Z).fit(cov_type="HC3")
+            nested[label]={
+                "status":"POSTHOC_NONCAUSAL_ADJUSTMENT_DIAGNOSTIC",
+                "PRemoval_beta_log1p_TP":float(mfit.params["PRemoval"]),
+                "PRemoval_site_HC3_normal95":[float(v) for v in mfit.conf_int().loc["PRemoval"]],
+                "nominal_p":float(mfit.pvalues["PRemoval"]),
+                "n":int(len(sub)) }
     return {
       "status":"EXPLORATORY_SOURCE_TP_DIFFERENCE_CALCULATED",
+      "posthoc_sequential_source_adjustment_diagnostics":nested,
       "n_source_PRemoval_0":len(source_group[0]),
       "n_source_PRemoval_1":len(source_group[1]),
       "PRemoval_0_median_yearly_final_TP_mgL":med0,
