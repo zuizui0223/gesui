@@ -97,4 +97,10 @@ def run(a):
    "known_EPT_relative_fraction":v["source_EPT_known_lower_bound_relative_fraction"],
    "country_GO":v["source_unknown_mass_gate_GO"]}
    for k,v in country.items()}},sort_keys=True),flush=True)
+def main():
+ p=argparse.ArgumentParser()
+ for key in ("xlsx","source","taxonomy","out"):
+  p.add_argument("--"+key,required=True,type=pathlib.Path)
+ run(p.parse_args())
+
 if __name__=="__main__":main()
