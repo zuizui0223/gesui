@@ -90,7 +90,7 @@ def paired_aggregate(huc,pairs,kind):
   rng=np.random.default_rng(seed)
   boots=rng.integers(0,len(diff),size=(BOOT,len(diff)))
   ci=np.quantile(diff[boots].mean(axis=1),[.025,.975])
-  flips=rng.integers(0,2,size=(FLIPS,len(diff)),dtype=np.uint8)*2-1
+  flips=rng.integers(0,2,size=(FLIPS,len(diff)),dtype=np.int8)*2-1
   null=(flips.astype(float)*diff).mean(axis=1)
   p=(1+np.count_nonzero(abs(null)>=abs(diff.mean())-1e-15))/(FLIPS+1)
   group[endpoint]={
