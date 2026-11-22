@@ -13,7 +13,13 @@ def date(s):
   try:return datetime.datetime.strptime(s[:19],fmt).date()
   except ValueError:pass
  return None
-def archive_sha(path):\n h=hashlib.sha256()\n with open(path,"rb") as f:\n  for chunk in iter(lambda:f.read(1048576),b""):h.update(chunk)\n return h.hexdigest()\ndef main():
+def archive_sha(path):
+ h=hashlib.sha256()
+ with open(path,"rb") as f:
+  for chunk in iter(lambda:f.read(1048576),b""):
+   h.update(chunk)
+ return h.hexdigest()
+def main():
  a=PARSER.parse_args();fy=int(a.fiscal)
  geo=json.loads(pathlib.Path(a.geo).read_text());top=json.loads(pathlib.Path(a.topology).read_text())
  pairs=top["eras"]["2023_24"]["verified_source_only_upstream_candidate_pairs"]
