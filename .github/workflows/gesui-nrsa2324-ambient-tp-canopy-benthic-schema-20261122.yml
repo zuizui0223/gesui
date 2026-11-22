@@ -1,0 +1,39 @@
+name: NRSA 2023-24 observed ambient TP canopy benthos source gate
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_nrsa2324_ambient_tp_canopy_benthic_schema_20261122.py
+      - .github/workflows/gesui-nrsa2324-ambient-tp-canopy-benthic-schema-20261122.yml
+permissions:
+  contents: read
+jobs:
+  original-source-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Acquire only original official EPA NRSA metadata tables
+        run: |
+          curl --fail -LsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_siteinfo.csv -o "${{ runner.temp }}/siteinfo.csv"
+          curl --fail -LsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_waterchemistry.csv -o "${{ runner.temp }}/waterchem.csv"
+          curl --fail -LsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_physicalhabitat_metrics.csv -o "${{ runner.temp }}/physicalhabitat.csv"
+          curl --fail -LsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-09/nrsa2324_benthiccount.csv -o "${{ runner.temp }}/benthiccount.csv"
+          curl --fail -LsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-09/nrsa2324_benthicmmi.csv -o "${{ runner.temp }}/benthicmmi.csv"
+      - name: Validate source SHA, schema, and method-level native UID overlap
+        run: |
+          python -m py_compile scripts/gesui_nrsa2324_ambient_tp_canopy_benthic_schema_20261122.py
+          python scripts/gesui_nrsa2324_ambient_tp_canopy_benthic_schema_20261122.py \
+            --siteinfo "${{ runner.temp }}/siteinfo.csv" \
+            --waterchem "${{ runner.temp }}/waterchem.csv" \
+            --physicalhabitat "${{ runner.temp }}/physicalhabitat.csv" \
+            --benthiccount "${{ runner.temp }}/benthiccount.csv" \
+            --benthicmmi "${{ runner.temp }}/benthicmmi.csv" \
+            --out "${{ runner.temp }}/ambient_tp_canopy_benthic_schema_20261122.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa2324-ambienttp-canopy-benthos-source-only
+          path: ${{ runner.temp }}/ambient_tp_canopy_benthic_schema_20261122.json
+          if-no-files-found: warn
+          retention-days: 30
