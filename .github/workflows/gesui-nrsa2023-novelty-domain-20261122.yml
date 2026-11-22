@@ -4,6 +4,7 @@ on:
     paths:
       - scripts/gesui_nrsa2023_HUC8_source_novelty_environment_20261122.py
       - scripts/gesui_nrsa2023_novel_HUC8_source_matched_EPT_prediction_20261122.py
+      - scripts/audit_NRSA_2023_novelHUC_source_snapshot_20261122.py
       - .github/workflows/gesui-nrsa2023-novelty-domain-20261122.yml
   workflow_dispatch:
 
@@ -180,10 +181,12 @@ jobs:
           repository: zuizui0223/gesui
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen_novelty_source
-      - name: Verify prior source-only match SHA and compare against current source-only rerun
+      - name: Verify prior source-only exact HUC pairing and numeric summaries to 1e-12
         run: |
-          cmp "${{ runner.temp }}/frozen_novelty_source/NRSA_2023_NOVEL_HUC8_ENVIRONMENT_SOURCE_ONLY.json" \
-              "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_2023_NOVEL_HUC8_ENVIRONMENT_SOURCE_ONLY.json"
+          python -m py_compile scripts/audit_NRSA_2023_novelHUC_source_snapshot_20261122.py
+          python scripts/audit_NRSA_2023_novelHUC_source_snapshot_20261122.py \
+            --original "${{ runner.temp }}/frozen_novelty_source/NRSA_2023_NOVEL_HUC8_ENVIRONMENT_SOURCE_ONLY.json" \
+            --rerun "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_2023_NOVEL_HUC8_ENVIRONMENT_SOURCE_ONLY.json"
       - name: EPT prediction residuals matched by source-only ecoregion and environment (posthoc)
         run: |
           python -m py_compile scripts/gesui_nrsa2023_novel_HUC8_source_matched_EPT_prediction_20261122.py
