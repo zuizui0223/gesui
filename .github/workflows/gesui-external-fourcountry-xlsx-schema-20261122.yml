@@ -1,0 +1,33 @@
+name: External fourcountry original fine sediment XLSX source schema
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_external_fourcountry_xlsx_source_structure_20261122.py
+      - .github/workflows/gesui-external-fourcountry-xlsx-schema-20261122.yml
+permissions:
+  contents: read
+jobs:
+  publisher-original-structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Original publisher Figshare file download, exact MD5 and byte size required
+        run: |
+          curl --fail --location --silent --show-error --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299387" -o "${{ runner.temp }}/original_4country.xlsx"
+          printf '1e4d6e37b73c663406e5567dd79d9452  %s\n' "${{ runner.temp }}/original_4country.xlsx" | md5sum --check
+          ls -lh "${{ runner.temp }}/original_4country.xlsx"
+      - name: Inspect original workbook labels and source unit metadata without numeric biological outcomes
+        run: |
+          python -m py_compile scripts/gesui_external_fourcountry_xlsx_source_structure_20261122.py
+          python scripts/gesui_external_fourcountry_xlsx_source_structure_20261122.py \
+            --xlsx "${{ runner.temp }}/original_4country.xlsx" \
+            --out "${{ runner.temp }}/original_4country_XLSX_source_schema.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-McKenzie-fourcountry-source-XLSX-schema
+          path: ${{ runner.temp }}/original_4country_XLSX_source_schema.json
+          if-no-files-found: warn
+          retention-days: 60

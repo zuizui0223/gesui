@@ -1,0 +1,26 @@
+# Explicit country-heldout original sediment–EPT relative-share transport test — source-conditioned protocol
+2026-11-22. **Exploratory, posthoc relative to EPA source-history results and McKenzie et al. (2024) paper**. Original publisher taxon fractions/sediment observations have NOT been fitted or inspected for any correlation at protocol creation.
+
+## Source facts already established and fixed
+- Loughborough doi:10.17028/rd.lboro.24615570.v1, publisher original workbook `MathersEtAl-2023-PairedVisualFineSediment-Data.xlsx`, **4,640,542 bytes**, original MD5 `1e4d6e37b73c663406e5567dd79d9452`, original SHA256 `a02573bef0e11ea19c9465a78ebecc130fb9c39d76d35a79863c2efd5debcd48`; CC BY-NC 4.0.
+- Four original country taxa/sediment `ANALYSIS_ID` sheets exact one-to-one, n Australia3099/Brazil232/NZ342/UK2818, total6,491. All original taxon entry rows sum to **one (relative abundance)**, NOT raw counted individuals; **sample-site identifier absent** from this particular workbook; NZ sample names include dotted source codes but their site grouping is not independently defined. No individual original count denominator.
+- Original visual `fine sediment<2mm` cover in % is NOT EPA's `XEMBED` field/definition and regional taxon lists differ. The paper McKenzie et al. (2024 GCB) **already established** heterogeneous fine-sediment response across these countries. A positive association or heterogeneity is not a new finding here.
+- EPT fraction must be defined from *source-confirmed taxonomic ORDER* using GBIF backbone **exact canonical name** for each original publisher taxon label. Broad labels never guessed; UNKNOWN labels remain lower/upper mass uncertainty. A separately signed source-only GBIF header taxonomy audit precedes numeric fit.
+
+## Hard source STOP criteria
+1. Publisher original 8 sheets and all original 6,491 `ANALYSIS_ID` exact 1:1 source pairs still pass, no numeric physical out-of-range, all 4 countries at least 100 samples and >=25 different sediment percentages over >=20pp range. Original publication counts must match.
+2. GBIF exact lookup classifies original labels as EPT (Ephemeroptera, Plecoptera, Trichoptera), NON_EPT or UNKNOWN. If **UNKNOWN label mass exceeds 2% of total normalized abundance in any country**, or **more than 10% of samples in any country have >5% UNKNOWN fraction**, do not fit primary model. Record threshold and source-only STOP, never turn unknown into zero without bounding.
+3. Source has no physical site ID: **no within-country site-holdout, no iid-site bootstrap/p-value, no extrapolated "independent 6,491 streams"**. Country-heldout heldout set is by entirely different national systems and therefore avoids country leakage, but target site clustering remains unknowable and no confidence interval is warranted. If site clustering required for inference, STOP inference.
+4. Exactly four country holdout tests; **no country-selected sign-chasing**. No model per E/P/T family, nonlinear threshold search, country class covariates, year effects or geography absent from publisher source.
+
+## Fixed test only if source GO
+For each sample let `y=Σ(relative taxon columns with strict GBIF ORDER in E/P/T)` and `s=original visual fine sediment cover % /100`, denominator source relative abundance sum=1, all columns including unknown remain in original denominator. `y_upper=y+unknown_fraction`, report original unknown mass and upper-bound sensitivity; no individual counts reconstructed.
+
+Country heldout: for each of 4 countries T, fit on original other THREE countries only (no target y values) two fixed models:
+- M0 = train weighted grand mean of y (one vote per training country: each original country’s samples receive total weight 1).
+- M1 = linear `y=intercept + beta*s` fit via train-only weighted least squares with one vote/country plus fixed `Ridge alpha = 10` penalizing slope, not intercept, input s [0,1]. No tuning on target errors, source country mean/y not used to compute predictors.
+Holdout country original sample-weighted MSE reduction `100*(MSE0-MSE1)/MSE0` is the primary descriptive metric, **NOT significance/causal effect**. Output heldout country y mean, s distribution and MSEs, train-source mean and beta. If MSE0=0/source means undefined => STOP.
+Secondary fixed environmental support analysis: include only original source samples with 0 ≤ original fine % ≤50 **in both training and target**, retrain from 3 training countries with same models and report 4 heldout MSE gains. Do not reweight by "new" HUC8 or infer same benthic sites.
+
+## Interpretation/decision
+This is an independent publicly archived **data source**, not a replication of the EPA HUC8 old-source status × embeddedness mechanism, since the original taxonomy, sediment measurement, sampling units and historic membership differ. Similar direction across countries would show observational consistency of a sediment indicator and resemble already published McKenzie conclusions; failure of portable model would be evidence that even compatible *relative indicator calculations* don't generalize between monitoring regimes, without identifying why. Do not merge into the sewage main paper absent a separate actual POTW source exposure/dose linkage.

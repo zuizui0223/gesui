@@ -1,0 +1,36 @@
+name: Original fourcountry hierarchy-aware EPT taxonomy source amendment
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_external_fourcountry_taxonomy_hierarchy_repair_source_20261122.py
+      - .github/workflows/gesui-fourcountry-hierarchy-taxonomy-source-20261122.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  authoritatively-repair-original-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-original-external-4country-GBIF-EPTrank-source
+          run-id: 45031318196
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_gbif_strict_source
+      - name: Amend only 49 previously unknown taxon labels from external taxonomic authority
+        run: |
+          python -m py_compile scripts/gesui_external_fourcountry_taxonomy_hierarchy_repair_source_20261122.py
+          python -u scripts/gesui_external_fourcountry_taxonomy_hierarchy_repair_source_20261122.py \
+            --original-taxonomy "${{ runner.temp }}/original_gbif_strict_source/4country_gbif_exact_taxonomy_source_only.json" \
+            --out "${{ runner.temp }}/4country_rankaware_EPT_taxonomy_amended_SOURCE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-fourcountry-original-hierarchy-verified-taxonomy-amendment
+          path: ${{ runner.temp }}/4country_rankaware_EPT_taxonomy_amended_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 60

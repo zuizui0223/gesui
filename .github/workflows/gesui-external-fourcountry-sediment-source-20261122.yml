@@ -1,0 +1,27 @@
+name: 'gesui source first - external GCB fourcountry sediment EPT publisher metadata'
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_external_fourcountry_mckenzie_source_metadata_20261122.py
+      - .github/workflows/gesui-external-fourcountry-sediment-source-20261122.yml
+permissions:
+  contents: read
+jobs:
+  original-publisher-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Source and original metadata only, no biological file read
+        run: |
+          python -m py_compile scripts/gesui_external_fourcountry_mckenzie_source_metadata_20261122.py
+          python scripts/gesui_external_fourcountry_mckenzie_source_metadata_20261122.py \
+            --out "${{ runner.temp }}/external_fourcountry_source_metadata.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-mckenzie-fourcountry-original-publisher-source-only-metadata
+          path: ${{ runner.temp }}/external_fourcountry_source_metadata.json
+          if-no-files-found: warn
+          retention-days: 60

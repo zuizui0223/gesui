@@ -1,0 +1,54 @@
+name: External fourcountry fixed genuine EPT source-conditional country holdout
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_external_fourcountry_fixed_country_holdout_EPT_20261122.py
+      - .github/workflows/gesui-external-fourcountry-fixed-EPT-countryholdout-20261122.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  fixed-country-holdout-source-gated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install numeric dependency for fixed descriptive country holdout
+        run: python -m pip install --quiet "numpy>=1.26,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-original-4country-hierarchy-repaired-EPT-mass-gate
+          run-id: 45032250205
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_fixed_mass_gate
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-fourcountry-original-hierarchy-verified-taxonomy-amendment
+          run-id: 45032157036
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_authoritative_taxonomy
+      - name: Publisher original 4country normalized abundance and visual fines; original MD5 checksum
+        run: |
+          curl -fLsS --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299387" -o "${{ runner.temp }}/4country_original_publisher.xlsx"
+          printf '1e4d6e37b73c663406e5567dd79d9452  %s\n' "${{ runner.temp }}/4country_original_publisher.xlsx" | md5sum --check
+      - name: Fit only four heldout-Country noncausal source-pinned mean-vs-Ridge10 comparisons
+        run: |
+          python -m py_compile scripts/gesui_external_fourcountry_fixed_country_holdout_EPT_20261122.py
+          python -u scripts/gesui_external_fourcountry_fixed_country_holdout_EPT_20261122.py \
+            --xlsx "${{ runner.temp }}/4country_original_publisher.xlsx" \
+            --source_gate "${{ runner.temp }}/source_fixed_mass_gate/external4country_hierarchy_EPT_unknown_mass_SOURCE_ONLY.json" \
+            --source_taxonomy "${{ runner.temp }}/source_authoritative_taxonomy/4country_rankaware_EPT_taxonomy_amended_SOURCE.json" \
+            --out "${{ runner.temp }}/4country_EPT_fixed_source_countryholdout.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-fourcountry-fixed-EPT-countryholdout-descriptive
+          path: ${{ runner.temp }}/4country_EPT_fixed_source_countryholdout.json
+          if-no-files-found: warn
+          retention-days: 60

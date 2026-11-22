@@ -1,0 +1,49 @@
+name: External 4country EPT normalized share unknown taxonomy source gate
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_external_fourcountry_ept_unknown_mass_gate_20261122.py
+      - .github/workflows/gesui-external-fourcountry-EPT-mass-gate-20261122.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-EPT-mass-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-external-fourcountry-source-grain-6491-samples
+          run-id: 45030921807
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_grain
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-original-external-4country-GBIF-EPTrank-source
+          run-id: 45031318196
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_taxonomy
+      - name: Acquire original publisher xlsx from DOI-linked source and verify exact MD5
+        run: |
+          curl -fLsS --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299387" -o "${{ runner.temp }}/external4country.xlsx"
+          printf '1e4d6e37b73c663406e5567dd79d9452  %s\n' "${{ runner.temp }}/external4country.xlsx" | md5sum --check
+      - name: No model fits only classify normalized relative taxon amount into known EPT/unknown mass
+        run: |
+          python -m py_compile scripts/gesui_external_fourcountry_ept_unknown_mass_gate_20261122.py
+          python -u scripts/gesui_external_fourcountry_ept_unknown_mass_gate_20261122.py \
+            --xlsx "${{ runner.temp }}/external4country.xlsx" \
+            --source "${{ runner.temp }}/source_grain/external4c_source_grain_QA.json" \
+            --taxonomy "${{ runner.temp }}/original_taxonomy/4country_gbif_exact_taxonomy_source_only.json" \
+            --out "${{ runner.temp }}/external4country_EPT_taxonomy_mass_SOURCE_ONLY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-4country-EPT-unknown-taxonomy-mass-source
+          path: ${{ runner.temp }}/external4country_EPT_taxonomy_mass_SOURCE_ONLY.json
+          if-no-files-found: warn
+          retention-days: 60
