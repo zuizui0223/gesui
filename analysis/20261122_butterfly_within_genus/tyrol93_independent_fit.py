@@ -228,7 +228,8 @@ def main():
                        'failure_folds':len(cv)-len(outcomes)},
                     'no_causal_sewage_or_population_dynamics_claim':True}
     except Exception as e:report={'status':'SOURCE_OR_NUMERIC_STOP','exception':str(e)[:700]}
-    a.output.write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
+    a.output.write_text(json.dumps(report,indent=2,ensure_ascii=False,
+        default=lambda obj: obj.item() if isinstance(obj,np.generic) else (_ for _ in ()).throw(TypeError(type(obj).__name__)))+'\n')
     print('FINAL '+json.dumps({'status':report['status'],'cv':report.get('cv_summary'),
       'primary':{k:report.get('fits',{}).get('adjusted_N',{}).get(k) for k in ('status','beta_N_per_1SDplantN_1HNSpoint','odds_ratio','cluster_interval_OR')}},ensure_ascii=False),flush=True)
     if 'STOP' in report['status'] or (report.get('fits',{}).get('adjusted_N',{}).get('status')=='NUMERICAL_STOP'):sys.exit(4)
