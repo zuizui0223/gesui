@@ -1,0 +1,30 @@
+name: NRSA23 RV flow and width overlap source-only gates
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_nrsa2324_rv_overlap_source_only_20261122.py
+      - .github/workflows/gesui-nrsa2324-rv-overlap-source-gate-20261122.yml
+permissions:
+  contents: read
+jobs:
+  rv-common-source-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_siteinfo.csv" -o "${{ runner.temp }}/siteinfo.csv"
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_physicalhabitat_metrics.csv" -o "${{ runner.temp }}/phab.csv"
+          python -m py_compile scripts/gesui_nrsa2324_rv_overlap_source_only_20261122.py
+          python scripts/gesui_nrsa2324_rv_overlap_source_only_20261122.py \
+            --siteinfo "${{ runner.temp }}/siteinfo.csv" \
+            --physicalhabitat "${{ runner.temp }}/phab.csv" \
+            --out "${{ runner.temp }}/rv_overlap_source_qa.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa2324-rv-overlap-original-source-only
+          path: ${{ runner.temp }}/rv_overlap_source_qa.json
+          if-no-files-found: warn
+          retention-days: 60
