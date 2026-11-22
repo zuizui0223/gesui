@@ -1,0 +1,49 @@
+name: NRSA original ambient TP canopy benthos posthoc HUC8 OOF
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_nrsa2324_tp_canopy_benthos_interaction_20261122.py
+      - .github/workflows/gesui-nrsa2324-ambienttp-canopy-numeric-20261122.yml
+permissions:
+  contents: read
+jobs:
+  method-stratified-outcomes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original-data numeric tools
+        run: |
+          python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scikit-learn>=1.3,<2" "statsmodels>=0.14,<1"
+          python -m py_compile scripts/gesui_nrsa2324_tp_canopy_benthos_interaction_20261122.py
+      - name: Download and SHA-lock all five original EPA NRSA tables
+        run: |
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_siteinfo.csv -o "${{ runner.temp }}/siteinfo.csv"
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_waterchemistry.csv -o "${{ runner.temp }}/waterchem.csv"
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_physicalhabitat_metrics.csv -o "${{ runner.temp }}/physicalhabitat.csv"
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-09/nrsa2324_benthiccount.csv -o "${{ runner.temp }}/benthiccount.csv"
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 https://www.epa.gov/system/files/other-files/2026-09/nrsa2324_benthicmmi.csv -o "${{ runner.temp }}/benthicmmi.csv"
+      - name: Test observed stream TP × canopy and benthic communities with HUC8-disjoint validation
+        run: |
+          python -u scripts/gesui_nrsa2324_tp_canopy_benthos_interaction_20261122.py \
+            --siteinfo "${{ runner.temp }}/siteinfo.csv" \
+            --waterchem "${{ runner.temp }}/waterchem.csv" \
+            --physicalhabitat "${{ runner.temp }}/physicalhabitat.csv" \
+            --benthiccount "${{ runner.temp }}/benthiccount.csv" \
+            --benthicmmi "${{ runner.temp }}/benthicmmi.csv" \
+            --out "${{ runner.temp }}/ambient_tp_canopy_benthos_numeric.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa2324-original-ambientTP-canopy-benthic-posthoc-numeric
+          path: ${{ runner.temp }}/ambient_tp_canopy_benthos_numeric.json
+          if-no-files-found: warn
+          retention-days: 60

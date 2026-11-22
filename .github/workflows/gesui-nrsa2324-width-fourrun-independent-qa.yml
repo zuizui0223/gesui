@@ -1,0 +1,60 @@
+name: NRSA signed 4-run width claim independent result QA
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/audit_nrsa2324_hydro_region_RV_source_contract_20261122.py
+      - .github/workflows/gesui-nrsa2324-width-fourrun-independent-qa.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-source-and-claim-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa2324-flow-area-width-stress-results
+          run-id: 45015812566
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_hydro
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa2324-ecoregion-external-width-transport
+          run-id: 45016047883
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_regional
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa2324-rv-overlap-original-source-only
+          run-id: 45016249520
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_rv_source
+      - uses: actions/download-artifact@v4
+        with:
+          name: nrsa2324-rv-flow-width-common-support-signed-results
+          run-id: 45016349672
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_rv_numeric
+      - name: Independently reproduce original source consistency and no overclaim verdict
+        run: |
+          python -m py_compile scripts/audit_nrsa2324_hydro_region_RV_source_contract_20261122.py
+          python scripts/audit_nrsa2324_hydro_region_RV_source_contract_20261122.py \
+            --hydro "${{ runner.temp }}/original_hydro/hydrology_width_stress_20261122.json" \
+            --ecoregion "${{ runner.temp }}/original_regional/eco9_out_width_transport.json" \
+            --overlap_source "${{ runner.temp }}/original_rv_source/rv_overlap_source_qa.json" \
+            --overlap_numeric "${{ runner.temp }}/original_rv_numeric/rv_overlap_benthic_results.json" \
+            --out "${{ runner.temp }}/width_claim_independent_qa.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa2324-width-fourrun-independent-claim-qa
+          path: ${{ runner.temp }}/width_claim_independent_qa.json
+          if-no-files-found: warn
+          retention-days: 60
