@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - scripts/gesui_nrsa_prior_window_tp_source_only_20261122.py
+      - scripts/gesui_nrsa_prior_tp_crossfy_method_join_20261122.py
       - .github/workflows/gesui-nrsa-prior-window-tp-20261122.yml
 permissions:
   contents: read
@@ -46,3 +47,35 @@ jobs:
           path: ${{ runner.temp }}/prior_tp_fy${{ matrix.fiscal }}.json
           if-no-files-found: warn
           retention-days: 30
+
+  cross-fiscal-method-canopy:
+    needs: source-window
+    if: ${{ needs.source-window.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: nrsa-prior-window-tp-source-fy*
+          merge-multiple: true
+          path: ${{ runner.temp }}/fiscal
+      - name: Official EPA same-visit benthic and habitat metadata (no outcome values read)
+        run: |
+          curl --fail --location --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-09/nrsa2324_benthiccount.csv" -o "${{ runner.temp }}/benthiccount.csv"
+          curl --fail --location --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_physicalhabitat_metrics.csv" -o "${{ runner.temp }}/phab.csv"
+      - name: Verify exact source SHA and merge unique native visits across all FY
+        run: |
+          python -m py_compile scripts/gesui_nrsa_prior_tp_crossfy_method_join_20261122.py
+          python scripts/gesui_nrsa_prior_tp_crossfy_method_join_20261122.py \
+            --fy-dir "${{ runner.temp }}/fiscal" \
+            --benthic "${{ runner.temp }}/benthiccount.csv" \
+            --phab "${{ runner.temp }}/phab.csv" \
+            --out "${{ runner.temp }}/merged_prior_TP_protocol_gate.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa-prior-window-crossFY-canopy-method-gate
+          path: ${{ runner.temp }}/merged_prior_TP_protocol_gate.json
+          if-no-files-found: warn
+          retention-days: 45
