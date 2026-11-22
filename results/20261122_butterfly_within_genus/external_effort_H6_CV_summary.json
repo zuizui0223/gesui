@@ -1,0 +1,67 @@
+{
+  "status": "EXPLORATORY_POSTHOC",
+  "source_h6_disjoint": true,
+  "prior_353_strata_and_34_h6_unchanged": true,
+  "models": {
+    "plant8": {
+      "leave_one_h6_out_total_gain": -3.401959519287282,
+      "leave_one_h6_out_positive": 16,
+      "leave_one_h6_out_negative": 18,
+      "leave_one_h6_out_n": 34,
+      "ten_fixed_seed_fivefold_gains": [
+        -3.297789429567633,
+        -3.627023562158918,
+        -0.6159237887793019,
+        -1.5190724524864478,
+        -1.0356355969843847,
+        -3.0198637453178563,
+        -6.742405157660588,
+        -8.410516946464337,
+        -0.8379250693592937,
+        -18.642403611451854
+      ],
+      "ten_fivefold_positive": 0,
+      "ten_fivefold_negative": 10
+    },
+    "plant8_nonbf_same": {
+      "leave_one_h6_out_total_gain": -2.8037585322593728,
+      "leave_one_h6_out_positive": 17,
+      "leave_one_h6_out_negative": 17,
+      "leave_one_h6_out_n": 34,
+      "ten_fixed_seed_fivefold_gains": [
+        -2.5818779483563787,
+        -2.5153844897815816,
+        0.1500719476804271,
+        -1.274350736174327,
+        0.19619282031474938,
+        -2.636807047255413,
+        -6.4896030118659205,
+        -7.339168021032307,
+        0.10469879253196979,
+        -18.117004273619173
+      ],
+      "ten_fivefold_positive": 3,
+      "ten_fivefold_negative": 7
+    },
+    "plant8_butterfly_expair": {
+      "leave_one_h6_out_total_gain": -3.771070354241576,
+      "leave_one_h6_out_positive": 18,
+      "leave_one_h6_out_negative": 16,
+      "leave_one_h6_out_n": 34,
+      "ten_fixed_seed_fivefold_gains": [
+        -2.26803984415368,
+        -3.822225786357368,
+        -0.3814290496552317,
+        -0.8325992883787308,
+        -3.13690485172485,
+        -3.343641914660118,
+        -7.095264775807156,
+        -9.295957441351199,
+        -4.824227383503882,
+        -16.15764007110399
+      ],
+      "ten_fivefold_positive": 0,
+      "ten_fivefold_negative": 10
+    }
+  }
+}
