@@ -1,0 +1,10 @@
+# Independent manual-Numpy QA of 2023 fourth-era EPT temporal transfer and catchment novelty
+
+**2026-11-22, explicitly posthoc** after first external 2023–24 prediction and the unexpected lack of gain in 214 never-before-sampled HUC8. This audit is NOT another experimental replication or a separate biological observation.
+
+- Preserve the signed source-only original 2023 1,165 UID/693 HUC8 and 1,161/692 periphyton-matched source, plus exact old 2008/2013/2018 2,648 UID source panel.
+- Reconstruct **from original source** the same historical training and 2023 target, same source-defined zero train-target shared HUC8; do not use any 2023 target outcomes in training.
+- Independently fit the identical 10 prespecified Ridge(alpha=10) models using weighted closed-form normal equations, **without sklearn Ridge, OneHotEncoder or StandardScaler**. Original train-only categories and continuous unweighted standardization, followed by weighted centering for HUC8-equal Ridge. Compare the entire original target HUC8-equal MSE for each of the ten models and the original eight HUC8 bootstrap95 comparison summaries to the first source-signed JSON. Every model discrepancy must fail.
+- Source-defined partitions of the **same 2023 target predictions**: HUC8 that appeared in one of the ORIGINAL 2008/13/18 source frames (but were explicitly deleted from training), and 2023 HUC8 never present in any of the three frames. Both partitions and counts are assigned from original HUC8 membership **before inspecting these newly partitioned errors**; report both with unchanged predictions, and HUC8 bootstrap95 of physical+NP and embeddedness+NP contrasts. Partitioned gains are posthoc and should not replace unconditional primary comparisons.
+- Report 2023 never-before-observed HUC8 count/visit count and original-area/eco region source composition; full original source 5-table SHA, original 3-era expected 2,648 and training-HUC8 zero overlap.
+- Preserve all null/negative results and do not claim universal transfer, direct sewage, observational causality, land-water nutrient flux, or novel taxonomic sampling.
