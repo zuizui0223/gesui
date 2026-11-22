@@ -41,7 +41,7 @@ Same183 H7/40 H6 and original species; two periods clustered together; no impute
 - [x] Save source hashes, source eligibility, aggregate results and Japanese report; no raw third-party bulk rehosting.
 - [x] Run repo unittest suite and focused numerical checks; compare summary arithmetic to saved outputs.
 - [x] Have a fresh reviewer audit the complete code/spec/results, resolve material issues, and preserve any numerical changes as implementation corrections.
-- [ ] Publish this isolated branch and create a draft PR: blocked by automatic approval review pending explicit authorization for external GitHub publication. All analysis and review work is complete locally; no alternative publication route was attempted.
+- [x] Publish this isolated branch and create a draft PR: user explicitly authorized publication after the concrete confirmation request. Draft PR #138 is open at https://github.com/zuizui0223/gesui/pull/138. The connected GitHub API published matching trees; original and published commit IDs are recorded in results/20261122_butterfly_within_genus/publication_receipt.json.
 
 ## Completion record
 

@@ -30,10 +30,17 @@
   "review_verdict": "PASS_FOR_FROZEN_EXPLORATORY_ANALYSIS",
   "figure_visual_QA": "PASS_AFTER_LABEL_SPACING_CORRECTION",
   "publication": {
-    "status": "BLOCKED_PENDING_EXPLICIT_AUTHORIZATION",
-    "remote_branch_created": false,
-    "draft_PR_created": false,
-    "reason": "Automatic approval review rejected git push because analysis continuation did not explicitly authorize publishing repository history and new work to external GitHub."
+    "status": "PUBLISHED_DRAFT",
+    "repository": "zuizui0223/gesui",
+    "branch": "analysis/gesui-butterfly-within-genus-20261122",
+    "draft_PR_created": true,
+    "remote_branch_created": true,
+    "PR_number": 138,
+    "PR_url": "https://github.com/zuizui0223/gesui/pull/138",
+    "published_analysis_snapshot_sha": "4535e5de447a42d510957e5d291c0ca706e9ece8",
+    "source_snapshot_trees_identical": true,
+    "receipt": "results/20261122_butterfly_within_genus/publication_receipt.json",
+    "authorization": "User explicitly approved the completed publication after the previous automatic approval rejection."
   },
   "manifest_excludes_this_receipt": true,
   "manifest": [
@@ -69,8 +76,8 @@
     },
     {
       "file": "docs/superpowers/plans/2026-11-22-butterfly-within-genus.md",
-      "bytes": 3799,
-      "sha256": "194e5df9f4764f60fc7e42a41a43954ab67f63b2b69f89ca1d9d1b406c1eb265"
+      "bytes": 3918,
+      "sha256": "06ca749bf57bb56bcb1774dcbdf0ae85f177950a7f2124a28d499e94cdb32220"
     },
     {
       "file": "docs/superpowers/specs/2026-11-22-butterfly-within-genus.md",
@@ -111,6 +118,11 @@
       "file": "results/20261122_butterfly_within_genus/primary.json",
       "bytes": 3398,
       "sha256": "bda01690d9b60ec976a9cff80e701d9534b507196ce117f0dde00d115fcd4f94"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/publication_receipt.json",
+      "bytes": 3246,
+      "sha256": "274c988514b723f36ff73972aca1cc3e696a88f581e0b54764662cfa54195315"
     },
     {
       "file": "results/20261122_butterfly_within_genus/results.json",
@@ -172,5 +184,11 @@
       "bytes": 3731,
       "sha256": "faceb876c593d1cc5c2639912323bcf32ee0b58863fbf9b4c213578f3a716d7a"
     }
-  ]
+  ],
+  "previous_publication_status": {
+    "status": "BLOCKED_PENDING_EXPLICIT_AUTHORIZATION",
+    "remote_branch_created": false,
+    "draft_PR_created": false,
+    "reason": "Automatic approval review rejected git push because analysis continuation did not explicitly authorize publishing repository history and new work to external GitHub."
+  }
 }
