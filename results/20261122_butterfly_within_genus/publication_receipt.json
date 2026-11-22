@@ -1,0 +1,50 @@
+{
+  "repository": "zuizui0223/gesui",
+  "branch": "analysis/gesui-butterfly-within-genus-20261122",
+  "pull_request": {
+    "number": 138,
+    "url": "https://github.com/zuizui0223/gesui/pull/138",
+    "state": "open",
+    "draft": true,
+    "created_at": "2026-11-22T01:52:55Z",
+    "base": "main",
+    "base_sha": "6a0ebac1274f23cd202e2f515176b6d77d264b54"
+  },
+  "authorization": "User replied 進め to the explicit request to publish the completed branch and create a Draft PR.",
+  "publication_method": "Connected GitHub Git-data API; shell git and gh have no stored credentials.",
+  "published_analysis_snapshot_sha": "4535e5de447a42d510957e5d291c0ca706e9ece8",
+  "published_analysis_tree": "0c43392c52dd5c1cdb8fbea029b67149cac727ba",
+  "all_uploaded_blob_hashes_match": true,
+  "verified_blob_objects": 29,
+  "all_three_original_snapshot_trees_match": true,
+  "commits": [
+    {
+      "local_sha": "89c349cd3c1f63c328d24b01aa43408d3a6449b3",
+      "remote_sha": "6e84661a724bac13445be79d652ad60e109421bf",
+      "tree": "8e8e76b6e25de4b1781700bb460e09a9a4caa967",
+      "stage": "specification",
+      "original_local_commit_object": "tree 8e8e76b6e25de4b1781700bb460e09a9a4caa967\nparent 6a0ebac1274f23cd202e2f515176b6d77d264b54\nauthor Research Assistant <research-assistant@users.noreply.github.com> 1795310548 +0900\ncommitter Research Assistant <research-assistant@users.noreply.github.com> 1795310548 +0900\n\nspec: freeze new butterfly within-genus recording test before effect fit\n"
+    },
+    {
+      "local_sha": "1071fd0c703cb371c3f4200087ce0a8d1d54371d",
+      "remote_sha": "bb6aeaba6f3f92b6e2464873d48df12e66933420",
+      "tree": "ac73eb60ed107489461d8c0efd425bf4cdff4a6c",
+      "stage": "implementation",
+      "original_local_commit_object": "tree ac73eb60ed107489461d8c0efd425bf4cdff4a6c\nparent 89c349cd3c1f63c328d24b01aa43408d3a6449b3\nauthor Research Assistant <research-assistant@users.noreply.github.com> 1795310796 +0900\ncommitter Research Assistant <research-assistant@users.noreply.github.com> 1795310796 +0900\n\nanalysis: implement source-locked congener conditional test with numerical validation\n"
+    },
+    {
+      "local_sha": "2abd151743d42ea7d5f7fd4c3c1ff031f3dbb1f5",
+      "remote_sha": "4535e5de447a42d510957e5d291c0ca706e9ece8",
+      "tree": "0c43392c52dd5c1cdb8fbea029b67149cac727ba",
+      "stage": "results",
+      "original_local_commit_object": "tree 0c43392c52dd5c1cdb8fbea029b67149cac727ba\nparent 1071fd0c703cb371c3f4200087ce0a8d1d54371d\nauthor Research Assistant <research-assistant@users.noreply.github.com> 1795311343 +0900\ncommitter Research Assistant <research-assistant@users.noreply.github.com> 1795311343 +0900\n\nanalysis: report exploratory congener association and contrary robustness checks\n"
+    }
+  ],
+  "prior_block": {
+    "status": "BLOCKED_PENDING_EXPLICIT_AUTHORIZATION",
+    "resolved_by": "Subsequent explicit user authorization in this conversation."
+  },
+  "follow_up_scope": "Publication metadata only; no scientific data, model, estimates, or tests changed.",
+  "CI_scope": "Existing selected workflows cover archival integrity. The 16 new butterfly unit tests are part of the recorded local 23-test suite.",
+  "original_bulk_source_files_rehosted": false
+}

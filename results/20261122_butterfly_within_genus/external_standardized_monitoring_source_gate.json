@@ -1,0 +1,164 @@
+{
+  "schema": "GESUI_20261122_EXTERNAL_STANDARDIZED_BUTTERFLY_MONITORING_NUTRIENT_TEST_SOURCE_GATE_V1",
+  "date": "2026-11-22",
+  "status": "INSUFFICIENT_SUPPORT_NOT_AN_INDEPENDENT_NUTRIENT_REPLICATION",
+  "candidate_sources": {
+    "denmark_eBMS_2025": {
+      "source": "original standardized Denmark eBMS v1.4, audited previously in gesui PR #43",
+      "original_archive_sha256": "2cc64ec352754223db06a92eef5b01803968eac94bae34057c17f1abdb6da79b",
+      "actions_run": 42786494070,
+      "artifact_id": 13749857350,
+      "original_accepted_species": 63,
+      "exact_HNS_eligible_species": 49,
+      "within_genus_variable_HNS_genera": 7,
+      "both_near_remote_species_comparable_genera": 5,
+      "host_coverage80_variable_HNS_genera": 1,
+      "source_limit": "No co-sampled plant species Ellenberg NUTRI at the survey transects; registered outfall distance is not nutrient exposure and not same parent-H6 watershed as PR #138"
+    },
+    "germany_Sturm_2026": {
+      "source_repo": "https://github.com/LineSturm/2026_grassworks_butterflies",
+      "license": "CC BY 4.0; cite original study and data",
+      "study_doi": "10.1111/1365-2664.70513",
+      "dataset_doi": "10.5281/zenodo.20763921",
+      "source_git_blob_shas": {
+        "butterfly_raw": "b63c9611c527da85b992a25ce43dca216ae357ef",
+        "site_environment": "0f7daaea51f506b85594de18144a4b11bc3fb0a8",
+        "vegetation_variables": "94221b422d48ce7489eed053d54665dbec69a882"
+      },
+      "source_raw_butterfly_rows": 13718,
+      "unique_sites": 187,
+      "site_year_metadata_rows": 187,
+      "vegetation_site_rows": 187,
+      "site_id_join_exact": true,
+      "raw_unique_taxon_names": 110,
+      "raw_cf_true_rows": 286,
+      "accepted_numerical_HNS_exact_name_species": 51,
+      "accepted_HNS_raw_record_rows_cf_false": 11128,
+      "raw_site_month_cells": 780,
+      "source_butterfly_response": "individual counts on available sub-transects; sampled zero visits and observer hours not proven by occurrence rows",
+      "host_score_eligible_variable_HNS_genera": 7,
+      "eligible_2plus_congeners_same_site": 6,
+      "host_coverage80_variable_HNS_genera": 1,
+      "genus_support": [
+        {
+          "genus": "Pieris",
+          "n_scored_species": 3,
+          "site_with_any_species": 182,
+          "site_with_2plus_species": 163,
+          "n_host_coverage_80_species": 0,
+          "names": [
+            "Pieris brassicae",
+            "Pieris napi",
+            "Pieris rapae"
+          ]
+        },
+        {
+          "genus": "Aglais",
+          "n_scored_species": 2,
+          "site_with_any_species": 135,
+          "site_with_2plus_species": 51,
+          "n_host_coverage_80_species": 2,
+          "names": [
+            "Aglais io",
+            "Aglais urticae"
+          ]
+        },
+        {
+          "genus": "Thymelicus",
+          "n_scored_species": 3,
+          "site_with_any_species": 106,
+          "site_with_2plus_species": 32,
+          "n_host_coverage_80_species": 1,
+          "names": [
+            "Thymelicus acteon",
+            "Thymelicus lineola",
+            "Thymelicus sylvestris"
+          ]
+        },
+        {
+          "genus": "Vanessa",
+          "n_scored_species": 2,
+          "site_with_any_species": 105,
+          "site_with_2plus_species": 24,
+          "n_host_coverage_80_species": 0,
+          "names": [
+            "Vanessa atalanta",
+            "Vanessa cardui"
+          ]
+        },
+        {
+          "genus": "Coenonympha",
+          "n_scored_species": 2,
+          "site_with_any_species": 170,
+          "site_with_2plus_species": 11,
+          "n_host_coverage_80_species": 0,
+          "names": [
+            "Coenonympha arcania",
+            "Coenonympha pamphilus"
+          ]
+        },
+        {
+          "genus": "Lycaena",
+          "n_scored_species": 3,
+          "site_with_any_species": 70,
+          "site_with_2plus_species": 4,
+          "n_host_coverage_80_species": 0,
+          "names": [
+            "Lycaena dispar",
+            "Lycaena phlaeas",
+            "Lycaena virgaureae"
+          ]
+        },
+        {
+          "genus": "Pyrgus",
+          "n_scored_species": 2,
+          "site_with_any_species": 11,
+          "site_with_2plus_species": 0,
+          "n_host_coverage_80_species": 1,
+          "names": [
+            "Pyrgus armoricanus",
+            "Pyrgus malvae"
+          ]
+        }
+      ],
+      "vegetation_columns": [
+        "id.site",
+        "cover.vegetation",
+        "cover.grass",
+        "cover.litter",
+        "cover.bare.soil",
+        "forb.grass.ratio",
+        "plant.richness",
+        "plant.target.richness",
+        "veg.heterogeneity",
+        "flower.cover",
+        "lk.grassland.per.min"
+      ],
+      "environment_columns": [
+        "id.site",
+        "obs.year",
+        "eco.name",
+        "region",
+        "mngm.type",
+        "hydrology",
+        "site.cwm.pres.oek.f",
+        "site.type",
+        "rest.meth",
+        "rest.meth.type",
+        "land.use.hist",
+        "rest.age",
+        "pH.site"
+      ],
+      "nutrient_predictor_available": false,
+      "limitation": "Only site-level plant richness, vegetation cover, and phenotypic traits; site.cwm.pres.oek.f must not be relabelled as Ellenberg N. Not an NUTRI assay; plant abundance and absolute N unavailable"
+    }
+  },
+  "prespecified_source_gate": {
+    "at_least_10_eligible_butterfly_genera": false,
+    "site_matched_plant_nutrient_affinity_measured": false,
+    "all_required": true,
+    "decision": "STOP_BEFORE_NUTRI_HNS_REGRESSION"
+  },
+  "not_an_actual_effect_estimate": true,
+  "do_not_pool_mismatched_sources": true
+}

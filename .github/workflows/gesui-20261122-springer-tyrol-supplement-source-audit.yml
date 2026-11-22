@@ -1,0 +1,104 @@
+name: gesui source audit Springer South Tyrol butterfly EIV N supplement
+on:
+  push:
+    branches:
+      - analysis/gesui-butterfly-within-genus-20261122
+    paths:
+      - .github/workflows/gesui-20261122-springer-tyrol-supplement-source-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  supplement-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Acquire official Springer XLSX and inspect only source structure
+        shell: bash
+        run: |
+          mkdir -p source_audit
+          python - <<'PY'
+          import hashlib,json,sys,re,zipfile,tempfile
+          import xml.etree.ElementTree as ET
+          from urllib.request import Request,urlopen
+          from pathlib import Path
+          name='10531_2022_2498_MOESM3_ESM.xlsx'
+          urls=[
+            'https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs10531-022-02498-3/MediaObjects/'+name,
+            'https://static-content.springer.com/esm/art%3A10.1007%2Fs10531-022-02498-3/MediaObjects/'+name,
+          ]
+          ns='{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
+          relns='{http://schemas.openxmlformats.org/officeDocument/2006/relationships}'
+          response={'doi':'10.1007/s10531-022-02498-3','status':'SOURCE_STOP','attempts':[],
+                    'no_raw_publisher_workbook_rehosted':True,'no_regression_fitted':True}
+          def inspect(payload):
+            with tempfile.TemporaryFile() as f:
+              f.write(payload);f.seek(0)
+              with zipfile.ZipFile(f) as z:
+                parts={i.filename for i in z.infolist()}
+                if len(parts)>1200 or sum(i.file_size for i in z.infolist())>80000000:
+                  raise ValueError('OOXML_UNSAFE_SIZE')
+                doc=ET.fromstring(z.read('xl/workbook.xml'))
+                rel=ET.fromstring(z.read('xl/_rels/workbook.xml.rels'))
+                paths={n.get('Id'):'xl/'+n.get('Target','').lstrip('/').removeprefix('xl/') for n in rel}
+                strings=[]
+                if 'xl/sharedStrings.xml' in parts:
+                  strings=[''.join(t.text or '' for t in s.iter(ns+'t'))
+                           for s in ET.fromstring(z.read('xl/sharedStrings.xml')).findall(ns+'si')]
+                inventory=[]
+                for s in doc.findall('.//'+ns+'sheet'):
+                  path=paths.get(s.get(relns+'id'))
+                  if path not in parts:raise ValueError('SHEET_XML_MISSING')
+                  root=ET.fromstring(z.read(path))
+                  rows=root.findall('.//'+ns+'sheetData/'+ns+'row')
+                  samples=[];unique=set();nonempty=0
+                  for row in rows:
+                    sample=[]
+                    for c in row.findall(ns+'c'):
+                      v=c.find(ns+'v'); raw='' if v is None or v.text is None else v.text
+                      if c.get('t')=='s' and raw:raw=strings[int(raw)]
+                      elif c.get('t')=='inlineStr':raw=''.join(x.text or '' for x in c.iter(ns+'t'))
+                      if raw:nonempty+=1;unique.add(c.get('r',''))
+                      if len(samples)<9 and len(sample)<20:sample.append([c.get('r'),str(raw)[:80]])
+                    if len(samples)<9:samples.append(sample)
+                  inventory.append({'sheet':s.get('name'),'rows_with_xml_data':len(rows),
+                                    'cells_with_nonempty_values':nonempty,
+                                    'first_9_rows_preview_only':samples})
+                return inventory
+          for url in urls:
+            try:
+              req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; ResearchSourceAudit/1.0)'})
+              with urlopen(req,timeout=35) as http:
+                if http.status!=200:raise ValueError('HTTP '+str(http.status))
+                payload=http.read(12000001)
+                if len(payload)>12000000 or payload[:2]!=b'PK':raise ValueError('NOT_BOUNDED_OOXML')
+                inventory=inspect(payload)
+              response.update({'status':'SOURCE_XLSX_RETRIEVED_INVENTORY_ONLY',
+                 'source_sha256':hashlib.sha256(payload).hexdigest(),
+                 'source_size_bytes':len(payload),'source_url':url,'sheets':inventory})
+              break
+            except Exception as e:
+              response['attempts'].append({'source_url':url,'reason':str(e)[:200]})
+          Path('source_audit/tyrol_springer_workbook_inventory.json').write_text(
+             json.dumps(response,indent=2,ensure_ascii=False)+'\n')
+          with open('/tmp/springer_audit_summary','w') as f:
+              f.write(response['status']+'\n')
+          print(json.dumps({'status':response['status'],
+            'sheets':[v['sheet'] for v in response.get('sheets',[])],
+            'errors':response['attempts']}))
+          if response['status']=='SOURCE_STOP':sys.exit(4)
+          PY
+      - name: Publish small source inventory and STOP reason, never original XLSX
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-tyrol-93-butterflies-nutrient-Springer-ESM3-source-inventory
+          path: source_audit/tyrol_springer_workbook_inventory.json
+          if-no-files-found: error
+          retention-days: 20

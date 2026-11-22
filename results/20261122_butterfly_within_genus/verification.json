@@ -1,0 +1,194 @@
+{
+  "analysis_date_JST": "2026-11-22",
+  "base_commit": "6a0ebac1274f23cd202e2f515176b6d77d264b54",
+  "specification_commit": "89c349cd3c1f63c328d24b01aa43408d3a6449b3",
+  "implementation_commit_before_effect_fit": "1071fd0c703cb371c3f4200087ce0a8d1d54371d",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "tests": {
+    "total": 23,
+    "passed": 23,
+    "failed": 0,
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B -m unittest discover -s tests -v"
+  },
+  "independent_enumeration": {
+    "primary_beta": 0.3456186773146473,
+    "primary_H6_cluster_SE": 0.09680468864542484,
+    "primary_max_coefficient_absolute_difference": 8.582102856147245e-08,
+    "all_frozen_draws_checked": 1427,
+    "bootstrap_max_beta_absolute_difference": 9.024922615896713e-07,
+    "trait_reference_max_beta_absolute_difference": 5.784536587088995e-07,
+    "genus_influence_max_beta_absolute_difference": 3.5032084033659316e-07,
+    "all_draw_information_matrices_positive_definite": true,
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -B analysis/20261122_butterfly_within_genus/independent_review.py --source ../gesui_source_cache --output results/20261122_butterfly_within_genus"
+  },
+  "review_verdict": "PASS_FOR_FROZEN_EXPLORATORY_ANALYSIS",
+  "figure_visual_QA": "PASS_AFTER_LABEL_SPACING_CORRECTION",
+  "publication": {
+    "status": "PUBLISHED_DRAFT",
+    "repository": "zuizui0223/gesui",
+    "branch": "analysis/gesui-butterfly-within-genus-20261122",
+    "draft_PR_created": true,
+    "remote_branch_created": true,
+    "PR_number": 138,
+    "PR_url": "https://github.com/zuizui0223/gesui/pull/138",
+    "published_analysis_snapshot_sha": "4535e5de447a42d510957e5d291c0ca706e9ece8",
+    "source_snapshot_trees_identical": true,
+    "receipt": "results/20261122_butterfly_within_genus/publication_receipt.json",
+    "authorization": "User explicitly approved the completed publication after the previous automatic approval rejection."
+  },
+  "manifest_excludes_this_receipt": true,
+  "manifest": [
+    {
+      "file": "analysis/20261122_butterfly_within_genus/analyse.py",
+      "bytes": 12331,
+      "sha256": "1c79f5d80df3c351544683c8922bb07be7a4029c1636878cc6d55fc116935aee"
+    },
+    {
+      "file": "analysis/20261122_butterfly_within_genus/conditional.py",
+      "bytes": 4996,
+      "sha256": "8a8b643ac75049f819cad4fa30833cee34b1d2353cb10ea124b21fa2eabd35cc"
+    },
+    {
+      "file": "analysis/20261122_butterfly_within_genus/independent_review.py",
+      "bytes": 7984,
+      "sha256": "d37edf4f0bb4686c30a1347b1869ff9d4f437af92420d7f20c8c399fcafe6dcd"
+    },
+    {
+      "file": "analysis/20261122_butterfly_within_genus/inference.py",
+      "bytes": 13200,
+      "sha256": "efb05da75f34b8ea34353f0a9bda9e1d5c684c45757ab3f16a5c7d2efbb45698"
+    },
+    {
+      "file": "analysis/20261122_butterfly_within_genus/report_results.py",
+      "bytes": 5107,
+      "sha256": "53e4dbb875dfbbbb4c2e062fcf93efb84e575dc49a0dd2aadb4a44038fe03219"
+    },
+    {
+      "file": "docs/RESULTS_20261122_BUTTERFLY_WITHIN_GENUS.md",
+      "bytes": 17042,
+      "sha256": "63b40de3a884769415a5a45a472ca6c69df350eb965ac49eb8df30cd3f3c5dd8"
+    },
+    {
+      "file": "docs/superpowers/plans/2026-11-22-butterfly-within-genus.md",
+      "bytes": 3918,
+      "sha256": "06ca749bf57bb56bcb1774dcbdf0ae85f177950a7f2124a28d499e94cdb32220"
+    },
+    {
+      "file": "docs/superpowers/specs/2026-11-22-butterfly-within-genus.md",
+      "bytes": 8129,
+      "sha256": "27e04f524bc8ce63d6817fbe686349790ef3812287b27e7dc127b0f57614f785"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/bootstrap_H6.csv",
+      "bytes": 22127,
+      "sha256": "9d4a577b36e9624e82c6aba8fd3a65bf18ef9d61eb6ac5675d5d5c2bcb37aae8"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/bootstrap_summary.json",
+      "bytes": 304,
+      "sha256": "b7650180faa539596890bf3352cec07fb6ae0ed9c2022782425477f53b458e83"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/effective_support.json",
+      "bytes": 1207,
+      "sha256": "18a4010e0f70a4da8d141157d99ea7db99b3cecd03b8bbe08384eb2f278bf433"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/independent_enumeration_audit.txt",
+      "bytes": 1462,
+      "sha256": "ac48cabdebe58a7bab3a67043d553a648198fe58ad0048eee6ecf8bc00dc06a4"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/leave_one_butterfly_genus_out.csv",
+      "bytes": 1015,
+      "sha256": "0e320fd94ad8e5c9d9c1f47dafc2f2da1e0321bf640ed6f9c2c64ffb69ee140c"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/pair_support.csv",
+      "bytes": 10198,
+      "sha256": "3e079b066bcf9413d9df03da519347790bb46e6043d476dfa171e1d5deaab6c5"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/primary.json",
+      "bytes": 3398,
+      "sha256": "bda01690d9b60ec976a9cff80e701d9534b507196ce117f0dde00d115fcd4f94"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/publication_receipt.json",
+      "bytes": 3246,
+      "sha256": "274c988514b723f36ff73972aca1cc3e696a88f581e0b54764662cfa54195315"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/results.json",
+      "bytes": 10971,
+      "sha256": "0d55ab1eda343ada2821e28389549ece1826f1f35f0cdadb5ccec4c1bf0c7c24"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/review_summary.json",
+      "bytes": 1429,
+      "sha256": "9d7eb6b7b6fae641aa4475d8310c23e087ff0ca912513f3d1d2c41715548920b"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/source_gate.json",
+      "bytes": 2408,
+      "sha256": "b0ec4121147605f3a95143ca2deb8a1a3103a7b707470223e9e879ba4a8689aa"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/source_receipt.json",
+      "bytes": 2141,
+      "sha256": "f77f1866a6f26ad0610f395831af626f3cbf1a45257506f8f031cb5b00c9324a"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/trait_reference_summary.json",
+      "bytes": 491,
+      "sha256": "e45cf382c38c61f7a1e93180d2677c25405c8dad33743797286662be00211c9d"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/unittest_verification.txt",
+      "bytes": 3384,
+      "sha256": "15d2cd0284a7f927bf0fff90e9d5d7f091e7a5084e8191bd4f2abab33a59d06e"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/within_butterfly_genus_label_reference.csv",
+      "bytes": 56417,
+      "sha256": "2590ac5dbbd67e34988a52cf8468be9013c549d680774bdd1c493cd43fb0c99a"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/within_genus_summary.png",
+      "bytes": 262944,
+      "sha256": "3cc3254cb83cce1a5a86abe6e7c0775fdab6c783b470a90d6e22b2e23ffcd221"
+    },
+    {
+      "file": "results/20261122_butterfly_within_genus/within_genus_summary.svg",
+      "bytes": 27144,
+      "sha256": "b7cdc4a5d00ed7c9b36f18a2f1cda444aa87fc78747138dbabb1f80997ab5163"
+    },
+    {
+      "file": "tests/test_butterfly_conditional.py",
+      "bytes": 4272,
+      "sha256": "30c5add727b144bf10f29464af5d5b59b60a46442865f284211dd2774c9d282c"
+    },
+    {
+      "file": "tests/test_butterfly_inference.py",
+      "bytes": 2234,
+      "sha256": "4ee8f7cbc8e3e73301ce790f921e1b3da9021e84e1bbdabf7fd9d53486af3821"
+    },
+    {
+      "file": "tests/test_butterfly_within_genus_source.py",
+      "bytes": 3731,
+      "sha256": "faceb876c593d1cc5c2639912323bcf32ee0b58863fbf9b4c213578f3a716d7a"
+    }
+  ],
+  "previous_publication_status": {
+    "status": "BLOCKED_PENDING_EXPLICIT_AUTHORIZATION",
+    "remote_branch_created": false,
+    "draft_PR_created": false,
+    "reason": "Automatic approval review rejected git push because analysis continuation did not explicitly authorize publishing repository history and new work to external GitHub."
+  }
+}

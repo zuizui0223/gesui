@@ -1,0 +1,36 @@
+{
+  "verdict": "PASS_FOR_FROZEN_EXPLORATORY_ANALYSIS",
+  "critical_findings": 0,
+  "important_findings": 0,
+  "minor_findings": [
+    {
+      "issue": "Describe the phylogenetic explanation as the hypothesis considered in this conversation, not an established prior explanation.",
+      "status": "corrected_in_report"
+    }
+  ],
+  "reviewed": [
+    "six cached input hashes and host-score arithmetic",
+    "independent source reconstruction",
+    "conditional enumeration with analytic Hessians and Newton estimates",
+    "all 399 H6 bootstrap, 999 trait-reference and 29 genus influence refits",
+    "Japanese report numerical claims and interpretation"
+  ],
+  "not_adjudicated": [
+    "independent field validity of plant EIV or host associations",
+    "fresh third-party archive retrieval",
+    "remote publication and permissions"
+  ],
+  "packaging_by_primary_agent": [
+    "figure visually inspected after correcting initial label overlap",
+    "all new report local links checked",
+    "test and numerical audit receipts included"
+  ],
+  "scientific_limits_retained": [
+    "fixed observed species inference",
+    "recorded identity rather than abundance or true occupancy",
+    "spatial contrast rather than within-location temporal change",
+    "sensitivity to four butterfly-derived controls",
+    "descriptive trait-label reference is not exact adjusted beta-only null",
+    "host score coverage80 support STOP"
+  ]
+}

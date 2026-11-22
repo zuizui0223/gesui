@@ -1,0 +1,383 @@
+{
+  "status": "COMPLETE_EXPLORATORY",
+  "specification_commit": "89c349c",
+  "source": {
+    "specification_commit": "89c349c",
+    "exploratory_after_known_community_results": true,
+    "source": {
+      "source_files": [
+        {
+          "file": "GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json",
+          "sha256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4"
+        },
+        {
+          "file": "MERGED_ORIGINAL_30H7_TWO_PERIOD_SIX_FAMILY_360_SOURCE_FACETS.json",
+          "sha256": "e076f6c8e2d93282be19aea3c75ae8431302318f068b9d75e278e2a21c20aafb"
+        },
+        {
+          "file": "GENUINE_TERRESTRIAL_ONLY_183_H7_40_H6_PAIRED_H7_MEANS.csv",
+          "sha256": "c0840b1c5c6e85342fea41d57dc40fa5ec295fabf6bcd6908a4072557db9a736"
+        },
+        {
+          "file": "GESUI_303_HOST_NUTRIENT_SCORES.csv",
+          "sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb"
+        },
+        {
+          "file": "EU454_PLANT_11511_SOURCE_EIV_EXACT_CROSSWALK.csv",
+          "sha256": "ab45f36c0dad047442bb958bcef3135b45014bafec8a70811bcafb6109a02679"
+        },
+        {
+          "file": "FIXED_183_H7_IN_40_NATIVE_H6_SOURCE_COHORT.csv",
+          "sha256": "8107761a7e943b0797ebc3e53e98baebe51ae6ebb66eece394d35ea0dbcd2f7b"
+        }
+      ],
+      "original_CWM_replay_max_errors": {
+        "plant_n_incidence": 8.881784197001252e-16,
+        "plant_n_record": 8.881784197001252e-16,
+        "hns_incidence": 1.7763568394002505e-15,
+        "hns_record": 1.7763568394002505e-15
+      },
+      "original_H7": 183,
+      "original_H6": 40,
+      "original_cells": 366,
+      "positive_butterfly_record_cells": 30289,
+      "numeric_accepted_butterfly_species": 186,
+      "butterfly_genera": 88
+    },
+    "primary": {
+      "informative_strata": 353,
+      "discordant_pair_cell_rows": 1155,
+      "informative_H6": 34,
+      "informative_H7": 160,
+      "informative_genera": 29,
+      "all_pair_genera": 29,
+      "species_in_pairs": 96,
+      "unique_species_pairs": 122,
+      "original_equal_HNS_strata": 2,
+      "min_discordant_H7_per_stratum": 2,
+      "max_discordant_H7_per_stratum": 9,
+      "support_gate_pass": true
+    },
+    "coverage80": {
+      "informative_strata": 88,
+      "discordant_pair_cell_rows": 313,
+      "informative_H6": 19,
+      "informative_H7": 97,
+      "informative_genera": 9,
+      "all_pair_genera": 9,
+      "species_in_pairs": 26,
+      "unique_species_pairs": 26,
+      "original_equal_HNS_strata": 0,
+      "min_discordant_H7_per_stratum": 2,
+      "max_discordant_H7_per_stratum": 9,
+      "support_gate_pass": false
+    }
+  },
+  "primary": {
+    "status": "FIT",
+    "fit": {
+      "converged": true,
+      "params": [
+        0.3456186953934604,
+        0.13952780572641704,
+        -0.044362052020400194,
+        -0.08091751730429822,
+        0.03936292865329244,
+        0.163115563870883,
+        -0.10082758260287666,
+        0.09539861616760448,
+        -0.21436088363359224,
+        -0.07522985514217546,
+        -0.17217822203181976,
+        -0.0827344897821346,
+        -0.12359862950961925,
+        0.18883822225975413
+      ],
+      "negative_loglik": 378.7415380828048,
+      "optimizer_status": 0,
+      "optimizer_message": "Optimization terminated successfully.",
+      "iterations": 38,
+      "max_normalized_gradient": 1.621136954642431e-08
+    },
+    "beta": 0.3456186953934604,
+    "odds_ratio": 1.412863781625879,
+    "H6_cluster_standard_error": 0.09680469063763385,
+    "H6_clusters": 34,
+    "cluster_df": 33,
+    "beta95_H6_cluster_t": [
+      0.1486680714263436,
+      0.5425693193605772
+    ],
+    "odds_ratio95_H6_cluster_t": [
+      1.160287792611711,
+      1.7204215007183137
+    ],
+    "nominal_two_sided_H6_cluster_t_p": 0.00111830749772561,
+    "coefficients": {
+      "plant_n_incidence": 0.3456186953934604,
+      "W": 0.13952780572641704,
+      "crop": -0.044362052020400194,
+      "urban": -0.08091751730429822,
+      "naturalout": 0.03936292865329244,
+      "area": 0.163115563870883,
+      "nPlant": -0.10082758260287666,
+      "nButterfly": 0.09539861616760448,
+      "nAnimal": -0.21436088363359224,
+      "plant_coverage": -0.07522985514217546,
+      "hns_coverage": -0.17217822203181976,
+      "hns_host_completeness": -0.0827344897821346,
+      "plant_scored_species": -0.12359862950961925,
+      "hns_scored_species": 0.18883822225975413
+    },
+    "information_condition_number": 125.50667066944023,
+    "information_eigenvalues": [
+      10.160355515269298,
+      14.604654904131994,
+      26.139358192456513,
+      40.0355417949407,
+      51.46009070662192,
+      59.96463624088456,
+      88.49612939005691,
+      123.72341465737264,
+      158.59966201932605,
+      285.9557821806528,
+      387.90268383268716,
+      605.672274807755,
+      955.302869677089,
+      1275.1923935393345
+    ],
+    "information_epsilon_check_max_relative": 1.4535081137570187e-09,
+    "nuisance_removed_only_if_exactly_redundant": [],
+    "source_scaling": {
+      "plant_n_incidence": [
+        4.655381632287795,
+        0.3840684528696402
+      ],
+      "W": [
+        2.432475019795486,
+        1.2505926600105766
+      ],
+      "crop": [
+        27.07103825136612,
+        20.64401321050961
+      ],
+      "urban": [
+        4.366120218579235,
+        7.3404597559124625
+      ],
+      "naturalout": [
+        3.9245898250102504,
+        1.4500168967628884
+      ],
+      "area": [
+        7.385342442921795,
+        0.7904209719006418
+      ],
+      "nPlant": [
+        9.291656569192792,
+        1.35148483432101
+      ],
+      "nButterfly": [
+        7.68755825700057,
+        1.516357840977653
+      ],
+      "nAnimal": [
+        10.424720633278817,
+        1.3232988838695974
+      ],
+      "plant_coverage": [
+        0.6466465333469904,
+        0.06124064290263395
+      ],
+      "hns_coverage": [
+        0.8730582575381549,
+        0.051510107794446265
+      ],
+      "hns_host_completeness": [
+        0.6064469797407954,
+        0.02109621917126778
+      ],
+      "plant_scored_species": [
+        692.6584699453551,
+        292.16995207961645
+      ],
+      "hns_scored_species": [
+        68.0464480874317,
+        24.58734349338116
+      ]
+    },
+    "fixed_observed_species_inference": true,
+    "not_true_occupancy_abundance_or_wastewater_causality": true
+  },
+  "H6_bootstrap": {
+    "draws": 399,
+    "seed": 20261122,
+    "converged": 399,
+    "failed": 0,
+    "fixed_source_pair_weights": true,
+    "model_refitted_per_draw": true,
+    "beta95_percentile": [
+      0.14027825694598683,
+      0.7797622289632746
+    ],
+    "odds_ratio95_percentile": [
+      1.15059391506676,
+      2.180953636235998
+    ]
+  },
+  "within_butterfly_genus_trait_reference": {
+    "draws": 999,
+    "seed": 20261123,
+    "converged": 999,
+    "failed": 0,
+    "descriptive_full_within_genus_exchangeability_not_exact_beta_only_null": true,
+    "labels_global_once_per_species": true,
+    "eligible_strata_and_tied_pairs_fixed": true,
+    "participating_species": 96,
+    "participating_genera": 29,
+    "two_sided_absolute_beta_reference_p": 0.145,
+    "extreme_draws": 144,
+    "reference_beta_quantiles": [
+      -0.45121374463489644,
+      0.03489421085718347,
+      0.47384838814575425
+    ]
+  },
+  "leave_one_butterfly_genus_out": {
+    "genera": 29,
+    "converged": 29,
+    "failed": 0,
+    "positive": 29,
+    "negative": 0,
+    "beta_range": [
+      0.2866692364449508,
+      0.5380951159185595
+    ]
+  },
+  "sensitivity_without_four_butterfly_derived_controls": {
+    "status": "FIT",
+    "fit": {
+      "converged": true,
+      "params": [
+        0.1334352523119997,
+        0.19675673863612436,
+        -0.09581783196118071,
+        -0.1459431029480712,
+        0.07551533284119266,
+        0.15026174435787235,
+        -0.042363800629238536,
+        -0.07657085923222656,
+        0.026990092252715512,
+        -0.13537497944913066
+      ],
+      "negative_loglik": 384.2067598875099,
+      "optimizer_status": 0,
+      "optimizer_message": "Optimization terminated successfully.",
+      "iterations": 28,
+      "max_normalized_gradient": 1.8484426007452396e-08
+    },
+    "beta": 0.1334352523119997,
+    "odds_ratio": 1.1427472734957815,
+    "H6_cluster_standard_error": 0.07139719322948987,
+    "H6_clusters": 34,
+    "cluster_df": 33,
+    "beta95_H6_cluster_t": [
+      -0.011823429508343752,
+      0.27869393413234317
+    ],
+    "odds_ratio95_H6_cluster_t": [
+      0.9882461925735931,
+      1.3214028456626676
+    ],
+    "nominal_two_sided_H6_cluster_t_p": 0.07053240989003896,
+    "coefficients": {
+      "plant_n_incidence": 0.1334352523119997,
+      "W": 0.19675673863612436,
+      "crop": -0.09581783196118071,
+      "urban": -0.1459431029480712,
+      "naturalout": 0.07551533284119266,
+      "area": 0.15026174435787235,
+      "nPlant": -0.042363800629238536,
+      "nAnimal": -0.07657085923222656,
+      "plant_coverage": 0.026990092252715512,
+      "plant_scored_species": -0.13537497944913066
+    },
+    "information_condition_number": 89.11996080993559,
+    "information_eigenvalues": [
+      12.915031029913736,
+      23.729784154903754,
+      47.89425507328094,
+      58.999235577599634,
+      94.5409273378358,
+      129.04162098598889,
+      248.48377078066542,
+      296.55787076097096,
+      817.40264031948,
+      1150.9870592450143
+    ],
+    "information_epsilon_check_max_relative": 9.391848059186232e-10,
+    "nuisance_removed_only_if_exactly_redundant": [],
+    "source_scaling": {
+      "plant_n_incidence": [
+        4.655381632287795,
+        0.3840684528696402
+      ],
+      "W": [
+        2.432475019795486,
+        1.2505926600105766
+      ],
+      "crop": [
+        27.07103825136612,
+        20.64401321050961
+      ],
+      "urban": [
+        4.366120218579235,
+        7.3404597559124625
+      ],
+      "naturalout": [
+        3.9245898250102504,
+        1.4500168967628884
+      ],
+      "area": [
+        7.385342442921795,
+        0.7904209719006418
+      ],
+      "nPlant": [
+        9.291656569192792,
+        1.35148483432101
+      ],
+      "nAnimal": [
+        10.424720633278817,
+        1.3232988838695974
+      ],
+      "plant_coverage": [
+        0.6466465333469904,
+        0.06124064290263395
+      ],
+      "plant_scored_species": [
+        692.6584699453551,
+        292.16995207961645
+      ]
+    },
+    "fixed_observed_species_inference": true,
+    "not_true_occupancy_abundance_or_wastewater_causality": true
+  },
+  "sensitivity_host_coverage80": {
+    "status": "SOURCE_STOP",
+    "source": {
+      "informative_strata": 88,
+      "discordant_pair_cell_rows": 313,
+      "informative_H6": 19,
+      "informative_H7": 97,
+      "informative_genera": 9,
+      "all_pair_genera": 9,
+      "species_in_pairs": 26,
+      "unique_species_pairs": 26,
+      "original_equal_HNS_strata": 0,
+      "min_discordant_H7_per_stratum": 2,
+      "max_discordant_H7_per_stratum": 9,
+      "support_gate_pass": false
+    }
+  },
+  "total_inference_seconds": 55.36965079899983
+}
