@@ -15,7 +15,7 @@ def run(a):
  raw=json.loads(a.source.read_text());tax=json.loads(a.taxonomy.read_text())
  if raw["schema"]!="gesui_external_McKenzie_fourcountry_6491_publisher_exact_sample_gate_v1":
   raise RuntimeError("Publisher sample-grain original source schema changed")
- if tax["schema"]!="gesui_original_McKenzie_4country_taxonomy_GBIF_EXACT_source_only_v1":
+ if tax["schema"] not in ("gesui_original_McKenzie_4country_taxonomy_GBIF_EXACT_source_only_v1","gesui_original_McKenzie_4country_taxonomy_hierarchy_source_amendment_v2"):
   raise RuntimeError("Original source-only GBIF taxonomy schema changed")
  if tax["Figshare_original_XLSX_SHA256"]!=ORIGINAL_SHA or raw["original_source_SHA256"]!=ORIGINAL_SHA:
   raise RuntimeError("Taxonomy and original EPA? No: external Figshare source SHA mismatch")
@@ -78,6 +78,7 @@ def run(a):
   "schema":"gesui_external_fourcountry_EPT_taxon_unknown_mass_source_gate_v1",
   "publisher_original_XLSX_SHA256":ORIGINAL_SHA,
   "taxonomy_original_source_json_sha256":hashlib.sha256(a.taxonomy.read_bytes()).hexdigest(),
+  "hierarchy_amendment_to_original_GBIF_taxonomy":tax["schema"].endswith("_v2"),
   "country_profiles":country,
   "all_four_country_unknown_taxa_mass_GO":all_go,
   "country_heldout_descriptive_GO":all_go,
