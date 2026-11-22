@@ -1,3 +1,5 @@
+> **原調査設計のSOURCE STOP 2026-11-23：** 今回新たに取得したLoughboroughの出版者原本[Data Source Summaries DOCX](https://doi.org/10.17028/rd.lboro.24615570.v1)（original MD5 `08d81e4d97af34053b453a1c1e4f8c7d`）を[XLSXと厳密照合した追加監査PR #148](https://github.com/zuizui0223/gesui/pull/148)により、英国Environment Agency sourceでは**下水処理場放流口の下流地点を除外**、豪州ではreference-condition sitesを選別、英国の学術sourceでは同じ地点を春・秋に採集、NZでは5研究を統合したことを確認した。物理的SITE_IDは元配布Excelにない。NZ原調査方法表352件と公開Excel342件の10件差（Magbanua 36 vs26）も原本SOURCE由来である。したがって**6,491件の独立地点・下水特異的効果・独立SITE単位の統計推論はNO GO**。ここで示す4-country holdoutの予測改善は、元の選別されたモニタリングsourceに対する**記述的な国間予測値**である。2種類のoriginal堆積物指標がEPA `XEMBED` と等しいわけでもない。[監査結果全体](https://github.com/zuizui0223/gesui/blob/analysis/external-fourcountry-sampling-design-audit-20261123/docs/RESULTS_20261123_FOURCOUNTRY_ORIGINAL_AUTHOR_SOURCE_SITE_GRAIN_WWTP_EXCLUSION.md)を併読すること。 
+
 # Four-country original fine sediment–EPT transfer: numerical re-evaluation and within-vs-between-country decomposition
 **2026-11-23 JST | Signed source-model audit (POSTHOC), not preregistered confirmatory ecological hypothesis.**
 
