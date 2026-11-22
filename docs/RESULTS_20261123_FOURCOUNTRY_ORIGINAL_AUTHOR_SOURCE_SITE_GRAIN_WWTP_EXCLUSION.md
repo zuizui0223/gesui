@@ -50,6 +50,26 @@ NZを基点に元source期の構成から独立な空間holdoutを作ること�
 
 **NO GO**。EPA NRSAの`XEMBED`は河床粒径の組成によって定義上100%となる特殊な埋没度、4か国の元曝露はchannel bed <2mmの目視細粒被覆率で、測定量そのものが違う。またEPAの「2008/13/18適格source標本にHUC8が含まれていたか」という履歴は4か国にはなく、検証対象の交互作用を別sourceで定義できない。したがって元4か国の総MSE改善だけでPR #145（EPA slope × historical source group）を独立再現したとは書かない。
 
+## 2026-11-23：論文主張の機械的なGO/STOPが独立source evidenceから合格
+
+**[signed publication claim audit Actions #45085349098 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/45085349098)**。原著者の調査source、以前の国別予測値、α0–100モデル感度、手計算WLSの独立監査、および英国WWTP下流除外・NZのID構造の**5つの既存の署名済み集約artifact**を再取得して検証した。新たな生物アウトカムは探索していない。signed machine-readable artifact **14778792881**、実行コード `scripts/audit_gesui_fourcountry_publication_claim_source_gate_20261123.py`。
+
+| 論文主張 | machine verdict | 科学的な判断 |
+|---|---|---|
+| 元Figshare workbookの原データと照合 | **GO** | 6,491 sample rowsとoriginal country joinsが真正 |
+| 4か国を丸ごと除外したMSE予測改善 | **GO_DESCRIPTIVE_ONLY** | 国単位の記述予測、実physical site数未検証 |
+| 4か国内のfine/EPT共変動の負の方向 | **GO_DESCRIPTIVE_ONLY** | 元論文McKenzie et al.で既に報告した生態現象 |
+| Ridgeα10で改善が小さいので「生態信号が弱い」 | **NO_GO_MISLEADING** | total training weight3に対するα10正則化は極めて強い |
+| 6,491独立河川地点の再現 | **SOURCE_STOP** | ANALYSIS_IDは調査ID、site keyなし |
+| site-independent p値と95%区間 | **SOURCE_STOP** | 反復地点と調査系列が未確定 |
+| 無選別の全国代表河川標本 | **SOURCE_STOP** | AU reference / UK WWTP exclusion / NZ before-only |
+| 下水処理場の因果的な生物影響 | **SOURCE_STOP** | wastewater doseなし、UK EA源では下水下流除外 |
+| EPA XEMBED×HUC source履歴の独立再現 | **SOURCE_STOP** | 異なる測定環境、EPA source履歴なし |
+| 河川から陸への食物網・栄養フラックス | **SOURCE_STOP** | 羽化バイオマス・陸生消費者・実輸送量なし |
+| 新しい全球細粒土砂–EPTの普遍的法則 | **NOT_NOVEL** | 元McKenzie et al. GCB e17084の既知の研究問題 |
+
+**判断**：以前の国別point-estimate予測を破棄する必要はないが、source内の選別と未検証site clusteringを認め、**独立公開sourceの記述的な方法論比較資料**として扱う。真の独立地点IDを取得するまでsite単位推論は許可しない。下水研究は実POTW放流負荷と生物データを同じ流域・期間で結合するsourceが必要。
+
 ## 技術QAと進行判断
 
 - 原DOCXのsource-only監査 [#45084627476](https://github.com/zuizui0223/gesui/actions/runs/45084627476) → 原DOCX×XLSXのsource-code照合 [#45084789187](https://github.com/zuizui0223/gesui/actions/runs/45084789187) → 原文のUK sewage排除・季節反復・NZ研究別採集の**原本機械検証 [#45084925062](https://github.com/zuizui0223/gesui/actions/runs/45084925062)**、すべてSUCCESS。
