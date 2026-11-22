@@ -1,0 +1,72 @@
+{
+  "specification_commit": "89c349c",
+  "exploratory_after_known_community_results": true,
+  "source": {
+    "source_files": [
+      {
+        "file": "GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json",
+        "sha256": "251f8514684fe8ea62d94ddc8c6eeefb59976471d84d7389b682aff6637144e4"
+      },
+      {
+        "file": "MERGED_ORIGINAL_30H7_TWO_PERIOD_SIX_FAMILY_360_SOURCE_FACETS.json",
+        "sha256": "e076f6c8e2d93282be19aea3c75ae8431302318f068b9d75e278e2a21c20aafb"
+      },
+      {
+        "file": "GENUINE_TERRESTRIAL_ONLY_183_H7_40_H6_PAIRED_H7_MEANS.csv",
+        "sha256": "c0840b1c5c6e85342fea41d57dc40fa5ec295fabf6bcd6908a4072557db9a736"
+      },
+      {
+        "file": "GESUI_303_HOST_NUTRIENT_SCORES.csv",
+        "sha256": "00c1a36a9237a3d1a6d77334aa8baa5dc8b329a49925c2e31f033fa2d302ecdb"
+      },
+      {
+        "file": "EU454_PLANT_11511_SOURCE_EIV_EXACT_CROSSWALK.csv",
+        "sha256": "ab45f36c0dad047442bb958bcef3135b45014bafec8a70811bcafb6109a02679"
+      },
+      {
+        "file": "FIXED_183_H7_IN_40_NATIVE_H6_SOURCE_COHORT.csv",
+        "sha256": "8107761a7e943b0797ebc3e53e98baebe51ae6ebb66eece394d35ea0dbcd2f7b"
+      }
+    ],
+    "original_CWM_replay_max_errors": {
+      "plant_n_incidence": 8.881784197001252e-16,
+      "plant_n_record": 8.881784197001252e-16,
+      "hns_incidence": 1.7763568394002505e-15,
+      "hns_record": 1.7763568394002505e-15
+    },
+    "original_H7": 183,
+    "original_H6": 40,
+    "original_cells": 366,
+    "positive_butterfly_record_cells": 30289,
+    "numeric_accepted_butterfly_species": 186,
+    "butterfly_genera": 88
+  },
+  "primary": {
+    "informative_strata": 353,
+    "discordant_pair_cell_rows": 1155,
+    "informative_H6": 34,
+    "informative_H7": 160,
+    "informative_genera": 29,
+    "all_pair_genera": 29,
+    "species_in_pairs": 96,
+    "unique_species_pairs": 122,
+    "original_equal_HNS_strata": 2,
+    "min_discordant_H7_per_stratum": 2,
+    "max_discordant_H7_per_stratum": 9,
+    "support_gate_pass": true
+  },
+  "coverage80": {
+    "informative_strata": 88,
+    "discordant_pair_cell_rows": 313,
+    "informative_H6": 19,
+    "informative_H7": 97,
+    "informative_genera": 9,
+    "all_pair_genera": 9,
+    "species_in_pairs": 26,
+    "unique_species_pairs": 26,
+    "original_equal_HNS_strata": 0,
+    "min_discordant_H7_per_stratum": 2,
+    "max_discordant_H7_per_stratum": 9,
+    "support_gate_pass": false
+  }
+}
