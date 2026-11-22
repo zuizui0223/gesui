@@ -211,6 +211,17 @@ def main():
                         cv.append({'seed':seed,'fold':fold,'holdout_sites':len(test),
                             'heldout_N_added_loglik_gain':gain,'status':'FIT' if gain is not None else str(errors)})
                 outcomes=[x['heldout_N_added_loglik_gain'] for x in cv if x['heldout_N_added_loglik_gain'] is not None]
+                # Posthoc genus influence diagnostic; no independent genus-specific hypothesis testing.
+                influence=[]
+                for excluded in sorted(d['genus_species']):
+                    item={'excluded_genus':excluded}
+                    for label,names in [('adjusted_N',primary),('without_landuse_N',['N','light','temp','elevation'])]:
+                        rr=model_result(d,names,excluded_genus=excluded)
+                        item[label]={'status':rr['status'],'odds_ratio':rr.get('odds_ratio'),
+                          'beta':rr.get('beta_N_per_1SDplantN_1HNSpoint'),
+                          'cluster_interval_OR':rr.get('cluster_interval_OR'),
+                          'p_descriptive':rr.get('nominal_site_cluster_t_p')}
+                    influence.append(item)
                 report={'status':'COMPLETE_EXPLORATORY_INDEPENDENT_SITE_NUTRIENT_ASSOCIATION',
                     'source':{k:v for k,v in s.items() if k!='genus_support'},
                     'source_supported_genera':s['genus_support'],
@@ -221,7 +232,7 @@ def main():
                         'N_fraction_residual_var_after_controls_and_year':resid_fraction,
                         'site_year_is_cross_sectional':True,
                         'fixed_source_species_pool_used_at_all_sites':True},
-                    'fits':fits,'heldout_site_stratified_landuse_fivefold':cv,
+                    'fits':fits,'posthoc_leave_one_genus_out':influence,'heldout_site_stratified_landuse_fivefold':cv,
                     'cv_summary':{'total_folds':len(cv),'valid_folds':len(outcomes),
                        'positive_folds':sum(v>0 for v in outcomes),
                        'total_N_added_loglik_gain':float(sum(outcomes)) if outcomes else None,
