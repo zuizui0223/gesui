@@ -23,7 +23,7 @@ def lookup(name):
    canonical=data.get("canonicalName") or ""
    # GBIF scientificName may contain author; canonicalName is the
    # unambiguous original canonical match for exact family/order.
-   strict=typ=="EXACT" and canonical.lower()==name.lower()
+   strict=typ=="EXACT" and canonical.lower()==name.lower() and data.get("status") in ("ACCEPTED","SYNONYM")
    order=data.get("order")
    if strict and rank=="ORDER" and canonical in EPT:order=canonical
    state="EPT" if strict and order in EPT else ("NON_EPT" if strict and order else "UNKNOWN")
@@ -77,6 +77,7 @@ def main():
   "by_country_header_taxonomy":{k:dict(v) for k,v in counts.items()},
   "taxon_label_source_lookup":results,
   "GBIF_EXACT_names_no_taxon_guessing":True,
+  "DOUBTFUL_GBIF_matches_excluded":True,
   "source_original_OUTCOME_VALUES_NOT_READ":True,
   "EPT_fraction_numerical_analysis_GO":False,
   "next_gate":"Compute source numeric fraction occupied by UNKNOWN names per 4 countries before allowing EPT metrics."}
