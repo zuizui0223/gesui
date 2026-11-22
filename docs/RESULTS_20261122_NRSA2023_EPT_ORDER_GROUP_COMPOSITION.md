@@ -1,4 +1,4 @@
-# EPA NRSA2023–24：EPSではなく EPT目別の元実測個体数を分解して、観測履歴別の群集差を反証
+# EPA NRSA2023–24：EPT目別の元実測個体数を分解して、観測履歴別の群集差を反証
 
 **Date 2026-11-22 JST | POSTHOC exploratory observational source-domain audit.**
 
@@ -65,7 +65,9 @@ EPT個体が1つもないHUC8は条件付き3組成を定義しない。214粒�
 
 - [3目のSOURCE ONLY成功 #45027972960](https://github.com/zuizui0223/gesui/actions/runs/45027972960)、artifact **14756348235**。
 - [本当のEPA原本→旧3期再構築→2023 E/P/T個体割合・215ではなく214/209固定ペアの元数値解析 SUCCESS #45028194558](https://github.com/zuizui0223/gesui/actions/runs/45028194558)、aggregated original result artifact **14757030664**。
-- 外部予測モデルの元のEPT total全1156ではなく**全1,165 UIDの計数比率一致**まで確認。
-- 独立した生物個体数のraw CSV再集計、ペア・統計値の検証コード`scripts/audit_NRSA2023_EPT_order_matched_independent_20261122.py`を作成済み。独立Actionsの完走/成功を確認するまでは**独立計算成功と書かない**。
+- 外部予測モデルと**全1,165 UIDの計数比率一致**まで確認。
+- **[独立数値監査 GitHub Actions #45028498915 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/45028498915)**、signed独立QA artifact **14756826399**。旧3期EPA原本と2023 EPA benthiccount元CSVを再取得・再検証し、**元のPandasによる目別計数とは異なるstdlib CSV+NumPy経路**で原本E/P/T個体数を合計。全1,165 UIDで元の全EPT割合の厳密な一致を再確認。
+- 214（粒径）と209（水理）のHUC8元ソースペアSHA完全一致、元E/P/Tの**全3目・両マッチ標本での個体割合、2,000 paired-HUC8 bootstrap95、10,000符号反転permutation p、Holm3 p、EPT内部3構成（EPT=0除外）を独立再計算し、すべて1e−10許容精度内で再現**。
+- 再計算が合格したのは**計算・集計の再現性**であり、別地域・別方法の独立生物調査ではない。この結果だけで全EPA目レベル群集の同一性を証明しない。
 
 **次の優先検定**は新しい有意な分類群探しではなく、2023全体でsource履歴によりXEMBED–EPT応答曲線の条件付き形が違うかを、数を増やさない単一の交互作用検定で判定すること。ただし相関・選択バイアス・時空間共変量が残るため、機構断言はしない。
