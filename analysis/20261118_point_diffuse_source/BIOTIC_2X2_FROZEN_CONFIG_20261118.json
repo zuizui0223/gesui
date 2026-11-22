@@ -1,0 +1,126 @@
+{
+  "schema": "gesui_20261118_point_vs_landN_biotic_2x2_preoutcome_v1",
+  "frozen_date_jst": "2026-11-18",
+  "status": "FROZEN_BEFORE_NEW_BIOTIC_COLOCALIZED_NUMERIC_MODEL",
+  "classification": "exploratory analysis frozen after prior separate-outcome results were known; not independent confirmatory preregistration",
+  "location": "docs/manuscript_riparian_interactions/POINT_DIFFUSE_BIOTIC_2X2_FROZEN_20261118.md",
+  "outcomes": {
+    "primary_water": {
+      "dataset": "EEA benthic invertebrate EQR",
+      "year": 2018,
+      "unit": "site, exposure at exact 2016 NUTS2; EQR is biological status not tolerance"
+    },
+    "primary_land": {
+      "dataset": "GBIF plant EIV NUTRI",
+      "period": "2017-2019",
+      "unit": "H7 -> 2016 NUTS2 if polygon overlap>=0.90"
+    },
+    "secondary_consumer": {
+      "dataset": "GBIF butterflies species-equal HNS",
+      "period": "2017-2019",
+      "role": "secondary, no causal mediation inferred"
+    },
+    "sensitivity_water": {
+      "year": 2022
+    },
+    "sensitivity_land": {
+      "period": "2020-2022"
+    }
+  },
+  "exposure": {
+    "pointN": {
+      "source": "JRC GREEN Losses to Water 2014-2018",
+      "layer": 4,
+      "field": "PsN",
+      "operation": "log1p(tonnes/NUTS2 GISCO area km2)",
+      "note": "modelled domestic+industrial, not WWTP-only"
+    },
+    "landNblock": [
+      {
+        "source": "JRC Inputs to soil EMEP 2015",
+        "layer": 4,
+        "field": "MEAN_mgsqmy",
+        "role": "atmospheric deposition"
+      },
+      {
+        "source": "JRC Inputs to soil DAYCENT 2010-2019",
+        "layer": 9,
+        "field": "MEAN_kgha",
+        "role": "mineral fertilizer"
+      },
+      {
+        "source": "JRC Inputs to soil DAYCENT 2010-2019",
+        "layer": 14,
+        "field": "MEAN_kgha",
+        "role": "organic fertilizer"
+      }
+    ],
+    "secondary": [
+      "2010-2019 modelled N fixation",
+      "P in JRC GREEN",
+      "verified atmospheric N grid if pre-outcome source-only support"
+    ],
+    "preprocessing": "log1p each exposure in its own units; standardize inside training folds only; never sum soil and water units"
+  },
+  "source_only_gates": {
+    "minimum_shared_nuts2_water_and_plant": 40,
+    "minimum_shared_countries": 8,
+    "minimum_true_h6": 30,
+    "countries_with_at_least_3_shared_nuts2_and_within_country_point_and_deposition_variation": 5,
+    "minimum_connected_geographic_split_components": 20,
+    "outer_folds": 5,
+    "minimum_components_per_fold": 4,
+    "minimum_area_overlap_h7_in_nuts2": 0.9,
+    "maximum_vif_exposure_component": 5,
+    "exact_source_reconstruction_and_covariate_availability_required": true,
+    "missing_exposure_is_not_zero": true,
+    "excluded_if_multimapped_geo": true
+  },
+  "model": {
+    "families": [
+      "B0 background",
+      "BP background+pointN",
+      "BD background+landNblock",
+      "BPD background+pointN+landNblock"
+    ],
+    "learner": "Ridge",
+    "alpha_grid": [
+      0.1,
+      1,
+      10,
+      100
+    ],
+    "inner_cv": "spatial components, training-only",
+    "outer_cv": "5fold with connected components of H6 x NUTS2, no overlap across folds",
+    "loss": "MSE heldout, equal weight NUTS2 within country and equal weight country",
+    "common_complete_cases": "same for all 4 models and both primary outcomes"
+  },
+  "estimands": {
+    "U_P": "100*(MSE_BD-MSE_BPD)/MSE_BD",
+    "U_D": "100*(MSE_BP-MSE_BPD)/MSE_BP",
+    "C_W": "U_P(water)-U_D(water)",
+    "C_L": "U_D(plant)-U_P(plant)"
+  },
+  "decisions": {
+    "primary_hypotheses": [
+      "C_W>0",
+      "C_L>0"
+    ],
+    "geometric_bootstrap_draws": 3999,
+    "criterion_global": "both directional hypotheses one-sided p<0.05 and both diagonal unique gains >=1% with 95% descriptive CI lower>0",
+    "off_diagonal_negligible_only_if": "both off-diagonal 95% CI upper <+1%",
+    "robustness": "leave-one-country-out signs of both C>=70% in meaningful regions and equal-country vs geographic-block summaries directionally stable",
+    "no_significance_is_not_absence": true,
+    "cross_cell_effect_not_causal_transfer": true
+  },
+  "provenance": {
+    "source_only_existing": [
+      "269 NUTS2 complete model source rows across 28 countries",
+      "GitHub Actions run 44290036470"
+    ],
+    "no_biotic_2x2_fit_yet": true,
+    "manuscript_pr": 124,
+    "protocol_pr": 125,
+    "do_not_merge_main_before_biotic_audit": true
+  }
+}

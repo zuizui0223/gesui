@@ -1,0 +1,90 @@
+name: GESUI strict GISCO 2016 01M source recovery (NO outcome fitting)
+
+on:
+  pull_request:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - .github/workflows/gesui-20261118-gisco01m-source-recovery.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  source-only-gisco01m:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original geometry support only
+        run: python -m pip install --disable-pip-version-check pandas numpy geopandas==1.0.1 shapely==2.0.6 pyogrio==0.10.0 pyproj==3.7.0
+      - name: Recover original 2016 01M NUTS2 polygon from official distributed formats
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p /tmp/gesui01m
+          cat > /tmp/gesui01m/candidates.txt <<'EOF'
+          https://gisco-services.ec.europa.eu/distribution/v1/nuts/geojson/NUTS_RG_01M_2016_4326_LEVL_2.geojson
+          https://gisco-services.ec.europa.eu/distribution/v2/nuts/gpkg/NUTS_RG_01M_2016_4326_LEVL_2.gpkg
+          https://ec.europa.eu/eurostat/cache/GISCO/distribution/v2/nuts/geojson/NUTS_RG_01M_2016_4326_LEVL_2.geojson
+          https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2016_4326_LEVL_2.geojson
+          EOF
+          i=0
+          while IFS= read -r url; do
+            i=$((i + 1))
+            ext="${url##*.}"
+            dest="/tmp/gesui01m/source_$i.$ext"
+            status="$(curl --retry 0 -m 25 -L -sS -w '%{http_code}' --user-agent 'GESUI-source-verification-academic-2026' "$url" -o "$dest" || true)"
+            bytes="$(wc -c < "$dest" 2>/dev/null || echo 0)"
+            printf '%s %s %s\n' "$status" "$bytes" "$url" | tee -a /tmp/gesui01m/access.txt
+            if [ "$status" = 200 ] && [ "$bytes" -gt 500000 ]; then
+              if python -c 'import geopandas as gpd,sys; x=gpd.read_file(sys.argv[1]); assert len(x)>=250; assert "NUTS_ID" in x and "CNTR_CODE" in x; print("original2016_01M_polygon_count",len(x))' "$dest"; then
+                cp "$dest" "/tmp/gesui01m/official01m.$ext"
+                sha256sum "/tmp/gesui01m/official01m.$ext" | tee /tmp/gesui01m/success.sha256
+                break
+              fi
+            fi
+          done < /tmp/gesui01m/candidates.txt
+          if ! find /tmp/gesui01m -maxdepth 1 -name 'official01m.*' | grep -q .; then
+            echo "STRICT_01M_SOURCE_STOP_HTTP_OR_GEOMETRY_UNAVAILABLE"
+            exit 2
+          fi
+      - name: Restore original source-only cohorts and genuine H7 facet WKT receipts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui01m/eiv /tmp/gesui01m/facets /tmp/gesui01m/jrc
+          gh run download 43593227162 --repo zuizui0223/gesui --name gesui-H7-234x2x6-only429-source-merged-20261114 --dir /tmp/gesui01m/facets
+          gh run download 43718069015 --repo zuizui0223/gesui --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change --dir /tmp/gesui01m/eiv
+          gh run download 44290036470 --repo zuizui0223/gesui --name gesui-jrc-nuts2-soilN-pointN-source-only --dir /tmp/gesui01m/jrc
+      - name: Frozen full-resolution exact SOURCE-only water x plant geography check
+        shell: bash
+        run: |
+          set -euo pipefail
+          GEO="$(find /tmp/gesui01m -maxdepth 1 -name 'official01m.*' | head -1)"
+          FACETS="$(find /tmp/gesui01m/facets -type f -name GESUI_H7_234x2x6_SPECIESKEY_MERGED_SOURCE.json)"
+          EIVFILE="$(find /tmp/gesui01m/eiv -type f -name EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv)"
+          test -f "$GEO" && test -f "$FACETS" && test -f "$EIVFILE"
+          python analysis/20261118_point_diffuse_source/biotic_2x2_2018_geographic_source_gate.py \
+            --gisco "$GEO" \
+            --hybas "$FACETS" \
+            --jrc-source /tmp/gesui01m/jrc/jrc_nuts2_soilN_vs_pointN_source_only.csv \
+            --jrc-report /tmp/gesui01m/jrc/jrc_nuts2_soilN_pointN_source_only_report.json \
+            --eiv-eligibility "$EIVFILE" \
+            --output-dir results/20261118_biotic_2x2_official01m_geography
+      - name: Store source-only diagnostic and original 01M SHA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-official-2016-NUTS01M-geography-source-only
+          path: |
+            /tmp/gesui01m/access.txt
+            /tmp/gesui01m/success.sha256
+            results/20261118_biotic_2x2_official01m_geography/
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,36 @@
+name: GESUI JRC 2016 NUTS2 water point vs soil nitrogen source-only
+
+on:
+  pull_request:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - "analysis/20261118_point_diffuse_source/jrc_soilN_pointN_nuts2_source_gate.py"
+      - "tests/test_jrc_soilN_pointN_source_gate.py"
+      - ".github/workflows/gesui-20261118-jrc-nuts2-soilN-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Test source-only invariants
+        run: python -m unittest discover -s tests -p 'test_jrc_soilN_pointN_source_gate.py' -v
+      - name: Audit exact 2016 NUTS2 source codes from independent JRC models
+        run: python analysis/20261118_point_diffuse_source/jrc_soilN_pointN_nuts2_source_gate.py --output-dir results/20261118_soilN_pointN_nuts2
+      - name: Upload full source-only support and source hashes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-jrc-nuts2-soilN-pointN-source-only
+          path: results/20261118_soilN_pointN_nuts2/
+          if-no-files-found: warn
+          retention-days: 30

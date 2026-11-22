@@ -1,0 +1,70 @@
+name: GESUI 2018 benthic x 2017-19 plant H7 NUTS2 upper bound SOURCE gate
+
+on:
+  pull_request:
+    branches:
+      - docs/wastewater-riparian-interactions-outline
+    paths:
+      - analysis/20261118_point_diffuse_source/biotic_2x2_2018_geographic_source_gate.py
+      - .github/workflows/gesui-20261118-biotic-2x2-geo-source.yml
+      - tests/test_biotic_2x2_geo_source_gate.py
+      - analysis/20261118_point_diffuse_source/BIOTIC_2X2_FROZEN_CONFIG_20261118.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  geo-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install GIS packages
+        run: python -m pip install --disable-pip-version-check pandas numpy geopandas==1.0.1 shapely==2.0.6 pyogrio==0.10.0 pyproj==3.7.0
+      - name: Offline tests of 90-percent polygon assignment and H6-NUTS2 split leakage
+        run: python -m unittest discover -s tests -p 'test_biotic_2x2_geo_source_gate.py' -v
+      - name: Obtain immutable official GISCO 2016 and HydroBASINS Europe L7 geometry
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/gesui_sources/jrc
+          curl -fsSL --retry 3 --max-time 200 'https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2016_4326_LEVL_2.geojson' -o /tmp/gesui_sources/gisco2016_nuts2.geojson
+          curl -fsSL --retry 3 --max-time 200 'https://data.hydrosheds.org/file/hydrobasins/standard/hybas_eu_lev07_v1c.zip' -o /tmp/gesui_sources/hybas_eu_lev07_v1c.zip
+          sha256sum /tmp/gesui_sources/gisco2016_nuts2.geojson /tmp/gesui_sources/hybas_eu_lev07_v1c.zip
+      - name: Retrieve ONLY source-only JRC NUTS2 model data from successful source audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 44290036470 --repo zuizui0223/gesui --name gesui-jrc-nuts2-soilN-pointN-source-only --dir /tmp/gesui_sources/jrc
+          find /tmp/gesui_sources/jrc -maxdepth 1 -type f -printf '%f %s bytes\n'
+      - name: Retrieve strictly source-only original EIV eligibility of 451 of 454 H7-period records
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gesui_sources/eiv
+          gh run download 43718069015 --repo zuizui0223/gesui --name gesui-20261115-EU454-11511-EIV-source-v2-official-hybrid-qa-no-trait-change --dir /tmp/gesui_sources/eiv
+          find /tmp/gesui_sources/eiv -name 'EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv' -print
+      - name: Evaluate frozen geographic upper-bound gates without numerical outcomes
+        run: |
+          EIVFILE="$(find /tmp/gesui_sources/eiv -type f -name 'EU454_NUTRI_SOURCE_ELIGIBILITY_PER_H7.csv')"
+          test -f "$EIVFILE"
+          python analysis/20261118_point_diffuse_source/biotic_2x2_2018_geographic_source_gate.py \
+            --gisco /tmp/gesui_sources/gisco2016_nuts2.geojson \
+            --hybas /tmp/gesui_sources/hybas_eu_lev07_v1c.zip \
+            --jrc-source /tmp/gesui_sources/jrc/jrc_nuts2_soilN_vs_pointN_source_only.csv \
+            --jrc-report /tmp/gesui_sources/jrc/jrc_nuts2_soilN_pointN_source_only_report.json \
+            --eiv-eligibility "$EIVFILE" \
+            --output-dir results/20261118_biotic_2x2_geographic_source
+      - name: Preserve source-only gate and counts even on source stop
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-2018-plant-2017to19-2x2-geographic-source-gate
+          path: results/20261118_biotic_2x2_geographic_source/
+          if-no-files-found: warn
+          retention-days: 30
