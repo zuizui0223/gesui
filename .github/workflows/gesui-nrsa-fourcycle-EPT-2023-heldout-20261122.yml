@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - scripts/gesui_NRSA_fourthcycle_2023_EPT_heldout_transport.py
+      - scripts/audit_NRSA_fourthcycle_2023_manual_numpy_novelty.py
       - scripts/gesui_nrsa2324_fourthcycle_source_only_20261122.py
       - .github/workflows/gesui-nrsa-fourcycle-EPT-2023-heldout-20261122.yml
   workflow_dispatch:
@@ -152,6 +153,28 @@ jobs:
             --source-qa "${{ runner.temp }}/frozen_2023_source/nrsa2023_fourcycle_source_opportunity.json" \
             --old-panel "${{ runner.temp }}/gesui_threecycle_ept_transfer/AUDIT_ONLY_NRSA_THREE_REAL_CYCLE_EPT_NP_PHAB.csv" \
             --out "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_FOURTH_2023_ACTUAL_EPT_EXTERNAL_3OLD_CYCLES_TRAIN.json"
+
+      - name: Independently solve all original 2023 temporal Ridge models with weighted closed-form NumPy
+        run: |
+          python -m py_compile scripts/audit_NRSA_fourthcycle_2023_manual_numpy_novelty.py
+          python -u scripts/audit_NRSA_fourthcycle_2023_manual_numpy_novelty.py \
+            --sites "${{ runner.temp }}/original_2023/sites.csv" \
+            --water "${{ runner.temp }}/original_2023/water.csv" \
+            --habitat "${{ runner.temp }}/original_2023/habitat.csv" \
+            --benthos "${{ runner.temp }}/original_2023/benthos.csv" \
+            --chla "${{ runner.temp }}/original_2023/chla.csv" \
+            --source-qa "${{ runner.temp }}/frozen_2023_source/nrsa2023_fourcycle_source_opportunity.json" \
+            --old-panel "${{ runner.temp }}/gesui_threecycle_ept_transfer/AUDIT_ONLY_NRSA_THREE_REAL_CYCLE_EPT_NP_PHAB.csv" \
+            --original-result "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_FOURTH_2023_ACTUAL_EPT_EXTERNAL_3OLD_CYCLES_TRAIN.json" \
+            --out "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_FOURTH_2023_INDEPENDENT_NUMPY_NOVEL_HUC_QA.json"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-fourthcycle-2023-original-numpy-independent-qa
+          path: ${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_FOURTH_2023_INDEPENDENT_NUMPY_NOVEL_HUC_QA.json
+          if-no-files-found: warn
+          retention-days: 60
 
       - uses: actions/upload-artifact@v4
         if: always()
