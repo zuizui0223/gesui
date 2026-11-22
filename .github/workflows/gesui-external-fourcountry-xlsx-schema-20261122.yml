@@ -16,7 +16,7 @@ jobs:
       - name: Original publisher Figshare file download, exact MD5 and byte size required
         run: |
           curl --fail --location --silent --show-error --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299387" -o "${{ runner.temp }}/original_4country.xlsx"
-          echo '1e4d6e37b73c663406e5567dd79d9452  ' "${{ runner.temp }}/original_4country.xlsx" | sed 's/  /  /' | md5sum --check
+          printf '1e4d6e37b73c663406e5567dd79d9452  %s\n' "${{ runner.temp }}/original_4country.xlsx" | md5sum --check
           ls -lh "${{ runner.temp }}/original_4country.xlsx"
       - name: Inspect original workbook labels and source unit metadata without numeric biological outcomes
         run: |
