@@ -1,3 +1,5 @@
+> **2026-11-23：正則化と国内・国間の寄与に関する数値的訂正。** この文書の国別MSE改善率（約1.4〜2.4%）は、3つの学習国の合計重みが3しかないのに Ridge `alpha=10` を課した、**強く縮小された特定モデルの結果**であり、元の細粒土砂–相対EPT関係自体が弱いという証拠ではありません。同じ原データ・固定の4か国外部予測で重み付き線形 `alpha=0` にすると豪州+25.35%、ブラジル+29.61%、NZ+27.64%、英国+33.96%のMSE改善となります。さらに元のα10の改善を厳密分解すると、豪州・NZでは国内の土砂–EPT共変動が主ですが、ブラジルでは国平均のずれの補正、英国ではその両方が大きく寄与します。これらは全て**事後的なモデル感度・記述的外挿**であり、地点IDがないため推論的な95%区間・独立地点での確認はできません。詳細・全符号・独立数値監査は[訂正版PR #147](https://github.com/zuizui0223/gesui/pull/147)と[2026-11-23の統合結果](https://github.com/zuizui0223/gesui/blob/analysis/external-fourcountry-within-between-transfer-audit-20261123/docs/RESULTS_20261123_FOURCOUNTRY_EPT_WITHIN_BETWEEN_RIDGE_CORRECTION.md)を優先してください。
+
 # Independent four-country source test: relative EPT share vs measured visual fine sediment
 
 **Date:** 2026-11-22 | **Decision:** source-verified *descriptive* four-country transfer COMPLETE; direct EPA historical-source-status×XEMBED replication **NOT FEASIBLE**; no wastewater nutrient source inference. The original study had already reported heterogeneous regional relationships; nothing here makes that discovery novel.
