@@ -94,7 +94,21 @@ def build(args):
  d["season_sin"]=np.sin(2*np.pi*t.dt.dayofyear/365.25)
  d["season_cos"]=np.cos(2*np.pi*t.dt.dayofyear/365.25)
  dh=d.HUC8.astype(str).str.strip()
- d["huc_valid"]=dh.str.fullmatch(r"\d{8}")
+ # National EPA SiteInfo HUC8 is a named string identifier (sometimes H-prefixed).
+ # Match old frozen 2008/2013/2018 normalizer exactly; no geographic guessing.
+ hprefix=dh.str.fullmatch(r"[Hh]\d{8}")
+ normalized=dh.where(~hprefix,dh.str.slice(1))
+ hvalid=normalized.str.fullmatch(r"\d{7,8}")
+ d["HUC8_native"]=dh
+ d["HUC8"]=normalized.str.zfill(8)
+ d["huc_valid"]=hvalid
+ if d.loc[hvalid,"HUC8"].nunique()!=dh.loc[hvalid].nunique():
+  raise RuntimeError("HUC8 native labels collapsed under exact canonicalization")
+ source_info["HUC8_native_format"]={
+   "H_prefix_eight_digits":int(hprefix.sum()),
+   "plain_seven_or_eight_digits":int((~hprefix & dh.str.fullmatch(r"\d{7,8}")).sum()),
+   "other_unrecognized":int((~hvalid).sum()),
+   "first_five_original_examples":sorted(dh.unique().tolist())[:5]}
  d["geo_valid"]=d.PSTL_CODE.astype(str).str.strip().ne("")&d.AG_ECO9.astype(str).str.strip().ne("")
  d["prequal"]=d.method_ok & d.tn_flag_ok & d.tp_flag_ok & d.date_valid & d.huc_valid & d.geo_valid
  required=["TN_mgL","TP_mgL","COND","LAT_DD83","LON_DD83","STRAH_ORD",
