@@ -55,7 +55,7 @@ def build_pair_matrix(ht,y,pairs,include_grain=False):
  n=np.array([p[0] for p in pairs]);o=np.array([p[1] for p in pairs])
  if len(np.unique(n))!=len(n) or len(np.unique(o))!=len(o) or set(n)&set(o):
   raise RuntimeError("HUC8 pair re-used, not independent")
- if set(n)|set(o) - set(ht.index):raise RuntimeError("Source pairing missing original HUC8")
+ if (set(n)|set(o)) - set(ht.index):raise RuntimeError("Source pairing missing original HUC8")
  cols=DIFF_ORIGINAL+(EXTRA_GRAIN if include_grain else [])
  z={}
  for name in cols:
