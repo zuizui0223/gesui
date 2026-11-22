@@ -58,4 +58,10 @@ EPT割合の同等214-HUC平均も、旧source出現群 **0.27838**、新規sour
 
 **論文の位置づけ**：水−陸間の下水・サービス連鎖を証明する本体ではなく、河川の生物応答モデルの*source-domain transportability*と観測データの選択制約を調べる独立した方法論・生態学の話。[廃水のSOURCE STOP PR #139](https://github.com/zuizui0223/gesui/pull/139)と混ぜない。現段階での中核見出し候補 `Cross-era transfer of river habitat signals is limited by the historical sampling domain, even after matching measured environmental conditions` だが、環境比較での探索的所見に留まり、新しい因果原理ではない。
 
-機械的な独立モデル検証については別のPython閉形式ソルバーとpair bootstrapのコードを投入済み。独立監査のActionsが完了するまでは**数値監査成功と書かない**。
+## 独立数値監査・最終判定
+
+- **[元EPANRSA4期の完全再構築＋源データ前固定214ペアの独立NumPy監査：Actions #45019013829 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/45019013829)**、original independent signed QA artifact **14752313955**。ソース専用監査時に確定した`214`対の流域構成とSHA `356105578fc8fe7c7deda89fda373b371fec0989bee3ad0be028fd3eee195366`が再実行で厳密一致。標本数・eco9・source gateの文字列と整数は完全一致、浮動数のJSON出力末尾約1e-16の差のみ許容して独立SHA比較PASS。
+- 元のscikit-learn Ridgeモデルの代わりに **独立加重NumPy正規方程式**で旧3期学習→2023年EPT予測を再実行し、独立なHUC8内二乗誤差集計と214組一括bootstrapを再計算。**4つの追加予測利得・群間差・paired bootstrap区間をすべて1e-10の許容誤差内で再現**。
+- 元のSource-only実行 [#45018453830](https://github.com/zuizui0223/gesui/actions/runs/45018453830)、初回Matched EPT実行 [#45018806266](https://github.com/zuizui0223/gesui/actions/runs/45018806266)、独立照合 [#45019013829](https://github.com/zuizui0223/gesui/actions/runs/45019013829) は別run。再実行コードの正しさを支持するが、新たな独立した生物現場データを取得したわけではない。
+
+**最終解釈**：この結果は、河床環境が過去期のsource coverage領域ではEPT予測へ役立つ一方で、同じ広域環境指標でマッチした原本に未登場の流域への安定な移植には弱点がある、と示唆する。これは観測可能な環境空間の大きな逸脱**だけ**からは説明しにくいが、古いsource coverageの定義、原本標本の選択、未測定の河床・群集生物学、時空間の相違の因果分解はできていない。4比較の探索的多重性もあり、確証的な新法則ではない。
