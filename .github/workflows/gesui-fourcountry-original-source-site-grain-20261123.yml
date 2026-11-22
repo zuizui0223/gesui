@@ -1,0 +1,32 @@
+name: External fourcountry original source DOCX site and repeat-grain audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_fourcountry_original_source_docx_site_grain_20261123.py
+      - .github/workflows/gesui-fourcountry-original-source-site-grain-20261123.yml
+permissions:
+  contents: read
+jobs:
+  publisher-source-method-design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve original publisher source-summaries docx with exact file size and MD5
+        run: |
+          curl --fail --location --silent --show-error --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299384" -o "${{ runner.temp }}/original_4country_source_summaries.docx"
+          printf '08d81e4d97af34053b453a1c1e4f8c7d  %s\n' "${{ runner.temp }}/original_4country_source_summaries.docx" | md5sum --check
+      - name: Audit original site, year, visit, sampling-method documentation as source-only short excerpts
+        run: |
+          python -m py_compile scripts/gesui_fourcountry_original_source_docx_site_grain_20261123.py
+          python -u scripts/gesui_fourcountry_original_source_docx_site_grain_20261123.py \
+            --original-docx "${{ runner.temp }}/original_4country_source_summaries.docx" \
+            --out "${{ runner.temp }}/original_4country_design_site_grain_QA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-fourcountry-publisher-original-DOCX-source-site-grain-QA
+          path: ${{ runner.temp }}/original_4country_design_site_grain_QA.json
+          if-no-files-found: warn
+          retention-days: 60
