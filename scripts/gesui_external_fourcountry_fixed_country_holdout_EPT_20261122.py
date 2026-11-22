@@ -69,7 +69,8 @@ def compare(data,yfield):
   train={c:data[c] for c in sorted(data) if c!=country}
   test=data[country]
   if set(train)=={country} or len(train)!=3:raise RuntimeError("Country holdout group wrong")
-  if len(test[yfield])<100:raise RuntimeError("Too few source country samples in original target")
+  if len(test[yfield])<1 or any(len(train[k][yfield])<1 for k in train):
+   raise RuntimeError("Fixed original 0–50% visual fine cover support absent in heldout/train country")
   model=fit_three(train,yfield)
   p0,p1=predict(test,model)
   y=test[yfield]
