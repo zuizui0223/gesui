@@ -1,0 +1,36 @@
+name: External original 4country exact GBIF EPT family/order source taxonomy
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_external_fourcountry_taxonomy_gbif_source_only_20261122.py
+      - .github/workflows/gesui-external-fourcountry-GBIF-EPT-taxonomy-20261122.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact-GBIF-taxon-order-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-external-fourcountry-source-grain-6491-samples
+          run-id: 45030921807
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_grain
+      - name: Exact GBIF taxonomy lookup for original publisher taxon headers only
+        run: |
+          python -m py_compile scripts/gesui_external_fourcountry_taxonomy_gbif_source_only_20261122.py
+          python -u scripts/gesui_external_fourcountry_taxonomy_gbif_source_only_20261122.py \
+            --source "${{ runner.temp }}/source_grain/external4c_source_grain_QA.json" \
+            --out "${{ runner.temp }}/4country_gbif_exact_taxonomy_source_only.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-external-4country-GBIF-EPTrank-source
+          path: ${{ runner.temp }}/4country_gbif_exact_taxonomy_source_only.json
+          if-no-files-found: warn
+          retention-days: 60
