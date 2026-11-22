@@ -1,0 +1,35 @@
+name: External fourcountry author-documented sewage exclusions and repeated sample source QA
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/audit_fourcountry_author_documented_sewage_exclusion_and_repeats_20261123.py
+      - .github/workflows/gesui-fourcountry-author-source-discharge-repeat-20261123.yml
+permissions:
+  contents: read
+jobs:
+  original-source-design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - name: Source-only original accompanying DOCX + quantitative XLSX exact publisher hashes
+        run: |
+          curl --fail --location --silent --show-error --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299384" -o "${{ runner.temp }}/source_design.docx"
+          curl --fail --location --silent --show-error --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299387" -o "${{ runner.temp }}/source_data.xlsx"
+          printf '08d81e4d97af34053b453a1c1e4f8c7d  %s\n' "${{ runner.temp }}/source_design.docx" | md5sum --check
+          printf '1e4d6e37b73c663406e5567dd79d9452  %s\n' "${{ runner.temp }}/source_data.xlsx" | md5sum --check
+      - name: Verify author-document source sampling exclusions and source study IDs without any EPT fitting
+        run: |
+          python -m py_compile scripts/audit_fourcountry_author_documented_sewage_exclusion_and_repeats_20261123.py
+          python -u scripts/audit_fourcountry_author_documented_sewage_exclusion_and_repeats_20261123.py \
+            --original-docx "${{ runner.temp }}/source_design.docx" \
+            --original-xlsx "${{ runner.temp }}/source_data.xlsx" \
+            --out "${{ runner.temp }}/country_author_design_source_flags_QA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-fourcountry-original-author-exclusion-repeat-source-QA
+          path: ${{ runner.temp }}/country_author_design_source_flags_QA.json
+          if-no-files-found: warn
+          retention-days: 60
