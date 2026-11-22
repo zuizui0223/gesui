@@ -42,7 +42,7 @@ def main():
  for key in ("UK_environment_agency_sewage_discharge_downstream_exclusion","UK_academic_source_both_spring_and_autumn_sampling",
     "Australia_reference_site_AUS_RIVAS_filter","NZ_multiple_different_academic_studies","NZ_experimental_before_only_filter"):
   require(flags[key]["verified"] is True,"Missing original-author factual sample selection "+key)
- require(d["no_independent_physical_SITE_ID_in_original_publisher_XLSX"] is True,"Independent physical site ID contradiction")
+ require(d["no_independent_physical_site_ID_in_original_publisher_XLSX"] is True,"Independent physical site ID contradiction")
  require(d["new_zealand_publisher_original_table_n"]==352 and d["new_zealand_XLSX_sample_n"]==342,"NZ methods vs source released count attrition changed")
  nz=d["new_zealand_XLSX_first_token_ID_patterns"]
  require(sum(z["source_observation_rows"] for z in nz.values())==342,"NZ source original samples")
