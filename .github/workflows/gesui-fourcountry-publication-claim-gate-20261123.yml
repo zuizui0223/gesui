@@ -1,0 +1,68 @@
+name: Fourcountry source verified publication claim GO and STOP matrix
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/audit_gesui_fourcountry_publication_claim_source_gate_20261123.py
+      - .github/workflows/gesui-fourcountry-publication-claim-gate-20261123.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  signed-provenance-and-model-claims:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-fourcountry-original-author-exclusion-repeat-source-QA
+          run-id: 45084925062
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/author_source_docx
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-original-fourcountry-fixed-EPT-countryholdout-descriptive
+          run-id: 45032490453
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/first_countryholdout
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-original-fourcountry-EPT-within-between-country-transport-audit
+          run-id: 45083417535
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_decomposition
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-fourcountry-EPT-within-between-independent-manual-WLS-QA
+          run-id: 45083615144
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/independent_math
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-original-4country-hierarchy-repaired-EPT-mass-gate
+          run-id: 45032250205
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_taxonomy
+      - name: Source-authenticated published claim matrix across four independent signed artifact runs
+        run: |
+          python -m py_compile scripts/audit_gesui_fourcountry_publication_claim_source_gate_20261123.py
+          python -u scripts/audit_gesui_fourcountry_publication_claim_source_gate_20261123.py \
+            --original_design "${{ runner.temp }}/author_source_docx/country_author_design_source_flags_QA.json" \
+            --original_alpha10 "${{ runner.temp }}/first_countryholdout/4country_EPT_fixed_source_countryholdout.json" \
+            --original_decomp "${{ runner.temp }}/source_decomposition/4country_EPT_within_between_source_decomposition.json" \
+            --independent_math "${{ runner.temp }}/independent_math/4country_EPT_manual_withinbetween_independentQA.json" \
+            --original_taxonomy "${{ runner.temp }}/original_taxonomy/external4country_hierarchy_EPT_unknown_mass_SOURCE_ONLY.json" \
+            --out "${{ runner.temp }}/fourcountry_publication_claim_decisions.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-fourcountry-publisher-source-publication-claim-GO-STOP-gate
+          path: ${{ runner.temp }}/fourcountry_publication_claim_decisions.json
+          if-no-files-found: warn
+          retention-days: 60
