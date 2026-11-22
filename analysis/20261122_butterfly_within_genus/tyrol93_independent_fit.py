@@ -70,7 +70,7 @@ def get_data(blob,hns_raw,source_summary):
 def design(data, names, site_keep=None, excluded_genus=None):
     site_keep=set(range(len(data['site_ids']))) if site_keep is None else set(site_keep)
     observations=[g for g in data['obs'] if g['site_index'] in site_keep and g['genus']!=excluded_genus]
-    valid_genera=sorted(set(x['genus'] for x in observations))
+    valid_genera=sorted(g for g in data['genus_species'] if g!=excluded_genus)
     all_sp={g:data['genus_species'][g] for g in valid_genera}
     alphas={};offset=0
     for gen in valid_genera:
@@ -231,7 +231,8 @@ def main():
     a.output.write_text(json.dumps(report,indent=2,ensure_ascii=False,
         default=lambda obj: obj.item() if isinstance(obj,np.generic) else (_ for _ in ()).throw(TypeError(type(obj).__name__)))+'\n')
     print('FINAL '+json.dumps({'status':report['status'],'cv':report.get('cv_summary'),
-      'primary':{k:report.get('fits',{}).get('adjusted_N',{}).get(k) for k in ('status','beta_N_per_1SDplantN_1HNSpoint','odds_ratio','cluster_interval_OR')}},ensure_ascii=False),flush=True)
+      'primary':{k:report.get('fits',{}).get('adjusted_N',{}).get(k) for k in ('status','beta_N_per_1SDplantN_1HNSpoint','odds_ratio','cluster_interval_OR')}},ensure_ascii=False,
+      default=lambda obj: obj.item() if isinstance(obj,np.generic) else (_ for _ in ()).throw(TypeError(type(obj).__name__))),flush=True)
     if 'STOP' in report['status'] or (report.get('fits',{}).get('adjusted_N',{}).get('status')=='NUMERICAL_STOP'):sys.exit(4)
 
 if __name__=='__main__':main()
