@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - scripts/gesui_nrsa2023_HUC8_source_novelty_environment_20261122.py
+      - scripts/gesui_nrsa2023_novel_HUC8_source_matched_EPT_prediction_20261122.py
       - .github/workflows/gesui-nrsa2023-novelty-domain-20261122.yml
   workflow_dispatch:
 
@@ -170,6 +171,41 @@ jobs:
             --source-qa "${{ runner.temp }}/frozen_2023_source/nrsa2023_fourcycle_source_opportunity.json" \
             --old-panel "${{ runner.temp }}/gesui_threecycle_ept_transfer/AUDIT_ONLY_NRSA_THREE_REAL_CYCLE_EPT_NP_PHAB.csv" \
             --out "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_FOURTH_2023_ACTUAL_EPT_EXTERNAL_3OLD_CYCLES_TRAIN.json"
+
+      - name: Recover independent pre-EPT outcome source-only environmental matching record
+        uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa2023-novel-huc8-ecological-domain-source-only
+          run-id: 45018453830
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen_novelty_source
+      - name: Verify prior source-only match SHA and compare against current source-only rerun
+        run: |
+          cmp "${{ runner.temp }}/frozen_novelty_source/NRSA_2023_NOVEL_HUC8_ENVIRONMENT_SOURCE_ONLY.json" \
+              "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_2023_NOVEL_HUC8_ENVIRONMENT_SOURCE_ONLY.json"
+      - name: EPT prediction residuals matched by source-only ecoregion and environment (posthoc)
+        run: |
+          python -m py_compile scripts/gesui_nrsa2023_novel_HUC8_source_matched_EPT_prediction_20261122.py
+          python -u scripts/gesui_nrsa2023_novel_HUC8_source_matched_EPT_prediction_20261122.py \
+            --sites "${{ runner.temp }}/original_2023/sites.csv" \
+            --water "${{ runner.temp }}/original_2023/water.csv" \
+            --habitat "${{ runner.temp }}/original_2023/habitat.csv" \
+            --benthos "${{ runner.temp }}/original_2023/benthos.csv" \
+            --chla "${{ runner.temp }}/original_2023/chla.csv" \
+            --old_panel "${{ runner.temp }}/gesui_threecycle_ept_transfer/AUDIT_ONLY_NRSA_THREE_REAL_CYCLE_EPT_NP_PHAB.csv" \
+            --source_qa "${{ runner.temp }}/frozen_2023_source/nrsa2023_fourcycle_source_opportunity.json" \
+            --original_result "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_FOURTH_2023_ACTUAL_EPT_EXTERNAL_3OLD_CYCLES_TRAIN.json" \
+            --novelty_source "${{ runner.temp }}/frozen_novelty_source/NRSA_2023_NOVEL_HUC8_ENVIRONMENT_SOURCE_ONLY.json" \
+            --out "${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_2023_NOVEL_HUC8_SOURCE_MATCHED_EPT_RESULTS.json"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nrsa2023-novel-HUC8-env-matched-EPT-posthoc
+          path: ${{ runner.temp }}/gesui_fourcycle_2023_transport/NRSA_2023_NOVEL_HUC8_SOURCE_MATCHED_EPT_RESULTS.json
+          if-no-files-found: warn
+          retention-days: 60
 
       - name: Independently solve all original 2023 temporal Ridge models with weighted closed-form NumPy
         run: |
