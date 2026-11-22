@@ -1,0 +1,30 @@
+name: NRSA23 flow and watershed size source gate (no outcomes)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_nrsa2324_flow_width_source_gate_20261122.py
+      - .github/workflows/gesui-nrsa2324-flow-width-source-gate-20261122.yml
+permissions:
+  contents: read
+jobs:
+  flow-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_siteinfo.csv" -o "${{ runner.temp }}/sites.csv"
+          curl -fLsS --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_physicalhabitat_metrics.csv" -o "${{ runner.temp }}/phab.csv"
+          python -m py_compile scripts/gesui_nrsa2324_flow_width_source_gate_20261122.py
+          python scripts/gesui_nrsa2324_flow_width_source_gate_20261122.py \
+            --siteinfo "${{ runner.temp }}/sites.csv" \
+            --physicalhabitat "${{ runner.temp }}/phab.csv" \
+            --out "${{ runner.temp }}/flow_width_source_qa.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa2324-flow-width-source-only
+          path: ${{ runner.temp }}/flow_width_source_qa.json
+          if-no-files-found: warn
+          retention-days: 60
