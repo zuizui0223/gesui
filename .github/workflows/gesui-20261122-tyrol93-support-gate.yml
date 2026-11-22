@@ -1,0 +1,34 @@
+name: gesui South Tyrol 93-site butterfly NUTRI HNS source gate
+on:
+  push:
+    branches:
+      - analysis/gesui-butterfly-within-genus-20261122
+    paths:
+      - .github/workflows/gesui-20261122-tyrol93-support-gate.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Inspect original ESM3 and 303-key HNS, no effect coefficient
+        run: |
+          python -B analysis/20261122_butterfly_within_genus/tyrol93_source_gate.py \
+            --hns results/20261115_sync/GESUI_303_HOST_NUTRIENT_SCORES.csv \
+            --output source_gate/tyrol93_hns_source_support.json
+      - name: Archive source-only gate or explicit STOP, never the publisher raw workbook
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gesui-tyrol93-independent-plant-N-butterfly-HNS-source-support
+          path: source_gate/tyrol93_hns_source_support.json
+          if-no-files-found: error
+          retention-days: 20
