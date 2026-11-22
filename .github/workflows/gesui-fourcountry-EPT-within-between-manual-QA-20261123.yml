@@ -1,0 +1,54 @@
+name: Independent manual WLS QA - fourcountry EPT within-between source decomposition
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/audit_gesui_fourcountry_EPT_withinbetween_manual_WLS_20261123.py
+      - .github/workflows/gesui-fourcountry-EPT-within-between-manual-QA-20261123.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-publisher-independent-math-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install only NumPy; model matrix calculation is independent
+        run: python -m pip install --quiet "numpy>=1.26,<3"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-original-fourcountry-EPT-within-between-country-transport-audit
+          run-id: 45083417535
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/signed_original_decomposition
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-fourcountry-original-hierarchy-verified-taxonomy-amendment
+          run-id: 45032157036
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/taxonomy
+      - name: Publisher original four-country 6,491-sample workbook; verify original checksums
+        run: |
+          curl -fLsS --retry 4 --retry-all-errors --max-time 480 "https://ndownloader.figshare.com/files/43299387" -o "${{ runner.temp }}/external_source_4country.xlsx"
+          printf '1e4d6e37b73c663406e5567dd79d9452  %s\n' "${{ runner.temp }}/external_source_4country.xlsx" | md5sum --check
+      - name: Verify independent original weighted normal equations, country means, alpha sensitivity and exact gain decomposition
+        run: |
+          python -m py_compile scripts/audit_gesui_fourcountry_EPT_withinbetween_manual_WLS_20261123.py
+          python -u scripts/audit_gesui_fourcountry_EPT_withinbetween_manual_WLS_20261123.py \
+            --xlsx "${{ runner.temp }}/external_source_4country.xlsx" \
+            --source_taxonomy "${{ runner.temp }}/taxonomy/4country_rankaware_EPT_taxonomy_amended_SOURCE.json" \
+            --original_decomposition "${{ runner.temp }}/signed_original_decomposition/4country_EPT_within_between_source_decomposition.json" \
+            --out "${{ runner.temp }}/4country_EPT_manual_withinbetween_independentQA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-fourcountry-EPT-within-between-independent-manual-WLS-QA
+          path: ${{ runner.temp }}/4country_EPT_manual_withinbetween_independentQA.json
+          if-no-files-found: warn
+          retention-days: 60
