@@ -1,0 +1,81 @@
+name: NRSA prior-window original POTW TP source-only audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_nrsa_prior_window_tp_source_only_20261122.py
+      - scripts/gesui_nrsa_prior_tp_crossfy_method_join_20261122.py
+      - .github/workflows/gesui-nrsa-prior-window-tp-20261122.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-window:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        fiscal: [2023, 2024, 2025]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA-2018-24-upstream-POTW-6shard-source-independentQA
+          run-id: 43449175435
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/top
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-POTW-outfall-geo-source-2018-24
+          run-id: 43444463485
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/geo
+      - name: Official original DMR
+        run: |
+          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 40 --max-time 1800 "https://echo.epa.gov/files/echodownloads/npdes_dmrs_fy${{ matrix.fiscal }}.zip" -o "${{ runner.temp }}/dmr.zip"
+      - name: Strict prior-window source-only audit
+        run: |
+          python -m py_compile scripts/gesui_nrsa_prior_window_tp_source_only_20261122.py
+          python scripts/gesui_nrsa_prior_window_tp_source_only_20261122.py --fiscal ${{ matrix.fiscal }} --archive "${{ runner.temp }}/dmr.zip" --geo "${{ runner.temp }}/geo/NRSA_NPDES_POTW_2ERA_SOURCE_ONLY_GEO25.json" --topology "${{ runner.temp }}/top/NRSA_NLDI_POTW_TRUE_UPSTREAM_EXACT_SOURCE_JOIN_QA.json" --out "${{ runner.temp }}/prior_tp_fy${{ matrix.fiscal }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa-prior-window-tp-source-fy${{ matrix.fiscal }}
+          path: ${{ runner.temp }}/prior_tp_fy${{ matrix.fiscal }}.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  cross-fiscal-method-canopy:
+    needs: source-window
+    if: ${{ needs.source-window.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: nrsa-prior-window-tp-source-fy*
+          merge-multiple: true
+          path: ${{ runner.temp }}/fiscal
+      - name: Official EPA same-visit benthic and habitat metadata (no outcome values read)
+        run: |
+          curl --fail --location --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-09/nrsa2324_benthiccount.csv" -o "${{ runner.temp }}/benthiccount.csv"
+          curl --fail --location --retry 3 --retry-all-errors --max-time 600 "https://www.epa.gov/system/files/other-files/2026-06/nrsa2324_physicalhabitat_metrics.csv" -o "${{ runner.temp }}/phab.csv"
+      - name: Verify exact source SHA and merge unique native visits across all FY
+        run: |
+          python -m py_compile scripts/gesui_nrsa_prior_tp_crossfy_method_join_20261122.py
+          python scripts/gesui_nrsa_prior_tp_crossfy_method_join_20261122.py \
+            --fy-dir "${{ runner.temp }}/fiscal" \
+            --benthic "${{ runner.temp }}/benthiccount.csv" \
+            --phab "${{ runner.temp }}/phab.csv" \
+            --out "${{ runner.temp }}/merged_prior_TP_protocol_gate.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa-prior-window-crossFY-canopy-method-gate
+          path: ${{ runner.temp }}/merged_prior_TP_protocol_gate.json
+          if-no-files-found: warn
+          retention-days: 45
