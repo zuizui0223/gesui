@@ -37,3 +37,4 @@ jobs:
           retention-days: 20
 # Re-run with numpy integer JSON serialization repair; unchanged model and prelocked covariates.
 # Re-run with full fixed taxon-pool CV and numpy-safe terminal summary; same model specification.
+# Additional posthoc 10-genus influence audit; primary and CV methods unchanged.
