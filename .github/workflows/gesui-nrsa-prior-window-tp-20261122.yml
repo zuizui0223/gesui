@@ -1,0 +1,48 @@
+name: NRSA prior-window original POTW TP source-only audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_nrsa_prior_window_tp_source_only_20261122.py
+      - .github/workflows/gesui-nrsa-prior-window-tp-20261122.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-window:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        fiscal: [2023, 2024, 2025]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-NRSA-2018-24-upstream-POTW-6shard-source-independentQA
+          run-id: 43449175435
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/top
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-nrsa-POTW-outfall-geo-source-2018-24
+          run-id: 43444463485
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/geo
+      - name: Official original DMR
+        run: |
+          curl --fail --location --retry 3 --retry-all-errors --connect-timeout 40 --max-time 1800 "https://echo.epa.gov/files/echodownloads/npdes_dmrs_fy${{ matrix.fiscal }}.zip" -o "${{ runner.temp }}/dmr.zip"
+      - name: Strict prior-window source-only audit
+        run: |
+          python -m py_compile scripts/gesui_nrsa_prior_window_tp_source_only_20261122.py
+          python scripts/gesui_nrsa_prior_window_tp_source_only_20261122.py --fiscal ${{ matrix.fiscal }} --archive "${{ runner.temp }}/dmr.zip" --geo "${{ runner.temp }}/geo/NRSA_NPDES_POTW_2ERA_SOURCE_ONLY_GEO25.json" --topology "${{ runner.temp }}/top/NRSA_NLDI_POTW_TRUE_UPSTREAM_EXACT_SOURCE_JOIN_QA.json" --out "${{ runner.temp }}/prior_tp_fy${{ matrix.fiscal }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nrsa-prior-window-tp-source-fy${{ matrix.fiscal }}
+          path: ${{ runner.temp }}/prior_tp_fy${{ matrix.fiscal }}.json
+          if-no-files-found: warn
+          retention-days: 30
