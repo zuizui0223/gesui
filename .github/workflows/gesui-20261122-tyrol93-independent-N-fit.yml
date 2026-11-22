@@ -35,3 +35,4 @@ jobs:
           path: source_gate/tyrol93_independent_N_results.json
           if-no-files-found: error
           retention-days: 20
+# Re-run with numpy integer JSON serialization repair; unchanged model and prelocked covariates.
