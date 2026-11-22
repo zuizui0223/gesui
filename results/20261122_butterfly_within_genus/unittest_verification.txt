@@ -1,0 +1,28 @@
+test_degenerate_and_zero_weight_strata_contribute_zero (test_butterfly_conditional.ConditionalLikelihoodTests.test_degenerate_and_zero_weight_strata_contribute_zero) ... ok
+test_extreme_predictors_and_unlikely_observed_subset (test_butterfly_conditional.ConditionalLikelihoodTests.test_extreme_predictors_and_unlikely_observed_subset) ... ok
+test_gradient_matches_centered_finite_difference (test_butterfly_conditional.ConditionalLikelihoodTests.test_gradient_matches_centered_finite_difference) ... ok
+test_reversing_pair_orientation (test_butterfly_conditional.ConditionalLikelihoodTests.test_reversing_pair_orientation) ... ok
+test_stratum_specific_constants_and_padded_cells_drop_out (test_butterfly_conditional.ConditionalLikelihoodTests.test_stratum_specific_constants_and_padded_cells_drop_out) ... ok
+test_two_of_four_hand_enumeration (test_butterfly_conditional.ConditionalLikelihoodTests.test_two_of_four_hand_enumeration) ... ok
+test_weighted_scores_and_loglikelihood (test_butterfly_conditional.ConditionalLikelihoodTests.test_weighted_scores_and_loglikelihood) ... ok
+test_cluster_score_summed_before_outer_product (test_butterfly_inference.InferenceTests.test_cluster_score_summed_before_outer_product) ... ok
+test_mle_matches_closed_form_conditional_pair_odds (test_butterfly_inference.InferenceTests.test_mle_matches_closed_form_conditional_pair_odds) ... ok
+test_trait_labels_are_global_and_stay_within_butterfly_genus (test_butterfly_inference.InferenceTests.test_trait_labels_are_global_and_stay_within_butterfly_genus) ... ok
+test_weighted_mle_agrees_with_integer_repetition (test_butterfly_inference.InferenceTests.test_weighted_mle_agrees_with_integer_repetition) ... ok
+test_constant_pair_outcome_is_not_informative (test_butterfly_within_genus_source.SourceAssemblyTests.test_constant_pair_outcome_is_not_informative) ... ok
+test_missing_nonaccepted_and_alias_conflict_are_not_scored (test_butterfly_within_genus_source.SourceAssemblyTests.test_missing_nonaccepted_and_alias_conflict_are_not_scored) ... ok
+test_only_same_genus_and_discordant_cells_are_used (test_butterfly_within_genus_source.SourceAssemblyTests.test_only_same_genus_and_discordant_cells_are_used) ... ok
+test_record_multiplicity_does_not_change_primary (test_butterfly_within_genus_source.SourceAssemblyTests.test_record_multiplicity_does_not_change_primary) ... ok
+test_tied_pair_retained_when_genus_has_other_trait_variation (test_butterfly_within_genus_source.SourceAssemblyTests.test_tied_pair_retained_when_genus_has_other_trait_variation) ... ok
+test_original_archive_all_80 (test_gesui_migration_integrity.IntegrityTests.test_original_archive_all_80) ... ok
+test_sha_bytes (test_gesui_migration_integrity.IntegrityTests.test_sha_bytes) ... ok
+test_downstream_requires_connectivity (test_gesui_plant_site_panel.PanelContractTests.test_downstream_requires_connectivity) ... ok
+test_duplicate_key (test_gesui_plant_site_panel.PanelContractTests.test_duplicate_key) ... ok
+test_no_true_absence_from_zero_records (test_gesui_plant_site_panel.PanelContractTests.test_no_true_absence_from_zero_records) ... ok
+test_valid (test_gesui_plant_site_panel.PanelContractTests.test_valid) ... ok
+test_ww_volume_is_not_n (test_gesui_plant_site_panel.PanelContractTests.test_ww_volume_is_not_n) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.087s
+
+OK
