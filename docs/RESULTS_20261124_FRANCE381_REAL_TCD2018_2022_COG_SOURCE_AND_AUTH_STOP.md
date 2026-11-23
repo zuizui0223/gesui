@@ -49,6 +49,6 @@ TCD full CSV source metadataはフランスの真2018/2022原タイル2018 EPSG:
 2. `scripts/gesui_CLMS_TCD2018_2022_full_provider_COG_inventory_20261124.py`
 3. `scripts/gesui_france_CLMS_TCD_original_2year_STAC_COG_header_20261124.py`
 4. `scripts/gesui_FR381_TCD2018_2022_quality_tile_matched_source_20261124.py`
-5. `scripts/audit_FR381_TCD2018_2022_signed_source_GO_STOP_20261124.py` は4つの独立集約署名artifactを再読込し、source COUNT、年グリッド、質マスク、匿名403、source-only no-EQRことを検証。**最後のSOURCE GO/STOP独立監査が完走していれば別途リンクを追記。**
+5. `scripts/audit_FR381_TCD2018_2022_signed_source_GO_STOP_20261124.py` は4つの独立集約元artifactを再読込し、source COUNT、年次グリッド、品質レイヤー、元2018/2022の匿名TIFF HTTP403、source-only no-EQRを**全項目照合し成功**。[最終SOURCE GO/STOP監査 GitHub Actions #45207566298 SUCCESS](https://github.com/zuizui0223/gesui/actions/runs/45207566298)、signed original QA artifact **14834487680**。そのワークフローが成功したことは**ソース監査に合格した**ことを意味し、新しいTCD画素や河川生物応答の解析結果が得られた意味ではない。
 
 このSource GO/STOPは生態学的な否定結果でなく、必要な本物のsource raster pixelsを取得できない**認証/可用性STOP**である。非公開のS3 credentialsをGithubにコミットしたり、画像を推測して誤った使い方をしない。元のPR149（2018河畔景観の断面予測は正、EQR2018調整後のEQR2022への追加予測は負/不確実）を変更しない。
