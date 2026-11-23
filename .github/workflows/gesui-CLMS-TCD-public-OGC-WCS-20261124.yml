@@ -1,0 +1,27 @@
+name: CLMS official GeoVille TCD2018 and 2022 public WMS WCS source
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_CLMS_GeoVille_TCD_2018_2022_public_OGC_source_probe_20261124.py
+      - .github/workflows/gesui-CLMS-TCD-public-OGC-WCS-20261124.yml
+permissions:
+  contents: read
+jobs:
+  wms-wcs-capabilities-and-authless-numeric-samples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe public 2018 and 2022 WMS/WCS raw coverage/numeric GetFeatureInfo without original EEA outcomes
+        run: |
+          python -m py_compile scripts/gesui_CLMS_GeoVille_TCD_2018_2022_public_OGC_source_probe_20261124.py
+          python -u scripts/gesui_CLMS_GeoVille_TCD_2018_2022_public_OGC_source_probe_20261124.py \
+            --out "${{ runner.temp }}/CLMS_GeoVille_2018_2022_TCD_PUBLIC_OGC_SOURCE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-original-CLMS-TCD2018-2022-public-GeoVille-OGC-source
+          path: ${{ runner.temp }}/CLMS_GeoVille_2018_2022_TCD_PUBLIC_OGC_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 60
