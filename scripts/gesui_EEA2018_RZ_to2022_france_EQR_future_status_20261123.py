@@ -61,8 +61,8 @@ def frame(args):
          merged.procedureClassificationSystem_2018.eq(merged.procedureClassificationSystem_2022)&
          merged.HYRIV_ID_2018.eq(merged.HYRIV_ID_2022)&
          merged.countryCode_2018.eq(merged.countryCode_2022)&
-         np.max(np.abs(merged[["lat_2018","lon_2018"]].to_numpy(float)-
-                           merged[["lat_2022","lon_2022"]].to_numpy(float)),axis=1)<=.01)
+         (np.max(np.abs(merged[["lat_2018","lon_2018"]].to_numpy(float)-
+                            merged[["lat_2022","lon_2022"]].to_numpy(float)),axis=1)<=.01))
  good=merged.loc[proper].copy()
  print("EEA_FR2018_22_BIOLOGICAL_RECAPTURE_PRECHECK",json.dumps({
    "2018_RZ_benthic_join":len(old),
