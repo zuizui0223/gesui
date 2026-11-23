@@ -1,0 +1,27 @@
+name: Authentic CLMS TCD2018 2022 source STAC French COG TIFF access
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_france_CLMS_TCD_original_2year_STAC_COG_header_20261124.py
+      - .github/workflows/gesui-France-CLMS-TCD-original-COG-header-20261124.yml
+permissions:
+  contents: read
+jobs:
+  original_2year_native_TIFF_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Official French EPSG3035 matched original TCD 2018/2022 real STAC item + TIFF header source access
+        run: |
+          python -m py_compile scripts/gesui_france_CLMS_TCD_original_2year_STAC_COG_header_20261124.py
+          python -u scripts/gesui_france_CLMS_TCD_original_2year_STAC_COG_header_20261124.py \
+            --out "${{ runner.temp }}/FR_TCD2018_2022_REAL_STAC_TIFF_SOURCE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-France-TCD2018-2022-official-STAC-COG-actual-TIFF-access
+          path: ${{ runner.temp }}/FR_TCD2018_2022_REAL_STAC_TIFF_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 60
