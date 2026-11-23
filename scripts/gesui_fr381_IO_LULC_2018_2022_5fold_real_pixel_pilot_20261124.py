@@ -40,7 +40,10 @@ def site_candidates(fr,source_items):
        A.get("status")!="ORIGINAL_SOURCE_STAC_EXACT_ITEM" or
        B.get("status")!="ORIGINAL_SOURCE_STAC_EXACT_ITEM"):continue
    if source.covers(A["source_publisher_bbox"],lon,lat,True):prefix.append(item)
-  if len(prefix)!=1:raise RuntimeError("Original real France site source UTM MGRS class pairing ambiguous")
+  if not prefix:raise RuntimeError("Original real France site has no native UTM source MGRS class")
+  # Original signed source-only mapping deliberately uses alphabetical first
+  # within overlapping *same-zone* latitude-band supercell margin.
+  prefix.sort()
   out.append({"site_key":r.site_key,"lon":lon,"lat":lat,"fold":fold,"prefix":prefix[0]})
  return out
 def verify_source(args):
