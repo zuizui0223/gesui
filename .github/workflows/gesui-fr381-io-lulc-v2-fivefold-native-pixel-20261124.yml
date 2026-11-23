@@ -42,7 +42,7 @@ jobs:
         run: |
           git fetch --no-tags --depth=1 origin "refs/heads/analysis/eea2026-waterbase-biology-bqe-20261108"
           git show FETCH_HEAD:results/eea2022_biology_bqe_20261108/BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv > "${{ runner.temp }}/EEA_2022_source_only.csv"
-          test "$(git hash-object "${{ runner.temp }}/EEA_2022_source_only.csv")" = "325f199e985d9862ffee5b205c61a7be3833"
+          test "$(git hash-object "${{ runner.temp }}/EEA_2022_source_only.csv")" = "325f199e985d9862ffee5b0edb205c61a7be3833"
       - name: Source-only five fixed original river site pixels per fold both 2018 and 2022 in native matched UTM COG
         run: |
           python -m py_compile scripts/gesui_fr381_IO_LULC_2018_2022_5fold_real_pixel_pilot_20261124.py
