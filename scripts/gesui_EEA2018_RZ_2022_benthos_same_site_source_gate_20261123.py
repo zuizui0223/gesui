@@ -45,10 +45,22 @@ def run(args):
  common=old.merge(future,on="site_key",how="inner",suffixes=("_2018","_2022"),validate="one_to_one")
  if len(common)!=EXPECTED_CROSSYEAR:
   raise RuntimeError("Original EEA2018→22 all-site 1167 source overlap changed")
- same_method=common.procedureClassificationSystem_2018.eq(common.procedureClassificationSystem_2022)
+ # The published prior "1148 unchanged" count includes THREE stations with
+ # no method recorded in either year, which pandas represents as NaN. The
+ # PREVIOUS ledger counted blank==blank; here reproduce that SOURCE identity
+ # first, but do NOT classify unknown==unknown as method-stable for ecology.
+ left=common.procedureClassificationSystem_2018.fillna("").astype(str).str.strip()
+ right=common.procedureClassificationSystem_2022.fillna("").astype(str).str.strip()
+ nominal_method_match=left.eq(right)
+ same_method=nominal_method_match&left.ne("")&right.ne("")
  same_reach=common.HYRIV_ID_2018.eq(common.HYRIV_ID_2022)
- if (int(same_method.sum()),int(same_reach.sum()))!=(EXPECTED_STABLE_METHOD,EXPECTED_CROSSYEAR):
+ if (int(nominal_method_match.sum()),int(same_reach.sum()))!=(EXPECTED_STABLE_METHOD,EXPECTED_CROSSYEAR):
   raise RuntimeError("Original 2018/22 method/reach same-site SOURCE recapture failed")
+ print("EEA_METHOD_MISSING_SOURCE_GUARD",json.dumps({
+  "prior_1148_including_both_unknown_method":int(nominal_method_match.sum()),
+  "method_truly_known_unchanged":int(same_method.sum()),
+  "both_years_missing_original_method":int((left.eq("")&right.eq("")).sum()),
+  "either_year_missing_method":int((left.eq("")|right.eq("")).sum())},sort_keys=True),flush=True)
  if not common.countryCode_2018.eq(common.countryCode_2022).all():
   raise RuntimeError("Country assignment drift for original same site")
  oldcoords=common[["lat_2018","lon_2018"]].to_numpy(float)
@@ -91,6 +103,8 @@ def run(args):
   "2018_source_n":len(old),"2022_source_n":len(future),
   "historical_all_source_exact_revisit_n":len(common),
   "original_same_method_all_source_n":int(same_method.sum()),
+  "original_nominal_same_method_including_both_unknown_n":int(nominal_method_match.sum()),
+  "method_unknown_not_claimed_as_stable":True,
   "original_same_HYRIV_all_source_n":int(same_reach.sum()),
   "original_same_site_coords_within01deg_n":int(small.sum()),
   "2018_RZ_true_land_eligible_station_n":len(land),
