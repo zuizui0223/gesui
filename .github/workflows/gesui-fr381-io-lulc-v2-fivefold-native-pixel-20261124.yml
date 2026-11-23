@@ -1,0 +1,61 @@
+name: Original IO 10m LULC V2 2018 2022 five source-fold genuine raster pixel QA
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_fr381_IO_LULC_2018_2022_5fold_real_pixel_pilot_20261124.py
+      - .github/workflows/gesui-fr381-io-lulc-v2-fivefold-native-pixel-20261124.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_public_COG_five_geo_fold_site_quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      GDAL_HTTP_MAX_RETRY: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original native 10m categorical raster and RZ2018 source reader
+        run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scikit-learn>=1.5,<2" "pyproj>=3.5,<4" "rasterio>=1.3,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-20261117-RZ2018-2018Benthic-2639-source-only-physical-class-areas
+          run-id: 44004357868
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_RZ2018
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-France381-real-IO-LULC2018-2022-UTM-site-SOURCE
+          run-id: 45245728321
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen_381_site_tile_SOURCE
+      - name: Recover exactly SHA-verified original 2022 EEA source site IDs without loading EQR values
+        run: |
+          git fetch --no-tags --depth=1 origin "refs/heads/analysis/eea2026-waterbase-biology-bqe-20261108"
+          git show FETCH_HEAD:results/eea2022_biology_bqe_20261108/BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv > "${{ runner.temp }}/EEA_2022_source_only.csv"
+          test "$(git hash-object "${{ runner.temp }}/EEA_2022_source_only.csv")" = "325f199e985d9862ffee5b205c61a7be3833"
+      - name: Source-only five fixed original river site pixels per fold both 2018 and 2022 in native matched UTM COG
+        run: |
+          python -m py_compile scripts/gesui_fr381_IO_LULC_2018_2022_5fold_real_pixel_pilot_20261124.py
+          python -u scripts/gesui_fr381_IO_LULC_2018_2022_5fold_real_pixel_pilot_20261124.py \
+            --rz "${{ runner.temp }}/source_RZ2018/EEA2018_2018_RIPARIAN_ZONES_REST_OFFICIAL_SOURCE_ONLY_QA.json" \
+            --eq18 results/eea2018_independent_temporal_bqe_20261108/benthic_invertebrates_2018_WWTP_source_real_EQR.csv \
+            --eq22 "${{ runner.temp }}/EEA_2022_source_only.csv" \
+            --site_qa "${{ runner.temp }}/frozen_381_site_tile_SOURCE/FR381_IO_LULC_2018_2022_NATIVE_TILE_SITE_SOURCE.json" \
+            --out "${{ runner.temp }}/FR381_IO_2018_2022_FIVE_NATIVE_FOLD_PIXEL_SOURCE_QA.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-FR381-IO-LULC2018-2022-5fixedfold-genuine-category-pixel-SOURCE
+          path: ${{ runner.temp }}/FR381_IO_2018_2022_FIVE_NATIVE_FOLD_PIXEL_SOURCE_QA.json
+          if-no-files-found: warn
+          retention-days: 60
