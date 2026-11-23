@@ -1,0 +1,60 @@
+name: Final source-only France381 annual canopy metadata GO vs raster STOP QA
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/audit_FR381_TCD2018_2022_signed_source_GO_STOP_20261124.py
+      - .github/workflows/gesui-France381-TCD-source-GO-STOP-final-20261124.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original_signed_4source_claims:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-France381-CLMS-TCD2018-TCD2022-original-COG-STAC-source
+          run-id: 45204778028
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/initial_CLMS_catalogue
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-CLMS-TCD2018-2022-full-original-provider-COG-inventory
+          run-id: 45205351185
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/full_provider_COG_inventory
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-France-TCD2018-2022-official-STAC-COG-actual-TIFF-access
+          run-id: 45206093035
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/real_TIFF_access
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-FR381-TCD2018-2022-CLMS-native-tiles-and-annual-quality-source
+          run-id: 45206831800
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_381_2year_TCD
+      - name: Independently audit all signed official original source counts and fail-closed 2018 2022 real pixel access
+        run: |
+          python -m py_compile scripts/audit_FR381_TCD2018_2022_signed_source_GO_STOP_20261124.py
+          python -u scripts/audit_FR381_TCD2018_2022_signed_source_GO_STOP_20261124.py \
+            --initial "${{ runner.temp }}/initial_CLMS_catalogue/CLMS_TCD2018_2022_source_catalogue.json" \
+            --inventory "${{ runner.temp }}/full_provider_COG_inventory/CLMS_TCD2018_TCD2022_FULL_OFFICIAL_COG_SOURCE.json" \
+            --raster_access "${{ runner.temp }}/real_TIFF_access/FR_TCD2018_2022_REAL_STAC_TIFF_SOURCE.json" \
+            --france_sites "${{ runner.temp }}/source_381_2year_TCD/FR381_2018_2022_TCD_TCDCL_SOURCE_SITE_GRIDS.json" \
+            --out "${{ runner.temp }}/FR381_TCD2018_2022_CLAIM_SOURCE_GO_STOP.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-France381-TCD2018-2022-verified-4artifact-source-GO-STOP
+          path: ${{ runner.temp }}/FR381_TCD2018_2022_CLAIM_SOURCE_GO_STOP.json
+          if-no-files-found: warn
+          retention-days: 60
