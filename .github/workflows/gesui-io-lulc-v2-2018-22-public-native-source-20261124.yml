@@ -1,0 +1,27 @@
+name: Actual open IO annual 10m land class 2018 2022 native GeoTIFF source
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_IO_LULC_V2_2018_2022_source_only_public_COG_20261124.py
+      - .github/workflows/gesui-io-lulc-v2-2018-22-public-native-source-20261124.yml
+permissions:
+  contents: read
+jobs:
+  original-public-annual-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check real Impact Observatory 2018+2022 COG TIFF source bytes under original public license with no aquatic outcomes
+        run: |
+          python -m py_compile scripts/gesui_IO_LULC_V2_2018_2022_source_only_public_COG_20261124.py
+          python -u scripts/gesui_IO_LULC_V2_2018_2022_source_only_public_COG_20261124.py \
+            --out "${{ runner.temp }}/IO_LULC_V2_2018_2022_ORIGINAL_PUBLIC_COG_SOURCE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-fr381-io-lulc-v2-2018-2022-public-tiff-original-source
+          path: ${{ runner.temp }}/IO_LULC_V2_2018_2022_ORIGINAL_PUBLIC_COG_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 60
