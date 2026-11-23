@@ -1,0 +1,27 @@
+name: CLMS official 6314 source COG tiles 2018 2022 full catalogue audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_CLMS_TCD2018_2022_full_provider_COG_inventory_20261124.py
+      - .github/workflows/gesui-CLMS-TCD2018-2022-full-provider-catalogue-20261124.yml
+permissions:
+  contents: read
+jobs:
+  genuine-2018-and-2022-TCD-COG-catalogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Full original CDSE public CSV 10m TCD annual inventory, no EEA EQR and no TCD raster values
+        run: |
+          python -m py_compile scripts/gesui_CLMS_TCD2018_2022_full_provider_COG_inventory_20261124.py
+          python -u scripts/gesui_CLMS_TCD2018_2022_full_provider_COG_inventory_20261124.py \
+            --out "${{ runner.temp }}/CLMS_TCD2018_TCD2022_FULL_OFFICIAL_COG_SOURCE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-CLMS-TCD2018-2022-full-original-provider-COG-inventory
+          path: ${{ runner.temp }}/CLMS_TCD2018_TCD2022_FULL_OFFICIAL_COG_SOURCE.json
+          if-no-files-found: warn
+          retention-days: 60
