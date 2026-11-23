@@ -1,0 +1,27 @@
+name: Original CLMS TCD 2018 and 2022 catalogue and anonymous COG source gate
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_france381_CLMS_TCD2018_2022_catalogue_source_probe_20261124.py
+      - .github/workflows/gesui-france381-CLMS-TCD-original-catalogue-20261124.yml
+permissions:
+  contents: read
+jobs:
+  official_CLMS_TCD_source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify original CLMS catalogue transport and exact 2018 2022 TCD presence without any model or biological outcomes
+        run: |
+          python -m py_compile scripts/gesui_france381_CLMS_TCD2018_2022_catalogue_source_probe_20261124.py
+          python -u scripts/gesui_france381_CLMS_TCD2018_2022_catalogue_source_probe_20261124.py \
+            --out "${{ runner.temp }}/CLMS_TCD2018_2022_source_catalogue.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-France381-CLMS-TCD2018-TCD2022-original-COG-STAC-source
+          path: ${{ runner.temp }}/CLMS_TCD2018_2022_source_catalogue.json
+          if-no-files-found: warn
+          retention-days: 60
