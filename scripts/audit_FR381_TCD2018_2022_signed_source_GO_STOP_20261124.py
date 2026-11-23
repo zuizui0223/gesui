@@ -44,7 +44,7 @@ def main():
  need(src["number_100km_tiles_per_500m_site"].get("1")==374 and src["number_100km_tiles_per_500m_site"].get("2")==7,"Source original 500m annulus tile boundary counts")
  need(len(src["original_source_tile_keys_needed"])==47 and len(set(src["original_source_tile_keys_needed"]))==47,"Source unique tile keys")
  need(src["actual_2018_or_2022_EEA_EQR_values_read"] is False,"Source-only EQR outcomes must not have been opened")
- need(access["original_TCD_annual_pixel_values_accessed"] is False,"Original numeric canopy data should not have been claimed before pixel GO")
+ need(access["TCD_original_pixel_values_READ"] is False,"Original numeric canopy data should not have been claimed before pixel GO")
  need(access["both_years_real_TIFF_source_pass"] is False,"Source anonymous pixel access unexpectedly PASS; must review!")
  need(access["source_status"]=="STOP_NO_PUBLIC_SOURCE_TIFF_FOR_BOTH_YEARS","Both native COG source headers gate")
  need(access["source_original_STAC_exact_collection_probes"]["clms_vlcc_tree-cover-density_europe_10m_yearly_v1"]["collection"]["code"]==200,"Official STAC collection now confirmed")
