@@ -84,11 +84,21 @@ def map_sites(fr,by_year):
  for _,row in fr.iterrows():
   lon=float(row.lon_2018);lat=float(row.lat_2018)
   fold=int(row.pre_2018_source_only_spatial_fold)
-  # Both annual products must exist in EXACT same original source MGRS supercell.
+  # Both annual products must exist in EXACT same native UTM zone as
+  # the river site. STAC 01U/60U antimeridian item bbox sometimes reports
+  # [-180,180] across *all* longitude! Selecting by bbox alone misassigns
+  # French sites to Pacific MGRS supercells. Fix strictly by longitude-based
+  # UTM zone (pre-outcome geographic source only), then original 500m bbox.
+  original_UTM_zone=int(math.floor((lon+180)/6))+1
+  if original_UTM_zone not in (30,31,32):
+   raise RuntimeError("Actual French mainland site falls outside expected UTM zones 30,31,32")
+  original_site_epsg=32600+original_UTM_zone
   pair=[]
   for stem,ys in by_year.items():
    A=ys.get("2018",{});B=ys.get("2022",{})
    if A.get("status")!="ORIGINAL_SOURCE_STAC_EXACT_ITEM" or B.get("status")!="ORIGINAL_SOURCE_STAC_EXACT_ITEM":
+    continue
+   if int(A["source_utm_epsg"])!=original_site_epsg:
     continue
    if A["source_utm_epsg"]!=B["source_utm_epsg"]:
     continue
@@ -121,6 +131,8 @@ def map_sites(fr,by_year):
   "source_hash_selected_native_cell_per_fivefold":fixed_by_fold,
   "original_sameUTM_geometry_2018_2022_site_support_GO":source_pass,
   "original_stac_bboxes_do_NOT_verify_true_internal_TIFF_raster_pixels":True,
+  "source_geographic_UTM_zone_matches_original_EPSG326xx_required":True,
+  "source_antimeridian_stac_bbox_false_france_overlap_rejected":True,
   "original_survey_site_ids_and_geo_coordinates_not_published":True}
 def main():
  p=argparse.ArgumentParser()
@@ -141,6 +153,7 @@ def main():
   "publisher_original_YEAR":[2018,2022],
   "original_UTM_supercell_STAC_source_items":original,
   "original_spatial_search_source":meta,
+  "source_UTM_antimeridian_false_allworld_bbox_item_names_excluded":["01U","60U"],
   "source_france_sites_by_original_MGRS_tiles":result,
   "source_geographical_GO":result["original_sameUTM_geometry_2018_2022_site_support_GO"],
   "source_ANNULUS_native_class_pixel_values_READ":False,
