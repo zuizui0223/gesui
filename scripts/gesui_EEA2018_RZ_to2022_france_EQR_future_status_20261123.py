@@ -64,6 +64,18 @@ def frame(args):
          np.max(np.abs(merged[["lat_2018","lon_2018"]].to_numpy(float)-
                            merged[["lat_2022","lon_2022"]].to_numpy(float)),axis=1)<=.01)
  good=merged.loc[proper].copy()
+ print("EEA_FR2018_22_BIOLOGICAL_RECAPTURE_PRECHECK",json.dumps({
+   "2018_RZ_benthic_join":len(old),
+   "2018_RZ_2022_all_revisit":len(merged),
+   "method_equal_nonempty":int((merged.procedureClassificationSystem_2018.fillna("").ne("")&
+               merged.procedureClassificationSystem_2018.eq(merged.procedureClassificationSystem_2022)).sum()),
+   "same_reach":int(merged.HYRIV_ID_2018.eq(merged.HYRIV_ID_2022).sum()),
+   "same_country":int(merged.countryCode_2018.eq(merged.countryCode_2022).sum()),
+   "within_01deg_centroid":int((np.max(np.abs(merged[["lat_2018","lon_2018"]].to_numpy(float)-
+               merged[["lat_2022","lon_2022"]].to_numpy(float)),axis=1)<=.01).sum()),
+   "source_joint_prebiological_valid":len(good),
+   "source_frozen_eligible":409,
+   "source_frozen_FR_381":381},sort_keys=True),flush=True)
  if len(good)!=409:raise RuntimeError("Original source-frozen exact stable sites 409 changed")
  fr=good.loc[good.countryCode_2018.eq("FR")].copy()
  if len(fr)!=EXPECTED_FR or fr.site_key.duplicated().any():
