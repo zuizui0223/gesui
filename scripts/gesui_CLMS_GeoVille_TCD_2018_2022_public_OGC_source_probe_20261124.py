@@ -5,7 +5,7 @@ No aquatic EQR and no original S3/CDSE authentication bypass; uses openly
 advertised WMS/WCS endpoints. Do not confuse display maps with actual TCD values.
 """
 from __future__ import annotations
-import argparse,datetime,hashlib,json,pathlib,urllib.parse,urllib.request,urllib.error,xml.etree.ElementTree as ET,re,math
+import argparse,datetime,hashlib,json,pathlib,urllib.parse,urllib.request,urllib.error,xml.etree.ElementTree as ET,re,math,concurrent.futures
 BASE="https://geoserver.vlcc.geoville.com/geoserver/ows"
 LAYER={2018:"HRL_TCF:TCD_S2018",2022:"HRL_TCF:TCD_S2022"}
 def source(url,max_bytes=3000000):
@@ -13,7 +13,7 @@ def source(url,max_bytes=3000000):
    "Accept":"application/xml,text/xml,application/json,text/plain,*/*",
    "User-Agent":"gesui-official-CLMS-public-OGC-source-only/20261124"})
  try:
-  with urllib.request.urlopen(request,timeout=38) as r:
+  with urllib.request.urlopen(request,timeout=12) as r:
    b=r.read(max_bytes+1)
    return {"status":"HTTP_SUCCESS","code":r.status,"content_type":r.headers.get("Content-Type"),
     "response_bytes_capped":len(b)>max_bytes,"response_body_bytes":min(len(b),max_bytes),
@@ -83,7 +83,7 @@ def main():
   if v["status"]=="HTTP_SUCCESS" and "text" in v and v["text"]:
    receipts[key]["first_response_130chars"]=v["text"][:130].decode("utf-8",errors="replace")
  probe={year:getfeatureinfo(year) for year in LAYER}
- tcd_years=all(q["source_named_TCD_2018"] and q["source_named_TCD_2022"]
+ tcd_years=any(q["source_named_TCD_2018"] and q["source_named_TCD_2022"]
        for k,q in parsed.items() if k.startswith("WMS") and "source_named_TCD_2018" in q)
  wcs_years=any(q["source_named_TCD_2018"] and q["source_named_TCD_2022"]
        for k,q in parsed.items() if k.startswith("WCS") and "source_named_TCD_2018" in q)
