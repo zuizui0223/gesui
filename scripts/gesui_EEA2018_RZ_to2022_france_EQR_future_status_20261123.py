@@ -25,7 +25,7 @@ EXPECTED_FR=381
 def source_quality(frame):
  # If an original 3-degree block is split across original 5folds, holdout
  # loses spatial independence, so STOP rather than repack folds after Y.
- blocks=frame.groupby("region_3deg_block").pre_2018_source_only_spatial_fold.nunique()
+ blocks=frame.groupby("region_3deg_block_2018").pre_2018_source_only_spatial_fold.nunique()
  if (blocks>1).any():
   raise RuntimeError("2018 3-degree block leakage across original fixed folds")
  counts=frame.pre_2018_source_only_spatial_fold.value_counts()
@@ -64,18 +64,14 @@ def frame(args):
          np.max(np.abs(merged[["lat_2018","lon_2018"]].to_numpy(float)-
                            merged[["lat_2022","lon_2022"]].to_numpy(float)),axis=1)<=.01)
  good=merged.loc[proper].copy()
- if len(good)!=409 or not good.source_eco9_2018.isna().all() if "source_eco9_2018" in good else False:
-  # Dummy branch for unexpected incompatible 2018-2022 source schema;
-  # true condition on source cohort count is independently enforced below.
-  pass
  if len(good)!=409:raise RuntimeError("Original source-frozen exact stable sites 409 changed")
  fr=good.loc[good.countryCode_2018.eq("FR")].copy()
  if len(fr)!=EXPECTED_FR or fr.site_key.duplicated().any():
   raise RuntimeError("Exact source-frozen France 381 stable-method sites changed")
  if not fr.procedureClassificationSystem_2018.eq(fr.procedureClassificationSystem_2022).all():
   raise RuntimeError("France BQE method changed after SOURCE cohort lock")
- fr["LogQ"]=np.log1p(fr.DIS_AV_CMS.astype(float))
- fr["LogArea"]=np.log1p(fr.UPLAND_SKM.astype(float))
+ fr["LogQ"]=np.log1p(fr.DIS_AV_CMS_2018.astype(float))
+ fr["LogArea"]=np.log1p(fr.UPLAND_SKM_2018.astype(float))
  fr["EQR2022"]=fr.normalised_EQR.to_numpy(float)
  fr["EQR_delta"]=fr.EQR2022-fr.numeric_EQR_2018
  fr["lat"]=fr.lat_2018
@@ -105,7 +101,7 @@ def oof(df,outcome,alpha=ALPHA):
  return predictions,fold_info
 def evaluate(df,target,pred):
  y=df[target].to_numpy(float)
- block=df.region_3deg_block.astype(str).to_numpy()
+ block=df.region_3deg_block_2018.astype(str).to_numpy()
  blocks=np.unique(block)
  losses={key:(y-v)**2 for key,v in pred.items()}
  if len(blocks)<5:raise RuntimeError("Original 3degree block count below source")
@@ -126,7 +122,7 @@ def evaluate(df,target,pred):
     "regions_where_more_predictors_reduce_MSE":int((ff<bb).sum()),
     "total_regions":len(blocks),
     "no_causal_or_external_country_inference":True}
- return comp,fold_info if False else {"source_3degree_region_count":len(blocks)}
+ return comp,{"source_3degree_region_count":len(blocks)}
 def main():
  p=argparse.ArgumentParser()
  for k in ("rz","eq22","cohort_source","out"):p.add_argument("--"+k,type=pathlib.Path,required=True)
