@@ -35,7 +35,7 @@ def get(url,cap=1500000,range=None):
  except Exception as e:
   return {"status":"NETWORK_ERROR","error_type":type(e).__name__,"detail":str(e)[:130]}
 def public(r):
- return {k:v for k,v in r.items() if k!="_bytes"}
+ return {k:v for k,v in r.items() if k not in ("_bytes","_json")}
 def jsonget(url):
  r=get(url,cap=3000000)
  if r["status"]=="HTTP_SUCCESS":
@@ -92,17 +92,31 @@ def main():
  for year in YEAR:
   q=source_item_features(year)
   items=(q.get("_json") or {}).get("features",[])
+  # This STAC service can return earlier item IDs for a requested annual
+  # datetime window because metadata time extents differ from item YEAR.
+  # Record that discrepancy; NEVER treat a 2017 tile as a 2018 pixel.
+  mismatched=[i.get("id") for i in items if not str(i.get("id","")).endswith("-"+str(year))]
+  matched=[i for i in items if str(i.get("id","")).endswith("-"+str(year))]
+  if not matched and items:
+   # Reuse the actual returned UTM/MGRS supercell prefix for the exact-year
+   # SOURCE item lookup; require real HTTP200 with exact original ID.
+   prefix=str(items[0].get("id","")).rsplit("-",1)[0]
+   if not __import__("re").fullmatch(r"[0-9]{1,2}[C-X]",prefix):
+    raise RuntimeError("Original STAC source item MGRS ID invalid "+prefix[:30])
+   expected=prefix+"-"+str(year)
+   direct=jsonget(STAC+"/collections/"+COLL+"/items/"+expected)
+   item=direct.get("_json") or {}
+   if direct["status"]=="HTTP_SUCCESS" and item.get("id")==expected:
+    matched=[item]
   data=[]
-  for item in items:
-   itemdate=item.get("properties",{}).get("datetime","")
-   itemyear=itemdate[:4] if itemdate else ""
+  for item in matched[:3]:
+   itemdate=item.get("properties",{}).get("datetime")
    ident=item.get("id","")
    attrs=item.get("assets",{})
    target=attrs.get("data",{})
    href=target.get("href")
-   matched=str(year) in (itemyear,ident[-4:],ident.split("-")[-1])
-   if not matched:
-    raise RuntimeError("Original yearly STAC item returned unrelated date "+str((year,ident,itemdate)))
+   if not ident.endswith("-"+str(year)):
+    raise RuntimeError("Original exact year item identity mismatch")
    content={
     "year":year,"item_id":ident,"collection":item.get("collection"),
     "source_item_datetime":itemdate,"source_grid_epsg":item.get("properties",{}).get("proj:epsg"),
@@ -114,7 +128,9 @@ def main():
     "actual_tiff_http_checks":try_tiff(href,token) if len(data)<2 else []}
    data.append(content)
   features[str(year)]={"source_http":public(q),"original_item_count_in_example_bbox":len(items),
-                        "original_first_source_items":data[:3],
+                        "year_mismatched_item_count_in_first20":len(mismatched),
+                        "first_wrong_year_original_item_ids":mismatched[:4],
+                        "original_verified_matching_year_source_items":data,
                         "original_native_2018_2022_year_asset_go":any(
        any(v.get("genuine_native_TIFF_header") for v in x["actual_tiff_http_checks"]) for x in data)}
  genuine=all(features[str(year)]["original_native_2018_2022_year_asset_go"] for year in YEAR)
