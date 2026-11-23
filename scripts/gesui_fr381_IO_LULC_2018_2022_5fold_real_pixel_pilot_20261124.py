@@ -130,11 +130,15 @@ def read_tiny(site,prefix,token):
   valid=terrestrial&(~np.isin(v1,[0,10]))&(~np.isin(v2,[0,10]))
   total=int(terrestrial.sum())
   n=int(valid.sum())
-  if n < (MIN_NEAR if name.startswith("near") else MIN_FAR):
-   raise RuntimeError("Source fixed 500m ring lacks valid original 10m land class pixels")
+  source_min_land_pixels=(MIN_NEAR if name.startswith("near") else MIN_FAR)
   cloud_loss=1-(n/max(1,total))
-  if cloud_loss>.05:raise RuntimeError("Original paired cloud+nodata mask removes >5 pct")
-  outputs[name]={"original_pixel_circles_source":int(within.sum()),
+  # Keep ALL fixed source pilot outcomes, including failures; the subsequent
+  # all-381 source eligibility screen must NOT be relaxed or cherry-picked.
+  quality_pass=bool(n>=source_min_land_pixels and cloud_loss<=.05)
+  outputs[name]={"source_quality_gate_pass":quality_pass,
+    "source_min_valid_land_pixels_predeclared":source_min_land_pixels,
+    "source_cloud_nodata_loss_limit_predeclared_pct":5.,
+    "original_pixel_circles_source":int(within.sum()),
     "two_year_terrestrial_candidate_pixels":total,
     "native_both_year_accepted_land_pixels":n,
     "source_annual_cloud_nodata_loss_pct":100*cloud_loss,
@@ -168,7 +172,10 @@ def main():
   "source_source_only_one_HUC_EEA_site_per_fixed_fold":True,
   "source_still_MISSING_all_381_sites_quality_and_class_counts":True,
   "original_EEA_2018_2022_EQR_numeric_READ":False,
-  "source_status":"SOURCE_ORIGINAL_FIVE_FOLD_RAW_PIXEL_QA_GO_NOT_YET_381_SITE_SOURCE"}
+  "source_pilot_all_sites_both_rings_pass_quality":all(
+     all(q["source_quality_gate_pass"] for q in rec["source_true_paired_year_land_category_tiny_disk"].values())
+     for rec in output.values()),
+  "source_status":"SOURCE_ORIGINAL_FIVE_FOLD_RAW_PIXEL_QA_MIXED_FULL381_GATE_UNCHANGED"}
  args.out.parent.mkdir(parents=True,exist_ok=True)
  args.out.write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
  print("FR381_IO_LULC_2018_2022_PILOT_NATIVE_PIXEL_QA",json.dumps({
