@@ -42,7 +42,7 @@ def gains(df,loss,more,base):
  b=np.array([np.mean(loss[base][region==k]) for k in codes])
  a=np.array([np.mean(loss[more][region==k]) for k in codes])
  if len(codes)!=14:raise RuntimeError("Original fixed source 14 regions changed")
- ix=np.random.default_rng(orig.SEED).integers(0,len(codes),size=(orig.BOOTS,len(codes)))
+ ix=np.random.default_rng(20261123).integers(0,len(codes),size=(orig.BOOTS,len(codes)))
  boot=100*(b[ix].mean(1)-a[ix].mean(1))/b[ix].mean(1)
  return {"site_baseline_mse":float(np.mean(loss[base])),
    "site_added_mse":float(np.mean(loss[more])),
