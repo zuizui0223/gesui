@@ -72,8 +72,17 @@ def run(args):
  land,meta=rz.source_frame(args.rz)
  if len(land)!=978 or land.site_key.duplicated().any():
   raise RuntimeError("Original real riparian 978 terrestrial eligible stations changed")
- if len(set(land.site_key)&set(old.site_key))!=978:
-  raise RuntimeError("Original terrestrial 2018 points absent in 2018 source cohort")
+ # Original 2018 RZ publisher cover eligible: 978, but TWO valid
+ # source-only RZ site keys lack original eligible numerical 2018 EQR.
+ # The prior PR123 original same-site EQR cohort was 976, not 978.
+ # Reproduce its original SOURCE-vs-EQR membership explicitly.
+ n_rz_2018_eqr=int(len(set(land.site_key)&set(old.site_key)))
+ if n_rz_2018_eqr!=976:
+  raise RuntimeError("Original RZ 978→2018 EQR 976 source support changed")
+ print("EEA_RZ2018_2018_EQR_ELIGIBILITY",json.dumps({
+  "source_RZ_nonwater_terrestrial_eligible":len(land),
+  "original_2018_EQR_source_intersection":n_rz_2018_eqr,
+  "source_RZ_sites_without_2018_numeric_EQR":len(land)-n_rz_2018_eqr},sort_keys=True),flush=True)
  matched=common.merge(land,on="site_key",how="inner",validate="one_to_one")
  consistent=matched.procedureClassificationSystem_2018.eq(matched.procedureClassificationSystem_2022)&(
    matched.HYRIV_ID_2018.eq(matched.HYRIV_ID_2022))&(
@@ -108,6 +117,7 @@ def run(args):
   "original_same_HYRIV_all_source_n":int(same_reach.sum()),
   "original_same_site_coords_within01deg_n":int(small.sum()),
   "2018_RZ_true_land_eligible_station_n":len(land),
+  "original_RZ_2018_EQR_overlap_known_before_temporal_outcome_n":n_rz_2018_eqr,
   "same2018RZ_and_2022_revisit_all_n":len(matched),
   "same2018RZ_2022_method_stable_n":method_n,
   "same2018RZ_2022_method_reach_coords_stable_n":exact,
