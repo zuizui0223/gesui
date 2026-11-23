@@ -1,0 +1,69 @@
+name: Genuine France381 2018 2022 10m original LULC two-year paired source pixel quality
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_fr381_IO_LULC_V2_2018_2022_full_native_pixel_SOURCE_20261124.py
+      - .github/workflows/gesui-fr381-io-lulc-2018-22-full-native-381-source-20261124.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  real-381-original-10m-paired-year-land-class-QA:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
+      GDAL_HTTP_MAX_RETRY: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install real-native-class10m raster and source-only GIS dependencies
+        run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scikit-learn>=1.5,<2" "pyproj>=3.5,<4" "rasterio>=1.3,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-20261117-RZ2018-2018Benthic-2639-source-only-physical-class-areas
+          run-id: 44004357868
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source_RZ2018
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-France381-real-IO-LULC2018-2022-UTM-site-SOURCE
+          run-id: 45245728321
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_UTM_source
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-FR381-IO-LULC2018-2022-5fixedfold-genuine-category-pixel-SOURCE
+          run-id: 45246664786
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_signed_pilot
+      - name: Recover original 2022 site registry exactly by 2022 genuine source Git blob
+        run: |
+          git fetch --no-tags --depth=1 origin "refs/heads/analysis/eea2026-waterbase-biology-bqe-20261108"
+          git show FETCH_HEAD:results/eea2022_biology_bqe_20261108/BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv > "${{ runner.temp }}/original_2022_EEA_site_source.csv"
+          test "$(git hash-object "${{ runner.temp }}/original_2022_EEA_site_source.csv")" = "325f199e985d9862ffee5b0edb205c61a7be3833"
+      - name: All genuine 381 France EEA same-site 2018/2022 paired native class windows, original strict cloud/nodata gate before EQR
+        run: |
+          python -m py_compile scripts/gesui_fr381_IO_LULC_V2_2018_2022_full_native_pixel_SOURCE_20261124.py
+          python -u scripts/gesui_fr381_IO_LULC_V2_2018_2022_full_native_pixel_SOURCE_20261124.py \
+            --rz "${{ runner.temp }}/source_RZ2018/EEA2018_2018_RIPARIAN_ZONES_REST_OFFICIAL_SOURCE_ONLY_QA.json" \
+            --eq18 results/eea2018_independent_temporal_bqe_20261108/benthic_invertebrates_2018_WWTP_source_real_EQR.csv \
+            --eq22 "${{ runner.temp }}/original_2022_EEA_site_source.csv" \
+            --site_qa "${{ runner.temp }}/original_UTM_source/FR381_IO_LULC_2018_2022_NATIVE_TILE_SITE_SOURCE.json" \
+            --pilot "${{ runner.temp }}/original_signed_pilot/FR381_IO_2018_2022_FIVE_NATIVE_FOLD_PIXEL_SOURCE_QA.json" \
+            --out "${{ runner.temp }}/FR381_IO_10M_2018_2022_YEARPAIRED_CLASS_SOURCE_QUALITY.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-FR381-IO-2018-2022-full-native-10m-tree-class-quality-source
+          path: ${{ runner.temp }}/FR381_IO_10M_2018_2022_YEARPAIRED_CLASS_SOURCE_QUALITY.json
+          if-no-files-found: warn
+          retention-days: 60
