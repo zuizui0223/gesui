@@ -82,8 +82,8 @@ def frame(args):
   raise RuntimeError("Exact source-frozen France 381 stable-method sites changed")
  if not fr.procedureClassificationSystem_2018.eq(fr.procedureClassificationSystem_2022).all():
   raise RuntimeError("France BQE method changed after SOURCE cohort lock")
- fr["LogQ"]=np.log1p(fr.DIS_AV_CMS_2018.astype(float))
- fr["LogArea"]=np.log1p(fr.UPLAND_SKM_2018.astype(float))
+ fr["LogQ"]=np.log1p(fr.DIS_AV_CMS.astype(float))
+ fr["LogArea"]=np.log1p(fr.UPLAND_SKM.astype(float))
  fr["EQR2022"]=fr.normalised_EQR.to_numpy(float)
  fr["EQR_delta"]=fr.EQR2022-fr.numeric_EQR_2018
  fr["lat"]=fr.lat_2018
