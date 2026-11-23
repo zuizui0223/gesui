@@ -26,7 +26,7 @@ def run(args):
  if reader.fieldnames!=expected:raise RuntimeError("Original CLMS catalogue schema changed "+str(reader.fieldnames))
  years=collections.Counter()
  records={str(y):{} for y in (2018,2022)}
- per_year_dup=collections.Counter();bad_bbox=0;extensions=collections.Counter()
+ per_year_dup=collections.Counter();bad_bbox=0;extensions=collections.Counter();other_source_CRS=collections.Counter();other_source_examples=[]
  examples={str(y):[] for y in (2018,2022)}
  for row in reader:
   if not row["name"].startswith("CLMS_HRLVLCC_TCD_S"):raise RuntimeError("Unexpected TCD COG source label")
@@ -37,7 +37,10 @@ def run(args):
   if not row["bbox"]:bad_bbox+=1
   if year in records:
    m=GRID.search(row["name"])
-   if not m:raise RuntimeError("No source/native 3035 COG tile key in annual file")
+   if not m:
+    other_source_CRS[year]+=1
+    if len(other_source_examples)<8:other_source_examples.append(row["name"])
+    continue
    key="E"+m.group(1)+"N"+m.group(2)
    if key in records[year]:per_year_dup[year]+=1
    records[year][key]={"original_name":row["name"],
@@ -71,6 +74,8 @@ def run(args):
   "original_per_year_preview":examples,
   "source_s3_path_extension_counts":dict(extensions),
   "missing_source_bbox":bad_bbox,
+  "other_publisher_TCD_source_projection_records_by_year":dict(other_source_CRS),
+  "other_projection_original_name_examples":other_source_examples,
   "source_publisher_actual_2018_and_2022_item_presence":True,
   "original_anonymous_COG_pixel_access_yet_verified":False,
   "source_region_tiled_raster_coverage_at_actual_FR381_sites_verified":False,
