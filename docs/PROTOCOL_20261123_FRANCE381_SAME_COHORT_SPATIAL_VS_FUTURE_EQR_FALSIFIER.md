@@ -1,0 +1,13 @@
+# Same exact France381 cohort: cross-sectional 2018 ecology vs 2022 spatial status vs 2022 lag-adjusted future
+**2026-11-23 after the negative primary 2018 RZ→2022 lagged forecast**; this is explicitly **posthoc adversarial diagnosis**, no new confirmatory effect or numerical threshold tuning.
+
+The earlier same-year Europe13-country n976 result (PR123) gained +3.423% 2018 EQR prediction from wider 250–500m RZ mapped land-cover. The newly original same-source France381 method-stable 2018→2022 direct test found adding those features **−1.540% future EQR MSE** AFTER 2018 EQR. These two estimates are not directly comparable: **different countries/source sites, outcomes and conditioning**. To determine whether nontransferability is primarily site-frame or conditioning, fit on EXACT original France381 source-only frozen cross-year same-sites (original official 2018 RZ source, original EEA 2018 EQR, independent original EEA 2022 EQR).
+
+Fixed 2018 original 5 spatial geoblock folds and 14 3-degree source blocks; alpha10 Ridge, numeric features train-only standardized, 381 exact original France EQR same-method same-reach source sites with no source status selection or outcome-row adjustment.
+
+**Two fixed posthoc contrast populations/endpoints** using same 381 original source site IDs:
+- **2018 SAME-YEAR cross-sectional EQR**. Baseline `B0=[lat,lon,logQ2018,logArea2018]`, `L0=B0+[NaturalFar,UrbanFar,CropFar]`, `D0=L0+[NaturalNearMinusFar]`. Outcome `EQR2018`.
+- **2022 WITHOUT 2018 lagged EQR**. Exactly same B0, L0, D0 predictors from **2018**, outcome real `EQR2022`. This shows whether 2018 land mosaic carries stable geographical predictive information four years later when lagged EQR is NOT controlled.
+- The already tested **2022 with EQR2018 adjustment** (B1=B0+EQR2018; L1=B1+same land features) is the PRIMARY future/transition target, original signed [#45096054949](https://github.com/zuizui0223/gesui/actions/runs/45096054949), independent manual [#45096295649](https://github.com/zuizui0223/gesui/actions/runs/45096295649). Its negative predictive contribution must not be removed or demoted if the posthoc B0 comparison is positive.
+
+Report all 2018/2022 no-lag 5fold original source-error MSE, per 14 block errors, site-equal and 3deg-block-equal gain, fixed 2000 block bootstrap95 (DESCRIPTIVE only), plus 14 block sign counts. All 4 planned contrasts (L0 vs B0, D0 vs L0 for both years) must be reported regardless of effect sign. No cross-country inference, no WWTP-driven 2018→2022 mass change, no measured actual riparian landcover 2022, no aquatic→terrestrial resource flux, no equivalence of ecosystem service.

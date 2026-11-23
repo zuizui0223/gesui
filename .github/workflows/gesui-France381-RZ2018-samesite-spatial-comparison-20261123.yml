@@ -1,0 +1,66 @@
+name: Source-frozen France381 2018 vs2022 spatial landcover diagnostic
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/gesui_france381_RZ2018_same_cohort_2018_vs2022_spatial_status_20261123.py
+      - .github/workflows/gesui-France381-RZ2018-samesite-spatial-comparison-20261123.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-sources-2018-to2022-land-future-EQR:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Freeze original numeric model matrix and official RZ2018 source reader
+        run: python -m pip install --quiet "numpy>=1.26,<3" "pandas>=2.1,<3" "scikit-learn>=1.5,<2"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-20261117-RZ2018-2018Benthic-2639-source-only-physical-class-areas
+          run-id: 44004357868
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original_RZ2018
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-RZ2018-to-2022-benthos-same-station-source-only
+          run-id: 45095545359
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/frozen_2018_22_source_GO
+      - name: Authenticate PR14 true original 2022 benthic EQR site source by Git blob SHA
+        run: |
+          git fetch --no-tags --depth=1 origin "refs/heads/analysis/eea2026-waterbase-biology-bqe-20261108"
+          git show FETCH_HEAD:results/eea2022_biology_bqe_20261108/BENTHIC_INVERTEBRATES_2022_SOURCE_EQR.csv > "${{ runner.temp }}/original_2022_benthos.csv"
+          test "$(git hash-object "${{ runner.temp }}/original_2022_benthos.csv")" = "325f199e985d9862ffee5b0edb205c61a7be3833"
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-France381-real-2018RZ-to2022-benthos-EQR-spatial-holdout
+          run-id: 45096054949
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/signed_2022_lagged_EQR
+      - name: Compare four same-cohort 2018-vs-2022 cross-sectional landscape predictors after reproducing source site identities
+        run: |
+          python -m py_compile scripts/gesui_france381_RZ2018_same_cohort_2018_vs2022_spatial_status_20261123.py
+          python -u scripts/gesui_france381_RZ2018_same_cohort_2018_vs2022_spatial_status_20261123.py \
+            --rz "${{ runner.temp }}/original_RZ2018/EEA2018_2018_RIPARIAN_ZONES_REST_OFFICIAL_SOURCE_ONLY_QA.json" \
+            --eq22 "${{ runner.temp }}/original_2022_benthos.csv" \
+            --cohort_source "${{ runner.temp }}/frozen_2018_22_source_GO/2018_to2022_riparian_benthos_same_site_SOURCE.json" \
+            --original_lag_numeric "${{ runner.temp }}/signed_2022_lagged_EQR/FR2018_RZ2018_TO_EEA2022_ACTUAL_BENTHIC_EQR_FUTURE.json" \
+            --out "${{ runner.temp }}/FR381_RZ2018_SAMEC_SITE_2018_2022_SPATIAL.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-France381-RZ2018-EQR2018-EQR2022-samecohort-spatial-diagnostic
+          path: ${{ runner.temp }}/FR381_RZ2018_SAMEC_SITE_2018_2022_SPATIAL.json
+          if-no-files-found: warn
+          retention-days: 60
