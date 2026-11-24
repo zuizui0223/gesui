@@ -1,0 +1,38 @@
+name: WWTP upgrade butterfly source gate (no outcomes)
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261124_wwtp_upgrade_butterfly/**'
+      - '.github/workflows/gesui-wwtp-upgrade-source-gate-20261124.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: gesui-wwtp-upgrade-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  probe:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-wwtp-upgrade-butterfly-source-gate-20261124'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Host and ArcGIS service directory probe
+        run: bash analysis/20261124_wwtp_upgrade_butterfly/probe_hosts.sh "$RUNNER_TEMP/probe"
+      - name: Step 1 acquire and inventory UWWTD plant tables (source only)
+        run: |
+          code=$(curl -4 -s -o /dev/null -w '%{http_code}' --connect-timeout 25 -m 40 https://sdi.eea.europa.eu/webdav/datastore/public/ || true)
+          echo "EEA SDI reachability: $code"
+          if [ "$code" = "000" ]; then echo "SOURCE ACCESS FAILURE: sdi.eea.europa.eu unreachable from runner; gate not evaluated"; exit 0; fi
+          python -u analysis/20261124_wwtp_upgrade_butterfly/acquire_uwwtd_cycles.py "$RUNNER_TEMP/probe/uwwtd"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-wwtp-upgrade-probe
+          path: ${{ runner.temp }}/probe
+          retention-days: 90
