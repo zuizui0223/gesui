@@ -63,6 +63,21 @@ jobs:
               compare_csv(root/name,work/name)
           print('FOLLOWUP REPLAY PASS: all three result tables')
           PY
+      - name: Strict-reference trait decomposition after pinned source gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          root=analysis/20261124_lycaenidae_resource_network
+          work="$RUNNER_TEMP/gesui_replay"
+          python -m pip install openpyxl==3.1.5 requests
+          cp "$root/gesui_strict_reference_falsifier.py" "$root/gesui_trait_partition.py" "$work/"
+          python "$work/gesui_trait_partition.py" "$work"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-strict-reference-trait-partition
+          path: ${{ runner.temp }}/gesui_replay/trait_partition_output/
+          if-no-files-found: error
+          retention-days: 30
   source-gate:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
