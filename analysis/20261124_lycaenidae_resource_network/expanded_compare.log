@@ -1,0 +1,95 @@
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+REPLAY 24 prior numerical rows PASS
+ cutoff            scope  sample  common_butterflies  H7  H6  median_early_coverage  median_late_coverage status
+      3      fixed_prior quality                  46 159  74               0.898399              0.880279    FIT
+      3      fixed_prior     all                  46 200  85               0.898933              0.883523    FIT
+      3 expanded_support quality                  49 159  74               0.899409              0.884199    FIT
+      3 expanded_support     all                  49 200  85               0.899768              0.886520    FIT
+      2      fixed_prior quality                  45 159  74               0.897934              0.880279    FIT
+      2      fixed_prior     all                  45 200  85               0.898428              0.883523    FIT
+      2 expanded_support quality                  48 159  74               0.898457              0.883787    FIT
+      2 expanded_support     all                  48 200  85               0.899491              0.884740    FIT
+ cutoff            scope                   graph  butterflies  plants  edges  universe
+      3      fixed_prior                  old990           46     204    263       990
+      3      fixed_prior               clarke990           46      87    244       990
+      3      fixed_prior               old_union           46     204    263      1176
+      3      fixed_prior clarke_restricted_union           46      87    244      1176
+      3      fixed_prior   clarke_expanded_union           46     264    519      1176
+      3 expanded_support                  old990           49     208    270       990
+      3 expanded_support               clarke990           49      87    244       990
+      3 expanded_support               old_union           49     208    270      1176
+      3 expanded_support clarke_restricted_union           49      87    244      1176
+      3 expanded_support   clarke_expanded_union           49     269    526      1176
+      2      fixed_prior                  old990           45     203    262       990
+      2      fixed_prior               clarke990           45      84    229       990
+      2      fixed_prior               old_union           45     203    262      1176
+      2      fixed_prior clarke_restricted_union           45      84    229      1176
+      2      fixed_prior   clarke_expanded_union           45     254    493      1176
+      2 expanded_support                  old990           48     207    269       990
+      2 expanded_support               clarke990           48      84    229       990
+      2 expanded_support               old_union           48     207    269      1176
+      2 expanded_support clarke_restricted_union           48      84    229      1176
+      2 expanded_support   clarke_expanded_union           48     259    500      1176
+ cutoff            scope  sample                   graph        endpoint  H7  H6   gain     lo     hi status
+      3      fixed_prior quality                  old990 plant_symmetric 159  74  1.655 -6.109  9.101    FIT
+      3      fixed_prior quality               clarke990 plant_symmetric 159  74 -0.329 -6.263  5.596    FIT
+      3      fixed_prior quality               old_union plant_symmetric 159  74  0.799 -3.743  6.154    FIT
+      3      fixed_prior quality clarke_restricted_union plant_symmetric 159  74 -0.701 -4.894  3.914    FIT
+      3      fixed_prior quality   clarke_expanded_union plant_symmetric 159  74  3.072 -2.614 10.479    FIT
+      3      fixed_prior     all                  old990 plant_symmetric 200  85 14.791  7.479 23.598    FIT
+      3      fixed_prior     all               clarke990 plant_symmetric 200  85  3.534 -6.001 11.946    FIT
+      3      fixed_prior     all               old_union plant_symmetric 200  85 10.496  3.008 18.380    FIT
+      3      fixed_prior     all clarke_restricted_union plant_symmetric 200  85  3.787 -4.288 11.627    FIT
+      3      fixed_prior     all   clarke_expanded_union plant_symmetric 200  85  2.624 -4.718  9.792    FIT
+      3 expanded_support quality                  old990 plant_symmetric 159  74  1.657 -6.105  9.102    FIT
+      3 expanded_support quality               clarke990 plant_symmetric 159  74 -0.329 -6.263  5.596    FIT
+      3 expanded_support quality               old_union plant_symmetric 159  74  0.797 -3.743  6.151    FIT
+      3 expanded_support quality clarke_restricted_union plant_symmetric 159  74 -0.701 -4.894  3.914    FIT
+      3 expanded_support quality   clarke_expanded_union plant_symmetric 159  74  3.066 -2.618 10.471    FIT
+      3 expanded_support     all                  old990 plant_symmetric 200  85 14.792  7.478 23.600    FIT
+      3 expanded_support     all               clarke990 plant_symmetric 200  85  3.534 -6.001 11.946    FIT
+      3 expanded_support     all               old_union plant_symmetric 200  85 10.495  3.004 18.378    FIT
+      3 expanded_support     all clarke_restricted_union plant_symmetric 200  85  3.787 -4.288 11.627    FIT
+      3 expanded_support     all   clarke_expanded_union plant_symmetric 200  85  2.614 -4.709  9.774    FIT
+      2      fixed_prior quality                  old990 plant_symmetric 159  74  1.589 -6.184  9.031    FIT
+      2      fixed_prior quality               clarke990 plant_symmetric 159  74 -0.489 -7.001  6.885    FIT
+      2      fixed_prior quality               old_union plant_symmetric 159  74  0.692 -3.824  6.008    FIT
+      2      fixed_prior quality clarke_restricted_union plant_symmetric 159  74 -1.486 -5.241  3.169    FIT
+      2      fixed_prior quality   clarke_expanded_union plant_symmetric 159  74  2.267 -2.735  9.431    FIT
+      2      fixed_prior     all                  old990 plant_symmetric 200  85 14.433  7.211 23.215    FIT
+      2      fixed_prior     all               clarke990 plant_symmetric 200  85  1.786 -7.910 10.415    FIT
+      2      fixed_prior     all               old_union plant_symmetric 200  85 10.187  2.812 17.952    FIT
+      2      fixed_prior     all clarke_restricted_union plant_symmetric 200  85  1.832 -6.618  9.616    FIT
+      2      fixed_prior     all   clarke_expanded_union plant_symmetric 200  85  0.807 -5.395  7.289    FIT
+      2 expanded_support quality                  old990 plant_symmetric 159  74  1.591 -6.181  9.032    FIT
+      2 expanded_support quality               clarke990 plant_symmetric 159  74 -0.489 -7.001  6.885    FIT
+      2 expanded_support quality               old_union plant_symmetric 159  74  0.690 -3.826  6.005    FIT
+      2 expanded_support quality clarke_restricted_union plant_symmetric 159  74 -1.486 -5.241  3.169    FIT
+      2 expanded_support quality   clarke_expanded_union plant_symmetric 159  74  2.262 -2.731  9.433    FIT
+      2 expanded_support     all                  old990 plant_symmetric 200  85 14.434  7.211 23.215    FIT
+      2 expanded_support     all               clarke990 plant_symmetric 200  85  1.786 -7.910 10.415    FIT
+      2 expanded_support     all               old_union plant_symmetric 200  85 10.186  2.809 17.953    FIT
+      2 expanded_support     all clarke_restricted_union plant_symmetric 200  85  1.832 -6.618  9.616    FIT
+      2 expanded_support     all   clarke_expanded_union plant_symmetric 200  85  0.800 -5.394  7.273    FIT
+ cutoff            scope  sample                     A                       B  difference      lo    hi  bonf2_lo  bonf2_hi
+      3      fixed_prior quality clarke_expanded_union clarke_restricted_union       3.773  -0.073 9.426    -0.584    10.354
+      3      fixed_prior quality clarke_expanded_union               old_union       2.273  -2.334 7.996    -3.039     9.161
+      3      fixed_prior     all clarke_expanded_union clarke_restricted_union      -1.163  -7.789 5.341    -9.012     6.506
+      3      fixed_prior     all clarke_expanded_union               old_union      -7.872 -19.042 2.359   -20.773     3.879
+      3 expanded_support quality clarke_expanded_union clarke_restricted_union       3.767  -0.070 9.419    -0.579    10.338
+      3 expanded_support quality clarke_expanded_union               old_union       2.269  -2.339 8.003    -3.036     9.151
+      3 expanded_support     all clarke_expanded_union clarke_restricted_union      -1.173  -7.787 5.326    -9.028     6.497
+      3 expanded_support     all clarke_expanded_union               old_union      -7.881 -19.047 2.355   -20.775     3.861
+      2      fixed_prior quality clarke_expanded_union clarke_restricted_union       3.753  -0.132 9.438    -0.640    10.285
+      2      fixed_prior quality clarke_expanded_union               old_union       1.575  -2.912 7.323    -3.665     8.544
+      2      fixed_prior     all clarke_expanded_union clarke_restricted_union      -1.024  -7.737 5.943    -8.767     7.205
+      2      fixed_prior     all clarke_expanded_union               old_union      -9.380 -19.793 0.791   -21.364     2.411
+      2 expanded_support quality clarke_expanded_union clarke_restricted_union       3.748  -0.131 9.434    -0.642    10.269
+      2 expanded_support quality clarke_expanded_union               old_union       1.572  -2.920 7.324    -3.679     8.560
+      2 expanded_support     all clarke_expanded_union clarke_restricted_union      -1.032  -7.759 5.937    -8.782     7.201
+      2 expanded_support     all clarke_expanded_union               old_union      -9.386 -19.796 0.780   -21.360     2.399

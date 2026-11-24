@@ -1,0 +1,35 @@
+{
+  "status": "FIT_COMPLETE",
+  "replayed_prior_990_rows": 24,
+  "fit_rows": 120,
+  "loss_rows": 9540,
+  "maximum_solver_diff": 3.164135620181696e-15,
+  "source_union_keys": 1176,
+  "source_mapping_receipt": {
+    "status": "PASS_SOURCE_MAPPING",
+    "source_taxonomy_keys": 11511,
+    "original_edges": 256,
+    "original_plants": 87,
+    "new_edges": 299,
+    "new_plants": 186,
+    "expanded_edges": 555,
+    "expanded_plants": 273,
+    "expanded_butterflies": 58,
+    "source_dispositions": {
+      "excluded_evidence": 2070,
+      "other_butterfly_family": 1837,
+      "unmapped_butterfly": 775,
+      "matched_new_outside990": 299,
+      "original_990_not_changed": 255,
+      "no_nonquestionable_country": 122,
+      "no_unique_canonical_GBIF_key": 118,
+      "rank_or_ambiguous_source_binomial": 113
+    },
+    "source_sha256": "ab45f36c0dad047442bb958bcef3135b45014bafec8a70811bcafb6109a02679",
+    "original_edge_sha256": "409a1c18283f75442404918a21da03aec3b49642fb8db559c89c87935253b60f",
+    "expanded_edge_sha256": "76e6d9e327353ddb6dba6337bba3fbf54d7b83eade9e8314c3895881df7bc7b6",
+    "plant_keys_sha256": "e85a54bea16669c4036751ce100c45a0b9cd1184b76ef64bd2e1dc6ddee0fc0b",
+    "notes": "Original 990 preserved; newly matched exact accepted canonical keys outside 990; new family from Clarke with prior genus check if available. Not complete taxonomic reconciliation."
+  },
+  "notes": "Fold-specific targets, fixed error bootstrap; same observations. Distinguish graph and null-universe changes."
+}
