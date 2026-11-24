@@ -24,6 +24,10 @@ def compare_csv(original, replay):
     maxdiff=0.
     for k in a:
         x,y=a[k],b[k]
+        # Identity and boolean columns require exact equality; numpy booleans cannot be subtracted.
+        if k in {'h','h6','butterfly_key','butterflyKey','plantKey','speciesKey','HYBAS_ID_L07','HYBAS_ID_L06'} or pd.api.types.is_bool_dtype(x) or pd.api.types.is_bool_dtype(y):
+            assert (x.astype(str)==y.astype(str)).all(), (original.name,k,'identity or boolean mismatch')
+            continue
         # Numeric columns compare with full row alignment; explicit missingness preserved.
         n1,n2=pd.to_numeric(x,errors='coerce'),pd.to_numeric(y,errors='coerce')
         if (n1.notna() | (x=='')).all() and (n2.notna() | (y=='')).all():
