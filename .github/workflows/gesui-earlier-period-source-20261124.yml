@@ -1,0 +1,114 @@
+name: Earlier-window GBIF source gate 2014-16
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261124_earlier_period/**'
+      - '.github/workflows/gesui-earlier-period-source-20261124.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: gesui-earlier-period-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  pilot:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-2014-16-fourth-window-source-20261124'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original
+      - name: Pilot original source queries
+        run: |
+          python -m py_compile analysis/20261124_earlier_period/*.py
+          F=$(find "$RUNNER_TEMP/original" -name 'HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json')
+          test -f "$F"
+          H7_234_PRE_NEW_RESPONSE_SOURCE="$F" python -u analysis/20261124_earlier_period/acquire_earlier_period.py --mode pilot --out "$RUNNER_TEMP/pilot"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-third-period-pilot-source
+          path: |
+            ${{ runner.temp }}/pilot
+          retention-days: 90
+  full:
+    needs: pilot
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original
+      - name: Original geometry and taxon source queries
+        run: |
+          F=$(find "$RUNNER_TEMP/original" -name 'HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json')
+          test -f "$F"
+          H7_234_PRE_NEW_RESPONSE_SOURCE="$F" python -u analysis/20261124_earlier_period/acquire_earlier_period.py --mode full --shard ${{ matrix.shard }} --out "$RUNNER_TEMP/source"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-earlier-period-source-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/source
+          retention-days: 90
+  gate:
+    needs: full
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-earlier-period-source-shard-*
+          path: ${{ runner.temp }}/shards
+      - run: python analysis/20261124_earlier_period/acquire_earlier_period.py --mode aggregate --inputs "$RUNNER_TEMP/shards" --out "$RUNNER_TEMP/gate"
+      - name: Intersect with pinned existing later-period quality gate without species responses
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14918709231/zip > "$RUNNER_TEMP/later-gate.zip"
+          python - <<'PY'
+          import os, pathlib, json, hashlib, zipfile
+          root=pathlib.Path(os.environ['RUNNER_TEMP']); p=root/'later-gate.zip'
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='e7e1af64bca6071a0ea8a6168c726a6967850d3ea71ad5acb69021d76c629419'
+          with zipfile.ZipFile(p) as z:
+              files=[n for n in z.namelist() if n.endswith('third_period_support.json')]; assert len(files)==1
+              later={x['h']:x for x in json.loads(z.read(files[0]))}
+          early={x['h']:x for x in json.loads((root/'gate'/'earlier_period_support.json').read_text())}
+          assert set(early)==set(later) and len(early)==222
+          assert all(early[h]['h6']==later[h]['h6'] for h in early)
+          quality=[h for h in early if early[h]['historical_three_period_quality'] and later[h]['three_period_quality']]
+          allids=[h for h in early if early[h]['rarefaction_support'] and later[h]['rarefaction_support']]
+          result={'quality_four_windows_H7':len(quality),'quality_four_windows_H6':len({early[h]['h6'] for h in quality}),'all_four_windows_H7':len(allids),'all_four_windows_H6':len({early[h]['h6'] for h in allids}),'quality_ids':sorted(quality),'eligible_ids':sorted(allids),'source_only':True}
+          (root/'gate'/'four_window_support.json').write_text(json.dumps(result,indent=2)+'\n'); print(json.dumps({k:v for k,v in result.items() if not k.endswith('_ids')}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-earlier-period-source-gate
+          path: ${{ runner.temp }}/gate
+          retention-days: 90
