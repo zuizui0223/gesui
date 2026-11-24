@@ -1,0 +1,150 @@
+{
+  "status": "original_local_20261124_snapshot_no_raw_source_rehosting",
+  "files": [
+    {
+      "name": "gesui_fab_consumer_group_summary.csv",
+      "bytes": 1237,
+      "sha256": "5db7d62b0baec9bf11d49914fc9276adde5f0128b69ac7aa9c22d985aba87469",
+      "git_blob_sha1": "49952fb591ce0f8a304f5c211641dc12e66ab689"
+    },
+    {
+      "name": "gesui_fab_consumer_model_results.csv",
+      "bytes": 28020,
+      "sha256": "df56f2920a231ee9ad710659bd5da07f63825cd51db21b7948a80adf92d468f2",
+      "git_blob_sha1": "d9f5f25c403dca3696d385a6e4a0080dc028232a"
+    },
+    {
+      "name": "gesui_fab_consumer_receipt.json",
+      "bytes": 2206,
+      "sha256": "51cbaec71bbe957dd1f48b73ba3a51895af52282ea3140e153f8df725b0dc13d",
+      "git_blob_sha1": "1443ec6cc6d4a00cdec3444bd4ab89b433a12ca2"
+    },
+    {
+      "name": "gesui_fab_paired_contrasts.csv",
+      "bytes": 2213,
+      "sha256": "9031998201f5df65b791e24572cfba3f254b289a67b4d7f3ba502214e6921fa6",
+      "git_blob_sha1": "8c61549208c95ae4ecb0ba077141cd415a785442"
+    },
+    {
+      "name": "gesui_fab_resource_consumer.py",
+      "bytes": 18495,
+      "sha256": "d7a658d453d9607aabbb7fcfced987a9f354b4c03b15c8d03f68bab375a6e824",
+      "git_blob_sha1": "715dbe4510e9a04b837f138309957abe3b7f9e94"
+    },
+    {
+      "name": "gesui_fab_temporal_decomposition.csv",
+      "bytes": 203485,
+      "sha256": "d02f7ac22e4becd9b731232450f87a38b4e5c4d62493f21d39671d81f6664c8d",
+      "git_blob_sha1": "ea3bd69744ff9ef897c6906d3dc1a2fb02540466"
+    },
+    {
+      "name": "gesui_host_exclusion_global.csv",
+      "bytes": 950,
+      "sha256": "c5b0cf66f78d2caa3b7c5ca88bff65701c7161dd0424019d32bd825b0d1b47ff",
+      "git_blob_sha1": "fad1d25aaa3db4a18240ff99ccbe1d8c819ea045"
+    },
+    {
+      "name": "gesui_lycaenidae_catalogue_groups.csv",
+      "bytes": 4063,
+      "sha256": "a82be104c936b90b4cb518266a213e17b1ef95de40049b1c7ea7201c440d7121",
+      "git_blob_sha1": "57c3b42a231376f9df7a56b2937a53a4c155723d"
+    },
+    {
+      "name": "gesui_network_new_results.csv",
+      "bytes": 14394,
+      "sha256": "337988f32caa1de09e93a0c1a9dc10da74605b02c55e138d131c981a94f3097f",
+      "git_blob_sha1": "bc2b3ca1e4dddea3ce17d2c6eda772b72592724b"
+    },
+    {
+      "name": "gesui_plant_resource_partition.log",
+      "bytes": 9010,
+      "sha256": "10fc7d577025041b5666f4f9c9e8d6f55bf778fb0afb7e0d949c90426e1fb068",
+      "git_blob_sha1": "f7acbaf196e182c74210d4d1ab1e23ab44ce0eb5"
+    },
+    {
+      "name": "gesui_plant_resource_partition.py",
+      "bytes": 8454,
+      "sha256": "5b86a16a587239fe29fcb7a9444dbcfbcae774c2e089acb0af898cf885385738",
+      "git_blob_sha1": "7fe40af33e9bda9d88f0822be786b848ab582ba2"
+    },
+    {
+      "name": "gesui_plant_resource_partition_contrasts.csv",
+      "bytes": 1142,
+      "sha256": "917667781f1e153723dc3830c1bb2b6c15a4c5e9bf778313c57209e0aa3a46b3",
+      "git_blob_sha1": "6b7838c9a678c51528113294adf0d6852c5ea1f6"
+    },
+    {
+      "name": "gesui_plant_resource_partition_panel.csv",
+      "bytes": 332440,
+      "sha256": "302ceb41caa1cb9f283932ef71e54dce1afc80d3be5c8785b4125c4d3ece4dfc",
+      "git_blob_sha1": "1980fa34b51e4a048fbf762dace02ed1b581afcc"
+    },
+    {
+      "name": "gesui_plant_resource_partition_receipt.json",
+      "bytes": 4929,
+      "sha256": "5166850f3251ea0739b23896b16d2671fe2b286d59abfa6ab2ef14228632e291",
+      "git_blob_sha1": "d4ae568112382e3699183b4b08a9c38cf23526fa"
+    },
+    {
+      "name": "gesui_plant_resource_partition_results.csv",
+      "bytes": 10494,
+      "sha256": "f5a029b1222953c9a310cb2b5f469bd3acd6c45c4f78a2d76d917c55976ead48",
+      "git_blob_sha1": "aad79ffed3d097754e91785edf77f3c32c1aad56"
+    },
+    {
+      "name": "gesui_rebuilt_network.csv",
+      "bytes": 712936,
+      "sha256": "544823b8b06b2d89a0e637a258a0b0cd578fe56c3b0347fb26115a4fc19a3870",
+      "git_blob_sha1": "3646cebf16691b81aca3d80ab5d2613d47d189fa"
+    }
+  ],
+  "sources": [
+    {
+      "name": "gesui_original_panel.zip",
+      "artifact_id": 13943392394,
+      "sha256": "b0babfa63a96f9b7eb5a83122b08b8664edab6e8c6c28d2faf4ff024ca84c39b"
+    },
+    {
+      "name": "gesui_host_source.zip",
+      "artifact_id": 14114436781,
+      "sha256": "1cf6ed4ee41282a7f1be2e5cc7e1542a186b4fef5e1a46adf5861543c0ebbd94"
+    },
+    {
+      "name": "gesui_gbif_facets.zip",
+      "artifact_id": 14113695873,
+      "sha256": "4b37c741d1bd28c178b0cef61c9457af0dd30797c173f9384ebe1d1d0036d07c"
+    },
+    {
+      "name": "gesui_atlas.zip",
+      "artifact_id": 13946624127,
+      "sha256": "99f42768ac0d215fca5662de449f97fba598bebab9b147288ef99e19db3633b7"
+    },
+    {
+      "name": "gesui_h6.zip",
+      "artifact_id": 13998357515,
+      "sha256": "1f94449184095225de2048bc916754ae2072ed17f385614ddb7c67bd5d52dbdd"
+    },
+    {
+      "name": "FR73_original_14013312711.zip",
+      "artifact_id": 14013312711,
+      "sha256": "7c3b9f1976e410526e396fabdfbd527319bdde5047ca4819ee6c29588443e5e2"
+    },
+    {
+      "name": "gesui_eiv_source.zip",
+      "artifact_id": 14163481376,
+      "sha256": "1d3051d4c527421bec3ec3ba917422a9162afb81cc7f38db0d8130287174a14c"
+    }
+  ],
+  "runtime": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0"
+  },
+  "limitations": [
+    "Two original standalone scripts preserved. The earlier host-exclusion source generator was not present in this local snapshot.",
+    "All original raw-source archives are referenced by ID and digest, not rehosted.",
+    "Retrospective, noncausal, full-panel null; no independent field replication."
+  ]
+}

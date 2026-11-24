@@ -1,0 +1,44 @@
+name: Gesui November 24 resource-network snapshot replay
+on:
+  pull_request:
+    paths:
+      - 'analysis/20261124_lycaenidae_resource_network/**'
+      - '.github/workflows/gesui-20261124-resource-network-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install pinned analysis packages
+        run: python -m pip install numpy==2.3.5 pandas==2.2.3 scipy==1.17.0 scikit-learn==1.8.0
+      - name: Verify original snapshot bytes and download exact signed source ZIPs
+        shell: bash
+        run: |
+          set -euo pipefail
+          root=analysis/20261124_lycaenidae_resource_network
+          python "$root/verify_snapshot.py"
+          mkdir -p "$RUNNER_TEMP/gesui_replay"
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          p=pathlib.Path('analysis/20261124_lycaenidae_resource_network/SOURCE_MANIFEST.json')
+          work=pathlib.Path(os.environ['RUNNER_TEMP'])/'gesui_replay'
+          for x in json.loads(p.read_text())['sources']:
+              out=work/x['name']
+              with out.open('wb') as f:
+                  subprocess.run(['gh','api',f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/artifacts/{x['artifact_id']}/zip"],stdout=f,check=True)
+              assert hashlib.sha256(out.read_bytes()).hexdigest()==x['sha256'],x['name']
+          PY
+      - name: Run original analyses and compare all replayable result tables
+        run: python analysis/20261124_lycaenidae_resource_network/verify_snapshot.py --work "$RUNNER_TEMP/gesui_replay"
