@@ -10,7 +10,7 @@ permissions:
   actions: read
 jobs:
   replay:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
       OPENBLAS_NUM_THREADS: '1'
@@ -42,3 +42,24 @@ jobs:
           PY
       - name: Run original analyses and compare all replayable result tables
         run: python analysis/20261124_lycaenidae_resource_network/verify_snapshot.py --work "$RUNNER_TEMP/gesui_replay"
+      - name: Verify and replay the post-sync early-reference follow-up
+        shell: bash
+        run: |
+          set -euo pipefail
+          root=analysis/20261124_lycaenidae_resource_network
+          work="$RUNNER_TEMP/gesui_replay"
+          cp "$root/gesui_early_reference_falsifier.py" "$work/"
+          python "$work/gesui_early_reference_falsifier.py" "$work"
+          python - <<'PY'
+          import hashlib,json,os,pathlib,sys
+          root=pathlib.Path('analysis/20261124_lycaenidae_resource_network')
+          work=pathlib.Path(os.environ['RUNNER_TEMP'])/'gesui_replay'
+          sys.path.insert(0,str(root))
+          from verify_snapshot import compare_csv,digest
+          m=json.loads((root/'FOLLOWUP_MANIFEST.json').read_text())
+          for x in m['files']:
+              assert digest(root/x['name'])==(x['bytes'],x['sha256'],x['git_blob_sha1']),x['name']
+          for name in ['gesui_early_reference_results.csv','gesui_early_reference_country.csv','gesui_early_reference_panel.csv']:
+              compare_csv(root/name,work/name)
+          print('FOLLOWUP REPLAY PASS: all three result tables')
+          PY
