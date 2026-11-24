@@ -1,0 +1,96 @@
+name: Third-period GBIF source gate 2023-25
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261124_third_period/**'
+      - '.github/workflows/gesui-third-period-source-20261124.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: gesui-third-period-source-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  pilot:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-2023-25-third-period-source-20261124'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original
+      - name: Source and prior fixed-loss replay checks
+        run: |
+          python -m py_compile analysis/20261124_third_period/*.py
+          python analysis/20261124_lycaenidae_resource_network/gesui_temporal_geographic_influence.py > "$RUNNER_TEMP/influence.csv"
+          F=$(find "$RUNNER_TEMP/original" -name 'HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json')
+          test -f "$F"
+          H7_234_PRE_NEW_RESPONSE_SOURCE="$F" python -u analysis/20261124_third_period/acquire_third_period.py --mode pilot --out "$RUNNER_TEMP/pilot"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-third-period-pilot-source
+          path: |
+            ${{ runner.temp }}/pilot
+            ${{ runner.temp }}/influence.csv
+          retention-days: 90
+  full:
+    needs: pilot
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 43204064427
+          name: gesui-h7-234-EU-repeated-EQR-source-frozen-taxonomy-and-WKT
+          repository: zuizui0223/gesui
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/original
+      - name: Original geometry and taxon source queries
+        run: |
+          F=$(find "$RUNNER_TEMP/original" -name 'HYBAS7_234_REPEATED_EU_EQR_ORIGINAL_WKT_TAXON_FAMILY_PRE_NEW_OUTCOME.json')
+          test -f "$F"
+          H7_234_PRE_NEW_RESPONSE_SOURCE="$F" python -u analysis/20261124_third_period/acquire_third_period.py --mode full --shard ${{ matrix.shard }} --out "$RUNNER_TEMP/source"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-third-period-source-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/source
+          retention-days: 90
+  gate:
+    needs: full
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: gesui-third-period-source-shard-*
+          path: ${{ runner.temp }}/shards
+      - run: python analysis/20261124_third_period/acquire_third_period.py --mode aggregate --inputs "$RUNNER_TEMP/shards" --out "$RUNNER_TEMP/gate"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-third-period-source-gate
+          path: ${{ runner.temp }}/gate
+          retention-days: 90
