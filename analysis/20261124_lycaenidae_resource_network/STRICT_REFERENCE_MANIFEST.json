@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "name": "gesui_strict_reference_contrasts.csv",
+      "bytes": 1797,
+      "sha256": "720de2958a9f8b258fe604682280411e469554800a718d9c41b280e296660684",
+      "git_blob_sha1": "2278f268b6453f97e316f63e3257683b21e57c2b"
+    },
+    {
+      "name": "gesui_strict_reference_falsifier.py",
+      "bytes": 6039,
+      "sha256": "735254c6f5961dd1b5159c8a2d5f62f48bbacb41801a4dd02cf18d8c1fa3e60b",
+      "git_blob_sha1": "d01753b0edba4ba00bcf41e3a6ddfc713392c193"
+    },
+    {
+      "name": "gesui_strict_reference_folds.csv",
+      "bytes": 2243,
+      "sha256": "5cb2a3620e531af860b0b3921ffad3b6844cb145862d3d50355d4bd66b2b00ef",
+      "git_blob_sha1": "4de8b81d3e44082560167eeff0c93a773ee1fd73"
+    },
+    {
+      "name": "gesui_strict_reference_losses.csv",
+      "bytes": 374289,
+      "sha256": "622e0f12f9ad3ef577ca89e5ef4c87cac094ba9fa12048051e6cd0293947cba3",
+      "git_blob_sha1": "9cac456111e4660b2d3dd4ecc7b1cf0e8d7421be"
+    },
+    {
+      "name": "gesui_strict_reference_results.csv",
+      "bytes": 20482,
+      "sha256": "efefd51e65ef6ace73e78bbe66e9312882739a8ec6105c46f0394f3094bb6b45",
+      "git_blob_sha1": "753679120755e18926cc3d7ea2b27ce646cfe647"
+    },
+    {
+      "name": "STRICT_REFERENCE_RESULTS.md",
+      "bytes": 2446,
+      "sha256": "e69b464f2463abc65e27be96628f2dc29bea89cc3a7effb5ef9fdad49ab2d3cd",
+      "git_blob_sha1": "84dbeedf2c19e361d5d5d70b6f6425192a37b249"
+    }
+  ],
+  "source_snapshot": "PR153 prior SOURCE_MANIFEST.json; same six source ZIPs and reconstructed network table",
+  "scope": "strict reference calculation, no new field samples"
+}
