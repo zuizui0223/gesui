@@ -1,0 +1,82 @@
+name: Frozen historical consumer forecast
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261124_consumer_forecast/**'
+      - '.github/workflows/gesui-frozen-consumer-forecast.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: gesui-consumer-forecast-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  train:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-frozen-consumer-forecast-20261124'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 scipy==1.17.0 scikit-learn==1.8.0
+      - name: Download ONLY historical source archives and verify digests
+        run: |
+          mkdir -p "$RUNNER_TEMP/historical"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14114436781/zip > "$RUNNER_TEMP/historical/gesui_host_source.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14113695873/zip > "$RUNNER_TEMP/historical/gesui_gbif_facets.zip"
+          python -m py_compile analysis/20261124_consumer_forecast/frozen_consumer_forecast.py
+          python -u analysis/20261124_consumer_forecast/frozen_consumer_forecast.py train --work "$RUNNER_TEMP/historical" --out "$RUNNER_TEMP/predictions"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-frozen-consumer-predictions
+          path: ${{ runner.temp }}/predictions
+          retention-days: 90
+          if-no-files-found: error
+  score:
+    needs: train
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 scipy==1.17.0 scikit-learn==1.8.0
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-frozen-consumer-predictions
+          path: ${{ runner.temp }}/score_inputs
+      - name: Download pinned third-period source artifacts after predictions sealed
+        run: |
+          python - <<'PY'
+          import os, pathlib, subprocess, hashlib, zipfile
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'score_inputs'
+          artifacts=[
+            (14920155684,'e2ca04325990c56d99b48e31575aac88c7405edc847e84dbb2a9fe50acabc716'),
+            (14919656805,'68daa9432ceba3838cbfc67227353e9dd85bc7e73a1da52873c2e528a6f5d063'),
+            (14918314876,'900ea8dd5c402639ef15d0fd0bd1b8dc369f0d081e74cd72bb79cf4d1a4db491'),
+            (14918788978,'b7a810f903455fd094f37a1f1e92a3f964131af1b75a7082ce66a4e9030d22bc'),
+            (14918709231,'e7e1af64bca6071a0ea8a6168c726a6967850d3ea71ad5acb69021d76c629419')]
+          for id,sha in artifacts:
+              b=subprocess.check_output(['gh','api',f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/artifacts/{id}/zip"])
+              assert hashlib.sha256(b).hexdigest()==sha,id
+              f=p/f"{id}.zip";f.write_bytes(b)
+              with zipfile.ZipFile(f) as z:z.extractall(p/str(id))
+          PY
+          python -u analysis/20261124_consumer_forecast/frozen_consumer_forecast.py score --work "$RUNNER_TEMP/score_inputs" --out "$RUNNER_TEMP/scores"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-frozen-consumer-forecast-scores
+          path: ${{ runner.temp }}/scores
+          retention-days: 90
+          if-no-files-found: error
