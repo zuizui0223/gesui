@@ -69,6 +69,45 @@ jobs:
                   save(target,b,final,{s:{'rows':len(d),'columns':len(d.columns),'head':d.head(8).fillna('').values.tolist()} for s,d in sheets.items()})
                   break
               except Exception as e:out['attempts'].append({'name':target,'url':url,'error':str(e)[:400]})
+          # Inspect public supplementary ZIP member names and the official NLM OA S3 inventory.
+          if target not in out['files']:
+              import xml.etree.ElementTree as ET
+              import re
+              from urllib.parse import quote
+              try:
+                  b,final=fetch('https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10771928/supplementaryFiles')
+                  with zipfile.ZipFile(io.BytesIO(b)) as z:
+                      out['europe_pmc_zip_members']=z.namelist()
+              except Exception as e:out['attempts'].append({'name':'europe_pmc_inventory','error':str(e)[:400]})
+              base='https://pmc-oa-opendata.s3.amazonaws.com/'
+              try:
+                  resp=session.get(base,params={'list-type':'2','prefix':'PMC10771928.'},timeout=(10,30));resp.raise_for_status()
+                  keys=[x.text for x in ET.fromstring(resp.content).findall('.//{*}Key')]
+                  out['pmc_public_s3_keys']=keys
+                  # Identify appendix via JATS supplementary-material label / href, not guessed filename.
+                  for k in [x for x in keys if x.endswith('.xml')]:
+                      try:
+                          xb,xu=fetch(base+quote(k,safe='/'));xml=ET.fromstring(xb)
+                          assert any((e.text or '').strip().lower()=='10.1002/ece3.10834' for e in xml.findall('.//{*}article-id'))
+                          matches=[]
+                          for node in xml.findall('.//{*}supplementary-material'):
+                              label=' '.join(''.join(node.itertext()).split()).casefold()
+                              for el in node.iter():
+                                  for attr,v in el.attrib.items():
+                                      if attr.endswith('href') and v.lower().endswith('.xlsx') and (re.search(r'appendix\s*s1\b',label) or re.search(r'appendixs1|[-_]s001\.',v,re.I)):
+                                          matches.append(v.rsplit('/',1)[-1])
+                          matches=sorted(set(matches))
+                          cand=[x for x in keys if x.split('/')[0]==k.split('/')[0] and x.rsplit('/',1)[-1] in matches]
+                          out['pmc_xml_appendix_candidates']=cand
+                          if len(cand)!=1:raise ValueError('S1 identification not unique')
+                          b,final=fetch(base+quote(cand[0],safe='/'))
+                          sheets=pd.read_excel(io.BytesIO(b),header=None,sheet_name=None,dtype=str)
+                          if max(map(len,sheets.values()))<1000:raise ValueError('Unexpectedly small appendix')
+                          save(target,b,final,{s:{'rows':len(d),'columns':len(d.columns),'head':d.head(8).fillna('').values.tolist()} for s,d in sheets.items()})
+                          out['pmc_xml_sha256']=hashlib.sha256(xb).hexdigest()
+                          break
+                      except Exception as e:out['attempts'].append({'name':k,'error':str(e)[:400]})
+              except Exception as e:out['attempts'].append({'name':'official_pmc_public_inventory','error':str(e)[:400]})
           out['status']='SOURCE_ACQUIRED' if target in out['files'] or len(out['files'])==len(specs) else 'SOURCE_STOP'
           (root/'source_receipt.json').write_text(json.dumps(out,ensure_ascii=False,indent=2))
           print('CLARKE_SOURCE_RECEIPT='+json.dumps(out,ensure_ascii=False))
