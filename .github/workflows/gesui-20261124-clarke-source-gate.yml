@@ -7,114 +7,56 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  actions: read
 jobs:
   source-gate:
     runs-on: ubuntu-24.04
-    timeout-minutes: 8
-    env:
-      GH_TOKEN: ${{ github.token }}
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13.5'
       - run: python -m pip install pandas==2.2.3 openpyxl==3.1.5 requests
-      - name: Retrieve original published tables only; reject HTML and schema failures
+      - name: Retrieve actual PMC OA-listed XLSX keys, inspect source content only
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/clarke_source"
           python - <<'PY'
           import requests,hashlib,io,json,os,zipfile,pathlib,pandas as pd
+          import xml.etree.ElementTree as ET
+          from concurrent.futures import ThreadPoolExecutor
           root=pathlib.Path(os.environ['RUNNER_TEMP'])/'clarke_source'
-          session=requests.Session()
-          session.headers.update({'User-Agent':'Academic data verification (Clarke 2024 supplementary tables)'})
-          specs={'butterfly_synonym.csv':(2850976,{'id','family','taxon_name','taxonomic_status','accepted_id'}),
-                 'larval_host_plant_status.csv':(2850977,{'id','description','evidence'}),
-                 'larval_host_plant.csv':(2850981,{'id','butterfly_id','powo_id','status','countries','questionable_countries'}),
-                 'wcvp_extendedb.csv':(2850979,{'id','plant_id','plant_name_id','ipni_id','taxon_name','name_status'})}
-          out={'doi':'10.5061/dryad.1vhhmgr12','article':'10.1002/ece3.10834','stage':'source_only_no_ecological_fit','files':{},'attempts':[]}
-          def fetch(url):
-              r=session.get(url,timeout=(12,35));r.raise_for_status()
-              b=r.content
-              if b[:100].lstrip().lower().startswith((b'<!doctype',b'<html')):raise ValueError('HTML response')
-              return b,r.url
-          def save(name,b,url,schema):
-              (root/name).write_bytes(b)
-              out['files'][name]={'url':url,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'schema':schema}
-          for name,(fid,required) in specs.items():
-              for url in [f'https://datadryad.org/downloads/file_stream/{fid}',f'https://datadryad.org/api/v2/files/{fid}/download']:
+          base='https://pmc-oa-opendata.s3.amazonaws.com/'
+          # Inventory from prior signed source attempt run 45385384325, artifact 14915862892.
+          keys=[f'PMC10771928.1/ECE3-14-e10834-s{i:03d}.xlsx' for i in range(1,6)]
+          out={'doi':'10.1002/ece3.10834','pmcid':'PMC10771928','prior_inventory_run':45385384325,'prior_inventory_artifact':14915862892,'files':{},'attempts':[],'stage':'source_only_no_ecological_fit'}
+          def get(k):
+              errors=[]
+              for host in [base,'https://pmc-oa-opendata.s3.us-east-1.amazonaws.com/']:
+                  url=host+k
                   try:
-                      b,final=fetch(url)
-                      d=pd.read_csv(io.BytesIO(b),dtype=str)
-                      if not required<=set(d):raise ValueError('CSV schema mismatch: '+repr(list(d)))
-                      save(name,b,final,{'rows':len(d),'columns':list(d),'head':d.head(2).fillna('').values.tolist()})
-                      break
-                  except Exception as e:out['attempts'].append({'name':name,'url':url,'error':str(e)[:400]})
-          # Publisher supporting table Appendix S1 is an alternative source from the SAME study.
-          target='ece310834-sup-0001-AppendixS1.xlsx'
-          for url in ['https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10771928/supplementaryFiles',
-                      'https://pmc.ncbi.nlm.nih.gov/articles/instance/10771928/bin/'+target,
-                      'https://onlinelibrary.wiley.com/doi/suppl/10.1002/ece3.10834/supinfo/'+target]:
-              try:
-                  b,final=fetch(url)
-                  with zipfile.ZipFile(io.BytesIO(b)) as z:
-                      if '[Content_Types].xml' not in z.namelist():
-                          hit=[n for n in z.namelist() if n.casefold().endswith(target.casefold())]
-                          if len(hit)!=1:raise ValueError('Appendix S1 missing or ambiguous')
-                          b=z.read(hit[0])
-                  sheets=pd.read_excel(io.BytesIO(b),header=None,sheet_name=None,dtype=str)
-                  if max(map(len,sheets.values()))<1000:raise ValueError('Unexpectedly small appendix')
-                  save(target,b,final,{s:{'rows':len(d),'columns':len(d.columns),'head':d.head(8).fillna('').values.tolist()} for s,d in sheets.items()})
-                  break
-              except Exception as e:out['attempts'].append({'name':target,'url':url,'error':str(e)[:400]})
-          # Inspect public supplementary ZIP member names and the official NLM OA S3 inventory.
-          if target not in out['files']:
-              import xml.etree.ElementTree as ET
-              import re
-              from urllib.parse import quote
-              try:
-                  b,final=fetch('https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10771928/supplementaryFiles')
-                  with zipfile.ZipFile(io.BytesIO(b)) as z:
-                      out['europe_pmc_zip_members']=z.namelist()
-              except Exception as e:out['attempts'].append({'name':'europe_pmc_inventory','error':str(e)[:400]})
-              base='https://pmc-oa-opendata.s3.amazonaws.com/'
-              try:
-                  resp=session.get(base,params={'list-type':'2','prefix':'PMC10771928.'},timeout=(10,30));resp.raise_for_status()
-                  keys=[x.text for x in ET.fromstring(resp.content).findall('.//{*}Key')]
-                  out['pmc_public_s3_keys']=keys
-                  # Identify appendix via JATS supplementary-material label / href, not guessed filename.
-                  for k in [x for x in keys if x.endswith('.xml')]:
-                      try:
-                          xb,xu=fetch(base+quote(k,safe='/'));xml=ET.fromstring(xb)
-                          assert any((e.text or '').strip().lower()=='10.1002/ece3.10834' for e in xml.findall('.//{*}article-id'))
-                          matches=[]
-                          for node in xml.findall('.//{*}supplementary-material'):
-                              label=' '.join(''.join(node.itertext()).split()).casefold()
-                              for el in node.iter():
-                                  for attr,v in el.attrib.items():
-                                      if attr.endswith('href') and v.lower().endswith('.xlsx') and (re.search(r'appendix\s*s1\b',label) or re.search(r'appendixs1|[-_]s001\.',v,re.I)):
-                                          matches.append(v.rsplit('/',1)[-1])
-                          matches=sorted(set(matches))
-                          cand=[x for x in keys if x.split('/')[0]==k.split('/')[0] and x.rsplit('/',1)[-1] in matches]
-                          out['pmc_xml_appendix_candidates']=cand
-                          if len(cand)!=1:raise ValueError('S1 identification not unique')
-                          b,final=fetch(base+quote(cand[0],safe='/'))
-                          sheets=pd.read_excel(io.BytesIO(b),header=None,sheet_name=None,dtype=str)
-                          if max(map(len,sheets.values()))<1000:raise ValueError('Unexpectedly small appendix')
-                          save(target,b,final,{s:{'rows':len(d),'columns':len(d.columns),'head':d.head(8).fillna('').values.tolist()} for s,d in sheets.items()})
-                          out['pmc_xml_sha256']=hashlib.sha256(xb).hexdigest()
-                          break
-                      except Exception as e:out['attempts'].append({'name':k,'error':str(e)[:400]})
-              except Exception as e:out['attempts'].append({'name':'official_pmc_public_inventory','error':str(e)[:400]})
-          out['status']='SOURCE_ACQUIRED' if target in out['files'] or len(out['files'])==len(specs) else 'SOURCE_STOP'
+                      r=requests.get(url,timeout=(10,25));r.raise_for_status();b=r.content
+                      if not b.startswith(b'PK'):raise ValueError('not a ZIP/XLSX: '+repr(b[:80]))
+                      with zipfile.ZipFile(io.BytesIO(b)) as z:
+                          if '[Content_Types].xml' not in z.namelist():raise ValueError('not OOXML')
+                      sheets=pd.read_excel(io.BytesIO(b),header=None,sheet_name=None,dtype=str)
+                      schema={s:{'rows':len(d),'columns':len(d.columns),'head':d.head(8).fillna('').iloc[:,:25].values.tolist()} for s,d in sheets.items()}
+                      name=k.split('/')[-1];(root/name).write_bytes(b)
+                      return name,{'url':r.url,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'schema':schema},errors
+                  except Exception as e:errors.append({'key':k,'url':url,'error':str(e)[:300]})
+              return k,None,errors
+          with ThreadPoolExecutor(max_workers=5) as pool:
+              for name,rec,errors in pool.map(get,keys):
+                  if rec:out['files'][name]=rec
+                  out['attempts'].extend(errors)
+          out['status']='XLSX_ACQUIRED_CONTENT_AUDIT_REQUIRED' if out['files'] else 'SOURCE_STOP'
           (root/'source_receipt.json').write_text(json.dumps(out,ensure_ascii=False,indent=2))
-          print('CLARKE_SOURCE_RECEIPT='+json.dumps(out,ensure_ascii=False))
+          print('CLARKE_S3_RECEIPT='+json.dumps(out,ensure_ascii=False))
           PY
       - uses: actions/upload-artifact@v4
         with:
-          name: gesui-clarke2024-source-gate
+          name: gesui-clarke2024-pmc-xlsx-inventory
           path: ${{ runner.temp }}/clarke_source/
           if-no-files-found: error
           retention-days: 30
