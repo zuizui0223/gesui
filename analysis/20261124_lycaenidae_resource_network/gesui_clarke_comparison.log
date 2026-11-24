@@ -1,0 +1,36 @@
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+ max_status  sample  common_butterflies  old_plants  new_plants  old_edges  new_edges  shared_edges  edge_jaccard  H7  H6  median_coverage_early  median_coverage_late status
+          3 quality                  46         204          87        263        244            96      0.233577 159  74               0.898399              0.880279    FIT
+          3     all                  46         204          87        263        244            96      0.233577 200  85               0.898933              0.883523    FIT
+          2 quality                  45         203          84        262        229            93      0.233668 159  74               0.897934              0.880279    FIT
+          2     all                  45         203          84        262        229            93      0.233668 200  85               0.898428              0.883523    FIT
+ max_status  sample catalogue                   endpoint  H7  H6      gain        lo        hi status
+          3 quality       old            plant_symmetric 159  74  1.655157 -6.108715  9.101064    FIT
+          3 quality       old         consumer_symmetric 159  74 -1.065509 -3.297943  0.344776    FIT
+          3 quality       old plant_early_consumer_fixed 159  74  3.129783 -6.208617 11.179057    FIT
+          3 quality    clarke            plant_symmetric 159  74 -0.329104 -6.263277  5.596043    FIT
+          3 quality    clarke         consumer_symmetric 159  74 -0.077008 -1.439208  1.542638    FIT
+          3 quality    clarke plant_early_consumer_fixed 159  74  0.578146 -5.896116  7.393991    FIT
+          3     all       old            plant_symmetric 200  85 14.790793  7.479434 23.597916    FIT
+          3     all       old         consumer_symmetric 200  85  0.367080 -0.828378  1.799411    FIT
+          3     all       old plant_early_consumer_fixed 200  85 16.914687  9.063439 25.854867    FIT
+          3     all    clarke            plant_symmetric 200  85  3.533692 -6.000556 11.945958    FIT
+          3     all    clarke         consumer_symmetric 200  85  1.377922 -0.964890  4.571740    FIT
+          3     all    clarke plant_early_consumer_fixed 200  85  3.885576 -6.502740 12.790896    FIT
+          2 quality       old            plant_symmetric 159  74  1.588885 -6.183545  9.031053    FIT
+          2 quality       old         consumer_symmetric 159  74 -1.116320 -3.407208  0.304682    FIT
+          2 quality       old plant_early_consumer_fixed 159  74  3.029016 -6.231560 11.047903    FIT
+          2 quality    clarke            plant_symmetric 159  74 -0.489067 -7.001289  6.885487    FIT
+          2 quality    clarke         consumer_symmetric 159  74 -0.321192 -2.018034  1.485419    FIT
+          2 quality    clarke plant_early_consumer_fixed 159  74  0.365347 -6.879828  8.565528    FIT
+          2     all       old            plant_symmetric 200  85 14.432659  7.210639 23.214958    FIT
+          2     all       old         consumer_symmetric 200  85  0.449565 -0.868984  1.973270    FIT
+          2     all       old plant_early_consumer_fixed 200  85 16.499528  8.690715 25.518582    FIT
+          2     all    clarke            plant_symmetric 200  85  1.786341 -7.909866 10.414662    FIT
+          2     all    clarke         consumer_symmetric 200  85  2.033825 -0.454390  5.353553    FIT
+          2     all    clarke plant_early_consumer_fixed 200  85  1.885042 -8.468922 10.631150    FIT
