@@ -1,0 +1,144 @@
+name: Four-window lagged change forecast
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261124_four_window_change/**'
+      - '.github/workflows/gesui-four-window-change.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: gesui-four-window-change-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-four-window-change-model-20261124'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      ready: ${{ steps.source.outputs.ready }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 scipy==1.17.0 scikit-learn==1.8.0
+      - run: |
+          python -m py_compile analysis/20261124_four_window_change/four_window_change.py
+          python analysis/20261124_four_window_change/four_window_change.py unit
+      - id: source
+        name: Check fixed source run before any fitting
+        run: |
+          mkdir -p "$RUNNER_TEMP/gate"
+          python - <<'PY'
+          import os, pathlib, subprocess, json, hashlib, io, zipfile
+          repo=os.environ['GITHUB_REPOSITORY']; rid=45405900141
+          def api(p):return json.loads(subprocess.check_output(['gh','api',p]))
+          r=api(f'repos/{repo}/actions/runs/{rid}')
+          info={'source_run':rid,'status':r['status'],'conclusion':r['conclusion']}
+          ready=False
+          if r['status']=='completed' and r['conclusion']=='success':
+              a=api(f'repos/{repo}/actions/runs/{rid}/artifacts')['artifacts']
+              names={f'gesui-earlier-period-source-shard-{i}' for i in range(4)}|{'gesui-earlier-period-source-gate'}
+              selected=[x for x in a if x['name'] in names and not x['expired']]
+              assert len(selected)==5 and {x['name'] for x in selected}==names
+              info['artifacts']=[{k:x[k] for k in ('id','name','digest')} for x in selected]
+              g=next(x for x in selected if x['name']=='gesui-earlier-period-source-gate')
+              b=subprocess.check_output(['gh','api',f"repos/{repo}/actions/artifacts/{g['id']}/zip"])
+              assert 'sha256:'+hashlib.sha256(b).hexdigest()==g['digest']
+              with zipfile.ZipFile(io.BytesIO(b)) as z:
+                  names=[n for n in z.namelist() if n.endswith('four_window_support.json')]; assert len(names)==1
+                  gate=json.loads(z.read(names[0]))
+              info['four_window_gate']={k:v for k,v in gate.items() if not k.endswith('_ids')}
+              ready=gate['quality_four_windows_H7']>=40 and gate['quality_four_windows_H6']>=20
+          info['fit_ready']=ready
+          path=pathlib.Path(os.environ['RUNNER_TEMP'])/'gate'/'source_receipt.json'
+          path.write_text(json.dumps(info,indent=2)+'\n')
+          print(json.dumps(info))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('ready='+str(ready).lower()+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-four-window-source-receipt
+          path: ${{ runner.temp }}/gate
+  train:
+    needs: check
+    if: needs.check.outputs.ready == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 scipy==1.17.0 scikit-learn==1.8.0
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-four-window-source-receipt
+          path: ${{ runner.temp }}/historical
+      - name: Acquire historical-only inputs and seal predictions
+        run: |
+          python - <<'PY'
+          import os, pathlib, json, subprocess, hashlib, zipfile
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'historical';repo=os.environ['GITHUB_REPOSITORY']
+          for id,name,sha in [(14114436781,'gesui_host_source.zip','1cf6ed4ee41282a7f1be2e5cc7e1542a186b4fef5e1a46adf5861543c0ebbd94'),(14113695873,'gesui_gbif_facets.zip','4b37c741d1bd28c178b0cef61c9457af0dd30797c173f9384ebe1d1d0036d07c')]:
+              b=subprocess.check_output(['gh','api',f'repos/{repo}/actions/artifacts/{id}/zip']); assert hashlib.sha256(b).hexdigest()==sha
+              (p/name).write_bytes(b)
+          info=json.loads((p/'source_receipt.json').read_text());assert info['fit_ready']
+          for a in info['artifacts']:
+              if '-shard-' not in a['name']:continue
+              b=subprocess.check_output(['gh','api',f"repos/{repo}/actions/artifacts/{a['id']}/zip"]);assert 'sha256:'+hashlib.sha256(b).hexdigest()==a['digest']
+              f=p/f"{a['id']}.zip";f.write_bytes(b)
+              with zipfile.ZipFile(f) as z:z.extractall(p/str(a['id']))
+          PY
+          python -u analysis/20261124_four_window_change/four_window_change.py train --work "$RUNNER_TEMP/historical" --out "$RUNNER_TEMP/pred"
+          cp "$RUNNER_TEMP/historical/source_receipt.json" "$RUNNER_TEMP/pred/"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-four-window-sealed-predictions
+          path: ${{ runner.temp }}/pred
+          retention-days: 90
+  score:
+    needs: train
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 scipy==1.17.0 scikit-learn==1.8.0
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-four-window-sealed-predictions
+          path: ${{ runner.temp }}/sealed
+      - name: Score only after historical predictions sealed
+        run: |
+          mkdir -p "$RUNNER_TEMP/results"
+          if test -f "$RUNNER_TEMP/sealed/STOP.json"; then
+            cp "$RUNNER_TEMP/sealed/STOP.json" "$RUNNER_TEMP/results/"; cat "$RUNNER_TEMP/results/STOP.json"; exit 0
+          fi
+          python - <<'PY'
+          import os, pathlib, subprocess, hashlib, zipfile
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'sealed';repo=os.environ['GITHUB_REPOSITORY']
+          for id,sha in [(14920155684,'e2ca04325990c56d99b48e31575aac88c7405edc847e84dbb2a9fe50acabc716'),(14919656805,'68daa9432ceba3838cbfc67227353e9dd85bc7e73a1da52873c2e528a6f5d063'),(14918314876,'900ea8dd5c402639ef15d0fd0bd1b8dc369f0d081e74cd72bb79cf4d1a4db491'),(14918788978,'b7a810f903455fd094f37a1f1e92a3f964131af1b75a7082ce66a4e9030d22bc')]:
+              b=subprocess.check_output(['gh','api',f'repos/{repo}/actions/artifacts/{id}/zip']);assert hashlib.sha256(b).hexdigest()==sha
+              f=p/f'{id}.zip';f.write_bytes(b)
+              with zipfile.ZipFile(f) as z:z.extractall(p/str(id))
+          PY
+          python -u analysis/20261124_four_window_change/four_window_change.py score --work "$RUNNER_TEMP/sealed" --out "$RUNNER_TEMP/results"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-four-window-change-results
+          path: ${{ runner.temp }}/results
+          retention-days: 90
