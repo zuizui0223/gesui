@@ -1,0 +1,16 @@
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+ sample        sites     taxa        endpoint  H7  H6     gain        lo        hi
+quality all_eligible    old52 plant_symmetric 173  77 7.327967  0.839712 13.491863
+quality all_eligible common40 plant_symmetric 173  77 9.454798  3.191968 15.710135
+quality common_80pct    old52 plant_symmetric 111  52 2.094518 -2.839075  7.564569
+quality common_80pct common40 plant_symmetric 111  52 3.213935 -1.547763  8.536436
+    all all_eligible    old52 plant_symmetric 222  89 8.228480  2.614420 14.210081
+    all all_eligible common40 plant_symmetric 222  89 9.843197  4.345264 15.753913
+    all common_80pct    old52 plant_symmetric 146  62 1.770885 -4.835891  9.448886
+    all common_80pct common40 plant_symmetric 146  62 2.357130 -5.096610 10.709460
+Independent solver maximum error 1.3322676295501878e-15

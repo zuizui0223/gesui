@@ -1,0 +1,30 @@
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+ sample     taxa   subset  H7  H6   gain     lo     hi  mse0  mse1
+    all common40      all 222  89  9.843  4.345 15.754 0.013 0.011
+    all common40 retained 146  62 11.897  4.426 20.211 0.012 0.010
+    all common40 excluded  76  47  5.533 -1.733 14.463 0.011 0.011
+    all    old52      all 222  89  8.228  2.614 14.210 0.014 0.013
+    all    old52 retained 146  62 10.160  1.683 18.574 0.012 0.011
+    all    old52 excluded  76  47  5.257 -0.796 13.117 0.014 0.014
+quality common40      all 173  77  9.455  3.192 15.710 0.010 0.009
+quality common40 retained 111  52 11.546 -1.951 20.943 0.008 0.007
+quality common40 excluded  62  40  7.646  2.634 15.146 0.012 0.011
+quality    old52      all 173  77  7.328  0.840 13.492 0.011 0.010
+quality    old52 retained 111  52  9.236 -4.814 19.291 0.009 0.008
+quality    old52 excluded  62  40  6.025  1.426 11.762 0.013 0.012
+ sample  retained country  H7  H6  EQR_mean  EQR_sd  coverage_early_median  coverage_late_median
+quality      True     ALL 111  52     0.640   0.186                  0.883                 0.898
+quality     False     ALL  62  40     0.693   0.162                  0.757                 0.783
+    all      True     ALL 146  62     0.623   0.188                  0.882                 0.892
+    all     False     ALL  76  47     0.681   0.169                  0.769                 0.781
+ sample     taxa  shared_H6  retained_gain  excluded_gain  difference      lo     hi      status
+    all common40         20          2.366          3.809       1.444 -19.319 24.682 descriptive
+    all    old52         20          3.077          5.179       2.102 -15.854 20.346 descriptive
+quality common40         15          7.538          6.371      -1.167 -24.291 20.923 descriptive
+quality    old52         15          7.905          6.238      -1.667 -21.665 17.657 descriptive
+solver max 1.3322676295501878e-15
