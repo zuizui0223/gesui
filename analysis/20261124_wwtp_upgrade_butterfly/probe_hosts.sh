@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# Source-only connectivity and service-directory probe. No biological outcomes.
+# Source-only connectivity probe. No biological outcomes.
 set -u
 OUT="$1"; mkdir -p "$OUT"
-for u in https://sdi.eea.europa.eu/ https://sdi.eea.europa.eu/datashare/ https://www.eea.europa.eu/ https://water.discomap.eea.europa.eu/arcgis/rest/services?f=pjson https://discodata.eea.europa.eu/ https://cmshare.eea.europa.eu/ ; do
-  echo "HOST $u -> $(curl -s -o /dev/null -w '%{http_code} %{time_total}s' -m 90 "$u")"
+getent ahosts sdi.eea.europa.eu | head -4
+for f in -4 -6; do
+  echo "HOST sdi $f -> $(curl $f -s -o /dev/null -w '%{http_code} %{time_total}s' --connect-timeout 25 -m 40 https://sdi.eea.europa.eu/webdav/datastore/public/)"
 done
-for d in WISE_UWWTD UWWTD; do
-  curl -s -m 90 "https://water.discomap.eea.europa.eu/arcgis/rest/services/$d?f=pjson" -o "$OUT/dir_$d.json"
-  echo "DIR $d:"; python3 -c "import json,sys;d=json.load(open(sys.argv[1]));[print(' ',s['name'],s['type']) for s in d.get('services',[])];print(' folders',d.get('folders'))" "$OUT/dir_$d.json" 2>&1 | head -80
-done
+echo "HOST datahub -> $(curl -s -o /dev/null -w '%{http_code}' -m 40 'https://www.eea.europa.eu/en/datahub/datahubitem-view/6244937d-1c2c-47f5-bdf1-33ca01ff1715')"
