@@ -1,0 +1,24 @@
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+source_filter  sample  common_butterflies  old_plants  new_plants  old_edges  new_edges  shared_edges  edge_jaccard  H7  H6  median_coverage_early  median_coverage_late       status
+non_wikipedia quality                  40         201         185        252        229           229      0.908730 111  52               0.840673              0.851928          FIT
+non_wikipedia     all                  40         201         185        252        229           229      0.908730 146  62               0.857197              0.854495          FIT
+ hosts_or_bhl quality                  29         189         166        226        196           196      0.867257  89  38               0.814211              0.828797 STOP_SUPPORT
+ hosts_or_bhl     all                  29         189         166        226        196           196      0.867257 119  47               0.824845              0.830046 STOP_SUPPORT
+source_filter  sample catalogue                   endpoint  H7  H6      gain         lo        hi status
+non_wikipedia quality       old            plant_symmetric 111  52  3.213935  -1.547763  8.536436    FIT
+non_wikipedia quality       old         consumer_symmetric 111  52  2.173166  -3.774355  8.066572    FIT
+non_wikipedia quality       old plant_early_consumer_fixed 111  52  3.706552  -0.404518  9.237181    FIT
+non_wikipedia quality  filtered            plant_symmetric 111  52  3.985186  -2.392717  9.130075    FIT
+non_wikipedia quality  filtered         consumer_symmetric 111  52  2.017800  -3.817547  8.094081    FIT
+non_wikipedia quality  filtered plant_early_consumer_fixed 111  52  4.845290  -1.044920  9.851585    FIT
+non_wikipedia     all       old            plant_symmetric 146  62  2.357130  -5.096610 10.709460    FIT
+non_wikipedia     all       old         consumer_symmetric 146  62 -4.960156 -14.489052  2.468974    FIT
+non_wikipedia     all       old plant_early_consumer_fixed 146  62  2.779172  -4.639619 11.316937    FIT
+non_wikipedia     all  filtered            plant_symmetric 146  62  1.063982  -5.404831  7.205045    FIT
+non_wikipedia     all  filtered         consumer_symmetric 146  62 -3.739321 -12.008822  2.466100    FIT
+non_wikipedia     all  filtered plant_early_consumer_fixed 146  62  1.725024  -4.883886  7.635030    FIT
