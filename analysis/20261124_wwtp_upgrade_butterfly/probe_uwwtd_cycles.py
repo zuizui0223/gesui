@@ -10,7 +10,7 @@ TOKENS = ["sptXqwkQr5g7Bp5", "mGmXg3zcEqKQLTG", "HCxTFz3Ac8xbHX6", "KkqFMjiif9eS
 DAV = "https://sdi.eea.europa.eu/datashare/public.php/webdav/"
 log = {}
 
-def req(url, method="GET", data=None, headers=None, timeout=60):
+def req(url, method="GET", data=None, headers=None, timeout=150):
     h = dict(UA); h.update(headers or {})
     r = urllib.request.Request(url, data=data, headers=h, method=method)
     with urllib.request.urlopen(r, timeout=timeout) as resp:
