@@ -63,3 +63,71 @@ jobs:
               compare_csv(root/name,work/name)
           print('FOLLOWUP REPLAY PASS: all three result tables')
           PY
+  source-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install pandas==2.2.3 openpyxl==3.1.5 requests
+      - name: Source only - verify original host names and inspect official trait downloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/trait_gate"
+          python - <<'PY'
+          import requests,hashlib,io,json,os,subprocess,zipfile,pathlib,pandas as pd
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'trait_gate'
+          m=json.loads(pathlib.Path('analysis/20261124_lycaenidae_resource_network/SOURCE_MANIFEST.json').read_text())
+          inputs={x['name']:x for x in m['sources']}
+          for name in ['gesui_host_source.zip','gesui_eiv_source.zip']:
+              x=inputs[name]
+              with (root/name).open('wb') as f:
+                  subprocess.run(['gh','api',f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/artifacts/{x['artifact_id']}/zip"],stdout=f,check=True)
+              assert hashlib.sha256((root/name).read_bytes()).hexdigest()==x['sha256']
+          hosts=zipfile.ZipFile(root/'gesui_host_source.zip')
+          edges=json.loads(hosts.read('verified_candidate_host_edges.json'))
+          keys=set(e['plantKey'] for e in edges)
+          cross=json.loads(hosts.read('plant_name_crosswalk.json'))
+          names={}
+          for x in cross:
+              k=x['accepted_speciesKey']; mt=x['match']
+              if k in keys and mt.get('species'):
+                  names.setdefault(k,set()).add(' '.join(mt['species'].casefold().split()))
+          assert len(keys)==990
+          exact={next(iter(v)) for v in names.values() if len(v)==1}
+          source_specs={
+              'disturbance':('https://zenodo.org/records/7116802/files/disturbance_indicator_values.csv?download=1','5594e514e3358e94b105cc935e6dcb51'),
+              'life_span':('https://files.ibot.cas.cz/cevs/downloads/floraveg/Life_span.xlsx',None),
+              'life_form':('https://files.ibot.cas.cz/cevs/downloads/floraveg/Life_form.xlsx',None),
+              'combined_eiv':('https://files.ibot.cas.cz/cevs/downloads/floraveg/Ellenberg_disturbance.xlsx',None)}
+          out={'catalogue_host_keys':len(keys),'unambiguous_host_names':len(exact),'stage':'source_only_no_biological_models','sources':{}}
+          for lab,(url,md5) in source_specs.items():
+              try:
+                  r=requests.get(url,timeout=(15,35),headers={'User-Agent':'gesui academic source audit'})
+                  r.raise_for_status()
+                  b=r.content; rec={'url':url,'final_url':r.url,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'md5':hashlib.md5(b).hexdigest()}
+                  if md5 and rec['md5']!=md5:raise ValueError('publisher MD5 mismatch')
+                  sheets=pd.read_excel(io.BytesIO(b),sheet_name=None,header=None) if b[:2]==b'PK' else {'csv':pd.read_csv(io.BytesIO(b),header=None,low_memory=False)}
+                  schema={}
+                  for s,d in sheets.items():
+                      # Determine possible species-name column from exact source-name matches, not biological outcomes.
+                      counts={str(c):int(d[c].astype(str).str.casefold().str.replace(r'\s+',' ',regex=True).str.strip().isin(exact).sum()) for c in d}
+                      schema[s]={'rows':len(d),'columns':len(d.columns),'top_rows':d.head(3).fillna('').astype(str).iloc[:,:35].values.tolist(),'exact_host_matches_by_column':counts}
+                  rec['schema']=schema;rec['status']='ACQUIRED_SOURCE_ONLY'
+                  out['sources'][lab]=rec
+              except Exception as e:
+                  out['sources'][lab]={'url':url,'status':'SOURCE_STOP','error':str(e)}
+          (root/'trait_source_receipt.json').write_text(json.dumps(out,ensure_ascii=False,indent=2))
+          print(json.dumps(out,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-floraveg-trait-source-gate
+          path: ${{ runner.temp }}/trait_gate/trait_source_receipt.json
+          if-no-files-found: error
+          retention-days: 30
