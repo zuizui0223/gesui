@@ -64,8 +64,8 @@ def geos(path):
     for h,h6 in PILOT:
         assert len(d[h])==12 and len(set((p,g) for p,g,_ in d[h]))==12
         u=set(x[2] for x in d[h]);assert len(u)==1
-        parts=next(iter(u));assert len(parts)==1,(h,len(parts))
-        G[h]=parts[0]
+        parts=next(iter(u))
+        G[h]=parts
     return G
 def audit_facet(j,name):
     facets=[f for f in j.get("facets",[]) if f.get("field","").upper()==name.upper()]
@@ -86,8 +86,12 @@ def main(a):
     results=[]
     for h,h6 in PILOT:
         for years in ("2014,2019","2020,2025"):
-            q={"geometry":G[h],"year":years,"limit":0,"hasCoordinate":"true","hasGeospatialIssue":"false","occurrenceStatus":"PRESENT","taxonKey":k,"checklistKey":CHECKLIST,"facet":["genusKey","speciesKey"],"facetLimit":1000}
-            row={"h":h,"h6":h6,"years":years,"geometry_sha256":sha(G[h].encode())}
+            parts=G[h]
+            if len(parts)!=1:
+                results.append({"h":h,"h6":h6,"years":years,"status":"GEOMETRY_SOURCE_STOP","polygon_components":len(parts),"gate":False})
+                continue
+            q={"geometry":parts[0],"year":years,"limit":0,"hasCoordinate":"true","hasGeospatialIssue":"false","occurrenceStatus":"PRESENT","taxonKey":k,"checklistKey":CHECKLIST,"facet":["genusKey","speciesKey"],"facetLimit":1000}
+            row={"h":h,"h6":h6,"years":years,"geometry_sha256":sha(parts[0].encode())}
             try:
                 j,rec=req("occurrence/search",q,out,h+" "+years)
                 g=audit_facet(j,"GENUS_KEY");s=audit_facet(j,"SPECIES_KEY")
