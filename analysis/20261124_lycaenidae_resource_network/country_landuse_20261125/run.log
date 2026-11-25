@@ -1,0 +1,72 @@
+ cutoff country  H7  H6  train_H7  train_H6       status
+      3      AT   1   1       191        71 STOP_SUPPORT
+      3      BE   2   2       187        70 STOP_SUPPORT
+      3      FR 144  34        48        38          FIT
+      3      HR   2   2       190        70 STOP_SUPPORT
+      3      IE   3   3       189        69 STOP_SUPPORT
+      3      IT  17  11       175        61          FIT
+      3      LT   6   6       186        66          FIT
+      3      NL   6   4       185        68          FIT
+      3      NO   8   7       184        65          FIT
+      3      SE   3   3       189        69 STOP_SUPPORT
+      2      AT   1   1       191        71 STOP_SUPPORT
+      2      BE   2   2       187        70 STOP_SUPPORT
+      2      FR 144  34        48        38          FIT
+      2      HR   2   2       190        70 STOP_SUPPORT
+      2      IE   3   3       189        69 STOP_SUPPORT
+      2      IT  17  11       175        61          FIT
+      2      LT   6   6       186        66          FIT
+      2      NL   6   4       185        68          FIT
+      2      NO   8   7       184        65          FIT
+      2      SE   3   3       189        69 STOP_SUPPORT
+   mode                       test    outcome   gain      lo     hi
+     H6         plant_after_W_land    old_HNS 22.248   6.398 35.500
+     H6       nonhost_after_W_land    old_HNS 22.743   6.945 35.689
+     H6               land_after_W    old_HNS  6.575  -2.028 14.758
+     H6               W_after_land    old_HNS -1.526  -6.278  2.480
+     H6         land_after_W_plant    old_HNS -2.577  -9.196  3.588
+     H6         W_after_land_plant    old_HNS -3.374  -6.045 -1.051
+     H6 nonhost_after_W_local_land    old_HNS 24.208   9.251 36.714
+     H6         plant_after_W_land clarke_HNS 23.722   6.220 37.659
+     H6       nonhost_after_W_land clarke_HNS 26.301   7.820 40.973
+     H6               land_after_W clarke_HNS  5.110  -3.597 13.431
+     H6               W_after_land clarke_HNS -2.813  -8.241  1.523
+     H6         land_after_W_plant clarke_HNS -5.593 -14.753  1.923
+     H6         W_after_land_plant clarke_HNS -3.442  -6.146 -0.740
+     H6 nonhost_after_W_local_land clarke_HNS 28.362  11.286 41.827
+     H6               land_after_W    plant_N  5.189  -7.408 14.559
+     H6               W_after_land    plant_N 15.791   4.075 25.929
+     H6               land_after_W        EQR  8.045  -1.979 16.652
+     H6               W_after_land        EQR  9.977   1.122 17.300
+country         plant_after_W_land    old_HNS 44.551     NaN    NaN
+country       nonhost_after_W_land    old_HNS 42.899     NaN    NaN
+country               land_after_W    old_HNS 19.343     NaN    NaN
+country               W_after_land    old_HNS  2.882     NaN    NaN
+country         land_after_W_plant    old_HNS -3.654     NaN    NaN
+country         W_after_land_plant    old_HNS -0.802     NaN    NaN
+country nonhost_after_W_local_land    old_HNS 50.521     NaN    NaN
+country         plant_after_W_land clarke_HNS 43.413     NaN    NaN
+country       nonhost_after_W_land clarke_HNS 40.929     NaN    NaN
+country               land_after_W clarke_HNS 21.966     NaN    NaN
+country               W_after_land clarke_HNS  5.663     NaN    NaN
+country         land_after_W_plant clarke_HNS -4.020     NaN    NaN
+country         W_after_land_plant clarke_HNS  1.944     NaN    NaN
+country nonhost_after_W_local_land clarke_HNS 48.082     NaN    NaN
+country               land_after_W    plant_N 24.232     NaN    NaN
+country               W_after_land    plant_N  7.065     NaN    NaN
+country               land_after_W        EQR -1.069     NaN    NaN
+country               W_after_land        EQR -7.542     NaN    NaN
+   outcome          fold  H6   gain       lo     hi
+   old_HNS            FR  34 38.195   29.245 45.812
+   old_HNS            IT  11 41.647   20.679 65.981
+   old_HNS            LT   6 53.375   11.155 80.120
+   old_HNS            NL   4 18.740  -21.235 37.319
+   old_HNS            NO   7 62.259   50.250 69.844
+   old_HNS COUNTRY_EQUAL  62 42.899      NaN    NaN
+clarke_HNS            FR  34 36.907   29.393 43.459
+clarke_HNS            IT  11  6.512  -61.769 44.553
+clarke_HNS            LT   6 40.212 -206.182 86.989
+clarke_HNS            NL   4 27.238  -11.662 41.030
+clarke_HNS            NO   7 64.738   53.209 76.907
+clarke_HNS COUNTRY_EQUAL  62 40.929      NaN    NaN
+max independent solver difference 3.5083047578154947e-13
