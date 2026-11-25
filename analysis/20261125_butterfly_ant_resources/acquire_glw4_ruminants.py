@@ -42,7 +42,7 @@ def main(a):
  out=a.out;out.mkdir(parents=True,exist_ok=True);r={"status":"SOURCE_STOP","no_ecological_outcomes":True,"catalog_id":ID,"source_files":{}}
  try:
   m=requests.get(CAT,params={"id":ID},timeout=(15,45));m.raise_for_status()
-  b=m.content;(out/"catalog.json").write_bytes(b);d=json.loads(b);assert d["success"];d=d["result"];assert d["id"]==ID
+  b=m.content;(out/"catalog.json").write_bytes(b);d=json.loads(b);assert d["success"];d=d["result"];assert d["name"]==ID and d["jsonschema_body"]["fileIdentifier"]==ID and d["id"]=="cfaa6aab-a8d0-41b9-a4a9-dd2da7449599"
   r["catalog_sha256"]=sha(b);r["title"]=d["title"];r["license"]=d.get("license_title")
   assert "2020" in d["title"] and "10 km" in d["title"].lower()
   resources=d["resources"]
