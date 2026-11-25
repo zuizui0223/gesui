@@ -1,0 +1,29 @@
+name: European ant range original Zenodo deposit
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_butterfly_ant_resources/acquire_euad_zenodo.py'
+      - '.github/workflows/gesui-euad-zenodo.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-butterfly-adult-ant-resources-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'requests==2.32.5'
+      - run: python -u analysis/20261125_butterfly_ant_resources/acquire_euad_zenodo.py --out "$RUNNER_TEMP/euad"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-euad-original-zenodo
+          path: ${{ runner.temp }}/euad
+          retention-days: 14
+          if-no-files-found: warn
