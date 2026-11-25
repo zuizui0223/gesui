@@ -1,0 +1,33 @@
+# Native WorldCover fine habitat adjacency and adult butterfly resource traits — 2026-11-25
+
+Separate stacked Draft PR174, preserves PR172/173 nulls and GLW4 source-specific results. Protocols fixed at 24adcfa0c5f11184ba1966374cb6676e807ed4ba (source) and b3ab12edb530952cd8034962637ba7315e2ee3ea (model, after source-only coverage audit and before new outcome fit). No main merge.
+
+## Original source and independent QA
+ESA WorldCover 2021 v200 (Zanaga et al., doi:10.5281/zenodo.7254221), CC BY 4.0, original publisher AWS COGs. Actual source workflow [45584531578](https://github.com/zuizui0223/gesui/actions/runs/45584531578) all four source jobs and reconciliation SUCCESS. 44 original 36000x36000 EPSG4326 1/12000-degree tiles, 2,931,890,985 source bytes, individual SHA256 and ETags recorded. Four artifacts 15007293087/15007797920/15008057965/15008191589, SHA256 d780bc4ffdf9e6d97e7ddb2144ffda3e5d0722f159de6940e14d10f58ba76d82 / aadd262a548b447a0303693bf747315612d3b7417dcdbd85b35717ad1369b37e / b657f0452526b98474e0078a77a9b66c651b867e873f9af34ff716ad2c15bca5 / 612583a973a91df6c4cfdfa9c49cf5838bab3d491d0c98718d73ed1b8a2ef837. Combined artifact 15008346904 SHA256 60006ea6c536aa67f5e4771587461cf09df4c65bee21701fe3233a41930b5e6c. Local independent reconciliation matches combined metrics to 1e-12 and all 730 tile-basin-phase rows match independent geometry sample counts exactly (max area error 5.46e-12 km2).
+
+Original 232 H7 fixed geometry unions, two systematic native sample phases (5,5)/(15,15) with stride 20 native pixels. 56,840,026 sample points (across both phases), all valid native central and four +/-3 pixel cardinal neighbor classes; all232 pass both phase source support, maximum relative area approximation error .001722598 (0.17226%), minimum points per basin-phase 6309. Native classification at 10m nominal, sampling approximately 185m north-south, longitude distance latitude-dependent; NOT full native pixel enumeration or true accessible wet substrate. Wet-edge = grassland/bare central sample with any neighboring water/wetland; woody-edge = same center with any neighboring tree/shrub. Whole valid neighbor sample-area denominators. Median fractions .001223081 wet-edge and .066186240 woody-edge, phase correlations .997486/.998477. Herbaceous wetland nonzero 203/232 vs legacy non-open-water wetland nonzero 15/232; of 217 legacy zero basins 190 have new herbaceous wetland and 217 new wet-edge. Different classes and years; not a temporal change estimate or direct wet-site measurements. Both-phase support fully verified.
+
+## Fixed comparison
+Same GLW4 cohort: broad168 355 rows,201 H7,78 H6,14 countries; common44 357 rows,203 H7,78 H6,13 countries, two host catalogues. Original host indices exact replay to 1.67e-16. B=previous GLW4 background incl W, population, climate, old wetland, pasture, ruminant density, host and effort controls plus four new class fractions (grassland, bare/sparse, water, herbaceous wetland), log1p(100*fraction). Wet- and woody-edge log1p(100*fraction) added together or separately. Fixed H6 disjoint Ridge10, 2000 paired parent fixed-loss bootstrap, H6-clustered WLS signed coefficients, conditional within-family/genus paired label shuffles 4999 with original support gate. Previous primary criteria: positive slope and positive lower MSE gain interval and label p<=.05 on the matching trait, both common44 catalogues. No claims from secondary comparisons.
+
+Primary Mi wet-edge increment after B+woody:
+| Endpoint | Gain % [nominal descriptive95] | Signed per SD coefficient | Conditional label p |
+|---|---|---:|---:|
+| broad168 within-family | -1.703 [-4.262,.034] | -.001433 | .891 |
+| common44 Ferrer-Paris total | +.652 [-1.229,2.267] | -.022711 | .3348 |
+| common44 Clarke total | +.620 [-1.421,2.379] | -.029977 | .3026 |
+
+All primary tests unsupported. Separate phases retain uncertainty or negative broad gain (phase5 -1.728 [-4.234,-.030], phase15 -1.668 [-4.287,.110]; common44 gain old +.111/+1.244, Clarke +.028/+1.267, all intervals include zero). This does not refute real puddling or demonstrate absence of resource limitation.
+
+## Interesting pre-specified SECONDARY structural association (not primary pass)
+Woody adjacency after B+wet edge:
+| Endpoint | An gain % [95] | Mi gain % [95] | An / Mi signed per SD coefficient |
+|---|---|---|---|
+| broad168 within-family | +5.771 [1.218,9.689] | +11.052 [4.142,16.233] | -.024632 / -.028579 |
+| common44 old total | +5.003 [.007,9.842] | +5.135 [.436,9.502] | -.048936 / -.046847 |
+| common44 Clarke total | +5.329 [.115,10.809] | +4.864 [.331,9.204] | -.046072 / -.045061 |
+
+All six corresponding H6-cluster WLS intervals exclude zero on negative side. Broad within-family label p=.0024 An and .003 Mi. Broad Mi record/equal-observed-species sensitivity gains +11.023 [4.574,16.408] / +3.607 [.108,6.644]; broad An record sensitivity uncertain. Common44 Mi total label p=.0278 old and .1068 Clarke; An genus shuffle STOP seven variable species, insufficient support. Common44 equal-observed-species woody gains uncertain both traits/catalogues. Country holdout only three countries and no independent field replication; positive common44 total secondary but not a generality claim. 61/198 nominal positive contrasts; no multiplicity adjustment. Both nonfloral traits share this inverse structural association, so resource-specific feeding mechanism not identified. Predictive improvement is not increased butterfly abundance. Ant abundance, realized host identity, microclimate and habitat structure can remain alternative explanations. No actual dung/carrion, wet soil, sodium, feeding or ant observation. Static 2021 map not contemporaneous exposure for all historical records; no causal effect. Stop further screening opened panel; independently observed adult behavior/habitat opportunity needed.
+
+## Reproduction
+Local full archive gesui_worldcover_fine_20261125.zip SHA256 4f9f5aab261172c481bd7c634b888d612b376cff18a83fb93b9f17aa3dabcaca. source_audit.py SHA256 7449624e5452f2490b01eb5ea2d2b67e6842c7ee9ffe42ca717059629e29f788; matching_audit.py 6f303865201c1747b5b4ebe1629f48d763df32c1f39ed8dbab5104b4f59d8885; summary.csv 629d1a5f4b3680ec02081f105774cd067f38e667d12f721b8e0624a54cd6f690; matching receipt c81e6c945f6ab84473d6e994550f60fa26e8e58b81599d67e6c66356ecdda453. 198 comparisons,108 slopes,12744 loss rows,39992 permutation rows,40920 predictions; independent ridge solver max error 6.856e-15; fixed-loss replay max 1.297e-13. Source scripts and frozen protocol in GitHub; local full numeric code and data delivered in ZIP; ecological numeric remote replay not performed. No main merge.
