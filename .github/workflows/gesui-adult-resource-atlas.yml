@@ -1,0 +1,36 @@
+name: Butterfly adult habitat native BasinATLAS source
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_butterfly_ant_resources/acquire_adult_resource_atlas.py'
+      - '.github/workflows/gesui-adult-resource-atlas.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-butterfly-adult-ant-resources-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet requests==2.32.5 dbfread==2.0.7
+      - name: Acquire exact native member and inspect source fields
+        run: |
+          mkdir -p "$RUNNER_TEMP/adult_atlas"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/13943392394/zip > "$RUNNER_TEMP/panel.zip"
+          python -u analysis/20261125_butterfly_ant_resources/acquire_adult_resource_atlas.py --panel "$RUNNER_TEMP/panel.zip" --out "$RUNNER_TEMP/adult_atlas"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-adult-resource-atlas
+          path: ${{ runner.temp }}/adult_atlas
+          retention-days: 14
+          if-no-files-found: warn
