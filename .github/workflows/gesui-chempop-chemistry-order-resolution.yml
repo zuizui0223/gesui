@@ -1,0 +1,44 @@
+name: ChemPop matched chemistry order-resolution audit
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_chempop_resolution/**'
+      - '.github/workflows/gesui-chempop-chemistry-order-resolution.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: gesui-chempop-chemistry-order-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  audit:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-chempop-nutrient-order-resolution-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Retrieve signed prior source receipts and compare exact members
+        run: |
+          mkdir -p "$RUNNER_TEMP/receipt" "$RUNNER_TEMP/resolution"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14599583276/zip > "$RUNNER_TEMP/receipt/chemistry.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14598879538/zip > "$RUNNER_TEMP/receipt/order.zip"
+          python -m py_compile analysis/20261125_chempop_resolution/chemistry_order.py
+          python -u analysis/20261125_chempop_resolution/chemistry_order.py --work "$RUNNER_TEMP/receipt" --out "$RUNNER_TEMP/resolution"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-chempop-chemistry-order-resolution
+          path: ${{ runner.temp }}/resolution
+          if-no-files-found: warn
+          retention-days: 90
