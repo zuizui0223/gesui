@@ -52,6 +52,17 @@ def fiedler(out):
     (out/"fiedler_suppl1.xls").write_bytes(b);return {"status":"SOURCE_ACQUIRED_LEGACY_SCHEMA_REVIEW","file":meta,"errors":errors}
    # If DOI resolves to a landing page, use only an unambiguous link for the same supplement.
    soup=BeautifulSoup(b,"html.parser");candidates=[]
+   # Preserve exact official landing and attachment markup; no guessed file IDs.
+   (out/("fiedler_landing_"+meta["sha256"][:12]+".html")).write_bytes(b)
+   entries=[]
+   for tag in soup.find_all(["a","button","input","form","span","div","meta"]):
+    attrs={k:v for k,v in tag.attrs.items() if k in {"href","src","action","onclick","data-href","data-url","data-download","data-file","download","content"}}
+    if not attrs:continue
+    label=" ".join(tag.stripped_strings)[:220]
+    joined=(str(attrs)+" "+label).lower()
+    if any(x in joined for x in ("supp","appendix","download","xls","excel","68993","/31/")):
+     entries.append({"tag":tag.name,"attrs":attrs,"label":label})
+   (out/("fiedler_link_markup_"+meta["sha256"][:12]+".json")).write_text(json.dumps(entries,indent=2,ensure_ascii=False))
    for a in soup.find_all("a",href=True):
     h=urllib.parse.urljoin(meta["resolved"],a["href"]);label=" ".join(a.stripped_strings).lower()
     if not allowed(h):continue
