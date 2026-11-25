@@ -1,0 +1,39 @@
+name: GLW4 adult butterfly resource landscape
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_butterfly_ant_resources/acquire_glw4_ruminants.py'
+      - '.github/workflows/gesui-glw4-ruminants.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-butterfly-adult-ant-resources-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet requests==2.32.5 numpy==2.2.6 rasterio==1.4.3 shapely==2.1.1 pyproj==3.7.1
+      - name: Retrieve fixed original basin sources
+        run: |
+          mkdir -p "$RUNNER_TEMP/glw4"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/13943392394/zip > "$RUNNER_TEMP/panel.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14113695873/zip > "$RUNNER_TEMP/historical.zip"
+      - name: Native density raster source and overlap
+        run: python -u analysis/20261125_butterfly_ant_resources/acquire_glw4_ruminants.py --panel "$RUNNER_TEMP/panel.zip" --historical "$RUNNER_TEMP/historical.zip" --out "$RUNNER_TEMP/glw4"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-glw4-ruminant-source
+          path: ${{ runner.temp }}/glw4
+          retention-days: 90
+          if-no-files-found: warn

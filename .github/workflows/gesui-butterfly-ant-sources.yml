@@ -1,0 +1,37 @@
+name: Butterfly ant partner source and European ranges
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_butterfly_ant_resources/acquire_ant_sources.py'
+      - '.github/workflows/gesui-butterfly-ant-sources.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-butterfly-adult-ant-resources-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'requests==2.32.5' 'openpyxl==3.1.5' 'beautifulsoup4>=4.12,<5'
+      - name: Exact published data only
+        run: python -u analysis/20261125_butterfly_ant_resources/acquire_ant_sources.py --out "$RUNNER_TEMP/ant_sources"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-butterfly-ant-sources
+          path: ${{ runner.temp }}/ant_sources
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Report source STOP if not acquired
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          r=json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"ant_sources"/"receipt.json").read_text())
+          assert all(r[k]["status"].startswith("SOURCE_ACQUIRED") for k in ("Fiedler2021","EuropeanAntRanges")),r
+          PY
