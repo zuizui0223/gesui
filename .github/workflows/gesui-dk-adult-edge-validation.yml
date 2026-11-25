@@ -1,0 +1,48 @@
+name: Denmark butterfly woody edge measurement check
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_dk_adult_edge/**'
+      - '.github/workflows/gesui-dk-adult-edge-validation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: dk-adult-edge-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validation:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-dk-adult-edge-validation-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: c960df1064a43671e74dda7eaae1445a4316a644
+          path: legacy-dk
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet requests==2.32.5 numpy==2.2.6 scipy==1.15.3 rasterio==1.4.3 openpyxl==3.1.5
+      - name: Recover exact original adult trait and historical alias sources
+        run: |
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14994638375/zip > "$RUNNER_TEMP/trait.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14114436781/zip > "$RUNNER_TEMP/host.zip"
+      - name: Source QC then count-based measurement check
+        run: |
+          python -u analysis/20261125_dk_adult_edge/validate.py --legacy "$GITHUB_WORKSPACE/legacy-dk" --trait "$RUNNER_TEMP/trait.zip" --host "$RUNNER_TEMP/host.zip" --temp "$RUNNER_TEMP/tiles" --out "$RUNNER_TEMP/dk_edge"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dk-adult-edge-aggregate
+          path: ${{ runner.temp }}/dk_edge
+          retention-days: 90
+          if-no-files-found: warn
