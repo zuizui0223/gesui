@@ -1,0 +1,34 @@
+name: Direct adult bait specimen tables
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_direct_adult_bait/acquire_tables.py'
+      - '.github/workflows/gesui-direct-adult-bait-tables.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  tables:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-direct-adult-bait-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install --quiet requests==2.32.5 openpyxl==3.1.5 beautifulsoup4==4.13.4
+      - run: |
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/15011178216/zip > "$RUNNER_TEMP/source.zip"
+          python -u analysis/20261125_direct_adult_bait/acquire_tables.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/bait_tables"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: direct-bait-specimen-tables
+          path: ${{ runner.temp }}/bait_tables
+          retention-days: 90
+          if-no-files-found: warn
