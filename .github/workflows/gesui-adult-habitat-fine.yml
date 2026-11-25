@@ -1,0 +1,69 @@
+name: Fine grain adult butterfly habitat WorldCover
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_adult_habitat_fine/**'
+      - '.github/workflows/gesui-adult-habitat-fine.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: fine-grain-butterfly-habitat-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-adult-habitat-fine-grain-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3]
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      GDAL_CACHEMAX: '128'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet requests==2.32.5 numpy==2.2.6 rasterio==1.4.3 shapely==2.1.1 pyproj==3.7.1
+      - name: Retrieve only fixed historical polygon archives
+        run: |
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/13943392394/zip > "$RUNNER_TEMP/panel.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14113695873/zip > "$RUNNER_TEMP/historical.zip"
+      - name: Sample native WorldCover classes
+        run: python -u analysis/20261125_adult_habitat_fine/worldcover_source.py --panel "$RUNNER_TEMP/panel.zip" --historical "$RUNNER_TEMP/historical.zip" --shard ${{ matrix.shard }} --out "$RUNNER_TEMP/wc"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wc-source-${{ matrix.shard }}
+          path: ${{ runner.temp }}/wc
+          retention-days: 90
+          if-no-files-found: warn
+  reconcile:
+    needs: source
+    if: always() && (github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-adult-habitat-fine-grain-20261125')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet pandas==2.2.3 numpy==2.2.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wc-source-*
+          path: ${{ runner.temp }}/shards
+      - run: python -u analysis/20261125_adult_habitat_fine/aggregate_source.py --root "$RUNNER_TEMP/shards" --out "$RUNNER_TEMP/combined"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wc-fine-habitat-232
+          path: ${{ runner.temp }}/combined
+          retention-days: 90
+          if-no-files-found: warn
