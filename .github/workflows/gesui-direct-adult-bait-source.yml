@@ -1,0 +1,29 @@
+name: Direct adult butterfly bait data source
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_direct_adult_bait/acquire.py'
+      - '.github/workflows/gesui-direct-adult-bait-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-direct-adult-bait-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet requests==2.32.5 openpyxl==3.1.5 beautifulsoup4==4.13.4
+      - run: python -u analysis/20261125_direct_adult_bait/acquire.py "$RUNNER_TEMP/bait_source"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: direct-adult-bait-source
+          path: ${{ runner.temp }}/bait_source
+          retention-days: 90
+          if-no-files-found: warn
