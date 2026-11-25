@@ -218,13 +218,13 @@ def census(work,result):
                 continue
             site_occ[k]+=1
             if k in site:issue("duplicate_site_id",{"id":k,"record":row_i});continue
-            site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]),"study":clean(a["study_id"]),"method":clean(a["sampling_method_long"]),"unit":clean(a["unit"]),"declared_year_count":clean(a["Year_count"]),"sampling_years":clean(a["Sampling_years"])}
+            site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]),"study":clean(a["study_id"]),"method":clean(a["sampling_method_long"]),"unit":clean(a["unit"]),"lon":clean(a["Longitude_X"]),"lat":clean(a["Latitude_Y"]),"declared_year_count":clean(a["Year_count"]),"sampling_years":clean(a["Sampling_years"])}
     result["orphan_site_sampling_years_values"]=dict(orphan_sampling)
     result["valid_unique_site_ids"]=len(site)
     if len(site)!=1816:issue("site_roster_size",len(site))
     years=collections.defaultdict(set);siteyears=set();all_siteyears=set();unsampled=0
     mismatch=collections.defaultdict(set);metadata_states=collections.defaultdict(lambda:collections.defaultdict(set))
-    env_missing=collections.Counter();env_missing_site=collections.defaultdict(set)
+    env_missing=collections.Counter();env_missing_site=collections.defaultdict(set);env_present={};metadata_keys={};location={};sampling_count_mismatch=[];duration_mismatch=[]
     dates={};yr_counts=collections.Counter();countries=collections.Counter()
     for h,r in rows(p[NAMES[1]]):
         sid=pick(h,id_alias);yr=pick(h,year_alias);actual_year=pick(h,{"yearwmissing"});actual_site=pick(h,{"siteidwmissing"})
@@ -247,6 +247,8 @@ def census(work,result):
                 issue("observed_key_mismatch",{"id":k,"year":y,"observed_site":ak,"observed_year":ay});continue
             siteyears.add(key);years[k].add(y);countries[site[k]["country"]]+=1
             dates[key]=(clean(a["day"]),clean(a["month"]))
+            metadata_keys[key]=all(clean(a[field]).lower() not in missing and clean(a[field])==site[k][x] for x,field in [("taxonomy","TaxonomicRes"),("method","sampling_method_long"),("unit","unit"),("study","study_id"),("country","country")])
+            env_present[key]={}
             if clean(a["country"])!=site[k]["country"]:mismatch["country"].add(k)
             for x,field in [("taxonomy","TaxonomicRes"),("method","sampling_method_long"),("unit","unit"),("study","study_id")]:
                 v=clean(a[field]);metadata_states[k][x].add(v)
@@ -255,6 +257,7 @@ def census(work,result):
                 v=clean(a[f])
                 try:ok=bool(v.lower() not in missing and float("-inf")<float(v)<float("inf"))
                 except ValueError:ok=False
+                env_present[key][f]=ok
                 if not ok:env_missing[f]+=1;env_missing_site[f].add(k)
     missing_siteyears=set(site)-set(years)
     if missing_siteyears:issue("sites_without_observed_years",{"count":len(missing_siteyears),"examples":sorted(missing_siteyears)[:12]})
@@ -262,11 +265,14 @@ def census(work,result):
     for k,vs in years.items():
         try:
             v=float(site[k]["declared_year_count"])
-            if v!=len(vs):count_mismatch.append(k)
-        except ValueError:count_mismatch.append(k)
+            if v!=max(vs)-min(vs)+1:duration_mismatch.append(k)
+        except ValueError:duration_mismatch.append(k)
+        try:
+            if float(site[k]["sampling_years"])!=len(vs):sampling_count_mismatch.append(k)
+        except ValueError:sampling_count_mismatch.append(k)
     tax_years=set();nrows=0;family_missing=0;group_missing=0;unknown=set();bad_date=set()
     family_groups=collections.defaultdict(set);group_counts=collections.Counter()
-    tax_keys=collections.Counter();family_siteyears=collections.defaultdict(set);group_siteyears=collections.defaultdict(set)
+    tax_keys=collections.Counter();family_siteyears=collections.defaultdict(set);group_siteyears=collections.defaultdict(set);label_pairs=collections.defaultdict(collections.Counter)
     for h,r in rows(p[NAMES[2]]):
         sid=pick(h,id_alias);yr=pick(h,year_alias);fam=pick(h,{"family"});group=pick(h,{"group"})
         result["schema_taxa"]={"site":sid,"year":yr,"family":fam,"group":group}
@@ -281,6 +287,7 @@ def census(work,result):
                 dy,mo=clean(a["day"]),clean(a["month"])
                 if dates[key]!=(dy,mo):bad_date.add(key)
             g=clean(a[group]);f=clean(a[fam]);tax=clean(a["taxon_id"])
+            if 2007<=y<=2018:label_pairs[key][(g,f)]+=1
             if tax.lower() in missing:issue("missing_taxon_id",{"site":k,"year":y})
             tax_keys[tax]+=1
             if f.lower() in missing:family_missing+=1
@@ -294,7 +301,7 @@ def census(work,result):
     if missing_taxa:issue("observed_siteyears_without_taxa",{"count":len(missing_taxa),"examples":sorted(missing_taxa)[:12]})
     changes=set().union(*mismatch.values()) if mismatch else set()
     varying={f:sum(len(x[f])>1 for x in metadata_states.values()) for f in ["taxonomy","method","unit","study"]}
-    result["source_census"]={"sites":len(site),"siteyears":len(siteyears),"countries":dict(collections.Counter(x["country"] for x in site.values())),"project_count":len({x["project"] for x in site.values()}),"taxa_rows":nrows,"distinct_taxon_ids":len(tax_keys),"taxa_siteyears":len(tax_years),"taxa_without_siteyear":len(unknown),"siteyears_without_taxa":len(missing_taxa),"taxon_date_mismatch_siteyears":len(bad_date),"missing_family_rows":family_missing,"missing_group_rows":group_missing,"group_is_order_or_higher_not_exact_order":True,"calendar_rows_including_unsampled":len(all_siteyears),"unsampled_year_rows":unsampled,"site_year_count_mismatch_sites":len(count_mismatch),"site_metadata_mismatch_count":len(changes),"metadata_mismatches_by_field":{k:len(v) for k,v in mismatch.items()},"within_series_metadata_variation_sites":varying,"environment_missing_observed_years":dict(env_missing),"environment_missing_sites":{k:len(v) for k,v in env_missing_site.items()},"taxonomy_resolution_counts":dict(collections.Counter(str(x["taxonomy"]) for x in site.values())),"known_duplicate_ids_present":sorted(DUP&set(site)),"native_group_row_counts":dict(group_counts),"families_in_multiple_groups":{k:sorted(v) for k,v in family_groups.items() if len(v)>1}}
+    result["source_census"]={"sites":len(site),"siteyears":len(siteyears),"countries":dict(collections.Counter(x["country"] for x in site.values())),"project_count":len({x["project"] for x in site.values()}),"taxa_rows":nrows,"distinct_taxon_ids":len(tax_keys),"taxa_siteyears":len(tax_years),"taxa_without_siteyear":len(unknown),"siteyears_without_taxa":len(missing_taxa),"taxon_date_mismatch_siteyears":len(bad_date),"missing_family_rows":family_missing,"missing_group_rows":group_missing,"group_is_order_or_higher_not_exact_order":True,"calendar_rows_including_unsampled":len(all_siteyears),"unsampled_year_rows":unsampled,"site_duration_mismatch_sites":len(duration_mismatch),"site_sampling_year_count_mismatch_sites":len(sampling_count_mismatch),"site_metadata_mismatch_count":len(changes),"metadata_mismatches_by_field":{k:len(v) for k,v in mismatch.items()},"within_series_metadata_variation_sites":varying,"environment_missing_observed_years":dict(env_missing),"environment_missing_sites":{k:len(v) for k,v in env_missing_site.items()},"taxonomy_resolution_counts":dict(collections.Counter(str(x["taxonomy"]) for x in site.values())),"known_duplicate_ids_present":sorted(DUP&set(site)),"native_group_row_counts":dict(group_counts),"families_in_multiple_groups":{k:sorted(v) for k,v in family_groups.items() if len(v)>1}}
     # Candidate calendar support is reported even when the strict source gate stops.
     eligible=[]
     for k,v in site.items():
@@ -313,6 +320,59 @@ def census(work,result):
     result["strict_key_gate_pass"]=not issues
     result["calendar_counts_provisional"]=bool(issues)
     result["status"]="SOURCE_CENSUS_COMPLETE_REVIEW_TAXONOMY_AND_ENVIRONMENT_BEFORE_FIT" if not issues else "SOURCE_STOP_KEY_RECONCILIATION"
+    # This is a separate exact-roster source sensitivity; NEVER clear the global STOP.
+    expected_issues={"missing_site_id":1,"observed_key_mismatch":1,"taxa_without_observed_siteyear":1}
+    expected_examples={
+        "missing_site_id":[{"record":1817,"fields":["Sampling_years"],"Sampling_years":"14"}],
+        "observed_key_mismatch":[{"id":"100000145","year":2011,"observed_site":"100000145","observed_year":"2012"}],
+        "taxa_without_observed_siteyear":[{"count":1,"examples":[["100000145",2012]]}]
+    }
+    selected={k for k,v,c in primary}
+    pk=sorted((k,y) for k,y in siteyears if k in selected and 2007<=y<=2018)
+    assert all(k!="100000145" for k in selected)
+    order_set={"Ephemeroptera","Plecoptera","Trichoptera","Diptera","Coleoptera","Odonata","Megaloptera","Lepidoptera","Hymenoptera","Neuroptera"}
+    ept={"Ephemeroptera","Plecoptera","Trichoptera"}
+    coverage=collections.defaultdict(collections.Counter)
+    def validcoord(k):
+        try:
+            x=float(site[k]["lon"]);y=float(site[k]["lat"])
+            return -180<=x<=180 and -90<=y<=90
+        except ValueError:return False
+    for k,y in pk:
+        win=next(str(lo)+"_"+str(hi) for lo,hi in WINDOWS if lo<=y<=hi)
+        pairs=label_pairs[(k,y)]
+        n=sum(pairs.values())
+        nfamily=sum(v for (g,f),v in pairs.items() if f.lower() not in missing)
+        norder=sum(v for (g,f),v in pairs.items() if g in order_set)
+        nfine=sum(v for (g,f),v in pairs.items() if g in order_set and f.lower() not in missing and family_groups[f]=={g})
+        nept=sum(v for (g,f),v in pairs.items() if g in ept)
+        neptfine=sum(v for (g,f),v in pairs.items() if g in ept and f.lower() not in missing and family_groups[f]=={g})
+        for label in [("all","all"),("window",win),("project",site[k]["project"]),("country",site[k]["country"]),("resolution",site[k]["taxonomy"])]:
+            q=coverage[label];q["siteyears"]+=1;q["label_rows"]+=n
+            q["family_label_rows"]+=nfamily;q["true_insect_order_rows"]+=norder;q["clean_nested_insect_rows"]+=nfine
+            q["EPT_rows"]+=nept;q["clean_nested_EPT_rows"]+=neptfine
+            q["siteyears_with_clean_nested_insect_labels"]+=int(nfine>0);q["siteyears_with_clean_nested_EPT_labels"]+=int(neptfine>0)
+            q["all_environment_present_siteyears"]+=int(all(env_present[(k,y)].values()))
+            for field,ok in env_present[(k,y)].items():q["present_"+field]+=int(ok)
+    result["scoped_feasibility"]={
+        "known_global_anomalies_exact":dict(issues)==expected_issues and dict(examples)==expected_examples,
+        "frozen_candidate_roster_exact":len(selected)==563 and s["site_id_sha256"]=="a07d139ee7a1b66831e711bba90dd5647c1abbe7c5a86789df273de5c8b24454",
+        "anomalous_site_excluded": "100000145" not in selected,
+        "all_candidate_siteyears_join":all(x in tax_years and x not in bad_date and metadata_keys[x] for x in pk),
+        "candidate_sites_with_valid_coordinates":sum(validcoord(k) for k in selected),
+        "candidate_siteyears":len(pk),
+        "candidate_sites_sampling_count_mismatch":len(selected&set(sampling_count_mismatch)),
+        "candidate_sites_duration_mismatch":len(selected&set(duration_mismatch)),
+        "label_coverage":[{"scope":a,"key":b,**dict(v)} for (a,b),v in sorted(coverage.items())],
+        "family_group_conflict_rule":"exclude any family label assigned to multiple native Group labels anywhere; no label correction",
+        "outcomes_evaluated":False,
+    }
+    gate=result["scoped_feasibility"]
+    gate["scoped_key_acceptance"]=bool(gate["known_global_anomalies_exact"] and gate["frozen_candidate_roster_exact"] and gate["anomalous_site_excluded"] and gate["all_candidate_siteyears_join"] and result["calendar_threshold_pass"])
+    gate["status"]="SCOPED_KEYS_PASS_TAXONOMY_AND_ENVIRONMENT_REVIEW_REQUIRED" if gate["scoped_key_acceptance"] else "SCOPED_KEYS_STOP"
+    with (out_global/"scoped_source_coverage.csv").open("w",newline="") as f:
+        rows0=gate["label_coverage"];columns=sorted(set().union(*(set(row) for row in rows0)))
+        w=csv.DictWriter(f,fieldnames=columns);w.writeheader();w.writerows(rows0)
     with (out_global/"candidate_roster.csv").open("w",newline="") as f:
         w=csv.writer(f);w.writerow(["site_id","country","project","reported_taxonomy","n_2007_09","n_2010_12","n_2013_15","n_2016_18","conservative_candidate","provisional_source_stop"])
         ids={k for k,v,c in primary}
