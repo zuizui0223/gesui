@@ -1,0 +1,44 @@
+name: TREAM independent public source gate
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_tream_source/**'
+      - '.github/workflows/gesui-tream-independent-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-only:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-tream-independent-source-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'requests==2.32.5'
+      - name: Retrieve public exact DOI and census site-year support
+        run: |
+          python -m py_compile analysis/20261125_tream_source/acquire_tream.py
+          python -u analysis/20261125_tream_source/acquire_tream.py --out "$RUNNER_TEMP/tream"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-tream-public-source-census
+          path: ${{ runner.temp }}/tream
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Enforce source status (no ecology model)
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"tream"/"source_receipt.json"
+          r=json.loads(p.read_text())
+          print(r["status"],r.get("calendar_opportunity_conservative"),r.get("error"))
+          if r["status"]!="SOURCE_CENSUS_COMPLETE_REVIEW_TAXONOMY_AND_ENVIRONMENT_BEFORE_FIT":
+              raise SystemExit("Source STOP; see artifact")
+          if not r["calendar_threshold_pass"]:
+              raise SystemExit("Calendar support STOP; see artifact")
+          PY
