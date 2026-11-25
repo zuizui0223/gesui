@@ -2,6 +2,7 @@
 """Public TREAM source-only census. No numerical abundance or biodiversity outcomes evaluated."""
 import argparse, collections, csv, hashlib, json, pathlib, re, tempfile, urllib.parse, xml.etree.ElementTree as ET
 import requests
+import traceback
 DOI="doi:10.5063/F1NG4P4R"
 CN="https://cn.dataone.org/cn/v2/"
 MN="https://knb.ecoinformatics.org/knb/d1/mn/v2/"
@@ -25,30 +26,47 @@ def get(url,limit=600_000_000):
             data.extend(block)
             if len(data)>limit:raise RuntimeError("Byte limit exceeded")
         return bytes(data),{"requested_url":url,"resolved_url":r.url,"content_type":r.headers.get("Content-Type"),"bytes":len(data),"sha256":sha(data)}
-def resolve_eml():
+def entities(x):
+    # EML can represent CSVs as dataTable or otherEntity.
+    return nodes(x,"dataTable")+nodes(x,"otherEntity")
+def validate_eml(b):
+    x=ET.fromstring(b)
+    if lname(x.tag).lower()!="eml":raise ValueError("Object is not EML: root="+x.tag)
+    found={name for t in entities(x) for name in NAMES
+           if name in texts(t,"objectName")+texts(t,"entityName")}
+    if found!=set(NAMES):
+        raise ValueError("Exact published objects not found: "+repr(sorted(found))+
+                         "; entity names="+repr([(texts(t,"objectName"),texts(t,"entityName")) for t in entities(x)])[:3000])
+    return x
+def resolve_eml(out):
     errors=[]
-    urls=[obj_url(MN,DOI),obj_url(CN,DOI)]
-    for u in urls:
-        try:
-            b,rec=get(u,10_000_000);x=ET.fromstring(b)
-            if not nodes(x,"dataTable") or not any("TREAM" in t for t in texts(x,"title")):raise ValueError("Not TREAM EML metadata")
-            return x,b,rec,errors
-        except Exception as e:errors.append([u,str(e)[:400]])
-    # DataONE public index uses the exact DOI as id or seriesId; no title-only substitution.
+    def attempt(u,label):
+        b,rec=get(u,10_000_000)
+        (out/("metadata_candidate_"+label+".xml")).write_bytes(b)
+        rec["attempt_label"]=label
+        x=validate_eml(b)
+        return x,b,rec,errors
+    for i,u in enumerate([obj_url(MN,DOI),obj_url(CN,DOI)]):
+        try:return attempt(u,str(i))
+        except Exception as e:errors.append({"url":u,"error":type(e).__name__+": "+str(e)[:1500]})
     q='(id:"'+DOI+'" OR seriesId:"'+DOI+'") AND formatType:METADATA'
     url=CN+"query/solr/?"+urllib.parse.urlencode({"q":q,"fl":"id,seriesId,title,formatType","rows":20,"wt":"json"})
-    b,rec=get(url,5_000_000);docs=json.loads(b)["response"]["docs"]
-    ids=sorted({d["id"] for d in docs if (d.get("id")==DOI or d.get("seriesId")==DOI) and "TREAM" in str(d.get("title",""))})
-    if len(ids)!=1:raise RuntimeError("DOI resolution ambiguous/missing "+repr(docs)[:1000]+" direct errors "+repr(errors)[:1000])
-    b,rec=get(obj_url(CN,ids[0]),10_000_000);x=ET.fromstring(b)
-    assert nodes(x,"dataTable") and any("TREAM" in t for t in texts(x,"title"))
-    return x,b,rec,errors
+    try:
+        b,rec=get(url,5_000_000);docs=json.loads(b)["response"]["docs"]
+        (out/"doi_index_response.json").write_bytes(b)
+        ids=sorted({d["id"] for d in docs if (d.get("id")==DOI or d.get("seriesId")==DOI) and d.get("formatType")=="METADATA"})
+        for i,pid in enumerate(ids):
+            try:return attempt(obj_url(CN,pid),"index_"+str(i))
+            except Exception as e:errors.append({"id":pid,"error":type(e).__name__+": "+str(e)[:1500]})
+    except Exception as e:errors.append({"url":url,"error":type(e).__name__+": "+str(e)[:1500]})
+    (out/"metadata_resolution_errors.json").write_text(json.dumps(errors,indent=2))
+    raise RuntimeError("Exact DOI EML resolution failed; see saved diagnostics "+repr(errors)[:2500])
 def tables(eml):
     results={}
-    for table in nodes(eml,"dataTable"):
+    for table in entities(eml):
         matches=[name for name in NAMES if name in texts(table,"objectName") or name in texts(table,"entityName")]
         if not matches:continue
-        assert len(matches)==1 and matches[0] not in results
+        assert len(matches)==1 and matches[0] not in results, ("Ambiguous metadata entity",matches)
         attrs=[]
         for a in nodes(table,"attribute"):
             attrs.append({"name":texts(a,"attributeName"),"definition":texts(a,"attributeDefinition"),"missing_codes":texts(a,"code"),"unit":texts(a,"standardUnit")+texts(a,"customUnit")})
@@ -61,7 +79,7 @@ def tables(eml):
         for a in nodes(table,"authentication"):
             checks.append({"method":a.attrib.get("method",""),"value":"".join(a.itertext()).strip()})
         results[matches[0]]={"urls":list(dict.fromkeys(online)),"attributes":attrs,"checksums":checks,"entity_name":texts(table,"entityName")}
-    if set(results)!=set(NAMES):raise RuntimeError("EML table names not exact: "+repr([(texts(t,"objectName"),texts(t,"entityName")) for t in nodes(eml,"dataTable")]))
+    if set(results)!=set(NAMES):raise RuntimeError("EML table names not exact: "+repr([(texts(t,"objectName"),texts(t,"entityName")) for t in entities(eml)]))
     return results
 def receive(name,info,p):
     errors=[]
@@ -155,7 +173,7 @@ def main(out):
     out_global=out;out.mkdir(parents=True,exist_ok=True)
     result={"doi":DOI,"windows":WINDOWS,"outcomes_evaluated":False,"status":"SOURCE_STOP","source":{}}
     try:
-        x,b,rec,errs=resolve_eml();result["eml"]=rec;result["direct_resolution_errors"]=errs
+        x,b,rec,errs=resolve_eml(out);result["eml"]=rec;result["direct_resolution_errors"]=errs
         result["titles"]=texts(x,"title");result["rights"]=texts(x,"intellectualRights")
         result["table_metadata"]=tables(x)
         (out/"metadata_schema.json").write_text(json.dumps(result["table_metadata"],indent=2,ensure_ascii=False))
@@ -166,6 +184,8 @@ def main(out):
             census(w,result)
     except Exception as e:
         result["status"]="SOURCE_STOP";result["error"]=type(e).__name__+": "+str(e)[:3000]
+        result["traceback"]=traceback.format_exc(limit=6)
+        print(result["traceback"],flush=True)
     finally:
         (out/"source_receipt.json").write_text(json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
         print("TREAM SOURCE",json.dumps({k:v for k,v in result.items() if k not in {"table_metadata","rights"}},ensure_ascii=False),flush=True)
