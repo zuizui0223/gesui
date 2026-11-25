@@ -1,0 +1,29 @@
+name: Natural England LTMN measured-resource source census
+on:
+  push:
+    branches:
+      - analysis/gesui-ltmn-measured-resource-source-20261126
+    paths:
+      - 'analysis/20261126_ltmn_measured_resources/**'
+      - '.github/workflows/gesui-ltmn-measured-resource-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  census:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install openpyxl==3.1.5 xlrd==2.0.1
+      - run: python -m py_compile analysis/20261126_ltmn_measured_resources/acquire.py
+      - run: python -u analysis/20261126_ltmn_measured_resources/acquire.py --out "${{ runner.temp }}/ltmn"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-ltmn-public-source-census
+          path: ${{ runner.temp }}/ltmn/
+          retention-days: 30
