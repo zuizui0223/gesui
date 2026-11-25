@@ -1,0 +1,49 @@
+name: TREAM matched four-window nested persistence
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_tream_persistence/**'
+      - '.github/workflows/gesui-tream-nested-persistence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-tream-four-window-persistence-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'requests==2.32.5' 'numpy>=1.26,<3' 'pandas>=2,<3'
+      - name: Replay signed source gate and evaluate fixed positive incidence composition
+        run: |
+          mkdir -p "$RUNNER_TEMP/receipt" "$RUNNER_TEMP/tream"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14989507257/zip > "$RUNNER_TEMP/receipt/source.zip"
+          python -m py_compile analysis/20261125_tream_persistence/nested_persistence.py
+          python -u analysis/20261125_tream_persistence/nested_persistence.py --work "$RUNNER_TEMP/receipt" --out "$RUNNER_TEMP/tream"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-tream-four-window-persistence
+          path: ${{ runner.temp }}/tream
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Preserve ecological support STOP if any
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          r=json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"tream"/"results.json").read_text())
+          print(r["status"])
+          if r["status"]!="COMPLETE":
+              raise SystemExit("Primary cohort support STOP")
+          PY
