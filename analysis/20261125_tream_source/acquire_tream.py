@@ -182,64 +182,120 @@ def year(v):
     n=float(clean(v));assert n.is_integer() and 1900<=n<=2100
     return int(n)
 def census(work,result):
+    """Complete source-only reconciliation. Preserve all unresolved anomalies;
+    candidate counts may be provisional and cannot by themselves pass the source gate."""
     p={n:work/n for n in NAMES}
     headers={}
     for n in NAMES:
         for h,r in rows(p[n]):headers[n]=h
     result["headers"]=headers
     result["csv_encodings"]=dict(ENCODINGS)
-    result["stage"]="schema"
+    result["stage"]="complete_key_reconciliation"
+    missing={"","na","nan","null","none"}
     id_alias={"siteid","sitecode","sitenumber","siteidentifier","idsite"}
     year_alias={"year","samplingyear","sampleyear"}
-    site={}
+    issues=collections.Counter();examples=collections.defaultdict(list)
+    def issue(label,detail):
+        issues[label]+=1
+        if len(examples[label])<12:examples[label].append(detail)
+    def nonempty_fields(a):
+        return [k for k,v in a.items() if clean(v).lower() not in missing]
+    def getyear(v):
+        try:return year(v)
+        except (ValueError,AssertionError,OverflowError):return None
+    site={};site_occ=collections.Counter();orphan_sampling=collections.Counter()
     for h,r in rows(p[NAMES[0]]):
         sid=pick(h,id_alias);co=pick(h,{"country","countryname","countrycode","countryiso","countryiso2","countryiso3"})
-        pr=pick(h,{"projectnumber"})
-        tax=pick(h,{"taxonomicres"},True)
+        pr=pick(h,{"projectnumber"});tax=pick(h,{"taxonomicres"})
         result["schema_site"]={"site":sid,"country":co,"project":pr,"taxonomy":tax}
-        for a in r:
-            k=sitekey(a[sid]);assert k.lower() not in {"","na","nan","null","none"} and k not in site,("Duplicate or missing native site key",k,"line nonmissing fields",[x for x,v in a.items() if clean(v).lower() not in {"","na","nan","null","none"}])
-            site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]),"study":clean(a["study_id"]),"method":clean(a["sampling_method_long"]),"unit":clean(a["unit"])}
-    assert len(site)==1816,("Original site roster size",len(site))
-    years=collections.defaultdict(set);siteyears=set();all_siteyears=set();unsampled=0;changes=set();env_missing=collections.Counter()
-    missing={"","na","nan","null","none"}
+        for row_i,a in enumerate(r,1):
+            k=sitekey(a[sid])
+            if k.lower() in missing:
+                fields=nonempty_fields(a)
+                if fields==["Sampling_years"]:
+                    orphan_sampling[clean(a["Sampling_years"])]+=1
+                issue("missing_site_id",{"record":row_i,"fields":fields,"Sampling_years":clean(a.get("Sampling_years"))})
+                continue
+            site_occ[k]+=1
+            if k in site:issue("duplicate_site_id",{"id":k,"record":row_i});continue
+            site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]),"study":clean(a["study_id"]),"method":clean(a["sampling_method_long"]),"unit":clean(a["unit"]),"declared_year_count":clean(a["Year_count"]),"sampling_years":clean(a["Sampling_years"])}
+    result["orphan_site_sampling_years_values"]=dict(orphan_sampling)
+    result["valid_unique_site_ids"]=len(site)
+    if len(site)!=1816:issue("site_roster_size",len(site))
+    years=collections.defaultdict(set);siteyears=set();all_siteyears=set();unsampled=0
+    mismatch=collections.defaultdict(set);metadata_states=collections.defaultdict(lambda:collections.defaultdict(set))
+    env_missing=collections.Counter();env_missing_site=collections.defaultdict(set)
+    dates={};yr_counts=collections.Counter();countries=collections.Counter()
     for h,r in rows(p[NAMES[1]]):
-        sid=pick(h,id_alias);yr=pick(h,year_alias)
-        actual_year=pick(h,{"yearwmissing"});actual_site=pick(h,{"siteidwmissing"})
+        sid=pick(h,id_alias);yr=pick(h,year_alias);actual_year=pick(h,{"yearwmissing"});actual_site=pick(h,{"siteidwmissing"})
         fields=["ppt_mm_12moPrior","tmax_C_12moPrior","crop_perc_upstr","urban_perc_upstr"]
-        assert set(fields+["sampling_method_long","unit","TaxonomicRes","study_id","sample_id"])<=set(h)
+        assert set(fields+["sampling_method_long","unit","TaxonomicRes","study_id","sample_id","day","month","country"])<=set(h)
         result["schema_siteyear"]={"site":sid,"year":yr,"actual_year":actual_year,"actual_site":actual_site,"environment":fields}
-        for a in r:
-            k=sitekey(a[sid]);y=year(a[yr]);assert k in site and (k,y) not in all_siteyears,("Unknown or duplicate native site-year",k,y)
-            all_siteyears.add((k,y))
-            ay=clean(a[actual_year]);ak=clean(a[actual_site])
+        for row_i,a in enumerate(r,1):
+            k=sitekey(a[sid]);y=getyear(a[yr]);ay=clean(a[actual_year]);ak=clean(a[actual_site])
+            if k.lower() in missing or y is None:
+                issue("invalid_calendar_key",{"record":row_i,"site":k,"year":clean(a[yr]),"observed_site":ak,"observed_year":ay,"fields":nonempty_fields(a)})
+                continue
+            key=(k,y);yr_counts[key]+=1
+            if k not in site:issue("calendar_unknown_site",{"id":k,"year":y});continue
+            if key in all_siteyears:issue("duplicate_calendar_siteyear",{"id":k,"year":y});continue
+            all_siteyears.add(key)
             if ay.lower() in missing:
-                assert ak.lower() in missing,("Inconsistent missing sample key",k,y)
+                if ak.lower() not in missing:issue("missing_sample_key_inconsistent",{"id":k,"year":y,"observed_site":ak})
                 unsampled+=1;continue
-            assert year(ay)==y and ak==k,("Observed year/site mismatch",k,y,ay,ak)
-            siteyears.add((k,y));years[k].add(y)
+            if getyear(ay)!=y or ak!=k:
+                issue("observed_key_mismatch",{"id":k,"year":y,"observed_site":ak,"observed_year":ay});continue
+            siteyears.add(key);years[k].add(y);countries[site[k]["country"]]+=1
+            dates[key]=(clean(a["day"]),clean(a["month"]))
+            if clean(a["country"])!=site[k]["country"]:mismatch["country"].add(k)
             for x,field in [("taxonomy","TaxonomicRes"),("method","sampling_method_long"),("unit","unit"),("study","study_id")]:
-                if clean(a[field]).lower() in missing or clean(a[field])!=site[k][x]:changes.add(k)
+                v=clean(a[field]);metadata_states[k][x].add(v)
+                if v.lower() in missing or v!=site[k][x]:mismatch[x].add(k)
             for f in fields:
                 v=clean(a[f])
                 try:ok=bool(v.lower() not in missing and float("-inf")<float(v)<float("inf"))
                 except ValueError:ok=False
-                if not ok:env_missing[f]+=1
-    assert set(years)==set(site)
-    tax_years=set();order_missing=0;family_missing=0;nrows=0;unknown=set()
+                if not ok:env_missing[f]+=1;env_missing_site[f].add(k)
+    missing_siteyears=set(site)-set(years)
+    if missing_siteyears:issue("sites_without_observed_years",{"count":len(missing_siteyears),"examples":sorted(missing_siteyears)[:12]})
+    count_mismatch=[]
+    for k,vs in years.items():
+        try:
+            v=float(site[k]["declared_year_count"])
+            if v!=len(vs):count_mismatch.append(k)
+        except ValueError:count_mismatch.append(k)
+    tax_years=set();nrows=0;family_missing=0;group_missing=0;unknown=set();bad_date=set()
+    family_groups=collections.defaultdict(set);group_counts=collections.Counter()
+    tax_keys=collections.Counter();family_siteyears=collections.defaultdict(set);group_siteyears=collections.defaultdict(set)
     for h,r in rows(p[NAMES[2]]):
-        sid=pick(h,id_alias);yr=pick(h,year_alias)
-        fam=pick(h,{"family"},True);order=pick(h,{"group"},True)
-        result["schema_taxa"]={"site":sid,"year":yr,"family":fam,"order":order}
-        for a in r:
-            k=sitekey(a[sid]);y=year(a[yr]);nrows+=1
-            if (k,y) not in siteyears:unknown.add((k,y))
-            tax_years.add((k,y))
-            if fam and clean(a[fam]).lower() in {"","na","nan","null","none"}:family_missing+=1
-            if order and clean(a[order]).lower() in {"","na","nan","null","none"}:order_missing+=1
-    result["source_census"]={"sites":len(site),"siteyears":len(siteyears),"countries":dict(collections.Counter(x["country"] for x in site.values())),"project_count":len({x["project"] for x in site.values()}),"taxa_rows":nrows,"taxa_siteyears":len(tax_years),"taxa_without_siteyear":len(unknown),"siteyears_without_taxa":len(siteyears-tax_years),"missing_family_rows":family_missing if fam else None,"missing_group_rows":order_missing if order else None,"group_is_order_or_higher_not_exact_order":True,"calendar_rows_including_unsampled":len(all_siteyears),"unsampled_year_rows":unsampled,"site_metadata_mismatch_count":len(changes),"environment_missing_observed_years":dict(env_missing),"taxonomy_resolution_counts":dict(collections.Counter(str(x["taxonomy"]) for x in site.values())),"known_duplicate_ids_present":sorted(DUP&set(site))}
-    assert not unknown,("Taxa rows without observed site-year",sorted(unknown)[:15],len(unknown))
-    # Candidate eligibility concerns source calendar support only, not abundance, chemistry or quality.
+        sid=pick(h,id_alias);yr=pick(h,year_alias);fam=pick(h,{"family"});group=pick(h,{"group"})
+        result["schema_taxa"]={"site":sid,"year":yr,"family":fam,"group":group}
+        for row_i,a in enumerate(r,1):
+            k=sitekey(a[sid]);y=getyear(a[yr]);nrows+=1
+            if k.lower() in missing or y is None:
+                # Do not inspect abundance values. Only source keys and names.
+                issue("invalid_taxon_key",{"record":row_i,"site":k,"year":clean(a[yr]),"taxon":clean(a.get("taxon_id"))});continue
+            key=(k,y);tax_years.add(key)
+            if key not in siteyears:unknown.add(key)
+            else:
+                dy,mo=clean(a["day"]),clean(a["month"])
+                if dates[key]!=(dy,mo):bad_date.add(key)
+            g=clean(a[group]);f=clean(a[fam]);tax=clean(a["taxon_id"])
+            if tax.lower() in missing:issue("missing_taxon_id",{"site":k,"year":y})
+            tax_keys[tax]+=1
+            if f.lower() in missing:family_missing+=1
+            else:family_siteyears[key].add(f)
+            if g.lower() in missing:group_missing+=1
+            else:
+                group_counts[g]+=1;group_siteyears[key].add(g)
+                if f.lower() not in missing:family_groups[f].add(g)
+    missing_taxa=siteyears-tax_years
+    if unknown:issue("taxa_without_observed_siteyear",{"count":len(unknown),"examples":sorted(unknown)[:12]})
+    if missing_taxa:issue("observed_siteyears_without_taxa",{"count":len(missing_taxa),"examples":sorted(missing_taxa)[:12]})
+    changes=set().union(*mismatch.values()) if mismatch else set()
+    varying={f:sum(len(x[f])>1 for x in metadata_states.values()) for f in ["taxonomy","method","unit","study"]}
+    result["source_census"]={"sites":len(site),"siteyears":len(siteyears),"countries":dict(collections.Counter(x["country"] for x in site.values())),"project_count":len({x["project"] for x in site.values()}),"taxa_rows":nrows,"distinct_taxon_ids":len(tax_keys),"taxa_siteyears":len(tax_years),"taxa_without_siteyear":len(unknown),"siteyears_without_taxa":len(missing_taxa),"taxon_date_mismatch_siteyears":len(bad_date),"missing_family_rows":family_missing,"missing_group_rows":group_missing,"group_is_order_or_higher_not_exact_order":True,"calendar_rows_including_unsampled":len(all_siteyears),"unsampled_year_rows":unsampled,"site_year_count_mismatch_sites":len(count_mismatch),"site_metadata_mismatch_count":len(changes),"metadata_mismatches_by_field":{k:len(v) for k,v in mismatch.items()},"within_series_metadata_variation_sites":varying,"environment_missing_observed_years":dict(env_missing),"environment_missing_sites":{k:len(v) for k,v in env_missing_site.items()},"taxonomy_resolution_counts":dict(collections.Counter(str(x["taxonomy"]) for x in site.values())),"known_duplicate_ids_present":sorted(DUP&set(site)),"native_group_row_counts":dict(group_counts),"families_in_multiple_groups":{k:sorted(v) for k,v in family_groups.items() if len(v)>1}}
+    # Candidate calendar support is reported even when the strict source gate stops.
     eligible=[]
     for k,v in site.items():
         counts=[sum(lo<=y<=hi and (k,y) in tax_years for y in years[k]) for lo,hi in WINDOWS]
@@ -247,15 +303,24 @@ def census(work,result):
     def subset(x):
         return {"sites":len(x),"countries":dict(collections.Counter(v["country"] for k,v,c in x)),"projects":len({v["project"] for k,v,c in x}),"site_id_sha256":sha(("\n".join(sorted(k for k,v,c in x))+"\n").encode())}
     excluded={"unitedkingdom","uk","gb","gbr","greatbritain","england","scotland","wales","northernireland","france","fr","fra"}
-    primary=[x for x in eligible if x[0] not in DUP and x[0] not in changes and norm(x[1]["country"]) not in excluded and x[1]["country"] and x[1]["project"]]
-    result["calendar_opportunity_all"]=subset(eligible);result["calendar_opportunity_conservative"]=subset(primary)
+    primary=[x for x in eligible if x[0] not in DUP and x[0] not in changes and site_occ[x[0]]==1 and norm(x[1]["country"]) not in excluded and x[1]["country"] and x[1]["project"]]
+    result["calendar_opportunity_all"]=subset(eligible)
+    result["calendar_opportunity_conservative"]=subset(primary)
+    result["conservative_exclusion_breakdown_nonexclusive"]={"known_duplicate_sites":sum(k in DUP for k,v,c in eligible),"metadata_mismatch_sites":sum(k in changes for k,v,c in eligible),"UK_France":sum(norm(v["country"]) in excluded for k,v,c in eligible),"duplicate_id":sum(site_occ[k]!=1 for k,v,c in eligible)}
     s=result["calendar_opportunity_conservative"]
     result["calendar_threshold_pass"]=s["sites"]>=100 and len(s["countries"])>=5 and s["projects"]>=10 and sum(v>=20 for v in s["countries"].values())>=3
-    result["status"]="SOURCE_CENSUS_COMPLETE_REVIEW_TAXONOMY_AND_ENVIRONMENT_BEFORE_FIT"
+    result["key_anomaly_counts"]=dict(issues);result["key_anomaly_examples"]=dict(examples)
+    result["strict_key_gate_pass"]=not issues
+    result["calendar_counts_provisional"]=bool(issues)
+    result["status"]="SOURCE_CENSUS_COMPLETE_REVIEW_TAXONOMY_AND_ENVIRONMENT_BEFORE_FIT" if not issues else "SOURCE_STOP_KEY_RECONCILIATION"
     with (out_global/"candidate_roster.csv").open("w",newline="") as f:
-        w=csv.writer(f);w.writerow(["site_id","country","project","reported_taxonomy","n_2007_09","n_2010_12","n_2013_15","n_2016_18","conservative_candidate"])
+        w=csv.writer(f);w.writerow(["site_id","country","project","reported_taxonomy","n_2007_09","n_2010_12","n_2013_15","n_2016_18","conservative_candidate","provisional_source_stop"])
         ids={k for k,v,c in primary}
-        for k,v,c in sorted(eligible):w.writerow([k,v["country"],v["project"],v["taxonomy"],*c,k in ids])
+        for k,v,c in sorted(eligible):w.writerow([k,v["country"],v["project"],v["taxonomy"],*c,k in ids,bool(issues)])
+    with (out_global/"source_key_reconciliation.csv").open("w",newline="") as f:
+        w=csv.writer(f);w.writerow(["site_id","year","calendar_key_count","observed_siteyear","taxa_present","family_labels","group_labels"])
+        for k,y in sorted(all_siteyears|tax_years):
+            w.writerow([k,y,yr_counts[(k,y)],(k,y) in siteyears,(k,y) in tax_years,len(family_siteyears[(k,y)]),len(group_siteyears[(k,y)])])
 def main(out):
     global out_global
     out_global=out;out.mkdir(parents=True,exist_ok=True)
