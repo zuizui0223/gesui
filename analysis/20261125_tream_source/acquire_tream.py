@@ -95,12 +95,15 @@ def link_package(info,out):
     assert len(docs)==1 and docs[0]["id"]==DOI and docs[0]["formatType"]=="METADATA",docs
     pids=docs[0].get("documents",[])
     if isinstance(pids,str):pids=[pids]
-    assert len(pids)>0 and len(pids)==len(set(pids)),("No unique documented objects",pids)
+    assert len(pids)==len(set(pids)),("Duplicate documented objects",pids)
+    # DataONE's documents includes the metadata DOI itself in this package.
+    expected={"urn:uuid:95d336a0-3816-4385-8d26-e87396286220","urn:uuid:e949ef54-c02c-40e6-bab3-640535b16512","urn:uuid:ea788cbc-e450-4e9e-9da4-1cdacfba4c19"}
+    assert set(pids)==expected|{DOI},("Documented package membership changed",pids)
     result={}
-    for i,pid in enumerate(pids):
+    for i,pid in enumerate(sorted(expected)):
         ds=solr('id:"'+pid+'"',"id,fileName,formatType,formatId,size,checksum,checksumAlgorithm,isDocumentedBy,isPublic",out,"member_"+str(i))
         assert len(ds)==1 and ds[0]["id"]==pid,("Data PID index mismatch",pid,ds)
-        d=ds[0];assert d.get("formatType")=="DATA",d
+        d=ds[0];assert d.get("formatType")=="DATA" and d.get("isPublic") is True,d
         name=d.get("fileName")
         if isinstance(name,list):
             assert len(name)==1;name=name[0]
@@ -230,6 +233,7 @@ def main(out):
         x,b,rec,errs=resolve_eml(out);result["eml"]=rec;result["direct_resolution_errors"]=errs
         result["titles"]=texts(x,"title");result["rights"]=texts(x,"intellectualRights")
         result["table_metadata"]=tables(x)
+        (out/"metadata_schema.json").write_text(json.dumps(result["table_metadata"],indent=2,ensure_ascii=False))
         result["package_members"]=link_package(result["table_metadata"],out)
         (out/"metadata_schema.json").write_text(json.dumps(result["table_metadata"],indent=2,ensure_ascii=False))
         with tempfile.TemporaryDirectory() as d:
