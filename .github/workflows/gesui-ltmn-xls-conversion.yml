@@ -1,0 +1,34 @@
+name: LTMN legacy XLS exact-source CSV conversion
+on:
+  push:
+    branches:
+      - analysis/gesui-ltmn-measured-resource-source-20261126
+    paths:
+      - 'analysis/20261126_ltmn_measured_resources/convert_xls.py'
+      - '.github/workflows/gesui-ltmn-xls-conversion.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  convert:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install xlrd==2.0.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: gesui-ltmn-public-source-census
+          path: ${{ runner.temp }}/source
+          github-token: ${{ github.token }}
+          run-id: 45719762988
+      - run: python analysis/20261126_ltmn_measured_resources/convert_xls.py --src "${{ runner.temp }}/source" --out "${{ runner.temp }}/converted"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gesui-ltmn-verified-xls-csv
+          path: ${{ runner.temp }}/converted/
+          retention-days: 30
