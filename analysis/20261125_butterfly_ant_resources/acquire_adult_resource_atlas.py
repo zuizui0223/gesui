@@ -43,9 +43,11 @@ def main(a):
  z=zipfile.ZipFile(io.BytesIO(b))
  rows=list(csv.DictReader(io.TextIOWrapper(z.open("EU234_H7_ORIGINAL_STUDY_NATIVE_BASINPERIOD_EQR_PLANT_BUTTERFLY_SOURCE_COHORT.csv"),encoding="utf8")))
  ids={r["HYBAS_ID_L07"] for r in rows};assert len(rows)==454 and len(ids)==232
- b=a.atlas.read_bytes();assert sha(b)==ATLAS
- z=zipfile.ZipFile(io.BytesIO(b));old=json.loads(z.read("HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json"))["original_1219_H7_covariate_by_real_ID"]
- assert len(old)==1219 and ids<=set(old)
+ old=None
+ if a.atlas:
+  b=a.atlas.read_bytes();assert sha(b)==ATLAS
+  z=zipfile.ZipFile(io.BytesIO(b));old=json.loads(z.read("HYDROATLAS_V1_L07_1219_H7_BASIN_RAW_LANDUSE_ATTRIBUTES_SOURCE_ONLY.json"))["original_1219_H7_covariate_by_real_ID"]
+  assert len(old)==1219 and ids<=set(old)
  r=RemoteZip()
  with zipfile.ZipFile(r) as z:
   m=z.getinfo(MEMBER);assert m.file_size==80137382 and m.CRC==int("ef18ec36",16) and m.compress_size==15674749
@@ -55,24 +57,27 @@ def main(a):
   t=DBF(str(p),load=False);cols=t.field_names
   assert "HYBAS_ID" in cols and all(c in cols for c in OLD+WET+["pst_pc_sse"]),cols
   available=[c for c in NEW if c in cols]
-  keep=OLD+available;got={};n=0
+  keep=OLD+available;got={};n=0;replay=[]
   for x in t:
    n+=1;k=str(x["HYBAS_ID"])
-   if k in old:
+   replay.append({"h":k,**{c:x[c] for c in OLD}})
+   if k in ids:
     assert k not in got
     got[k]={c:x[c] for c in keep}
-  assert n==57646 and set(got)==set(old)
-  for k,v in got.items():
-   assert all(v[c]==old[k][c] for c in OLD),(k,v,old[k])
+   if old is not None and k in old:
+    assert all(x[c]==old[k][c] for c in OLD),(k,x,old[k])
+  assert n==57646 and set(got)==ids and len({v["h"] for v in replay})==n
+  with (out/"native_old_field_replay.csv").open("w") as f:
+   w=csv.DictWriter(f,fieldnames=["h"]+OLD);w.writeheader();w.writerows(replay)
   fields={c:{"known":sum(got[k][c] is not None and got[k][c]!=-9999 for k in ids),"minimum":min(got[k][c] for k in ids if got[k][c] is not None and got[k][c]!=-9999),"maximum":max(got[k][c] for k in ids if got[k][c] is not None and got[k][c]!=-9999)} for c in available if any(got[k][c] is not None and got[k][c]!=-9999 for k in ids)}
   for c in WET+["pst_pc_sse"]:
    assert fields[c]["known"]==232 and 0<=fields[c]["minimum"]<=fields[c]["maximum"]<=100,(c,fields[c])
   assert all(got[k]["wet_pc_sg2"]<=got[k]["wet_pc_sg1"] for k in ids)
   with (out/"basin_resource_fields.csv").open("w") as f:
    w=csv.DictWriter(f,fieldnames=["h"]+keep);w.writeheader();w.writerows({"h":k,**got[k]} for k in sorted(ids))
-  meta={"status":"SOURCE_PASS","n_h7":len(ids),"original_dbf_sha256":sha(data),"original_dbf_crc32":format(m.CRC,"08x"),"n_global_dbf":n,"old_replayed_ids":len(got),"old_replayed_fields":len(OLD),"all_native_fields":cols,"new_fields":fields,"missing_requested_fields":sorted(set(NEW)-set(available)),"transferred_bytes":r.transferred,"ranges":r.calls,"no_ecological_outcomes":True}
+  meta={"status":"SOURCE_PASS","n_h7":len(ids),"original_dbf_sha256":sha(data),"original_dbf_crc32":format(m.CRC,"08x"),"n_global_dbf":n,"old_replayed_ids":len(old) if old else 0,"local_prior_1219_replay_required":old is None,"old_replayed_fields":len(OLD),"all_native_fields":cols,"new_fields":fields,"missing_requested_fields":sorted(set(NEW)-set(available)),"transferred_bytes":r.transferred,"ranges":r.calls,"no_ecological_outcomes":True}
   (out/"receipt.json").write_text(json.dumps(meta,indent=2,allow_nan=False)+"\n")
   print("RESOURCE SOURCE "+json.dumps({k:v for k,v in meta.items() if k!="all_native_fields"}),flush=True)
  finally:p.unlink(missing_ok=True)
 if __name__=="__main__":
- p=argparse.ArgumentParser();p.add_argument("--panel",type=pathlib.Path,required=True);p.add_argument("--atlas",type=pathlib.Path,required=True);p.add_argument("--out",type=pathlib.Path,required=True);main(p.parse_args())
+ p=argparse.ArgumentParser();p.add_argument("--panel",type=pathlib.Path,required=True);p.add_argument("--atlas",type=pathlib.Path);p.add_argument("--out",type=pathlib.Path,required=True);main(p.parse_args())
