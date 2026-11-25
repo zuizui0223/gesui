@@ -11,6 +11,7 @@ WINDOWS=((2007,2009),(2010,2012),(2013,2015),(2016,2018))
 DUP={"100000001","100000309","100000002","100000308"}
 ORIGINAL_SHA={"TREAM_siteLevel.csv":"e3873ba32b1d0443e66dc78c4cbf5ced66b631e341ccb3df9381fdedd364e24e","TREAM_siteYearLevel.csv":"0514adab2acd76d8a62beb9966a4ac579d426136933feb1ddb16580ad7586343","TREAM_allTaxa.csv":"020c43f7b98770ca65af2dc84bf51061f7da0f4ebe79be72d4cbdfb7689f048a"}
 ENCODINGS={}
+EMPTY_ROWS={}
 HOSTS={"knb.ecoinformatics.org","cn.dataone.org","dataone.org"}
 def norm(s):return re.sub(r"[^a-z0-9]","",str(s).lower())
 def lname(s):return s.rsplit("}",1)[-1]
@@ -162,7 +163,19 @@ def rows(p):
     with p.open("r",encoding=ENCODINGS[p.name],errors="strict",newline="") as f:
         r=csv.DictReader(f)
         assert r.fieldnames and len(set(r.fieldnames))==len(r.fieldnames),("Invalid CSV header",p.name,r.fieldnames)
-        yield r.fieldnames,r
+        def nonempty():
+            blanks=0
+            for a in r:
+                # An all-missing separator row is not a recorded site or observation.
+                # Never discard a missing ID row if any other source field has a value.
+                assert None not in a,("CSV field count exceeds header",p.name,r.line_num)
+                vals=[str(v or "").strip().lower() for v in a.values()]
+                if all(v in {"","na","nan","null","none"} for v in vals):
+                    blanks+=1
+                    continue
+                yield a
+            EMPTY_ROWS[p.name]=blanks
+        yield r.fieldnames,nonempty()
 def clean(v):return str(v or "").strip()
 def sitekey(v):return clean(v)
 def year(v):
@@ -185,7 +198,7 @@ def census(work,result):
         tax=pick(h,{"taxonomicres"},True)
         result["schema_site"]={"site":sid,"country":co,"project":pr,"taxonomy":tax}
         for a in r:
-            k=sitekey(a[sid]);assert k and k not in site,("Duplicate or missing native site key",k)
+            k=sitekey(a[sid]);assert k.lower() not in {"","na","nan","null","none"} and k not in site,("Duplicate or missing native site key",k,"line nonmissing fields",[x for x,v in a.items() if clean(v).lower() not in {"","na","nan","null","none"}])
             site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]),"study":clean(a["study_id"]),"method":clean(a["sampling_method_long"]),"unit":clean(a["unit"])}
     assert len(site)==1816,("Original site roster size",len(site))
     years=collections.defaultdict(set);siteyears=set();all_siteyears=set();unsampled=0;changes=set();env_missing=collections.Counter()
@@ -264,6 +277,7 @@ def main(out):
         result["traceback"]=traceback.format_exc(limit=6)
         print(result["traceback"],flush=True)
     finally:
+        result["all_missing_separator_rows"]=dict(EMPTY_ROWS)
         (out/"source_receipt.json").write_text(json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
         print("TREAM SOURCE",json.dumps({k:v for k,v in result.items() if k not in {"table_metadata","rights"}},ensure_ascii=False),flush=True)
 if __name__=="__main__":
