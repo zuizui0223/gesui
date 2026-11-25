@@ -6,7 +6,7 @@ import traceback
 DOI="doi:10.5063/F1NG4P4R"
 CN="https://cn.dataone.org/cn/v2/"
 MN="https://knb.ecoinformatics.org/knb/d1/mn/v2/"
-NAMES=("TREAM_siteLevel.csv","TREAM_siteYEARLevel.csv","TREAM_alltaxa.csv")
+NAMES=("TREAM_siteLevel.csv","TREAM_siteYearLevel.csv","TREAM_allTaxa.csv")
 WINDOWS=((2007,2009),(2010,2012),(2013,2015),(2016,2018))
 DUP={"100000001","100000309","100000002","100000308"}
 HOSTS={"knb.ecoinformatics.org","cn.dataone.org","dataone.org"}
@@ -32,6 +32,8 @@ def entities(x):
 def validate_eml(b):
     x=ET.fromstring(b)
     if lname(x.tag).lower()!="eml":raise ValueError("Object is not EML: root="+x.tag)
+    assert x.attrib.get("packageId")==DOI,("Unexpected packageId",x.attrib.get("packageId"))
+    assert sha(b)=="2368ae841176dad380774639cf69e2116b2d92adb4082042a447fa0762e6f2a8","Original metadata bytes changed; explicit review required"
     found={name for t in entities(x) for name in NAMES
            if name in texts(t,"objectName")+texts(t,"entityName")}
     if found!=set(NAMES):
@@ -81,12 +83,47 @@ def tables(eml):
         results[matches[0]]={"urls":list(dict.fromkeys(online)),"attributes":attrs,"checksums":checks,"entity_name":texts(table,"entityName")}
     if set(results)!=set(NAMES):raise RuntimeError("EML table names not exact: "+repr([(texts(t,"objectName"),texts(t,"entityName")) for t in entities(eml)]))
     return results
+def solr(q,fields,out,label):
+    u=CN+"query/solr/?"+urllib.parse.urlencode({"q":q,"fl":fields,"rows":100,"wt":"json"})
+    b,rec=get(u,10_000_000)
+    (out/("index_"+label+".json")).write_bytes(b)
+    return json.loads(b)["response"]["docs"]
+def link_package(info,out):
+    # The original EML uses otherEntity elements and has no direct URLs.
+    # Resolve only data PIDs documented by the exact metadata DOI in DataONE.
+    docs=solr('id:"'+DOI+'"',"id,formatType,documents,resourceMap",out,"package")
+    assert len(docs)==1 and docs[0]["id"]==DOI and docs[0]["formatType"]=="METADATA",docs
+    pids=docs[0].get("documents",[])
+    if isinstance(pids,str):pids=[pids]
+    assert len(pids)>0 and len(pids)==len(set(pids)),("No unique documented objects",pids)
+    result={}
+    for i,pid in enumerate(pids):
+        ds=solr('id:"'+pid+'"',"id,fileName,formatType,formatId,size,checksum,checksumAlgorithm,isDocumentedBy,isPublic",out,"member_"+str(i))
+        assert len(ds)==1 and ds[0]["id"]==pid,("Data PID index mismatch",pid,ds)
+        d=ds[0];assert d.get("formatType")=="DATA",d
+        name=d.get("fileName")
+        if isinstance(name,list):
+            assert len(name)==1;name=name[0]
+        if name not in NAMES:continue
+        assert name not in result,("Multiple exact matching data PIDs",name)
+        linked=d.get("isDocumentedBy",[])
+        if isinstance(linked,str):linked=[linked]
+        assert DOI in linked,("No reverse document link",d)
+        result[name]=d
+        info[name]["urls"]=[obj_url(MN,pid),obj_url(CN,pid)]
+        info[name]["data_pid"]=pid
+        if d.get("checksum") and d.get("checksumAlgorithm"):
+            info[name]["checksums"].append({"method":d["checksumAlgorithm"],"value":d["checksum"]})
+        info[name]["expected_bytes"]=d.get("size")
+    assert set(result)==set(NAMES),("Unresolved exact filenames",list(result),pids)
+    return result
 def receive(name,info,p):
     errors=[]
     for u in info["urls"]:
         try:
             b,rec=get(u)
             if b.lstrip().startswith(b"<"):raise ValueError("XML/HTML rather than CSV")
+            if info.get("expected_bytes") is not None:assert len(b)==int(info["expected_bytes"]),"Original size mismatch"
             for a in info["checksums"]:
                 key=norm(a["method"])
                 if key in {"md5","sha1","sha256"}:
@@ -123,25 +160,42 @@ def census(work,result):
     site={}
     for h,r in rows(p[NAMES[0]]):
         sid=pick(h,id_alias);co=pick(h,{"country","countryname","countrycode","countryiso","countryiso2","countryiso3"})
-        pr=pick(h,{"projectid","project","projectnumber","projectcode","datasetid","dataid","dataset","idproject"})
-        tax=pick(h,{"taxonomicresolution","primarytaxonomicresolution","taxaresolution","taxresolution","taxlevel","primarytaxonomiclevel","taxonomiclevel","taxonomicres"},False)
+        pr=pick(h,{"projectnumber"})
+        tax=pick(h,{"taxonomicres"},True)
         result["schema_site"]={"site":sid,"country":co,"project":pr,"taxonomy":tax}
         for a in r:
             k=sitekey(a[sid]);assert k and k not in site
-            site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]) if tax else None}
+            site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]),"study":clean(a["study_id"]),"method":clean(a["sampling_method_long"]),"unit":clean(a["unit"])}
     assert len(site)==1816
-    years=collections.defaultdict(set);siteyears=set()
+    years=collections.defaultdict(set);siteyears=set();all_siteyears=set();unsampled=0;changes=set();env_missing=collections.Counter()
+    missing={"","na","nan","null","none"}
     for h,r in rows(p[NAMES[1]]):
         sid=pick(h,id_alias);yr=pick(h,year_alias)
-        result["schema_siteyear"]={"site":sid,"year":yr}
+        actual_year=pick(h,{"yearwmissing"});actual_site=pick(h,{"siteidwmissing"})
+        fields=["ppt_mm_12moPrior","tmax_C_12moPrior","crop_perc_upstr","urban_perc_upstr"]
+        assert set(fields+["sampling_method_long","unit","TaxonomicRes","study_id","sample_id"])<=set(h)
+        result["schema_siteyear"]={"site":sid,"year":yr,"actual_year":actual_year,"actual_site":actual_site,"environment":fields}
         for a in r:
-            k=sitekey(a[sid]);y=year(a[yr]);assert k in site and (k,y) not in siteyears
+            k=sitekey(a[sid]);y=year(a[yr]);assert k in site and (k,y) not in all_siteyears
+            all_siteyears.add((k,y))
+            ay=clean(a[actual_year]);ak=clean(a[actual_site])
+            if ay.lower() in missing:
+                assert ak.lower() in missing,("Inconsistent missing sample key",k,y)
+                unsampled+=1;continue
+            assert year(ay)==y and ak==k,("Observed year/site mismatch",k,y,ay,ak)
             siteyears.add((k,y));years[k].add(y)
+            for x,field in [("taxonomy","TaxonomicRes"),("method","sampling_method_long"),("unit","unit"),("study","study_id")]:
+                if clean(a[field]).lower() in missing or clean(a[field])!=site[k][x]:changes.add(k)
+            for f in fields:
+                v=clean(a[f])
+                try:ok=bool(v.lower() not in missing and float("-inf")<float(v)<float("inf"))
+                except ValueError:ok=False
+                if not ok:env_missing[f]+=1
     assert set(years)==set(site)
     tax_years=set();order_missing=0;family_missing=0;nrows=0;unknown=set()
     for h,r in rows(p[NAMES[2]]):
         sid=pick(h,id_alias);yr=pick(h,year_alias)
-        fam=pick(h,{"family","taxonfamily","familyname"},False);order=pick(h,{"order","taxonorder","ordername"},False)
+        fam=pick(h,{"family"},True);order=pick(h,{"group"},True)
         result["schema_taxa"]={"site":sid,"year":yr,"family":fam,"order":order}
         for a in r:
             k=sitekey(a[sid]);y=year(a[yr]);nrows+=1
@@ -149,7 +203,7 @@ def census(work,result):
             tax_years.add((k,y))
             if fam and clean(a[fam]).lower() in {"","na","nan","null","none"}:family_missing+=1
             if order and clean(a[order]).lower() in {"","na","nan","null","none"}:order_missing+=1
-    result["source_census"]={"sites":len(site),"siteyears":len(siteyears),"countries":dict(collections.Counter(x["country"] for x in site.values())),"project_count":len({x["project"] for x in site.values()}),"taxa_rows":nrows,"taxa_siteyears":len(tax_years),"taxa_without_siteyear":len(unknown),"siteyears_without_taxa":len(siteyears-tax_years),"missing_family_rows":family_missing if fam else None,"missing_order_rows":order_missing if order else None,"taxonomy_resolution_counts":dict(collections.Counter(str(x["taxonomy"]) for x in site.values())),"known_duplicate_ids_present":sorted(DUP&set(site))}
+    result["source_census"]={"sites":len(site),"siteyears":len(siteyears),"countries":dict(collections.Counter(x["country"] for x in site.values())),"project_count":len({x["project"] for x in site.values()}),"taxa_rows":nrows,"taxa_siteyears":len(tax_years),"taxa_without_siteyear":len(unknown),"siteyears_without_taxa":len(siteyears-tax_years),"missing_family_rows":family_missing if fam else None,"missing_group_rows":order_missing if order else None,"group_is_order_or_higher_not_exact_order":True,"calendar_rows_including_unsampled":len(all_siteyears),"unsampled_year_rows":unsampled,"site_metadata_mismatch_count":len(changes),"environment_missing_observed_years":dict(env_missing),"taxonomy_resolution_counts":dict(collections.Counter(str(x["taxonomy"]) for x in site.values())),"known_duplicate_ids_present":sorted(DUP&set(site))}
     assert not unknown
     # Candidate eligibility concerns source calendar support only, not abundance, chemistry or quality.
     eligible=[]
@@ -159,7 +213,7 @@ def census(work,result):
     def subset(x):
         return {"sites":len(x),"countries":dict(collections.Counter(v["country"] for k,v,c in x)),"projects":len({v["project"] for k,v,c in x}),"site_id_sha256":sha(("\n".join(sorted(k for k,v,c in x))+"\n").encode())}
     excluded={"unitedkingdom","uk","gb","gbr","greatbritain","england","scotland","wales","northernireland","france","fr","fra"}
-    primary=[x for x in eligible if x[0] not in DUP and norm(x[1]["country"]) not in excluded and x[1]["country"] and x[1]["project"]]
+    primary=[x for x in eligible if x[0] not in DUP and x[0] not in changes and norm(x[1]["country"]) not in excluded and x[1]["country"] and x[1]["project"]]
     result["calendar_opportunity_all"]=subset(eligible);result["calendar_opportunity_conservative"]=subset(primary)
     s=result["calendar_opportunity_conservative"]
     result["calendar_threshold_pass"]=s["sites"]>=100 and len(s["countries"])>=5 and s["projects"]>=10 and sum(v>=20 for v in s["countries"].values())>=3
@@ -176,6 +230,7 @@ def main(out):
         x,b,rec,errs=resolve_eml(out);result["eml"]=rec;result["direct_resolution_errors"]=errs
         result["titles"]=texts(x,"title");result["rights"]=texts(x,"intellectualRights")
         result["table_metadata"]=tables(x)
+        result["package_members"]=link_package(result["table_metadata"],out)
         (out/"metadata_schema.json").write_text(json.dumps(result["table_metadata"],indent=2,ensure_ascii=False))
         with tempfile.TemporaryDirectory() as d:
             w=pathlib.Path(d)
