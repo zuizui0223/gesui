@@ -55,7 +55,9 @@ def geos(path):
         for v in a["source_request_receipts"]:
             if v.get("status")!="source_success" or not v.get("url"):continue
             q=urllib.parse.parse_qs(urllib.parse.urlparse(v["url"]).query)
-            assert q["checklistKey"]==[CHECKLIST]
+            assert q.get("checklistKey",[]) in ([],[CHECKLIST]), (h,q.get("checklistKey"))
+            # Legacy archived URLs without checklistKey used the default numeric Backbone.
+            # Geometry is unchanged; all new ant queries explicitly specify CHECKLIST.
             g.add(q["geometry"][0])
         assert g,(h,a["group"])
         d[h].append((a["period"],a["group"],tuple(sorted(g))))
