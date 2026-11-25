@@ -1,0 +1,15 @@
+# Final scoped source acceptance — 2026-11-25
+
+Source run [45541621835](https://github.com/zuizui0223/gesui/actions/runs/45541621835), code 24051ca13d5220f634b644212fe32f972dac6d5d, signed result artifact 14989507257 ZIP SHA256 4abff94ca247f0b8c22e56c5527940e851d2925128440e4fbae2bcd4e2cd3b5e. Overall job reports failure intentionally: strict original full-package source-key STOP preserved (one orphan Sampling_years-only row, one observed calendar-year conflict, one unmatched corresponding taxa site-year). The explicit scoped criterion is separately **PASS**, with the exact previous 563 sites, 6273 observed site-years, 9 countries, 12 projects, all coordinates and 4 environment fields present, and no included keys with inconsistent year/date/native metadata. Site-year table retains 13 candidate site sampling-count and 20 duration-summary discrepancies against full-series metadata; not repaired, not used to infer annual observed keys. No original file rewritten or abundance outcomes read.
+
+| Source-only support (>=2 label-bearing years in each fixed 3-year window, 2007–18) | Sites | Country | Project | SHA256 sorted newline-delimited native IDs |
+|---|---:|---:|---:|---|
+| Conservative exact roster | 563 | 9 | 12 | a07d139ee7a1b66831e711bba90dd5647c1abbe7c5a86789df273de5c8b24454 |
+| Clean nested ten insect orders | 546 | 9 | 12 | 74383feeaadb18f56b84a126fa84dd2a16f58989e9761d2c3d0df19253630eac |
+| Clean nested EPT | 474 | 9 | 12 | 22788a74633fd5fb88118a3d3365db51a4d805963b6571b790f7445d793a1dec |
+
+Labels only: 176613 original taxon-label rows within 563 sites; 174796 have family, 130113 belong to the ten insect orders, 62980 of those survive the conservative global 35-family conflict exclusion. EPT 62092 label rows, 32070 survive. This substantial row loss limits generality; no assumption of individual abundance, taxon richness or full-community coverage. Native Group fields are mixed order/higher outside the fixed insect sets. No silent majority label correction.
+
+Independent local QA: downloaded artifact byte SHA exactly verified; parsed candidate roster and 6273 siteyear label-support rows; joined to independently stored key-reconciliation table one-to-one, no missing key or mismatched observed/taxa status. Reconstructed both label-support roster memberships/hashes from site-window count of label-bearing years, matching exactly. Not an independent raw-source download or numerical abundance analysis. 
+
+New [PR165](https://github.com/zuizui0223/gesui/pull/165) freezes four-window incidence and nested taxonomy persistence analysis, with secondary matched climate/land-cover prediction. Positive observation support and whole ecological results remain to be evaluated. TREAM is not a wastewater measurement panel and physical overlap with previously used European monitoring sites has not been fully ruled out. Main unchanged.
