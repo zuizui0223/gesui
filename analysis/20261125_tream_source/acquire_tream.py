@@ -338,6 +338,7 @@ def census(work,result):
             x=float(site[k]["lon"]);y=float(site[k]["lat"])
             return -180<=x<=180 and -90<=y<=90
         except ValueError:return False
+    clean_support=[]
     for k,y in pk:
         win=next(str(lo)+"_"+str(hi) for lo,hi in WINDOWS if lo<=y<=hi)
         pairs=label_pairs[(k,y)]
@@ -347,6 +348,7 @@ def census(work,result):
         nfine=sum(v for (g,f),v in pairs.items() if g in order_set and f.lower() not in missing and family_groups[f]=={g})
         nept=sum(v for (g,f),v in pairs.items() if g in ept)
         neptfine=sum(v for (g,f),v in pairs.items() if g in ept and f.lower() not in missing and family_groups[f]=={g})
+        clean_support.append({"site_id":k,"year":y,"window":win,"country":site[k]["country"],"project":site[k]["project"],"taxonomy":site[k]["taxonomy"],"label_rows":n,"clean_insect_label_rows":nfine,"clean_EPT_label_rows":neptfine,"insect_label_rows":norder,"EPT_label_rows":nept,"all_environment_present":all(env_present[(k,y)].values())})
         for label in [("all","all"),("window",win),("project",site[k]["project"]),("country",site[k]["country"]),("resolution",site[k]["taxonomy"])]:
             q=coverage[label];q["siteyears"]+=1;q["label_rows"]+=n
             q["family_label_rows"]+=nfamily;q["true_insect_order_rows"]+=norder;q["clean_nested_insect_rows"]+=nfine
@@ -355,7 +357,7 @@ def census(work,result):
             q["all_environment_present_siteyears"]+=int(all(env_present[(k,y)].values()))
             for field,ok in env_present[(k,y)].items():q["present_"+field]+=int(ok)
     result["scoped_feasibility"]={
-        "known_global_anomalies_exact":dict(issues)==expected_issues and dict(examples)==expected_examples,
+        "known_global_anomalies_exact":dict(issues)==expected_issues and json.loads(json.dumps(dict(examples)))==expected_examples,
         "frozen_candidate_roster_exact":len(selected)==563 and s["site_id_sha256"]=="a07d139ee7a1b66831e711bba90dd5647c1abbe7c5a86789df273de5c8b24454",
         "anomalous_site_excluded": "100000145" not in selected,
         "all_candidate_siteyears_join":all(x in tax_years and x not in bad_date and metadata_keys[x] for x in pk),
@@ -367,6 +369,20 @@ def census(work,result):
         "family_group_conflict_rule":"exclude any family label assigned to multiple native Group labels anywhere; no label correction",
         "outcomes_evaluated":False,
     }
+    # Source-only opportunity, using exactly the frozen candidate roster and windows.
+    # Label-bearing years are not necessarily positive-abundance years.
+    per_site=collections.defaultdict(lambda:collections.defaultdict(collections.Counter))
+    for v in clean_support:
+        for kind,field in [("insect","clean_insect_label_rows"),("EPT","clean_EPT_label_rows")]:
+            per_site[v["site_id"]][kind][v["window"]]+=int(v[field]>0)
+    ws=[str(lo)+"_"+str(hi) for lo,hi in WINDOWS]
+    nested={}
+    for kind in ("insect","EPT"):
+        ks=sorted(k for k in selected if all(per_site[k][kind][w]>=2 for w in ws))
+        nested[kind]={"sites":len(ks),"countries":dict(collections.Counter(site[k]["country"] for k in ks)),"projects":len({site[k]["project"] for k in ks}),"roster_sha256":sha(("\n".join(ks)+"\n").encode())}
+    result["scoped_feasibility"]["nested_label_calendar_support"]=nested
+    with (out_global/"scoped_siteyear_label_support.csv").open("w",newline="") as f:
+        w=csv.DictWriter(f,fieldnames=list(clean_support[0]));w.writeheader();w.writerows(clean_support)
     gate=result["scoped_feasibility"]
     gate["scoped_key_acceptance"]=bool(gate["known_global_anomalies_exact"] and gate["frozen_candidate_roster_exact"] and gate["anomalous_site_excluded"] and gate["all_candidate_siteyears_join"] and result["calendar_threshold_pass"])
     gate["status"]="SCOPED_KEYS_PASS_TAXONOMY_AND_ENVIRONMENT_REVIEW_REQUIRED" if gate["scoped_key_acceptance"] else "SCOPED_KEYS_STOP"
