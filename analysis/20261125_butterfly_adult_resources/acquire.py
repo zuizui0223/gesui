@@ -52,7 +52,7 @@ def main(host,out):
         with zipfile.ZipFile(io.BytesIO(b)) as z:
             names=z.namelist();assert len(names)==len(set(names))
             result["members"]=[dict(path=i.filename,bytes=i.file_size,sha256=sha(z.read(i))) for i in z.infolist() if not i.is_dir()]
-            xlsx=[n for n in names if n.lower().endswith(".xlsx") and not pathlib.PurePosixPath(n).name.startswith("~$")]
+            xlsx=[n for n in names if n.lower().endswith(".xlsx") and not pathlib.PurePosixPath(n).name.startswith(("~$","._")) and "__MACOSX" not in pathlib.PurePosixPath(n).parts]
             assert len(xlsx)>=1
             workbooks={}
             for n in xlsx:
