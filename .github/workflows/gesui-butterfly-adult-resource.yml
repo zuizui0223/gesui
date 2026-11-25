@@ -1,0 +1,36 @@
+name: Butterfly adult resource trait source
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_butterfly_adult_resources/**'
+      - '.github/workflows/gesui-butterfly-adult-resource.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-butterfly-adult-resources-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'requests==2.32.5' 'openpyxl==3.1.5'
+      - name: Publisher source acquisition only
+        run: |
+          mkdir -p "$RUNNER_TEMP/traits"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14114436781/zip > "$RUNNER_TEMP/host.zip"
+          python -u analysis/20261125_butterfly_adult_resources/acquire.py --host "$RUNNER_TEMP/host.zip" --out "$RUNNER_TEMP/traits"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-butterfly-adult-resource-source
+          path: ${{ runner.temp }}/traits
+          if-no-files-found: warn
+          retention-days: 14
