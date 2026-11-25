@@ -1,0 +1,13 @@
+# Conditional EDF within-order score specificity — outcome (2026-11-25)
+Fixed protocol 7cf27bf33fe353f4d352c86eebdc31efa3abca20; actual run [45534671567](https://github.com/zuizui0223/gesui/actions/runs/45534671567), job 138938222634, SUCCESS. Exact PR162 matched 5000 analyses / 2624 site-years / 591 sites / seven regions; 85 observed scored families, 79 exchangeable across 12 nonsingleton order groups. All 35 original member hashes and score dictionary checked by run. Original within-order conditional EDF coefficient -0.019919908064497352 reproduced. Original chemistry null rerun before EDF test.
+| Statistic | Joint three chemistry variables after EDF | EDF after three chemistry variables |
+|---|---:|---:|
+| within-order observed partial R2 | .0015474997783131985 | .006456135958765353 |
+| null 2.5% quantile | .0007736161866805257 | .00000812706204276786 |
+| null median | .008268412562312095 | .003587282351694599 |
+| null 97.5% quantile | .03389785267763813 | .029804025951687806 |
+| draws >= observed (tolerance 1e-14) | 4679/4999 | 1773/4999 |
+| upper-tail Monte Carlo p (+1) | .936 | .3548 |
+EDF score-specificity criterion FAILS. The earlier fixed region predictive gain of the within-order BMWP score-deviation component remains +1.7184485974% [1.2830079965,2.2586324343], 7/7 regions. This does NOT establish a within-order tolerance-score filtering mechanism: the observed conditional EDF alignment is not extreme relative to the order-preserving score null. No proof of absence, no causal source identification, no direct measurement of all wastewater constituents or demographic changes. EDF is a static modeled effluent fraction; observed chemistry window summaries cover only three analytes. Retain all PR162 results; no more endpoint/label/predictor screening of this same cohort recommended.
+Local independent stored-output audit verified the two signed archive SHA256 values, exact 35-member receipt identity, identical cohort/order metadata, all 4999 replayed chemistry null draws (max abs diff 0.0), both p-values and all quantiles. Conditional EDF direct WLS partial R2 agrees to 3.2e-16 in remote run. Local audit does not independently reconstruct raw site-year rows or refit original models. 
+Source artifacts: 14986586651 SHA256 c01b78d6e023554d909e570d51025e5b9b3717dd8033178aaae69897ca0d0635; prior 14985171063 SHA256 9c04699d4fab6ba27b3e5ba99e6c17670b0c69bb912584dbe9a697391185edfc. No main merge, no new field observations.
