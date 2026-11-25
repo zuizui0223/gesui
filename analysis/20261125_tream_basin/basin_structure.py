@@ -95,7 +95,7 @@ def triples(d,level):
             else:
                 ss=np.flatnonzero(common&(ma==ma[i])&(mi==mi[i]));dd=np.flatnonzero(common&(ma==ma[i])&(mi!=mi[i]))
             if not len(ss) or not len(dd):continue
-            ld=np.abs(np.log(D[i,ss,None]/D[i,None,dd]))
+            ld=np.abs(np.log(D[i,ss][:,None]/D[i,dd][None,:]))
             la=np.abs(area[ss,None]-area[None,dd])
             a,b=np.nonzero((ld<=np.log(1.25)+1e-12)&(la<=np.log(2)+1e-12))
             if len(a):feasible.add(ids[i])
