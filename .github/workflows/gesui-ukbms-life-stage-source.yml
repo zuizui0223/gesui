@@ -1,0 +1,28 @@
+name: UKBMS 2024 life-stage source-only census
+on:
+  push:
+    branches:
+      - analysis/gesui-ukbms-life-stage-source-20261126
+    paths:
+      - 'analysis/20261126_ukbms_life_stage/**'
+      - '.github/workflows/gesui-ukbms-life-stage-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  census:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m py_compile analysis/20261126_ukbms_life_stage/source_gate.py
+      - run: python -u analysis/20261126_ukbms_life_stage/source_gate.py --out "${{ runner.temp }}/ukbms"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-ukbms-2024-original-source-census
+          path: ${{ runner.temp }}/ukbms/
+          retention-days: 30
