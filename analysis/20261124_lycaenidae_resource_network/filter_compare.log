@@ -1,0 +1,56 @@
+GATES
+ cutoff cohort  common_species  H7  H6  rows  median_record_cov  median_plant_cov  median_butterfly_n status
+      3     EU              94 207  81   414           0.625403          0.655816                46.0    FIT
+      3   FR73              94  72  24   144           0.625639          0.644760                48.0    FIT
+      2     EU              94 207  81   414           0.627070          0.655816                46.0    FIT
+      2   FR73              94  72  24   144           0.626435          0.644760                49.0    FIT
+SCORE AGREEMENT
+ cutoff  common_species  score_spearman  score_mean_abs_diff  median_record_cov  n_rows_cov50  median_species_n
+      3              94        0.826837             0.640515           0.621866           434              45.0
+      2              94        0.832129             0.631603           0.622650           434              46.0
+RESULTS
+ cutoff cohort               mode predictor           outcome  H7  H6    gain       lo      hi  coef_min  coef_max
+      3     EU     spatial_pooled         W           plant_N 207  81 16.1117   3.8101 26.3385    0.0458    0.1017
+      3     EU     spatial_pooled         W               EQR 207  81  8.8721   0.0634 16.1726   -0.0651   -0.0317
+      3     EU     spatial_pooled   plant_N           old_HNS 207  81 22.3462   6.9023 35.2985    0.3085    0.3624
+      3     EU     spatial_pooled       EQR           old_HNS 207  81 -0.0071  -1.9319  1.7365   -0.0757   -0.0028
+      3     EU record_sensitivity   plant_N    old_HNS_record 207  81 -1.7458  -5.4398  1.6657    0.0539    0.2202
+      3     EU     spatial_pooled   plant_N        clarke_HNS 207  81 24.4969   7.8768 38.1145    0.3278    0.3890
+      3     EU     spatial_pooled       EQR        clarke_HNS 207  81  0.1588  -1.2250  1.6743   -0.0621   -0.0270
+      3     EU record_sensitivity   plant_N clarke_HNS_record 207  81 -2.7717  -7.3110  1.4544    0.0274    0.2474
+      3   FR73     spatial_pooled        TP        actual_EQR  72  24 22.5014  10.5766 33.5484   -0.1121   -0.0891
+      3   FR73     spatial_pooled        TP           plant_N  72  24 -0.5760  -6.2047  2.7493   -0.0070    0.0293
+      3   FR73     spatial_pooled        TP           old_HNS  72  24 -2.2259  -5.2221 -0.3698   -0.0195    0.0014
+      3   FR73     spatial_pooled   plant_N           old_HNS  72  24 20.1376   2.0811 35.1722    0.2209    0.2874
+      3   FR73 record_sensitivity   plant_N    old_HNS_record  72  24  1.6688  -3.2580  6.0788    0.0995    0.1942
+      3   FR73     spatial_pooled        TP        clarke_HNS  72  24 -0.9155  -5.6316  3.2248   -0.0067    0.0122
+      3   FR73     spatial_pooled   plant_N        clarke_HNS  72  24 20.8581   0.1058 36.5067    0.1899    0.2716
+      3   FR73 record_sensitivity   plant_N clarke_HNS_record  72  24  0.2031  -4.2862  4.3367    0.0595    0.1713
+      3   FR73              delta      d_TP      d_actual_EQR  72  24 -0.0542  -3.8647  3.4479   -0.0516   -0.0208
+      3   FR73              delta      d_TP         d_plant_N  72  24 -7.9778 -11.4101 -4.7036   -0.0680    0.0349
+      3   FR73              delta      d_TP         d_old_HNS  72  24 -2.1668  -7.2746  2.8083   -0.0617    0.0156
+      3   FR73              delta d_plant_N         d_old_HNS  72  24 -1.4649  -4.9279  1.4403   -0.0245    0.1096
+      3   FR73              delta      d_TP      d_clarke_HNS  72  24 -3.2288 -10.3523  2.7008   -0.0498    0.0204
+      3   FR73              delta d_plant_N      d_clarke_HNS  72  24  0.1482  -3.0418  2.6551    0.0112    0.0661
+      2     EU     spatial_pooled         W           plant_N 207  81 16.3001   3.9066 26.5334    0.0459    0.1016
+      2     EU     spatial_pooled         W               EQR 207  81  8.9645   0.1706 16.2531   -0.0652   -0.0318
+      2     EU     spatial_pooled   plant_N           old_HNS 207  81 22.8597   7.1727 35.8618    0.3114    0.3677
+      2     EU     spatial_pooled       EQR           old_HNS 207  81 -0.1184  -1.9849  1.5653   -0.0754   -0.0001
+      2     EU record_sensitivity   plant_N    old_HNS_record 207  81 -1.6542  -5.4328  1.9062    0.0598    0.2251
+      2     EU     spatial_pooled   plant_N        clarke_HNS 207  81 25.9322   9.2124 39.3647    0.3441    0.4156
+      2     EU     spatial_pooled       EQR        clarke_HNS 207  81  0.2799  -1.2389  1.9404   -0.0677   -0.0335
+      2     EU record_sensitivity   plant_N clarke_HNS_record 207  81 -2.5030  -7.1587  1.8803    0.0381    0.2577
+      2   FR73     spatial_pooled        TP        actual_EQR  72  24 22.5106  10.5767 33.5489   -0.1122   -0.0894
+      2   FR73     spatial_pooled        TP           plant_N  72  24 -0.4541  -5.9878  2.8162   -0.0061    0.0301
+      2   FR73     spatial_pooled        TP           old_HNS  72  24 -2.3163  -5.3316 -0.4788   -0.0188    0.0022
+      2   FR73     spatial_pooled   plant_N           old_HNS  72  24 21.4467   3.1676 36.5102    0.2263    0.2927
+      2   FR73 record_sensitivity   plant_N    old_HNS_record  72  24  2.0602  -3.1187  6.7219    0.1064    0.1973
+      2   FR73     spatial_pooled        TP        clarke_HNS  72  24 -1.1680  -6.3945  3.4305   -0.0073    0.0136
+      2   FR73     spatial_pooled   plant_N        clarke_HNS  72  24 22.6826   2.2979 38.2187    0.2015    0.2789
+      2   FR73 record_sensitivity   plant_N clarke_HNS_record  72  24  0.5919  -4.1182  4.9991    0.0657    0.1743
+      2   FR73              delta      d_TP      d_actual_EQR  72  24  0.0110  -3.6887  3.3125   -0.0513   -0.0201
+      2   FR73              delta      d_TP         d_plant_N  72  24 -8.4031 -12.1375 -5.1202   -0.0715    0.0349
+      2   FR73              delta      d_TP         d_old_HNS  72  24 -1.7865  -7.4245  3.3528   -0.0666    0.0134
+      2   FR73              delta d_plant_N         d_old_HNS  72  24 -1.4782  -5.2074  1.6923   -0.0237    0.1229
+      2   FR73              delta      d_TP      d_clarke_HNS  72  24 -3.7058  -9.8933  1.4708   -0.0453    0.0246
+      2   FR73              delta d_plant_N      d_clarke_HNS  72  24 -1.5467  -3.8549  0.4842   -0.0208    0.0415

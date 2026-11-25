@@ -1,0 +1,36 @@
+{
+  "status": "PASS_SOURCE_AND_TAXONOMY",
+  "source_workflow": 45386260304,
+  "source_artifact": 14916653169,
+  "source_zip_sha256": "f50b0f9b9bd2b4d42cce5964c45b68350280868e601d0db46e1c7503176cb353",
+  "appendix_sha256": "b6da07c1b62463f98761625bc2277fd1ed6e9e30ab35a833a89e0f1fc97ed043",
+  "appendix_member": "ECE3-14-e10834-s005.xlsx",
+  "source_rows": 5589,
+  "source_butterflies": 464,
+  "source_plant_names": 1972,
+  "evidence_counts": {
+    "Larvae": 2848,
+    "Claim only": 1821,
+    "Proven": 400,
+    "Eggs": 271,
+    "Breeding only": 154,
+    "Mistake": 95
+  },
+  "source_dispositions": {
+    "excluded_evidence": 2070,
+    "other_butterfly_family": 1837,
+    "unmapped_or_ambiguous_butterfly": 775,
+    "outside_or_ambiguous_frozen_plant_universe": 416,
+    "matched_reliable": 256,
+    "no_nonquestionable_country": 122,
+    "non_species_or_ambiguous_rank": 113
+  },
+  "source_butterfly_alias_conflicts": 8,
+  "common_universe": 990,
+  "mapped_rows": 256,
+  "mapped_edges": 256,
+  "mapped_butterflies": 52,
+  "mapped_plants": 87,
+  "edge_csv_sha256": "409a1c18283f75442404918a21da03aec3b49642fb8db559c89c87935253b60f",
+  "interpretation": "Source mapping pass only; common-support gate still required. Country field supplies at least one plausible country in Europe, not local field use. Species-level name matching does not resolve hidden taxonomic disagreements."
+}

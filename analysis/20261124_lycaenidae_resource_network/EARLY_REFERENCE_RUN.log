@@ -1,0 +1,102 @@
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+{
+  "source_digests": {
+    "gesui_original_panel.zip": "b0babfa63a96f9b7eb5a83122b08b8664edab6e8c6c28d2faf4ff024ca84c39b",
+    "gesui_host_source.zip": "1cf6ed4ee41282a7f1be2e5cc7e1542a186b4fef5e1a46adf5861543c0ebbd94",
+    "gesui_gbif_facets.zip": "4b37c741d1bd28c178b0cef61c9457af0dd30797c173f9384ebe1d1d0036d07c",
+    "gesui_atlas.zip": "99f42768ac0d215fca5662de449f97fba598bebab9b147288ef99e19db3633b7",
+    "gesui_h6.zip": "1f94449184095225de2048bc916754ae2072ed17f385614ddb7c67bd5d52dbdd",
+    "FR73_original_14013312711.zip": "7c3b9f1976e410526e396fabdfbd527319bdde5047ca4819ee6c29588443e5e2"
+  },
+  "early_H7periods": 227,
+  "early_H6": 89,
+  "early_only_nonzero_host_profiles": 500,
+  "early_only_strata": 278,
+  "host_genus": 437,
+  "host_family": 71,
+  "paired_H7": 222,
+  "quality_H7": 173,
+  "quality_H6": 77,
+  "variants": {
+    "full_reference": {
+      "identity_max_error": 3.3306690738754696e-16,
+      "paired_plant_sd": 0.13215838239954794,
+      "paired_within_genus_sd": 0.05192759112267144,
+      "paired_genus_mass_sd": 0.09682794078027088
+    },
+    "early_reference": {
+      "identity_max_error": 1.3877787807814457e-16,
+      "paired_plant_sd": 0.125995876903924,
+      "paired_within_genus_sd": 0.05301224066000381,
+      "paired_genus_mass_sd": 0.09087820516562686
+    }
+  },
+  "source_note": "early-only null is retrospective/transductive on early heldout H6; no observed feeding or wastewater causality",
+  "fitted_models": 40,
+  "independent_prediction_max_diff": 1.8318679906315083e-15
+}
+                                                                     name   n  H6   gain     lo     hi
+                                     full_reference__quality__plant_delta 173  77 14.663  7.123 22.235
+                                  full_reference__quality__consumer_delta 173  77 -0.719 -2.722  0.237
+                                     full_reference__quality__total_delta 173  77 14.750  6.301 22.175
+                                     full_reference__quality__family_mass 173  77  5.034  1.017  9.503
+                          full_reference__quality__within_family_identity 173  77  9.610  2.207 17.183
+                        full_reference__quality__genus_within_family_mass 173  77  6.439  0.539 12.162
+                           full_reference__quality__within_genus_identity 173  77  1.312 -1.117  4.114
+                                         full_reference__all__plant_delta 222  89 10.400  4.085 17.743
+                                      full_reference__all__consumer_delta 222  89 -0.424 -1.939  0.515
+                                         full_reference__all__total_delta 222  89 10.504  4.168 17.234
+                                         full_reference__all__family_mass 222  89  4.353  0.835  8.595
+                              full_reference__all__within_family_identity 222  89  5.884  1.236 11.747
+                            full_reference__all__genus_within_family_mass 222  89  5.158  0.686 10.217
+                               full_reference__all__within_genus_identity 222  89  0.509 -1.279  2.416
+              full_reference__FR73__mean_original_2018_logTP__plant_delta  73  24 -3.188 -6.506  0.283
+                full_reference__FR73__mean_original_2018_EQR__plant_delta  73  24  1.870 -2.556  5.682
+    full_reference__FR73__mean_original_2018_logTP__within_genus_identity  73  24  1.386 -8.186  8.160
+      full_reference__FR73__mean_original_2018_EQR__within_genus_identity  73  24 -0.372 -5.216  1.456
+ full_reference__FR73__mean_original_2018_logTP__genus_within_family_mass  73  24 -5.549 -9.000 -1.696
+   full_reference__FR73__mean_original_2018_EQR__genus_within_family_mass  73  24 -1.139 -2.464 -0.047
+                                    early_reference__quality__plant_delta 173  77 13.658  6.000 21.835
+                                 early_reference__quality__consumer_delta 173  77 -1.070 -3.579 -0.166
+                                    early_reference__quality__total_delta 173  77 13.846  4.203 21.915
+                                    early_reference__quality__family_mass 173  77  6.113  1.567 10.500
+                         early_reference__quality__within_family_identity 173  77  6.946  0.166 14.506
+                       early_reference__quality__genus_within_family_mass 173  77  4.968 -0.207 10.512
+                          early_reference__quality__within_genus_identity 173  77  0.592 -2.289  3.961
+                                        early_reference__all__plant_delta 222  89  9.483  3.513 16.336
+                                     early_reference__all__consumer_delta 222  89 -0.416 -1.862  0.265
+                                        early_reference__all__total_delta 222  89 10.326  3.922 16.836
+                                        early_reference__all__family_mass 222  89  5.495  1.423 10.544
+                             early_reference__all__within_family_identity 222  89  3.918  0.240  8.487
+                           early_reference__all__genus_within_family_mass 222  89  3.487 -0.387  7.731
+                              early_reference__all__within_genus_identity 222  89 -0.139 -1.730  1.552
+             early_reference__FR73__mean_original_2018_logTP__plant_delta  73  24 -2.303 -5.866  1.441
+               early_reference__FR73__mean_original_2018_EQR__plant_delta  73  24  3.193 -2.561  8.609
+   early_reference__FR73__mean_original_2018_logTP__within_genus_identity  73  24 -0.294 -8.976  6.136
+     early_reference__FR73__mean_original_2018_EQR__within_genus_identity  73  24 -0.418 -4.114  1.084
+early_reference__FR73__mean_original_2018_logTP__genus_within_family_mass  73  24 -3.743 -7.513 -0.400
+  early_reference__FR73__mean_original_2018_EQR__genus_within_family_mass  73  24 -0.650 -2.666  1.718
+                                 name       country   n   H6  train_H7  train_H6  mse0  mse1   gain
+ full_reference__quality__plant_delta            FR 110 32.0      63.0      45.0 0.014 0.012 12.604
+ full_reference__quality__plant_delta            IT  23 14.0     149.0      63.0 0.007 0.007  2.927
+ full_reference__quality__plant_delta            LT  12  9.0     161.0      68.0 0.034 0.029 15.342
+ full_reference__quality__plant_delta COUNTRY_EQUAL 145  NaN       NaN       NaN 0.018 0.016 13.046
+     full_reference__all__plant_delta            FR 148 34.0      74.0      55.0 0.010 0.009 10.717
+     full_reference__all__plant_delta            IT  24 15.0     197.0      74.0 0.006 0.005 20.898
+     full_reference__all__plant_delta            LT  12  9.0     210.0      80.0 0.037 0.032 13.879
+     full_reference__all__plant_delta            NO  11 10.0     211.0      79.0 0.029 0.025 13.968
+     full_reference__all__plant_delta COUNTRY_EQUAL 195  NaN       NaN       NaN 0.021 0.018 14.020
+early_reference__quality__plant_delta            FR 110 32.0      63.0      45.0 0.010 0.009 12.043
+early_reference__quality__plant_delta            IT  23 14.0     149.0      63.0 0.005 0.004 16.503
+early_reference__quality__plant_delta            LT  12  9.0     161.0      68.0 0.033 0.029 10.894
+early_reference__quality__plant_delta COUNTRY_EQUAL 145  NaN       NaN       NaN 0.016 0.014 11.706
+    early_reference__all__plant_delta            FR 148 34.0      74.0      55.0 0.008 0.007 10.775
+    early_reference__all__plant_delta            IT  24 15.0     197.0      74.0 0.007 0.005 22.469
+    early_reference__all__plant_delta            LT  12  9.0     210.0      80.0 0.038 0.034 10.789
+    early_reference__all__plant_delta            NO  11 10.0     211.0      79.0 0.024 0.020 15.523
+    early_reference__all__plant_delta COUNTRY_EQUAL 195  NaN       NaN       NaN 0.019 0.017 13.336

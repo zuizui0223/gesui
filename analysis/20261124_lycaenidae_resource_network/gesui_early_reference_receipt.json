@@ -1,0 +1,36 @@
+{
+  "source_digests": {
+    "gesui_original_panel.zip": "b0babfa63a96f9b7eb5a83122b08b8664edab6e8c6c28d2faf4ff024ca84c39b",
+    "gesui_host_source.zip": "1cf6ed4ee41282a7f1be2e5cc7e1542a186b4fef5e1a46adf5861543c0ebbd94",
+    "gesui_gbif_facets.zip": "4b37c741d1bd28c178b0cef61c9457af0dd30797c173f9384ebe1d1d0036d07c",
+    "gesui_atlas.zip": "99f42768ac0d215fca5662de449f97fba598bebab9b147288ef99e19db3633b7",
+    "gesui_h6.zip": "1f94449184095225de2048bc916754ae2072ed17f385614ddb7c67bd5d52dbdd",
+    "FR73_original_14013312711.zip": "7c3b9f1976e410526e396fabdfbd527319bdde5047ca4819ee6c29588443e5e2"
+  },
+  "early_H7periods": 227,
+  "early_H6": 89,
+  "early_only_nonzero_host_profiles": 500,
+  "early_only_strata": 278,
+  "host_genus": 437,
+  "host_family": 71,
+  "paired_H7": 222,
+  "quality_H7": 173,
+  "quality_H6": 77,
+  "variants": {
+    "full_reference": {
+      "identity_max_error": 3.3306690738754696e-16,
+      "paired_plant_sd": 0.13215838239954794,
+      "paired_within_genus_sd": 0.05192759112267144,
+      "paired_genus_mass_sd": 0.09682794078027088
+    },
+    "early_reference": {
+      "identity_max_error": 1.3877787807814457e-16,
+      "paired_plant_sd": 0.125995876903924,
+      "paired_within_genus_sd": 0.05301224066000381,
+      "paired_genus_mass_sd": 0.09087820516562686
+    }
+  },
+  "source_note": "early-only null is retrospective/transductive on early heldout H6; no observed feeding or wastewater causality",
+  "fitted_models": 40,
+  "independent_prediction_max_diff": 1.8318679906315083e-15
+}

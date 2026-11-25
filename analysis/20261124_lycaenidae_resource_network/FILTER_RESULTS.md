@@ -1,0 +1,34 @@
+# Same-grain nutrient-affinity filtering survives alternate catalogue, not direct water-to-land transfer
+
+Posthoc observational comparison, following expanded Clarke network non-replication. This is a different endpoint; the earlier catalogue-sensitive network finding remains unsupported under Clarke. No new independent field observations. Source original seven ZIPs in SOURCE_MANIFEST.json plus Clarke official Appendix S1 (artifact 14916653169, ZIP SHA256 f50b0f9b9bd2b4d42cce5964c45b68350280868e601d0db46e1c7503176cb353; member s005 SHA256 b6da07c1b62463f98761625bc2277fd1ed6e9e30ab35a833a89e0f1fc97ed043). Prior original 990 host keys and all 11,511 observed taxonomy keys; 4,011 exact EIV NUTRI scores. Plant incidence mean reproduced all 451 original eligible rows to 1e-12; original six archive hashes and governing 454-panel fields checked. Original host source includes 1,565 edges; 1,025 accepted observed vascular old edges after taxonomic gate. New 1,974 field-supported mapped edges/845 plants/210 butterfly keys in all five families; 550/555 previously mapped Lycaenidae links retained (stricter accepted vascular and exact alias conflict gates). Pooled relationship evidence, any non-questionable European country, not field use in specific H7. All 5,589 dispositions saved. Both catalogues require >=2 scored mapped hosts and >=50% of mapped host keys scored per butterfly. Unmapped host taxa are not represented in this denominator; not complete host breadth. 94 common accepted butterfly keys at each evidence cutoff (not exactly the same identities); score rank rho .82684 (evidence1–3), mean abs diff .64052 EIV units. Both periods >=50% common scored GBIF record mass and original plant eligibility. 207 paired H7/81 H6 (414 rows); median common record coverage .6254, median plant species coverage .6558, median common butterfly taxa 46. FR72/24 H6/144 rows, original 261 repeated physical stations (2 sites in excluded H7 2070020910); GBIF is whole watershed, not those stations. Fixed SHA256 H6 hash modulo five, train-only scaling, H6 equal Ridge10, exact independent sklearn predictions (max absolute diff 1.27e-13); 5000 fixed-loss H6 resamples descriptive, not independent confirmatory inference. Focal slopes not causal.
+
+## Evidence levels 1–3 pooled spatial predictions
+
+| Same cohort | Added predictor -> outcome | MSE gain % [descriptive95] |
+|---|---|---|
+| EU207 | modeled W -> plant N | +16.1117 [3.8101,26.3385] |
+| EU207 | modeled W -> EQR | +8.8721 [.0634,16.1726] |
+| EU207 | plant N -> old HNS after W | +22.3462 [6.9023,35.2985] |
+| EU207 | plant N -> Clarke HNS after W | +24.4969 [7.8768,38.1145] |
+| EU207 | EQR -> old HNS after W and plant N | -.0071 [-1.9319,1.7365] |
+| EU207 | EQR -> Clarke HNS after W and plant N | +.1588 [-1.2250,1.6743] |
+| FR72 | measured logTP -> same station EQR | +22.5014 [10.5766,33.5484] |
+| FR72 | measured logTP -> plant N | -.5760 [-6.2047,2.7493] |
+| FR72 | measured logTP -> old HNS after plant N | -2.2259 [-5.2221,-.3698] |
+| FR72 | measured logTP -> Clarke HNS after plant N | -.9155 [-5.6316,3.2248] |
+| FR72 | plant N -> old HNS after W and TP | +20.1376 [2.0811,35.1722] |
+| FR72 | plant N -> Clarke HNS after W and TP | +20.8581 [.1058,36.5067] |
+
+The plant N association is positive in every fitted fold for both catalogues. Strict evidence1–2: EU +22.8597/+25.9322; FR +21.4467/+22.6826 (old/Clarke). Paired catalogue contrast EU +2.1507 pp [-3.1313,7.0631], FR +.7205 pp [-6.9882,6.6276], not evidence of equivalence. FR first differences: no positive interval for any of six contrasts under either evidence cutoff; no synchronized change. Record-weighted HNS sensitivity fails (EU old -1.7458/Clarke -2.7717, FR +1.6688/+.2031, all intervals include zero). Thus the finding pertains to equal-species composition, not butterfly abundance or record-dominant composition. There are 44 model records and 1,968 H6 loss rows; no p-value fishing or claim of new independent field validation.
+
+## Diagnostic of shared host-trait values
+
+Fixed separate protocol FILTER_NONHOST_PROTOCOL.md before new fits. Exclude all original 990 and all new mapped host keys from the plant CWM, then all their genera. 3,275/1,876 scored plant keys remain respectively; minimum30 scored taxa per H7-period, >=80% original H7, >=20 H6. All source gates pass. EU205/81 H6 for both exclusions; FR72/24 H6 unchanged. All 16 fits retained. EU205 full/host-key-excluded/host-genus-excluded gains: old +22.2485/+28.4992/+22.7432; Clarke +23.7219/+30.0475/+26.3008. Host-genus excluded 95% old [6.8872,35.6789], Clarke [7.7320,40.8087]. FR genus-excluded old +9.6552 [-8.6713,23.2708], Clarke +8.9675 [-12.5578,23.8458], uncertain; species exclusion also uncertain. No direct statistical evidence that exclusion increases gain. Persistence in EU shows association is not solely reuse of the exact documented host species' EIV values. Catalogue-unlisted taxa are not biologically verified nonhosts. Shared EIV reference, broad habitat geography, taxonomic history, observation and coverage confounding remain.
+
+## Interpretation and limits
+
+Two compartment-specific spatial patterns: actual ambient river TP predicts benthic integrity; terrestrial plant habitat-affinity composition predicts documented larval host habitat-affinity composition under two catalogues, even from plants outside known host genera in the European panel. Modeled W associated with both aquatic and terrestrial indices in this cohort. The two exposures differ: W is not measured delivered nutrients, and TP cannot identify wastewater vs agriculture. No measured cross-compartment transfer, no direct water-quality effect on butterfly habitat affinities, no causal mediation, no actual plant tissue N/biomass or realized feeding. New alternate catalogue is a source sensitivity only and may share underlying references. Country-out transfer has not yet been tested for this new outcome; all intervals posthoc nominal. Main ecological claim should not become a unified sewage mechanism. Next discriminate broad habitat/land-use and taxonomic composition with heldout countries, independent community survey and genuine directed exposure data.
+
+## Replay
+
+Keep original 7 archives and official Clarke ZIP under names in SOURCE_MANIFEST.json and mapping script. Copy original `gesui_clarke_appendix_mapping.py`, `gesui_fab_resource_consumer.py`, `gesui_rebuilt_network.csv`; copy archived `clarke_expanded_edges.csv` to working folder as `old_lycaenid_expanded.csv` (audit-only). Copy the 3 new scripts. Run `python gesui_filter_mapping.py WORK`, `python gesui_filter_compare.py WORK`, `python gesui_filter_nonhost.py WORK`. Large mapping audit, panel and losses are archived gzip, verify SHA256 + Git blob SHA. No third-party raw archive rehosting. All 60 fits local numeric verified; remote Actions rerun not verified for this addition.

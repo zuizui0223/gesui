@@ -1,0 +1,193 @@
+{
+  "signed_eiv_zip_sha256": "1d3051d4c527421bec3ec3ba917422a9162afb81cc7f38db0d8130287174a14c",
+  "source_host_keys": 990,
+  "scored_host_keys": 328,
+  "fab_keys": 119,
+  "fab_scored_keys": 31,
+  "decomposition": {
+    "all_hosts": {
+      "groups": 1,
+      "max_error": 3.3306690738754696e-16,
+      "quantity_sd": 0.022289116475131283,
+      "identity_sd": 0.12463390518682364
+    },
+    "fab_nonfab": {
+      "groups": 2,
+      "max_error": 2.220446049250313e-16,
+      "quantity_sd": 0.052348232132749584,
+      "identity_sd": 0.11187246669900601
+    },
+    "plant_family": {
+      "groups": 71,
+      "max_error": 1.3877787807814457e-16,
+      "quantity_sd": 0.0635470383378725,
+      "identity_sd": 0.11017930875040294
+    },
+    "family_coverage": {
+      "groups": 110,
+      "max_error": 1.3877787807814457e-16,
+      "quantity_sd": 0.06579636047507617,
+      "identity_sd": 0.10135872059174923
+    }
+  },
+  "nutri_projection": {
+    "eligible_families": [
+      "Apiaceae",
+      "Aristolochiaceae",
+      "Asteraceae",
+      "Boraginaceae",
+      "Brassicaceae",
+      "Caprifoliaceae",
+      "Crassulaceae",
+      "Cyperaceae",
+      "Ericaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Plantaginaceae",
+      "Poaceae",
+      "Polygonaceae",
+      "Rosaceae",
+      "Salicaceae",
+      "Urticaceae",
+      "Violaceae"
+    ],
+    "eligible_host_keys": 272,
+    "family_details": [
+      {
+        "family": "Apiaceae",
+        "scored_keys": 19,
+        "mean_mass": 0.30602153954759903,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Aristolochiaceae",
+        "scored_keys": 5,
+        "mean_mass": 0.04474007028518838,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Asteraceae",
+        "scored_keys": 26,
+        "mean_mass": 0.5591685433955441,
+        "sd_contribution": 0.0001395370279804889
+      },
+      {
+        "family": "Boraginaceae",
+        "scored_keys": 6,
+        "mean_mass": 0.2800909149946428,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Brassicaceae",
+        "scored_keys": 47,
+        "mean_mass": 0.6290166744380558,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Caprifoliaceae",
+        "scored_keys": 8,
+        "mean_mass": 0.347098728621284,
+        "sd_contribution": 0.001915246725397869
+      },
+      {
+        "family": "Crassulaceae",
+        "scored_keys": 6,
+        "mean_mass": 0.11184631175206726,
+        "sd_contribution": 5.311262849593808e-05
+      },
+      {
+        "family": "Cyperaceae",
+        "scored_keys": 6,
+        "mean_mass": 0.049937199887304606,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Ericaceae",
+        "scored_keys": 6,
+        "mean_mass": 0.3356460121394641,
+        "sd_contribution": 0.004071864651289084
+      },
+      {
+        "family": "Fabaceae",
+        "scored_keys": 31,
+        "mean_mass": 0.934155933519802,
+        "sd_contribution": 0.006018961458630314
+      },
+      {
+        "family": "Lamiaceae",
+        "scored_keys": 11,
+        "mean_mass": 0.2723247311738501,
+        "sd_contribution": 0.0007671515974800705
+      },
+      {
+        "family": "Malvaceae",
+        "scored_keys": 8,
+        "mean_mass": 0.10716503914043903,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Plantaginaceae",
+        "scored_keys": 7,
+        "mean_mass": 0.3597030744700893,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Poaceae",
+        "scored_keys": 38,
+        "mean_mass": 0.9199350325973233,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Polygonaceae",
+        "scored_keys": 6,
+        "mean_mass": 0.11607779485659282,
+        "sd_contribution": 0.006607189081127296
+      },
+      {
+        "family": "Rosaceae",
+        "scored_keys": 19,
+        "mean_mass": 0.8718275735086718,
+        "sd_contribution": 0.0022174812914450945
+      },
+      {
+        "family": "Salicaceae",
+        "scored_keys": 11,
+        "mean_mass": 0.298613762680038,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Urticaceae",
+        "scored_keys": 5,
+        "mean_mass": 0.24934240200687727,
+        "sd_contribution": 0.0
+      },
+      {
+        "family": "Violaceae",
+        "scored_keys": 7,
+        "mean_mass": 0.11114121660124801,
+        "sd_contribution": 0.0
+      }
+    ]
+  },
+  "coverage": {
+    "host": {
+      "median_early": 0.6671359806690895,
+      "median_late": 0.6914378987690469,
+      "both_80_H7": 0
+    },
+    "fab": {
+      "median_early": 0.6586124163373832,
+      "median_late": 0.6508298770808096,
+      "both_80_H7": 1
+    },
+    "nonfab": {
+      "median_early": 0.6752882613678237,
+      "median_late": 0.6957499111525466,
+      "both_80_H7": 3
+    }
+  },
+  "model_count": 53,
+  "max_independent_prediction_difference": 1.3322676295501878e-14,
+  "prior_exact_plant_term_match": 1.3877787807814457e-16
+}

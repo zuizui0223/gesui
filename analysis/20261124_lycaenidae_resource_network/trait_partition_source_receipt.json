@@ -1,0 +1,15 @@
+{
+  "sources": {
+    "life": [
+      "https://files.ibot.cas.cz/cevs/downloads/floraveg/Life_form.xlsx",
+      "cdbe95457bfb0a3154f1d676f73b965f42122d996a02b7c2362ff5f2f27df14a"
+    ],
+    "disturbance": [
+      "https://zenodo.org/records/7116802/files/disturbance_indicator_values.csv?download=1",
+      "7596c9354018816d408e051d59437b3303666d14ec1cecd170f38b9f7206a04d"
+    ]
+  },
+  "source_gate_artifact": 14915055021,
+  "protocol": "source matched 50% mass coverage both periods, min40 H7/20 H6, min100 scored hosts; training-only null; fixed 3 trait domains; all source failures retained",
+  "notes": "trait projection is algebraic, not causal; source EIV/disturbance are ecological optima; no direct management, N-fixation or actual feeding measurement"
+}

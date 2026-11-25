@@ -1,0 +1,436 @@
+{
+  "doi": "10.1002/ece3.10834",
+  "pmcid": "PMC10771928",
+  "prior_inventory_run": 45385384325,
+  "prior_inventory_artifact": 14915862892,
+  "files": {
+    "ECE3-14-e10834-s001.xlsx": {
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10771928.1/ECE3-14-e10834-s001.xlsx",
+      "bytes": 33768,
+      "sha256": "4d41350bb6055e7df0fc55807ccd5551e3f53edcd2cee7cb7967ec5d05a8cc3a",
+      "schema": {
+        "Butterfly_Red_List_2010": {
+          "rows": 484,
+          "columns": 7,
+          "head": [
+            [
+              "butterfly",
+              "authors",
+              "europe_red",
+              "eu27_red",
+              "accepted_butterfly",
+              "Evidence all",
+              "Evidence good dist."
+            ],
+            [
+              "Aglais ichnusa",
+              "(Bonelli, 1826)",
+              "LC",
+              "LC",
+              "Aglais ichnusa",
+              "Larvae",
+              "Larvae"
+            ],
+            [
+              "Aglais io",
+              "(Linnaeus, 1758)",
+              "LC",
+              "LC",
+              "Aglais io",
+              "Proven",
+              "Proven"
+            ],
+            [
+              "Aglais urticae",
+              "(Linnaeus, 1758)",
+              "LC",
+              "LC",
+              "Aglais urticae",
+              "Proven",
+              "Proven"
+            ],
+            [
+              "Anthocharis cardamines",
+              "(Linnaeus, 1758)",
+              "LC",
+              "LC",
+              "Anthocharis cardamines",
+              "Proven",
+              "Proven"
+            ],
+            [
+              "Anthocharis damone",
+              "(Boisduval, 1836)",
+              "LC",
+              "LC",
+              "Anthocharis damone",
+              "Proven",
+              "Proven"
+            ],
+            [
+              "Anthocharis euphenoides",
+              "(Staudinger, 1869)",
+              "LC",
+              "LC",
+              "Anthocharis euphenoides",
+              "Proven",
+              "Proven"
+            ],
+            [
+              "Anthocharis gruneri",
+              "(Herrich-Schäffer, 1851)",
+              "LC",
+              "LC",
+              "Anthocharis gruneri",
+              "Larvae",
+              "Larvae"
+            ]
+          ]
+        }
+      }
+    },
+    "ECE3-14-e10834-s002.xlsx": {
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10771928.1/ECE3-14-e10834-s002.xlsx",
+      "bytes": 145895,
+      "sha256": "ec2bdb4bdf611b336a6f3187d5a4c83a179c125c066b2c05c5412ee0eacd4ab0",
+      "schema": {
+        "S2-references-20230725": {
+          "rows": 1120,
+          "columns": 4,
+          "head": [
+            [
+              "id",
+              "short_ref",
+              "full_reference",
+              "ref_type"
+            ],
+            [
+              "275",
+              "Aarvik et al. (2009)",
+              "Aarvik L, Ove Hansen L, Kononenko VS (2009) Norges summerflugler : håndbok over Norges dagsommerfugler og nattsvermere. Norsk entomologisk forening & Naturhistorisk museum, Oslo. 432 pp",
+              "S"
+            ],
+            [
+              "186",
+              "Abadjiev (1992)",
+              "Abadjiev S (1992) Butterflies of Bulgaria, Part 1 Papilionidae & Pieridae. Veren Publishers, Sofia. 91 pp",
+              "S"
+            ],
+            [
+              "190",
+              "Abadjiev (1993)",
+              "Abadjiev S (1993) Butterflies of Bulgaria, Part 2 Nymphalidae: Libytheinae & Satyrinae. Veren Publishers, Sofia. 127 pp",
+              "S"
+            ],
+            [
+              "192",
+              "Abadjiev (1994a)",
+              "Abadjiev S (1994) On the larval foodplant of Pontia chloridice (Hübner, [1808-1813]) in Bulgaria (Lepidoptera: Pieridae). Entomologist’s Record and Journal of Variation 106(7-8): 139",
+              "P"
+            ],
+            [
+              "193",
+              "Abadjiev (1994b)",
+              "Abadjiev S (1994) The larval foodplant of Colias caucasica balcanica (Rebel, 1901) in Bulgaria (Lepidoptera: Pieridae). Phegea 22(3): 97–98",
+              "P"
+            ],
+            [
+              "191",
+              "Abadjiev (1995)",
+              "Abadjiev S (1995) Butterflies of Bulgaria, Volume 3 Nymphalidae: Apaturinae & Nymphalinae. Veren Puis S. Abadjiev, Sofia. 159 pp",
+              "S"
+            ],
+            [
+              "183",
+              "Abafi-Aigner (1907)",
+              "Abafi-Aigner L (1907) Magyarország lepkéi. Athenaeum Irodalmi, Budapest, 137 pp",
+              "S"
+            ]
+          ]
+        }
+      }
+    },
+    "ECE3-14-e10834-s003.xlsx": {
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10771928.1/ECE3-14-e10834-s003.xlsx",
+      "bytes": 23284,
+      "sha256": "fa3d3bf6a08c074de1fbccfe570bd925ca54dd5bbc1700ac849c1ce6b2dc751d",
+      "schema": {
+        "S4 - count_num_monphageous": {
+          "rows": 379,
+          "columns": 5,
+          "head": [
+            [
+              "accepted_butterfly",
+              "num_orders",
+              "num_families",
+              "num_genera",
+              "num_species"
+            ],
+            [
+              "Boloria napaea",
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "Chazara prieuri",
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "Colias thisoa",
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "Hyponephele lupina",
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "Lysandra albicans",
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "Polyommatus fulgens",
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "Proterebia phegea",
+              "1",
+              "1",
+              "1",
+              "0"
+            ]
+          ]
+        },
+        "Notes": {
+          "rows": 2,
+          "columns": 1,
+          "head": [
+            [
+              "The number of different plant species (including subspecies, varieties, forms or nothof.), genera, families and orders used by each European butterfly species, with reliable records"
+            ],
+            [
+              "Reliable records are defined as those with evidence of usage in the wild, and plant without a questionable distribution."
+            ]
+          ]
+        }
+      }
+    },
+    "ECE3-14-e10834-s004.xlsx": {
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10771928.1/ECE3-14-e10834-s004.xlsx",
+      "bytes": 14627,
+      "sha256": "5f646a99918ec8c4301e39d415d87ae20db78116241b5166af8bb28684eb07d4",
+      "schema": {
+        "S5 - plant_families_for_butterf": {
+          "rows": 54,
+          "columns": 7,
+          "head": [
+            [
+              "Ord",
+              "butterfly_family",
+              "butterfly_subfamily",
+              "butterfly_tribe",
+              "butterfly_subtribe",
+              "plant_orders",
+              "plant_families"
+            ],
+            [
+              "1",
+              "Papilionidae",
+              "Parnassiinae",
+              "Parnassiini",
+              "",
+              "Ranunculales, Saxifragales",
+              "Crassulaceae, Papaveraceae, Saxifragaceae"
+            ],
+            [
+              "2",
+              "Papilionidae",
+              "Parnassiinae",
+              "Luehdorfiini",
+              "",
+              "Piperales",
+              "Aristolochiaceae"
+            ],
+            [
+              "3",
+              "Papilionidae",
+              "Parnassiinae",
+              "Zerynthiini",
+              "",
+              "Piperales",
+              "Aristolochiaceae"
+            ],
+            [
+              "4",
+              "Papilionidae",
+              "Papilioninae",
+              "Papilionini",
+              "",
+              "Apiales, Asterales, Rosales, Sapindales",
+              "Apiaceae, Asteraceae, Rosaceae, Rutaceae"
+            ],
+            [
+              "5",
+              "Hesperiidae",
+              "Pyrginae",
+              "Carcharodini",
+              "",
+              "Lamiales, Malvales, Rosales, Solanales",
+              "Convolvulaceae, Lamiaceae, Malvaceae, Rosaceae"
+            ],
+            [
+              "6",
+              "Hesperiidae",
+              "Pyrginae",
+              "Erynnini",
+              "",
+              "Apiales, Brassicales, Fabales, Rosales",
+              "Apiaceae, Brassicaceae, Fabaceae, Rosaceae"
+            ],
+            [
+              "7",
+              "Hesperiidae",
+              "Pyrginae",
+              "Pyrgini",
+              "",
+              "Asterales, Dipsacales, Fabales, Fagales, Malvales, Rosales",
+              "Asteraceae, Betulaceae, Caprifoliaceae, Cistaceae, Fabaceae, Malvaceae, Rosaceae"
+            ]
+          ]
+        },
+        "Notes": {
+          "rows": 2,
+          "columns": 1,
+          "head": [
+            [
+              "Butterfly species grouped by family, subfamily, tribe and subtribe, showing reliable usage of plant families and orders."
+            ],
+            [
+              "Reliable records are defined as those with evidence of usage in the wild, and plant without a questionable distribution."
+            ]
+          ]
+        }
+      }
+    },
+    "ECE3-14-e10834-s005.xlsx": {
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10771928.1/ECE3-14-e10834-s005.xlsx",
+      "bytes": 331216,
+      "sha256": "b6da07c1b62463f98761625bc2277fd1ed6e9e30ab35a833a89e0f1fc97ed043",
+      "schema": {
+        "S1-data-1690376274364": {
+          "rows": 5590,
+          "columns": 9,
+          "head": [
+            [
+              "sp_ord",
+              "accepted_butterfly",
+              "plant_order",
+              "plant_family",
+              "accepted_plant",
+              "evidence",
+              "countries",
+              "questionable_countries",
+              "references"
+            ],
+            [
+              "1",
+              "Parnassius nordmanni",
+              "Ranunculales",
+              "Papaveraceae",
+              "Corydalis DC.",
+              "Claim only",
+              "North Caucasus",
+              "",
+              "Ilyina and Morgun (2010)"
+            ],
+            [
+              "2",
+              "Parnassius mnemosyne",
+              "Ranunculales",
+              "Papaveraceae",
+              "Corydalis blanda Schott",
+              "Larvae",
+              "Greece",
+              "",
+              "Lafranchis et al. (2015)"
+            ],
+            [
+              "2",
+              "Parnassius mnemosyne",
+              "Ranunculales",
+              "Papaveraceae",
+              "Corydalis blanda subsp. oxelmanii Lidén",
+              "Larvae",
+              "Greece",
+              "",
+              "Lafranchis (2019)"
+            ],
+            [
+              "2",
+              "Parnassius mnemosyne",
+              "Ranunculales",
+              "Papaveraceae",
+              "Corydalis blanda subsp. parnassica (Orph. & Heldr.) Lidén",
+              "Larvae",
+              "Greece",
+              "",
+              "Lafranchis (2004)"
+            ],
+            [
+              "2",
+              "Parnassius mnemosyne",
+              "Ranunculales",
+              "Papaveraceae",
+              "Corydalis capnoides (L.) Pers.",
+              "Claim only",
+              "",
+              "Northwest European Russia",
+              "Bolotov et al. (2013)"
+            ],
+            [
+              "2",
+              "Parnassius mnemosyne",
+              "Ranunculales",
+              "Papaveraceae",
+              "Corydalis cava (L.) Schweigg. & Körte",
+              "Larvae",
+              "Austria, Central Europe, Croatia, France, Germany, Greece, Hungary, Italy, Poland, Romania, Slovakia, Spain, Switzerland",
+              "",
+              "Balletto et al. (2023), Ebert and Rennwald (1991a), García-Barros et al. (2013), Glaßl (2017a), Lafranchis (2019), Lafranchis et al. (2015), Lorković (2009), LSPN (1987), Nel (1992b), Reinhardt et al. (2020), Reiprich (1960), Stancã-Moise (2017), Villa et al. (2009), Vojnits and Ács (2000), Warecki (2011)"
+            ],
+            [
+              "2",
+              "Parnassius mnemosyne",
+              "Ranunculales",
+              "Papaveraceae",
+              "Corydalis DC.",
+              "Larvae",
+              "Andorra, Austria, Hungary, Italy, Lithuania, North Caucasus, Poland, Romania, Serbia",
+              "",
+              "Burnaz (2008), Buszko and Masłowski (1993), Crozier (1999), Embacher (1996), Gozmány (1968), Hellmann and Bertaccini (2004), Ilyina and Morgun (2010), Kazlauskas (1984), Popović and Đurić (2012)"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "attempts": [],
+  "stage": "source_only_no_ecological_fit",
+  "status": "XLSX_ACQUIRED_CONTENT_AUDIT_REQUIRED"
+}

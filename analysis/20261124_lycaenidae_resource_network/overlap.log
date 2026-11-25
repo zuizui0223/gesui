@@ -1,0 +1,36 @@
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+ cutoff   component  edges  plants  butterflies
+      3      shared     96      60           45
+      3    old_only    167     155           24
+      3 clarke_only    423     246           44
+      2      shared     93      59           43
+      2    old_only    169     157           26
+      2 clarke_only    400     233           44
+ cutoff  sample   component  H7  H6   gain     lo     hi
+      3 quality      shared 159  74 -0.624 -4.180  5.073
+      3 quality    old_only 159  74  0.021 -5.998  4.055
+      3 quality clarke_only 159  74  0.628 -2.131  3.558
+      3     all      shared 200  85  4.729 -1.945 12.536
+      3     all    old_only 200  85  5.812  1.756 10.279
+      3     all clarke_only 200  85 -2.260 -5.886  0.752
+      2 quality      shared 159  74 -0.963 -4.430  4.622
+      2 quality    old_only 159  74  0.434 -5.141  3.604
+      2 quality clarke_only 159  74  0.354 -2.279  3.449
+      2     all      shared 200  85  3.519 -3.342 11.183
+      2     all    old_only 200  85  5.593  1.639 10.123
+      2     all clarke_only 200  85 -1.729 -4.141  0.457
+ cutoff  sample           A      B  difference  bonf2_lo  bonf2_hi
+      3 quality    old_only shared       0.645    -7.847     6.741
+      3 quality clarke_only shared       1.252    -6.079     6.512
+      3     all    old_only shared       1.083    -7.499    10.041
+      3     all clarke_only shared      -6.989   -18.433     2.560
+      2 quality    old_only shared       1.397    -6.705     6.705
+      2 quality clarke_only shared       1.317    -6.063     6.803
+      2     all    old_only shared       2.074    -6.513    10.966
+      2     all clarke_only shared      -5.248   -15.550     3.816
+maximum decomposition error 5.551115123125783e-16 maximum independent solver difference 1.1934897514720433e-15

@@ -1,0 +1,224 @@
+SNAPSHOT: 16/16 exact bytes SHA256 and Git blob SHA1 PASS
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+model quality
+model all
+model France
+model other
+model FR73
+model FR73_quality
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+                                name   n  H6    gain       lo      hi  coef_min  coef_max
+                       quality__L_ex 173  77 15.5347   6.2536 23.5126   -0.2332   -0.1790
+                     quality__Fab_ex 173  77  8.3469   1.6584 14.5700   -0.1320   -0.0804
+                  quality__NonFab_ex 173  77  1.3570 -10.8857 10.8139   -0.1057   -0.0550
+            quality__fab_only_all_ex 173  77  1.7249  -4.0071  6.2946   -0.1082   -0.0311
+               quality__mixed_all_ex 173  77  9.7072   2.1468 16.8024   -0.1221   -0.0613
+         quality__nonfab_only_all_ex 173  77 -3.9065 -14.9361  1.5040   -0.0454   -0.0145
+             quality__fab_plant_mass 173  77  5.8660  -2.2241 13.3128   -0.4276   -0.2793
+            quality__fab_plant_share 173  77  2.8781  -2.4977  8.3609   -0.0247   -0.0142
+             quality__fab_only_share 173  77 -0.6757  -6.1859  3.2235   -0.1020   -0.0213
+                quality__mixed_share 173  77  1.8706  -5.8674  8.8113    0.0686    0.0788
+          quality__nonfab_only_share 173  77 -2.3765  -6.9303  1.4643   -0.0563    0.0096
+                    quality__L_delta 173  77 14.7500   6.3006 22.1754   -0.2266   -0.1647
+              quality__L_plant_delta 173  77 14.6632   7.1234 22.2353   -0.1883   -0.1498
+          quality__L_butterfly_delta 173  77 -0.7188  -2.7216  0.2368   -0.0390   -0.0089
+                  quality__Fab_delta 173  77  7.2657   1.4292 12.8707   -0.1234   -0.0653
+            quality__Fab_plant_delta 173  77  7.3881   2.5220 12.5835   -0.1103   -0.0608
+        quality__Fab_butterfly_delta 173  77 -0.7263  -2.4445 -0.1375   -0.0212    0.0061
+               quality__NonFab_delta 173  77  1.4725  -9.8419 11.1918   -0.1034   -0.0576
+         quality__NonFab_plant_delta 173  77  2.0523  -8.7601 11.2300   -0.0822   -0.0453
+     quality__NonFab_butterfly_delta 173  77 -0.9950  -5.0999  1.1293   -0.0219   -0.0073
+             quality__fab_only_delta 173  77  1.0241  -3.8982  5.0421   -0.0997   -0.0211
+       quality__fab_only_plant_delta 173  77  1.5207  -2.7299  5.1644   -0.0903   -0.0197
+   quality__fab_only_butterfly_delta 173  77 -0.7384  -2.6656 -0.2844   -0.0218    0.0024
+                quality__mixed_delta 173  77  9.1858   2.0439 15.9908   -0.1172   -0.0575
+          quality__mixed_plant_delta 173  77  9.4067   1.9490 15.9413   -0.1124   -0.0503
+      quality__mixed_butterfly_delta 173  77 -0.4405  -1.7536  0.6996   -0.0073    0.0065
+          quality__nonfab_only_delta 173  77 -3.7065 -14.4184  1.8591   -0.0486   -0.0167
+    quality__nonfab_only_plant_delta 173  77  0.7467  -5.3207  6.0263   -0.0287   -0.0104
+quality__nonfab_only_butterfly_delta 173  77 -2.7681 -10.4520 -0.4295   -0.0199   -0.0022
+                                          name   gain     lo     hi
+              quality_margins_plant_only__L_ex 13.180  4.112 21.287
+            quality_margins_plant_only__Fab_ex  7.022  0.555 13.075
+   quality_margins_plant_only__fab_only_all_ex  0.416 -4.599  4.563
+      quality_margins_plant_only__mixed_all_ex  9.332  2.357 15.822
+           quality_margins_consumer_only__L_ex 10.620  3.086 18.017
+         quality_margins_consumer_only__Fab_ex  4.305 -1.470  9.914
+quality_margins_consumer_only__fab_only_all_ex  0.033 -4.773  4.102
+   quality_margins_consumer_only__mixed_all_ex  5.715 -1.828 12.528
+                    quality_margins_both__L_ex  8.163  0.597 15.784
+                  quality_margins_both__Fab_ex  2.989 -2.464  8.578
+         quality_margins_both__fab_only_all_ex -1.258 -5.411  2.276
+            quality_margins_both__mixed_all_ex  5.059 -1.623 11.823
+                                              name  n   gain      lo     hi
+              FR73__mean_original_2018_logTP__L_ex 73 -5.110 -10.271 -0.561
+            FR73__mean_original_2018_logTP__Fab_ex 73 -4.792  -8.624 -1.000
+   FR73__mean_original_2018_logTP__fab_only_all_ex 73 -4.038  -9.321 -0.755
+      FR73__mean_original_2018_logTP__mixed_all_ex 73 -1.081  -6.524  2.516
+FR73__mean_original_2018_logTP__nonfab_only_all_ex 73  0.798  -5.389  5.009
+    FR73__mean_original_2018_logTP__fab_plant_mass 73 -2.367  -6.412  0.719
+    FR73__mean_original_2018_logTP__fab_only_share 73 12.648   3.275 22.427
+                FR73__mean_original_2018_EQR__L_ex 73 -1.720  -5.174  0.655
+              FR73__mean_original_2018_EQR__Fab_ex 73 -1.655  -5.510  1.208
+     FR73__mean_original_2018_EQR__fab_only_all_ex 73 -1.896  -5.297  0.539
+        FR73__mean_original_2018_EQR__mixed_all_ex 73 -3.200  -7.635 -1.007
+  FR73__mean_original_2018_EQR__nonfab_only_all_ex 73 -1.746  -3.098 -0.919
+      FR73__mean_original_2018_EQR__fab_plant_mass 73  1.498  -3.047  4.925
+      FR73__mean_original_2018_EQR__fab_only_share 73 -2.184  -3.945 -1.091
+ sample               A                   B  H6    diff       lo      hi  bonferroni_4_lo  bonferroni_4_hi
+quality   L_plant_delta   L_butterfly_delta  77 15.3820   7.5087 23.8515           5.4669          26.5632
+quality Fab_plant_delta Fab_butterfly_delta  77  8.1144   3.0548 14.1420           1.4196          16.1012
+quality    mixed_all_ex     fab_only_all_ex  77  7.9824  -0.7862 15.7668          -4.0407          17.9186
+quality    mixed_all_ex  nonfab_only_all_ex  77 13.6137   3.7897 27.3748           1.3707          31.3755
+    all   L_plant_delta   L_butterfly_delta  89 10.8239   4.6253 18.3311           2.9464          20.7911
+    all Fab_plant_delta Fab_butterfly_delta  89  5.1010   1.4583  9.6312           0.3470          11.0891
+    all    mixed_all_ex     fab_only_all_ex  89  0.6772  -8.3374  8.5276         -10.9522          10.4484
+    all    mixed_all_ex  nonfab_only_all_ex  89  4.3218  -2.8799 12.3194          -5.2306          14.4525
+ France   L_plant_delta   L_butterfly_delta  32 16.6595   1.2456 38.5299          -1.9217          46.7393
+ France Fab_plant_delta Fab_butterfly_delta  32  6.5346  -5.4121 17.8317          -9.3266          20.7697
+ France    mixed_all_ex     fab_only_all_ex  32 12.1865  -7.7399 29.4653         -13.6292          34.2087
+ France    mixed_all_ex  nonfab_only_all_ex  32  9.6460  -4.8298 26.0812          -9.6459          31.8343
+  other   L_plant_delta   L_butterfly_delta  45  3.8374  -1.8375 10.4838          -3.9269          12.6796
+  other Fab_plant_delta Fab_butterfly_delta  45  0.8782  -4.3466  6.4411          -6.3171           8.0767
+  other    mixed_all_ex     fab_only_all_ex  45 -2.7924 -12.2904  7.5952         -14.5875          10.6266
+  other    mixed_all_ex  nonfab_only_all_ex  45  2.5859  -6.0956 14.3327          -8.6178          17.1521
+454 network replay passed
+      group plant_set  taxa  records  record_share  host_links      obs     null       ex  excess_pct
+   fab_only       all    18   273379      0.366571          51 0.394426 0.275888 0.118538   42.966025
+      mixed       all     7   135855      0.182167         158 0.366510 0.344261 0.022249    6.462834
+nonfab_only       all    27   312586      0.419144          68 0.208391 0.201165 0.007226    3.592282
+    unknown       all    23    23953      0.032118           0 0.000000 0.000000 0.000000         NaN
+{
+  "signed_eiv_zip_sha256": "1d3051d4c527421bec3ec3ba917422a9162afb81cc7f38db0d8130287174a14c",
+  "source_host_keys": 990,
+  "scored_host_keys": 328,
+  "fab_keys": 119,
+  "fab_scored_keys": 31,
+  "decomposition": {
+    "all_hosts": {
+      "groups": 1,
+      "max_error": 3.3306690738754696e-16,
+      "quantity_sd": 0.022289116475131283,
+      "identity_sd": 0.12463390518682364
+    },
+    "fab_nonfab": {
+      "groups": 2,
+      "max_error": 2.220446049250313e-16,
+      "quantity_sd": 0.052348232132749584,
+      "identity_sd": 0.11187246669900601
+    },
+    "plant_family": {
+      "groups": 71,
+      "max_error": 1.3877787807814457e-16,
+      "quantity_sd": 0.0635470383378725,
+      "identity_sd": 0.11017930875040294
+    },
+    "family_coverage": {
+      "groups": 110,
+      "max_error": 1.3877787807814457e-16,
+      "quantity_sd": 0.06579636047507617,
+      "identity_sd": 0.10135872059174923
+    }
+  },
+  "coverage": {
+    "host": {
+      "median_early": 0.6671359806690895,
+      "median_late": 0.6914378987690469,
+      "both_80_H7": 0
+    },
+    "fab": {
+      "median_early": 0.6586124163373832,
+      "median_late": 0.6508298770808096,
+      "both_80_H7": 1
+    },
+    "nonfab": {
+      "median_early": 0.6752882613678237,
+      "median_late": 0.6957499111525466,
+      "both_80_H7": 3
+    }
+  },
+  "model_count": 53,
+  "max_independent_prediction_difference": 1.3322676295501878e-14,
+  "prior_exact_plant_term_match": 1.3877787807814457e-16
+}
+                                              name   n  H6   gain      lo     hi  coef_min  coef_max       status
+                            quality__L_plant_delta 173  77 14.663   7.123 22.235    -0.188    -0.150          FIT
+                       quality__all_hosts_quantity 173  77 -2.671  -5.344 -0.277    -0.001     0.017          FIT
+                       quality__all_hosts_identity 173  77 17.470   8.895 25.883    -0.194    -0.158          FIT
+                      quality__fab_nonfab_quantity 173  77  0.413  -0.993  1.773    -0.023    -0.003          FIT
+                      quality__fab_nonfab_identity 173  77 16.677   7.444 26.201    -0.179    -0.145          FIT
+                    quality__plant_family_quantity 173  77  5.034   1.017  9.503    -0.049    -0.030          FIT
+                    quality__plant_family_identity 173  77  9.610   2.207 17.183    -0.158    -0.101          FIT
+                 quality__family_coverage_quantity 173  77  3.350  -1.049  9.258    -0.073    -0.041          FIT
+                 quality__family_coverage_identity 173  77 10.398   3.529 17.493    -0.146    -0.084          FIT
+                           quality__nutri_identity 173  77 -0.910  -3.611  1.384    -0.005     0.001          FIT
+                           quality__other_identity 173  77 10.250   3.604 17.367    -0.141    -0.081          FIT
+                          quality__host_mass_delta 173  77 -0.196  -5.369  4.345    -1.392    -0.299          FIT
+                         quality__host_nutri_delta   0   0    NaN     NaN    NaN       NaN       NaN STOP_SUPPORT
+                           quality__fab_mass_delta 173  77  5.543  -1.589 11.795    -0.410    -0.214          FIT
+                          quality__fab_nutri_delta   1   1    NaN     NaN    NaN       NaN       NaN STOP_SUPPORT
+                        quality__nonfab_mass_delta 173  77 -1.382  -5.521  2.376    -1.048    -0.234          FIT
+                       quality__nonfab_nutri_delta   3   3    NaN     NaN    NaN       NaN       NaN STOP_SUPPORT
+                        quality__flora_nutri_delta 172  76 -6.709 -10.698 -1.480    -0.110     0.094          FIT
+                 quality__flora_nutri_record_delta 172  76 -3.037  -6.030 -0.057    -0.109     0.081          FIT
+                                all__L_plant_delta 222  89 10.400   4.085 17.743    -0.179    -0.146          FIT
+                           all__all_hosts_quantity 222  89 -0.327  -2.513  0.944    -0.012     0.001          FIT
+                           all__all_hosts_identity 222  89 10.527   3.794 18.458    -0.178    -0.137          FIT
+                          all__fab_nonfab_quantity 222  89  0.981  -0.349  2.353    -0.029    -0.013          FIT
+                          all__fab_nonfab_identity 222  89 11.486   3.506 20.542    -0.163    -0.130          FIT
+                        all__plant_family_quantity 222  89  4.353   0.835  8.595    -0.074    -0.035          FIT
+                        all__plant_family_identity 222  89  5.884   1.236 11.747    -0.112    -0.097          FIT
+                     all__family_coverage_quantity 222  89  2.647  -2.397  8.648    -0.109    -0.061          FIT
+                     all__family_coverage_identity 222  89  5.412   1.477 10.502    -0.103    -0.069          FIT
+                               all__nutri_identity 222  89 -1.066  -3.717  1.692    -0.005    -0.002          FIT
+                               all__other_identity 222  89  5.278   1.670  9.915    -0.098    -0.067          FIT
+                              all__host_mass_delta 222  89  0.984  -2.431  4.254    -1.121    -0.320          FIT
+                             all__host_nutri_delta   0   0    NaN     NaN    NaN       NaN       NaN STOP_SUPPORT
+                               all__fab_mass_delta 222  89  0.479  -4.246  4.056    -0.352    -0.094          FIT
+                              all__fab_nutri_delta   1   1    NaN     NaN    NaN       NaN       NaN STOP_SUPPORT
+                            all__nonfab_mass_delta 222  89  0.383  -2.631  3.204    -0.886    -0.338          FIT
+                           all__nonfab_nutri_delta   3   3    NaN     NaN    NaN       NaN       NaN STOP_SUPPORT
+                            all__flora_nutri_delta 219  86 -5.213  -9.002 -0.505    -0.104     0.078          FIT
+                     all__flora_nutri_record_delta 219  86 -0.201  -2.432  2.188    -0.100     0.043          FIT
+                          quality_W__L_plant_delta 173  77  8.891  -5.505 18.167    -0.050    -0.025          FIT
+      FR73_mean_original_2018_logTP__L_plant_delta  73  24 -3.188  -6.506  0.283    -0.004     0.020          FIT
+        FR73_mean_original_2018_EQR__L_plant_delta  73  24  1.870  -2.556  5.682    -0.088    -0.049          FIT
+                    quality_W__fab_nonfab_quantity 173  77 -0.979 -15.715  7.064    -0.018    -0.005          FIT
+FR73_mean_original_2018_logTP__fab_nonfab_quantity  73  24 -1.976  -4.196 -0.752    -0.004     0.001          FIT
+  FR73_mean_original_2018_EQR__fab_nonfab_quantity  73  24  1.933  -4.565  6.585    -0.041    -0.012          FIT
+                    quality_W__fab_nonfab_identity 173  77  9.399  -0.010 16.746    -0.032    -0.018          FIT
+FR73_mean_original_2018_logTP__fab_nonfab_identity  73  24 -3.608  -8.647  1.377    -0.002     0.020          FIT
+  FR73_mean_original_2018_EQR__fab_nonfab_identity  73  24  0.260  -3.809  3.316    -0.062    -0.025          FIT
+                         quality_W__nutri_identity 173  77  5.612  -0.772 11.315    -0.002    -0.001          FIT
+     FR73_mean_original_2018_logTP__nutri_identity  73  24 -0.821  -4.816  4.474     0.001     0.002          FIT
+       FR73_mean_original_2018_EQR__nutri_identity  73  24 -0.180  -3.320  1.910     0.001     0.006          FIT
+                         quality_W__other_identity 173  77  1.413  -6.278  7.482    -0.026    -0.007          FIT
+     FR73_mean_original_2018_logTP__other_identity  73  24 -1.134  -6.380  4.477     0.003     0.020          FIT
+       FR73_mean_original_2018_EQR__other_identity  73  24  1.528  -2.299  5.005    -0.060    -0.021          FIT
+ sample                     A                     B    diff      lo     hi  bonf4_lo  bonf4_hi
+quality    all_hosts_identity    all_hosts_quantity  20.141  10.961 29.101     8.183    31.955
+quality   fab_nonfab_identity   fab_nonfab_quantity  16.264   7.153 25.794     4.927    28.957
+quality plant_family_identity plant_family_quantity   4.576  -3.347 12.096    -5.884    14.207
+quality        nutri_identity        other_identity -11.160 -18.976 -4.210   -21.420    -2.534
+    all    all_hosts_identity    all_hosts_quantity  10.854   4.106 19.336     2.539    22.012
+    all   fab_nonfab_identity   fab_nonfab_quantity  10.505   2.606 19.361     1.164    21.756
+    all plant_family_identity plant_family_quantity   1.531  -4.265  7.904    -5.907     9.646
+    all        nutri_identity        other_identity  -6.344 -11.611 -2.125   -13.505    -1.016
+REPLAY gesui_fab_consumer_group_summary.csv: 12 rows, max absolute numeric difference 0
+REPLAY gesui_fab_consumer_model_results.csv: 132 rows, max absolute numeric difference 0
+REPLAY gesui_fab_paired_contrasts.csv: 16 rows, max absolute numeric difference 0
+REPLAY gesui_fab_temporal_decomposition.csv: 222 rows, max absolute numeric difference 0
+REPLAY gesui_lycaenidae_catalogue_groups.csv: 75 rows, max absolute numeric difference 0
+REPLAY gesui_plant_resource_partition_results.csv: 53 rows, max absolute numeric difference 0
+REPLAY gesui_plant_resource_partition_contrasts.csv: 8 rows, max absolute numeric difference 0
+REPLAY gesui_plant_resource_partition_panel.csv: 222 rows, max absolute numeric difference 0
+REPLAY PASS: both analysis scripts and 8 derived CSVs; no independent field samples added

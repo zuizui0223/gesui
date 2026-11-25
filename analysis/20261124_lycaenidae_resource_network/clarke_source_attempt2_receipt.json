@@ -1,0 +1,91 @@
+{
+  "doi": "10.5061/dryad.1vhhmgr12",
+  "article": "10.1002/ece3.10834",
+  "stage": "source_only_no_ecological_fit",
+  "files": {},
+  "attempts": [
+    {
+      "name": "butterfly_synonym.csv",
+      "url": "https://datadryad.org/downloads/file_stream/2850976",
+      "error": "403 Client Error: Forbidden for url: https://datadryad.org/downloads/file_stream/2850976"
+    },
+    {
+      "name": "butterfly_synonym.csv",
+      "url": "https://datadryad.org/api/v2/files/2850976/download",
+      "error": "401 Client Error: Unauthorized for url: https://datadryad.org/api/v2/files/2850976/download"
+    },
+    {
+      "name": "larval_host_plant_status.csv",
+      "url": "https://datadryad.org/downloads/file_stream/2850977",
+      "error": "403 Client Error: Forbidden for url: https://datadryad.org/downloads/file_stream/2850977"
+    },
+    {
+      "name": "larval_host_plant_status.csv",
+      "url": "https://datadryad.org/api/v2/files/2850977/download",
+      "error": "401 Client Error: Unauthorized for url: https://datadryad.org/api/v2/files/2850977/download"
+    },
+    {
+      "name": "larval_host_plant.csv",
+      "url": "https://datadryad.org/downloads/file_stream/2850981",
+      "error": "403 Client Error: Forbidden for url: https://datadryad.org/downloads/file_stream/2850981"
+    },
+    {
+      "name": "larval_host_plant.csv",
+      "url": "https://datadryad.org/api/v2/files/2850981/download",
+      "error": "401 Client Error: Unauthorized for url: https://datadryad.org/api/v2/files/2850981/download"
+    },
+    {
+      "name": "wcvp_extendedb.csv",
+      "url": "https://datadryad.org/downloads/file_stream/2850979",
+      "error": "403 Client Error: Forbidden for url: https://datadryad.org/downloads/file_stream/2850979"
+    },
+    {
+      "name": "wcvp_extendedb.csv",
+      "url": "https://datadryad.org/api/v2/files/2850979/download",
+      "error": "401 Client Error: Unauthorized for url: https://datadryad.org/api/v2/files/2850979/download"
+    },
+    {
+      "name": "ece310834-sup-0001-AppendixS1.xlsx",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10771928/supplementaryFiles",
+      "error": "HTTPSConnectionPool(host='www.ebi.ac.uk', port=443): Read timed out. (read timeout=35)"
+    },
+    {
+      "name": "ece310834-sup-0001-AppendixS1.xlsx",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/10771928/bin/ece310834-sup-0001-AppendixS1.xlsx",
+      "error": "404 Client Error: Not Found for url: https://pmc.ncbi.nlm.nih.gov/articles/instance/10771928/bin/ece310834-sup-0001-AppendixS1.xlsx"
+    },
+    {
+      "name": "ece310834-sup-0001-AppendixS1.xlsx",
+      "url": "https://onlinelibrary.wiley.com/doi/suppl/10.1002/ece3.10834/supinfo/ece310834-sup-0001-AppendixS1.xlsx",
+      "error": "403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/doi/suppl/10.1002/ece3.10834/supinfo/ece310834-sup-0001-AppendixS1.xlsx"
+    },
+    {
+      "name": "europe_pmc_inventory",
+      "error": "HTTPSConnectionPool(host='www.ebi.ac.uk', port=443): Read timed out. (read timeout=35)"
+    },
+    {
+      "name": "PMC10771928.1/PMC10771928.1.xml",
+      "error": "HTML response"
+    }
+  ],
+  "pmc_public_s3_keys": [
+    "PMC10771928.1/ECE3-14-e10834-g001.jpg",
+    "PMC10771928.1/ECE3-14-e10834-g002.jpg",
+    "PMC10771928.1/ECE3-14-e10834-g003.jpg",
+    "PMC10771928.1/ECE3-14-e10834-g004.jpg",
+    "PMC10771928.1/ECE3-14-e10834-g005.jpg",
+    "PMC10771928.1/ECE3-14-e10834-g006.jpg",
+    "PMC10771928.1/ECE3-14-e10834-g007.jpg",
+    "PMC10771928.1/ECE3-14-e10834-s001.xlsx",
+    "PMC10771928.1/ECE3-14-e10834-s002.xlsx",
+    "PMC10771928.1/ECE3-14-e10834-s003.xlsx",
+    "PMC10771928.1/ECE3-14-e10834-s004.xlsx",
+    "PMC10771928.1/ECE3-14-e10834-s005.xlsx",
+    "PMC10771928.1/ECE3-14-e10834-s006.pdf",
+    "PMC10771928.1/PMC10771928.1.json",
+    "PMC10771928.1/PMC10771928.1.pdf",
+    "PMC10771928.1/PMC10771928.1.txt",
+    "PMC10771928.1/PMC10771928.1.xml"
+  ],
+  "status": "SOURCE_STOP"
+}
