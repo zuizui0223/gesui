@@ -70,7 +70,7 @@ def main(out):
   r["doi"]=j["doi"];r["title"]=j["title"];r["license"]=j.get("license");files=j["files"];assert files and sum(x["size"] for x in files)<=LIMIT
   for x in files:
    n=x["name"];assert pathlib.Path(n).name==n and n not in {"article.json","source_receipt.json"}
-   p=out/n;receipt=retrieve(x["downloadUrl"],p,LIMIT)
+   p=out/n;receipt=retrieve(x["download_url"],p,LIMIT)
    assert receipt["bytes"]==x["size"]
    md=x.get("computed_md5") or x.get("supplied_md5");assert md and receipt["md5"]==md.lower()
    r["files"].append({"id":x["id"],"name":n,**receipt,"inventory":inspect(p)})
