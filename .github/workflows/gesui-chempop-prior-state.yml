@@ -1,0 +1,50 @@
+name: ChemPop repeated-site historical prior state and EDF
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_chempop_prior_state/**'
+      - '.github/workflows/gesui-chempop-prior-state.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-chempop-historical-prior-state-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Reconstruct original matched monitoring frame, then enforce fixed repeated-site support
+        run: |
+          mkdir -p "$RUNNER_TEMP/receipt" "$RUNNER_TEMP/chempop"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14599583276/zip > "$RUNNER_TEMP/receipt/chemistry.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14985171063/zip > "$RUNNER_TEMP/receipt/resolution.zip"
+          python -m py_compile analysis/20261125_chempop_prior_state/prior_state.py
+          python -u analysis/20261125_chempop_prior_state/prior_state.py --work "$RUNNER_TEMP/receipt" --out "$RUNNER_TEMP/chempop"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-chempop-repeated-prior-state
+          path: ${{ runner.temp }}/chempop
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Preserve fixed source gate status
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          r=json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"chempop"/"results.json").read_text())
+          print(r["status"])
+          if r["status"]!="COMPLETE":
+              raise SystemExit("Repeated-site source STOP; no primary ecological fit")
+          PY
