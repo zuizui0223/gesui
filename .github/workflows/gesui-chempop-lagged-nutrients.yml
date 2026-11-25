@@ -1,0 +1,42 @@
+name: ChemPop lagged nutrients after own-site state
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'analysis/20261125_chempop_lagged_nutrients/**'
+      - '.github/workflows/gesui-chempop-lagged-nutrients.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'analysis/gesui-chempop-lagged-nutrients-20261125'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --quiet 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Replay exact repeated-site source and evaluate frozen lagged-information test
+        run: |
+          mkdir -p "$RUNNER_TEMP/receipt" "$RUNNER_TEMP/lag"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14599583276/zip > "$RUNNER_TEMP/receipt/chemistry.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14985171063/zip > "$RUNNER_TEMP/receipt/resolution.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14991936109/zip > "$RUNNER_TEMP/receipt/repeat.zip"
+          python -m py_compile analysis/20261125_chempop_lagged_nutrients/lagged_nutrients.py
+          python -u analysis/20261125_chempop_lagged_nutrients/lagged_nutrients.py --work "$RUNNER_TEMP/receipt" --out "$RUNNER_TEMP/lag"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-chempop-lagged-nutrients
+          path: ${{ runner.temp }}/lag
+          if-no-files-found: warn
+          retention-days: 90
