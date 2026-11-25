@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Original FAO GLW4 2020 10km density layers, exact historical catchment overlay. Source only."""
-import argparse,collections,csv,hashlib,io,json,pathlib,re,urllib.parse,zipfile
+import argparse,collections,csv,hashlib,io,json,pathlib,re,urllib.parse,zipfile,traceback
 import requests,numpy as np,rasterio,shapely
 from shapely import wkt
 from shapely.ops import unary_union,transform
@@ -52,7 +52,7 @@ def main(a):
   for species,word in [("cattle","cattle"),("sheep","sheep"),("goat","goats")]:
    hits=[x for x in resources if re.search(r"data for download:\s*"+word+r"\s+density",x.get("name",""),re.I)]
    assert len(hits)==1,(word,[(x.get("name"),x.get("format")) for x in resources])
-   f=hits[0];p=out/(species+".tif");inf=download(f["url"],p);inf["resource_id"]=f["id"];inf["publisher_name"]=f["name"]
+   f=hits[0];p=out/(species+".tif");inf=download(f["url"],p);inf["resource_id"]=f["id"];inf["publisher_name"]=f["name"];assert inf["sha256"]=={"cattle":"2bcbf3b57dec7d6f45f2dcfb9cf61d04f22fae1d636934fb8c41a6a7742be3b5","sheep":"42a6e641b7cc6f1beabd535f4afce1aca896f4e6a398d688072ccfe36174a47f","goat":"f5c0372e0bf9631c284615e256e6dc81b7c2b8ebee6808cf1427c7edc8a9b169"}[species],(species,inf["sha256"])
    ds=rasterio.open(p);t=ds.transform
    assert ds.count==1 and ds.crs.to_epsg()==4326 and max(abs(t.a-1/12),abs(t.e+1/12),abs(t.b),abs(t.d))<1e-7,(species,t)
    inf.update(width=ds.width,height=ds.height,transform=list(t)[:6],nodata=str(ds.nodata),dtype=ds.dtypes[0],unit="head/km2")
@@ -88,14 +88,14 @@ def main(a):
    if cov>=.8:
     for (species,s),v in zip(datasets,vs):row[species+"_head_km2"]=float(np.dot(weights[common],v[common])/cov)
     row["ruminant_head_km2"]=sum(row[species+"_head_km2"] for species,_ in datasets)
-    independent=float(np.dot(weights[common],np.sum(np.array(vs)[:,common],axis=0))/cov);assert abs(independent-row["ruminant_head_km2"])<1e-8
+    independent=float(np.dot(weights[common],np.sum(np.array(vs,dtype=np.float64)[:,common],axis=0))/cov);assert abs(independent-row["ruminant_head_km2"])<1e-8,(h,independent,row["ruminant_head_km2"])
    rows.append(row)
   for _,s in datasets:s.close()
   keys=sorted(set().union(*(set(x) for x in rows)))
   with (out/"basin_glw4.csv").open("w") as f:
    w=csv.DictWriter(f,fieldnames=keys);w.writeheader();w.writerows(rows)
   ok=[x for x in rows if x["status"]=="OK"];r.update(status="SOURCE_OVERLAY_COMPLETE",n_basins=len(rows),eligible_basins=len(ok),status_counts=dict(collections.Counter(x["status"] for x in rows)),min_common_coverage=min(x.get("common_valid_fraction",0) for x in rows),median_ruminant_density=float(np.median([x["ruminant_head_km2"] for x in ok])) if ok else None)
- except Exception as e:r["error"]=type(e).__name__+": "+str(e)[:1800]
+ except Exception as e:r["error"]=type(e).__name__+": "+str(e)[:1800];r["traceback"]=traceback.format_exc()[-4000:]
  finally:
   (out/"receipt.json").write_text(json.dumps(r,indent=2,allow_nan=False)+"\n")
   print("GLW4 SOURCE "+json.dumps(r,ensure_ascii=False),flush=True)
