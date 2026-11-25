@@ -22,13 +22,18 @@ FILES={
 }
 UA="gesui academic ecological source audit/1.0"
 MAX=64*1024**2
-def checked(u):
+def checked(u, *, redirect=False):
  p=urllib.parse.urlsplit(u)
- if p.scheme!="https" or p.hostname!=HOST: raise ValueError("unapproved host: "+str(p.hostname))
+ allowed={HOST,"storage.googleapis.com"} if redirect else {HOST}
+ if p.scheme!="https" or p.hostname not in allowed or p.username or p.password or p.port not in (None,443):
+  raise ValueError("unapproved source host: "+str(p.hostname))
  return u
 class Redirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self, req, fp, code, msg, headers, newurl):
-  checked(newurl)
+  checked(newurl,redirect=True)
+  old=urllib.parse.urlsplit(req.full_url); new=urllib.parse.urlsplit(newurl)
+  if new.hostname=="storage.googleapis.com" and not (old.hostname==HOST and old.path.startswith("/file/") or old.hostname==new.hostname):
+   raise ValueError("storage redirect is not from an official attachment")
   return super().redirect_request(req,fp,code,msg,headers,newurl)
 OP=urllib.request.build_opener(Redirect())
 class Links(HTMLParser):
@@ -41,14 +46,14 @@ def download(u,p,limit):
  h=hashlib.sha256();n=0
  try:
   with OP.open(urllib.request.Request(checked(u),headers={"User-Agent":UA,"Accept-Encoding":"identity"}),timeout=90) as r,p.open("wb") as f:
-   checked(r.geturl())
+   checked(r.geturl(),redirect=True)
    while True:
     b=r.read(1024**2)
     if not b:break
     n+=len(b)
     if n>limit:raise ValueError("file size limit")
     f.write(b);h.update(b)
-   return {"url":u,"final_url":r.geturl(),"bytes":n,"sha256":h.hexdigest(),"content_type":r.headers.get("Content-Type")}
+   return {"url":u,"final_url":urllib.parse.urlunsplit(urllib.parse.urlsplit(r.geturl())._replace(query="",fragment="")),"bytes":n,"sha256":h.hexdigest(),"content_type":r.headers.get("Content-Type")}
  except BaseException:
   p.unlink(missing_ok=True);raise
 def summarize(p):
