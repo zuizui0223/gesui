@@ -22,7 +22,7 @@ class RemoteZip(io.RawIOBase):
   with self.s.get(self.url,headers={"Range":f"bytes={a}-{b}","Accept-Encoding":"identity"},stream=True,timeout=(20,120)) as r:
    if r.status_code!=206:raise RuntimeError("expected range 206, got "+str(r.status_code)+" "+r.url.split("?")[0])
    m=re.fullmatch(r"bytes (\d+)-(\d+)/(\d+)",r.headers.get("Content-Range",""));assert m and int(m[1])==a and int(m[2])==b,r.headers
-   u=urllib.parse.urlparse(r.url);assert u.scheme=="https" and (u.hostname.endswith(".amazonaws.com") or u.hostname.endswith(".figshare.com") or u.hostname=="figshare.com"),u.hostname
+   u=urllib.parse.urlparse(r.url);assert u.scheme=="https" and (u.hostname.endswith(".amazonaws.com") or u.hostname.endswith(".figshare.com") or u.hostname=="figshare.com" or u.hostname=="44c1cec316ec56bca76dfd65d2882b20.r2.cloudflarestorage.com"),u.hostname
    v=r.content;assert len(v)==b-a+1;self.calls.append([a,b,len(v)]);self.transferred+=len(v)
    assert self.transferred<=100*1024**2
    return v,int(m[3])
