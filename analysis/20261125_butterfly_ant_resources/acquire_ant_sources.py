@@ -64,7 +64,10 @@ def fiedler(out):
      entries.append({"tag":tag.name,"attrs":attrs,"label":label})
    (out/("fiedler_link_markup_"+meta["sha256"][:12]+".json")).write_text(json.dumps(entries,indent=2,ensure_ascii=False))
    for a in soup.find_all("a",href=True):
-    h=urllib.parse.urljoin(meta["resolved"],a["href"]);label=" ".join(a.stripped_strings).lower()
+    base=soup.find("base",href=True);h=urllib.parse.urljoin(base["href"] if base else meta["resolved"],a["href"]);label=" ".join(a.stripped_strings).lower()
+    if label=="download file" and h=="https://nl.pensoft.net/article/68993/download/suppl/31/":
+     if h not in attempts:attempts.append(h)
+     continue
     if not allowed(h):continue
     if ("suppl1" in h.lower() or "appendix s1" in label or h.lower().endswith((".xlsx",".xls"))) and ("68993" in h or "appendix s1" in label or "suppl1" in h):candidates.append(h)
    candidates=sorted(set(candidates));errors.append({"landing":meta,"links":candidates})
@@ -84,13 +87,39 @@ def dryad(out):
  rows=files.get("_embedded",{}).get("stash:files",[]);assert rows
  expected={"1._Regional_species_lists_of_European_ants.csv","2._Binary_ranges_maps_of_European__ants.zip","README.txt"}
  rec["files_manifest"]=meta;rec["available_paths"]=[x.get("path") for x in rows];found={}
+ # Review actual publisher public landing links; never guess an authenticated API bypass.
+ public_links={}
+ try:
+  landing="https://datadryad.org/dataset/doi:"+RDOI
+  b,landing_meta=get(landing,5*1024**2)
+  (out/"dryad_public_landing.html").write_bytes(b)
+  soup=BeautifulSoup(b,"html.parser")
+  base=soup.find("base",href=True)
+  entries=[]
+  for tag in soup.find_all("a",href=True):
+   h=urllib.parse.urljoin(base["href"] if base else landing_meta["resolved"],tag["href"])
+   label=" ".join(tag.stripped_strings)
+   if "download" in h.lower() or any(n in label for n in expected):
+    entries.append({"href":h,"label":label[:500],"attrs":dict(tag.attrs)})
+    for f0 in rows:
+     n=pathlib.PurePosixPath(f0["path"]).name
+     native_id=f0["_links"]["self"]["href"].split("/")[-1]
+     if n in expected and allowed(h) and "download" in h.lower() and (n in label or re.search(r"(?<![0-9])"+re.escape(native_id)+r"(?![0-9])",h)):
+      public_links.setdefault(n,set()).add(h)
+  (out/"dryad_public_links.json").write_text(json.dumps(entries,indent=2,ensure_ascii=False))
+  rec["public_links"]={k:sorted(v) for k,v in public_links.items()}
+ except Exception as e:
+  rec["public_landing_error"]=type(e).__name__+": "+str(e)[:1000]
  for f in rows:
   path=f.get("path");name=pathlib.PurePosixPath(path).name
   if name not in expected:continue
   assert name not in found
   h=f.get("_links",{}).get("stash:download",{}).get("href")
   assert h,("no declared download link",name)
-  b,inf=get(urllib.parse.urljoin(u,h),32*1024**2);assert len(b)==int(f["size"]),name
+  # Use an exact linked public file if unique, otherwise the documented API.
+  explicit=sorted(public_links.get(name,set()))
+  target=explicit[0] if len(explicit)==1 else urllib.parse.urljoin(u,h)
+  b,inf=get(target,32*1024**2);assert len(b)==int(f["size"]),name
   if f.get("digest") and f.get("digestType"):
    alg=f["digestType"].lower().replace("-","");assert hashlib.new(alg,b).hexdigest().lower()==f["digest"].lower()
   if name.endswith(".zip"):
