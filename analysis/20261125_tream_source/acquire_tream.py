@@ -9,6 +9,8 @@ MN="https://knb.ecoinformatics.org/knb/d1/mn/v2/"
 NAMES=("TREAM_siteLevel.csv","TREAM_siteYearLevel.csv","TREAM_allTaxa.csv")
 WINDOWS=((2007,2009),(2010,2012),(2013,2015),(2016,2018))
 DUP={"100000001","100000309","100000002","100000308"}
+ORIGINAL_SHA={"TREAM_siteLevel.csv":"e3873ba32b1d0443e66dc78c4cbf5ced66b631e341ccb3df9381fdedd364e24e","TREAM_siteYearLevel.csv":"0514adab2acd76d8a62beb9966a4ac579d426136933feb1ddb16580ad7586343","TREAM_allTaxa.csv":"020c43f7b98770ca65af2dc84bf51061f7da0f4ebe79be72d4cbdfb7689f048a"}
+ENCODINGS={}
 HOSTS={"knb.ecoinformatics.org","cn.dataone.org","dataone.org"}
 def norm(s):return re.sub(r"[^a-z0-9]","",str(s).lower())
 def lname(s):return s.rsplit("}",1)[-1]
@@ -132,6 +134,7 @@ def receive(name,info,p):
                 if key in {"md5","sha1","sha256"}:
                     observed=hashlib.new(key,b).hexdigest()
                     assert observed.lower()==a["value"].lower(),("Publisher checksum mismatch",name,key)
+            assert sha(b)==ORIGINAL_SHA[name],("Previously verified original bytes changed",name)
             p.write_bytes(b);rec["publisher_checksums"]=info["checksums"];return rec
         except Exception as e:errors.append([u,str(e)[:400]])
     raise RuntimeError("Public data object unavailable "+name+" "+repr(errors))
@@ -142,9 +145,23 @@ def pick(headers,aliases,required=True):
         raise RuntimeError("SCHEMA_REVIEW_REQUIRED "+repr(sorted(aliases))+" matches "+repr(h))
     return h[0]
 def rows(p):
-    with p.open("r",encoding="utf-8-sig",newline="") as f:
+    if p.name not in ENCODINGS:
+        raw=p.read_bytes()
+        assert sha(raw)==ORIGINAL_SHA[p.name]
+        try:
+            raw.decode("utf-8-sig",errors="strict")
+            ENCODINGS[p.name]="utf-8-sig"
+        except UnicodeDecodeError:
+            # Legacy Western European encoding; no dropped or replacement characters.
+            # CP1252 and ISO-8859-1 agree outside C1; record the selected interpretation.
+            try:
+                raw.decode("cp1252",errors="strict")
+                ENCODINGS[p.name]="cp1252"
+            except UnicodeDecodeError:
+                ENCODINGS[p.name]="iso-8859-1"
+    with p.open("r",encoding=ENCODINGS[p.name],errors="strict",newline="") as f:
         r=csv.DictReader(f)
-        assert r.fieldnames and len(set(r.fieldnames))==len(r.fieldnames)
+        assert r.fieldnames and len(set(r.fieldnames))==len(r.fieldnames),("Invalid CSV header",p.name,r.fieldnames)
         yield r.fieldnames,r
 def clean(v):return str(v or "").strip()
 def sitekey(v):return clean(v)
@@ -157,6 +174,7 @@ def census(work,result):
     for n in NAMES:
         for h,r in rows(p[n]):headers[n]=h
     result["headers"]=headers
+    result["csv_encodings"]=dict(ENCODINGS)
     result["stage"]="schema"
     id_alias={"siteid","sitecode","sitenumber","siteidentifier","idsite"}
     year_alias={"year","samplingyear","sampleyear"}
@@ -167,9 +185,9 @@ def census(work,result):
         tax=pick(h,{"taxonomicres"},True)
         result["schema_site"]={"site":sid,"country":co,"project":pr,"taxonomy":tax}
         for a in r:
-            k=sitekey(a[sid]);assert k and k not in site
+            k=sitekey(a[sid]);assert k and k not in site,("Duplicate or missing native site key",k)
             site[k]={"country":clean(a[co]),"project":clean(a[pr]),"taxonomy":clean(a[tax]),"study":clean(a["study_id"]),"method":clean(a["sampling_method_long"]),"unit":clean(a["unit"])}
-    assert len(site)==1816
+    assert len(site)==1816,("Original site roster size",len(site))
     years=collections.defaultdict(set);siteyears=set();all_siteyears=set();unsampled=0;changes=set();env_missing=collections.Counter()
     missing={"","na","nan","null","none"}
     for h,r in rows(p[NAMES[1]]):
@@ -179,7 +197,7 @@ def census(work,result):
         assert set(fields+["sampling_method_long","unit","TaxonomicRes","study_id","sample_id"])<=set(h)
         result["schema_siteyear"]={"site":sid,"year":yr,"actual_year":actual_year,"actual_site":actual_site,"environment":fields}
         for a in r:
-            k=sitekey(a[sid]);y=year(a[yr]);assert k in site and (k,y) not in all_siteyears
+            k=sitekey(a[sid]);y=year(a[yr]);assert k in site and (k,y) not in all_siteyears,("Unknown or duplicate native site-year",k,y)
             all_siteyears.add((k,y))
             ay=clean(a[actual_year]);ak=clean(a[actual_site])
             if ay.lower() in missing:
@@ -207,7 +225,7 @@ def census(work,result):
             if fam and clean(a[fam]).lower() in {"","na","nan","null","none"}:family_missing+=1
             if order and clean(a[order]).lower() in {"","na","nan","null","none"}:order_missing+=1
     result["source_census"]={"sites":len(site),"siteyears":len(siteyears),"countries":dict(collections.Counter(x["country"] for x in site.values())),"project_count":len({x["project"] for x in site.values()}),"taxa_rows":nrows,"taxa_siteyears":len(tax_years),"taxa_without_siteyear":len(unknown),"siteyears_without_taxa":len(siteyears-tax_years),"missing_family_rows":family_missing if fam else None,"missing_group_rows":order_missing if order else None,"group_is_order_or_higher_not_exact_order":True,"calendar_rows_including_unsampled":len(all_siteyears),"unsampled_year_rows":unsampled,"site_metadata_mismatch_count":len(changes),"environment_missing_observed_years":dict(env_missing),"taxonomy_resolution_counts":dict(collections.Counter(str(x["taxonomy"]) for x in site.values())),"known_duplicate_ids_present":sorted(DUP&set(site))}
-    assert not unknown
+    assert not unknown,("Taxa rows without observed site-year",sorted(unknown)[:15],len(unknown))
     # Candidate eligibility concerns source calendar support only, not abundance, chemistry or quality.
     eligible=[]
     for k,v in site.items():
