@@ -10,13 +10,16 @@ UA="gesui academic open data verification/1.0"
 def check(u,initial=False):
  p=urllib.parse.urlsplit(u);h=p.hostname or ""
  fg=h=="figshare.com" or h.endswith(".figshare.com") or h=="figshareusercontent.com" or h.endswith(".figshareusercontent.com")
- cloud=h.endswith(".amazonaws.com") and (h.startswith("s3") or ".s3" in h)
+ cloud=h.endswith(".amazonaws.com") and (h.startswith("s3") or ".s3" in h) or h=="44c1cec316ec56bca76dfd65d2882b20.r2.cloudflarestorage.com"
  if p.scheme!="https" or p.username or p.password or p.port not in (None,443) or not (fg or (cloud and not initial)):
   raise ValueError("unexpected source host "+h)
  return u
 class Redirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,req,fp,code,msg,headers,newurl):
   check(newurl)
+  old=urllib.parse.urlsplit(req.full_url); new=urllib.parse.urlsplit(newurl)
+  if new.hostname=="44c1cec316ec56bca76dfd65d2882b20.r2.cloudflarestorage.com" and old.hostname not in {"ndownloader.figshare.com","api.figshare.com","figshare.com","44c1cec316ec56bca76dfd65d2882b20.r2.cloudflarestorage.com"}:
+   raise ValueError("unverified R2 redirect origin")
   return super().redirect_request(req,fp,code,msg,headers,newurl)
 op=urllib.request.build_opener(Redirect())
 def retrieve(u,p,maxbytes):
@@ -76,7 +79,7 @@ def main(out):
    r["files"].append({"id":x["id"],"name":n,**receipt,"inventory":inspect(p)})
   r["status"]="ACQUIRED_SCHEMA_REVIEW_REQUIRED"
  except Exception as e:
-  r["error"]=type(e).__name__+": "+str(e)[:300]
+  r["error"]=type(e).__name__+": "+str(e).split("?")[0][:300]
  finally:
   (out/"source_receipt.json").write_text(json.dumps(r,indent=2)+"\n");print(json.dumps(r))
  if r["status"]=="SOURCE_STOP":raise SystemExit(1)
