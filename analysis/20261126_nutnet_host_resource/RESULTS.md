@@ -1,0 +1,17 @@
+# NutNet year-four experimental resource comparison: quality STOP, partial-known descriptive results
+2026-11-26. Exact original Chen et al. (2025) Figshare v4 DOI 10.6084/m9.figshare.26412295.v4 CC BY 4.0. Successful source run [45754367959](https://github.com/zuizui0223/gesui/actions/runs/45754367959), artifact 15085929755, SHA256 23dfc003ad8fe09399d52e24cc3b3e27c6a3fe853b1ac87a1a847bcfdf6f64da; nine files size/MD5/SHA256 rechecked locally. Actual raw years 4 and 14 only: original baseline DiD STOP. Separate post-treatment randomized protocol frozen at e378bd977eff7132cffb1882d0d877e72a4ac4db before raw cover access. Random assignment confirmed in Chen et al. Nature Communications 16:4903 DOI 10.1038/s41467-025-59166-7.
+
+Structural gate passes: all 18 Europe site codes, 9 country suffixes, 16 unique exact coordinate pairs, 54 blocks, 114 plots, 1748 positive plant-cover rows, 322 native labels. Svalbard has two plots per arm per block, averaged within block arm. Fixed common94 host taxa; original 1025/1974 catalogue edge counts reproduced exactly and Clarke Git blob 1be721502c730e33a0249ef67b01265682550cf8 verified. 275 plant labels mapped (273 exact canonical, 2 verified aliases); 196 scored. 18/57 plots in each arm meet >=3 scored plants and >=70% scored cover; only 8/54 blocks meet both arms and ZERO sites have all three eligible blocks. Median plot scored cover share .597289 control/.557632 NPK. Quality STOP retained. No threshold relaxation, no quality model. All structurally eligible plots yield partial-known-resource descriptive contrasts only.
+
+| Endpoint | Control | NPK | Site-equal difference [nominal 95%] |
+|---|---:|---:|---|
+| Plant label richness |17.10185|14.49074|-2.61111 [-4.61111,-0.83333]|
+| Summed plant cover (%) |103.61111|114.44630|+10.83519 [.59259,21.07051]|
+| Old mean scored-host cover |.20332|.17404|-.02927 [-.15362,.08749]|
+| Clarke mean scored-host cover |.16254|.15144|-.01110 [-.09431,.06237]|
+| Old fraction scored hosts recorded |.02397|.02052|-.00344 [-.00750,.00065]|
+| Clarke fraction scored hosts recorded |.01721|.01373|-.00348 [-.00673,-.00033]|
+
+Site bootstrap 10,000 draws; same qualitative signs with exact-coordinate cluster resampling. Source richness includes unresolved genus aggregates. Host cover is equal mean across fixed 94 European consumer taxa of summed cover divided by fixed scored host count. Many sites are not in all butterfly ranges, including Arctic and Iceland; no local consumer presence, behavior or field interaction measured. Unknown plant identities are not verified nonhosts. No concordant positive host resource effect or definitive host effect; isolated Clarke breadth interval nominal, not cross-catalogue validated. Combined NPK plus initial micronutrient addition, not single element, sewage or measured butterfly abundance. Total species cover can exceed 100% and is not biomass. Plant richness result replays published endpoint subset, not novel. Coverage filter is post-treatment; no causal complete-resource inference.
+
+Local complete analysis ZIP gesui_20261126_nutnet_experiment.zip contains 11 result rows, source/plot/block/site gates, mapping audit, code and numerical QA. Independent raw richness/cover reconstruction max error 2.85e-14; host weighted sum crosscheck across 114 plots and two catalogues; all site mean differences replayed max 8.46e-17. No remote numerical replay, no raw source rehosting, no main merge.
