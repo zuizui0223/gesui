@@ -1,0 +1,28 @@
+name: NutNet Figshare v4 experimental resource source census
+on:
+  push:
+    branches:
+      - analysis/gesui-nutnet-host-resource-experiment-20261126
+    paths:
+      - 'analysis/20261126_nutnet_host_resource/**'
+      - '.github/workflows/gesui-nutnet-host-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m py_compile analysis/20261126_nutnet_host_resource/acquire.py
+      - run: python -u analysis/20261126_nutnet_host_resource/acquire.py --out "${{ runner.temp }}/nutnet"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-nutnet-v4-source
+          path: ${{ runner.temp }}/nutnet/
+          retention-days: 30
