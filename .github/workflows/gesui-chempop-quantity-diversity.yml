@@ -1,0 +1,40 @@
+name: ChemPop actual counts quantity diversity concentration
+on:
+  push:
+    branches:
+      - analysis/gesui-chempop-nutrient-quantity-diversity-20261126
+    paths:
+      - 'analysis/20261126_chempop_quantity/**'
+      - '.github/workflows/gesui-chempop-quantity-diversity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -q 'numpy>=1.26,<3' 'pandas>=2,<3' 'scipy>=1.12,<2' 'statsmodels>=0.14,<1' 'scikit-learn>=1.5,<2' 'pyreadr>=0.5,<1'
+      - name: Exact source receipts and fixed count support
+        run: |
+          mkdir -p "$RUNNER_TEMP/receipt" "$RUNNER_TEMP/counts"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14599583276/zip > "$RUNNER_TEMP/receipt/chemistry.zip"
+          gh api repos/$GITHUB_REPOSITORY/actions/artifacts/14598879538/zip > "$RUNNER_TEMP/receipt/order.zip"
+          python -m py_compile analysis/20261126_chempop_quantity/audit.py
+          python -u analysis/20261126_chempop_quantity/audit.py --work "$RUNNER_TEMP/receipt" --out "$RUNNER_TEMP/counts"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gesui-chempop-quantity-diversity-audit
+          path: ${{ runner.temp }}/counts/
+          retention-days: 90
